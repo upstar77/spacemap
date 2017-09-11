@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="space_header_outer">
   <!--=======================header==========================-->
 	<div id="header5" class="new_pg2 ver_4">
@@ -5,12 +7,12 @@
 			<div class="row">
 				<div class="col-md-12 pade_none">
                         <div class="col-md-1 col-sm-1 col-xs-9 pade_none logo_con mobLogoWrapper01">
-						<a class="logoDesktop" href="https://www.coworker.com/"><img alt="logo" src="./search_page_files/icon.svg"></a>
-						<a class="logoMobile" href="https://www.coworker.com/"><img alt="logo" src="./search_page_files/new_logo.svg"></a>
+						<a class="logoDesktop" href="{% url "main:index" %}"><img alt="logo" src={% static "img/icon.svg" %}></a>
+						<a class="logoMobile" href="{% url "main:index" %}"><img alt="logo" src={% static "img/new_logo.svg" %}></a>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-8 pade_none search mobSearchWrapper01">
 						<div id="h_aucomplete" class="inner_srch_blk">
-							<span><img alt="img" src="./search_page_files/srch_ic.png"></span>
+							<span><img alt="img" src={% static "img/srch_ic.png" %}></span>
 							<input id="h_location" name="h_location" type="text" value="Hong kong, Hong kong" placeholder="Search by coworking space, city or country" class="space_header_input ui-autocomplete-input" autocomplete="off">
 							<input type="hidden" name="form_search" value="2">
 							<input type="hidden" id="h_search_place" name="h_search_place" value="0">
@@ -20,11 +22,11 @@
 					</div>
 					<div class="col-md-5 col-sm-5 col-xs-12 pade_none login_blk mobButtonsWrapper01">
 						<ul>
-							<li> <a href="https://www.coworker.com/about-us"><img alt="img" src="./search_page_files/heart_grey.png" width="18" height="18"> <span>About</span></a> </li>
-							<li> <a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src="./search_page_files/img_002.png"> <span>Sign Up</span></a> </li>
-							<li> <a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src="./search_page_files/img_003.png"> <span>Login</span></a> </li>
+							<li> <a href="{% url "main:about" %}"><img alt="img" src={% static "img/heart_grey.png" %} width="18" height="18"> <span>About</span></a> </li>
+							<li> <a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src={% static "img/img_002.png" %}> <span>Sign Up</span></a> </li>
+							<li> <a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src={% static "img/img_003.png" %}> <span>Login</span></a> </li>
 						</ul>
-						<div class="space"> <a href="https://www.coworker.com/list-space">Add Your Space</a> </div>
+						<div class="space"> <a href="{% url "main:list-space" %}">Add Your Space</a> </div>
 					</div>
 									</div>
 			</div>
@@ -38,7 +40,7 @@
 						<span id="mobBtnOpen" class="m_btn_open"><i class="fa fa-bars"></i></span>
 					</div>
 					<div class="m_logo_wrapper">
-						<a href="https://www.coworker.com/"><img src="./search_page_files/new_logo.svg" alt=""></a>
+						<a href="https://www.coworker.com/"><img src={% static "img/new_logo.svg" %} alt=""></a>
 					</div>
 					<div class="mobMenuWrapper" id="mobileMenu">
 			<div class="mobMenuTopWrapper">
@@ -47,7 +49,7 @@
 					<ul>
 						<li><a href="https://www.coworker.com/" class="white-text"><i class="fa fa-caret-right"></i>Home</a></li>
 						<li><a href="https://www.coworker.com/search" class="white-text"><i class="fa fa-caret-right"></i>Search</a></li>
-						<li><a href="https://www.coworker.com/cities" class="white-text"><i class="fa fa-caret-right"></i>All Cities</a></li>
+						<li><a href="{% url "main:cities" %}" class="white-text"><i class="fa fa-caret-right"></i>All Cities</a></li>
 						<li><a href="https://www.coworker.com/lab" class="white-text"><i class="fa fa-caret-right"></i>The Lab</a></li>
 						<li><a href="javascript:void(0);" onclick="openNavSignup();" class="white-text" id="signupBtn"><i class="fa fa-caret-right"></i>Sign Up</a></li>
 						<li class="lastNoBorder"><a href="javascript:void(0);" onclick="openNavLoging();" class="white-text" id="loginBtn"><i class="fa fa-caret-right"></i>Login</a></li>
@@ -59,7 +61,7 @@
 				<div class="mobMenuBottom">
 					<h2>Coworking Space Owners</h2>
 					<ul>
-						<li class="lastNoBorder"><a href="https://www.coworker.com/list-space" class="white-text"><i class="fa fa-caret-right"></i>List Your Space</a></li>
+						<li class="lastNoBorder"><a href="{% url "main:list-space" %}" class="white-text"><i class="fa fa-caret-right"></i>List Your Space</a></li>
 					</ul>
 				</div>
 			</div>

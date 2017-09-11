@@ -19,6 +19,7 @@
 	<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/my_css.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/my_css1.css' %}" rel="stylesheet" type="text/css">
+    <link href={% static "css/validationEngine.jquery.css" %} rel="stylesheet" type="text/css">
 	<script async src="{% static 'js/amplitude-3.4.0-min.gz.js' %}" type="text/javascript">
 	</script>
 	<script src="{% static 'js/jquery.min.js' %}" type="text/javascript">
@@ -251,14 +252,19 @@
 
   var msg_login = 0;
   $(document).ready(function(){
-    $('body').append($('<div>', {id:'nvmyLoading',class: 'modal'}));
-    $('#nvmyLoading').initLoading({pathLoading:'https://www.coworker.com/'});
-    $('body').append($('<div>', {id:'nvloginModal',class: 'modal'}));
-    $('#nvloginModal').initLogin({pathLoading:'https://www.coworker.com/'});
-    $('body').append($('<div>', {id:'nvmy_Modal',class: 'popup_outer'}));
-    $('#nvmy_Modal').initSignup({pathLoading:'https://www.coworker.com/'});
-    $('body').append($('<div>', {id:'nvmy_Signup',class: 'container modal'}));
-    $('#nvmy_Signup').initNewSignup({pathLoading:'https://www.coworker.com/'});
+{#    $('body').append($('<div>', {id:'nvmyLoading',class: 'modal'}));#}
+{#    $('#nvmyLoading').initLoading({pathLoading:'https://www.coworker.com/'});#}
+{#    $('body').append($('<div>', {id:'nvloginModal',class: 'modal'}));#}
+{#    $('#nvloginModal').initLogin({pathLoading:'https://www.coworker.com/'});#}
+{#    $('body').append($('<div>', {id:'nvmy_Modal',class: 'popup_outer'}));#}
+{#    #}
+{#    $('#nvmy_Modal').initSignup({pathLoading:'https://www.coworker.com/'});#}
+{#    #}
+{#    #}
+{#    $('body').append($('<div>', {id:'nvmy_Signup',class: 'container modal'}));#}
+{#    #}
+{#    $('#nvmy_Signup').initNewSignup({pathLoading:'https://www.coworker.com/'});#}
+
     $('.form_outer').click(function(event) {
       if(event.target.id=='fo_target'){
         $('#nvmy_Signup').modal('hide');
@@ -313,20 +319,10 @@
 
   function openNavSignup(){
     msg_login=0;
-
-{#    analytics.track('Click_Sign_Up_button', {#}
-{#      category: 'Account'#}
-{#    });#}
-{##}
-{#    analytics.page('popup_sign_up',#}
-{#      { title: 'popup_sign_up',#}
-{#        url: 'https://www.coworker.com/popup_sign_up'}#}
-{#    );#}
-{##}
-
     $('#nvmy_Signup').normalSignupTitle();
     $('#nvmy_Signup').modal('toggle');
   }
+
   function openNavSignupForm(){
     if(msg_login){
       $('#nvmy_Signup').msgSignupTitle();

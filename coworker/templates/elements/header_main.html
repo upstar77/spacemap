@@ -14,7 +14,7 @@
 							<a href="https://www.coworker.com/search"><i class="fa fa-caret-right"></i>Search</a>
 						</li>
 						<li>
-							<a href="https://www.coworker.com/cities"><i class="fa fa-caret-right"></i>All Cities</a>
+							<a href="{% url "main:cities" %}"><i class="fa fa-caret-right"></i>All Cities</a>
 						</li>
 						<li>
 							<a href="https://www.coworker.com/lab"><i class="fa fa-caret-right"></i>The Lab</a>
@@ -31,7 +31,7 @@
 					<h2>Coworking Space Owners</h2>
 					<ul>
 						<li>
-							<a href="https://www.coworker.com/list-space"><i class="fa fa-caret-right"></i>List Your Space</a>
+							<a href="{% url "main:list-space" %}"><i class="fa fa-caret-right"></i>List Your Space</a>
 						</li>
 					</ul>
 				</div>
@@ -44,7 +44,7 @@
 				<div class="coworker_new_right">
 					<ul>
 						<li>
-							<a href="{% url 'about' %}"><i aria-hidden="true" class="fa fa-heart11"></i> About</a>
+							<a href="{% url "main:about" %}"><i aria-hidden="true" class="fa fa-heart11"></i> About</a>
 						</li>
 						<li>
 							<a href="javascript:void(0);" onclick="openNavSignup();"><i aria-hidden="true" class="fa fa-user"></i> Sign Up</a>
@@ -54,7 +54,7 @@
 						</li>
 					</ul>
 					<div class="new_add_spaces_button">
-						<a href="https://www.coworker.com/list-space">Add Your Space</a>
+						<a href="{% url "main:list-space" %}">Add Your Space</a>
 					</div>
 				</div>
 			</div>

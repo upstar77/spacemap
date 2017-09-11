@@ -21,11 +21,11 @@
                         </div>
                         <div class="col-md-5 col-sm-5 col-xs-12 pade_none login_blk mobButtonsWrapper">
                             <ul>
-                                <li><a href="{% url 'about' %}"><img alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"> <span>About</span></a> </li>
+                                <li><a href="{% url "main:about" %}"><img alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"> <span>About</span></a> </li>
                                 <li><a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src="{% static 'img/img_002.png' %}"> <span>Sign Up</span></a> </li>
                                 <li><a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src="{% static 'img/img_003.png' %}"> <span>Login</span></a> </li>
                             </ul>
-                            <div class="space"> <a href="https://www.coworker.com/list-space">Add Your Space</a> </div>
+                            <div class="space"> <a href="{% url "main:list-space" %}">Add Your Space</a> </div>
                         </div>
                     </div>
                 </div>
@@ -33,3 +33,47 @@
         </div>
     </div>
 </div>
+
+<script>
+  var EmailDoesNotExists = false;
+  function ResetPasswordModal() {
+    $('#nvloginModal').modal('hide');
+    $('#forgot_password').modal('toggle');
+  }
+  function ValidateRecovery(args) {
+    EmailDoesNotExists = false;
+    if ($("#email-reset").validationEngine('validate')) {
+      SendRecovery();
+    }
+  }
+  function SendRecovery() {
+    $("#LblSend").html('<i class="fa fa-spinner fa-spin" aria-hidden="true"><\/i>');
+    $.post("https://www.coworker.com/user/request-reset-password/",
+      {
+        email: $("#email-reset").val(),
+      },
+      function(data, status){
+        if (data == "0") {
+          EmailDoesNotExists = true;
+          $(".formError").remove();
+          $("#email-reset").validationEngine('validate');
+          $("#LblSend").html('Sent Reset Link');
+        }else{
+          //location.reload();
+          $('#forgot_password').modal('toggle');
+          $('#message_email').html($("#email-reset").val());
+          $('#r_popup').flexModal();
+          $("#LblSend").html('Sent Reset Link');
+          $("#email-reset").val('');
+        }
+      });
+  }
+  function is_EmailDoesnotExists(field, rules, i, options){
+    if(EmailDoesNotExists){
+      return "This email is not a registered Coworker user";
+    }
+  }
+  function closeMessageEmail(){
+    $('#flex-overlay').click();
+  }
+</script>
