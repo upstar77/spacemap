@@ -1,1 +1,353 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us - Coworker.com {% endblock title %}
+
+{% block content %}
+    <link rel="stylesheet" href="./About Us - Coworker.com_files/validationEngine.jquery.css" type="text/css">
+    <div class="modal fade" id="forgot_password" role="dialog">
+
+        <div class="modal-forgot_password">
+            <div class="col-xs-12 pade_none login_forgot_pass_outer">
+                <div class="col-xs-12 pade_none login_forgot_pass_inner">
+                    <button type="button" class="close" onclick="closeContact();" data-dismiss="modal">×</button>
+                    <h2>Reset Password</h2>
+                    <div class="col-xs-12 login_forget_content">
+                        <p>Enter the email address you signed up with and we'll email you a link to reset your password.</p>
+
+                        <div class="col-xs-121 pade_none login_forget_input_outer">
+                            <input name="email-reset" id="email-reset" type="text" class="validate[required,custom[email],funcCall[is_EmailDoesnotExists[email-recovery]]]" placeholder="Email">
+                        </div>
+                        <div class="forget_submit_button">
+                            <button onclick="ValidateRecovery();" name="Sent Reset Link"><span id="LblSend">Send Reset Link</span></button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="messageEmail_Modal" class="col-sm-12 col-md-12 col-xs-12 popup_outer">
+        <div class="container">
+            <div class="row">
+                <div id="r_popup" class="col-sm-12 col-md-11 col-xs-12 pade_none">
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none email_message">
+                        <i class="fa fa-commenting" aria-hidden="true"></i>
+                        A link to reset your password has been sent to <span id="message_email">test@gmail.com</span>
+                        <button type="button" class="close" onclick="closeMessageEmail();" data-dismiss="modal">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .formErrorArrow div{
+            background: #00d191 !important;
+        }
+        .formErrorContent{
+            background: #00d191 !important;
+        }
+    </style>
+    <script src="{% static 'js/jquery.validationEngine-en.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/jquery.validationEngine.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script>
+      var EmailDoesNotExists = false;
+      function ResetPasswordModal() {
+        $('#nvloginModal').modal('hide');
+        $('#forgot_password').modal('toggle');
+      }
+      function ValidateRecovery(args) {
+        EmailDoesNotExists = false;
+        if ($("#email-reset").validationEngine('validate')) {
+          SendRecovery();
+        }
+      }
+      function SendRecovery() {
+        $("#LblSend").html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+        $.post("https://www.coworker.com/user/request-reset-password/",
+          {
+            email: $("#email-reset").val(),
+          },
+          function(data, status){
+            if (data == "0") {
+              EmailDoesNotExists = true;
+              $(".formError").remove();
+              $("#email-reset").validationEngine('validate');
+              $("#LblSend").html('Sent Reset Link');
+            }else{
+              //location.reload();
+              $('#forgot_password').modal('toggle');
+              $('#message_email').html($("#email-reset").val());
+              $('#r_popup').flexModal();
+              $("#LblSend").html('Sent Reset Link');
+              $("#email-reset").val('');
+            }
+          });
+      }
+      function is_EmailDoesnotExists(field, rules, i, options){
+        if(EmailDoesNotExists){
+          return "This email is not a registered Coworker user";
+        }
+      }
+      function closeMessageEmail(){
+        $('#flex-overlay').click();
+      }
+    </script>
+    <!--HEADER END-->
+    <!--BANNER START-->
+    <section class="about_banner_outer_new">
+        <div class="container">
+            <div class="row">
+                <div class=" col-xs-12 pade_none about_banner_inner_new">
+                    <div class="col-sm-3 col-md-4 col-xs-12 pade_none about_banner_text">Are <strong>you</strong> coworking <br>yet?</div>
+                    <div class="col-sm-9 col-md-8 col-xs-12 pade_none about_banner_pic"><img src="{% static 'img/img_about_bg.png' %}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--BANNER END-->
+    <!--CALLING ALL INNOVATES-->
+    <section class="calling_innovates_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none calling_innovates_inner">
+                    <div class="col-xs-12 col-md-7 col-sm-6 pade_none calling_innovates_pic"><img src="{% static 'img/img_about_table_pic.png' %}" alt=""></div>
+                    <div class="col-xs-12 col-md-5 col-sm-6 pade_none calling_innovates_text">
+                        <h2>Welcome to Coworker</h2>
+                        <p>Coworking spaces are buzzing hubs of entrepreneurship, productivity and super sonic fast WiFi. But most importantly, they are communities of amazing people and places of connection.</p>
+                        <p>Coworker connects you to 5000+ coworking spaces in over 120 countries around the world. <a href="https://www.coworker.com/team">Created by coworkers</a> for coworkers, we're on a mission to get the world coworking. Ready to rock n' roll?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--CALLING ALL INNOVATES END-->
+    <!--FOR COWORKING SPACES START-->
+    <section class="about_coworker_spaces">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none about_coworker_spaces_inner">
+                    <div class="col-sm-6 col-md-7 col-xs-12 pade_none about_coworker_spaces_pic">
+                        <img src="{% static 'img/img_fab_lab.png' %}" alt="">
+                        <div class="free_div_outer"><p>Getting listed on Coworker is</p><strong>100%</strong><span>Free</span></div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-xs-12 pade_none about_coworker_right">
+                        <h2>For Coworking Spaces</h2>
+                        <p>Help people discover you when searching for coworking spaces in your city, find out all your important info and read reviews from your members. <br><br> You can also offer a free day pass, allow people to schedule a tour, and make reservations online (we take 0% commission, and people pay you in full when they arrive).<br><br> Plus you'll be eligible for the 2017 Coworker Awards!</p>
+                        <a href="https://www.coworker.com/list-space">Add Your Space</a>
+                        <div class="col-xs-12 pade_none space_pic"><img src="{% static 'img/img_right_spaces_pic.png' %}" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--FOR COWORKING SPACES END-->
+    <!--FOR COWORKING PART START-->
+    <section class="for_coworker_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none about_coworker_spaces_inner">
+                    <div class="col-sm-7 col-md-7 col-xs-12 pade_none about_coworker_spaces_pic">
+                        <img src="{% static 'img/img_perfect_coworker.png' %}" alt="">
+                        <div class="perfect_coworker_outer"><p>Find your perfect coworking space, anywhere in the world <i class="fa fa-heart" aria-hidden="true"></i></p></div>
+                    </div>
+                    <div class="col-sm-5 col-md-5 col-xs-12 pade_none about_coworker_right">
+                        <h2>For Coworkers</h2>
+                        <p>You can search by country, city or coworking space name. Make sure to check out the member reviews - this will give you a great insight into their culture.
+                            <br><br>Filter by whatever criteria is important to you, whether that be free beer (holla!), standing desks, dual monitors, co-living acommodation, sound recording equipment, events, or anything else. Coworker has a ton of filter options.</p>
+                        <a href="https://www.coworker.com/search">Search</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--FOR COWORKING SPACES PART END-->
+
+    <section class="nomadlist">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none meet_the_founders_inner">
+                    <h2>Fun Fact: Coworker is powering Nomad List</h2>
+                    <div class="col-xs-12 pade_none nomadlist_center_outer">
+                        <p class=".nomadlist_center_outer">Our API powers the coworking city maps for <a href="https://nomadlist.com/" target="_blank">Nomad List</a>, the nomad community with 10,000+ remote workers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--IN THE MEDIA START-->
+    <section class="in_the_media_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none in_the_media_inner">
+                    <div class="col-xs-12 pade_none main_heading_style">In The Media</div>
+                    <div class="in_the_media_con">
+                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none in_the_media_panel product_hunt">
+                            <div class="col-xs-12 pade_none in_the_media_panel_inner">
+                                <img src="{% static 'img/img_media_pic01.png' %}" alt="">
+                                <h4>Product Hunt</h4>
+                                <p>360+ upvotes</p>
+                                <a href="https://www.producthunt.com/posts/coworker" target="_blank">Read It</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none in_the_media_panel legal_nomads">
+                            <div class="col-xs-12 pade_none in_the_media_panel_inner">
+                                <img src="{% static 'img/forbes_top10.png' %}" alt="">
+                                <h4>Forbes</h4>
+                                <p>Where To Work? <br>The 10 Best Coworking Spaces on Earth</p>
+                                <a href="http://www.forbes.com/sites/kaviguppta/2016/07/15/where-to-work-the-10-best-coworking-spaces-on-earth" target="_blank">Read It</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="in_the_media_con">
+                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none in_the_media_panel daily_trekk">
+                            <div class="col-xs-12 pade_none in_the_media_panel_inner">
+                                <img src="{% static 'img/forbes_asia.png' %}" alt="">
+                                <h4>Forbes Asia</h4>
+                                <p>The 11 Best Coworking Spaces in Asia</p>
+                                <a href="http://www.forbes.com/sites/jlim/2016/07/31/asias-best-co-working-spaces-are" target="_blank">Read It</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none in_the_media_panel ft_color">
+                            <div class="col-xs-12 pade_none in_the_media_panel_inner">
+                                <img src="{% static 'img/img_media_pic04.png' %}" alt="">
+                                <h4>Financial Times</h4>
+                                <p>"Innovation to watch"</p>
+                                <a href="https://www.ft.com/content/000975c2-8c55-11e5-a549-b89a1dfede9b" target="_blank">Read It</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spaeaker_cloud_con"><img src="{% static 'img/img_speaker_pic.png' %}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--IN THE MEDIA END-->
+
+    <!--MEET THE FOUNDER START-->
+    <section class="meet_the_founders_main_new">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none meet_the_founders_inner">
+                    <div class="speaker_cloud_con"><img src="{% static 'img/img_clouds_pic.png' %}" alt=""></div>
+                    <h2>Meet The Founders</h2>
+                    <div class="col-xs-12 pade_none new_meet_founder_outer">
+                        <div class="col-sm-7 col-md-7 col-xs-12 pade_none new_meet_founder_left_outer">
+                            <div class="new_runnunig_girl_con"><img src="{% static 'img/img_new_meet_girl_pic.png' %}" alt="girl pic"></div>
+                            <p class="meet_first_text"><span>Leanne abandoned the UK many years ago and has lived &amp; worked in Togo, Bangladesh, Vietnam, Malaysia and Thailand, to name just a few. </span></p>
+                            <p class="meet_second_text">With a digital advertising agency background, she worked on some of the world's biggest  global brands before launching her own range of experiments - from an online nootropics store to manufacturing kitchen utensils in China. </p>
+                            <p>Despite being the world's slowest runner, she recently came 7th place in the Pyongyang Marathon in North Korea BY MISTAKE after an official guard sent her in the wrong direction. It's a ridiculous yet gloriously true story.</p>
+                            <div class="bottom_mountain_pic"><img src="{% static 'img/img_new_mountain_pic.png' %}" alt="mountain"></div>
+                            <div class="luggage_pic"><img src="{% static 'img/img_meet_travel.png' %}" alt="mountain"></div>
+                        </div>
+                        <div class="col-sm-5 col-md-5 col-xs-12 pade_none new_meet_founder_right_outer">
+                            <img src="{% static 'img/img_leane_founder_pic.png' %}" alt="leane pic"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--MEET THE FOUNDER END-->
+
+    <!--SAM MARKS PANEL-->
+    <section class="sammarks_meet_founder_main_new">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none meet_the_founders_inner">
+                    <div class="col-sm-5 col-md-5 col-xs-12 pade_none sam_founder_left_outer"><img src="{% static 'img/img_sam_founder_pic.png' %}" alt="Sam Marks"></div>
+                    <div class="col-sm-7 col-md-7 col-xs-12 pade_none sam_founder_right_outer">
+                        <div class="sam_laptop"><img src="{% static 'img/img_sam_laptop_pic.png' %}" alt="laptop pic"></div>
+                        <p class="sam_text_padding"><strong>Sam has been a coworking entrepreneur since his college days, where he was one of the earliest people on the internet to make money with Google Adwords.</strong></p>
+                        <p>Since then, he has founded and sold a number of successful software and ecommerce companies, all while travelling the world. </p>
+                        <p>When he's not on his laptop, you can find him pioneering random adventures spanning the globe... including skinny dipping in Antartica and walking around the perimeter of tropical islands.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 pade_none sam_bottom_vector_outer"><div class="col-xs-12 pade_none sam_bottom_vector"><img src="{% static 'img/img_sam_bottom_vector.png' %}" alt=""></div></div>
+            </div>
+        </div>
+    </section>
+    <!--SAM MARKS PANEL END-->
+
+    <!--WORLD WIDE TRIBE COWORKERS START-->
+    <div class="world_worker_main sticky-stopper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xs-12 pade_none world_worker_inner">
+                    <h3>Grab Your Spot on <span>The Coworking List</span></h3>
+                    <p>100% good stuff : exclusive coworking special offers, the coolest new spaces and fun opportunities around the world...</p>
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none world_join_out">
+                        <div class="col-sm-8 col-md-8 col-xs-12 pade_none join_txt_out"><input id="join_tribe" name="join_tribe" type="text" placeholder="Want in? Pop your email address in here" class="join_txtld"></div>
+                        <div class="col-sm-4 col-md-4 col-xs-12 pade_none join_out"><button class="join_btn" type="button" name="Submit" value="true" onclick="register_join();">Join the Crew</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--WORLD WIDE TRIBE COWORKERS END-->
+
+    <script>
+      $(function(){
+        $('.footer_tab_main li a').click(function(){
+          $('.footer_tab_main li a').removeClass('active_footer'); // remove the class from the currently selected
+          $(this).addClass('active_footer'); // add the class to the newly clicked link
+          if(!$(this).addClass('active_footer')) {
+          } else {
+            $(this).addClass('active_footer');
+            $(this).next().stop(true,true).removeClass('active_footer');
+          }
+        });
+      });
+      function displayFooter(divID) {
+        if(document.getElementById(divID).style.display == 'block'){
+          var closeAnswer = true;
+        }
+        document.getElementById('continent1').style.display = 'none';
+        document.getElementById('continent2').style.display = 'none';
+        document.getElementById('continent3').style.display = 'none';
+        document.getElementById('continent4').style.display = 'none';
+        document.getElementById('continent5').style.display = 'none';
+        document.getElementById('continent6').style.display = 'none';
+        if(!closeAnswer) {
+          document.getElementById(divID).style.display = '';
+        }
+        return false;
+      }
+    </script>
+    <!-- Perfect Audience tag -->
+    <script type="text/javascript">
+      (function() {
+        window._pa = window._pa || {};
+        // _pa.orderId = "myOrderId"; // OPTIONAL: attach unique conversion identifier to conversions
+        // _pa.revenue = "19.99"; // OPTIONAL: attach dynamic purchase values to conversions
+        //_pa.productId = "myProductId";
+        var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+        pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/573d653ad3115409440000c5.js";
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+      })();
+    </script>
+    <!-- END Perfect Audience tag -->
+    <!-- Start of Async HubSpot Analytics Code -->
+    <script type="text/javascript">
+      (function(d,s,i,r) {
+        if (d.getElementById(i)){return;}
+        var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
+        n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/2092726.js';
+        e.parentNode.insertBefore(n, e);
+      })(document,"script","hs-analytics",300000);
+    </script>
+    <!-- End of Async HubSpot Analytics Code -->
+
+    <script>
+      $(document).ready(function(){
+        $(document).bind("contextmenu",function(e){
+          if(e.target.nodeName == 'IMG'){
+            //context menu attempt on top of an image element
+            return false;
+          }
+        });
+      });
+    </script><!--FOOTER END-->
+
+{% endblock %}

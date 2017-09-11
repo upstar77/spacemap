@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'coworker.users.apps.UsersConfig',
+    'main',
     # Your stuff: custom apps go here
 ]
 

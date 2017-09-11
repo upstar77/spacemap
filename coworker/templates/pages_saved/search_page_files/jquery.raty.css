@@ -1,0 +1,82 @@
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  font-size: 2em;
+}
+
+@font-face {
+  font-family: "raty";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/raty.eot");
+  src: url("fonts/raty.eot?#iefix") format("embedded-opentype");
+  src: url("fonts/raty.svg#raty") format("svg");
+  src: url("fonts/raty.ttf") format("truetype");
+  src: url("fonts/raty.woff") format("woff");
+}
+
+.cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "raty";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+.cancel-on-png:before {
+  content: "\e600";
+}
+
+.cancel-off-png:before {
+  content: "\e601";
+}
+
+.star-on-png:before {
+  content: "\f005";
+}
+
+.star-off-png:before {
+  content: "\f006";
+}
+
+.star-half-png:before {
+  content: "\f123";
+}
+
+#rating1 img,#rating2 img,#rating3 img{
+  margin: 0px;
+}
+#r_accuracy img, #r_communication img, #r_cleanliness img, #r_location img, #r_check_in img, #r_rating img{
+  margin: 0px;
+  width: 13px; 
+  height: 14px;
+  margin-left: -3px;
+}
+#r_rating img{
+  margin-top: -2px;
+} 
+#r_rating{
+  width: 65px;
+  display: inline-block;
+}
+#raty_location img, #raty_wifi img, #raty_productive img, #raty_comfort img, #raty_social img, #raty_amenities img{
+  margin: 0px;
+  width: 19px; 
+  height: 20px;
+  margin-left: -3px;
+}
+#raty_overall img {
+  margin: 0px;
+  width: 33px; 
+  height: 34px;
+  margin-left: -3px;
+}
+#rev_overall img {
+  margin: 0px;
+  width: 24px; 
+  height: 25px;
+  margin-left: -3px;
+  z-index: 5 !important;
+}

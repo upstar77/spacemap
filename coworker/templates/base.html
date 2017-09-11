@@ -1,106 +1,864 @@
-{% load static i18n compress%}<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}coworker{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>{% block title %}Coworker.com: Find &amp; Review Coworking Spaces {% endblock %}</title>
+	<meta content="Looking for the best coworking spaces? Read real reviews, get prices, see photos, view maps and more. Find your perfect coworking space in 100+ countries!" name="description">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="coworker.com" name="author">
+	<meta content="coworking, cowork space, coworking space, hostel, co­working space, co­work space, cowering station, coworkers, coworker, coworking reviews, coworking ratings, professional coworking, free coworking, free co work, co work, co working" name="keywords">
+	<meta content="coworker.png" property="og:image">
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/style-res.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/my_css.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/my_css1.css' %}" rel="stylesheet" type="text/css">
+	<script async src="{% static 'js/amplitude-3.4.0-min.gz.js' %}" type="text/javascript">
+	</script>
+	<script src="{% static 'js/jquery.min.js' %}" type="text/javascript">
+	</script>
+	<link href="{% static 'css/sweetalert.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/flags.css' %}" rel="stylesheet">
+	<script src="{% static 'js/jquery.cookie.js' %}">
+	</script>
+	<link href="./static/css(2)" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/fonts.css' %}" rel="stylesheet" type="text/css"><!--DOCK HEADER-->
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
+	<script>
+      $(window).scroll(function(){
+        var nav_main = $('.header_nav_con'),
+          scroll = $(window).scrollTop();
 
-    {% block css %}
-    <!-- Latest compiled and minified Bootstrap 4 Alpha 4 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        if (scroll >= 520) nav_main.addClass('fixed');
+        else nav_main.removeClass('fixed');
+      });
+	</script>
+	<script type="text/javascript">
+      $(document).ready(function(){
+        $('a.res_menu').click(function(){
+          $('.mobile_menu').fadeIn();
+        });
+        $('.minus_outer').click(function(){
+          $('.mobile_menu').fadeOut();
+        });
+        $(window).resize(function(){
+          var hgt = $(".hot_coworker_inn").height()- 1;
+          $(".coworking_hot_destination_outer").height(hgt);
+        });
+      });
+      $(window).load(function(){
+        var hgt = $(".hot_coworker_inn").height()- 1;
+        $(".coworking_hot_destination_outer").height(hgt);
+      });
+	</script>
+	<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" type="text/css">
+	<script src="{% static 'js/owl.carousel.js' %}" type="text/javascript">
+	</script>
+</head>
+<body>
+<!--DOCK HEADER-->
+<div class="main_outer">
+    <!--HEADER START-->
+    {% block header %}
+        {% include 'elements/header.html' %}
+    {% endblock %}
+    <!--HEADER END-->
 
-    <!-- Your stuff: Third-party CSS libraries go here -->
-    {% compress css %}
-    <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    {% endcompress %}
+    {% block content %}
+
+    {% endblock %}
+    {% block top_cities %}
+        {% include 'elements/top_cities_list.html' %}
+    {% endblock %}
+</div>
+
+<!--GREEN FOOTER STRT-->
+<!-- FOOTER START-->
+    {% block footer %}
+        {% include 'elements/footer.html' %}
     {% endblock %}
 
-  </head>
+<!--GREEN FOOTER END-->
+<script>
+  function register_join(){
+    var email = $('#join_tribe').val();
+    if (validateEmail(email)){
+      $.ajax({
+        'url' : 'https://www.coworker.com/register_join',
+        'type' : 'POST',
+        'data' : {'email' : email},
+        'success' : function(data){
+          if(data=='saved') {
+            swal({ title: "BOOM you're in!", text: "Welcome to the coworking crew, homie.", confirmButtonText: "Keep Exploring",imageUrl: "https://www.coworker.com/template/img/signup.gif"});
+          } else {
+            swal("BOOM you're in!", "Email already joined", "error");
+          }
+        }
+      });
+    } else {
+      alert('Invalid Email');
+    }
+  }
+  function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+</script>
+<script src="{% static 'js/bootstrap.js' %}" type="text/javascript">
+</script>
+<script src="{% static 'js/jquery-ui.min.js' %}">
+</script>
+<script src="{% static 'js/sweetalert.min.js' %}">
+</script>
+<script src="{% static 'js/coworkerPopups.js' %}">
+</script>
+<script type="text/javascript">
+  $(function() {
+    $( "#f_location" ).autocomplete({
+      source:function(request, response) {
+        $("#place_id").val(0);
+        $("#search_place").val(0);
+        $.ajax({
+          url: 'https://www.coworker.com/getAutocomplete',
+          dataType: "json",
+          type: "POST",
+          data: {
+            term : request.term
+          },
+          success: function(data) {
+            response(data);
+            /*if(data.length>0){
+	              var prefix = $('#f_location').val().toLowerCase();
+	              var first_item = data[0].value.toLowerCase();
+	              if(first_item.slice(0, prefix.length) == prefix){
+	                $('#f_location').val(data[0].value);
+	                $('#f_location').selectRange(prefix.length,first_item.length);
+	              }
+	            }*/
+          }
+        });
+      },minLength:1,
+      messages: {
+        noResults: '',
+        results: function() {}
+      },appendTo: "#f_aucomplete",
+      select: function (event, ui) {
+        $("#place_id").val(ui.item.idx);
+        $("#search_place").val(ui.item.loc);
+        $("#x_location").val(ui.item.value);
+        $('#f_location').val(ui.item.value);
+        if(ui.item.loc==3){
+          if(ui.item.coworkspace_url!='')
+            window.location = ui.item.coworkspace_url;
+        } else
+          submitSearch();
+      }
+    }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+      var loc_icon = '<i class="fa fa-buildingui"><\/i>';
+      var view_all = '';
+      if(item.loc==1)
+        loc_icon = '<i class="fa fa-globeui"><\/i>';
+      if((item.loc==2) || (item.loc==2.5))
+        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
+      if(item.loc==5)
+        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
+      if(item.loc==10)
+        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
+      if(item.loc==0){
+        loc_icon = "";
+        view_all = 'class="search_view_results_div pade_none"';
+      }
+      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
+    };
+  });
+  function submitSearch() {
+    if($("#x_location").val()!=$("#f_location").val()) {
+      $("#place_id").val(0);
+      $("#search_place").val(0);
+    }
+    $.ajax({
+      url: 'https://www.coworker.com/search/start',
+      dataType: "json",
+      type: "POST",
+      data: {
+        place_id     : $("#place_id").val(),
+        search_place : $("#search_place").val(),
+        f_location   : $("#f_location").val(),
+        form_search  : 1
+      },
+      success: function(data) {
+        window.location = 'search/'+data.s_url;
+      }
+    });
+  }
+  $("#f_location").keypress(function(event) {
+    if (event.which == 13) {
+      event.preventDefault();
+      submitSearch();
+    }
+  });
+  $(document).ready(function() {
+    var owl = $('#owl-demo02');
+    owl.owlCarousel({
+      stagePadding: 0,
+      margin: 10,
+      nav: true,
+      loop: true,
+      responsive: {
+        0   : { items: 2 },
+        600 : { items: 3 },
+        900 : { items: 5 },
+        1000: { items: 6 }
+      }
+    });
+    var owl = $('#owl-demo03');
+    owl.owlCarousel({
+      stagePadding: 0,
+      margin: 10,
+      nav: true,
+      loop: true,
+      responsive: {
+        0   : { items: 1 },
+        400 : { items: 1 },
+        600 : { items: 2 },
+        768 : { items: 3 },
+        900 : { items: 3 },
+        1000: { items: 4 },
+        1200: { items: 5 },
+        1300: { items: 5 },
+        1400: { items: 5 }
+      }
+    });
+    $("#owl-demo05").owlCarousel({
+      navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem : true,
+      nav: true,
+      loop: true,
+      items : 1,
+    });
+  });
+</script>
+<script type="text/javascript">
 
-  <body>
+  var msg_login = 0;
+  $(document).ready(function(){
+    $('body').append($('<div>', {id:'nvmyLoading',class: 'modal'}));
+    $('#nvmyLoading').initLoading({pathLoading:'https://www.coworker.com/'});
+    $('body').append($('<div>', {id:'nvloginModal',class: 'modal'}));
+    $('#nvloginModal').initLogin({pathLoading:'https://www.coworker.com/'});
+    $('body').append($('<div>', {id:'nvmy_Modal',class: 'popup_outer'}));
+    $('#nvmy_Modal').initSignup({pathLoading:'https://www.coworker.com/'});
+    $('body').append($('<div>', {id:'nvmy_Signup',class: 'container modal'}));
+    $('#nvmy_Signup').initNewSignup({pathLoading:'https://www.coworker.com/'});
+    $('.form_outer').click(function(event) {
+      if(event.target.id=='fo_target'){
+        $('#nvmy_Signup').modal('hide');
+      } else{
+        event.stopPropagation();
+      }
+    });
+    $('#top').click(function(){
+      $('#n_popup').flexModal({align: "top", y_offset: 10});
+    });
+    $('#right').click(function(){
+      $('#n_popup').flexModal({align: "right", x_offset: 30});
+    });
+    $('#bottom').click(function(){
+      $('#n_popup').flexModal({align: "bottom"});
+    });
+    $('#left').click(function(){
+      $('#n_popup').flexModal({align: "left"});
+    });
+  });
+  function redirectNavFB(){
+{#    analytics.track('Click_Sign_Up_by_facebook', {#}
+{#      category: 'Account'#}
+{#    });#}
+{##}
+{#    analytics.page('Click_Sign_Up_by_facebook',#}
+{#      { title: 'Click_Sign_Up_by_facebook',#}
+{#        url: 'https://www.coworker.com/Click_Sign_Up_by_facebook'}#}
+{#    );#}
+    window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=64c0ab7cf12f5130ff0e20555e9f31af&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb&scope=email%2Cuser_friends";
 
-    <div class="m-b-1">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">coworker</a>
+  }
+  function redirectNavFBForLogin(){
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
+{#    analytics.track('Click_Login_facebook_button', {#}
+{#      category: 'Account'#}
+{#    });#}
+{##}
+{#    analytics.page('Click_Login_facebook_button',#}
+{#      { title: 'Click_Login_facebook_button',#}
+{#        url: 'https://www.coworker.com/Click_Login_facebook_button'}#}
+{#    );#}
+    window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=64c0ab7cf12f5130ff0e20555e9f31af&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb&scope=email%2Cuser_friends";
+  }
 
-    </div>
 
-    <div class="container">
+  function openNavLoging(){
+    msg_login=0;
+    $('#nvmy_Signup').normalSignupTitle();
+    $('#nvloginModal').modal('toggle');
+  }
 
-      {% if messages %}
-          {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-          {% endfor %}
-      {% endif %}
+  function openNavSignup(){
+    msg_login=0;
 
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
+{#    analytics.track('Click_Sign_Up_button', {#}
+{#      category: 'Account'#}
+{#    });#}
+{##}
+{#    analytics.page('popup_sign_up',#}
+{#      { title: 'popup_sign_up',#}
+{#        url: 'https://www.coworker.com/popup_sign_up'}#}
+{#    );#}
+{##}
 
-    </div> <!-- /container -->
+    $('#nvmy_Signup').normalSignupTitle();
+    $('#nvmy_Signup').modal('toggle');
+  }
+  function openNavSignupForm(){
+    if(msg_login){
+      $('#nvmy_Signup').msgSignupTitle();
+    } else {
+      $('#nvmy_Signup').normalSignupTitle();
+    }
 
-    {% block modal %}{% endblock modal %}
+{#    analytics.track('Click_Sign_Up_by_email', {#}
+{#      category: 'Account'#}
+{#    });#}
+{##}
+{#    analytics.page('Click_Sign_Up_by_email',#}
+{#      { title: 'Click_Sign_Up_by_email',#}
+{#        url: 'https://www.coworker.com/Click_Sign_Up_by_email'}#}
+{#    );#}
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {% block javascript %}
-      <!-- Required by Bootstrap v4 Alpha 4 -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-      <!-- Your stuff: Third-party javascript libraries go here -->
+    $('#nvmy_Signup').modal('toggle');
+    $('#n_popup').flexModal();
+  }
+  function navSignupLogin(){
+    if(msg_login){
+      $('#nvmy_Signup').msgSignupTitle();
+    } else {
+      $('#nvmy_Signup').normalSignupTitle();
+    }
+    $('#nvmy_Signup').modal('toggle');
+    $('#nvloginModal').modal('toggle');
+  }
+  function navLoginSignup(){
+    if(msg_login){
+      $('#nvmy_Signup').msgSignupTitle();
+    } else {
+      $('#nvmy_Signup').normalSignupTitle();
+    }
+    $('#nvloginModal').modal('toggle');
+    $('#nvmy_Signup').modal('toggle');
+  }
+  function openNavSignupLogin(){
+    $('#flex-overlay').click();
+    $('#nvloginModal').modal('toggle');
+  }
+  function isEmpty(str){
+    return str.replace(/^\s+/g, '').length==0;
+  }
 
-      <!-- place project specific Javascript in this file -->
-      {% compress js %}
-      <script src="{% static 'js/project.js' %}"></script>
-      {% endcompress %}
+  function validateNavSignup() {
+    var f_name = $('#nvfirst_name').val();
+    var l_name = $('#nvlast_name').val();
+    var xemail = $('#nvemail').val();
+    var pass   = $('#nvpassword').val();
+    /*var xday   = $('#nvdaySelect').val();
+	    var xmonth = $('#nvmonthSelect').val();
+	    var xyear  = $('#nvyearSelect').val();*/
+    var promotions = 0;
+    if(jQuery('#c1').is(":checked"))
+      promotions = 1;
+    if (isEmpty(f_name)){
+      alert('First Name is required!');
+    } else if (isEmpty(l_name)){
+      alert('Last Name is required!');
+    } else if (isEmpty(xemail)){
+      alert('Email is required!');
+    } else if (!validateEmail(xemail)){
+      alert('Invalid email!');
+    } else if (isEmpty(pass)){
+      alert('Password is required!');
+    } /*else if (xday == -1){
+	        alert('Day is required!');
+	    } else if (xmonth == -1){
+	        alert('Month is required!');
+	    } else if (xyear == -1 ){
+	        alert('Year is required!');
+	    }*/ else {
+      var message = {};
+      message["Data"] = "New User Signup : "+f_name+" "+l_name;
+      $.ajax({
+        'url' : 'https://www.coworker.com/validate_navsignup',
+        'type' : 'POST',
+        'dataType': 'json',
+        'data' : {'form_signup':1, 'fname' : f_name, 'lname' : l_name, 'semail' : xemail, 'spass' : pass,'day':0, 'month':0, 'year':0, 'promo':promotions, 'msg_log':msg_login},
+        'success' : function(result){
+          if(result.msg == 'SCS') {
+            socket.emit('UserTrigerClient',message);
 
-    {% endblock javascript %}
-  </body>
+            // segment tracking
+{#            analytics.track('Signed_Up_by_email', {#}
+{#              category: 'Account',#}
+{#              label: 'Email',#}
+{#              SignUpType: 'Email',#}
+{#              SignUp_FirstName: f_name,#}
+{#              SignUp_LastName: l_name,#}
+{#              SignUp_Email: xemail#}
+{#            });#}
+{##}
+{#            analytics.page('Signed_Up_by_email',#}
+{#              { title: 'Signed_Up_by_email',#}
+{#                url: 'https://www.coworker.com/Signed_Up_by_email'}#}
+{#            );#}
+            window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
+          } else {
+            alert(result.error);
+          }
+        }
+      });
+    }
+  }
+  var RURLF =  'https://www.coworker.com/'+window.location.pathname.slice(1);
+  var RURLS =  'https://www.coworker.com/profile/my-space';
+  function validateNavLogin() {
+    var xemail = $('#nvl_email').val();
+    var pass   = $('#nvl_password').val();
+    if (isEmpty(xemail)){
+      alert('Email is required!');
+    } else if (!validateEmail(xemail)){
+      alert('Invalid email!');
+    } else if (isEmpty(pass)){
+      alert('Password is required!');
+    } else {
+      $.ajax({
+        'url' : 'https://www.coworker.com/validate_navlogin',
+        'type' : 'POST',
+        'data' : {'form_login':1, 'semail' : xemail, 'spass' : pass,'msg_log':msg_login},
+        'success' : function(data){
+          var result = $.parseJSON(data);
+          if(result.msg == 'SCS') {
+
+{#            analytics.track('Log_in', {#}
+{#              category: 'Account',#}
+{#              label: 'Email',#}
+{#              LogInType: 'Email'#}
+{#            });#}
+{##}
+{#            analytics.page('Log_in',#}
+{#              { title: 'log_in',#}
+{#                url: 'https://www.coworker.com/log_in'}#}
+{#            );#}
+
+
+            if(result.lab) {
+              jQuery.ajax({
+                type: "POST",
+                url: "https://www.coworker.com/lab/wp-admin/admin-ajax.php",
+                data: {'action':'cw_login','log':xemail,'pwd':pass},
+                success: function(msg){
+                  window.location.href = RURLF;
+                },
+                error: function(msg){}
+              });
+            } else {
+              window.location.href = RURLF;
+            }
+          } else {
+            alert(result.error);
+          }
+        }
+      });
+    }
+  }
+
+  /*-- INI :: Signup/login popup for list-space page --------------------------*/
+  function showNewLoginPopup(){
+    $('#newSignup2Wrapper').hide();
+    $('#newSignup1Wrapper').hide();
+    $('#newLoginWrapper').show();
+  }
+  function showNewCreationPopup1(){
+    $('#newLoginWrapper').hide();
+    $('#newSignup2Wrapper').hide();
+    $('#newSignup1Wrapper').show();
+  }
+  function showNewCreationPopup2(){
+    $('#newLoginWrapper').hide();
+    $('#newSignup1Wrapper').hide();
+    $('#newSignup2Wrapper').show();
+  }
+
+  function validateNewLogin(){
+    var v_email = $('#fvl_email').val();
+    var v_passw = $('#fvl_passw').val();
+    var v_cu_id = $('#loc_cu_id').val();
+    var v_token = $('#loc_n_token').val();
+    //alert('email: '+v_email+' passw: '+v_passw+' cu_id: '+v_cu_id+' token: '+v_token);
+    if ( isEmpty(v_email) ){
+      alert('Email is required!');
+    }
+    else if (!validateEmail(v_email)){
+      alert('Invalid email!');
+    }
+    else if ( isEmpty(v_passw) ){
+      alert('Password is required!');
+    }
+    else{
+      var postdata = {
+        'form_login':1,
+        'semail' : v_email,
+        'spass' : v_passw,
+        'stoken' : v_token
+      }
+      $.ajax({
+        'url' : 'https://www.coworker.com/validate_navlogin',
+        'type' : 'POST',
+        'data' : postdata,
+        'success' : function(data){
+          var result = $.parseJSON(data);
+          if(result.msg == 'SCS') {
+            //window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
+
+            $('#cu_id').val(v_cu_id);
+            $('#n_token').val(v_token);
+            $('#n_step').val('continue');
+            $('#redirform')[0].submit();
+
+
+          } else {
+            alert(result.error);
+          }
+        }
+      });
+    }
+  }
+
+  function validateNewSignup() {
+
+    var v_fname = $('#fv_fname').val();
+    var v_lname = $('#fv_lname').val();
+    var v_email = $('#fv_email').val();
+    var v_passw = $('#fv_passw').val();
+
+    var v_cu_id = $('#loc_cu_id').val();
+    var v_token = $('#loc_n_token').val();
+    //alert('first Name:'+v_fname+' Last Name: '+v_lname+' Email: '+v_email+' Password: '+v_passw);
+
+    var promotions = 0;
+    //if(jQuery('#c1').is(":checked"))
+    //  promotions = 1;
+    if (isEmpty(v_fname)){
+      alert('First Name is required!');
+    } else if (isEmpty(v_lname)){
+      alert('Last Name is required!');
+    } else if (isEmpty(v_email)){
+      alert('Email is required!');
+    } else if (!validateEmail(v_email)){
+      alert('Invalid email!');
+    } else if (isEmpty(v_passw)){
+      alert('Password is required!');
+    } else {
+      var datapost = {
+        'form_signup':1,
+        'fname' : v_fname,
+        'lname' : v_lname,
+        'semail' : v_email,
+        'spass' : v_passw,
+        'day':0,
+        'month':0,
+        'year':0,
+        'promo':promotions,
+        'stoken' : v_token
+      }
+      $.ajax({
+        'url' : 'https://www.coworker.com/validate_navsignup',
+        'type' : 'POST',
+        'dataType': 'json',
+        'data' : datapost,
+        'success' : function(result){
+          if(result.msg == 'SCS') {
+            //window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
+            $('#cu_id').val(v_cu_id);
+            $('#n_token').val(v_token);
+            $('#n_step').val('continue');
+            $('#redirform')[0].submit();
+          } else {
+            alert(result.error);
+          }
+        }
+      });
+    }
+
+  }
+  /*-- END :: Signup/login popup for list-space page --------------------------*/
+  function showRecoverEmail(){
+    swal({
+        title: "Forgot password",
+        text: "Please enter your email:",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: true,
+        animation: "slide-from-top",
+        inputPlaceholder: "Email"
+      },
+      function(inputValue){
+        if(inputValue === false) return false;
+        else if(inputValue === "") {
+          swal.showInputError("You need to write email!");
+          return false;
+        }
+        else if(!validateEmail(inputValue)) {
+          swal.showInputError("You need to write valid email!");
+          return false;
+        } else {
+          $.ajax({
+            'url' : 'https://www.coworker.com/reset_email',
+            'type' : 'POST',
+            'dataType': 'json',
+            'data' : { mail : inputValue, form_reset : 1 },
+            'success' : function(result){
+              if(result.msg == 'SCS') {
+                swal("Reset your password", "We can email you a link to reset it.")
+              } else {
+                swal.showInputError(result.error);
+                return false;
+              }
+            }
+          });
+        }
+      });
+  }
+  $(document).ready(function(){
+    $('#mobBtnOpen').on('click', function(){
+      //$('#mobBtnOpen').hide(500);
+      //$('#mobileMenu').show(300);
+      $('#mobileMenu').css({
+        display:'block'
+      });
+    });
+    $('#mobBtnClose').on('click', function(){
+      //$('#mobileMenu').hide(300);
+      //$('#mobBtnOpen').show(300);
+      $('#mobileMenu').css({
+        display:'none'
+      });
+    });
+    $('#signupBtn').on('click', function(){
+      $('#mobileMenu').css({
+        display:'none'
+      });
+    });
+    $('#loginBtn').on('click', function(){
+      $('#mobileMenu').css({
+        display:'none'
+      });
+    });
+  });
+</script>
+<script src="{% static 'js/flex.modal.js' %}">
+</script>
+<script src="{% static 'js/sweetalert.min.js' %}">
+</script>
+<script type="text/javascript">
+  $(function() {
+    $( "#h_location" ).autocomplete({
+      source:function(request, response) {
+        $("#h_place_id").val(0);
+        $("#h_search_place").val(0);
+        $.ajax({
+          url: 'https://www.coworker.com/getAutocomplete',
+          dataType: "json",
+          type: "POST",
+          data: {
+            term : request.term
+          },
+          success: function(data) {
+            response(data);
+          }
+        });
+      },minLength:1,
+      messages: {
+        noResults: '',
+        results: function() {}
+      },appendTo: "#h_aucomplete",
+      select: function (event, ui) {
+        $("#h_place_id").val(ui.item.idx);
+        $("#h_search_place").val(ui.item.loc);
+        $("#xh_location").val(ui.item.value);
+        $('#h_location').val(ui.item.value);
+        if(ui.item.loc==3){
+          if(ui.item.coworkspace_url!='')
+            window.location = '/'+ui.item.coworkspace_url;
+        } else
+          submitSearchH();
+      },
+      open: function(){
+        $('.ui-autocomplete').css('width', $('#h_location').width());
+      }
+    }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+      var loc_icon = '<i class="fa fa-buildingui"><\/i>';
+      var view_all = '';
+      if(item.loc==1)
+        loc_icon = '<i class="fa fa-globeui"><\/i>';
+      if((item.loc==2) || (item.loc==2.5))
+        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
+      if(item.loc==5)
+        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
+      if(item.loc==10)
+        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
+      if(item.loc==0){
+        loc_icon = "";
+        view_all = 'class="search_view_results_div pade_none"';
+      }
+      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
+    };
+  });
+  function submitSearchH() {
+    if($("#xh_location").val()!=$("#h_location").val()) {
+      $("#h_place_id").val(0);
+      $("#h_search_place").val(0);
+    }
+    $.ajax({
+      url: 'https://www.coworker.com/search/start',
+      dataType: "json",
+      type: "POST",
+      data: {
+        h_place_id     : $("#h_place_id").val(),
+        h_search_place : $("#h_search_place").val(),
+        h_location     : $("#h_location").val(),
+        form_search    : 2
+      },
+      success: function(data) {
+        window.location = 'https://www.coworker.com/search/'+data.s_url;
+      }
+    });
+  }
+  $("#h_location").keypress(function(event) {
+    if (event.which == 13) {
+      event.preventDefault();
+      submitSearchH();
+    }
+  });
+  function overUserMenu(event) {
+    $('#lg_h').show();
+  }
+  function outUserMenu(event) {
+    var om = event.toElement || event.relatedTarget;
+    var ce = ["lg_menu", "lg_c", "lg_p", "lg_s", "lg_i","lg_h"];
+    if(om !== null){
+      if (ce.indexOf(om.id)!=-1) {
+        return;
+      } else if($(om).closest("div").id=="lg_h"){
+        return;
+      } else {
+        $('#lg_h').hide();
+      }
+    }
+  }
+  $(document).ready(function(){
+    if($('#lg_menu').length>0){
+      document.getElementById("lg_menu").addEventListener('mouseout',outUserMenu,true);
+      document.getElementById("lg_menu").addEventListener('mouseover',overUserMenu,true);
+    }
+  });
+</script>
+<script src="{% static 'js/segment_tracking.js' %}">
+</script>
+<script type="text/javascript">
+</script> <span aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible" role="status"></span>
+<div class="modal" id="nvmyLoading">
+	<div class="col-sm-6 col-md-6 col-xs-6 loading-modal-content"><img src="{% static 'img/log_loading.gif' %}"></div>
+</div>
+<div class="modal" id="nvloginModal">
+	<div class="col-sm-6 col-md-6 col-xs-6 login-modal-content">
+		<div class="col-sm-12 col-md-12 col-xs-12 pade_none modal-header">
+			<h2 class="signup_face"><a href="javascript:void(0)" onclick="redirectNavFBForLogin();"><img alt="" src="{% static 'img/login_with_facebook.png' %}" style="width: 325px;"></a></h2>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
+			<span class="signup_or">or</span>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
+			<p class="signup_f"><img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;"> <input id="nvl_email" placeholder="Email address"></p>
+			<p class="signup_f"><img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;"><input id="nvl_password" placeholder="Password" type="password"></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="promise_timing_con02" style="padding-left: 30px;">
+				<ul style="text-align:left">
+					<li><input id="c3l" name="ccc" type="checkbox" value="2"><label for="c3l"><span>Remember Me</span></label><span style="float:right;margin-right: -25%;"><a href="https://www.coworker.com/#" onclick="ResetPasswordModal();" style="color:#666666 !important;">Forgot Password</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
+			<div class="pade_none signup_save_btn">
+				<a href="javascript:void(0)" onclick="validateNavLogin();" style="padding-left: 130px; padding-right: 130px;">Log In</a>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
+			<div class="signup_member" style="text-align: left;">
+				<span class="already_member" style="margin-left: 55px;">Don't have an account?&nbsp;&nbsp;</span><a href="javascript:void(0);" onclick="navLoginSignup();"><span class="login_member">Sign up</span></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12 pade_none world_join_out">
+		<div class="col-sm-3 col-md-3 col-xs-3"></div>
+		<div class="col-sm-3 col-md-3 col-xs-3"></div>
+	</div>
+</div>
+<div class="popup_outer" id="nvmy_Modal">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 pade_none popup_inner">
+				<div class="popup" id="n_popup">
+					<form class="sign_up_form shadow">
+						<h2>Join the Coworker Community</h2>
+						<div class="col-xs-12 pade_none coworker_popup_inner">
+							<p class="signup_f"><img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -5px;"><input id="nvfirst_name" placeholder="First name"></p>
+							<p class="signup_f"><img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -4px;"><input id="nvlast_name" placeholder="Last name"></p>
+							<p class="signup_f"><img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;"><input id="nvemail" placeholder="Email address"></p>
+							<p class="signup_f"><img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;"><input id="nvpassword" placeholder="Password" type="password"></p>
+							<p class="signup_f"><input onclick="validateNavSignup();" type="button" value="Sign Up"></p>
+							<p class="agree">By signing up I agree to Coworker's <a href="https://www.coworker.com/terms" target="_blank">Terms of Service</a> and <a href="https://www.coworker.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+						</div>
+						<div class="col-xs-12 pade_none popup_bottom">
+							<span>Already a member?</span> <a class="login" href="javascript:void(0);" onclick="openNavSignupLogin();">Log In</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container modal" id="nvmy_Signup">
+	<div class="col-xs-12 form_outer" id="fo_target">
+		<div class="main-white">
+			<h2 id="signup_title">Join the Coworker Community</h2>
+			<div class="col-xs-12 fcb_con">
+				<a href="javascript:void(0)" id="signup_href" onclick="redirectNavFB();"><img alt="" src="{% static 'img/continue_fb.png' %}"></a>
+			</div>
+			<h3>or</h3>
+			<div class="col-xs-12 msg_con">
+				<a href="javascript:void(0)" onclick="openNavSignupForm();"><img alt="" src="{% static 'img/img-msg.png' %}"></a>
+			</div>
+			<p>By signing up I agree to Coworker's <a href="https://www.coworker.com/terms" target="_blank">Terms of Service</a> and <a href="https://www.coworker.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+			<h4>Already a member? <a href="javascript:void(0);" onclick="navSignupLogin();">Log in</a></h4>
+		</div>
+	</div>
+</div>
+</body>
 </html>
- 
