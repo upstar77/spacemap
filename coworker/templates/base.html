@@ -186,7 +186,7 @@
       $("#search_place").val(0);
     }
     $.ajax({
-      url: 'https://www.coworker.com/search/start',
+      url: '{% url "main:search" %}/start',
       dataType: "json",
       type: "POST",
       data: {
@@ -732,7 +732,7 @@
       $("#h_search_place").val(0);
     }
     $.ajax({
-      url: 'https://www.coworker.com/search/start',
+      url: '{% url "main:search" %}/start',
       dataType: "json",
       type: "POST",
       data: {
@@ -742,7 +742,7 @@
         form_search    : 2
       },
       success: function(data) {
-        window.location = 'https://www.coworker.com/search/'+data.s_url;
+        window.location = '{% url "main:search" %}/'+data.s_url;
       }
     });
   }

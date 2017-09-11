@@ -11,7 +11,7 @@
 							<a href="https://www.coworker.com/"><i class="fa fa-caret-right"></i>Home</a>
 						</li>
 						<li>
-							<a href="https://www.coworker.com/search"><i class="fa fa-caret-right"></i>Search</a>
+							<a href="{% url "main:search" %}"><i class="fa fa-caret-right"></i>Search</a>
 						</li>
 						<li>
 							<a href="{% url "main:cities" %}"><i class="fa fa-caret-right"></i>All Cities</a>
@@ -62,7 +62,7 @@
 		<div class="coworker_floating_con">
 			<div class="container">
 				<div class="row">
-					<form accept-charset="utf-8" action="https://www.coworker.com/search" id="form_search" method="post" name="search_form">
+					<form accept-charset="utf-8" action="{% url "main:search" %}" id="form_search" method="post" name="search_form">
 						<div class="coworker_floating_main">
 							<h1>Are <span>you</span> coworking yet?<sup style="font-size:18px;">™</sup></h1>
 							<div class="col-xs-12 pade_none" id="f_aucomplete">
