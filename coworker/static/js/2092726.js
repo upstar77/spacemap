@@ -9,7 +9,7 @@
   for (var name in attrs) { if(attrs.hasOwnProperty(name)) { js.setAttribute(name, attrs[name]); } }
   var e = document.getElementsByTagName('script')[0];
   e.parentNode.insertBefore(js, e);
-})('hs-analytics', '//js.hs-analytics.net/analytics/1505146500000/2092726.js', {"data-loader":"hs-scriptloader"});
+})('hs-analytics', '//js.hs-analytics.net/analytics/1505160900000/2092726.js', {"data-loader":"hs-scriptloader"});
 
 (function (id, src, attrs) {
   if (document.getElementById(id)) { return; }

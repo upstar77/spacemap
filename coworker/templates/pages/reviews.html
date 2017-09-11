@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Coworking Reviews | Spaces Around the World{% endblock %}
+
+
+{% block content %}
+    <section class="reviews_main_banner_outer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 pade_none reviews_main_banner_inner"> <img src="{% static 'img/img_review_banner_pic.png' %}" alt="banner pic"> </div>
+            </div>
+        </div>
+    </section>
+    <!-- BANNER SECTION END-->
+
+    <!-- REVIEWS CONTENT SECTION START-->
+    <section class="review_content_main_outer">
+        <div class="container-fluid">
+            <div class="col-xs-12 pade_none review_content_main_inner">
+                <div class="col-sm-12 col-md-4 col-xs-12 pade_none reviews_sorted_outer"><div id="r_totals" style="display:inline">5601 reviews</div> sorted by: <span id="sr_date" class="selected" onclick="change_sort(&#39;d&#39;);">Date</span>&nbsp;&nbsp;|&nbsp;&nbsp; <span id="sr_rate" onclick="change_sort(&#39;r&#39;);">Rating</span></div>
+                <div class="col-sm-12 col-md-8 col-xs-12 pade_none reviews_selection_right_main">
+                    <div class="reviews_selection_right">
+                        <form id="dv_fsr_auto" action="{% url "main:reviews" %}#" method="get">
+                            <div class="review_select_con">
+                                <div id="dv_fsr_city" class="col-xs-12 form-group pade_none review_select_inner">
+                                    <input id="fsr_city" name="Search City" type="text" placeholder="Search City" class="ui-autocomplete-input" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="review_select_con mob_select_con">
+                                <div id="dv_fsr_country" class="col-xs-12 pade_none review_select_inner">
+                                    <input id="fsr_country" name="Search Country" type="text" placeholder="Search Country" class="ui-autocomplete-input" autocomplete="off">
+                                </div>
+                            </div>
+                            <div id="dv_fsr_space" class="review_select_con">
+                                <div class="col-xs-12 pade_none review_select_inner">
+                                    <input id="fsr_space" name="Space name" type="text" placeholder="Space Name" class="ui-autocomplete-input" autocomplete="off">
+                                </div>
+                            </div>
+                            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-4" tabindex="0" style="display: none;"></ul></form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 pade_none reviews_comments_outer" id="content">
+                <input type="hidden" value="3" id="c_idx">
+                <input type="hidden" value="1401" id="t_pags">
+                <input type="hidden" value="0" id="place_id">
+                <input type="hidden" value="0" id="level">
+                <input type="hidden" value="0" id="x_sort">
+                <div id="reviews_comments_inner_1" class="col-sm-3 col-md-3 col-xs-12 reviews_comments_inner pade_none">
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main">
+                        <a class="csSearchLink" href="https://www.coworker.com/ukraine/lviv/ok-factory-coworking" target="_blank">webpage URL</a>
+                        <div class="col-xs-12 pade_none reviews_comments_top_outer">
+                            <div class="col-xs-12 pade_none reviews_comments_con">
+                                <h2>"Awesome place, good people!)"
+                                    <div class="views-rating-out-b">
+                                        <div class="rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>                    </div>
+                                    </div>
+                                </h2>
+                                <p>I was working here for 2 month, and it was really good time, recommend!)</p>
+                                <div class="col-xs-12 pade_none reviews_helpful_outer">
+                                    <samp><a href="javascript:void(0);">Helpful?</a></samp>
+                                    <samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp>
+                                    <p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Vova</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Lviv</strong>, Ukraine                <div class="review_bottam_arrow"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 pade_none review_koh_outer">
+                            <div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic">
+                                <img src="{% static 'not_sure/picture' %}" alt="client pic">
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes">
+                                <h5>Vova Hresko</h5>
+                                <ul>
+                                    <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li>
+                                    <li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/bulgaria/bansko/coworking-bansko" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Nice relaxed working atmosphere with busy social life and lots of opportunities to spend time in the open"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>My stay in Bansko while working at the coworking space charged me with positivity and made future seem brighter. Bansko was already a favourite place for me for the opportunities it offers to spend time in the mountain hiking, doing your favourite pastime or just enjoying the spectacular views. Because I'm quite busy, it isn't always easy to organize a leasure trip. Then Coworking Bansko came to the rescue. The coworking space is organized so that yours and other members' work is streamlined depending on what you need to do, so you can either work in the social space if you are after creative ideas or in the quiet space if you're after deadlines. Work is made easy by the perfect conditions and proximity of places to stay and eat. Plus you become a member of a community of hard-working open-minded individuals who are  ready to help and join in various events happening. I could only wish I visited the space more often!</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Evelina</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Bansko</strong>, Bulgaria<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(1)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Evelina Sharapanova</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/india/chennai/hideout" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"A thoughtfully made creative corner"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>Hideout located center of city with well connected Public Transport, Administration people are more supportive and welcoming, They have wonderful facilities for all creative fields, with added free introduction workshops, calm coworking space, with great wifi speed, recreation (Chess, Carrom, Jenga etc), conference room facilities and unlimited coffe. They also have provisions for smaller teams and individuals.</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>1 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Ar Mohammed Shaik Hameed</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Chennai</strong>, India<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(2)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Ar Mohammed Shaik Hameed Hameed</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 1 Helpful Vote</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/bulgaria/bansko/coworking-bansko" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"I do recommend Coworking Bansko"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>Awesome people, nice atmosphere, good amenities, affordable, mountains, nature... and a two- to three-hour drive to the nearest beach in Greece - in other words, the whole package is there.</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Tomasz</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Bansko</strong>, Bulgaria<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(3)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Tomasz Kotarba</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div></div>
+                <div id="reviews_comments_inner_2" class="col-sm-3 col-md-3 col-xs-12 reviews_comments_inner pade_none">
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main">
+                        <a class="csSearchLink" href="https://www.coworker.com/ukraine/lviv/ok-factory-coworking" target="_blank">webpage URL</a>
+                        <div class="col-xs-12 pade_none reviews_comments_top_outer">
+                            <div class="col-xs-12 pade_none reviews_comments_con">
+                                <h2>"Nice place!"
+                                    <div class="views-rating-out-b">
+                                        <div class="rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="empty">☆</span>                    </div>
+                                    </div>
+                                </h2>
+                                <p>Great place to organize your workspace. Prices are not high for Ukraine. And good point is a shower inside, so you can get to that location using bicycle and than not stink for the rest of the day. Also they have kitten!=)</p>
+                                <div class="col-xs-12 pade_none reviews_helpful_outer">
+                                    <samp><a href="javascript:void(0);">Helpful?</a></samp>
+                                    <samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp>
+                                    <p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Roman</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 pade_none reviews_address_outer review_red_address "><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Lviv</strong> , Ukraine                <div class="review_bottam_arrow"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 pade_none review_koh_outer">
+                            <div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic">
+                                <img src="{% static 'not_sure/picture(4)' %}" alt="client pic">
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes">
+                                <h5>Roman Hudyma</h5>
+                                <ul>
+                                    <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i> 1 Review</li>
+                                    <li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/india/chennai/hideout" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Perfect blend of work-fun"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>The Gallery space has a perfect work-fun balance and inspires me to zone. The members are amicable, and the coffee is off the chain!  Thoroughly relished the creative vibes</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Senthil</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Chennai</strong>, India<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(5)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Senthil Kumar</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/united-states/massachusetts/worcester/clearly-coworking" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Amazing Place"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>This workspace is amazing!  I am able to work out of the house, have a clean environment, meet other folks.  Just perfect!</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Debra</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Worcester</strong>, United States<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(6)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Debra Wilson</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/sweden/stockholm/da-appy-place" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Fantastisk!"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>När jag kom hit och skulle kolla på stället, stannade jag över en timme. Nu har jag flyttat in och har varit här i över en månad. Väldigt inspirerande att vara här, träffa alla dessa otroliga, trevliga och hjälpsamma personer. Gott kaffe och fina lokaler. Allt på ett och samma ställe. Bästa beslutet att vara medlem på DaAppyPlace. </p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Erik</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_green_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Stockholm</strong>, Sweden<div class="review_bottam_arrow_green"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/497a326c0b2051b82829c318f2e2f760' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Erik Melbinger</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div></div>
+                <div id="reviews_comments_inner_3" class="col-sm-3 col-md-3 col-xs-12 reviews_comments_inner pade_none">
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main">
+                        <a class="csSearchLink" href="https://www.coworker.com/sweden/stockholm/da-appy-place" target="_blank">webpage URL</a>
+                        <div class="col-xs-12 pade_none reviews_comments_top_outer">
+                            <div class="col-xs-12 pade_none reviews_comments_con">
+                                <h2>"The best coworkingspace in town!"
+                                    <div class="views-rating-out-b">
+                                        <div class="rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>                    </div>
+                                    </div>
+                                </h2>
+                                <p>This is a great place to have as your workspot! Her you´ll be inspired and helped in many ways. If you are en entreprenour sitting at home working and got the feeling of loneliness and boredness?  Apply to Da Appy Place - you´ll not regret it. You may "provsitta" a couple of days just to make sure you do the right choice. Welcome!</p>
+                                <div class="col-xs-12 pade_none reviews_helpful_outer">
+                                    <samp><a href="javascript:void(0);">Helpful?</a></samp>
+                                    <samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp>
+                                    <p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Ewa</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 pade_none reviews_address_outer review_green_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Stockholm</strong> , Sweden                <div class="review_bottam_arrow_green"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 pade_none review_koh_outer">
+                            <div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic">
+                                <img src="{% static 'not_sure/picture(7)' %}" alt="client pic">
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes">
+                                <h5>Ewa Nordell</h5>
+                                <ul>
+                                    <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li>
+                                    <li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/india/chennai/hideout" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Excellent co working space"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>Owning a few buisnesses in town means that finding a space to actully concentrate and get work down is nearly impossible as I do not actully have an office! Air Con is great the wifi is incredibly fast and staff are so welcoming and helpful. The space is very comfortable and offers a fantastic meeting room alongside the Co-Working space. Garage Society is now my new office base here during the week as it is the first time in a long time I actully felt productive!</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>1 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Yogeshwaran</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Chennai</strong>, India<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(8)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Yogeshwaran Uvi</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 1 Helpful Vote</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/sri-lanka/colombo/agaya" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"A really awesome co-working space!"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>We are just completing our second week at Agaya and we are extremely happy with the environment and facilities. Prasad and his team are really helpful and make working here even more convenient. The workstations have all the facilities required to comfortably do our work and amenities like clean washrooms, a separate lunch area and easy access with parking are added benefits.
+
+                    Since Agaya is just a short walk from the Gamsaba junction, there is no shortage of communications, shops and supermarkets.
+
+                    I can recommend the place without any hesitation!</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>1 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Ramon</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Colombo</strong>, Sri Lanka<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(9)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Ramon Grero</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 1 Helpful Vote</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/spain/barcelona/uni31" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Very centric and nice"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>I worked here for a year and the environment was always very nice and the relax area with grass was good many times.</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>1 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Francesc</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Barcelona</strong>, Spain<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(10)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Francesc Ortiz</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 1 Helpful Vote</li></ul></div></div></div></div>
+                <div id="reviews_comments_inner_4" class="col-sm-3 col-md-3 col-xs-12 reviews_comments_inner pade_none">
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main">
+                        <a class="csSearchLink" href="https://www.coworker.com/bulgaria/veliko-tarnovo/freedom21" target="_blank">webpage URL</a>
+                        <div class="col-xs-12 pade_none reviews_comments_top_outer">
+                            <div class="col-xs-12 pade_none reviews_comments_con">
+                                <h2>"Co Working in Medieval Bulgaria"
+                                    <div class="views-rating-out-b">
+                                        <div class="rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>                    </div>
+                                    </div>
+                                </h2>
+                                <p>I spent a week with Grigor at Freedom-21 Co Working space in Veliko Tarnovo and had an exceptional experience, The co-working space is situated in the old town of VT amongst the medieval buildings in the old town of Veliko Tarnovo, Bulgaria's historical capital with amazing views overlooking the monument and gallery.
+
+                                    The space is very comfortable with great seating, large desks, fast internet and tea and coffee facilities, the internet is fast and reliable and they also have a balcony with amazing views of the historical city.
+
+                                    I would highly recommend visiting Veliko Tarnovo for the ancient city and excellent coworking space, it's a great experience.
+
+                                    Grigor even managed to help book our accommodation and buy train tickets, we had a very positive experience in VT.</p>
+                                <div class="col-xs-12 pade_none reviews_helpful_outer">
+                                    <samp><a href="javascript:void(0);">Helpful?</a></samp>
+                                    <samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp>
+                                    <p><span>1 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Christian</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 pade_none reviews_address_outer review_red_address "><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Veliko Tarnovo</strong> , Bulgaria                <div class="review_bottam_arrow"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 pade_none review_koh_outer">
+                            <div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic">
+                                <img src="{% static 'not_sure/picture(11)' %}" alt="client pic">
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes">
+                                <h5>Christian Marth</h5>
+                                <ul>
+                                    <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li>
+                                    <li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 1 Helpful Votes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/pakistan/lahore/workstance" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Visit highlight"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>Good for those who want to start their business with minimum investment in furniture and electric equipments</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Shan</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Lahore</strong>, Pakistan<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/503225d2ccd75c88a3bd474dbc3c6298' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Shan Ibrahim</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/singapore/singapore/the-hive-coworking-singapore" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"location, value, ambiance, it's all there"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>I've been a full-time member at The Hive for two months and it's great. There are fancier places and there are less fancy places but I think The Hive hits the exactly the right spot for delivering the right amenities, outstanding staff, a convenient central location, and just a nice "feel". There are plenty of events too if you happen to have free time. A collection of hip bars across the street if you're thirsty too. </p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>0 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Jens</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Singapore</strong>, Singapore<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/2976ed1ad7ff5aa6373134277f5051a4' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Jens Jorgensen</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 0 Helpful Votes</li></ul></div></div></div><div class="col-xs-12 pade_none reviews_clients_comments_main"><a class="csSearchLink" href="https://www.coworker.com/spain/barcelona/uni31" target="_blank">webpage URL</a><div class="col-xs-12 pade_none reviews_comments_top_outer"><div class="col-xs-12 pade_none reviews_comments_con"><h2>"Centric"<div class="views-rating-out-b"><div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div></div></h2><p>Great space and people in a centric location. Good price.</p><div class="col-xs-12 pade_none reviews_helpful_outer"><samp><a href="javascript:void(0);">Helpful?</a></samp><samp><img src="{% static 'img/heart-img01-red.png' %}" alt="heart pic"></samp><p><span>1 <img src="{% static 'img/img_small_arrow.png' %}" class="small_arrow_reviews"></span> Thank Manel</p></div></div><div class="col-xs-12 pade_none reviews_address_outer review_red_address"><i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Barcelona</strong>, Spain<div class="review_bottam_arrow"></div></div></div><div class="col-xs-12 pade_none review_koh_outer"><div class="col-sm-4 col-md-3 col-xs-3 pade_none reviews_client_pic"><img src="{% static 'not_sure/picture(12)' %}" alt="client pic"></div><div class="col-sm-8 col-md-9 col-xs-9 pade_none reviews_client_votes"><h5>Manel Sort</h5><ul><li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li><li><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i> 1 Helpful Vote</li></ul></div></div></div></div>
+            </div>
+            <div class="col-xs-12 pade_none load-img" style="display: none;"><img src="{% static 'img/loader.gif' %}" alt="loader"></div>
+        </div>
+    </section>
+    <!-- REVIEWS CONTENT SECTION END-->
+
+{% endblock content %}

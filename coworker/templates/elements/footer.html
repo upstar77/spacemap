@@ -40,7 +40,7 @@
 						<h4>Reviews</h4>
 					</li>
 					<li>
-						<a href="https://www.coworker.com/reviews">View all Reviews</a>
+						<a href="{% url "main:reviews" %}">View all Reviews</a>
 					</li><!--<li><a href="#">Write a Review</a></li>-->
 				</ul>
 				<ul class="footer_about_list01">
@@ -91,7 +91,7 @@
 						<a href="https://www.coworker.com/api">API for Developers</a>
 					</li><!--<li><a href="#">Become a Partner</a></li>-->
 					<li>
-						<a href="https://www.coworker.com/contact">Contact Us</a>
+						<a href="{% url "main:contact" %}">Contact Us</a>
 					</li>
 				</ul>
 				<ul class="footer_about_list">
@@ -102,10 +102,10 @@
 						<a href="{% url "main:about" %}">Our Story</a>
 					</li>
 					<li>
-						<a href="https://www.coworker.com/team">Meet the Team</a>
+						<a href="{% url "main:team" %}">Meet the Team</a>
 					</li>
 					<li>
-						<a href="https://www.coworker.com/help">FAQs</a>
+						<a href="{% url "main:help" %}">FAQs</a>
 					</li>
 				</ul>
 			</div>
@@ -136,10 +136,10 @@
 							<a href="mailto:hello@coworker.com">hello@coworker.com</a>
 						</li>
 						<li>
-							<a href="https://www.coworker.com/privacy-policy">Privacy Policy</a>
+							<a href="{% url "main:privacy-policy" %}">Privacy Policy</a>
 						</li>
 						<li>
-							<a href="https://www.coworker.com/terms">Terms &amp; Conditions</a>
+							<a href="{% url "main:terms" %}">Terms &amp; Conditions</a>
 						</li>
 					</ul>
 				</div>

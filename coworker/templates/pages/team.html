@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Meet the Coworker Team{% endblock %}
+
+
+{% block content %}
+
+  <div class="team_title_bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 pade_none team_title_bar_inn">
+          <div class="title_bar_icon"><img src="{% static 'img/title_bar_icon.png' %}" alt="title-bar-icon"></div>
+          <h1>Meet Our Team</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--TEAM TITLR BAR END-->
+<!--TEAM CONTENT START-->
+<div class="team_content_section">
+  <div class="col-xs-12 team_content">
+    <p>We’re a crew of rebels, misfits, geniuses, tech wizards, artists, writers &amp; more, all coworking around the world  </p>
+  </div>
+  <div class="col-xs-12 pade_none team_member_outer">
+    <ul>
+        {% for item in "xxxxxxxxx" %}
+          <li>
+            <div class="team_member_image"><img src="{% static 'img/team_member_leanee.jpg' %}" alt="Leanne Beesley Pic"></div>
+            <div class="team_member_hover">
+              <div class="team_member_content">
+                <div class="team_member_name link link--mallki">Leanne Beesley</div>
+                <div class="team_member_destination">Co-Founder</div>
+                <div class="team_member_social">
+                  <a href="https://twitter.com/leannebeesley" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/in/leannebeesley" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+<!--TEAM CONTENT END-->
+
+<!--TEAM FORM SOCIAL END-->
+  <div class="team_formsocial_outer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 team_formsocial_inner">
+          <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6 team_forms_left">
+            <h2>Want to speak to us?</h2>
+            <p>If you have a question or just want to share something cool, hit us up at <a href="mailto:hello@coworker.com">hello@coworker.com</a> or use the form below.</p>
+            <div class="team_forms_outer">
+              <input id="t_name" name="t_name" type="text" placeholder="Name">
+              <input id="t_email" name="t_email" type="email" placeholder="Email">
+              <input id="t_subject" name="t_subject" type="text" placeholder="Subject">
+              <textarea id="t_message" name="t_message" rows="5" placeholder="Message"></textarea>
+              <button type="button" id="submit" onclick="registerMessage();">Send</button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6 pade_none team_social_right">
+            <h3>Chat with us on Social Media</h3>
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 pade_none team_social_inner">
+              <div class="col-xs-4 col-sm-4 col-md-3 pade_none team_social_icon"><a href="https://www.facebook.com/coworkerglobal" target="_blank"><img src="{% static 'img/team_sm_icon01.jpg' %}" alt="Facebook-Icon"></a></div>
+              <div class="col-xs-8 col-sm-8 col-md-9 pade_none team_social_text">
+                <h4><a href="https://www.facebook.com/coworkerglobal" target="_blank">Facebook</a></h4>
+                <span>Coworker</span>
+                <p>Check out our “Coworkers of the World” series on Facebook to get a sneak peek into the lives of people coworking in different countries around the world. </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 pade_none team_social_inner">
+              <div class="col-xs-4 col-sm-4 col-md-3 pade_none team_social_icon"><a href="https://www.instagram.com/coworker/" target="_blank"><img src="{% static 'img/team_sm_icon02.jpg' %}" alt="Instagram-Icon"></a></div>
+                <div class="col-xs-8 col-sm-8 col-md-9 pade_none team_social_text">
+                  <h4><a href="https://www.instagram.com/coworker/" target="_blank">Instagram</a></h4>
+                    <span>@coworker</span>
+                    <p>Check out featured coworking spaces and get sneek peeks behind the scenes at #teamcoworker</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 pade_none team_social_inner">
+              <div class="col-xs-4 col-sm-4 col-md-3 pade_none team_social_icon"><a href="https://twitter.com/coworkerglobal" target="_blank"><img src="{% static 'img/team_sm_icon03.jpg' %}" alt="Twitter-Icon"></a></div>
+              <div class="col-xs-8 col-sm-8 col-md-9 pade_none team_social_text">
+                <h4><a href="https://twitter.com/coworkerglobal" target="_blank">Twitter</a></h4>
+                <span>@coworkerglobal</span>
+                <p>Looking for a coworking space? Tell us in 140 characters what vibe you’re looking for and we’ll give you a personalized recommendation!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--TEAM FORM SOCIAL END-->
+{% endblock content %}
