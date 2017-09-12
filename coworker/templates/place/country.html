@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+    <div class="main_outer">
+
+        <div class="breadcrumb_outer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none breadcrumb_inner">
+                        <ul>
+                            <li><p>World</p>5256</li>
+                            <li><p>Asia</p>1379</li>
+                            <li><p><a href="https://www.coworker.com/china" style="color: inherit;">China</a></p>134</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--BREADCRUMB END-->
+        <!--BANNER START-->
+        <div class="city_main_outr" style="background-image:url(&#39;https://coworker.imgix.net/pictures/Co45/edit/China resize.jpg?mark=/template/img/wm_icon.png&amp;markscale=2&amp;markalign=center,middle&#39;);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none city_inner_main">
+                        <div class="city_inner">
+                            <div class="city_bang_out">
+                                <img src="{% static 'img/flag.png' %}" class="flag flag-cn">China  <br>
+                                <span>134 Spaces</span>
+                            </div>
+                            <form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
+                                <div class="col-xs-12 pade_none city_white_out">
+                                    <h2>Search for coworking spaces in <span>China</span></h2>
+                                    <div class="col-xs-12 pade_none city_search_main">
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none city_daily_con">
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" id="c1" name="cc" value="dai">
+                                                    <label for="c1"><span></span>Daily</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="c2" name="cc" value="week">
+                                                    <label for="c2"><span></span>Weekly</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="c3" name="cc" value="month">
+                                                    <label for="c3"><span></span>Monthly</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 pade_none city_checkoout"><a href="javascript:void(0);" onclick="refineSearch();">Check out 134 Coworking Spaces in China</a></div>
+                                </div>
+                                <input id="c_h_location" name="c_h_location" type="hidden" value="China">
+                                <input type="hidden" id="c_place_id" name="c_place_id" value="45">
+                            </form></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--BANNER END-->
+        <!--HOT COWORKER DETINATIONS START-->
+        <div class="popular_cities_main02">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none popular_cities_outer" style="display:block">
+                        <h2>Popular Cities in China</h2>
+                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none">
+                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
+                                <div class="col-xs-12 pade_none popular_cities_pic01" style="background-image:url(&#39;https://coworker.imgix.net/pictures/C709/edit/beijing-coworking_thumb.jpeg?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
+                                    <div class="thailnd_for_auto">
+                                        <div class="thailnd_ver_midd"><p><a href="https://www.coworker.com/china/beijing" style="color: inherit;">Beijing</a></p></div>
+                                    </div>
+                                </div>
+                            </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
+                            <div class="col-xs-12 pade_none popular_cities_pic02" style="background-image:url(&#39;https://coworker.imgix.net/pictures/C40/edit/shanghai-coworking_thumb.jpg?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
+                                <div class="thailnd_for_auto">
+                                    <div class="thailnd_ver_midd"><p><a href="https://www.coworker.com/china/shanghai" style="color: inherit;">Shanghai</a></p></div>
+                                </div>
+                            </div>
+                        </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
+                            <div class="col-xs-12 pade_none popular_cities_pic03" style="background-image:url(&#39;https://coworker.imgix.net/pictures/C714/edit/shenzhen-coworking_thumb.jpeg?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
+                                <div class="thailnd_for_auto">
+                                    <div class="thailnd_ver_midd"><p><a href="https://www.coworker.com/china/shenzhen" style="color: inherit;">Shenzhen</a></p></div>
+                                </div>
+                            </div>
+                        </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
+                            <div class="col-xs-12 pade_none popular_cities_pic04" style="background-image:url(&#39;https://coworker.imgix.net/pictures/C1133/edit/chengdu-coworking_thumb.jpeg?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
+                                <div class="thailnd_for_auto">
+                                    <div class="thailnd_ver_midd"><p><a href="https://www.coworker.com/china/chengdu" style="color: inherit;">Chengdu</a></p></div>
+                                </div>
+                            </div>
+                        </div>        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--HOT COWORKER DETINATIONS END-->
+
+        <!--RECOMMENDED SPACECS IN BANGKOK START-->
+        <div class="bangkok_main_outr">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none thailand_main_inner ">
+                        <h2>Top Coworking Spaces in China</h2>
+                        <div class="col-xs-12 pade_none">
+                            <div class="col-xs-12 pade_none thailnd_coworker_spaces">
+
+                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none thailnd_lft_out">
+                                    <div class="col-xs-12 pade_none thailand_inner_out">
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
+                                            <div class="col-xs-12 pade_none tbh_con">2800 CNY /m</div>
+                                            <a href="https://www.coworker.com/china/shanghai/naked-hub-fu-xing-lu"><img src="{% static 'img/main_thumb.jpg' %}" alt="Naked Hub - Fu Xing Lu, Shanghai" title="Naked Hub - Fu Xing Lu in Shanghai, China"></a>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
+                                            <h3>Naked Hub - Fu Xing Lu</h3>
+                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
+                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
+                                                <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
+                                            </div>
+                                            <p>This is where work and life meld together. Another venue in the commercial and dynamic Shanghai hub of China under the um...&nbsp;<a href="https://www.coworker.com/china/shanghai/naked-hub-fu-xing-lu">More</a></p>
+                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/china/shanghai/naked-hub-fu-xing-lu">Details and Prices</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 pade_none thailand_inner_out">
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
+                                            <div class="col-xs-12 pade_none tbh_con">168 CNY /d</div>
+                                            <a href="https://www.coworker.com/china/shanghai/agora-space"><img src="{% static 'img/main-1491047401_thumb.jpg' %}" alt="Agora Space, Shanghai" title="Agora Space in Shanghai, China"></a>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
+                                            <h3>Agora Space</h3>
+                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
+                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
+                                                <div class="col-xs-6 pade_none start_rate_conn">4/5</div>
+                                            </div>
+                                            <p>Agora Space is an international working community for creators, dreamers, freelancers and entrepreneurs of different cult...&nbsp;<a href="https://www.coworker.com/china/shanghai/agora-space">More</a></p>
+                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/china/shanghai/agora-space">Details and Prices</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none thailnd_rgt_out">
+
+                                    <div class="col-xs-12 pade_none thailand_inner_out">
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
+                                            <div class="col-xs-12 pade_none tbh_con">688 CNY /m</div>
+                                            <a href="https://www.coworker.com/china/beijing/day-day-up"><img src="{% static 'img/main_thumb.jpeg' %}" alt="DAY DAY UP, Beijing" title="DAY DAY UP in Beijing, China"></a>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
+                                            <h3>DAY DAY UP</h3>
+                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
+                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
+                                                <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
+                                            </div>
+                                            <p>Aiming to create a shared workspace environment and community as a business platform for global professional independents...&nbsp;<a href="https://www.coworker.com/china/beijing/day-day-up">More</a></p>
+                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/china/beijing/day-day-up">Details and Prices</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 pade_none thailand_inner_out">
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
+                                            <div class="col-xs-12 pade_none tbh_con">800 CNY /m</div>
+                                            <a href="https://www.coworker.com/china/shenzhen/simplywork-20"><img src="{% static 'img/main-1492161507_thumb.jpg' %}" alt="SimplyWork 2.0, Shenzhen" title="SimplyWork 2.0 in Shenzhen, China"></a>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
+                                            <h3>SimplyWork 2.0</h3>
+                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
+                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
+                                                <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
+                                            </div>
+                                            <p>Founded by a group of young entrepreneurs, SimplyWork is Shenzhen’s most dreambitious co-working space. Currently we ha...&nbsp;<a href="https://www.coworker.com/china/shenzhen/simplywork-20">More</a></p>
+                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/china/shenzhen/simplywork-20">Details and Prices</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-xs-12 pade_none view_all_thailand_btn"><a href="javascript:void(0);" onclick="refineSearch();">View All Coworking Spaces in China</a></div>
+
+                        </div>
+
+                        <!--RECENT REVIEWS START-->
+                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_bangkok_out02">
+                            <h3>Recent reviews in China</h3>
+
+                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
+                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
+                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
+                                    <div class="review_txt02">I have been coming to CoderBunker for about six months, which is being hosted at Agora Space. I came here...&nbsp;<a href="https://www.coworker.com/china/shanghai/agora-space">Show More</a></div>
+                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
+                                </div>
+                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/picture(1)' %}" alt=""></div>
+                                <div class="col-xs-12 pade_none john_con">Joseph Beltrami</div>
+                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/china/shanghai/agora-space" style="color: inherit;">Agora Space</a></div>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
+                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
+                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
+                                    <div class="review_txt02">DayDayUp is the most international co-working space in China. There is an average of 3-5 events each week...&nbsp;<a href="https://www.coworker.com/china/beijing/day-day-up">Show More</a></div>
+                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
+                                </div>
+                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/picture(2)' %}" alt=""></div>
+                                <div class="col-xs-12 pade_none john_con">Zhang Wang</div>
+                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/china/beijing/day-day-up" style="color: inherit;">DAY DAY UP</a></div>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
+                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
+                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
+                                    <div class="review_txt02">DayDayUp is the most international co-working space in China. There is an average of 3-5 events each week...&nbsp;<a href="https://www.coworker.com/china/beijing/day-day-up">Show More</a></div>
+                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
+                                </div>
+                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'img/animalavatar05.png' %}" alt=""></div>
+                                <div class="col-xs-12 pade_none john_con">Mystery Coworker</div>
+                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/china/beijing/day-day-up" style="color: inherit;">DAY DAY UP</a></div>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
+                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
+                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
+                                    <div class="review_txt02">I visited Coffizz a while back for a meeting and it must be one of the best coworking spaces in China. It...&nbsp;<a href="https://www.coworker.com/china/beijing/coffizz">Show More</a></div>
+                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
+                                </div>
+                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/c473cc191ea9864bf4bb187885882ccf' %}" alt=""></div>
+                                <div class="col-xs-12 pade_none john_con">John Li</div>
+                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/china/beijing/coffizz" style="color: inherit;">Coffizz</a></div>
+                            </div></div>
+
+                        <!--RECENT THAILAND REVIEWS END-->
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--RECOMMENDED SPACECS IN BANGKOK END-->
+        <!--MAP CONATINER-->
+        <div class="thailand_map_out">
+            <div class="bangkok_frame_con02">
+                <div class="see_map_con02"><a href="javascript:void(0);" onclick="refineSearch();">See a Map of all Spaces in China</a></div>
+                <div id="country_canvas" class="bangkok_map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default;"><div style="z-index: 1; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; position: absolute; left: 513px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 769px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 769px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 513px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 513px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 769px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 257px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1025px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 257px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1025px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1025px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 257px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1281px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1281px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1281px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1537px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -255px; top: 107px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -255px; top: 363px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1537px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -255px; top: -149px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1537px; top: 363px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 513px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 769px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 769px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 513px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 513px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 769px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 257px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1025px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 257px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1025px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1025px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 257px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1281px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1281px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1281px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1537px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -255px; top: 107px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -255px; top: 363px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1537px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -255px; top: -149px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1537px; top: 363px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="position: absolute; left: 769px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 769px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(1)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 513px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(2)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 769px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(3)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 257px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(4)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1025px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(5)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1281px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(6)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1281px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(7)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1281px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(8)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1025px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(9)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1025px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(10)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(11)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1537px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(12)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1537px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(13)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1537px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(14)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 513px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(15)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -255px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(16)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(17)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -255px; top: 363px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(18)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 257px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(19)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(20)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 513px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(21)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -255px; top: 107px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(22)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 257px; top: -149px; transition: opacity 200ms ease-out;"><img src="{% static 'not_sure/vt(23)' %}" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"><div style="z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></div></div><div style="z-index: 4; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="https://maps.google.com/maps?ll=35.86166,104.195397&amp;z=7&amp;t=m&amp;hl=ru-RU&amp;gl=US&amp;mapclient=apiv3" title="Нажмите, чтобы отобразить эту область в Картах Google" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 66px; height: 26px; cursor: pointer;"><img src="{% static 'img/google4.png' %}" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 631px; top: 100px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Картографические данные</div><div style="font-size: 13px;">Картографические данные © 2017</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="{% static 'img/mapcnt6.png' %}" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 126px; bottom: 0px; width: 175px;"><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Картографические данные</a><span style="">Картографические данные © 2017</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Картографические данные © 2017</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/ru-RU_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Условия использования</a></div></div><div style="cursor: pointer; width: 25px; height: 25px; overflow: hidden; margin: 10px 14px; position: absolute; top: 0px; right: 0px;"><img src="{% static 'img/sv9.png' %}" draggable="false" class="gm-fullscreen-control" style="position: absolute; left: -52px; top: -86px; width: 164px; height: 175px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px; display: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_new" title="Сообщить об ошибке на карте или снимке" href="https://www.google.com/maps/@35.86166,104.195397,7z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Сообщить об ошибке на карте</a></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="28" controlheight="28" style="margin: 10px; user-select: none; position: absolute; bottom: 42px; right: 28px;"><div class="gm-svpc" controlwidth="28" controlheight="28" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 28px; height: 28px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default; position: absolute; left: 0px; top: 0px;"><div style="position: absolute; left: 1px; top: 1px;"></div><div style="position: absolute; left: 1px; top: 1px;"><div aria-label="Перейти в режим просмотра улиц" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="{% static 'img/cb_scout5.png' %}" draggable="false" style="position: absolute; left: -147px; top: -26px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div aria-label="Человечек находится над картой" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="{% static 'img/cb_scout5.png' %}" draggable="false" style="position: absolute; left: -147px; top: -52px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div aria-label="Перейти в режим просмотра улиц" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="{% static 'img/cb_scout5.png' %}" draggable="false" style="position: absolute; left: -147px; top: -78px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div><div class="gmnoprint" controlwidth="28" controlheight="0" style="display: none; position: absolute;"><div title="Повернуть карту на 90 градусов" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; cursor: pointer; background-color: rgb(255, 255, 255); display: none;"><img src="{% static 'img/tmapctrl4.png' %}" draggable="false" style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div class="gm-tilt" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);"><img src="{% static 'img/tmapctrl4.png' %}" draggable="false" style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div><div class="gmnoprint" style="margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div class="gm-style-mtc" style="float: left;"><div draggable="false" title="Показать карту с названиями объектов" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; -webkit-background-clip: padding-box; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 31px; font-weight: 500;">Карта</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; left: 0px; top: 31px; text-align: left; display: none;"><div draggable="false" title="Показать карту рельефа с названиями объектов" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img src="{% static 'img/imgs8.png' %}" draggable="false" style="position: absolute; left: -52px; top: -44px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Рельеф</label></div></div></div><div class="gm-style-mtc" style="float: left;"><div draggable="false" title="Показать спутниковую карту" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 8px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; -webkit-background-clip: padding-box; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-left: 0px; min-width: 43px;">Спутник</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; right: 0px; top: 31px; text-align: left; display: none;"><div draggable="false" title="Показать спутниковую карту с названиями объектов" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 6px 8px 6px 6px; direction: ltr; text-align: left; white-space: nowrap;"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img src="{% static 'img/imgs8.png' %}" draggable="false" style="position: absolute; left: -52px; top: -44px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Названия объектов</label></div></div></div></div></div></div></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xs-12 pade_none bangkok_map_out">
+                    <!--TABS START-->
+                    <div class="simpleTabs" id="tabber102">
+                        <ul class="simpleTabsNavigation">
+                            <li><a id="tabber102_a_0" class="current" href="javascript:void(0);" style="cursor:initial;">About China</a></li>
+                        </ul>
+                        <div class="simpleTabsContent currentTab" id="tabber102_div_0" style="padding-bottom: 60px;">
+                            <div class="col-xs-12 pade_none hongkonk_out">
+                                <p>Despite the internet being available all over China, the Wi-Fi connections may leave you a little underwhelmed and social media networks may only be limited to the Chinese versions  The world's most populated country, its landscape ranges from desert, rivers and mountain ranges to grassland areas.  Shanghai, the pulsating heart of China, is a global financial center dotted with skyscrapers.<br>
+                                    <br>
+                                    Looked upon as the startups "El Dorado", China has seen an explosive 4.4 million new companies born. The government is actively encouraging the young budding entrepreneurs to realize their dreams with funding and making administrative approvals easy to obtain. It is being said that despite the super active market of digital startups, there is a general lack of quality and innovative ideas happening in a world climate that requires more effectiveness.  There have been a few startups out of China that have made an impact such as "Didi Kuaidi", which is Uber's competitor in China.    <br>
+                                    <br>
+                                    Coworking spaces are beginning to pop up around China, whilst many Internet cafes have ceased offering wireless connections due to the costs of new regulations. Do remember that if you are outside of a big city, your chances of finding a sweet spot to put your laptop to work will decrease rapidly, as do urban comforts. On mainland China you will find that social sites such as YouTube, Twitter and Facebook are not always available and access to most of Google products is currently blocked, so plan accordingly and find substitutes for these services. <br>
+                                    <br>
+                                    To find a coworking space in China, browse through our interactive map below.</p>          </div>
+                        </div>
+                    </div>
+                    <!--TABS END-->
+                </div>
+            </div>
+        </div>
+
+        <!--FOOTER END-->
+    </div>
+
+{% endblock content %}
+

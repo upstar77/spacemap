@@ -31,10 +31,10 @@
                                                 <li><a href="https://www.coworker.com/profile/myreviews"><i class="fa fa-comment-o100"></i>Your Reviews</a></li>
                                                 <li><a href="https://www.coworker.com/profile"><i class="fa fa-pencil100"></i>Edit Profile</a></li>
                                                 <li><a href="https://www.coworker.com/profile/editprofile"><i class="fa fa-cog100"></i>Account Settings</a></li>
-                                                <li><a href="https://www.coworker.com/list-space"><i class="fa fa-plus-circle100"></i>Add Coworking Space</a></li>
-                                                                                <li>
-                                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>Log Out</a>
-                                </li>
+                                                <li><a href="{% url "main:list-space" %}"><i class="fa fa-plus-circle100"></i>Add Coworking Space</a></li>
+                                                <li>
+                                                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>Log Out</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>
@@ -78,7 +78,7 @@
                             <div class="mobMenuBottom">
                                 <h2>Coworking Space Owners</h2>
                                 <ul>
-                                    <li class="lastNoBorder"><a href="https://www.coworker.com/list-space" class="white-text"><i class="fa fa-caret-right"></i>List Your Space</a></li>
+                                    <li class="lastNoBorder"><a href="{% url "main:list-space" %}" class="white-text"><i class="fa fa-caret-right"></i>List Your Space</a></li>
                                 </ul>
                             </div>
                         </div>

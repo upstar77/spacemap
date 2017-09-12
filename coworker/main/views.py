@@ -13,3 +13,4 @@ class SearchList(TemplateView):
 class ListSpace(TemplateView):
     template_name = 'pages/list_space.html'
 
+

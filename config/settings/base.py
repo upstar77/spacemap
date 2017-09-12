@@ -57,6 +57,7 @@ LOCAL_APPS = [
     # custom users app
     'coworker.users.apps.UsersConfig',
     'main',
+    'place',
     # Your stuff: custom apps go here
 ]
 

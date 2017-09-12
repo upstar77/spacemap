@@ -11,8 +11,12 @@ urlpatterns = [
 
     # User management
     url(r'^', include('coworker.main.urls', namespace='main')),
-    url(r'^users/', include('coworker.users.urls', namespace='users')),
+
+    # url(r'^(?P<country>[\w-]+)/', include('coworker.place.urls', namespace='place')),
+    url(r'^profile/', include('coworker.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
+
+    url(r'^', include('coworker.place.urls', namespace='place')),
 
     # Your stuff: custom urls includes go here
 

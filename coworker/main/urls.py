@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^help/$', TemplateView.as_view(template_name='pages/help.html'), name='help'),
     url(r'^search/$', view=views.SearchList.as_view(), name='search'),
     url(r'^list-space/$', view=views.ListSpace.as_view(), name='list-space'),
-
     #ineral
     url(r'^profile/$', view=TemplateView.as_view(template_name='pages/profile.html'), name='profile')
 ]

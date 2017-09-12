@@ -41,8 +41,8 @@ CACHES = {
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
-MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
-INSTALLED_APPS += ['debug_toolbar', ]
+# MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
+# INSTALLED_APPS += ['debug_toolbar', ]
 
 INTERNAL_IPS = ['127.0.0.1', '10.0.2.2', ]
 
@@ -54,12 +54,12 @@ if os.environ.get('USE_DOCKER') == 'yes':
     ip = socket.gethostbyname(socket.gethostname())
     INTERNAL_IPS += [ip[:-1] + '1']
 
-DEBUG_TOOLBAR_CONFIG = {
-    'DISABLE_PANELS': [
-        'debug_toolbar.panels.redirects.RedirectsPanel',
-    ],
-    'SHOW_TEMPLATE_CONTEXT': True,
-}
+# DEBUG_TOOLBAR_CONFIG = {
+#     'DISABLE_PANELS': [
+#         'debug_toolbar.panels.redirects.RedirectsPanel',
+#     ],
+#     'SHOW_TEMPLATE_CONTEXT': True,
+# }
 
 # django-extensions
 # ------------------------------------------------------------------------------
@@ -77,4 +77,53 @@ CELERY_ALWAYS_EAGER = True
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
 
-# ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0']
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": True,
+    "formatters": {
+        "simple": {"format": "[%(name)s] %(levelname)s: %(message)s"},
+        "full": {"format": "%(asctime)s [%(name)s] %(levelname)s: %(message)s"},
+        'django.server': {
+            '()': 'django.utils.log.ServerFormatter',
+            'format': '[%(server_time)s] %(message)s',
+        },
+    },
+    "filters": {
+        "require_debug_false": {
+            "()": "django.utils.log.RequireDebugFalse",
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+        'django.server': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'django.server',
+        },
+    },
+    "loggers": {
+        "django.request": {
+            "handlers": [],
+            "level": "ERROR",
+            "propagate": False,
+        },
+        'django.server': {
+            'handlers': ['django.server'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'debug': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    }
+}
+
