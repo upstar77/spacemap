@@ -14,7 +14,7 @@ APPS_DIR = ROOT_DIR.path('coworker')
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
-
+env.read_env('.env')
 # .env file, should load only in development environment
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
 
@@ -49,6 +49,7 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'widget_tweaks',
 ]
 
 # Apps specific for this project go here.
@@ -112,6 +113,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///coworker'),
 }
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 
@@ -169,6 +171,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 # Your stuff: custom template context processors go here
+                # 'coworker.main.context_processors.auth_forms',
             ],
         },
     },
@@ -248,10 +251,20 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_SIGNUP_FORM_CLASS = "coworker.main.forms.SignupForm"
+#
+
+ACCOUNT_FORMS = {
+    'signup': ACCOUNT_SIGNUP_FORM_CLASS,
+}
+
 # Some really nice defaults
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = 'false'
+# ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_ADAPTER = 'coworker.users.adapters.AccountAdapter'
@@ -260,7 +273,7 @@ SOCIALACCOUNT_ADAPTER = 'coworker.users.adapters.SocialAccountAdapter'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_REDIRECT_URL = 'main:profile'
 LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
@@ -284,3 +297,4 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False

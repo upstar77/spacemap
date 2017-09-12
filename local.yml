@@ -22,6 +22,8 @@ services:
     command: /start.sh
 
   postgres:
+    ports:
+      - "5432:5432"
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile

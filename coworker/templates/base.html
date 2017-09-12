@@ -1,4 +1,7 @@
 {% load static %}
+{#{% load crispy_forms_tags %}#}
+{% load auth_forms %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -782,60 +785,23 @@
 <div class="modal" id="nvmyLoading">
 	<div class="col-sm-6 col-md-6 col-xs-6 loading-modal-content"><img src="{% static 'img/log_loading.gif' %}"></div>
 </div>
+
 <div class="modal" id="nvloginModal">
 	<div class="col-sm-6 col-md-6 col-xs-6 login-modal-content">
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none modal-header">
-			<h2 class="signup_face"><a href="javascript:void(0)" onclick="redirectNavFBForLogin();"><img alt="" src="{% static 'img/login_with_facebook.png' %}" style="width: 325px;"></a></h2>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<span class="signup_or">or</span>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<p class="signup_f"><img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;"> <input id="nvl_email" placeholder="Email address"></p>
-			<p class="signup_f"><img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;"><input id="nvl_password" placeholder="Password" type="password"></p>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12">
-			<div class="promise_timing_con02" style="padding-left: 30px;">
-				<ul style="text-align:left">
-					<li><input id="c3l" name="ccc" type="checkbox" value="2"><label for="c3l"><span>Remember Me</span></label><span style="float:right;margin-right: -25%;"><a href="https://www.coworker.com/#" onclick="ResetPasswordModal();" style="color:#666666 !important;">Forgot Password</a></span></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<div class="pade_none signup_save_btn">
-				<a href="javascript:void(0)" onclick="validateNavLogin();" style="padding-left: 130px; padding-right: 130px;">Log In</a>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<div class="signup_member" style="text-align: left;">
-				<span class="already_member" style="margin-left: 55px;">Don't have an account?&nbsp;&nbsp;</span><a href="javascript:void(0);" onclick="navLoginSignup();"><span class="login_member">Sign up</span></a>
-			</div>
-		</div>
-	</div>
+        {% login_form %}
+    </div>
 	<div class="col-sm-12 col-md-12 col-xs-12 pade_none world_join_out">
 		<div class="col-sm-3 col-md-3 col-xs-3"></div>
 		<div class="col-sm-3 col-md-3 col-xs-3"></div>
 	</div>
 </div>
+
 <div class="popup_outer" id="nvmy_Modal">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 pade_none popup_inner">
 				<div class="popup" id="n_popup">
-					<form class="sign_up_form shadow">
-						<h2>Join the Coworker Community</h2>
-						<div class="col-xs-12 pade_none coworker_popup_inner">
-							<p class="signup_f"><img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -5px;"><input id="nvfirst_name" placeholder="First name"></p>
-							<p class="signup_f"><img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -4px;"><input id="nvlast_name" placeholder="Last name"></p>
-							<p class="signup_f"><img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;"><input id="nvemail" placeholder="Email address"></p>
-							<p class="signup_f"><img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;"><input id="nvpassword" placeholder="Password" type="password"></p>
-							<p class="signup_f"><input onclick="validateNavSignup();" type="button" value="Sign Up"></p>
-							<p class="agree">By signing up I agree to Coworker's <a href="{% url "main:terms" %}" target="_blank">Terms of Service</a> and <a href="{% url "main:privacy-policy" %}" target="_blank">Privacy Policy</a></p>
-						</div>
-						<div class="col-xs-12 pade_none popup_bottom">
-							<span>Already a member?</span> <a class="login" href="javascript:void(0);" onclick="openNavSignupLogin();">Log In</a>
-						</div>
-					</form>
+                    {% sign_up_form %}
 				</div>
 			</div>
 		</div>
