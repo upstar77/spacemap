@@ -22,7 +22,8 @@
                             <div class="help_blk">
                                 <ul>
                                     <li>
-                                        <a href="{% url "main:about" %}"><div class="inner_li "><p>About</p><span><img class="help_img" alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"></span></div></a>
+                                        <a href="{% url "main:about" %}">
+                                            <div class="inner_li "><p>About</p><span><img class="help_img" alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"></span></div></a>
                                     </li>
                                     <li id="lg_menu" class="a1">
                                         <div id="lg_c" class="inner_li help_clk"><p id="lg_p">{{ user.first_name }}</p><span id="lg_s"><img id="lg_i" alt="img" src="{{ user.profile_image_url }}"></span></div>

@@ -34,46 +34,4 @@
     </div>
 </div>
 
-<script>
-  var EmailDoesNotExists = false;
-  function ResetPasswordModal() {
-    $('#nvloginModal').modal('hide');
-    $('#forgot_password').modal('toggle');
-  }
-  function ValidateRecovery(args) {
-    EmailDoesNotExists = false;
-    if ($("#email-reset").validationEngine('validate')) {
-      SendRecovery();
-    }
-  }
-  function SendRecovery() {
-    $("#LblSend").html('<i class="fa fa-spinner fa-spin" aria-hidden="true"><\/i>');
-    $.post("https://www.coworker.com/user/request-reset-password/",
-      {
-        email: $("#email-reset").val(),
-      },
-      function(data, status){
-        if (data == "0") {
-          EmailDoesNotExists = true;
-          $(".formError").remove();
-          $("#email-reset").validationEngine('validate');
-          $("#LblSend").html('Sent Reset Link');
-        }else{
-          //location.reload();
-          $('#forgot_password').modal('toggle');
-          $('#message_email').html($("#email-reset").val());
-          $('#r_popup').flexModal();
-          $("#LblSend").html('Sent Reset Link');
-          $("#email-reset").val('');
-        }
-      });
-  }
-  function is_EmailDoesnotExists(field, rules, i, options){
-    if(EmailDoesNotExists){
-      return "This email is not a registered Coworker user";
-    }
-  }
-  function closeMessageEmail(){
-    $('#flex-overlay').click();
-  }
-</script>
+

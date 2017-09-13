@@ -49,8 +49,8 @@
                     </div>
                     <div class="client_outer">
                     <span class="client_img">
-                        <a href="{% url "main:profile" %}">
-                            <img src="https://graph.facebook.com/1461729717241553/picture" alt="">
+                        <a href="{% url "users:profile" %}">
+                            <img src="{{ user.profile_image_url }}" alt="">
                         </a>
                     </span>
                         <span>{{ user.first_name }}</span>
