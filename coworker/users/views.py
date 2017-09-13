@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
 
 from coworker.core.mixins import AjaxableResponseMixin
 from coworker.users.forms import ProfileForm
@@ -43,6 +44,18 @@ class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
         ctx = super().get_context_data(**kwargs)
         return ctx
 
+    def form_valid(self, form):
+        # We make sure to call the parent's form_valid() method because
+        # it might do some processing (in the case of CreateView, it will
+        # call form.save() for example).
+        response = super(UserUpdateView, self).form_valid(form)
+        if self.request.is_ajax():
+            data = {
+                'birthday': self.object.birth_day.strftime("%b %d, %Y"),
+            }
+            return JsonResponse(data)
+        else:
+            return response
 
 class UserListView(LoginRequiredMixin, ListView):
     model = User

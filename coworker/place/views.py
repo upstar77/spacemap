@@ -1,6 +1,7 @@
 import logging
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.http import JsonResponse
 from django.views.generic import TemplateView
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView
 from .forms import PlaceForm
@@ -41,11 +42,12 @@ class PlaceAdd(CreateView):
 
     def form_invalid(self, form):
         print(form.errors)
-        return super().form_invalid(form)
+        #TODO should be return super().form_invalid(form), that is just for test
+        # return redirect('place:list-space-continue')
+        return JsonResponse({"status": "ok"})
 
     def form_valid(self, form):
         return super().form_valid(form)
-
 
 
 class PlaceAddContinue(CreateView):

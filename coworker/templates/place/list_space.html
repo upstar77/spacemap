@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <form action="{% url "place:list-space" %}/continue" method="post" accept-charset="utf-8" id="redirect_form" name="redirect_form">
+        <form action="{% url "place:list-space-continue" %}" method="get" accept-charset="utf-8" id="redirect_form" name="redirect_form">
             <input type="hidden" name="cu_id" id="cu_id">
             <input type="hidden" id="n_token" name="n_token">
             <input type="hidden" id="n_step" name="n_step">
@@ -716,15 +716,15 @@
         'dataType' : 'json',
         'data' : postinfo,
         'success' : function(data){
-          if(data.msg == 'SCS') {
-            $('#cu_id').val(data.userspace_id);
-            $('#n_token').val(data.rToken);
-            $('#n_step').val(data.rStep);
+{#          if(data.msg == 'SCS') {#}
+{#            $('#cu_id').val(data.userspace_id);#}
+{#            $('#n_token').val(data.rToken);#}
+{#            $('#n_step').val(data.rStep);#}
             $('#redirect_form')[0].submit();
-          } else if(data.msg == 'TMP') {
-            $('#myLoading').modal('toggle');
-            $('#myModal').modal('toggle');
-          }
+{#          } else if(data.msg == 'TMP') {#}
+{#            $('#myLoading').modal('toggle');#}
+{#            $('#myModal').modal('toggle');#}
+{#          }#}
         }
       });
     }

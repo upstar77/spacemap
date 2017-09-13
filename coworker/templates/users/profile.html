@@ -598,9 +598,8 @@
 {#          'data' : {'c_uid' : $('#c_id').val(), 'day':, 'month':xmonth, 'year':xyear},#}
           'data' : $form.serialize(),
           'success' : function(data){
-            var result = $.parseJSON(data);
 {#            if(result.msg == 'SCS') {#}
-              $('#my_birthday').val(result.birthday);
+              $('#my_birthday').val(data.birthday);
               $('#dv_birthday').show();
               $('#dv_birthday_edit').hide();
 {#            } else {#}

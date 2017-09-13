@@ -26,7 +26,7 @@ class User(AbstractUser):
         if self.profile_image:
             return self.profile_image.url
         else:
-            return static('not_sure/picture(1)')
+            return static('img/no-user-image.gif')
 
     def full_name(self):
         return "{} {}".format(self.first_name.capitalize(), self.last_name.capitalize())
