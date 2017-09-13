@@ -14,6 +14,7 @@ urlpatterns = [
 
     # url(r'^(?P<country>[\w-]+)/', include('coworker.place.urls', namespace='place')),
     url(r'^profile/', include('coworker.users.urls', namespace='users')),
+
     url(r'^accounts/', include('allauth.urls')),
 
     url(r'^', include('coworker.place.urls', namespace='place')),

@@ -56,9 +56,9 @@
                         <span>{{ user.first_name }}</span>
                         <div class="help_list">
                             <ul>
-                                <li><a href="https://www.coworker.com/profile/myreviews"><i class="fa fa-comment-o100"></i>Your Reviews</a></li>
-                                <li><a href="https://www.coworker.com/profile"><i class="fa fa-pencil100"></i>Edit Profile</a></li>
-                                <li><a href="https://www.coworker.com/profile/editprofile"><i class="fa fa-cog100"></i>Account Settings</a></li>
+                                <li><a href="{% url "users:myreviews" %}"><i class="fa fa-comment-o100"></i>Your Reviews</a></li>
+                                <li><a href="{% url "users:profile" %}"><i class="fa fa-pencil100"></i>Edit Profile</a></li>
+                                <li><a href="{% url "users:editprofile" %}"><i class="fa fa-cog100"></i>Account Settings</a></li>
                                 <li><a href="{% url "main:list-space" %}"><i class="fa fa-plus-circle100"></i>Add Coworking Space</a></li>
                                 <li>
                                     <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>Log Out</a>

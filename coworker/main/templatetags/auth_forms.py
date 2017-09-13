@@ -9,19 +9,17 @@ register = template.Library()
 
 @register.inclusion_tag("elements/sign-up.html", takes_context=True)
 def sign_up_form(context, *args, **kwargs):
-    request = context["request"]
+    # request = context["request"]
 
     form = SignupForm()
     return {
-        "request": request,
+        # "request": request,
         "form": form,
     }
 
 
 @register.inclusion_tag("elements/login.html", takes_context=True)
 def login_form(context, *args, **kwargs):
-    request = context["request"]
     return {
-        "request": request,
         "form": LoginForm(),
     }

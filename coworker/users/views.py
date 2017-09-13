@@ -3,14 +3,20 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView,
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from coworker.core.mixins import AjaxableResponseMixin
+from coworker.users.forms import ProfileForm
 from .models import User
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+class UserProfileView(LoginRequiredMixin, DetailView):
+    template_name = 'users/profile.html'
     model = User
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class UserRedirectView(LoginRequiredMixin, RedirectView):
@@ -21,21 +27,16 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
                        kwargs={'username': self.request.user.username})
 
 
-class UserUpdateView(LoginRequiredMixin, UpdateView):
+class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
+    template_name = 'users/profile.html'
+    form_class = ProfileForm
 
-    fields = ['name', ]
+    def get_object(self, *args, **kwargs):
+        return self.request.user
 
-    # we already imported User in the view code above, remember?
-    model = User
-
-    # send the user back to their own page after a successful update
-    def get_success_url(self):
-        return reverse('users:detail',
-                       kwargs={'username': self.request.user.username})
-
-    def get_object(self):
-        # Only get the User record for the user making the request
-        return User.objects.get(username=self.request.user.username)
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        return ctx
 
 
 class UserListView(LoginRequiredMixin, ListView):

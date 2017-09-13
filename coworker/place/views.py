@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 
 log = logging.getLogger('debug')
 
+
 class Place(TemplateView):
     template_name = 'place/place.html'
 
@@ -19,5 +20,5 @@ class Place(TemplateView):
 
         if self.kwargs.get("place"):
             self.template_name = 'place/place.html'
-            
+
         return ctx

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load widget_tweaks %}
 
 {% block title %}{% endblock %}
 
@@ -90,7 +90,7 @@
                         <div class="col-xs-12 pade_none coworker_tab_outr">
                             <ul>
                                 <li>
-                                    <a href="https://www.coworker.com/profile#answer1" class="anchor" onclick="displayAnswer(&#39;answer1&#39;);">
+                                    <a href="{% url "users:profile" %}#answer1" class="anchor" onclick="displayAnswer(&#39;answer1&#39;);">
                                         <i class="fa fa-list-alt" aria-hidden="true"></i> My Profile
                                     </a>
                                 </li>
@@ -105,22 +105,22 @@
                                   </a>
                                 </li>-->
                                 <li>
-                                    <a href="https://www.coworker.com/profile#answer2" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">
+                                    <a href="{% url "users:profile" %}#answer2" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">
                                         <i class="fa fa-star002"></i> Reviews
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.coworker.com/profile#answer6" class="anchor for_website_icon" onclick="displayAnswer(&#39;answer6&#39;);">
+                                    <a href="{% url "users:profile" %}#answer6" class="anchor for_website_icon" onclick="displayAnswer(&#39;answer6&#39;);">
                                         <img src="{% static 'img/img_swag_website.png' %}" alt="swag icon"> For your Website
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.coworker.com/profile#answer3" class="anchor" onclick="displayAnswer(&#39;answer3&#39;);">
+                                    <a href="{% url "users:profile" %}#answer3" class="anchor" onclick="displayAnswer(&#39;answer3&#39;);">
                                         <i class="fa fa-users"></i> Connections
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.coworker.com/profile#answer4" class="anchor" onclick="displayAnswer(&#39;answer4&#39;);">
+                                    <a href="{% url "users:profile" %}#answer4" class="anchor" onclick="displayAnswer(&#39;answer4&#39;);">
                                         <i class="fa fa-cog"></i> Settings
                                     </a>
                                 </li>
@@ -129,24 +129,27 @@
                     </div>
                     <div class="col-sm-8 col-md-8 col-xs-12 pade_none connection_rgt_out">
                         <div class="col-xs-12 pade_none connect_leanee_top">
-                            <h2>Welcome, Alex</h2>
+                            <h2>Welcome, {{ user.first_name }}</h2>
                             <h3>This is your coworker account, where you can keep track
                                 of all the stuff you've got going on.</h3>
                         </div>
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer1" style="display:block">
-                            <form action="https://www.coworker.com/profile/edit" method="post" accept-charset="utf-8" id="edit_form" name="edit_form">
-                                <a href="https://www.coworker.com/profile#" id="answer1"></a>
+                            <form action="{% url "users:editprofile" %}" method="post" accept-charset="utf-8" id="edit_form" name="edit_form">
+                                <a href="{% url "users:profile" %}#" id="answer1"></a>
                                 <h2>Profile</h2>
                                 <div class="col-xs-12 pade_none profile_con">
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Name:</div>
-                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">Alex Stupak</div>
+                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">{{ user.full_name }}</div>
                                 </div>
 
                                 <div id="dv_birthday" class="col-xs-12 pade_none profile_con">
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Date of Birth:</div>
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
-                                        <input class="col-sm-8 col-md-8 col-xs-8 pade_none" id="my_birthday" type="text" value="" readonly="readonly">
-                                        <div class="col-sm-4 col-md-4 col-xs-4 pade_none change_btn"><a href="javascript:void(0);" onclick="showEditBirthday();">Edit</a></div>
+                                        <input class="col-sm-8 col-md-8 col-xs-8 pade_none" id="my_birthday" type="text" value="{{ user.birth_day|date:"M d, Y" }}" readonly="readonly">
+{#                                        {% render_field form.birth_day class="col-sm-8 col-md-8 col-xs-8 pade_none" id="my_birthday" type="text" value="" readonly="readonly" %}#}
+                                        <div class="col-sm-4 col-md-4 col-xs-4 pade_none change_btn">
+                                            <a href="javascript:void(0);" onclick="showEditBirthday();">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="dv_birthday_edit" style="display:none;">
@@ -154,16 +157,21 @@
                                         <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Date of Birth:</div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-11 col-md-11 col-xs-11 pade_none profile_rgt_con">
-                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content"><input id="b_day" value="1" readonly="" aria-valuemin="1" aria-valuemax="31" aria-valuenow="1" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>
-                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content"><input id="b_month" value="0" readonly="" aria-valuenow="0" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>
-                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content"><input id="b_year" value="1970" readonly="" aria-valuemin="1930" aria-valuemax="2016" aria-valuenow="1970" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>
+                                                {{ form.birth_day }}
+{#                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">#}
+{#                                                    <input id="b_day" value="1" readonly="" aria-valuemin="1" aria-valuemax="31" aria-valuenow="1" autocomplete="off" class="ui-spinner-input" role="spinbutton">#}
+{#                                                    <a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>#}
+{#                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">#}
+{#                                                    <input id="b_month" value="0" readonly="" aria-valuenow="0" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>#}
+{#                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">#}
+{#                                                    <input id="b_year" value="1970" readonly="" aria-valuemin="1930" aria-valuemax="2016" aria-valuenow="1970" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>#}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 pade_none profile_con03">
                                         <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con"></div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
-                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateBirthday();">Save</a></div>
+                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateBirthday(event);">Save</a></div>
                                             <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="hideEditBirthday();">Cancel</a></div>
                                         </div>
                                     </div>
@@ -172,28 +180,36 @@
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">About Me:</div>
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
                                         <p id="p_aboutme" class="col-sm-9 col-md-9 col-xs-9 pade_none">
-                                            <span id="add_aboutme" onclick="showEditAboutme();">+ add some details about yourself</span>
+                                            {% if user.aboutme %}
+                                                {{ user.aboutme }}
+                                            {% else %}
+                                                <span id="add_aboutme" onclick="showEditAboutme();">+ add some details about yourself</span>
+                                            {% endif %}
                                         </p>
-                                        <div id="dv_aboutme_button" class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn" style="display:none;"><a href="javascript:void(0);" onclick="showEditAboutme();">Edit</a></div>
+                                        <div id="dv_aboutme_button" class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn">
+                                            <a href="javascript:void(0);" onclick="showEditAboutme();">Edit</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="dv_aboutme_edit" style="display:none;">
                                     <div class="col-xs-12 pade_none profile_con04">
                                         <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">About Me:</div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
-                                            <textarea id="aboutme" name="aboutme" class="col-sm-12 col-md-12 col-xs-12"></textarea>
+                                            {% render_field form.aboutme id="aboutme" name="aboutme" class="col-sm-12 col-md-12 col-xs-12" %}
+{#                                            <textarea id="aboutme" name="aboutme" class="col-sm-12 col-md-12 col-xs-12"></textarea>#}
                                         </div>
                                     </div>
                                     <div class="col-xs-12 pade_none profile_con03">
                                         <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con"></div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
-                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateAboutme();">Save</a></div>
+                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateAboutme(event);">Save</a></div>
                                             <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="hideEditAboutme();">Cancel</a></div>
                                         </div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="c_uid" id="c_uid" value="11040">
-                            </form></div>
+                            </form>
+                        </div>
                         <!--REVIEWS-->
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer2" style="display:none">
                             <a href="#" id="answer2"></a>
@@ -206,7 +222,7 @@
                                         <h3>Grass Coworking</h3>
                                         <span>12th September 2017</span>
                                         <p>"I like this place. Best in Poltava"</p>
-                                        <div class="col-xs-12 pade_none full_review_btn"><a href="https://www.coworker.com/ukraine/poltava/grass-coworking">View Full Review</a></div>
+                                        <div class="col-xs-12 pade_none full_review_btn"><a href="{% url "place:place" "ukraine" "poltava" "grass-coworking" %}">View Full Review</a></div>
                                     </div>
                                 </div></div>
                             <div class="col-xs-12 pade_none coworker_pagination_main">
@@ -219,7 +235,7 @@
                         <!-- start For your Website -->
 
                         <div class="col-xs-12 pade_none your_website_main_outer" id="answer6" style="display:none">
-                            <a href="https://www.coworker.com/profile#" id="answer6"></a>
+                            <a href="{% url "users:profile" %}#" id="answer6"></a>
                             <h2>For Your Website</h2>
                             <p>Get embeddable widgets and graphics for your own website that show how much your members love you...</p>
 
@@ -232,7 +248,7 @@
 
                         <!--CONNECTIONS-->
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer3" style="display:none">
-                            <a href="https://www.coworker.com/profile#" id="#answer3"></a>
+                            <a href="{% url "users:profile" %}#" id="#answer3"></a>
                             <h2>Seems like you're alone here…</h2>
                             <p>Invite your friends to join you on Coworker!</p>
                             <br>
@@ -245,11 +261,9 @@
                         </div>
 
 
-
-
                         <!-- COWORKING SPACES -->
                         <div class="col-xs-12 pade_none profile_leanee_outer spaces_outer" id="answer5" style="display:none">
-                            <a href="https://www.coworker.com/profile#" id="answer5"></a>
+                            <a href="{% url "users:profile" %}#" id="answer5"></a>
                             <h2>My Coworking  Spaces.&nbsp; </h2>
                             <div id="user_spaces">
                             </div>
@@ -262,7 +276,7 @@
                         <!--SETTINGS-->
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer4" style="display:none">
                             <form action="https://www.coworker.com/profile/user" method="post" accept-charset="utf-8" id="user_form" name="user_form">
-                                <a href="https://www.coworker.com/profile#" id="answer4"></a>
+                                <a href="{% url "users:profile" %}#" id="answer4"></a>
 
                                 <div id="dv_contact" class="col-xs-12 pade_none profile_con02">
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Contact Email:</div>
@@ -291,7 +305,8 @@
                                 <div id="dv_change" class="col-xs-12 pade_none profile_con03">
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Password:</div>
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
-                                        <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con"><input class="col-sm-12 col-md-12 col-xs-12" type="password" value=""></div>
+                                        <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con"><input class="col-sm-12 col-md-12 col-xs-12" type="password" value="stupak.alexn@gmail.com"></div>
+                                        <div class="col-sm-4 col-md-4 col-xs-4 pade_none change_btn"><a href="javascript:void(0);" onclick="showPassword();">Change</a></div>
                                     </div>
                                 </div>
                                 <div id="dv_password" style="display:none;">
@@ -321,7 +336,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="c_id" id="c_id" value="11040">
+                                <input type="hidden" name="c_id" id="c_id" value="{{ user.pk }}">
                                 <input type="hidden" name="op_id" id="op_id" value="-1">
                                 <input type="hidden" name="user_name" id="user_name" value="">
                             </form></div>
@@ -400,7 +415,7 @@
       var ms_idx= 0;
       function loadMySpacesPage(idx,p_id){
         $.ajax({
-          'url' : 'https://www.coworker.com/profile/get_spaces',
+          'url' : '{% url "users:get_spaces" %}',
           'type' : 'POST',
           'data' : {pIdx:idx, uId:p_id},
           'success' : function(data){
@@ -521,44 +536,49 @@
         $('#dv_aboutme').show();
         $('#dv_aboutme_edit').hide();
       }
-      function updateAboutme(){
+      function updateAboutme(e){
         if($('#aboutme').val().trim()!=''){
           var xmsg = $('#aboutme').val().trim();
+          var $form = $(e.target).closest("form");
           $.ajax({
-            'url' : 'https://www.coworker.com/profile/update_aboutme',
+            'url' : '{% url "users:update_aboutme" %}',
             'type' : 'POST',
-            'data' : {'c_uid' : $('#c_id').val(), 'aboutme':JSON.stringify(xmsg)},
+            'data' : $form.serialize(),
             'success' : function(data){
-              var result = $.parseJSON(data);
-              if(result.msg == 'SCS') {
+{#              var result = $.parseJSON(data);#}
+{#              if(result.msg == 'SCS') {#}
                 $('#p_aboutme').text(xmsg);
                 $('#p_aboutme').show();
                 $('#dv_aboutme').show();
                 $('#dv_aboutme_button').show();
                 $('#dv_aboutme_edit').hide();
-              } else {
-
-              }
+{#              } else {#}
+{##}
+{#              }#}
             }
           });
         } else
           alert('Please enter some details');
       }
-      function updateBirthday(){
-        var xday  = $('#b_day').spinner('value');
-        var xmonth= $('#b_month').textSpinner('value')+1;
-        var xyear = $('#b_year').spinner('value');
+      function updateBirthday(e){
+{#        var xday  = $('#b_day').spinner('value');#}
+{#        var xmonth= $('#b_month').textSpinner('value')+1;#}
+{#        var xyear = $('#b_year').spinner('value');#}
+        var $form = $(event.target).closest("form");
         $.ajax({
-          'url' : 'https://www.coworker.com/profile/update_aboutme',
+          'url' : '{% url "users:update_aboutme" %}',
           'type' : 'POST',
-          'data' : {'c_uid' : $('#c_id').val(), 'day':xday, 'month':xmonth, 'year':xyear},
+{#          'data' : {'c_uid' : $('#c_id').val(), 'day':, 'month':xmonth, 'year':xyear},#}
+          'data' : $form.serialize(),
           'success' : function(data){
             var result = $.parseJSON(data);
-            if(result.msg == 'SCS') {
+{#            if(result.msg == 'SCS') {#}
               $('#my_birthday').val(result.birthday);
               $('#dv_birthday').show();
               $('#dv_birthday_edit').hide();
-            } else { }
+{#            } else {#}
+{##}
+{#            }#}
           }
         });
       }
@@ -1281,6 +1301,211 @@
           document.getElementById("lg_menu").addEventListener('mouseover',overUserMenu,true);
         }
       });
+    </script>
+
+    <script language="JavaScript" type="text/javascript">
+      function displayAnswer(divID)
+      {
+        if(divID == 'answer6'){
+          $('#select-space').trigger("change");
+        }
+
+
+        if(document.getElementById(divID).style.display == 'block')
+        {
+          var closeAnswer = true;
+        }
+        document.getElementById('answer1').style.display = 'none';
+        document.getElementById('answer2').style.display = 'none';
+        document.getElementById('answer3').style.display = 'none';
+        document.getElementById('answer4').style.display = 'none';
+        document.getElementById('answer5').style.display = 'none';
+        document.getElementById('answer6').style.display = 'none';
+//document.getElementById('answer7').style.display = 'none';  //My Event
+//document.getElementById('answer8').style.display = 'none';  //Messages
+//document.getElementById('answer9').style.display = 'none';  //Message Threat
+        document.getElementById('answer10').style.display = 'none';
+
+        if(!closeAnswer)
+        {
+          document.getElementById(divID).style.display = '';
+        }
+        return false;
+      }
+      function displayMarketing(cs_id)
+      {
+
+        document.getElementById('answer1').style.display = 'none';
+        document.getElementById('answer2').style.display = 'none';
+        document.getElementById('answer3').style.display = 'none';
+        document.getElementById('answer4').style.display = 'none';
+        document.getElementById('answer5').style.display = 'none';
+        //document.getElementById('answer7').style.display = 'none';
+        //document.getElementById('answer8').style.display = 'none';
+        //document.getElementById('answer9').style.display = 'none';
+        document.getElementById('answer6').style.display = 'block';
+        $("#answer6").html('<div class="section_loader"><img src="/template/assets/images/ajax-loader.gif"/></div>');
+
+        $.ajax({
+          type : "GET",
+          url : "/profile/marketing/"+cs_id,
+          dataType: 'JSON',
+          success: function(result)
+          {
+            $("#answer6").html(result.htmlContent);
+            var defaultTourHours = jQuery.parseJSON('[{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":false,"timeFrom":null,"timeTill":null},{"isActive":false,"timeFrom":null,"timeTill":null}]');
+            var defaultDaypassHours = jQuery.parseJSON('[{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":true,"timeFrom":"09:00","timeTill":"18:00"},{"isActive":false,"timeFrom":null,"timeTill":null},{"isActive":false,"timeFrom":null,"timeTill":null}]');
+
+            /* UNCOMMENT LAUNCH STRIPE ---- (FIX PHP TAGS after uncommenting)
+            Stripe.setPublishableKey('< ? $this->stripe_wrapper->public_key; ? >');
+
+            if(result.lead_tools_active == "0")
+            {
+                $("#mrkt_leadgen_yes").hover(function(){
+                        if($('#mrkt_leadgen').val() === "0") {
+                            $(this).css({"background-color": "#fff","color": "#00d191"});
+                        }
+                    }, function(){
+                        if($('#mrkt_leadgen').val() === "0") {
+                            $(this).css({"background-color": "transparent","color": "#fff"});
+                        }
+                });
+
+                $("#mrkt_leadgen_no").hover(function(){
+                        if($('#mrkt_leadgen').val() === "1") {
+                            $(this).css({"background-color": "#fff","color": "#00d191"});
+                        }
+                    }, function(){
+                        if($('#mrkt_leadgen').val() === "1") {
+                            $(this).css({"background-color": "transparent","color": "#fff"});
+                        }
+                });
+
+                //toggleTourSchedJoin();
+                $("#tour_clk").click(function(){
+                  toggleTourSchedJoin();
+                });
+                //toggleDayPassSchedJoin();
+                $("#daypass_clk").click(function(){
+                  toggleDayPassSchedJoin();
+                });
+
+                // Initialize to off
+                toggleActivateMarketing(0);
+
+            }
+            else {
+            */
+
+            $("#tour_clk").click(function(){
+              toggleTourSchedEdit();
+            });
+            $("#daypass_clk").click(function(){
+              toggleDayPassSchedEdit();
+            });
+            $("#opt_reservation").click(function(){
+              toggleReservationEdit();
+            });
+
+            if((result.sched_tour !== '')&&(result.sched_tour!=null))
+              defaultTourHours = jQuery.parseJSON(result.sched_tour);
+
+            if((result.sched_daypass !== '')&&(result.sched_daypass != null))
+              defaultDaypassHours = jQuery.parseJSON(result.sched_daypass);
+
+            toggleTourSchedEdit();
+            toggleDayPassSchedEdit();
+            toggleReservationEdit();
+            /* UNCOMMENT LAUNCH STRIPE ----
+            }
+            */
+
+            var tours = $("#tourHoursContainer");
+            var tourHoursManagerBootstrap = tours.businessHours({
+                operationTime: defaultTourHours,
+                postInit:function(){
+                  tours.find('.operationTimeFrom, .operationTimeTill').timepicker({
+                    'useSelect': true,
+                    'timeFormat': 'H:i',
+                    'step': 30
+                  }).change(function(){
+                    $("#sched_tour").val(JSON.stringify(tourHoursManagerBootstrap.serialize()));
+                  });
+                  tours.find('.dayContainer').click(function(){
+                    $("#sched_tour").val(JSON.stringify(tourHoursManagerBootstrap.serialize()));
+                  })
+                },
+                dayTmpl: '<div class="dayContainer" style="width: 80px;">' +
+                '<div data-original-title="" class="colorBox"><input type="checkbox" class="invisible operationState"/></div>' +
+                '<div class="weekday"></div>' +
+                '<div class="operationDayTimeContainer">' +
+                '<div class="operationTime input-group"><input name="startTime" class="mini-time form-control operationTimeFrom" value=""/></div>' +
+                '<div class="operationTime input-group"><input name="endTime" class="mini-time form-control operationTimeTill" value=""/></div>' +
+                '</div></div>'
+              }
+            );
+            $("#sched_tour").val(JSON.stringify(tourHoursManagerBootstrap.serialize()));
+
+            var daypasses = $("#daypassHoursContainer");
+            var daypassHoursManagerBootstrap = daypasses.businessHours({
+                operationTime: defaultDaypassHours,
+                postInit:function(){
+                  daypasses.find('.operationTimeFrom, .operationTimeTill').timepicker({
+                    'useSelect': true,
+                    'timeFormat': 'H:i',
+                    'step': 30
+                  }).change(function(){
+                    $("#sched_daypass").val(JSON.stringify(daypassHoursManagerBootstrap.serialize()));
+                  });
+                  daypasses.find('.dayContainer').click(function(){
+                    $("#sched_daypass").val(JSON.stringify(daypassHoursManagerBootstrap.serialize()));
+                  })
+                },
+                dayTmpl: '<div class="dayContainer" style="width: 80px;">' +
+                '<div data-original-title="" class="colorBox"><input type="checkbox" class="invisible operationState"/></div>' +
+                '<div class="weekday"></div>' +
+                '<div class="operationDayTimeContainer">' +
+                '<div class="operationTime input-group"><input name="startTime" class="mini-time form-control operationTimeFrom" value=""/></div>' +
+                '<div class="operationTime input-group"><input name="endTime" class="mini-time form-control operationTimeTill" value=""/></div>' +
+                '</div></div>'
+              }
+            );
+            $("#sched_daypass").val(JSON.stringify(daypassHoursManagerBootstrap.serialize()));
+          }
+
+        });
+
+        return true;
+      }
+
+      function displayBooking(type, cs_id)
+      {
+
+        document.getElementById('answer1').style.display = 'none';
+        document.getElementById('answer2').style.display = 'none';
+        document.getElementById('answer3').style.display = 'none';
+        document.getElementById('answer4').style.display = 'none';
+        document.getElementById('answer5').style.display = 'none';
+        //document.getElementById('answer7').style.display = 'none';
+        //document.getElementById('answer8').style.display = 'none';
+        //document.getElementById('answer9').style.display = 'none';
+        document.getElementById('answer6').style.display = 'none';
+        document.getElementById('answer10').style.display = 'block';
+        $("#answer10").html('<div class="section_loader"><img src="/template/assets/images/ajax-loader.gif"/></div>');
+
+        $.ajax({
+          type : "GET",
+          url : "/profile/booking/"+type+"/"+cs_id,
+          dataType: 'JSON',
+          success: function(result)
+          {
+            $("#answer10").html(result.htmlContent);
+          }
+        });
+
+        return true;
+      }
+
     </script>
 
 {% endblock content %}
