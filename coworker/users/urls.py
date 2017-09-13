@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^myreviews/$', view=TemplateView.as_view(template_name='pages/reviews.html'), name='myreviews'),
 
     url(r'^get_spaces/$', view=TemplateView.as_view(template_name='pages/reviews.html'), name='get_spaces'),
+    url(r'^photo/$', view=views.UpdateProfileImage.as_view(), name='photo'),
 
 ]

@@ -12,7 +12,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['birth_day', 'birth_day', 'aboutme', 'avatar']
+        fields = ['birth_day', 'birth_day', 'aboutme']
 
     def clean(self):
         super(ProfileForm, self).clean()

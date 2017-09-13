@@ -4,13 +4,14 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from django.utils.functional import cached_property
+from django.contrib.staticfiles.templatetags.staticfiles import static
 
 
 @python_2_unicode_compatible
 class User(AbstractUser):
 
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
-    avatar = models.ImageField(_(u"User image"), upload_to='profile_pictures', blank=True, null=True)
+    profile_image = models.ImageField(_(u"User image"), upload_to='profile_pictures', blank=True, null=True)
     birth_day = models.DateField(_("Birth day"), null=True, blank=True)
     aboutme = models.TextField(_("About me"), null=True, blank=True)
 
@@ -21,9 +22,11 @@ class User(AbstractUser):
         return reverse('users:detail', kwargs={'username': self.username})
 
     @cached_property
-    def avatar_url(self):
-        if self.avatar:
-            return self.avatar.url
+    def profile_image_url(self):
+        if self.profile_image:
+            return self.profile_image.url
+        else:
+            return static('not_sure/picture(1)')
 
     def full_name(self):
         return "{} {}".format(self.first_name.capitalize(), self.last_name.capitalize())

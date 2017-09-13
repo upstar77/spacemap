@@ -10,6 +10,20 @@
 {% endblock %}
 
 {% block content %}
+    <style type="text/css">
+        #fileUpload, #upload_btns{
+            display: none;
+        }
+        svg{
+            display:block;
+            height:auto;
+        }
+        path{
+            transition:fill .5s;
+            fill:#E3DFD2;
+        }
+    </style>
+
     <script src="{% static 'js/jquery-ui.min(1).js' %}"></script>
     <script src="{% static 'js/jscolor.min.js' %}"></script>
 
@@ -20,7 +34,7 @@
                 <div class="col-xs-12 pade_none connection_main_inner">
                     <div class="col-sm-4 col-md-4 col-xs-12 pade_none connection_left_out">
                         <div class="col-xs-12 pade_none connect_leane_pic">
-                            <img id="img_profile" src="{% static 'not_sure/picture(1)' %}" alt="" style="z-index: -1;border:6px solid #f5f5f5;">
+                            <img id="img_profile" src="{{ user.profile_image_url }}" alt="" style="z-index: -1;border:6px solid #f5f5f5;">
                             <span id="upload_lbl" class="upload_picture">
                                 <ul>
                                   <li>
@@ -41,7 +55,8 @@
                                 <mask id="mask">
                                     <rect fill="white" width="100%" height="100%" fill-opacity="1"></rect>
                                     <circle cx="117" cy="116" r="112">
-                                    </circle></mask>
+                                    </circle>
+                                </mask>
                                 <rect mask="url(#mask)" fill="#f5f5f5" width="100%" height="100%" fill-opacity="1"></rect>
                             </svg>
                             <svg id="sv_normal2" width="200" height="200" onmouseover="overUpload();" onmouseout="outUpload();">
@@ -81,12 +96,15 @@
                             </svg>
                         </div>
                         <div class="col-xs-12 pade_none">
-                            <form action="https://www.coworker.com/profile/photo" method="post" accept-charset="utf-8" id="photo_form" name="photo_form" enctype="multipart/form-data">  <input id="fileUpload" type="file" name="fileUpload">
+                            <form action="{% url "users:photo" %}" method="post" accept-charset="utf-8" id="photo_form" name="photo_form" enctype="multipart/form-data">
+                                <input id="fileUpload" type="file" name="profile_image">
+                                {% csrf_token %}
                                 <div id="upload_btns" class="upload_btn">
-                                    <a href="javascript:void(0);" onclick="updatePhoto();">&nbsp;Save&nbsp;</a>
-                                    <a href="javascript:void(0);" onclick="restorePhoto();">Cancel</a>
+                                    <a href="javascript:void(0);" onclick="updatePhoto(event);">&nbsp;Save&nbsp;</a>
+                                    <a href="javascript:void(0);" onclick="restorePhoto(event);">Cancel</a>
                                 </div>
-                            </form></div>
+                            </form>
+                        </div>
                         <div class="col-xs-12 pade_none coworker_tab_outr">
                             <ul>
                                 <li>
@@ -616,12 +634,14 @@
         });
       };
       (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk')
+      );
+
       function updatePhoto (argument) {
         var img_size = document.getElementById('fileUpload').files[0].size;
         if(img_size < (1024 * 1024 * 10))

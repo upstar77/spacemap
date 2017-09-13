@@ -25,7 +25,7 @@
                                         <a href="{% url "main:about" %}"><div class="inner_li "><p>About</p><span><img class="help_img" alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"></span></div></a>
                                     </li>
                                     <li id="lg_menu" class="a1">
-                                        <div id="lg_c" class="inner_li help_clk"><p id="lg_p">{{ user.first_name }}</p><span id="lg_s"><img id="lg_i" alt="img" src="{% static 'not_sure/picture' %}"></span></div>
+                                        <div id="lg_c" class="inner_li help_clk"><p id="lg_p">{{ user.first_name }}</p><span id="lg_s"><img id="lg_i" alt="img" src="{{ user.profile_image_url }}"></span></div>
                                         <div id="lg_h" class="help_list" style="display: none;">
                                             <ul>
                                                 <li><a href="{% url "users:myreviews" %}"><i class="fa fa-comment-o100"></i>Your Reviews</a></li>
