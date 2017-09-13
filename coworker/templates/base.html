@@ -63,10 +63,35 @@
       });
     </script>
 
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/formValidation.min.css' %}">
     <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" type="text/css">
-    <script src="{% static 'js/owl.carousel.js' %}" type="text/javascript">
-    </script>
+    <script src="{% static 'js/owl.carousel.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/formValidation.min.js' %}"></script>
+    <script src="{% static 'js/fv.bootstrap.min.js' %}"></script>
+    <script type="text/javascript">
+    $(window).scroll(function(){
+      var sticky = $('.nginx_main_rgt'),
+      scroll = $(window).scrollTop();
+      var scroll_me = false;
+      $( window ).resize(function() {
+      var wd = $( this ).width();
+      if(wd >= '768' && wd <= '991'){
+        scroll_me = true;
+      } else if(wd >= '992' ){
+        scroll_me = true;
+      } else {
+      }
+    });
+      if($( window ).width() >= '992') {
+        scroll_me = true;
+      }
+    });
+</script>
+
 </head>
 <body>
 <!--DOCK HEADER-->
@@ -111,9 +136,7 @@
             background: #00d191 !important;
         }
     </style>
-    <script charset="utf-8" src="static/js/jquery.validationEngine-en.js" type="text/javascript">
-    </script>
-    <script charset="utf-8" src="static/js/jquery.validationEngine.js" type="text/javascript">
+    <script charset="utf-8" src="{% static "js/jquery.validationEngine-en.js" %}" type="text/javascript">
     </script>
     <script>
       var EmailDoesNotExists = false;

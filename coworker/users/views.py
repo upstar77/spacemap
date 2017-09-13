@@ -12,6 +12,7 @@ class UserFromRequest:
     def get_object(self, queryset=None):
         return self.request.user
 
+
 class UserProfileView(LoginRequiredMixin, DetailView):
     template_name = 'users/profile.html'
     model = User

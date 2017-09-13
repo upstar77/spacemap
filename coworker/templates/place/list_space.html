@@ -1,0 +1,801 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+{% block title %}Add Your Space - Coworker.com{% endblock %}
+
+{% block content %}
+    <div class="main_outer">
+        <!--COWORKER SUBMISSION PART-->
+        <div class="cow_submission_main">
+            <div class="container">
+                <div class="row">
+                    <div class="submission_form_main">
+                        <div class="submission_form_inner">
+                            <h2 style="text-align:center;line-height:30px;margin-bottom:20px;">
+                                List Your Coworking Space<br>
+                                <span style="font-size:18px;">( it's free )</span>
+                            </h2>
+
+                            <form action="{% url "place:list-space" %}" method="post" accept-charset="utf-8" id="user_space_form" name="user_space_form" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+
+                                <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+
+                                <div class="form-group">
+                                    <label>Name of your Coworking Space </label>
+                                    {% render_field form.space_name type="text" class="submission_form_inner input" id="space_name" %}
+                                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="space_name" data-fv-result="NOT_VALIDATED" style="display: none;">The Coworking Space Name is required</small>
+                                </div>
+                                <div id="countryField" class="form-group ui-front">
+                                    <label>Country</label>
+                                     {% render_field form.country id="country" name="country_id" class="meet_icon" %}
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <div id="cityField" class="ui-front">
+                                        {% render_field  form.city  id="city" class="submission_form_inner input" type="text" %}
+                                    </div>
+                                </div>
+                                <div class="form_group">
+                                    <div class="list_space_user_type">
+                                        <div class="usertype_label"><label>You are...</label></div>
+                                        <div class="hradio_btn">
+                                            <input type="radio" id="utype_ot" name="user_type" value="ot" checked="checked">
+                                            <input type="radio" id="utype_cm" name="user_type" value="cm">
+                                            <input type="radio" id="utype_pm" name="user_type" value="pm">
+                                        </div>
+{#                                        {% render_field form.user_type %}#}
+                                        <div class="wrapper_box">
+                                            <div id="ot_type" class="user_type_circle circle_red" data-panelid="utype_ot">
+                                                Official Team
+                                            </div>
+                                        </div>
+                                        <div class="wrapper_box">
+                                            <div id="cm_type" class="user_type_circle" data-panelid="utype_cm">
+                                                Current Member
+                                            </div>
+                                        </div>
+                                        <div class="wrapper_box">
+                                            <div id="pm_type" class="user_type_circle" data-panelid="utype_pm">
+                                                Past Member
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display:none;">
+                                    <label>Your Email Address</label>
+                                    <input id="email_space" name="email_space" class="submission_form_inner input" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" onclick="submitSpace();">Get Started Now</button>
+                                </div>
+                                <input type="hidden" name="city_id" id="city_id">
+                                <input type="hidden" name="token" id="token" value="59b63fb146e311.33500945">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="{% url "place:list-space" %}/continue" method="post" accept-charset="utf-8" id="redirect_form" name="redirect_form">
+            <input type="hidden" name="cu_id" id="cu_id">
+            <input type="hidden" id="n_token" name="n_token">
+            <input type="hidden" id="n_step" name="n_step">
+        </form><!--COWORKER SUBMISSION PART-->
+
+        <!--NGINX SOFTWARE END-->
+
+    </div>
+
+    <script type="text/javascript">
+
+      var msg_login = 0;
+      $(document).ready(function(){
+        $('body').append($('<div>', {id:'nvmyLoading',class: 'modal'}));
+        $('#nvmyLoading').initLoading({pathLoading:'https://www.coworker.com/'});
+        $('body').append($('<div>', {id:'nvloginModal',class: 'modal'}));
+        $('#nvloginModal').initLogin({pathLoading:'https://www.coworker.com/'});
+        $('body').append($('<div>', {id:'nvmy_Modal',class: 'popup_outer'}));
+        $('#nvmy_Modal').initSignup({pathLoading:'https://www.coworker.com/'});
+        $('body').append($('<div>', {id:'nvmy_Signup',class: 'container modal'}));
+        $('#nvmy_Signup').initNewSignup({pathLoading:'https://www.coworker.com/'});
+        $('.form_outer').click(function(event) {
+          if(event.target.id=='fo_target'){
+            $('#nvmy_Signup').modal('hide');
+          } else{
+            event.stopPropagation();
+          }
+        });
+        $('#top').click(function(){
+          $('#n_popup').flexModal({align: "top", y_offset: 10});
+        });
+        $('#right').click(function(){
+          $('#n_popup').flexModal({align: "right", x_offset: 30});
+        });
+        $('#bottom').click(function(){
+          $('#n_popup').flexModal({align: "bottom"});
+        });
+        $('#left').click(function(){
+          $('#n_popup').flexModal({align: "left"});
+        });
+      });
+      function redirectNavFB(){
+        analytics.track('Click_Sign_Up_by_facebook', {
+          category: 'Account'
+        });
+
+        analytics.page('Click_Sign_Up_by_facebook',
+          { title: 'Click_Sign_Up_by_facebook',
+            url: 'https://www.coworker.com/Click_Sign_Up_by_facebook'}
+        );
+        window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=c34cfaa2ededa6bf1123c15826fb253f&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb&scope=email%2Cuser_friends";
+
+      }
+      function redirectNavFBForLogin(){
+
+        analytics.track('Click_Login_facebook_button', {
+          category: 'Account'
+        });
+
+        analytics.page('Click_Login_facebook_button',
+          { title: 'Click_Login_facebook_button',
+            url: 'https://www.coworker.com/Click_Login_facebook_button'}
+        );
+        window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=c34cfaa2ededa6bf1123c15826fb253f&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb&scope=email%2Cuser_friends";
+      }
+
+
+      function openNavLoging(){
+        msg_login=0;
+
+        analytics.track('Click_Login_button', {
+          category: 'Account'
+        });
+
+        analytics.page('popup_log_in',
+          { title: 'popup_log_in',
+            url: 'https://www.coworker.com/popup_log_in'}
+        );
+
+        $('#nvmy_Signup').normalSignupTitle();
+        $('#nvloginModal').modal('toggle');
+      }
+      function openNavSignup(){
+        msg_login=0;
+
+        analytics.track('Click_Sign_Up_button', {
+          category: 'Account'
+        });
+
+        analytics.page('popup_sign_up',
+          { title: 'popup_sign_up',
+            url: 'https://www.coworker.com/popup_sign_up'}
+        );
+
+
+        $('#nvmy_Signup').normalSignupTitle();
+        $('#nvmy_Signup').modal('toggle');
+      }
+      function openNavSignupForm(){
+        if(msg_login){
+          $('#nvmy_Signup').msgSignupTitle();
+        } else {
+          $('#nvmy_Signup').normalSignupTitle();
+        }
+
+        analytics.track('Click_Sign_Up_by_email', {
+          category: 'Account'
+        });
+
+        analytics.page('Click_Sign_Up_by_email',
+          { title: 'Click_Sign_Up_by_email',
+            url: 'https://www.coworker.com/Click_Sign_Up_by_email'}
+        );
+
+
+        $('#nvmy_Signup').modal('toggle');
+        $('#n_popup').flexModal();
+      }
+      function navSignupLogin(){
+        if(msg_login){
+          $('#nvmy_Signup').msgSignupTitle();
+        } else {
+          $('#nvmy_Signup').normalSignupTitle();
+        }
+        $('#nvmy_Signup').modal('toggle');
+        $('#nvloginModal').modal('toggle');
+      }
+      function navLoginSignup(){
+        if(msg_login){
+          $('#nvmy_Signup').msgSignupTitle();
+        } else {
+          $('#nvmy_Signup').normalSignupTitle();
+        }
+        $('#nvloginModal').modal('toggle');
+        $('#nvmy_Signup').modal('toggle');
+      }
+      function openNavSignupLogin(){
+        $('#flex-overlay').click();
+        $('#nvloginModal').modal('toggle');
+      }
+      function isEmpty(str){
+        return str.replace(/^\s+/g, '').length==0;
+      }
+
+      function validateNavSignup() {
+        var f_name = $('#nvfirst_name').val();
+        var l_name = $('#nvlast_name').val();
+        var xemail = $('#nvemail').val();
+        var pass   = $('#nvpassword').val();
+        /*var xday   = $('#nvdaySelect').val();
+        var xmonth = $('#nvmonthSelect').val();
+        var xyear  = $('#nvyearSelect').val();*/
+        var promotions = 0;
+        if(jQuery('#c1').is(":checked"))
+          promotions = 1;
+        if (isEmpty(f_name)){
+          alert('First Name is required!');
+        } else if (isEmpty(l_name)){
+          alert('Last Name is required!');
+        } else if (isEmpty(xemail)){
+          alert('Email is required!');
+        } else if (!validateEmail(xemail)){
+          alert('Invalid email!');
+        } else if (isEmpty(pass)){
+          alert('Password is required!');
+        } /*else if (xday == -1){
+      alert('Day is required!');
+  } else if (xmonth == -1){
+      alert('Month is required!');
+  } else if (xyear == -1 ){
+      alert('Year is required!');
+  }*/ else {
+          var message = {};
+          message["Data"] = "New User Signup : "+f_name+" "+l_name;
+          $.ajax({
+            'url' : 'https://www.coworker.com/validate_navsignup',
+            'type' : 'POST',
+            'dataType': 'json',
+            'data' : {'form_signup':1, 'fname' : f_name, 'lname' : l_name, 'semail' : xemail, 'spass' : pass,'day':0, 'month':0, 'year':0, 'promo':promotions, 'msg_log':msg_login},
+            'success' : function(result){
+              if(result.msg == 'SCS') {
+                socket.emit('UserTrigerClient',message);
+
+                // segment tracking
+                analytics.track('Signed_Up_by_email', {
+                  category: 'Account',
+                  label: 'Email',
+                  SignUpType: 'Email',
+                  SignUp_FirstName: f_name,
+                  SignUp_LastName: l_name,
+                  SignUp_Email: xemail
+                });
+
+                analytics.page('Signed_Up_by_email',
+                  { title: 'Signed_Up_by_email',
+                    url: 'https://www.coworker.com/Signed_Up_by_email'}
+                );
+                window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
+              } else {
+                alert(result.error);
+              }
+            }
+          });
+        }
+      }
+      var RURLF =  'https://www.coworker.com/'+window.location.pathname.slice(1);
+      var RURLS =  'https://www.coworker.com/profile/my-space';
+      function validateNavLogin() {
+        var xemail = $('#nvl_email').val();
+        var pass   = $('#nvl_password').val();
+        if (isEmpty(xemail)){
+          alert('Email is required!');
+        } else if (!validateEmail(xemail)){
+          alert('Invalid email!');
+        } else if (isEmpty(pass)){
+          alert('Password is required!');
+        } else {
+          $.ajax({
+            'url' : 'https://www.coworker.com/validate_navlogin',
+            'type' : 'POST',
+            'data' : {'form_login':1, 'semail' : xemail, 'spass' : pass,'msg_log':msg_login},
+            'success' : function(data){
+              var result = $.parseJSON(data);
+              if(result.msg == 'SCS') {
+
+                analytics.track('Log_in', {
+                  category: 'Account',
+                  label: 'Email',
+                  LogInType: 'Email'
+                });
+
+                analytics.page('Log_in',
+                  { title: 'log_in',
+                    url: 'https://www.coworker.com/log_in'}
+                );
+
+
+                if(result.lab) {
+                  jQuery.ajax({
+                    type: "POST",
+                    url: "https://www.coworker.com/lab/wp-admin/admin-ajax.php",
+                    data: {'action':'cw_login','log':xemail,'pwd':pass},
+                    success: function(msg){
+                      window.location.href = RURLF;
+                    },
+                    error: function(msg){}
+                  });
+                } else {
+                  window.location.href = RURLF;
+                }
+              } else {
+                alert(result.error);
+              }
+            }
+          });
+        }
+      }
+
+      /*-- INI :: Signup/login popup for list-space page --------------------------*/
+      function showNewLoginPopup(){
+        $('#newSignup2Wrapper').hide();
+        $('#newSignup1Wrapper').hide();
+        $('#newLoginWrapper').show();
+      }
+      function showNewCreationPopup1(){
+        $('#newLoginWrapper').hide();
+        $('#newSignup2Wrapper').hide();
+        $('#newSignup1Wrapper').show();
+      }
+      function showNewCreationPopup2(){
+        $('#newLoginWrapper').hide();
+        $('#newSignup1Wrapper').hide();
+        $('#newSignup2Wrapper').show();
+      }
+
+      function validateNewLogin(){
+        var v_email = $('#fvl_email').val();
+        var v_passw = $('#fvl_passw').val();
+        var v_cu_id = $('#loc_cu_id').val();
+        var v_token = $('#loc_n_token').val();
+        //alert('email: '+v_email+' passw: '+v_passw+' cu_id: '+v_cu_id+' token: '+v_token);
+        if ( isEmpty(v_email) ){
+          alert('Email is required!');
+        }
+        else if (!validateEmail(v_email)){
+          alert('Invalid email!');
+        }
+        else if ( isEmpty(v_passw) ){
+          alert('Password is required!');
+        }
+        else{
+          var postdata = {
+            'form_login':1,
+            'semail' : v_email,
+            'spass' : v_passw,
+            'stoken' : v_token
+          }
+          $.ajax({
+            'url' : 'https://www.coworker.com/validate_navlogin',
+            'type' : 'POST',
+            'data' : postdata,
+            'success' : function(data){
+              var result = $.parseJSON(data);
+              if(result.msg == 'SCS') {
+                //window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
+
+                $('#cu_id').val(v_cu_id);
+                $('#n_token').val(v_token);
+                $('#n_step').val('continue');
+                $('#redirform')[0].submit();
+
+
+              } else {
+                alert(result.error);
+              }
+            }
+          });
+        }
+      }
+
+      function validateNewSignup() {
+
+        var v_fname = $('#fv_fname').val();
+        var v_lname = $('#fv_lname').val();
+        var v_email = $('#fv_email').val();
+        var v_passw = $('#fv_passw').val();
+
+        var v_cu_id = $('#loc_cu_id').val();
+        var v_token = $('#loc_n_token').val();
+        //alert('first Name:'+v_fname+' Last Name: '+v_lname+' Email: '+v_email+' Password: '+v_passw);
+
+        var promotions = 0;
+        //if(jQuery('#c1').is(":checked"))
+        //  promotions = 1;
+        if (isEmpty(v_fname)){
+          alert('First Name is required!');
+        } else if (isEmpty(v_lname)){
+          alert('Last Name is required!');
+        } else if (isEmpty(v_email)){
+          alert('Email is required!');
+        } else if (!validateEmail(v_email)){
+          alert('Invalid email!');
+        } else if (isEmpty(v_passw)){
+          alert('Password is required!');
+        } else {
+          var datapost = {
+            'form_signup':1,
+            'fname' : v_fname,
+            'lname' : v_lname,
+            'semail' : v_email,
+            'spass' : v_passw,
+            'day':0,
+            'month':0,
+            'year':0,
+            'promo':promotions,
+            'stoken' : v_token
+          }
+          $.ajax({
+            'url' : 'https://www.coworker.com/validate_navsignup',
+            'type' : 'POST',
+            'dataType': 'json',
+            'data' : datapost,
+            'success' : function(result){
+              if(result.msg == 'SCS') {
+                //window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
+                $('#cu_id').val(v_cu_id);
+                $('#n_token').val(v_token);
+                $('#n_step').val('continue');
+                $('#redirform')[0].submit();
+              } else {
+                alert(result.error);
+              }
+            }
+          });
+        }
+
+      }
+      /*-- END :: Signup/login popup for list-space page --------------------------*/
+      function showRecoverEmail(){
+        swal({
+            title: "Forgot password",
+            text: "Please enter your email:",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            animation: "slide-from-top",
+            inputPlaceholder: "Email"
+          },
+          function(inputValue){
+            if(inputValue === false) return false;
+            else if(inputValue === "") {
+              swal.showInputError("You need to write email!");
+              return false;
+            }
+            else if(!validateEmail(inputValue)) {
+              swal.showInputError("You need to write valid email!");
+              return false;
+            } else {
+              $.ajax({
+                'url' : 'https://www.coworker.com/reset_email',
+                'type' : 'POST',
+                'dataType': 'json',
+                'data' : { mail : inputValue, form_reset : 1 },
+                'success' : function(result){
+                  if(result.msg == 'SCS') {
+                    swal("Reset your password", "We can email you a link to reset it.")
+                  } else {
+                    swal.showInputError(result.error);
+                    return false;
+                  }
+                }
+              });
+            }
+          });
+      }
+      $(document).ready(function(){
+        $('#mobBtnOpen').on('click', function(){
+          //$('#mobBtnOpen').hide(500);
+          //$('#mobileMenu').show(300);
+          $('#mobileMenu').css({
+            display:'block'
+          });
+        });
+        $('#mobBtnClose').on('click', function(){
+          //$('#mobileMenu').hide(300);
+          //$('#mobBtnOpen').show(300);
+          $('#mobileMenu').css({
+            display:'none'
+          });
+        });
+        $('#signupBtn').on('click', function(){
+          $('#mobileMenu').css({
+            display:'none'
+          });
+        });
+        $('#loginBtn').on('click', function(){
+          $('#mobileMenu').css({
+            display:'none'
+          });
+        });
+      });
+    </script>
+    <script src="{% static "js/flex.modal.js" %}"></script>
+    <script src="{% static "js/sweetalert.min.js" %}"></script>
+    <script type="text/javascript">
+      $(function() {
+        $( "#h_location" ).autocomplete({
+          source:function(request, response) {
+            $("#h_place_id").val(0);
+            $("#h_search_place").val(0);
+            $.ajax({
+              url: 'https://www.coworker.com/getAutocomplete',
+              dataType: "json",
+              type: "POST",
+              data: {
+                term : request.term
+              },
+              success: function(data) {
+                response(data);
+              }
+            });
+          },minLength:1,
+          messages: {
+            noResults: '',
+            results: function() {}
+          },appendTo: "#h_aucomplete",
+          select: function (event, ui) {
+            $("#h_place_id").val(ui.item.idx);
+            $("#h_search_place").val(ui.item.loc);
+            $("#xh_location").val(ui.item.value);
+            $('#h_location').val(ui.item.value);
+            if(ui.item.loc==3){
+              if(ui.item.coworkspace_url!='')
+                window.location = '/'+ui.item.coworkspace_url;
+            } else
+              submitSearchH();
+          },
+          open: function(){
+            $('.ui-autocomplete').css('width', $('#h_location').width());
+          }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+          var loc_icon = '<i class="fa fa-buildingui"></i>';
+          var view_all = '';
+          if(item.loc==1)
+            loc_icon = '<i class="fa fa-globeui"></i>';
+          if((item.loc==2) || (item.loc==2.5))
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==5)
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==10)
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==0){
+            loc_icon = "";
+            view_all = 'class="search_view_results_div pade_none"';
+          }
+          return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
+        };
+      });
+      function submitSearchH() {
+        if($("#xh_location").val()!=$("#h_location").val()) {
+          $("#h_place_id").val(0);
+          $("#h_search_place").val(0);
+        }
+        $.ajax({
+          url: 'https://www.coworker.com/search/start',
+          dataType: "json",
+          type: "POST",
+          data: {
+            h_place_id     : $("#h_place_id").val(),
+            h_search_place : $("#h_search_place").val(),
+            h_location     : $("#h_location").val(),
+            form_search    : 2
+          },
+          success: function(data) {
+            window.location = 'https://www.coworker.com/search/'+data.s_url;
+          }
+        });
+      }
+      $("#h_location").keypress(function(event) {
+        if (event.which == 13) {
+          event.preventDefault();
+          submitSearchH();
+        }
+      });
+      function overUserMenu(event) {
+        $('#lg_h').show();
+      }
+      function outUserMenu(event) {
+        var om = event.toElement || event.relatedTarget;
+        var ce = ["lg_menu", "lg_c", "lg_p", "lg_s", "lg_i","lg_h"];
+        if(om !== null){
+          if (ce.indexOf(om.id)!=-1) {
+            return;
+          } else if($(om).closest("div").id=="lg_h"){
+            return;
+          } else {
+            $('#lg_h').hide();
+          }
+        }
+      }
+      $(document).ready(function(){
+        if($('#lg_menu').length>0){
+          document.getElementById("lg_menu").addEventListener('mouseout',outUserMenu,true);
+          document.getElementById("lg_menu").addEventListener('mouseover',overUserMenu,true);
+        }
+      });
+    </script>
+    <script>
+      function register_join(){
+        var email = $('#join_tribe').val();
+        if (validateEmail(email)){
+          $.ajax({
+            'url' : 'https://www.coworker.com/register_join',
+            'type' : 'POST',
+            'data' : {'email' : email},
+            'success' : function(data){
+              if(data=='saved') {
+                swal({ title: "BOOM you're in!", text: "Welcome to the coworking crew, homie.", confirmButtonText: "Keep Exploring",imageUrl: "https://www.coworker.com/template/img/signup.gif"});
+
+                // segment tracking
+                analytics.track('Subscription_form_submit', {
+                  category: 'EmailSubscription',
+                  label : email,
+                  Subscription_Mail : email
+                });
+
+              } else {
+                swal("BOOM you're in!", "Email already joined", "error");
+              }
+            }
+          });
+        } else {
+          alert('Invalid Email');
+        }
+      }
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+    </script><script type="text/javascript">
+  $(function() {
+    {#    $( "#country_id" ).combobox();#}
+    {#    $( "#usa_state_id" ).combobox();#}
+  });
+  function submitSpace() {
+{#    debugger;#}
+{#    var fv = $('#user_space_form').data('formValidation'); // FormValidation instance#}
+{#    fv.resetField('country_id');#}
+{#    fv.validate();#}
+{#    if(fv.getInvalidFields().length==0){#}
+    if(1){
+      var f_country=$('#country').val();
+      var f_city=$('#city').val();
+      var f_space_name=$('#space_name').val();
+      var f_country_id=$('#country_id').val();
+      var f_token = $('#token').val();
+      var f_user_type = $('input[name="user_type"]:checked').val();
+
+      var f_usa_state = $('#usa_state').val();
+      var f_usa_state_id = $('#usa_state_id').val();
+
+
+      if( f_usa_state_id == "" ){
+        //console.log('no state id data');
+        var postinfo = {
+          form_signup:1,
+          space_name: f_space_name,
+          country: f_country,
+          country_id:f_country_id,
+          city: f_city,
+          user_type:f_user_type,
+          token:f_token,
+        };
+      }
+      else{
+        //console.log('f_usa_state = ' + f_usa_state + ' f_usa_state_id = ' + f_usa_state_id);
+        var postinfo = {
+          form_signup:1,
+          space_name: f_space_name,
+          country: f_country,
+          country_id: f_country_id,
+          usa_state: f_usa_state,
+          usa_state_id: f_usa_state_id,
+          city: f_city,
+          user_type:f_user_type,
+          token:f_token,
+        };
+      }
+      /*--- ajax call ---*/
+      $.ajax({
+{#        'url' : 'https://www.coworker.com/list-space/space_register',#}
+        'url' : '{% url "place:list-space" %}',
+        'type' : 'POST',
+        'dataType' : 'json',
+        'data' : postinfo,
+        'success' : function(data){
+          if(data.msg == 'SCS') {
+            $('#cu_id').val(data.userspace_id);
+            $('#n_token').val(data.rToken);
+            $('#n_step').val(data.rStep);
+            $('#redirect_form')[0].submit();
+          } else if(data.msg == 'TMP') {
+            $('#myLoading').modal('toggle');
+            $('#myModal').modal('toggle');
+          }
+        }
+      });
+    }
+  }
+  function showStateAuto(c_id){
+    var validate_state = false;
+    if(c_id==231){
+      $('#stateField').show();
+      $('#usa_state').val('');
+      validate_state = true;
+    } else{
+      validate_state = false;
+      $('#stateField').hide();
+    }
+    var fvSpace = $('#user_space_form').data('formValidation'); // FormValidation instance
+    fvSpace.enableFieldValidators('usa_state_id', validate_state, "notEmpty");
+    fvSpace.resetField('usa_state_id');
+  }
+{#  $(document).ready(function(){#}
+{#    $('#user_space_form')#}
+{#      .formValidation({#}
+{#        framework: 'bootstrap',#}
+{#        fields: {#}
+{#          space_name: { validators: { notEmpty: { message: 'The Coworking Space Name is required' } } },#}
+{#          country_id:  {selector: '#country', validators: { notEmpty: { message: 'The country is required' } } },#}
+{#          usa_state_id:  {selector: '#usa_state', validators: { notEmpty: { message: 'The state is required' } } },#}
+{#          city: { validators: { notEmpty: { message: 'The City is required' } } }#}
+{#        }#}
+{#      });#}
+{#    var fvSpace = $('#user_space_form').data('formValidation'); // FormValidation instance#}
+{#    fvSpace.enableFieldValidators('usa_state_id', false, "notEmpty");#}
+{#  });#}
+  $(function() {
+{#    $( "#city" ).autocomplete({#}
+{#      source:function(request, response) {#}
+{#        $.ajax({#}
+{#          url: 'https://www.coworker.com/getCity',#}
+{#          dataType: "json",#}
+{#          type: "POST",#}
+{#          data: { term : request.term, country_id : $("#country_id").val(), state_id : $("#usa_state_id").val()#}
+{#          },#}
+{#          success: function(data) {#}
+{#            response(data);#}
+{#          }#}
+{#        });#}
+{#      },minLength:1,#}
+{#      messages: {#}
+{#        noResults: '',#}
+{#        results: function() {}#}
+{#      },#}
+{#      select: function (event, ui) {#}
+{#        $("#city_id").val(ui.item.city_id);#}
+{#        $("#city").val(ui.item.value);#}
+{#      }#}
+{#    }).autocomplete( "instance" )._renderItem = function( ul, item ) {#}
+{#      var loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#      return $( "<li>" ).append( loc_icon + item.label ).appendTo( ul );#}
+{#    };#}
+  });
+
+
+  $(document).ready(function(){
+    $('.user_type_circle').on('click', function(){
+      $('.user_type_circle').removeClass('circle_red');
+
+      var panelId = $(this).attr('data-panelid');
+      $(this).addClass('circle_red');
+      $('#'+panelId).prop("checked", true);
+    });
+  });
+
+</script>
+
+{% endblock content %}
