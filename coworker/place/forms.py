@@ -6,15 +6,12 @@ from django.utils.translation import ugettext_lazy as _
 from .fields import JsonHoursChoiceField
 
 
-
-
 class PlaceForm(forms.ModelForm):
     amenities_common = forms.ModelMultipleChoiceField(
         queryset=Amenities.objects.common(), required=False, widget=forms.CheckboxSelectMultiple)
 
     amenities_addition = forms.ModelMultipleChoiceField(
         queryset=Amenities.objects.addition(), required=False, widget=forms.CheckboxSelectMultiple)
-
     # hours = JsonHoursChoiceField()
 
     class Meta:
