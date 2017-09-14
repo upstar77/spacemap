@@ -3,8 +3,9 @@ from django import forms
 from .models import Place, Amenities
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
+from .fields import JsonHoursChoiceField
 
-# forms.ModelMultipleChoiceField
+
 
 
 class PlaceForm(forms.ModelForm):
@@ -13,9 +14,15 @@ class PlaceForm(forms.ModelForm):
 
     amenities_addition = forms.ModelMultipleChoiceField(
         queryset=Amenities.objects.addition(), required=False, widget=forms.CheckboxSelectMultiple)
+
+    # hours = JsonHoursChoiceField()
+
     class Meta:
         model = Place
         fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     # def clean(self):
     #     super(PlaceForm, self).clean()

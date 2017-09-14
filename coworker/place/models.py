@@ -1,9 +1,12 @@
 import json
-
 import os
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.postgres.fields import JSONField
+
+
 
 # Create your models here.
 MAX_MEETING_ROOM_NUMBER = 500
@@ -18,11 +21,17 @@ USER_TYPE_CHOICES = (
     ('pm', _('Past Member')),
 )
 
+
 PRIVATE_OFFICE_CHOISES = ((0, "Number of private offices"))
 
 TOTAL_CAPACITY_KEY = "%s {}".format(_("members"))
 TOTAL_CAPACITY = [(i, TOTAL_CAPACITY_KEY % i) for i in range(1, 500)] + \
                  [(i, TOTAL_CAPACITY_KEY % i) for i in range(500, 1500, 100)]
+
+PEOPLE_KEY = "%s {}".format(_("people"))
+
+MAX_PEOPLE_CAPACITY_RANGE = [(i, PEOPLE_KEY % i) for i in range(1, 10)] + \
+                 [(i, PEOPLE_KEY % i) for i in range(500, 1500, 100)]
 
 
 SIZE_OF_YOUR_COWORKING_SPACE_CHOISES = (
@@ -44,6 +53,8 @@ SIZE_OF_YOUR_COWORKING_SPACE_CHOISES = (
     (15, _("90,000 - 100,000 sq ft")),
     (16, _("More than 100,000 sq ft"))
 )
+
+
 
 
 
@@ -95,7 +106,7 @@ class ContactInfo(models.Model):
 class MeetingRoom(models.Model):
     room_info = models.CharField(max_length=250)
     mr_capacity = models.PositiveIntegerField(
-        choices=[(i, "%s %s" % (i, _("people"))) for i in range(*MEETING_ROOM_CAPACITY_RANGE)],
+        choices=[(i, PEOPLE_KEY % i) for i in range(*MEETING_ROOM_CAPACITY_RANGE)],
         validators=[
             MinValueValidator(MEETING_ROOM_CAPACITY_RANGE[0]),
             MaxValueValidator(MEETING_ROOM_CAPACITY_RANGE[1]),
@@ -145,6 +156,13 @@ class Place(models.Model):
     hire_nm = models.BooleanField(
         default=False, help_text="Do you allow non-members to hire your coworking space for bigger events?")
 
+    max_people_capacity = models.PositiveIntegerField(
+        choices=MAX_PEOPLE_CAPACITY_RANGE,
+        default=50
+    )
+
+    #page 6
+    hours = JSONField()
 
     #size 7
     desk = models.PositiveIntegerField(

@@ -1,0 +1,17 @@
+<select name="hours[{{ id }}][{{ type }}]"
+        {% if type == "open" %}
+            class="meet_icon hoursTueOpen" onchange="displayClosedHour(this);" data-fv-field="hoursTueOpen"
+        {% else %}
+            class="meet_icon hoursMonClose" onchange="validateChangeClose(this);" data-fv-field="hoursMonClose"
+        {% endif %}>
+    <option value="">-</option>
+
+    {% if type == "open" %}
+        <option value="24_00">24 Hours</option>
+        <option value="-1">Closed</option>
+    {% endif %}
+
+    {% for val, name in options %}
+        <option value="{{ val }}">{{ name }}</option>
+    {% endfor %}
+</select>
