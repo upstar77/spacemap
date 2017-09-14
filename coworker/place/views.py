@@ -50,6 +50,7 @@ class PlaceAdd(CreateView):
         return super().form_valid(form)
 
 
+
 class PlaceAddContinue(CreateView):
     template_name = 'place/continue_page.html'
     form_class = PlaceForm
