@@ -165,7 +165,7 @@ class Place(models.Model):
     hours = JSONField()
 
     #size 7
-    desk = models.PositiveIntegerField(
+    desks = models.PositiveIntegerField(
         validators=[MinValueValidator(1)], choices=[(i, i) for i in range(MAX_DESC_COUNT)])
 
     private_office = models.PositiveIntegerField(
