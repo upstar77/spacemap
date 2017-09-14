@@ -8,6 +8,7 @@ urlpatterns = [
 
     url(r'^list-space/$', view=views.PlaceAdd.as_view(), name='list-space'),
     url(r'^list-space/continue$', view=views.PlaceAddContinue.as_view(), name='list-space-continue'),
+    url(r'^list-space/success', view=views.PlaceAddContinue.as_view(), name='list-space-success'),
     # url(r'^list-space/$', view=views.PlaceAdd.as_view(), name='list-space'),
 
 

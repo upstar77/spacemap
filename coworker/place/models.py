@@ -58,9 +58,22 @@ class Location(models.Model):
 
 
 
+class AmenitiesManager(models.Manager):
+
+    def common(self):
+         return self.filter(is_additional=False)
+
+    def addition(self):
+         return self.filter(is_additional=True)
+
+
 class Amenities(models.Model):
     name = models.CharField(max_length=250)
     is_additional = models.BooleanField(default=False)
+
+    objects = AmenitiesManager()
+    def __str__(self):
+        return self.name
 
 
 class ContactInfo(models.Model):
@@ -142,6 +155,8 @@ class Place(models.Model):
     total_capacity = models.PositiveIntegerField(
         validators=[MinValueValidator(1)], choices=TOTAL_CAPACITY)
     size_of_your_coworking_space = models.PositiveIntegerField(choices=SIZE_OF_YOUR_COWORKING_SPACE_CHOISES, default=0)
+
+    amenities = models.ManyToManyField(Amenities, blank=True, related_name="amenities")
 
     #8 photos
     # cover_img =
