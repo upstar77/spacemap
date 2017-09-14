@@ -47,6 +47,49 @@
         <div class="col-sm-2 col-md-2 col-xs-12 pade_none sat_open_last_div">&nbsp;</div>
     </div>
 </div>
+<div class="col-xs-12 pade_none sat_open_pane co_form_con">
+    <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="sat_clk">
+        <input type="checkbox" id="ccc3" name="sat" style="width: 20px; height: 20px; margin: 0px;"><span class="lbl padding-8 lbl-form">Sat - Open</span>
+    </div>
+    <div class="col-xs-12 pade_none saturday_cowork_text" style="display: none;">
+        <div class="col-xs-12 col-sm-10 col-md-10 pade_none cowork_from_panel">
+            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft form-group" id="sat_open" style="display: none;">
+                <label>From</label>
+                {% hours_select 'name="sat_open" class="meet_icon hoursSatOpen" data-fv-field="hoursSatOpen"' %}
+                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSatOpen" data-fv-result="IGNORED" style="display: none;">What time do you open?</small></div>
+            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt form-group" id="sat_open02" style="display: none;">
+                <label>To</label>
+                {% hours_select 'name="sat_close" class="meet_icon hoursSatClose" onchange="validateChangeClose(this);" data-fv-field="hoursSatClose"' %}
+                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSatClose" data-fv-result="IGNORED" style="display: none;">What time do you close?</small></div>
+        </div>
+        <div class="col-sm-2 col-md-2 col-xs-12 pade_none sat_open_last_div">&nbsp;</div>
+    </div>
+
+</div>
+
+<div class="col-xs-12 pade_none sat_open_panel co_form_con">
+    <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="sun_clk">
+        <input type="checkbox" id="ccc4" name="sun" style="width: 20px; height: 20px; margin: 0px;"><span class="lbl padding-8 lbl-form">Sun - Open</span>
+    </div>
+
+    <div class="col-xs-12 pade_none saturday_cowork_text002" style="display: none;">
+        <div class="col-xs-12 col-sm-10 col-md-10 pade_none cowork_from_panel">
+            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft form-group cowork_from_panel" id="sun_open" style="display: none;">
+                <label>From</label>
+                {% hours_select 'name="sun_open" class="meet_icon hoursSunOpen" data-fv-field="hoursSunOpen"' %}
+                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSunOpen" data-fv-result="IGNORED" style="display: none;">What time do you open?</small></div>
+            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt form-group cowork_from_panel" id="sun_open02" style="display: none;">
+                <label>To</label>
+                {% hours_select 'name="sun_close" class="meet_icon hoursSunClose" onchange="validateChangeClose(this);" data-fv-field="hoursSunClose"' %}
+                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSunClose" data-fv-result="IGNORED" style="display: none;">What time do you close?</small>
+            </div>
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-xs-12 pade_none sat_open_last_div">&nbsp;</div>
+    </div>
+
+
+</div>
 
 <div style="clear:both;"></div>
 <h4 class="hours_subtitle">Member Access Hours</h4>

@@ -1,9 +1,18 @@
-<select name="hours[{{ id }}][{{ type }}]"
+<select
         {% if type == "open" %}
+            name="hours[{{ id }}][{{ type }}]"
             class="meet_icon hoursTueOpen" onchange="displayClosedHour(this);" data-fv-field="hoursTueOpen"
-        {% else %}
+        {% elif type == "close" %}
+            name="hours[{{ id }}][{{ type }}]"
             class="meet_icon hoursMonClose" onchange="validateChangeClose(this);" data-fv-field="hoursMonClose"
+        {% else %}
+            {{ attrs }}
+{#            {% for k, v in attrs %}#}
+{#                {{ k }}="{{ v }}"#}
+{#            {% endfor %}#}
+{#            name="sun_open" class="meet_icon hoursSunOpen" data-fv-field="hoursSunOpen"#}
         {% endif %}>
+
     <option value="">-</option>
 
     {% if type == "open" %}

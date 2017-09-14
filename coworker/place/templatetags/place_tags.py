@@ -18,9 +18,13 @@ def generate_time_range():
 
 
 @register.inclusion_tag("elements/hours_select.html")
-def hours_select(id, _type):
+def hours_select(id=None, _type=None):
+    attrs = None
+    if isinstance(id, str):
+        attrs = id
     return {
         "options": generate_time_range(),
         "type": _type,
         "id": id,
+        "attrs": attrs,
     }
