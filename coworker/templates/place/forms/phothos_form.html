@@ -1,0 +1,42 @@
+{% load static %}
+        <h3>So what does it look like?</h3>
+        <p>We recommend taking professional photos that reflect how awesome your coworking space is.</p>
+        <!--<div class="col-xs-12 pade_none dragdrop_con"></div>-->
+        <div class="col-xs-12 pade_none header_photo_main">
+            <div class="col-xs-12 pade_none header_photo_size photos_red_content">
+                <p>Header image <br><span>Size: 1920px width</span></p>
+
+
+            </div>
+            <div class="col-xs-12 pade_none cowork_clipboard_panel">
+  <span>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/add_tool.png' %}" alt="pic"></a>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/subtract_tool.png' %}" alt="pic"></a>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/crop_tool.png' %}" alt="pic"></a>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/close_tool.png' %}" alt="pic"></a>
+  </span>
+            </div>
+            <div class="col-xs-12 pade_none">
+                <div id="cropContainerEyecandy"></div>
+                <div id="cropContainerHeaderDiv">
+                    <span id="cropContainerHeaderButton" class="btn">Click to upload</span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 pade_none header_photo_size header_upload_picc">
+                <p>After uploading, use the  <img src="{% static 'img/crop_img.png' %}" style="height: 25px;"> icons to zoom in, zoom out and crop to perfect your header photo.</p>
+            </div>
+
+            <div class="col-xs-12 pade_none room_lft form-group has-error">
+                <small id="img_error" class="help-block" style="display:none;">Required: Please upload a header image</small>
+            </div>
+        </div>
+        <div class="col-xs-12 pade_none header_photo_main">
+            <div class=" col-xs-12 pade_none header_photo_size photos_red_content"><p>Additional images<br><span>Min 5, max 20 max file size : 3 MB</span></p></div>
+            <div class="col-xs-12 pade_none header_photo_size">
+                <div id="spaceAdditional" class="dz-clickable dropzone">
+                    <div class="dz-message needsclick">Drop files here or click to upload.</div>
+                </div>
+                <small id="thumbs_error" class="help-block" style="display:none;">Required: Please upload 2 additional images</small>
+            </div>
+        </div>

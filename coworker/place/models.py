@@ -67,7 +67,8 @@ class Location(models.Model):
     cityLat = models.CharField(max_length=250)
     cityLng = models.CharField(max_length=250)
 
-
+    class Meta:
+        abstract = True
 
 class AmenitiesManager(models.Manager):
 
@@ -89,7 +90,7 @@ class Amenities(models.Model):
 
 class ContactInfo(models.Model):
     ls_email = models.EmailField()
-    tel = models.CharField(_("Tel"), blank=True, null=True)
+    tel = models.CharField(_("Tel"), blank=True, null=True, max_length=300)
     website_url = models.CharField(_("Website"), blank=True, null=True, max_length=300)
 
     #social media
@@ -128,6 +129,9 @@ class Member_Payment(models.Model):
     apps = models.BooleanField(default=True, help_text=_("Can members pay with PayPal?"))
     deposit = models.CharField(max_length=250, help_text=_("eg. none, 1 month, etc"))
 
+    class Meta:
+        abstract = True
+
 #TODO remove this, and use some service
 def get_countries():
     import coworker
@@ -137,7 +141,7 @@ def get_countries():
     return ((country, country) for country in countries)
 
 
-class Place(models.Model):
+class Place(Member_Payment, ContactInfo, Location):
     space_name = models.CharField(_("Name of your Coworking Space"), max_length=250)
     country = models.CharField(_("Country"), max_length=2500, choices=get_countries())
     #TODO state

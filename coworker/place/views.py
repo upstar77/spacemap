@@ -65,3 +65,12 @@ class PlaceAddContinue(CreateView):
     def form_valid(self, form):
         return super().form_valid(form)
 
+
+
+#image respoce
+# header
+# {"status":"success","url":"https:\/\/www.coworker.com\/pictures\/8195\/img-5319jpg_prev.jpg","width":1095,"height":615}
+# header-edit
+# {"status":"success","url":"https:\/\/www.coworker.com\/pictures\/8195\/edit\/img-5319jpg_prev.jpeg"}
+#dropzone
+# {"name":"img-5319jpg_1505423441","ext":"jpg","msg":"scs"}

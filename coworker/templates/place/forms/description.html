@@ -1,0 +1,25 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<h3>Tell Coworkers about your space</h3>
+<p>Every coworking space is unique. Highlight what makes your coworking space an awesome space to work.</p>
+<div class="col-xs-12 pade_none coworker_event_bottom_panel heading_formatting_con">
+    <h4>Name</h4>
+    <input type="text" name="space_name" id="space_name" value="coworker" readonly="readonly">
+    <div class="form-group description_comment_div">
+        <h4>Description*</h4>
+        {% render_field form.cs_description  data-fv-field="cs_description" placeholder="Tell coworkers what you love about the space. You can include details about the decor, your amenities, the types of people in your community and the neighbourhood." %}
+        <small class="help-block" data-fv-validator="notEmpty" data-fv-for="cs_description" data-fv-result="NOT_VALIDATED" style="display: none;">
+            The Description is required</small>
+        <small class="help-block" data-fv-validator="stringLength" data-fv-for="cs_description" data-fv-result="NOT_VALIDATED" style="display: none;">
+            *minimum  of 350 characters required</small></div>
+    {#            <div class="check_submision_out">#}
+    {#                <label><input type="checkbox" id="extra_desc" name="extra_desc"><span class="lbl padding-8" style="font-family:&#39;Roboto&#39;">#}
+    {#                I would like a second description in our local language.</span></label>#}
+    {#            </div>#}
+    {#            <div id="other_lang" class="form-group" style="display:none;">#}
+    {#                <h4>#}
+    {#                    <img src="{% static 'img/flag.png' %}" class="flag flag-cn">&nbsp;Additional Description</h4>#}
+    {#                {% render_field form.cs_extra_description id="cs_extra_description" %}#}
+    {#            </div>#}
+</div>
