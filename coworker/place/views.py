@@ -2,6 +2,8 @@ import logging
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.http import JsonResponse
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView
 from .forms import PlaceForm, PlaceFirstForm
@@ -50,12 +52,16 @@ class PlaceAdd(CreateView):
 
 
 
+
+
+@method_decorator(csrf_exempt, name='dispatch')
 class PlaceAddContinue(CreateView):
     template_name = 'place/continue_page.html'
     form_class = PlaceForm
 
+
     def get_initial(self):
-        return self.request.session['firs_form_data']
+        return self.request.session.get('firs_form_data', {"place_name": "coworker_alex"})
 
     def get_success_url(self):
         return reverse_lazy('place:continue')

@@ -37,9 +37,23 @@ class PlaceForm(forms.ModelForm):
     class Meta:
         model = Place
         fields = '__all__'
+        # widgets = {
+        #     'web_description': forms.widgets.Textarea(attrs={'cols': 40, 'rows': 5}),
+        # }
+
+    def clean(self):
+        data = self
+        for k, v in data.items():
+            if "[" in k and "]" in k:
+                v.index("[") - 1
+                "hours[6][open]"[5-1]
+        self.data["hours"]
+        super().clean()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+
 
     # def clean(self):
     #     super(PlaceForm, self).clean()

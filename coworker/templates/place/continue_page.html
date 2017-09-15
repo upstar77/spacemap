@@ -613,6 +613,7 @@
         }
         return er_imgs;
       }
+
       function saveSpace(){
         $("#popup_loading").modal("show");
         $('#additionalList').val(JSON.stringify(upAdditionalList));
@@ -655,6 +656,7 @@
           res_ser['hours'] =prices_h;
           offices_list.push(res_ser);
         });
+
         var email_list = '';
         $('#contact_emails input').each(function() {
           var n_xmail=$(this).val().trim();
@@ -663,7 +665,13 @@
         });
         $('#emailList').val(email_list);
         $('#officesList').val(JSON.stringify(offices_list));
-        $('#list_space_continue')[0].submit();
+        $.ajax({
+          "url": $('#list_space_continue').attr("action"),
+          "method": "POST",
+          "data": $('#list_space_continue').serialize()
+
+        });
+{#        $('#list_space_continue')[0].submit();#}
       }
       var upAdditionalList = [];
       var upHeaderList = [];

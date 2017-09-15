@@ -11,7 +11,9 @@
             {% render_field form.ls_email class="submission_form_inner input" id="ls_email" data-fv-field="ls_email" %}
             <small class="help-block" data-fv-validator="notEmpty" data-fv-for="ls_email" data-fv-result="NOT_VALIDATED" style="display: none;">The email address is required</small><small class="help-block" data-fv-validator="emailAddress" data-fv-for="ls_email" data-fv-result="NOT_VALIDATED" style="display: none;">The input is not a valid email address</small></div>
         <label>Tel</label>
-        <input name="tel" type="text">
+
+        {% render_field form.tel type="text" %}
+
         <div class="form-group">
             <label>Website URL</label>
             {% render_field form.website_url type="text" name="website_url" class="submission_form_inner input" id="website_url" %}
@@ -33,9 +35,9 @@
     <div class="col-xs-12 pade_none coworker_event_bottom_panel social_media_panel">
         <div id="contact_emails" class="form-group">
             <label>Email* <span id="contact_emails_error" style="display:none;">Invalid Emails</span></label>
-            <input type="email" class="submission_form_inner input" id="notification-email-01">
+            {% render_field form.notification_email type="email" class="submission_form_inner input" id="notification-email-01" %}
         </div>
         <!-- TODO new email -->
-        <div id="add_contact_email" class="col-xs-12 pade_none add_mail_text" onclick="newEmail();"><label class="lbl-add-price ">+ Add another email</label></div>
+{#        <div id="add_contact_email" class="col-xs-12 pade_none add_mail_text" onclick="newEmail();"><label class="lbl-add-price ">+ Add another email</label></div>#}
     </div>
 </div>

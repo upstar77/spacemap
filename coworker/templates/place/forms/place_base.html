@@ -2,7 +2,7 @@
 {% load static %}
 
 <form action="{% url "place:list-space-success" %}" method="post" accept-charset="utf-8" id="list_space_continue" name="list_space_continue" class="fv-form fv-form-bootstrap" enctype="multipart/form-data" novalidate="novalidate">
-
+    {% csrf_token %}
     <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
     <!--DESCRIPTION-->
     <div class="col-xs-12 pade_none co_descrip_con" id="answer1" style="display:block">
