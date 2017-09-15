@@ -1,5 +1,6 @@
-from django import forms
+import re
 
+from django import forms
 from .models import Place, Amenities
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
@@ -26,7 +27,35 @@ class PlaceFirstForm(forms.ModelForm):
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)
 
-class PlaceForm(forms.ModelForm):
+
+class JsonMixinValidate:
+    def get_arrays_fields(self, data):
+        d = {}
+        for k, v in data.items():
+            if "[" in k and "]" in k:
+                parsed = self.parse_arr(k)
+                item = d.setdefault(parsed["name"], {})
+                item2 = item.setdefault(parsed["index"], {})
+                if parsed.get("type"):
+                    item2[parsed["type"]] = v
+                else:
+                    item2 = v
+        return d
+
+    def parse_arr(self, s):
+        m = re.search(r"(?P<name>\w*)\[(?P<index>\d+?)\]\[(?P<type>.*)\]", s)
+
+        if not m:
+            m = re.search(r"(?P<name>\w*)\[(?P<index>\d+?)\]", s)
+            if not m:
+                import pdb; pdb.set_trace()
+        return m.groupdict()
+
+
+
+
+
+class PlaceForm(JsonMixinValidate, forms.ModelForm):
     amenities_common = forms.ModelMultipleChoiceField(
         queryset=Amenities.objects.common(), required=False, widget=forms.CheckboxSelectMultiple)
 
@@ -42,13 +71,9 @@ class PlaceForm(forms.ModelForm):
         # }
 
     def clean(self):
-        data = self
-        for k, v in data.items():
-            if "[" in k and "]" in k:
-                v.index("[") - 1
-                "hours[6][open]"[5-1]
-        self.data["hours"]
-        super().clean()
+        d2 = self.get_arrays_fields(self.data)
+        # self.cleaned_data["sat_open"]
+        return d2
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

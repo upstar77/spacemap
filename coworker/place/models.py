@@ -5,7 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
-
+from .fields import generate_time_range
 
 
 # Create your models here.
@@ -54,7 +54,11 @@ SIZE_OF_YOUR_COWORKING_SPACE_CHOISES = (
     (16, _("More than 100,000 sq ft"))
 )
 
-
+OPENING_HOURS_KEY = "OH"
+MEMBER_ACCS_CHOISE = (
+    (OPENING_HOURS_KEY, "Same as opening hours"),
+    ("24H", "24 hours")
+)
 
 
 
@@ -167,7 +171,9 @@ class Place(Member_Payment, ContactInfo, Location):
 
     #page 6
     hours = JSONField()
-
+    sat_open = models.CharField(max_length=4, choices=generate_time_range(), blank=True)
+    sun_close = models.CharField(max_length=4, choices=generate_time_range(), blank=True)
+    member_accs = models.CharField(max_length=2, choices=MEMBER_ACCS_CHOISE, default=OPENING_HOURS_KEY)
     #size 7
     desks = models.PositiveIntegerField(
         validators=[MinValueValidator(1)], choices=[(i, i) for i in range(MAX_DESC_COUNT)])
