@@ -4,8 +4,6 @@
             <ul>
                 <li>
                     <input id="c_{{ pk }}" value="{{ pk }}" name="amenities[]" type="checkbox"
-{#                            {% for m2moption in model.m2amenities.common %}#}
-{#                           {% if m2moption.pk == pk %}checked="checked"{% endif %}{% endfor %}#}
                     ><label for="c_{{ pk }}">{{ choice }}</label>
                 </li>
             </ul>
@@ -13,69 +11,3 @@
     {% endfor %}
 </div>
 
-
-<!--
-<div class="col-xs-12 pade_none check_submision_out">
-    <div class="col-sm-6 col-md-6 col-xs-12 pade_none">
-        <ul>
-            <li><input id="c0" name="amenities[]" type="checkbox" value="1"><label for="c0">High Speed WiFi</label></li>
-            <li><input id="c1" name="amenities[]" type="checkbox" value="2"><label for="c1">Lounge / Chill-out Area</label></li>
-            <li><input id="c2" name="amenities[]" type="checkbox" value="3"><label for="c2">Free Coffee / Tea</label></li>
-            <li><input id="c3" name="amenities[]" type="checkbox" value="4"><label for="c3">Air Conditioning</label></li>
-        </ul>
-
-    </div>
-    <div class="col-sm-6 col-md-6 col-xs-12 pade_none">
-        <ul>
-            <li><input id="c4" name="amenities[]" type="checkbox" value="5"><label for="c4">Heating</label></li>
-            <li><input id="c5" name="amenities[]" type="checkbox" value="6"><label for="c5">Kitchen</label></li>
-            <li><input id="c6" name="amenities[]" type="checkbox" value="7"><label for="c6">Free Drinking Water</label></li>
-            <li><input id="c7" name="amenities[]" type="checkbox" value="8"><label for="c7">Standing Desks</label></li>
-        </ul>
-    </div>
-</div>
-
-
-<div class="col-sm-6 col-md-6 col-xs-12 pade_none">
-	<ul>
-		<li><input id="ca0" name="add_amenities[]" type="checkbox" value="9"><label for="ca0">Pool Table</label></li>
-		<li><input id="ca1" name="add_amenities[]" type="checkbox" value="10"><label for="ca1">Table Football / Foosball</label></li>
-		<li><input id="ca2" name="add_amenities[]" type="checkbox" value="11"><label for="ca2">Beanbags</label></li>
-		<li><input id="ca3" name="add_amenities[]" type="checkbox" value="12"><label for="ca3">Outdoor Terrace</label></li>
-		<li><input id="ca4" name="add_amenities[]" type="checkbox" value="13"><label for="ca4">Swimming Pool</label></li>
-		<li><input id="ca5" name="add_amenities[]" type="checkbox" value="14"><label for="ca5">Free parking on premise</label></li>
-		<li><input id="ca6" name="add_amenities[]" type="checkbox" value="15"><label for="ca6">Wheelchair Accessibility</label></li>
-		<li><input id="ca7" name="add_amenities[]" type="checkbox" value="16"><label for="ca7">Free Beer</label></li>
-		<li><input id="ca8" name="add_amenities[]" type="checkbox" value="17"><label for="ca8">On-site Cafe / Restaurant</label></li>
-		<li><input id="ca9" name="add_amenities[]" type="checkbox" value="18"><label for="ca9">Ergonomic Chairs</label></li>
-		<li><input id="ca10" name="add_amenities[]" type="checkbox" value="19"><label for="ca10">Alcohol available for purchase</label></li>
-		<li><input id="ca11" name="add_amenities[]" type="checkbox" value="20"><label for="ca11">Events and / or workshops</label></li>
-		<li><input id="ca12" name="add_amenities[]" type="checkbox" value="21"><label for="ca12">Podcasting Room</label></li>
-		<li><input id="ca13" name="add_amenities[]" type="checkbox" value="22"><label for="ca13">Dual / Single Monitors</label></li>
-		<li><input id="ca14" name="add_amenities[]" type="checkbox" value="23"><label for="ca14">Co-living Accommodation</label></li>
-		<li><input id="ca15" name="add_amenities[]" type="checkbox" value="24"><label for="ca15">Trampoline</label></li>
-		<li><input id="ca16" name="add_amenities[]" type="checkbox" value="25"><label for="ca16">Mini Golf Course</label></li>
-	</ul>
-</div>
-<div class="col-sm-6 col-md-6 col-xs-12 pade_none">
-	<ul>
-		<li><input id="ca17" name="add_amenities[]" type="checkbox" value="26"><label for="ca17">Skype Room</label></li>
-		<li><input id="ca18" name="add_amenities[]" type="checkbox" value="27"><label for="ca18">Ping Pong Table</label></li>
-		<li><input id="ca19" name="add_amenities[]" type="checkbox" value="28"><label for="ca19">Sound Recording Equipment</label></li>
-		<li><input id="ca20" name="add_amenities[]" type="checkbox" value="29"><label for="ca20">Video Recording Equipment</label></li>
-		<li><input id="ca21" name="add_amenities[]" type="checkbox" value="30"><label for="ca21">Library</label></li>
-		<li><input id="ca22" name="add_amenities[]" type="checkbox" value="31"><label for="ca22">Childcare</label></li>
-		<li><input id="ca23" name="add_amenities[]" type="checkbox" value="32"><label for="ca23">Printer</label></li>
-		<li><input id="ca24" name="add_amenities[]" type="checkbox" value="33"><label for="ca24">Scanner</label></li>
-		<li><input id="ca25" name="add_amenities[]" type="checkbox" value="34"><label for="ca25">Photocopier</label></li>
-		<li><input id="ca26" name="add_amenities[]" type="checkbox" value="35"><label for="ca26">3D Printer</label></li>
-		<li><input id="ca27" name="add_amenities[]" type="checkbox" value="36"><label for="ca27">Makerspace</label></li>
-		<li><input id="ca28" name="add_amenities[]" type="checkbox" value="37"><label for="ca28">24hr member access</label></li>
-		<li><input id="ca29" name="add_amenities[]" type="checkbox" value="38"><label for="ca29">Dog-friendly</label></li>
-		<li><input id="ca30" name="add_amenities[]" type="checkbox" value="39"><label for="ca30">Cat-friendly</label></li>
-		<li><input id="ca31" name="add_amenities[]" type="checkbox" value="40"><label for="ca31">Computers (PCs)</label></li>
-		<li><input id="ca32" name="add_amenities[]" type="checkbox" value="41"><label for="ca32">Computers (Macs)</label></li>
-		<li><input id="ca33" name="add_amenities[]" type="checkbox" value="42"><label for="ca33">Personal Lockers</label></li>
-	</ul>
-</div>
--->

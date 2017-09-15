@@ -5,7 +5,7 @@
 <p>Every coworking space is unique. Highlight what makes your coworking space an awesome space to work.</p>
 <div class="col-xs-12 pade_none coworker_event_bottom_panel heading_formatting_con">
     <h4>Name</h4>
-    <input type="text" name="space_name" id="space_name" value="coworker" readonly="readonly">
+    {% render_field form.space_name type="text" name="space_name" id="space_name" value="coworker" readonly="readonly" %}
     <div class="form-group description_comment_div">
         <h4>Description*</h4>
         {% render_field form.cs_description  data-fv-field="cs_description" placeholder="Tell coworkers what you love about the space. You can include details about the decor, your amenities, the types of people in your community and the neighbourhood." %}

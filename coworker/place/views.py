@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView
-from .forms import PlaceForm
+from .forms import PlaceForm, PlaceFirstForm
 
 log = logging.getLogger('debug')
 
@@ -27,27 +27,26 @@ class Place(TemplateView):
         return ctx
 
 
-
-
-# class ListSpace(TemplateView):
-#     template_name = 'pages/list_space.html'
-
-
 class PlaceAdd(CreateView):
     template_name = 'place/list_space.html'
-    form_class = PlaceForm
+    form_class = PlaceFirstForm
 
     def get_success_url(self):
-        return reverse_lazy('place:continue')
+        return reverse_lazy('place:list-space-continue')
 
-    def form_invalid(self, form):
-        print(form.errors)
-        #TODO should be return super().form_invalid(form), that is just for test
-        # return redirect('place:list-space-continue')
-        return JsonResponse({"status": "ok"})
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAdd, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
 
+    # def form_invalid(self, form):
+    #     print(form.errors)
+    #     #TODO should be return super().form_invalid(form), that is just for test
+    #     # return redirect('place:list-space-continue')
+    #     return JsonResponse({"status": "ok"})
+    #
     def form_valid(self, form):
-        return super().form_valid(form)
+        return JsonResponse({"status": "ok"})
 
 
 
@@ -55,8 +54,16 @@ class PlaceAddContinue(CreateView):
     template_name = 'place/continue_page.html'
     form_class = PlaceForm
 
+    def get_initial(self):
+        return self.request.session['firs_form_data']
+
     def get_success_url(self):
         return reverse_lazy('place:continue')
+    #
+    # def get_form_kwargs(self):
+    #     kwargs = super().get_form_kwargs()
+    #     kwargs['request'] = self.request
+    #     return kwargs
 
     def form_invalid(self, form):
         print(form.errors)
