@@ -7,13 +7,12 @@
             <div class="row">
                 <div class="container">
                     <div class="col-md-12 pade_none">
-                        <div class="col-md-3 col-sm-3 col-xs-6 pade_none logo_con mobLogoWrapper"> <a href="{% url 'main:index' %}">
-                            <img alt="logo" src="{% static 'img/SpaceMap_logoCN.png' %}"></a> </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 pade_none logo_con mobLogoWrapper"> <a href="{% url 'main:index' %}"><img alt="logo" src="{% static 'img/new_logo.svg' %}"></a> </div>
                         <div class="col-md-4 col-sm-4 col-xs-12 pade_none search mobSearchWrapper">
                             <div id="h_aucomplete" class="inner_srch_blk">
                                 <form action="{% url "main:search" %}" method="post" accept-charset="utf-8" id="form_search_h" name="form_search_h">
                                     <span><img alt="img" src="{% static 'img/srch_ic.png' %}"></span>
-                                    <input id="h_location" name="h_location" type="text" placeholder="Search by coworking space, city or country" class="space_header_input ui-autocomplete-input" autocomplete="off">
+                                    <input id="h_location" name="h_location" type="text" placeholder="搜索：场地名称、城市、国家......" class="space_header_input ui-autocomplete-input" autocomplete="off">
                                     <input type="hidden" name="form_search" value="2">
                                     <input type="hidden" id="h_search_place" name="h_search_place" value="0">
                                     <input type="hidden" id="h_place_id" name="h_place_id" value="0">
@@ -22,11 +21,11 @@
                         </div>
                         <div class="col-md-5 col-sm-5 col-xs-12 pade_none login_blk mobButtonsWrapper">
                             <ul>
-                                <li><a href="{% url "main:about" %}"><img alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"> <span>About</span></a> </li>
-                                <li><a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src="{% static 'img/img_002.png' %}"> <span>Sign Up</span></a> </li>
-                                <li><a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src="{% static 'img/img_003.png' %}"> <span>Login</span></a> </li>
+                                <li><a href="{% url "main:about" %}"><img alt="img" src="{% static 'img/heart_grey.png' %}" width="18" height="18"> <span>关于</span></a> </li>
+                                <li><a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src="{% static 'img/img_002.png' %}"> <span>注册</span></a> </li>
+                                <li><a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src="{% static 'img/img_003.png' %}"> <span>登录</span></a> </li>
                             </ul>
-                            <div class="space"> <a href="{% url "place:list-space" %}">Add Your Space</a> </div>
+                            <div class="space"> <a href="{% url "place:list-space" %}">我要出租</a> </div>
                         </div>
                     </div>
                 </div>

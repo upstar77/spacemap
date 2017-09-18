@@ -5,47 +5,47 @@
     <div class="new_header_main">
         <div class="mobile_menu">
             <div class="mob_menu_top">
-                <span class="minus_outer"><img alt="" src="{% static "img/res_menu_minus.jpg" %}"></span>
+                <span class="minus_outer"><img alt="" src="static/img/res_menu_minus.jpg"></span>
                 <ul>
                     <li>
-                        <a href="{% url "main:index" %}"><i class="fa fa-caret-right"></i>Home</a>
+                        <a href="{% url "main:index" %}"><i class="fa fa-caret-right"></i>首页</a>
                     </li>
                     <li>
-                        <a href="{% url "main:search" %}"><i class="fa fa-caret-right"></i>Search</a>
+                        <a href="{% url "main:search" %}"><i class="fa fa-caret-right"></i>搜索</a>
                     </li>
                     <li>
-                        <a href="{% url "main:cities" %}"><i class="fa fa-caret-right"></i>All Cities</a>
+                        <a href="{% url "main:cities" %}"><i class="fa fa-caret-right"></i>全部城市</a>
                     </li>
                     <li>
-                        <a href="https://www.coworker.com/lab"><i class="fa fa-caret-right"></i>The Lab</a>
+                        <a href="https://www.coworker.com/lab"><i class="fa fa-caret-right"></i>实验室</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" onclick="openNavSignup();"><i class="fa fa-caret-right"></i>Sign Up</a>
+                        <a href="javascript:void(0);" onclick="openNavSignup();"><i class="fa fa-caret-right"></i>注册</a>
                     </li>
                     <li class="lastNoBorder">
-                        <a href="javascript:void(0);" onclick="openNavLoging();"><i class="fa fa-caret-right"></i>Login</a>
+                        <a href="javascript:void(0);" onclick="openNavLoging();"><i class="fa fa-caret-right"></i>登录</a>
                     </li>
                 </ul>
             </div>
             <div class="mob_menu_bottom">
-                <h2>Coworking Space Owners</h2>
+                <h2>创科云图业主</h2>
                 <ul>
                     <li>
-                        <a href="{% url "place:list-space" %}"><i class="fa fa-caret-right"></i>List Your Space</a>
+                        <a href="{% url "place:list-space" %}"><i class="fa fa-caret-right"></i>添加场地</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="col-sm-4 col-md-6 col-xs-12 pade_none logo_con_new">
-            <a href="{% url 'main:index' %}"><img alt="Logo New" src="{% static "img/SpaceMap_logoCN.png" %}"></a>
+            <a href="{% url 'main:index' %}"><img alt="Logo New" src="static/img/new_logo_white.svg"></a>
         </div>
         <div class="col-sm-8 col-md-6 col-xs-12 pade_none coworker_new_right_main">
-            <a class="res_menu" href="javascript:;"><img alt="" src="{% static "img/res_menu.jpg" %}"></a>
+            <a class="res_menu" href="javascript:;"><img alt="" src="static/img/res_menu.jpg"></a>
             {% if user.is_authenticated %}
                 <div class="help_outer">
                     <div class="help_inner">
                         <img src="{% static "img/heart_grey.png" %}" alt="" width="18" height="18">
-                        <span><a href="{% url "main:about" %}">About</a></span> <span>|</span>
+                        <span><a href="{% url "main:about" %}">关于</a></span> <span>|</span>
                     </div>
                     <div class="client_outer">
                     <span class="client_img">
@@ -56,12 +56,12 @@
                         <span>{{ user.first_name }}</span>
                         <div class="help_list">
                             <ul>
-                                <li><a href="{% url "users:myreviews" %}"><i class="fa fa-comment-o100"></i>Your Reviews</a></li>
-                                <li><a href="{% url "users:profile" %}"><i class="fa fa-pencil100"></i>Edit Profile</a></li>
-                                <li><a href="{% url "users:editprofile" %}"><i class="fa fa-cog100"></i>Account Settings</a></li>
-                                <li><a href="{% url "place:list-space" %}"><i class="fa fa-plus-circle100"></i>Add Coworking Space</a></li>
+                                <li><a href="{% url "users:myreviews" %}"><i class="fa fa-comment-o100"></i>我的评论</a></li>
+                                <li><a href="{% url "users:profile" %}"><i class="fa fa-pencil100"></i>编辑资料</a></li>
+                                <li><a href="{% url "users:editprofile" %}"><i class="fa fa-cog100"></i>账号设置</a></li>
+                                <li><a href="{% url "place:list-space" %}"><i class="fa fa-plus-circle100"></i>添加场地</a></li>
                                 <li>
-                                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>Log Out</a>
+                                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,17 +71,17 @@
                 <div class="coworker_new_right">
                     <ul>
                         <li>
-                            <a href="{% url "main:about" %}"><i aria-hidden="true" class="fa fa-heart11"></i> About</a>
+                            <a href="{% url "main:about" %}"><i aria-hidden="true" class="fa fa-heart11"></i> 关于</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" onclick="openNavSignup();"><i aria-hidden="true" class="fa fa-user"></i> Sign Up</a>
+                            <a href="javascript:void(0);" onclick="openNavSignup();"><i aria-hidden="true" class="fa fa-user"></i> 注册</a>
                         </li>
                         <li class="new_login_con">
-                            <a href="javascript:void(0);" onclick="openNavLoging();">Login</a>
+                            <a href="javascript:void(0);" onclick="openNavLoging();">登录</a>
                         </li>
                     </ul>
                     <div class="new_add_spaces_button">
-                        <a href="{% url "place:list-space" %}">Add Your Space</a>
+                        <a href="{% url "place:list-space" %}">我要出租</a>
                     </div>
                 </div>
             {% endif %}
@@ -93,13 +93,13 @@
             <div class="row">
                 <form accept-charset="utf-8" action="{% url "main:search" %}" id="form_search" method="post" name="search_form">
                     <div class="coworker_floating_main">
-                        <h1>Are <span>you</span> coworking yet?<sup style="font-size:18px;">™</sup></h1>
+                        <h1>您<span>加入</span>共享E族了吗?<sup style="font-size:18px;">™</sup></h1>
                         <div class="col-xs-12 pade_none" id="f_aucomplete">
-                            <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="Search by City, Country or Space..." type="text"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>
+                            <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="搜索：场地名称、城市、国家......" type="text"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>
                             <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>
                         </div>
                         <div class="col-xs-12 pade_none coworker_explore_con">
-                            Explore over 5000 coworking spaces with 10,000+ member tips &amp; reviews
+                            超过5000个工作场地 10000条会员提示和 &amp; 评论
                         </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">
                     </div>
                 </form>
@@ -219,11 +219,11 @@
         </div><!-- Left and right controls -->
         <div class="slider_left_arrow">
             <a class="left carousel-control" data-slide="prev" href="https://www.coworker.com/#myCarousel" role="button"><!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
-                <img alt="" src="{% static "img/img_coworker_slider_arrow_left.png" %}"> <span class="sr-only"></span></a>
+                <img alt="" src="static/img/img_coworker_slider_arrow_left.png"> <span class="sr-only"></span></a>
         </div>
         <div class="slider_right_arrow">
             <a class="right carousel-control" data-slide="next" href="https://www.coworker.com/#myCarousel" role="button"><!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
-                <img alt="" src="{% static "img/img_coworker_slider_arrow_right.png" %}"> <span class="sr-only"></span></a>
+                <img alt="" src="static/img/img_coworker_slider_arrow_right.png"> <span class="sr-only"></span></a>
         </div>
     </div>
 </header>

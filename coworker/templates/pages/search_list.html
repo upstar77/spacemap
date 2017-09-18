@@ -16,14 +16,14 @@
                         <div class="plan">
                             <div class="col-sm-12 pade_none search_alt_form_wrapper">
                                 <div class="search_form_box">
-                                    <input autocomplete="off" class="search_alt_input ui-autocomplete-input" id="sp_location" name="sp_location" placeholder="Search by coworking space, city or country" type="text" value="Hong kong, Hong kong"> <button class="search_alt_btn" id="search_alt_button" name="Submit" type="button" value="true"><i class="fa fa-search"></i></button> <input id="sp_search_place" name="sp_search_place" type="hidden" value="0"> <input id="sp_place_id" name="sp_place_id" type="hidden" value="0"> <input id="xsp_location" name="xsp_location" type="hidden">
+                                    <input autocomplete="off" class="search_alt_input ui-autocomplete-input" id="sp_location" name="sp_location" placeholder="搜索：城市、行政（区、县）" type="text" value="Hong kong, Hong kong"> <button class="search_alt_btn" id="search_alt_button" name="Submit" type="button" value="true"><i class="fa fa-search"></i></button> <input id="sp_search_place" name="sp_search_place" type="hidden" value="0"> <input id="sp_place_id" name="sp_place_id" type="hidden" value="0"> <input id="xsp_location" name="xsp_location" type="hidden">
                                     <div style="clear:both;"></div>
                                 </div>
                             </div>
                             <div class="col-sm-12 pade_none">
                                 <div class="look_for">
                                     <div class="col-md-3 col-sm-12 pade_none">
-                                        <h2>Looking For <span id="stooltip"><i class="fa fa-question" style="margin-left:-35%;"></i></span></h2>
+                                        <h2>查找 <span id="stooltip"><i class="fa fa-question" style="margin-left:-35%;"></i></span></h2>
                                         <div id="search_tooltip">
                                             <h2></h2>
                                             <div class="tooltipbox">
@@ -31,15 +31,15 @@
                                                 <div class="openplan">
                                                     <h2></h2>
                                                     <div class="openplan-title">
-                                                        <h2>Open Plan:</h2>
+                                                        <h2开放式办公:</h2>
                                                         <div class="openplan-desc">
-                                                            <h2>If you like the energy of coworking alongside other people, this is for you. Includes hotdesks, dedicated desks and shared tables. </h2>
+                                                            <h2>您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公桌、专用办公桌或者共享办公桌.</h2>
                                                             <div class="privateoffice">
                                                                 <h2></h2>
                                                                 <div class="privateoffice-title">
-                                                                    <h2>Private Office:</h2>
+                                                                    <h2>私人办公室:</h2>
                                                                     <div class="privateoffice-desc">
-                                                                        <h2>Perfect for small teams that want a bit of privacy and the freedom to brainstorm without worrying about disturbing others. </h2>
+                                                                        <h2>您如果带领一个小团队，想要一些私人空间，而不想被别人打扰，那么请在这里搜索试试看！</h2>
                                                                         <div style="clear:both;">
                                                                             <h2></h2>
                                                                         </div>
@@ -88,14 +88,14 @@
                             <div class="col-sm-12 pade_none">
                                 <div class="membership">
                                     <div class="col-md-3 pade_none">
-                                        <h2>Membership</h2>
+                                        <h2>租用时间</h2>
                                     </div>
                                     <div class="col-md-8 pade_none" id="membership">
                                         <ul>
-                                            <li id="daily" onclick="change_state(&#39;daily&#39;,1,2);">Daily</li>
-                                            <li id="weekly" onclick="change_state(&#39;weekly&#39;,1,2);">Weekly</li>
-                                            <li id="monthly" onclick="change_state(&#39;monthly&#39;,1,2);">Monthly</li>
-                                            <li id="all" onclick="change_state(&#39;all&#39;,1,2);">All</li>
+                                            <li id="daily" onclick="change_state(&#39;daily&#39;,1,2);">日租</li>
+                                            <li id="weekly" onclick="change_state(&#39;weekly&#39;,1,2);">周租</li>
+                                            <li id="monthly" onclick="change_state(&#39;monthly&#39;,1,2);">月租</li>
+                                            <li id="all" onclick="change_state(&#39;all&#39;,1,2);"全部</li>
                                         </ul>
                                     </div>
                                 </div><!--membership ends-->
@@ -104,21 +104,23 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="col-xs-12 pade_none filters_main_outer_con">
                 <div class="col-xs-12 pade_none">
                     <div class="col-sm-9 col-md-10 col-xs-9 pade_none search_looking_bottom hide_filter selected_filter">
                         <ul id="def_filters">
                             <li id="16">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Free Beer</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">免费啤酒</a>
                             </li>
                             <li id="26">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Skype Room</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Skype 室</a>
                             </li>
                             <li id="8">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Standing Desks</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">立式办公桌</a>
                             </li>
                             <li id="37">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">24hr Member Access</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">会员全天准入</a>
                             </li>
                         </ul>
                         <div id="list_filters" style="margin-left: 2em">
@@ -126,7 +128,7 @@
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-2 col-xs-3 pade_none view_filters_outer">
-                        <a href="javascript:void(0);"><span class="view_show">View all Filters</span><span class="view_hide">Hide Filters</span></a>
+                        <a href="javascript:void(0);"><span class="view_show">查看全部筛选信息</span><span class="view_hide">掩藏按钮</span></a>
                     </div>
                 </div>
                 <div class="col-xs-12 pade_none filters_hide_panel">
@@ -345,9 +347,9 @@
                                     </div>
                                     <div class="col-xs-12 pade_none search_free_pass_container">
                                         <div class="search_review_outer text_middle_con">
-                                            <i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i>1 Review
+                                            <i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i>1 评论
                                             <div class="col-xs-12 pade_none search_verified_text">
-                                                <i aria-hidden="true" class="fa fa-check"></i>Verified
+                                                <i aria-hidden="true" class="fa fa-check"></i>验证
                                             </div>
                                         </div>
                                     </div>
@@ -384,18 +386,18 @@
                             <a href="javascript:void(0);" onclick="loadSpacePage(5,1,2);">6</a>
                         </li>
                         <li class="next_pagination_tab">
-                            <a href="javascript:void(0);" onclick="nextSpacePage(1,2);">Next</a>
+                            <a href="javascript:void(0);" onclick="nextSpacePage(1,2);">下一页</a>
                         </li>
                     </ul>
                     <div class="col-xs-12 pade_none pagination_text_con" id="sw_pagination_total">
-                        1 of 89 coworking spaces
+                        1 of 89 创客云图
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="sign_search">
-                    <h3 id="h_st">Pssssst.</h3><br>
+                    <h3 id="h_st">对了</h3><br>
                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="dv_st">
-                        We’re still collecting info about coworking spaces in Hong kong, Hong kong - so watch this space!<br>
-                        Pop your email below and we’ll let you know when more get listed:
+                       我们仍在收集全国各地的创客云图场地信息。请在下面输入您的邮箱!<br>
+                        我们如果添加新的场地，会第一时间给您发送邮件。
                     </div>
                     <div class="col-sm-10 col-md-10 col-xs-12 pade_none">
                         <br>
@@ -403,7 +405,7 @@
                     </div>
                     <div class="col-sm-10 col-md-10 col-xs-12 location_btn" style="padding-left: 0px; margin-left: 0px; margin-bottom: 100px;">
                         <br>
-                        <a href="javascript:void(0);" onclick="registerEmail();" style="font-family:Roboto,sans-serif;font-weight: 300;font-size:15px;">Stay In the Loop</a>
+                        <a href="javascript:void(0);" onclick="registerEmail();" style="font-family:Roboto,sans-serif;font-weight: 300;font-size:15px;">确定接受信息</a>
                     </div><input id="vloop" name="vloop" type="hidden" value="1">
                 </div>
             </div>
@@ -576,14 +578,14 @@
                 </div>
             </div>
             <div id="over_map">
-                <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>Search as I move the map</label>
+                <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>移动地图时自动搜索</label>
             </div>
             <div class="instant_cont">
                 <div class="instant_txt_outer">
                     <div class="instant_img"><img alt="img" src={% static "img/instant_img.png" %}></div>
                     <div class="instant_txt">
-                        <h3>Instant Contact</h3>
-                        <p>Message coworking spaces directly via their page</p>
+                        <h3>即时联络</h3>
+                        <p>创客云图的信息将快速直达</p>
                     </div>
                 </div>
             </div><!--instant contact ends-->
@@ -602,7 +604,7 @@
             <div class="container">
                 <div class="row">
                     <div class="join_coworker_footer_inner">
-                        <p>Love coworking? Join thousands of people in Coworker's global community.</p><span class="footer_log_button"><a href="javascript:void(0);" onclick="openNavLoging();">Log In</a></span> <span class="footer_sign_button"><a href="javascript:void(0);" onclick="openNavSignup();">Sign Up</a></span>
+                        <p>爱上创客云图了吗? 成千上万的人都加入到了创客云图的共享办公当中了.</p><span class="footer_log_button"><a href="javascript:void(0);" onclick="openNavLoging();">登录</a></span> <span class="footer_sign_button"><a href="javascript:void(0);" onclick="openNavSignup();">注册</a></span>
                     </div>
                 </div>
             </div>
