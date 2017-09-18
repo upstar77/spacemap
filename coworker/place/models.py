@@ -1,6 +1,7 @@
 import json
 import os
 
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -61,7 +62,6 @@ MEMBER_ACCS_CHOISE = (
 )
 
 
-
 class Location(models.Model):
     # location_name = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
@@ -119,11 +119,15 @@ class MeetingRoom(models.Model):
     )
 
 
-# class OpeningHours(models.Model):
-#     pass
-
 class Photos(models.Model):
-    pass
+    file = models.FileField(upload_to="user/photos", null=False, blank=False)
+    # user = models.ForeignKey(get_user_model())
+    user = models.ForeignKey('users.User')
+    upload_date = models.DateTimeField(auto_now_add=True)
+    is_header_image = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.file.name
 
 
 class Member_Payment(models.Model):
@@ -135,6 +139,7 @@ class Member_Payment(models.Model):
 
     class Meta:
         abstract = True
+
 
 #TODO remove this, and use some service
 def get_countries():

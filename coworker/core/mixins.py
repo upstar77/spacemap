@@ -14,8 +14,8 @@ class AjaxableResponseMixin(object):
         else:
             return response
 
-    def get_success_url(self):
-        return None
+    # def get_success_url(self):
+    #     return
 
     def form_valid(self, form):
         # We make sure to call the parent's form_valid() method because

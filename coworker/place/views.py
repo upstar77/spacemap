@@ -6,7 +6,9 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView
-from .forms import PlaceForm, PlaceFirstForm
+
+from coworker.core.form_mixins import PassUser
+from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm
 
 log = logging.getLogger('debug')
 
@@ -80,10 +82,30 @@ class PlaceAddContinue(CreateView):
 
 
 
-#image respoce
-# header
-# {"status":"success","url":"https:\/\/www.coworker.com\/pictures\/8195\/img-5319jpg_prev.jpg","width":1095,"height":615}
-# header-edit
-# {"status":"success","url":"https:\/\/www.coworker.com\/pictures\/8195\/edit\/img-5319jpg_prev.jpeg"}
-#dropzone
-# {"name":"img-5319jpg_1505423441","ext":"jpg","msg":"scs"}
+@method_decorator(csrf_exempt, name='dispatch')
+class PhotoDropzone(CreateView):
+    # template_name = 'place/continue_page.html'
+    form_class = PlacePhotoForm
+    template_name = ""
+
+    def get_success_url(self):
+        return ""
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return JsonResponse({"status": "error"})
+
+    def form_valid(self, form):
+        photo = form.save(commit=False)
+        photo.user = self.request.user
+        photo.save()
+
+        if photo.is_header_image:
+            from django.core.files.images import get_image_dimensions
+            w, h = get_image_dimensions(photo.file)
+            d = {"status": "success", "url": photo.file.url, "width": w, "height": h}
+        else:
+            d = {"name": photo.file.url, "ext": "jpg", "msg": "scs"}
+        return JsonResponse(d)
+
+

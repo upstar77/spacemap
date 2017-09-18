@@ -1,7 +1,7 @@
 import re
 
 from django import forms
-from .models import Place, Amenities
+from .models import Place, Amenities, Photos
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
 from .fields import JsonHoursChoiceField
@@ -86,3 +86,22 @@ class PlaceForm(JsonMixinValidate, forms.ModelForm):
 
     # def save(self, *args, **kwargs):
     #     return super(ProfileForm, self).save(*args, **kwargs)
+
+
+class PlacePhotoForm(forms.ModelForm):
+    class Meta:
+        model = Photos
+        fields = ['file', 'is_header_image']
+
+    def clean(self):
+        if self.data.get("xview"):
+            del self.errors['file']
+            self.cleaned_data['file'] = self.files['img']
+            self.cleaned_data["is_header_image"] = True
+
+    # def clean(self):
+    #     if self.data.get("xview"):
+    #         self.file = self.files
+    #         self.cleaned_data["is_header_image"] = True
+
+

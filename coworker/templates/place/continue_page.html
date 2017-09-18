@@ -687,7 +687,7 @@
             // Hack: Add the dropzone class to the element
             $(this.element).addClass("dropzone");
             this.on("success", function (file, dataResponse) {
-              var serverFile = JSON.parse(dataResponse);
+              var serverFile = dataResponse;
               if(serverFile.msg=='error'){
               } else {
                 var new_file = serverFile.name.substr(0,serverFile.name.lastIndexOf('_'))+'.'+serverFile.ext;
@@ -711,7 +711,7 @@
               validateImages();
             });
           },
-          url: "https://www.coworker.com/list-space/dropzone"
+          url: "{% url "place:list-space-dropzone" %}"
         });
       });
       $(function() {
@@ -750,9 +750,9 @@
       var loadHeader = 0;
       var cropContainerEyecandy = undefined;
       var croppicContainerEyecandyOptions = {
-        uploadUrl:'https://www.coworker.com/list-space/header',
+        uploadUrl:'{% url "place:header" %}',
         uploadData:{ "xview":x_view, "sview": 1},
-        cropUrl:'https://www.coworker.com/list-space/header-edit',
+        cropUrl:'{% url "place:header-edit" %}',
         imgEyecandy:false,
         customUploadButtonId:'cropContainerHeaderDiv',
         onBeforeImgUpload: function(){ croppicContainerEyecandyOptions.uploadData.xview = $('#cropContainerEyecandy').width();},

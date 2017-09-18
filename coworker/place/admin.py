@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Place, Amenities
+from .models import Place, Amenities, Photos
 # Register your models here.
 
 
@@ -15,6 +15,10 @@ class PlaceAdmin(admin.ModelAdmin):
     # list_filter = ('application__user', )
     # search_fields = ('application__user__first_name', 'application__user__last_name', 'application__user__email')
 
+class PhotosAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'is_header_image')
+
 
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
+admin.site.register(Photos, PhotosAdmin)
