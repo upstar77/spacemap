@@ -2,54 +2,53 @@
 {% load static %}
 
 
-<h3>Got Meeting Rooms?</h3>
-<p>Some people look for a coworking space with a specific capacity for meeting rooms. Help them find you when they filter.</p>
-
+<h3>会议室</h3>
+<p>部分会员想租用附带会议室的创客云图场地</p>
 <div class="col-xs-12 pade_none coworker_event_bottom_panel">
     <div class="col-xs-12 pade_none co_form_con">
         <div class="col-xs-12 pade_none rooms_con">
-            <label>Number Of Meeting Rooms</label>
+            <label>会议室编号</label>
             {% render_field form.meeting_room_number id="meeting_room_number" class="meet_icon" %}
         </div>
         <div class="col-xs-12 pade_none rooms_con02">
             <div id="room_names" class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft" style="visibility:hidden">
-                <label>Meeting Room Name</label>
+                <label>会议室名字</label>
             </div>
             <div id="room_caps" class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt" style="visibility:hidden">
-                <label>Meeting Room Capacity</label>
+                <label>会议室容量</label>
             </div>
         </div>
     </div>
 
     <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-        <label class="rooms_sub">Do you allow non-members to rent your meeting rooms?</label>
+        <label class="rooms_sub">允许非会员租用我的会议室?</label>
         <div class="col-xs-12 pade_none room_lft form-group">
             {#                    {% render_field form.rent_nm type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes" %}#}
             <input name="rent_nm" type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes">
-            <label class="lbl-credit-card" for="meeting_room01">Yes</label>
+            <label class="lbl-credit-card" for="meeting_room01">允许</label>
         </div>
         <div class="col-xs-12 pade_none room_lft form-group">
             {#                    {% render_field form.rent_nm type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes" %}#}
             <input name="rent_nm" type="radio" class="lbl-radio-vopt" id="meeting_room02" checked="checked" value="no">
-            <label class="lbl-credit-card" for="meeting_room02">No</label>
+            <label class="lbl-credit-card" for="meeting_room02">不允许</label>
         </div>
     </div>
 
     <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-        <label class="rooms_sub">Do you allow non-members to hire your coworking space for bigger events?</label>
+        <label class="rooms_sub">允许非会员在我的创客云图场地举办大型活动?</label>
         <div class="col-xs-12 pade_none room_lft form-group">
             <input name="hire_nm" type="radio" class="lbl-radio-vopt" value="yes" id="meeting_room03">
-            <label class="lbl-credit-card" for="meeting_room03">Yes</label>
+            <label class="lbl-credit-card" for="meeting_room03">允许</label>
         </div>
         <div class="col-xs-12 pade_none room_lft form-group">
             <input name="hire_nm" type="radio" class="lbl-radio-vopt" checked="checked" value="no" id="meeting_room04">
-            <label class="lbl-credit-card" for="meeting_room04">No</label>
+            <label class="lbl-credit-card" for="meeting_room04">不允许</label>
         </div>
     </div>
     <div class="col-xs-12 pade_none co_form_con" id="max_cap" style="display:none">
         <div class="col-xs-12 pade_none rooms_con">
             <div class="col-xs-12 pade_none room_lft">
-                <label>Maximum Capacity</label>
+                <label>最大容量</label>
                 {% render_field form.max_people_capacity class="meet_icon" %}
             </div>
         </div>

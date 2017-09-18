@@ -1,11 +1,9 @@
 
-<h3>Help coworkers find your space</h3>
-<br>
-ba
+<h3>帮助租客找到您的场地</h3>
 <div class="col-xs-12 pade_none co_form_con">
     <div class="col-xs-12 pade_none">
         <div class="col-sm-12 col-md-12 col-xs-12 pade_none cowok_leftcon">
-            <h4>Let's try to find your location on the map.</h4>
+            <h4>在地图上选择您的位置</h4>
             <div class="col-xs-12 pade_none type_text_cowork">Type in "coworker, kiev, Ukraine" into the field below and select your coworking space from the dropdown menu. If your coworking space doesn't appear, type your street address in instead.</div>
             <div class="col-xs-12 pade_none coworker_loaction_grey_panel">
                 <input id="autocomplete" name="autocomplete" type="text" placeholder="Enter your coworking space name AND city, or your street address."></div>
@@ -16,34 +14,34 @@ ba
 
                 <div id="space_map" style="height:300px;"></div>
 
-                <p>Check the pin is in the correct location. If not, drag and drop it to the right spot.</p>
+                <p>检查定位是否正确。如果有误，请更换到正确的位置</p>
             </div>
         </div>
     </div>
     <div class="col-xs-12 pade_none">&nbsp;</div>
-    <h4>Next Step</h4>
-    <p>Confirm and complete any missing details in the location information below:</p>
+    <h4>下一步</h4>
+    <p>在下列空格里补全信息</p>
     <div class="col-xs-12 pade_none coworker_event_bottom_panel">
         <div class="col-xs-12 pade_none">
             <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_leftcon">
-                <label>Location Name*:</label>
+                <label>地名*:</label>
                 <input id="location_name" name="location_name" type="text" value="coworker">
             </div>
             <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_rgtcon">
-                <label>Unit / Floor number :</label>
+                <label>单元号、楼层 :</label>
                 <input name="unit" type="text">
             </div>
         </div>
         <div class="col-xs-12 pade_none">
             <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_leftcon">
                 <div class="form-group ui-front">
-                    <label>Address Line 1*:</label>
+                    <label>街道1*:</label>
                     <input id="address" name="address" type="text" class="submission_form_inner input" data-fv-field="address">
-                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="address" data-fv-result="NOT_VALIDATED" style="display: none;">The address is required</small></div>
+                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="address" data-fv-result="NOT_VALIDATED" style="display: none;">必填</small></div>
             </div>
             <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_rgtcon">
                 <div class="form-group">
-                    <label>Address Line 2:</label>
+                    <label>城市*:</label>
                     <input id="address_sec" name="address_sec" type="text" class="submission_form_inner input">
                 </div>
             </div>
@@ -54,11 +52,11 @@ ba
                     <label>Town / City*:</label>
                     <input id="city" name="city" type="text" class="submission_form_inner input ui-autocomplete-input" value="kiev" data-fv-field="city" autocomplete="off">
                     <input id="f_city" name="f_city" type="hidden" value="kiev">
-                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="city" data-fv-result="NOT_VALIDATED" style="display: none;">The city is required</small><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-4" tabindex="0" style="display: none;"></ul></div>
+                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="city" data-fv-result="NOT_VALIDATED" style="display: none;">城市名必填</small><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-4" tabindex="0" style="display: none;"></ul></div>
             </div>
             <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_rgtcon">
                 <div>
-                    <label>Neighbourhood:</label>
+                    <label>城区:</label>
                     <input id="area" name="area" type="text">
                     <input id="cityLat" name="cityLat" type="hidden" value="50.4501">
                     <input id="cityLng" name="cityLng" type="hidden" value="30.5234">
@@ -76,7 +74,7 @@ ba
         <div class="col-xs-12 pade_none">
             <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_leftcon">
                 <div class="form-group">
-                    <label>Zip / Postal Code:</label>
+                    <label>邮政编码:</label>
                     <input id="postal_code" name="postal_code" type="text">
                 </div>
             </div>
@@ -92,131 +90,131 @@ ba
     </div>
 </div>
 
-    <script type="text/javascript"
-	src="http://api.map.baidu.com/api?key=&amp;v=1.2&amp;services=true"></script>
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?key=&amp;v=1.2&amp;services=true"></script>
 
 <script type="text/javascript">
-	// <![CDATA[
-	//Create and initialize the map£º
-	function initMap() {
-		createMap();
-		setMapEvent();
-		addMapControl();
-		addMarker();
-	}
+  // <![CDATA[
+  //Create and initialize the map£º
+  function initMap() {
+    createMap();
+    setMapEvent();
+    addMapControl();
+    addMarker();
+  }
 
-	//Create a map function£º
-	function createMap() {
-		var map = new BMap.Map("space_map");//Add a map to the container
-		var point = new BMap.Point(123.455123,41.79223);//set the center point
-		map.centerAndZoom(point, 19);//display level
-		window.map = map;
-	}
+  //Create a map function£º
+  function createMap() {
+    var map = new BMap.Map("space_map");//Add a map to the container
+    var point = new BMap.Point(123.455123,41.79223);//set the center point
+    map.centerAndZoom(point, 19);//display level
+    window.map = map;
+  }
 
-	// control tool of the map£º
-	function setMapEvent() {
-		map.enableDragging();
-		map.enableScrollWheelZoom();
-		map.enableDoubleClickZoom();
-		map.enableKeyboard();
-	}
+  // control tool of the map£º
+  function setMapEvent() {
+    map.enableDragging();
+    map.enableScrollWheelZoom();
+    map.enableDoubleClickZoom();
+    map.enableKeyboard();
+  }
 
-	//addMapControl£º
-	function addMapControl() {
-		var ctrl_nav = new BMap.NavigationControl({
-			anchor : BMAP_ANCHOR_TOP_LEFT,
-			type : BMAP_NAVIGATION_CONTROL_LARGE
-		});
-		map.addControl(ctrl_nav);
-		//Scale controls
-		var ctrl_sca = new BMap.ScaleControl({
-			anchor : BMAP_ANCHOR_BOTTOM_LEFT
-		});
-		map.addControl(ctrl_sca);
-	}
+  //addMapControl£º
+  function addMapControl() {
+    var ctrl_nav = new BMap.NavigationControl({
+      anchor : BMAP_ANCHOR_TOP_LEFT,
+      type : BMAP_NAVIGATION_CONTROL_LARGE
+    });
+    map.addControl(ctrl_nav);
+    //Scale controls
+    var ctrl_sca = new BMap.ScaleControl({
+      anchor : BMAP_ANCHOR_BOTTOM_LEFT
+    });
+    map.addControl(ctrl_sca);
+  }
 
-	//Indexing array
-	var markerArr = [ {
-		title : "Pentagon",
-		content : "tel£º18823879110<br/>address£ºnew york",
-		point : "123.455123|41.79223",
-		isOpen : 1,
-		icon : {
-			w : 21,
-			h : 21,
-			l : 0,
-			t : 21,
-			x : 6,
-			lb : 5
-		}
-	} ];
-	// creat marker
-	function addMarker() {
-		for ( var i = 0; i < markerArr.length; i++) {
-			var json = markerArr[i];
-			var p0 = json.point.split("|")[0];
-			var p1 = json.point.split("|")[1];
-			var point = new BMap.Point(p0, p1);
-			var iconImg = createIcon(json.icon);
-			var marker = new BMap.Marker(point, {
-				icon : iconImg
-			});
-			var iw = createInfoWindow(i);
-			var label = new BMap.Label(json.title, {
-				"offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
-			});
-			marker.setLabel(label);
-			map.addOverlay(marker);
-			label.setStyle({
-				borderColor : "#808080",
-				color : "#333",
-				cursor : "pointer"
-			});
+  //Indexing array
+  var markerArr = [ {
+    title : "Pentagon",
+    content : "tel£º18823879110<br/>address£ºnew york",
+    point : "123.455123|41.79223",
+    isOpen : 1,
+    icon : {
+      w : 21,
+      h : 21,
+      l : 0,
+      t : 21,
+      x : 6,
+      lb : 5
+    }
+  } ];
+  // creat marker
+  function addMarker() {
+    for ( var i = 0; i < markerArr.length; i++) {
+      var json = markerArr[i];
+      var p0 = json.point.split("|")[0];
+      var p1 = json.point.split("|")[1];
+      var point = new BMap.Point(p0, p1);
+      var iconImg = createIcon(json.icon);
+      var marker = new BMap.Marker(point, {
+        icon : iconImg
+      });
+      var iw = createInfoWindow(i);
+      var label = new BMap.Label(json.title, {
+        "offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+      });
+      marker.setLabel(label);
+      map.addOverlay(marker);
+      label.setStyle({
+        borderColor : "#808080",
+        color : "#333",
+        cursor : "pointer"
+      });
 
-			(function() {
-				var index = i;
-				var _iw = createInfoWindow(i);
-				var _marker = marker;
-				_marker.addEventListener("click", function() {
-					this.openInfoWindow(_iw);
-				});
-				_iw.addEventListener("open", function() {
-					_marker.getLabel().hide();
-				})
-				_iw.addEventListener("close", function() {
-					_marker.getLabel().show();
-				})
-				label.addEventListener("click", function() {
-					_marker.openInfoWindow(_iw);
-				})
-				if (!!json.isOpen) {
-					label.hide();
-					_marker.openInfoWindow(_iw);
-				}
-			})()
-		}
-	}
-	//creat InfoWindow
-	function createInfoWindow(i) {
-		var json = markerArr[i];
-		var iw = new BMap.InfoWindow(
-				"<b class='iw_poi_title' title='" + json.title + "'>"
-						+ json.title + "</b><div class='iw_poi_content'>"
-						+ json.content + "</div>");
-		return iw;
-	}
-	//creat Icon
-	function createIcon(json) {
-		var icon = new BMap.Icon(
-				"http://api.map.baidu.com/img/markers.png",
-				new BMap.Size(json.w, json.h), {
-					imageOffset : new BMap.Size(-json.l, -json.t),
-					infoWindowOffset : new BMap.Size(json.lb + 5, 1),
-					offset : new BMap.Size(json.x, json.h)
-				})
-		return icon;
-	}
+      (function() {
+        var index = i;
+        var _iw = createInfoWindow(i);
+        var _marker = marker;
+        _marker.addEventListener("click", function() {
+          this.openInfoWindow(_iw);
+        });
+        _iw.addEventListener("open", function() {
+          _marker.getLabel().hide();
+        })
+        _iw.addEventListener("close", function() {
+          _marker.getLabel().show();
+        })
+        label.addEventListener("click", function() {
+          _marker.openInfoWindow(_iw);
+        })
+        if (!!json.isOpen) {
+          label.hide();
+          _marker.openInfoWindow(_iw);
+        }
+      })()
+    }
+  }
+  //creat InfoWindow
+  function createInfoWindow(i) {
+    var json = markerArr[i];
+    var iw = new BMap.InfoWindow(
+      "<b class='iw_poi_title' title='" + json.title + "'>"
+      + json.title + "</b><div class='iw_poi_content'>"
+      + json.content + "</div>");
+    return iw;
+  }
+  //creat Icon
+  function createIcon(json) {
+    var icon = new BMap.Icon(
+      "http://api.map.baidu.com/img/markers.png",
+      new BMap.Size(json.w, json.h), {
+        imageOffset : new BMap.Size(-json.l, -json.t),
+        infoWindowOffset : new BMap.Size(json.lb + 5, 1),
+        offset : new BMap.Size(json.x, json.h)
+      })
+    return icon;
+  }
 
-	initMap();//Create and initialize the map
-	// ]]>
+  initMap();//Create and initialize the map
+  // ]]>
 </script>
