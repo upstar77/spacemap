@@ -1,18 +1,18 @@
 {% load widget_tweaks %}
 {% load static %}
 
-<h3>Tell Coworkers about your space</h3>
-<p>Every coworking space is unique. Highlight what makes your coworking space an awesome space to work.</p>
+<h3>介绍我的场地</h3>
+<p>每个创客云图场地都与众不同 向大家介绍您的场地有何特别之处。</p>
 <div class="col-xs-12 pade_none coworker_event_bottom_panel heading_formatting_con">
-    <h4>Name</h4>
-    {% render_field form.space_name type="text" name="space_name" id="space_name" value="coworker" readonly="readonly" %}
+   <h4>名字</h4>
+    {% render_field form.space_name type="text" name="space_name" id="space_name" value="创客云图" readonly="readonly" %}
     <div class="form-group description_comment_div">
-        <h4>Description*</h4>
+        <h4>详细介绍*</h4>
         {% render_field form.cs_description  data-fv-field="cs_description" placeholder="Tell coworkers what you love about the space. You can include details about the decor, your amenities, the types of people in your community and the neighbourhood." %}
         <small class="help-block" data-fv-validator="notEmpty" data-fv-for="cs_description" data-fv-result="NOT_VALIDATED" style="display: none;">
-            The Description is required</small>
+            必填</small>
         <small class="help-block" data-fv-validator="stringLength" data-fv-for="cs_description" data-fv-result="NOT_VALIDATED" style="display: none;">
-            *minimum  of 350 characters required</small></div>
+            *不少于350字</small></div>
     {#            <div class="check_submision_out">#}
     {#                <label><input type="checkbox" id="extra_desc" name="extra_desc"><span class="lbl padding-8" style="font-family:&#39;Roboto&#39;">#}
     {#                I would like a second description in our local language.</span></label>#}

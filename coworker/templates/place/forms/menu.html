@@ -1,82 +1,79 @@
 {% load static %}
 
+
 <ul>
-    <li>
-        <a href="javascript:;" class="anchor left_active side-link-anchor" id="1" onclick="jumpToTab(1);">
-            <i class="fa fa-file-text-o"></i> 1. Description&nbsp;&nbsp;
-            <img id="i_desc" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
-        </a>
+    <li><a href="javascript:;" class="anchor left_active side-link-anchor" id="1" onclick="jumpToTab(1);">
+        <i class="fa fa-file-text-o"></i> 1. 详细介绍&nbsp;&nbsp;
+        <img id="i_desc" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+    </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="2" onclick="jumpToTab(2);">
-            <i class="fa fa-phone"></i> 2. Contact Details&nbsp;&nbsp;
+            <i class="fa fa-phone"></i> 2. 联系方式&nbsp;&nbsp;
             <img id="i_con" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
         </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="3" onclick="jumpToTab(3);">
-            <i class="fa fa-home"></i> 3. Amenities&nbsp;&nbsp;
+            <i class="fa fa-home"></i> 3. 物业配置&nbsp;&nbsp;
             <img id="i_am" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
         </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="4" onclick="jumpToTab(4);">
-            <i class="fa fa-map-marker_sub">
-            </i> 4. Location&nbsp;&nbsp;
-            <img id="i_loc" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"> </a>
+            <i class="fa fa-map-marker_sub"></i> 4. 地点&nbsp;&nbsp;
+            <img id="i_loc" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="5" onclick="jumpToTab(5);">
-            <i class="fa fa-users_sub">
-            </i> 5. Meeting Rooms&nbsp;&nbsp;
-            <img id="i_rooms" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"> </a>
+            <i class="fa fa-users_sub"></i> 5. 会议室&nbsp;&nbsp;
+            <img id="i_rooms" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="6" onclick="jumpToTab(6);">
-            <i class="fa fa-clock-o">
-            </i> 6. Opening Hours&nbsp;&nbsp;
-            <img id="i_hours" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"> </a>
+            <i class="fa fa-clock-o"></i> 6. 营业时间&nbsp;&nbsp;
+            <img id="i_hours" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="7" onclick="jumpToTab(7);">
-            <i class="fa fa-crosshairs">
-            </i> 7. Size&nbsp;&nbsp;
-            <img id="i_size" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"> </a>
+            <i class="fa fa-crosshairs"></i> 7. 场地面积&nbsp;&nbsp;
+            <img id="i_size" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="8" onclick="jumpToTab(8);">
-            <i class="fa fa-camera">
-            </i> 8. Photos&nbsp;&nbsp;
-            <img id="i_photos" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"> </a>
+            <i class="fa fa-camera"></i> 8. 照片&nbsp;&nbsp;
+            <img id="i_photos" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="9" onclick="jumpToTab(9);">
-        <span class="sp_pm">
-            <i class="fa fa-usd"></i> 9. Payment Methods&nbsp;&nbsp;
-            <img id="i_mp" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
-        </span>
+            <span class="sp_pm">
+        <i class="fa fa-usd"></i> 9. 支付方式&nbsp;&nbsp;
+        <img id="i_mp" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"></span>
         </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="10" onclick="jumpToTab(10);">
             <span class="sp_pm">
-                <i class="fa fa-usd"></i> 10. Prices: Desks&nbsp;&nbsp;
-                <img id="i_price" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
-            </span>
+        <i class="fa fa-usd"></i> 10. 办公桌价格&nbsp;&nbsp;
+        <img id="i_price" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"></span>
         </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="11" onclick="jumpToTab(11);">
             <span class="sp_pp">
-                <i class="fa fa-usd"></i> 11. Prices: Private Offices&nbsp;&nbsp;
-                <img id="i_office" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
-            </span>
+        <i class="fa fa-usd"></i> 11. 私人办公室价格&nbsp;&nbsp;
+        <img id="i_office" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"></span>
         </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="12" onclick="jumpToTab(12);">
-            <i class="fa fa-bolt">
-            </i> 12. Marketing&nbsp;&nbsp;
-            <img id="i_marketing" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"> </a>
+            <i class="fa fa-bolt"></i> 12. 促销活动&nbsp;&nbsp;
+            <img id="i_marketing" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        </a>
     </li>
 </ul>
