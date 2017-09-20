@@ -49,8 +49,8 @@ class PlaceAdd(CreateView):
     #     # return redirect('place:list-space-continue')
     #     return JsonResponse({"status": "ok"})
     #
-    def form_valid(self, form):
-        return JsonResponse({"status": "ok"})
+    # def form_valid(self, form):
+    #     return JsonResponse({"status": "ok"})
 
 
 

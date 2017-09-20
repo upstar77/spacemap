@@ -26,8 +26,8 @@ class PlaceFirstForm(forms.ModelForm):
     def save(self, commit=False):
         data = self.cleaned_data
         obj = super(PlaceFirstForm, self).save(commit=False)
-        self.request.session['firs_form_data'] = data
-        self.request.session.save()
+        # self.request.session['firs_form_data'] = data
+        # self.request.session.save()
         return obj
 
     # def __init__(self, *args, **kwargs):

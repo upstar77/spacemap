@@ -20,6 +20,7 @@
                             </h2>
 
                             <form action="{% url "place:list-space" %}" method="post" id="user_space_form" name="user_space_form" class="fv-form fv-form-bootstrap">
+                                {% csrf_token %}
                                 <div class="form-group">
                                     <label>创客云图场地的名称 </label>
                                     {% render_field form.space_name type="text" class="submission_form_inner input" id="space_name" %}
