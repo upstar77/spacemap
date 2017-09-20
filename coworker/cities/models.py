@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+
 CITY_LEVEL_TYPE = (
     (0, _("China")),
     (1, _("Province")),
@@ -10,6 +11,10 @@ CITY_LEVEL_TYPE = (
 
 
 class City(models.Model):
+    CHINA = 0
+    PROVINCE = 1
+    CITY = 2
+    COUNTRY = 3
     name = models.CharField(_('Name'), max_length=40)
     short_name = models.CharField(_('Short name'), max_length=40)
     level_type = models.PositiveIntegerField(_('Level type'),
