@@ -364,3 +364,4 @@ coworker/media/
 !/compose/local/
 
 /scripts/pages_saved/
+/.idea/
