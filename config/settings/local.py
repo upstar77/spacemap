@@ -127,4 +127,4 @@ LOGGING = {
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['example.com', ])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['example.com',])
