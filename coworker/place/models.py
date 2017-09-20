@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
 from .fields import generate_time_range
+from coworker.cities.models import City
 
 
 # Create your models here.
@@ -141,25 +142,12 @@ class Member_Payment(models.Model):
         abstract = True
 
 
-#TODO remove this, and use some service
-def get_countries():
-    import coworker
-    path_to_file = os.path.join(
-        os.path.join(os.path.dirname(os.path.dirname(coworker.__file__))), "resources/countries.json")
-    countries = json.loads(open(path_to_file).read())["countries"]
-    return ((country, country) for country in countries)
-
-
 class Place(Member_Payment, ContactInfo, Location):
     space_name = models.CharField(_("Name of your Coworking Space"), max_length=250)
-    country = models.CharField(_("Country"), max_length=2500, choices=get_countries())
-    #TODO state
-    # state = models.CharField(_("State"), max_length=2500, choices=get_countries())
-    city = models.CharField(_("City"), max_length=250)
+    city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
     cs_extra_description = models.TextField(_("Description"))
-
 
     #page 5
     meeting_room_number = models.PositiveIntegerField(
@@ -197,7 +185,6 @@ class Place(Member_Payment, ContactInfo, Location):
     class Meta:
         verbose_name = _('Place')
         verbose_name_plural = _('Places')
-
 
     def __str__(self):
         return self.space_name

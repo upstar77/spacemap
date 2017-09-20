@@ -5,9 +5,15 @@ from .models import Place, Amenities, Photos
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
 from .fields import JsonHoursChoiceField
+from coworker.cities.models import City
 
 
 class PlaceFirstForm(forms.ModelForm):
+    city = forms.ModelChoiceField(
+        queryset=City.objects.filter(level_type__in=[City.CITY, City.PROVINCE]),
+        empty_label=None
+    )
+
     def __init__(self, *args, **kwargs):
         if "request" in kwargs:
             self.request = kwargs.pop("request")
@@ -15,7 +21,7 @@ class PlaceFirstForm(forms.ModelForm):
 
     class Meta:
         model = Place
-        fields = ["space_name", "country", "city", "user_type"]
+        fields = ["space_name", "city", "user_type"]
 
     def save(self, commit=False):
         data = self.cleaned_data
