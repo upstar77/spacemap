@@ -18,9 +18,9 @@ PRIVATE_OFFICES = 500
 MEETING_ROOM_CAPACITY_RANGE = (2, 50)
 
 USER_TYPE_CHOICES = (
-    ('ot', _('Official Team')),
-    ('cm', _('Current Member')),
-    ('pm', _('Past Member')),
+    ('ot', _('官方团队')),
+    ('cm', _('新会员')),
+    ('pm', _('老会员')),
 )
 
 
@@ -143,10 +143,11 @@ class Member_Payment(models.Model):
 
 
 class Place(Member_Payment, ContactInfo, Location):
-    space_name = models.CharField(_("Name of your Coworking Space"), max_length=250)
+    space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
     city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
+    #TODO remove cs_extra_description not needed because site only on Chinese
     cs_extra_description = models.TextField(_("Description"))
 
     #page 5
@@ -187,5 +188,5 @@ class Place(Member_Payment, ContactInfo, Location):
         verbose_name_plural = _('Places')
 
     def __str__(self):
-        return self.space_name
+        return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city}
 

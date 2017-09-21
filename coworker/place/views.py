@@ -1,14 +1,15 @@
 import logging
 from django.shortcuts import render, redirect
+from django.core import serializers
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
-from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView
+from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 
 from coworker.core.form_mixins import PassUser
-from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm
+from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, PlaceContactDetailsForm
 
 log = logging.getLogger('debug')
 
@@ -36,7 +37,7 @@ class PlaceAdd(CreateView):
     form_class = PlaceFirstForm
 
     def get_success_url(self):
-        return reverse_lazy('place:list-space-continue')
+        return reverse_lazy('place:place_add_description')
 
     def get_form_kwargs(self):
         kwargs = super(PlaceAdd, self).get_form_kwargs()
@@ -49,16 +50,56 @@ class PlaceAdd(CreateView):
     #     # return redirect('place:list-space-continue')
     #     return JsonResponse({"status": "ok"})
     #
-    # def form_valid(self, form):
-    #     return JsonResponse({"status": "ok"})
+    def form_valid(self, form):
+        return super(PlaceAdd, self).form_valid(form)
+        #return JsonResponse({"status": "ok"})
 
 
+class PlaceAddDescription(CreateView):
+    template_name = 'place/place_description.html'
+    form_class = PlaceDescriptionForm
+    success_url = reverse_lazy('place:place_contact_details')
 
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddDescription, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        print(self.request.session['current_created_place'])
+        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
+            kwargs['instance'] = deserialized_object.object
+        return kwargs
+
+
+class PlaceContactDetails(CreateView):
+    template_name = 'place/place_contact_details.html'
+    form_class = PlaceContactDetailsForm
+    success_url = reverse_lazy('place:place_amenities')
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceContactDetails, self).get_form_kwargs()
+        kwargs['request'] = self.request
+
+        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
+            kwargs['instance'] = deserialized_object.object
+        return kwargs
+
+
+class PlaceAmenities(CreateView):
+    template_name = 'place/place_amenities.html'
+    form_class = PlaceContactDetailsForm
+    success_url = reverse_lazy('place:place_amenities')
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAmenities, self).get_form_kwargs()
+        kwargs['request'] = self.request
+
+        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
+            kwargs['instance'] = deserialized_object.object
+        return kwargs
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class PlaceAddContinue(CreateView):
-    template_name = 'place/continue_page.html'
+    template_name = 'place/place_description.html'
     form_class = PlaceForm
 
 

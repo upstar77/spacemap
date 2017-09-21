@@ -2,9 +2,9 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
-
 {% block title %}Add Your Space - Coworker.com{% endblock %}
+
+{% block bodyclass %}list-space-page{% endblock %}
 
 {% block content %}
     <div class="main_outer">
@@ -19,48 +19,63 @@
                                 <span style="font-size:18px;">( 不收任何费用 )</span>
                             </h2>
 
-                            <form action="{% url "place:list-space" %}" method="post" id="user_space_form" name="user_space_form" class="fv-form fv-form-bootstrap">
+                            <form action="{% url "place:list-space" %}" method="post" id="user_space_form" name="user_space_form" class="fv-form fv-form-bootstrap" novalidate="novalidate">
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <label>创客云图场地的名称 </label>
-                                    {% render_field form.space_name type="text" class="submission_form_inner input" id="space_name" %}
-                                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="space_name" data-fv-result="NOT_VALIDATED" style="display: none;">名称必填</small>
+                                {% if form.non_field_errors %}
+                                    <div role="alert" class="alert alert-danger">
+                                        {% for err in form.non_field_errors %}
+                                            {{ err }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="form-group{% if form.space_name.errors %} has-error{% endif %}">
+                                    <label for="{{ form.space_name.auto_id }}">
+                                        {{ form.space_name.label }}
+                                    </label>
+                                    {% render_field form.space_name class="form-control" %}
+                                    <span class="help-block">
+                                        {% if form.space_name.errors %}
+                                            {{ form.space_name.errors.as_text }}
+                                        {% endif %}
+                                    </span>
                                 </div>
                                 <div class="form-group">
                                     <label>所在城市</label>
-
-                                        {% render_field form.city %}
-
+                                    {% render_field form.city %}
+                                    <script>
+                                        $( "#{{ form.city.auto_id }}" ).select2({
+                                            width: '100%'
+                                        });
+                                    </script>
                                 </div>
-                                <div class="form_group">
+                                <div class="form_group {% if form.user_type.errors %} has-error{% endif %}">
                                     <div class="list_space_user_type">
-                                        <div class="usertype_label"><label>我是...</label></div>
-                                        <div class="hradio_btn">
-                                            <input type="radio" id="utype_ot" name="user_type" value="ot" checked="checked">
-                                            <input type="radio" id="utype_cm" name="user_type" value="cm">
-                                            <input type="radio" id="utype_pm" name="user_type" value="pm">
+                                        <div class="usertype_label">
+                                            <label>我是...</label>
                                         </div>
-                                        {#                                        {% render_field form.user_type %}#}
-                                        <div class="wrapper_box">
-                                            <div id="ot_type" class="user_type_circle circle_red" data-panelid="utype_ot">
-                                                官方团队
+                                        <span class="help-block">
+                                            {% if form.user_type.errors %}
+                                                {{ form.user_type.errors.as_text }}
+                                            {% endif %}
+                                        </span>
+                                        {% render_field form.user_type class="hidden" %}
+                                        {% for choice in form.user_type.field.choices %}
+                                            <div class="wrapper_box">
+                                                <div class="user_type_circle{% if form.user_type.value == choice.0 %} circle_red{% endif %}" data-panelid="{{ choice.0 }}">
+                                                    {{ choice.1 }}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="wrapper_box">
-                                            <div id="cm_type" class="user_type_circle" data-panelid="utype_cm">
-                                                新会员
-                                            </div>
-                                        </div>
-                                        <div class="wrapper_box">
-                                            <div id="pm_type" class="user_type_circle" data-panelid="utype_pm">
-                                                老会员
-                                            </div>
-                                        </div>
+                                        {% endfor %}
+                                        <script>
+                                            $('.user_type_circle').on('click', function(){
+                                              $('.user_type_circle').removeClass('circle_red');
+
+                                              var panelId = $(this).attr('data-panelid');
+                                              $(this).addClass('circle_red');
+                                              $("#{{ form.user_type.auto_id }}").val(panelId);
+                                            });
+                                        </script>
                                     </div>
-                                </div>
-                                <div class="form-group" style="display:none;">
-                                    <label>邮箱地址</label>
-                                    <input id="email_space" name="email_space" class="submission_form_inner input" type="text">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit">继续</button>
@@ -72,295 +87,5 @@
             </div>
 
         </div>
-        <form action="{% url "place:list-space-continue" %}" method="get" accept-charset="utf-8" id="redirect_form" name="redirect_form">
-            <input type="hidden" name="cu_id" id="cu_id">
-            <input type="hidden" id="n_token" name="n_token">
-            <input type="hidden" id="n_step" name="n_step">
-        </form><!--COWORKER SUBMISSION PART-->
-
-        <!--NGINX SOFTWARE END-->
-
     </div>
-
-    <script>
-    $( "#id_city" ).select2({
-        width: '100%'
-    });
-    </script>
-
-    <script src="{% static "js/flex.modal.js" %}"></script>
-    <script src="{% static "js/sweetalert.min.js" %}"></script>
-    <script type="text/javascript">
-      $(function() {
-        $( "#h_location" ).autocomplete({
-          source:function(request, response) {
-            $("#h_place_id").val(0);
-            $("#h_search_place").val(0);
-            $.ajax({
-              url: 'https://www.coworker.com/getAutocomplete',
-              dataType: "json",
-              type: "POST",
-              data: {
-                term : request.term
-              },
-              success: function(data) {
-                response(data);
-              }
-            });
-          },minLength:1,
-          messages: {
-            noResults: '',
-            results: function() {}
-          },appendTo: "#h_aucomplete",
-          select: function (event, ui) {
-            $("#h_place_id").val(ui.item.idx);
-            $("#h_search_place").val(ui.item.loc);
-            $("#xh_location").val(ui.item.value);
-            $('#h_location').val(ui.item.value);
-            if(ui.item.loc==3){
-              if(ui.item.coworkspace_url!='')
-                window.location = '/'+ui.item.coworkspace_url;
-            } else
-              submitSearchH();
-          },
-          open: function(){
-            $('.ui-autocomplete').css('width', $('#h_location').width());
-          }
-        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-          var loc_icon = '<i class="fa fa-buildingui"></i>';
-          var view_all = '';
-          if(item.loc==1)
-            loc_icon = '<i class="fa fa-globeui"></i>';
-          if((item.loc==2) || (item.loc==2.5))
-            loc_icon = '<i class="fa fa-map-markerui"></i>';
-          if(item.loc==5)
-            loc_icon = '<i class="fa fa-map-markerui"></i>';
-          if(item.loc==10)
-            loc_icon = '<i class="fa fa-map-markerui"></i>';
-          if(item.loc==0){
-            loc_icon = "";
-            view_all = 'class="search_view_results_div pade_none"';
-          }
-          return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-        };
-      });
-      function submitSearchH() {
-        if($("#xh_location").val()!=$("#h_location").val()) {
-          $("#h_place_id").val(0);
-          $("#h_search_place").val(0);
-        }
-        $.ajax({
-          url: 'https://www.coworker.com/search/start',
-          dataType: "json",
-          type: "POST",
-          data: {
-            h_place_id     : $("#h_place_id").val(),
-            h_search_place : $("#h_search_place").val(),
-            h_location     : $("#h_location").val(),
-            form_search    : 2
-          },
-          success: function(data) {
-            window.location = 'https://www.coworker.com/search/'+data.s_url;
-          }
-        });
-      }
-      $("#h_location").keypress(function(event) {
-        if (event.which == 13) {
-          event.preventDefault();
-          submitSearchH();
-        }
-      });
-      function overUserMenu(event) {
-        $('#lg_h').show();
-      }
-      function outUserMenu(event) {
-        var om = event.toElement || event.relatedTarget;
-        var ce = ["lg_menu", "lg_c", "lg_p", "lg_s", "lg_i","lg_h"];
-        if(om !== null){
-          if (ce.indexOf(om.id)!=-1) {
-            return;
-          } else if($(om).closest("div").id=="lg_h"){
-            return;
-          } else {
-            $('#lg_h').hide();
-          }
-        }
-      }
-      $(document).ready(function(){
-        if($('#lg_menu').length>0){
-          document.getElementById("lg_menu").addEventListener('mouseout',outUserMenu,true);
-          document.getElementById("lg_menu").addEventListener('mouseover',overUserMenu,true);
-        }
-      });
-    </script>
-    <script>
-      function register_join(){
-        var email = $('#join_tribe').val();
-        if (validateEmail(email)){
-          $.ajax({
-            'url' : 'https://www.coworker.com/register_join',
-            'type' : 'POST',
-            'data' : {'email' : email},
-            'success' : function(data){
-              if(data=='saved') {
-                swal({ title: "BOOM you're in!", text: "Welcome to the coworking crew, homie.", confirmButtonText: "Keep Exploring",imageUrl: "https://www.coworker.com/template/img/signup.gif"});
-
-                // segment tracking
-                analytics.track('Subscription_form_submit', {
-                  category: 'EmailSubscription',
-                  label : email,
-                  Subscription_Mail : email
-                });
-
-              } else {
-                swal("BOOM you're in!", "Email already joined", "error");
-              }
-            }
-          });
-        } else {
-          alert('Invalid Email');
-        }
-      }
-      function validateEmail(email) {
-        var re = /\S+@\S+\.\S+/;
-        return re.test(email);
-      }
-    </script><script type="text/javascript">
-  $(function() {
-    {#    $( "#country_id" ).combobox();#}
-    {#    $( "#usa_state_id" ).combobox();#}
-  });
-  function submitSpace() {
-    {#    debugger;#}
-    {#    var fv = $('#user_space_form').data('formValidation'); // FormValidation instance#}
-    {#    fv.resetField('country_id');#}
-    {#    fv.validate();#}
-    {#    if(fv.getInvalidFields().length==0){#}
-    if(1){
-      var f_country=$('#country').val();
-      var f_city=$('#city').val();
-      var f_space_name=$('#space_name').val();
-      var f_country_id=$('#country_id').val();
-      var f_token = $('#token').val();
-      var f_user_type = $('input[name="user_type"]:checked').val();
-
-      var f_usa_state = $('#usa_state').val();
-      var f_usa_state_id = $('#usa_state_id').val();
-
-      if( f_usa_state_id == "" ){
-        //console.log('no state id data');
-        var postinfo = {
-          form_signup:1,
-          space_name: f_space_name,
-          country: f_country,
-          country_id:f_country_id,
-          city: f_city,
-          user_type:f_user_type,
-          token:f_token,
-        };
-      }
-      else{
-        //console.log('f_usa_state = ' + f_usa_state + ' f_usa_state_id = ' + f_usa_state_id);
-        var postinfo = {
-          form_signup:1,
-          space_name: f_space_name,
-          country: f_country,
-          country_id: f_country_id,
-          usa_state: f_usa_state,
-          usa_state_id: f_usa_state_id,
-          city: f_city,
-          user_type:f_user_type,
-          token:f_token,
-        };
-      }
-      /*--- ajax call ---*/
-      $.ajax({
-        {#        'url' : 'https://www.coworker.com/list-space/space_register',#}
-        'url' : '{% url "place:list-space" %}',
-        'type' : 'POST',
-        'dataType' : 'json',
-        'data' : postinfo,
-        'success' : function(data){
-          {#          if(data.msg == 'SCS') {#}
-          {#            $('#cu_id').val(data.userspace_id);#}
-          {#            $('#n_token').val(data.rToken);#}
-          {#            $('#n_step').val(data.rStep);#}
-          $('#redirect_form')[0].submit();
-          {#          } else if(data.msg == 'TMP') {#}
-          {#            $('#myLoading').modal('toggle');#}
-          {#            $('#myModal').modal('toggle');#}
-          {#          }#}
-        }
-      });
-    }
-  }
-  function showStateAuto(c_id){
-    var validate_state = false;
-    if(c_id==231){
-      $('#stateField').show();
-      $('#usa_state').val('');
-      validate_state = true;
-    } else{
-      validate_state = false;
-      $('#stateField').hide();
-    }
-    var fvSpace = $('#user_space_form').data('formValidation'); // FormValidation instance
-    fvSpace.enableFieldValidators('usa_state_id', validate_state, "notEmpty");
-    fvSpace.resetField('usa_state_id');
-  }
-  {#  $(document).ready(function(){#}
-  {#    $('#user_space_form')#}
-  {#      .formValidation({#}
-  {#        framework: 'bootstrap',#}
-  {#        fields: {#}
-  {#          space_name: { validators: { notEmpty: { message: 'The Coworking Space Name is required' } } },#}
-  {#          country_id:  {selector: '#country', validators: { notEmpty: { message: 'The country is required' } } },#}
-  {#          usa_state_id:  {selector: '#usa_state', validators: { notEmpty: { message: 'The state is required' } } },#}
-  {#          city: { validators: { notEmpty: { message: 'The City is required' } } }#}
-  {#        }#}
-  {#      });#}
-  {#    var fvSpace = $('#user_space_form').data('formValidation'); // FormValidation instance#}
-  {#    fvSpace.enableFieldValidators('usa_state_id', false, "notEmpty");#}
-  {#  });#}
-  $(function() {
-    {#    $( "#city" ).autocomplete({#}
-    {#      source:function(request, response) {#}
-    {#        $.ajax({#}
-    {#          url: 'https://www.coworker.com/getCity',#}
-    {#          dataType: "json",#}
-    {#          type: "POST",#}
-    {#          data: { term : request.term, country_id : $("#country_id").val(), state_id : $("#usa_state_id").val()#}
-    {#          },#}
-    {#          success: function(data) {#}
-    {#            response(data);#}
-    {#          }#}
-    {#        });#}
-    {#      },minLength:1,#}
-    {#      messages: {#}
-    {#        noResults: '',#}
-    {#        results: function() {}#}
-    {#      },#}
-    {#      select: function (event, ui) {#}
-    {#        $("#city_id").val(ui.item.city_id);#}
-    {#        $("#city").val(ui.item.value);#}
-    {#      }#}
-    {#    }).autocomplete( "instance" )._renderItem = function( ul, item ) {#}
-    {#      var loc_icon = '<i class="fa fa-map-markerui"></i>';#}
-    {#      return $( "<li>" ).append( loc_icon + item.label ).appendTo( ul );#}
-    {#    };#}
-  });
-
-
-  $(document).ready(function(){
-    $('.user_type_circle').on('click', function(){
-      $('.user_type_circle').removeClass('circle_red');
-
-      var panelId = $(this).attr('data-panelid');
-      $(this).addClass('circle_red');
-      $('#'+panelId).prop("checked", true);
-    });
-  });
-
-</script>
-
 {% endblock content %}

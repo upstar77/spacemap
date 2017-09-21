@@ -2,21 +2,22 @@
 
 
 <ul>
-    <li><a href="javascript:;" class="anchor left_active side-link-anchor" id="1" onclick="jumpToTab(1);">
+    <li>
+        <a href="javascript:;" class="anchor left_active side-link-anchor">
         <i class="fa fa-file-text-o"></i> 1. 详细介绍&nbsp;&nbsp;
-        <img id="i_desc" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+        <img id="i_desc" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'place_description'%} hidden{% endif %}">
     </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="2" onclick="jumpToTab(2);">
+        <a href="javascript:;" class="anchor side-link-anchor">
             <i class="fa fa-phone"></i> 2. 联系方式&nbsp;&nbsp;
-            <img id="i_con" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_con" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'contact_details'%} hidden{% endif %}">
         </a>
     </li>
     <li>
         <a href="javascript:;" class="anchor side-link-anchor" id="3" onclick="jumpToTab(3);">
             <i class="fa fa-home"></i> 3. 物业配置&nbsp;&nbsp;
-            <img id="i_am" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_am" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'place_amenties'%} hidden{% endif %}">
         </a>
     </li>
     <li>

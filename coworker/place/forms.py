@@ -1,5 +1,6 @@
 import re
 
+from django.core import serializers
 from django import forms
 from .models import Place, Amenities, Photos
 from django.forms import extras
@@ -24,14 +25,47 @@ class PlaceFirstForm(forms.ModelForm):
         fields = ["space_name", "city", "user_type"]
 
     def save(self, commit=False):
-        data = self.cleaned_data
         obj = super(PlaceFirstForm, self).save(commit=False)
-        # self.request.session['firs_form_data'] = data
-        # self.request.session.save()
+        obj.id = 99999
+        self.request.session['current_created_place'] = serializers.serialize("json", [obj, ])
+        self.request.session.save()
         return obj
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
+
+class PlaceDescriptionForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = ["space_name", "cs_description"]
+
+    def save(self, commit=False):
+        obj = super(PlaceDescriptionForm, self).save(commit=False)
+        self.request.session['current_created_place'] = serializers.serialize("json", [obj, ])
+        self.request.session.save()
+        return obj
+
+
+class PlaceContactDetailsForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = ['ls_email', 'tel', 'website_url', 'facebook', 'twitter', 'instagram', 'notification_email']
+
+    def save(self, commit=False):
+        obj = super(PlaceContactDetailsForm, self).save(commit=False)
+        self.request.session['current_created_place'] = serializers.serialize("json", [obj, ])
+        self.request.session.save()
+        return obj
 
 
 class JsonMixinValidate:
