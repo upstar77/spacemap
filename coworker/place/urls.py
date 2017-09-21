@@ -7,7 +7,9 @@ from . import views
 urlpatterns = [
 
     url(r'^list-space/$', view=views.PlaceAdd.as_view(), name='list-space'),
-    url(r'^list-space/continue$', view=views.PlaceAddContinue.as_view(), name='list-space-continue'),
+    url(r'^list-space/place_add_description$', view=views.PlaceAddDescription.as_view(), name='place_add_description'),
+    url(r'^list-space/place_contact_details$', view=views.PlaceContactDetails.as_view(), name='place_contact_details'),
+    url(r'^list-space/place_amenities', view=views.PlaceAmenities.as_view(), name='place_amenities'),
     url(r'^list-space/success', view=views.PlaceAddContinue.as_view(), name='list-space-success'),
 
 
