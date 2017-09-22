@@ -1,4 +1,6 @@
 import logging
+import pickle
+
 from django.shortcuts import render, redirect
 from django.core import serializers
 from django.urls import reverse_lazy
@@ -9,7 +11,8 @@ from django.views.generic import TemplateView
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 
 from coworker.core.form_mixins import PassUser
-from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, PlaceContactDetailsForm
+from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
+    PlaceContactDetailsForm, PlaceAmenitiesForm
 
 log = logging.getLogger('debug')
 
@@ -35,6 +38,7 @@ class Place(TemplateView):
 class PlaceAdd(CreateView):
     template_name = 'place/list_space.html'
     form_class = PlaceFirstForm
+    request = None
 
     def get_success_url(self):
         return reverse_lazy('place:place_add_description')
@@ -44,28 +48,25 @@ class PlaceAdd(CreateView):
         kwargs['request'] = self.request
         return kwargs
 
-    # def form_invalid(self, form):
-    #     print(form.errors)
-    #     #TODO should be return super().form_invalid(form), that is just for test
-    #     # return redirect('place:list-space-continue')
-    #     return JsonResponse({"status": "ok"})
-    #
     def form_valid(self, form):
         return super(PlaceAdd, self).form_valid(form)
-        #return JsonResponse({"status": "ok"})
 
 
 class PlaceAddDescription(CreateView):
     template_name = 'place/place_description.html'
     form_class = PlaceDescriptionForm
     success_url = reverse_lazy('place:place_contact_details')
+    request = None
 
     def get_form_kwargs(self):
         kwargs = super(PlaceAddDescription, self).get_form_kwargs()
         kwargs['request'] = self.request
-        print(self.request.session['current_created_place'])
-        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
-            kwargs['instance'] = deserialized_object.object
+        current_created_place = self.request.session.get('current_created_place')
+        if current_created_place:
+            try:
+                kwargs['instance'] = pickle.loads(current_created_place)
+            except pickle.PickleError:
+                pass
         return kwargs
 
 
@@ -73,27 +74,35 @@ class PlaceContactDetails(CreateView):
     template_name = 'place/place_contact_details.html'
     form_class = PlaceContactDetailsForm
     success_url = reverse_lazy('place:place_amenities')
+    request = None
 
     def get_form_kwargs(self):
         kwargs = super(PlaceContactDetails, self).get_form_kwargs()
         kwargs['request'] = self.request
-
-        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
-            kwargs['instance'] = deserialized_object.object
+        current_created_place = self.request.session.get('current_created_place')
+        if current_created_place:
+            try:
+                kwargs['instance'] = pickle.loads(current_created_place)
+            except pickle.PickleError:
+                pass
         return kwargs
 
 
 class PlaceAmenities(CreateView):
     template_name = 'place/place_amenities.html'
-    form_class = PlaceContactDetailsForm
+    form_class = PlaceAmenitiesForm
     success_url = reverse_lazy('place:place_amenities')
+    request = None
 
     def get_form_kwargs(self):
         kwargs = super(PlaceAmenities, self).get_form_kwargs()
         kwargs['request'] = self.request
-
-        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
-            kwargs['instance'] = deserialized_object.object
+        current_created_place = self.request.session.get('current_created_place')
+        if current_created_place:
+            try:
+                kwargs['instance'] = pickle.loads(current_created_place)
+            except pickle.PickleError:
+                pass
         return kwargs
 
 

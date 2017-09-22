@@ -78,10 +78,10 @@ class Location(models.Model):
 class AmenitiesManager(models.Manager):
 
     def common(self):
-         return self.filter(is_additional=False)
+        return self.filter(is_additional=False)
 
     def addition(self):
-         return self.filter(is_additional=True)
+        return self.filter(is_additional=True)
 
 
 class Amenities(models.Model):
@@ -89,8 +89,9 @@ class Amenities(models.Model):
     is_additional = models.BooleanField(default=False)
 
     objects = AmenitiesManager()
+
     def __str__(self):
-        return self.name
+        return "Amenities<Name: %(name)s, Additional: %(is_additional)s>" % {'name': self.name, 'is_additional': self.is_additional}
 
 
 class ContactInfo(models.Model):
