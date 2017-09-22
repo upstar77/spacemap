@@ -11,72 +11,81 @@
     <div class="cow_submission_main">
         <div class="container">
             <div class="row">
-                <form action="{% url "place:place_contact_details" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                <form action="{% url "place:place_add_contact_details" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
                     <div class="col-xs-12 pade_none coworker_submission_detail">
                         <h2>我要出租</h2>
 
                         <div class="col-xs-12 pade_none coworker_submission_detail_inn">
                             <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
-                                {% include "place/forms/menu.html" with active_menu='contact_details' %}
+                                {% include "place/forms/menu.html" with active_menu='contact_details' completed_menus='place_description' %}
                             </div>
                             <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
-                                {% csrf_token %}
-                                {% if form.non_field_errors %}
-                                    <div role="alert" class="alert alert-danger">
-                                        {% for err in form.non_field_errors %}
-                                            {{ err }}<br>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                                <div class="form-group{% if form.ls_email.errors %} has-error{% endif %}">
-                                    <label for="{{ form.ls_email.auto_id }}">
-                                        {{ form.ls_email.label }}
-                                    </label>
-                                    {% render_field form.ls_email class="form-control" %}
-                                <span class="help-block">
-                                    {% if form.ls_email.errors %}
-                                        {{ form.ls_email.errors.as_text }}
-                                    {% endif %}
-                                </span>
-                                </div>
-                                <div class="form-group{% if form.tel.errors %} has-error{% endif %}">
-                                    <label for="{{ form.tel.auto_id }}">
-                                        {{ form.tel.label }}
-                                    </label>
-                                    {% render_field form.tel class="form-control" %}
-                                <span class="help-block">
-                                    {% if form.tel.errors %}
-                                        {{ form.tel.errors.as_text }}
-                                    {% endif %}
-                                </span>
-                                </div>
-                                <div class="form-group{% if form.website_url.errors %} has-error{% endif %}">
-                                    <label for="{{ form.website_url.auto_id }}">
-                                        {{ form.website_url.label }}
-                                    </label>
-                                    {% render_field form.website_url class="form-control" %}
-                                <span class="help-block">
-                                    {% if form.website_url.errors %}
-                                        {{ form.website_url.errors.as_text }}
-                                    {% endif %}
-                                </span>
-                                </div>
+                                <div class="col-xs-12 pade_none co_descrip_con listspace_page_main">
+                                    <h3>联系方式</h3>
+                                    <p>让大家迅速联系到您</p>
 
-                                <h4>消息推送</h4>
-                        <p>有人通过页面联系您时，您希望哪个邮箱地址接收信息、预订请求、旅游信息？（可设置多个邮箱地址。）</p>
-                        <div class="col-xs-12 pade_none coworker_event_bottom_panel social_media_panel">
-                            <div class="form-group{% if form.notification_email.errors %} has-error{% endif %}">
-                                <label for="{{ form.notification_email.auto_id }}">
-                                    {{ form.notification_email.label }}
-                                </label>
-                                {% render_field form.notification_email class="form-control" %}
-                            <span class="help-block">
-                                {% if form.notification_email.errors %}
-                                    {{ form.notification_email.errors.as_text }}
-                                {% endif %}
-                            </span>
-                            </div>
-                        </div>
+                                    <div class="col-xs-12 pade_none co_form_con social_media_cont">
+                                        <h4>主要联系方式</h4>
+                                        <div class="col-xs-12 pade_none coworker_event_bottom_panel social_media_panel">
+                                            {% csrf_token %}
+                                            {% if form.non_field_errors %}
+                                                <div role="alert" class="alert alert-danger">
+                                                    {% for err in form.non_field_errors %}
+                                                        {{ err }}<br>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                            <div class="form-group{% if form.ls_email.errors %} has-error{% endif %}">
+                                                <label for="{{ form.ls_email.auto_id }}">
+                                                    {{ form.ls_email.label }}
+                                                </label>
+                                                {% render_field form.ls_email class="form-control" %}
+                                                <span class="help-block">
+                                                    {% if form.ls_email.errors %}
+                                                        {{ form.ls_email.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                            <div class="form-group{% if form.tel.errors %} has-error{% endif %}">
+                                                <label for="{{ form.tel.auto_id }}">
+                                                    {{ form.tel.label }}
+                                                </label>
+                                                {% render_field form.tel class="form-control" %}
+                                                <span class="help-block">
+                                                    {% if form.tel.errors %}
+                                                        {{ form.tel.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                            <div class="form-group{% if form.website_url.errors %} has-error{% endif %}">
+                                                <label for="{{ form.website_url.auto_id }}">
+                                                    {{ form.website_url.label }}
+                                                </label>
+                                                {% render_field form.website_url class="form-control" %}
+                                                <span class="help-block">
+                                                    {% if form.website_url.errors %}
+                                                        {{ form.website_url.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <h4>消息推送</h4>
+                                        <p>有人通过页面联系您时，您希望哪个邮箱地址接收信息、预订请求、旅游信息？（可设置多个邮箱地址。）</p>
+                                        <div class="col-xs-12 pade_none coworker_event_bottom_panel social_media_panel">
+                                            <div class="form-group{% if form.notification_email.errors %} has-error{% endif %}">
+                                                <label for="{{ form.notification_email.auto_id }}">
+                                                    {{ form.notification_email.label }}
+                                                </label>
+                                                {% render_field form.notification_email class="form-control" %}
+                                            <span class="help-block">
+                                                {% if form.notification_email.errors %}
+                                                    {{ form.notification_email.errors.as_text }}
+                                                {% endif %}
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-xs-12 co_buttns_out">

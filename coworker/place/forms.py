@@ -1,8 +1,9 @@
 import re
+import pickle
 
 from django.core import serializers
 from django import forms
-from .models import Place, Amenities, Photos
+from .models import Place, MeetingRoom, Amenities, Photos
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
 from .fields import JsonHoursChoiceField
@@ -26,8 +27,7 @@ class PlaceFirstForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceFirstForm, self).save(commit=False)
-        obj.id = 99999
-        self.request.session['current_created_place'] = serializers.serialize("json", [obj, ])
+        self.request.session['current_created_place'] = pickle.dumps(obj)
         self.request.session.save()
         return obj
 
@@ -45,7 +45,7 @@ class PlaceDescriptionForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceDescriptionForm, self).save(commit=False)
-        self.request.session['current_created_place'] = serializers.serialize("json", [obj, ])
+        self.request.session['current_created_place'] = pickle.dumps(obj)
         self.request.session.save()
         return obj
 
@@ -63,9 +63,112 @@ class PlaceContactDetailsForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceContactDetailsForm, self).save(commit=False)
-        self.request.session['current_created_place'] = serializers.serialize("json", [obj, ])
+        obj.id = 999
+        self.request.session['current_created_place'] = pickle.dumps(obj)
         self.request.session.save()
         return obj
+
+
+class PlaceAmenitiesForm(forms.ModelForm):
+    common_amenities = forms.ModelMultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple,
+        queryset=Amenities.objects.common(), required=False)
+    additional_amenities = forms.ModelMultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple,
+        queryset=Amenities.objects.addition(), required=False)
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+        self.fields['common_amenities'].choices = [
+            (e.pk, e.name) for e in Amenities.objects.common().only('pk', 'name')]
+        self.fields['additional_amenities'].choices = [
+            (e.pk, e.name) for e in Amenities.objects.addition().only('pk', 'name')]
+        self.fields['amenities'].required = False
+        if kwargs.get('instance'):
+            self.fields['common_amenities'].initial = [
+                e.pk for e in kwargs['instance'].amenities.common().only('pk')]
+            self.fields['additional_amenities'].initial = [
+                e.pk for e in kwargs['instance'].amenities.addition().only('pk')]
+
+    def clean_amenities(self):
+        pass
+
+    def clean(self):
+        cleaned_data = super(PlaceAmenitiesForm, self).clean()
+
+        common_amenities = self.cleaned_data.get('common_amenities', [])
+        additional_amenities = self.cleaned_data.get('additional_amenities', [])
+        cleaned_data['amenities'] = common_amenities
+
+        if len(cleaned_data['amenities']) < 1:
+            raise forms.ValidationError(_(u'Select at least one amenities'))
+        self.cleaned_data = cleaned_data
+
+    def save(self, commit=False):
+        obj = super(PlaceAmenitiesForm, self).save(commit=False)
+
+        self.request.session['current_created_place'] = pickle.dumps(obj)
+        self.request.session.save()
+        return obj
+
+    class Meta:
+        model = Place
+        fields = ['amenities',]
+
+
+class PlaceAddLocationForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = ['address',
+                  'address_sec',
+                  'postal_code',
+                  #'area'
+                  ]
+
+    def save(self, commit=False):
+        obj = super(PlaceAddLocationForm, self).save(commit=False)
+        self.request.session['current_created_place'] = pickle.dumps(obj)
+        self.request.session.save()
+        return obj
+
+
+class PlaceAddMeetingRoomsForm(forms.ModelForm):
+    meeting_room_number = forms.ChoiceField(
+        label=_('会议室编号'),
+        required=False,
+        choices=[(i, i) for i in range(500)])
+    rent_nm = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
+    hire_nm = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = ['rent_nm', 'hire_nm']
+
+    def save(self, commit=False):
+        obj = super(PlaceAddMeetingRoomsForm, self).save(commit=False)
+        self.request.session['current_created_place'] = pickle.dumps(obj)
+        self.request.session.save()
+        return obj
+
+
+class PlaceAddMeetingRoomInlineForm(forms.ModelForm):
+
+    class Meta:
+        model = MeetingRoom
+        fields = ['room_info', 'mr_capacity']
 
 
 class JsonMixinValidate:

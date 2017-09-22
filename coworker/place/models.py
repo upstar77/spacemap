@@ -11,7 +11,7 @@ from coworker.cities.models import City
 
 
 # Create your models here.
-MAX_MEETING_ROOM_NUMBER = 500
+#MAX_MEETING_ROOM_NUMBER = 500
 MAX_DESC_COUNT = 500
 PRIVATE_OFFICES = 500
 
@@ -75,13 +75,14 @@ class Location(models.Model):
     class Meta:
         abstract = True
 
+
 class AmenitiesManager(models.Manager):
 
     def common(self):
-         return self.filter(is_additional=False)
+        return self.filter(is_additional=False)
 
     def addition(self):
-         return self.filter(is_additional=True)
+        return self.filter(is_additional=True)
 
 
 class Amenities(models.Model):
@@ -89,8 +90,9 @@ class Amenities(models.Model):
     is_additional = models.BooleanField(default=False)
 
     objects = AmenitiesManager()
+
     def __str__(self):
-        return self.name
+        return "Amenities<Name: %(name)s, Additional: %(is_additional)s>" % {'name': self.name, 'is_additional': self.is_additional}
 
 
 class ContactInfo(models.Model):
@@ -118,6 +120,11 @@ class MeetingRoom(models.Model):
             MaxValueValidator(MEETING_ROOM_CAPACITY_RANGE[1]),
         ]
     )
+    place = models.ForeignKey('Place')
+
+    class Meta:
+        verbose_name = _('Meeting Room')
+        verbose_name_plural = _('Meeting Rooms')
 
 
 class Photos(models.Model):
@@ -148,12 +155,12 @@ class Place(Member_Payment, ContactInfo, Location):
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
     #TODO remove cs_extra_description not needed because site only on Chinese
-    cs_extra_description = models.TextField(_("Description"))
-
-    #page 5
-    meeting_room_number = models.PositiveIntegerField(
-        choices=[(i, i) for i in range(MAX_MEETING_ROOM_NUMBER)],
-    )
+    # cs_extra_description = models.TextField(_("Description"))
+    #
+    # #page 5
+    # meeting_room_number = models.PositiveIntegerField(
+    #     choices=[(i, i) for i in range(MAX_MEETING_ROOM_NUMBER)],
+    # )
     rent_nm = models.BooleanField(default=False, help_text="Do you allow non-members to rent your meeting rooms?")
     hire_nm = models.BooleanField(
         default=False, help_text="Do you allow non-members to hire your coworking space for bigger events?")

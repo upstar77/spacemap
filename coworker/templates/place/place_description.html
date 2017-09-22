@@ -20,35 +20,41 @@
                             {% include "place/forms/menu.html" with active_menu='place_description' %}
                         </div>
                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
-                            {% csrf_token %}
-                            {% if form.non_field_errors %}
-                                <div role="alert" class="alert alert-danger">
-                                    {% for err in form.non_field_errors %}
-                                        {{ err }}<br>
-                                    {% endfor %}
+                            <div class="co_descrip_con">
+                                <h3>介绍我的场地</h3>
+                                <p>每个创客云图场地都与众不同 向大家介绍您的场地有何特别之处。</p>
+                                <div class="col-xs-12 pade_none coworker_event_bottom_panel heading_formatting_con">
+                                    {% csrf_token %}
+                                    {% if form.non_field_errors %}
+                                        <div role="alert" class="alert alert-danger">
+                                            {% for err in form.non_field_errors %}
+                                                {{ err }}<br>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    <div class="form-group{% if form.space_name.errors %} has-error{% endif %}">
+                                        <label for="{{ form.space_name.auto_id }}">
+                                            {{ form.space_name.label }}
+                                        </label>
+                                        {% render_field form.space_name class="form-control" %}
+                                        <span class="help-block">
+                                            {% if form.space_name.errors %}
+                                                {{ form.space_name.errors.as_text }}
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                    <div class="form-group{% if form.cs_description.errors %} has-error{% endif %}">
+                                        <label for="{{ form.cs_description.auto_id }}">
+                                            {{ form.cs_description.label }}
+                                        </label>
+                                        {% render_field form.cs_description class="form-control" %}
+                                        <span class="help-block">
+                                            {% if form.cs_description.errors %}
+                                                {{ form.cs_description.errors.as_text }}
+                                            {% endif %}
+                                        </span>
+                                    </div>
                                 </div>
-                            {% endif %}
-                            <div class="form-group{% if form.space_name.errors %} has-error{% endif %}">
-                                <label for="{{ form.space_name.auto_id }}">
-                                    {{ form.space_name.label }}
-                                </label>
-                                {% render_field form.space_name class="form-control" %}
-                                <span class="help-block">
-                                    {% if form.space_name.errors %}
-                                        {{ form.space_name.errors.as_text }}
-                                    {% endif %}
-                                </span>
-                            </div>
-                            <div class="form-group{% if form.cs_description.errors %} has-error{% endif %}">
-                                <label for="{{ form.cs_description.auto_id }}">
-                                    {{ form.cs_description.label }}
-                                </label>
-                                {% render_field form.cs_description class="form-control" %}
-                                <span class="help-block">
-                                    {% if form.cs_description.errors %}
-                                        {{ form.cs_description.errors.as_text }}
-                                    {% endif %}
-                                </span>
                             </div>
                         </div>
                         <div class="col-xs-12 co_buttns_out">

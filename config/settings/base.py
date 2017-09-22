@@ -180,6 +180,9 @@ TEMPLATES = [
     },
 ]
 
+# See: https://docs.djangoproject.com/en/1.11/ref/settings/#session-serializer
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 # See: http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
