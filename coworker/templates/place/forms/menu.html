@@ -3,33 +3,33 @@
 
 <ul>
     <li>
-        <a href="javascript:;" class="anchor left_active side-link-anchor">
+        <a href="javascript:;" class="anchor{% if 'place_description' in completed_menus %} left_active{% endif %} side-link-anchor">
         <i class="fa fa-file-text-o"></i> 1. 详细介绍&nbsp;&nbsp;
         <img id="i_desc" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'place_description'%} hidden{% endif %}">
     </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor">
+        <a href="javascript:;" class="anchor{% if 'contact_details' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-phone"></i> 2. 联系方式&nbsp;&nbsp;
             <img id="i_con" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'contact_details'%} hidden{% endif %}">
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="3" onclick="jumpToTab(3);">
+        <a href="javascript:;" class="anchor{% if 'place_amenties' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-home"></i> 3. 物业配置&nbsp;&nbsp;
             <img id="i_am" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'place_amenties'%} hidden{% endif %}">
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="4" onclick="jumpToTab(4);">
+        <a href="javascript:;" class="anchor{% if 'add_location' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-map-marker_sub"></i> 4. 地点&nbsp;&nbsp;
-            <img id="i_loc" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_loc" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_location'%} hidden{% endif %}">
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="5" onclick="jumpToTab(5);">
+        <a href="javascript:;" class="anchor{% if 'add_meeting_rooms' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-users_sub"></i> 5. 会议室&nbsp;&nbsp;
-            <img id="i_rooms" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_rooms" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_meeting_rooms'%} hidden{% endif %}">
         </a>
     </li>
     <li>
