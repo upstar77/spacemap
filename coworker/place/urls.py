@@ -6,12 +6,16 @@ from . import views
 
 urlpatterns = [
 
-    url(r'^list-space/$', view=views.PlaceAdd.as_view(), name='list-space'),
+    url(r'^list-space/$', view=views.PlaceAddView.as_view(), name='list-space'),
     url(r'^list-space/place_add_description$', view=views.PlaceAddDescriptionView.as_view(), name='place_add_description'),
     url(r'^list-space/place_add_contact_details$', view=views.PlaceAddContactDetailsView.as_view(), name='place_add_contact_details'),
     url(r'^list-space/place_add_amenities', view=views.PlaceAddAmenitiesView.as_view(), name='place_add_amenities'),
     url(r'^list-space/place_add_location', view=views.PlaceAddLocationView.as_view(), name='place_add_location'),
     url(r'^list-space/place_add_meeting_rooms', view=views.PlaceAddMeetingRoomsView.as_view(), name='place_add_meeting_rooms'),
+    url(r'^list-space/place_add_opening_hours', view=views.PlaceAddOpeningHoursView.as_view(), name='place_add_opening_hours'),
+    url(r'^list-space/place_add_size', view=views.PlaceAddSizeView.as_view(), name='place_add_size'),
+    url(r'^list-space/place_add_photos', view=views.PlaceAddPhotosView.as_view(), name='place_add_photos'),
+
     url(r'^list-space/success', view=views.PlaceAddContinue.as_view(), name='list-space-success'),
 
 

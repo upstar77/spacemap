@@ -33,21 +33,21 @@
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="6" onclick="jumpToTab(6);">
+        <a href="javascript:;" class="anchor{% if 'add_opening_hours' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-clock-o"></i> 6. 营业时间&nbsp;&nbsp;
-            <img id="i_hours" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_hours" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_opening_hours'%} hidden{% endif %}">
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="7" onclick="jumpToTab(7);">
+        <a href="javascript:;" class="anchor{% if 'add_place_size' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-crosshairs"></i> 7. 场地面积&nbsp;&nbsp;
-            <img id="i_size" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_size" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_place_size'%} hidden{% endif %}">
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="8" onclick="jumpToTab(8);">
+        <a href="javascript:;" class="anchor{% if 'add_photos' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-camera"></i> 8. 照片&nbsp;&nbsp;
-            <img id="i_photos" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_photos" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_photos'%} hidden{% endif %}">
         </a>
     </li>
     <li>

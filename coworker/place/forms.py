@@ -10,6 +10,13 @@ from .fields import JsonHoursChoiceField
 from coworker.cities.models import City
 
 
+class CurrentCreatedPlace:
+    place = None
+    amenities = []
+    meeting_rooms = []
+    step = 0
+
+
 class PlaceFirstForm(forms.ModelForm):
     city = forms.ModelChoiceField(
         queryset=City.objects.filter(level_type__in=[City.CITY, City.PROVINCE]),
@@ -27,7 +34,9 @@ class PlaceFirstForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceFirstForm, self).save(commit=False)
-        self.request.session['current_created_place'] = pickle.dumps(obj)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
@@ -45,7 +54,10 @@ class PlaceDescriptionForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceDescriptionForm, self).save(commit=False)
-        self.request.session['current_created_place'] = pickle.dumps(obj)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        current_created_place.step = 1
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
@@ -64,7 +76,9 @@ class PlaceContactDetailsForm(forms.ModelForm):
     def save(self, commit=False):
         obj = super(PlaceContactDetailsForm, self).save(commit=False)
         obj.id = 999
-        self.request.session['current_created_place'] = pickle.dumps(obj)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
@@ -100,7 +114,8 @@ class PlaceAmenitiesForm(forms.ModelForm):
 
         common_amenities = self.cleaned_data.get('common_amenities', [])
         additional_amenities = self.cleaned_data.get('additional_amenities', [])
-        cleaned_data['amenities'] = common_amenities
+        print(common_amenities)
+        cleaned_data['amenities'] = common_amenities | additional_amenities
 
         if len(cleaned_data['amenities']) < 1:
             raise forms.ValidationError(_(u'Select at least one amenities'))
@@ -108,8 +123,10 @@ class PlaceAmenitiesForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAmenitiesForm, self).save(commit=False)
-
-        self.request.session['current_created_place'] = pickle.dumps(obj)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        current_created_place.amenities = self.cleaned_data['amenities']
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
@@ -135,7 +152,9 @@ class PlaceAddLocationForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAddLocationForm, self).save(commit=False)
-        self.request.session['current_created_place'] = pickle.dumps(obj)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
@@ -159,7 +178,9 @@ class PlaceAddMeetingRoomsForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAddMeetingRoomsForm, self).save(commit=False)
-        self.request.session['current_created_place'] = pickle.dumps(obj)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
@@ -169,6 +190,27 @@ class PlaceAddMeetingRoomInlineForm(forms.ModelForm):
     class Meta:
         model = MeetingRoom
         fields = ['room_info', 'mr_capacity']
+
+
+class PlaceAddSizeForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = ["desks", "private_office", "total_capacity", "size_of_your_coworking_space"]
+
+    def save(self, commit=False):
+        obj = super(PlaceAddSizeForm, self).save(commit=False)
+        current_created_place = CurrentCreatedPlace()
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
+        self.request.session.save()
+        return obj
+
 
 
 class JsonMixinValidate:

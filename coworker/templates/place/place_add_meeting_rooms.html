@@ -12,9 +12,11 @@
             this.meeting_room_formset_type = "meetingroom_set";
             this.meeting_room_formset_row_selector = "#meeting-room-formset .formset-row";
             this.meeting_room_formset_last_row_selector = "#meeting-room-formset .formset-row:last";
-            this.meeting_rooms_formset_template = $('<div/>').append($(this.meeting_room_formset_last_row_selector)).clone(true).html()
-            $(this.meeting_room_formset_last_row_selector).remove();
-            $('#id_' + this.meeting_room_formset_type + '-TOTAL_FORMS').val('0');
+            this.meeting_rooms_formset_template = $('<div/>').append($(this.meeting_room_formset_last_row_selector)).clone(true).html();
+            //$(this.meeting_room_formset_last_row_selector).remove();
+            //var total_forms_div = $('#id_' + this.meeting_room_formset_type + '-TOTAL_FORMS');
+            //var total_forms = parseInt($(total_forms_div).val());
+            //total_forms_div.val(total_forms-1);
         }
 
         PlaceAddMeetingRoomsPage.prototype.change_meeting_rooms_number = function (count) {
@@ -24,13 +26,12 @@
                 var newElement = $('<div/>').html(this.meeting_rooms_formset_template).contents().clone(true);
 
                 $(newElement).find(':input').each(function() {
-                    var name = $(this).attr('name').replace('-0-','-' + i + '-');
+                    var name = $(this).attr('name').replace(/-(\d+)-/,'-' + i + '-');
                     var id = 'id_' + name;
-                    console.log(i+1)
                     $(this).attr({'name': name, 'id': id}).val('').removeAttr('checked');
                 });
                 $(newElement).find('label').each(function() {
-                    var newFor = $(this).attr('for').replace('-0-','-' + i + '-');
+                    var newFor = $(this).attr('for').replace(/-(\d+)-/,'-' + i + '-');
                     $(this).attr('for', newFor);
                 });
 
@@ -43,7 +44,6 @@
                 $('#id_' + this.meeting_room_formset_type + '-TOTAL_FORMS').val(i+1);
             }
         };
-
 
         $(function(){
             var placeAddMeetingRoomsPage = new PlaceAddMeetingRoomsPage();
@@ -166,6 +166,7 @@
                             <div class="col-xs-12 co_buttns_out">
                                 <div class="right_aln">
                                     <ul>
+                                        <li><a href="{% url "place:place_add_location" %}" class="previous_btn" style="display: inline;">Previous</a></li>
                                         <li><button type="submit">Next</button></li>
                                     </ul>
                                 </div>
