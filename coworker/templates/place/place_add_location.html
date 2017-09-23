@@ -36,7 +36,7 @@
                                             <div class="col-xs-12 pade_none type_text_cowork">Type in "coworker, kiev, Ukraine" into the field below and select your coworking space from the dropdown menu. If your coworking space doesn't appear, type your street address in instead.</div>
 
                                             <div class="col-xs-12 pade_none coworker_loaction_grey_panel">
-                                                <input id="autocomplete" name="autocomplete" type="text" placeholder="在这里输入您的创客云图场地名、所属城市和所在街道" onkeypress="return searchByStationName(event)">
+                                                <input id="autocomplete" value="{{ form.instance.city.name }}" name="autocomplete" type="text" placeholder="在这里输入您的创客云图场地名、所属城市和所在街道" onkeypress="return searchByStationName(event)">
 
                                             </div>
                                         </div>
@@ -101,6 +101,9 @@
                                 </div>
                             </div>
 
+                            {% render_field form.lat %}
+                            {% render_field form.lng %}
+
                             <div class="col-xs-12 co_buttns_out">
                                 <div class="right_aln">
                                     <ul>
@@ -116,5 +119,178 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&amp;v=1.2&amp;services=true"></script>
+
+    <script type="text/javascript">
+      // <![CDATA[
+      //Create and initialize the map£º
+      function initMap() {
+        createMap();
+        setMapEvent();
+        addMapControl();
+        addMarker();
+      }
+
+      //Create a map function£º
+      function createMap() {
+        var map = new BMap.Map("space_map");//Add a map to the container
+        var point = new BMap.Point(123.455123,41.79223);//set the center point
+        map.centerAndZoom(point, 19);//display level
+        window.map = map;
+        window.localSearch = new BMap.LocalSearch(map);
+        window.localSearch.enableAutoViewport(); //Allow automatic adjustment
+        searchByStationName();
+      }
+
+      // control tool of the map£º
+      function setMapEvent() {
+        map.enableDragging();
+        map.enableScrollWheelZoom();
+        map.enableDoubleClickZoom();
+        map.enableKeyboard();
+      }
+
+      function searchByStationName(e) {
+        if(e) {
+            e.preventDefault();
+        }
+        map.clearOverlays();//Empty the original annotation
+        var keyword = document.getElementById("autocomplete").value;
+        window.localSearch.setSearchCompleteCallback(function (searchResult) {
+          var poi = searchResult.getPoi(0);
+          {#      document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;#}
+          map.centerAndZoom(poi.point, 15);
+          var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // Create a label£¬ to match coordinate
+          map.addOverlay(marker);
+          var content = document.getElementById("autocomplete").value + "<br/><br/>longitude£º" + poi.point.lng + "<br/>latitude£º" + poi.point.lat;
+          var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+
+          try {
+             $("[name=city]").val(poi.city);
+             $("[name=address]").val(poi.address);
+             $("[name=postal_code]").val(poi.postcode);
+             $("[name=lng]").val(poi.point.lng);
+             $("[name=lat]").val(poi.point.lat);
+
+{#              document.getElementsByName("city").value = poi.city;#}
+{#              document.getElementsByName("address").value = poi.address;#}
+{#              document.getElementsByName("postal_code").value = poi.postcode;#}
+          } catch (e) {
+
+          }
+
+
+          marker.addEventListener("click", function () {
+            this.openInfoWindow(infoWindow);
+          });
+          // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //Beating animation
+        });
+        window.localSearch.search(keyword);
+        return false;
+      }
+
+      //addMapControl£º
+      function addMapControl() {
+        var ctrl_nav = new BMap.NavigationControl({
+          anchor : BMAP_ANCHOR_TOP_LEFT,
+          type : BMAP_NAVIGATION_CONTROL_LARGE
+        });
+        map.addControl(ctrl_nav);
+        //Scale controls
+        var ctrl_sca = new BMap.ScaleControl({
+          anchor : BMAP_ANCHOR_BOTTOM_LEFT
+        });
+        map.addControl(ctrl_sca);
+      }
+
+      //Indexing array
+      var markerArr = [
+{#        {#}
+{#        title : "Pentagon",#}
+{#        content : "tel£º18823879110<br/>address£ºnew york",#}
+{#        point : "123.455123|41.79223",#}
+{#        isOpen : 1,#}
+{#        icon : {#}
+{#          w : 21,#}
+{#          h : 21,#}
+{#          l : 0,#}
+{#          t : 21,#}
+{#          x : 6,#}
+{#          lb : 5#}
+{#        }#}
+{#      } #}
+      ];
+      // creat marker
+      function addMarker() {
+        for ( var i = 0; i < markerArr.length; i++) {
+          var json = markerArr[i];
+          var p0 = json.point.split("|")[0];
+          var p1 = json.point.split("|")[1];
+          var point = new BMap.Point(p0, p1);
+          var iconImg = createIcon(json.icon);
+          var marker = new BMap.Marker(point, {
+            icon : iconImg
+          });
+          var iw = createInfoWindow(i);
+          var label = new BMap.Label(json.title, {
+            "offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+          });
+          marker.setLabel(label);
+          map.addOverlay(marker);
+          label.setStyle({
+            borderColor : "#808080",
+            color : "#333",
+            cursor : "pointer"
+          });
+
+          (function() {
+            var index = i;
+            var _iw = createInfoWindow(i);
+            var _marker = marker;
+            _marker.addEventListener("click", function() {
+              this.openInfoWindow(_iw);
+            });
+            _iw.addEventListener("open", function() {
+              _marker.getLabel().hide();
+            })
+            _iw.addEventListener("close", function() {
+              _marker.getLabel().show();
+            })
+            label.addEventListener("click", function() {
+              _marker.openInfoWindow(_iw);
+            })
+            if (!!json.isOpen) {
+              label.hide();
+              _marker.openInfoWindow(_iw);
+            }
+          })()
+        }
+      }
+      //creat InfoWindow
+      function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow(
+          "<b class='iw_poi_title' title='" + json.title + "'>"
+          + json.title + "</b><div class='iw_poi_content'>"
+          + json.content + "</div>");
+        return iw;
+      }
+      //creat Icon
+      function createIcon(json) {
+        var icon = new BMap.Icon(
+          "http://api.map.baidu.com/img/markers.png",
+          new BMap.Size(json.w, json.h), {
+            imageOffset : new BMap.Size(-json.l, -json.t),
+            infoWindowOffset : new BMap.Size(json.lb + 5, 1),
+            offset : new BMap.Size(json.x, json.h)
+          })
+        return icon;
+      }
+
+      initMap();//Create and initialize the map
+      // ]]>
+    </script>
+
 {% endblock content %}
 

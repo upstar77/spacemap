@@ -147,8 +147,13 @@ class PlaceAddLocationForm(forms.ModelForm):
         fields = ['address',
                   'address_sec',
                   'postal_code',
-                  #'area'
+                  'lng',
+                  'lat'
                   ]
+        widgets = {
+            'lng': forms.HiddenInput(),
+            'lat': forms.HiddenInput(),
+        }
 
     def save(self, commit=False):
         obj = super(PlaceAddLocationForm, self).save(commit=False)

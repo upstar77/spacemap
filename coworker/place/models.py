@@ -65,12 +65,13 @@ MEMBER_ACCS_CHOISE = (
 
 class Location(models.Model):
     # location_name = models.CharField(max_length=250)
-    address = models.CharField(max_length=250)
-    address_sec = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=250)
-    area = models.CharField(max_length=400)
-    cityLat = models.CharField(max_length=250)
-    cityLng = models.CharField(max_length=250)
+
+    address = models.CharField(max_length=250, blank=True)
+    address_sec = models.CharField(max_length=250, blank=True)
+    postal_code = models.CharField(max_length=250, blank=True)
+    area = models.CharField(max_length=400, blank=True)
+    lat = models.CharField(max_length=250, blank=True)
+    lng = models.CharField(max_length=250, blank=True)
 
     class Meta:
         abstract = True
