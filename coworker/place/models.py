@@ -99,8 +99,6 @@ class ContactInfo(models.Model):
     ls_email = models.EmailField()
     tel = models.CharField(_("Tel"), blank=True, null=True, max_length=300)
     website_url = models.CharField(_("Website"), blank=True, null=True, max_length=300)
-
-    #social media
     facebook = models.CharField(max_length=300, blank=True, null=True)
     twitter = models.CharField(max_length=300, blank=True, null=True)
     instagram = models.CharField(max_length=300, blank=True, null=True)
@@ -154,13 +152,7 @@ class Place(Member_Payment, ContactInfo, Location):
     city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
-    #TODO remove cs_extra_description not needed because site only on Chinese
-    # cs_extra_description = models.TextField(_("Description"))
-    #
-    # #page 5
-    # meeting_room_number = models.PositiveIntegerField(
-    #     choices=[(i, i) for i in range(MAX_MEETING_ROOM_NUMBER)],
-    # )
+
     rent_nm = models.BooleanField(default=False, help_text="Do you allow non-members to rent your meeting rooms?")
     hire_nm = models.BooleanField(
         default=False, help_text="Do you allow non-members to hire your coworking space for bigger events?")
