@@ -9,6 +9,8 @@ urlpatterns = [
     # url(regex=r'^(?P<username>[\w.@+-]+)/$', view=views.UserDetailView.as_view(), name='detail'),
 
     #url(regex=r'^~update/$', view=views.UserUpdateView.as_view(), name='update'),
+    url(regex=r'^usertype/$', view=views.UserUpdateView.as_view(), name='user_type'),
+
     url(regex=r'^update_aboutme/$', view=views.UserUpdateView.as_view(), name='update_aboutme'),
 
     # url(regex=r'^myreviews/$', view=views.UserUpdateView.as_view(), name='myreviews'),

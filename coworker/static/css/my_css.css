@@ -670,3 +670,13 @@
   src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v16/mnpfi9pxYH-Go5UiibESIpBw1xU1rKptJj_0jans920.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+
+.choice-buttons {
+  margin-top: 15px;
+  margin-left: 125px;
+  margin-bottom: 11px;
+}
+
+#id_tags, #id_industries {
+  width: 200px;
+}

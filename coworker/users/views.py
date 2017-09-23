@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from .mixins import LoginRequiredMixin
 from django.http import JsonResponse
 
 from coworker.core.mixins import AjaxableResponseMixin
@@ -9,10 +9,6 @@ from coworker.users.forms import ProfileForm
 from .serializers import UserSerializer
 from .models import User
 
-
-class UserFromRequest:
-    def get_object(self, queryset=None):
-        return self.request.user
 
 
 class UserProfileView(LoginRequiredMixin, DetailView):
@@ -41,6 +37,9 @@ class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
     def get_object(self, *args, **kwargs):
         return self.request.user
 
+    def get_success_url(self):
+        return reverse('users:profile')
+
     def get_form_kwargs(self):
         ctx = super(UserUpdateView, self).get_form_kwargs()
         ctx["request"] = self.request
@@ -54,18 +53,13 @@ class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
         return super(UserUpdateView, self).form_invalid(form)
 
     def form_valid(self, form):
-        # We make sure to call the parent's form_valid() method because
-        # it might do some processing (in the case of CreateView, it will
-        # call form.save() for example).
-        # response = super(UserUpdateView, self).form_valid(form)
         if self.request.is_ajax():
             obj = form.save()
             data = {
                 'obj': UserSerializer(obj).data,
             }
             return JsonResponse(data)
-        # else:
-        #     return response
+        return super().form_valid(form)
 
 class UserListView(LoginRequiredMixin, ListView):
     model = User
@@ -80,7 +74,7 @@ class ReviewsList(LoginRequiredMixin, TemplateView):
 
 
 
-class UpdateProfileImage(UserFromRequest, UpdateView):
+class UpdateProfileImage(LoginRequiredMixin, UpdateView):
     model = User
     fields = ['profile_image']
 

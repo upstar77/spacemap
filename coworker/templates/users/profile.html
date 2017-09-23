@@ -162,49 +162,15 @@
 
                                 {% include 'users/show_edit_field.html' with field=form.birth_day value=user.birth_day %}
                                 {% include 'users/show_edit_field.html' with field=form.aboutme value=user.aboutme %}
-                                {% include 'users/show_edit_field.html' with field=form.business_name value=user.business_name %}
-                                {% include 'users/show_edit_field.html' with field=form.registration value=user.registration %}
-                                {% include 'users/show_edit_field.html' with field=form.business_summarize value=user.business_summarize %}
+                                {% if user.is_space_owner %}
+                                    {% include 'users/show_edit_field.html' with field=form.business_name value=user.business_name %}
+                                    {% include 'users/show_edit_field.html' with field=form.registration value=user.registration %}
+                                    {% include 'users/show_edit_field.html' with field=form.business_summarize value=user.business_summarize %}
+                                {% endif %}
                                 {% include 'users/show_edit_field.html' with field=form.industries value=user.get_industries %}
                                 {% include 'users/show_edit_field.html' with field=form.tags value=user.get_tags %}
                                 {{ form.media.js }}
                             </form>
-
-                            <style>
-                                #id_tags, #id_industries {
-                                    width: 200px;
-                                }
-                            </style>
-
-                            <script>
-                              $("[name=tags]").select2({
-                                width: 'resolve',
-                                tags: true,
-                                multiple: true,
-                                allowClear: true,
-                                createTag: function (params) {
-                                  var term = $.trim(params.term);
-
-                                  if (term === '') {
-                                    return null;
-                                  }
-
-                                  return {
-                                    id: term,
-                                    text: term,
-                                    newTag: true
-                                  }
-                                }
-                              });
-                              $("[name=industries]").select2({
-                                width: 'resolve',
-                                tags: true,
-                                multiple: true,
-                                createTag: function(params) {
-                                  return undefined;
-                                }
-                              });
-                            </script>
 
                         </div>
                         <!--REVIEWS-->
@@ -377,12 +343,65 @@
                     </div>
                 </div>
             </div>
-            <!--NGINX SOFTWARE END-->
         </div>
 
     </div>
 
+    <div class="modal fade" id="user-type-modal" role="dialog" tabindex="-1">
+        <form action="{% url "users:update_aboutme" %}" method="POST">
+            {% csrf_token %}
+            <div class="check-availability-pop-up">
+                <div class="modal-dialog-Available list_space_user_type">
+                    <div class="col-xs-12 pade_none main_Available_outr">
+                        <button type="button" class="close" onClick="closeReContact();" data-dismiss="modal">&times;</button>
+                        <div class="col-xs-12 pade_none pop_header_available">
+                            <h2>Who are you:</h2>
+                        </div>
+                        <div class="form_group {% if form.user_type.errors %} has-error{% endif %}">
+                            <div class="col-sm-12 col-md-12 col-xs-12 ">
+                                {% render_field form.user_type class="hidden" %}
+                                {% for choice in form.user_type.field.choices %}
+                                    {% if choice.0 %}
+                                        <div class="wrapper_box">
+                                            <div class="user_type_circle{% if form.user_type.value == choice.0 %} circle_red{% endif %}" data-panelid="{{ choice.0 }}">
+                                                {{ choice.1 }}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="col-xs-12 pade_none available_submit_outer">
+                                <button id="smsg_button" type="submit" class="ladda-button" data-color="red" data-style="expand-left">
+                                    <span class="ladda-label">Submit</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+              $('.user_type_circle').on('click', function(){
+                $('.user_type_circle').removeClass('circle_red');
+
+                var panelId = $(this).attr('data-panelid');
+                $(this).addClass('circle_red');
+                $("#{{ form.user_type.auto_id }}").val(panelId);
+              });
+            </script>
+        </form>
+    </div>
+
+
     <script type="text/javascript">
+      $(function() {
+        {% load pdb_debug %}
+        {% if not user.get_user_type %}
+          $("#user-type-modal").flexModal();
+        {% endif %}
+      });
+
       var r_profile = '//graph.facebook.com/1461729717241553/picture?type=large';
       var r_token = '';
       function showTab(cTab) {
@@ -487,8 +506,8 @@
           'type': 'POST',
           'data': $form.serialize(),
           'success': function(res){
-{#            var field_val = edit_block.find("input,textarea,select").attr("name");#}
-{#            $("#" + field_val + "-value").html(res.obj[field_val]);#}
+            {#            var field_val = edit_block.find("input,textarea,select").attr("name");#}
+            {#            $("#" + field_val + "-value").html(res.obj[field_val]);#}
             $.each(res.obj, function(key, value) {
               $(".show_block #" + key + "-value").html(value);
             });
@@ -934,6 +953,9 @@
       }
 
     </script>
+
+    {% block top_cities %}
+    {% endblock %}
 
 {% endblock content %}
 

@@ -22,4 +22,57 @@ $(function () {
       }
     }
   });
+//
+//   $("[name=tags]").select2({
+//     width: 'resolve',
+//     tags: true,
+//     multiple: true,
+//     allowClear: true,
+//     ajax: {
+//         url: URL,
+//         dataType: 'json',
+//         type: "GET",
+//         quietMillis: 50,
+//         data: function (term) {
+//           return {
+//             term: term
+//           };
+//         },
+//         results: function (data) {
+//           return {
+//             results: $.map(data, function (item) {
+//               return {
+//                 text: item.completeName,
+//                 slug: item.slug,
+//                 id: item.id
+//               }
+//             })
+//           };
+//         }
+//       }
+//     },
+//     createTag: function (params) {
+//       var term = $.trim(params.term);
+//
+//       if (term === '') {
+//         return null;
+//       }
+//
+//       return {
+//         id: term,
+//         text: term,
+//         newTag: true
+//       }
+//     }
+//   });
+//
+//   $("[name=industries]").select2({
+//     width: 'resolve',
+//     tags: true,
+//     multiple: true,
+//     createTag: function(params) {
+//       return undefined;
+//     }
+//   });
+//
 });

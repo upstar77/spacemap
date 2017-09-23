@@ -3531,7 +3531,6 @@ S2.define('select2/data/tags',[
     var self = this;
 
     this._removeOldTags();
-
     if (params.term == null || params.page != null) {
       decorated.call(this, params, callback);
       return;

@@ -24,6 +24,12 @@ class Indastry(models.Model):
 
 @python_2_unicode_compatible
 class User(AbstractUser):
+    SPACE_OWNER = 'so'
+    STARTUP_OWNER = 'sm'
+    USER_TYPE_CHOICES = (
+        (SPACE_OWNER, _('Startup Owners')),
+        (STARTUP_OWNER, _('Space Owners')),
+    )
 
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
     profile_image = models.ImageField(_(u"User image"), upload_to='profile_pictures', blank=True, null=True)
@@ -34,6 +40,7 @@ class User(AbstractUser):
     business_summarize = models.TextField(_("Business summarize "), null=True, blank=True)
     industries = models.ManyToManyField(Indastry, blank=True, related_name="user")
     tags = models.ManyToManyField(UserTags, blank=True, related_name="user")
+    user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, blank=True)
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
@@ -47,6 +54,8 @@ class User(AbstractUser):
     def get_industries(self):
         return ", ".join(list(self.industries.values_list("name",  flat=True)))
 
+    # def get_user_type(self):
+    #     return
     @cached_property
     def profile_image_url(self):
         if self.profile_image:
@@ -57,3 +66,12 @@ class User(AbstractUser):
     def full_name(self):
         return "{} {}".format(self.first_name.capitalize(), self.last_name.capitalize())
 
+
+    def is_space_owner(self):
+        return self.user_type == self.SPACE_OWNER
+
+    def is_startup_owner(self):
+        return self.user_type == self.STARTUP_OWNER
+
+    def get_user_type(self):
+        return self.user_type

@@ -8,11 +8,13 @@ from .widgets import IndastrySelect2, TagSelec2
 class ProfileForm(forms.ModelForm):
     birth_day = forms.DateField(
         label=_('Birth day'),
-        widget=extras.SelectDateWidget(years=range(2014, 1900, -1))
+        widget=extras.SelectDateWidget(years=range(2014, 1900, -1)),
+        required=False
     )
     registration = forms.DateField(
         label=_('Registration'),
-        widget=extras.SelectDateWidget(years=range(2014, 1900, -1))
+        widget=extras.SelectDateWidget(years=range(2014, 1900, -1)),
+        required=False
     )
 
     def __init__(self, *args, **kwargs):
@@ -20,6 +22,7 @@ class ProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         tags_filed = self.fields['tags']
         self.fields['tags'].widget.attrs["value"] = ",".join([item.name for item in tags_filed.queryset])
+        self.fields['user_type'].empty_label = None
 
     class Meta:
         widgets = {
@@ -28,6 +31,7 @@ class ProfileForm(forms.ModelForm):
         }
         model = get_user_model()
         fields = [
+            'user_type',
             'birth_day',
             'aboutme',
             'business_summarize',
