@@ -8,9 +8,9 @@ from django.http import JsonResponse
 from django.forms.models import inlineformset_factory, modelformset_factory, formset_factory
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
-
+from django.core.files.images import get_image_dimensions
 from coworker.core.form_mixins import PassUser
 from .models import Place, MeetingRoom
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
@@ -239,8 +239,8 @@ class PlaceAddSizeView(PlaceAddBaseView, CreateView):
 class PlaceAddPhotosView(PlaceAddBaseView, CreateView):
     template_name = 'place/place_add_photos.html'
     form_class = PlaceAddSizeForm
-    success_url = reverse_lazy('place:place_add_photos')
     request = None
+    success_url = reverse_lazy('place:place_add_currency')
 
     def get_form_kwargs(self):
         kwargs = super(PlaceAddPhotosView, self).get_form_kwargs()
@@ -258,7 +258,6 @@ class PlaceAddPhotosView(PlaceAddBaseView, CreateView):
 class PlaceAddContinue(CreateView):
     template_name = 'place/place_description.html'
     form_class = PlaceForm
-
 
     def get_initial(self):
         return self.request.session.get('firs_form_data', {"place_name": "coworker_alex"})
@@ -299,11 +298,37 @@ class PhotoDropzone(CreateView):
         photo.save()
 
         if photo.is_header_image:
-            from django.core.files.images import get_image_dimensions
+
             w, h = get_image_dimensions(photo.file)
             d = {"status": "success", "url": photo.file.url, "width": w, "height": h}
         else:
             d = {"name": photo.file.url, "ext": "jpg", "msg": "scs"}
         return JsonResponse(d)
 
+
+@method_decorator(csrf_exempt, name='dispatch')
+class PhotoCrop(View):
+
+    def post(self, request, *args, **kwargs):
+        # TODO here should be crop process
+        return JsonResponse({
+            "status": "success",
+            "url": request.POST.get("imgUrl")
+        })
+
+
+
+class PlaceAddCurrency(PlaceAddBaseView, CreateView):
+    template_name = 'place/place_description.html'
+    form_class = PlaceDescriptionForm
+    success_url = reverse_lazy('place:place_add_size')
+    request = None
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['request'] = self.request
+        self.current_created_place = self.get_current_created_place()
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
+        return kwargs
 

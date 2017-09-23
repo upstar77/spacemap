@@ -38,21 +38,21 @@
                                     <div class="col-xs-12 pade_none header_photo_size photos_red_content">
                                         <p>封面<br><span>尺寸：1920px（宽）</span></p>
 
-
                                     </div>
                                     <div class="col-xs-12 pade_none cowork_clipboard_panel">
-  <span>
-  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/add_tool.png' %}" alt="pic"></a>
-  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/subtract_tool.png' %}" alt="pic"></a>
-  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/crop_tool.png' %}" alt="pic"></a>
-  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/close_tool.png' %}" alt="pic"></a>
-  </span>
+                                      <!-- <span>
+                                          <a href="/list-space/continue#"><img src="{% static 'img/add_tool.png' %}" alt="pic"></a>
+                                          <a href="/list-space/continue#"><img src="{% static 'img/subtract_tool.png' %}" alt="pic"></a>
+                                          <a href="/list-space/continue#"><img src="{% static 'img/crop_tool.png' %}" alt="pic"></a>
+                                          <a href="/list-space/continue#"><img src="{% static 'img/close_tool.png' %}" alt="pic"></a>
+                                      </span> -->
                                     </div>
                                     <div class="col-xs-12 pade_none">
                                         <div id="cropContainerEyecandy"></div>
                                         <div id="cropContainerHeaderDiv">
                                             <span id="cropContainerHeaderButton" class="btn">点击上传</span>
                                         </div>
+                                        <div id="customHead" class="cropHead" style="height: 43.9141px; width: 730px;">&nbsp;</div>
                                     </div>
 
                                     <div class="col-xs-12 pade_none header_photo_size header_upload_picc">
@@ -87,5 +87,164 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+      function getMainImg() {
+        if($('.cropImgWrapper').length>0)
+          $('#headerList').val($('.cropImgWrapper > img').attr('src'));
+        else if($('.croppedImg').length>0)
+          $('#headerList').val($('.croppedImg').attr('src'));
+        else
+          $('#headerList').val('');
+      }
+
+      function validateImages() {
+        getMainImg();
+        var er_imgs = 0;
+        var cover_error = $('#headerList').val()=='';
+        var adds_error = upAdditionalList.length<2;
+        if((cover_error)&&(adds_error)){
+          $('#img_error').show();
+          $('#thumbs_error').show();
+          $('#i_photos').hide();
+          er_imgs = 3;
+        } else if(cover_error) {
+          $('#img_error').show();
+          $('#thumbs_error').hide();
+          $('#i_photos').hide();
+          er_imgs = 1;
+        } else if(adds_error) {
+          $('#img_error').hide();
+          $('#thumbs_error').show();
+          $('#i_photos').hide();
+          er_imgs = 2;
+        } else {
+          $('#img_error').hide();
+          $('#thumbs_error').hide();
+          $('#i_photos').show();
+          er_imgs = 0;
+        }
+        return er_imgs;
+      }
+
+      var upAdditionalList = [];
+      var upHeaderList = [];
+      $(document).ready(function () {
+        Dropzone.autoDiscover = false;
+        var cwu_id = $('#user_space_id').val();
+        var i = 0;
+        $("#spaceAdditional").dropzone({
+          addRemoveLinks: true,
+          maxFilesize: 15,
+          maxFiles: 20,
+          init: function () {
+            // Hack: Add the dropzone class to the element
+            $(this.element).addClass("dropzone");
+            this.on("success", function (file, dataResponse) {
+              var serverFile = dataResponse;
+              if(serverFile.msg=='error'){
+              } else {
+                var new_file = serverFile.name.substr(0,serverFile.name.lastIndexOf('_'))+'.'+serverFile.ext;
+                file.previewElement.querySelector("[data-dz-name]").innerHTML=new_file;
+                upAdditionalList[i] = {'sfile':serverFile.name,'ext':serverFile.ext,'file':new_file,'size':file.size};
+                i++;
+              }
+              validateImages();
+            });
+            this.on("sending", function (file, xhr, formData) {
+              formData.append('cwu_id',cwu_id);
+            });
+            this.on("removedfile", function (file) {
+              var rmvFile = file.previewElement.querySelector("[data-dz-name]").innerHTML;
+              for (f = 0; f < upAdditionalList.length; f++) {
+                if (upAdditionalList[f].file == rmvFile) {
+                  upAdditionalList.splice(f, 1);
+                  i--;
+                }
+              }
+              validateImages();
+            });
+          },
+          url: "{% url "place:list-space-dropzone" %}"
+        });
+      });
+      $(function() {
+        var x_view=-1;
+        var loadHeader = 0;
+        var cropContainerEyecandy = undefined;
+        var croppicContainerEyecandyOptions = {
+          uploadUrl:'{% url "place:header" %}',
+          uploadData:{ "xview":x_view, "sview": 1},
+          cropUrl:'{% url "place:header-edit" %}',
+          imgEyecandy:false,
+          customUploadButtonId:'cropContainerHeaderDiv',
+          onBeforeImgUpload: function(){ croppicContainerEyecandyOptions.uploadData.xview = $('#cropContainerEyecandy').width();},
+          onAfterImgUpload: function(){
+            var minHeightHead = ($('#cropContainerEyecandy').width()/1280)*77;
+            $('#customHead').height(minHeightHead);
+            $('#customHead').width($('#cropContainerEyecandy').width());
+            $('#cropContainerHeaderDiv').width($('#cropContainerEyecandy').width());
+            validateImages();
+          },
+          onImgDrag: function(){},
+          onImgZoom: function(){},
+          onBeforeImgCrop: function(){},
+          onAfterImgCrop:function(){
+            var minHeightHead = ($('#cropContainerEyecandy').width()/1280)*77;
+            $('#customHead').height(minHeightHead);
+            $('#customHead').width($('#cropContainerEyecandy').width());
+            $('#cropContainerHeaderDiv').hide();
+            validateImages();
+
+            $(".croppedImg").width($('#cropContainerEyecandy').width());
+            $(".croppedImg").height($('#cropContainerEyecandy').height());
+          },
+          onReset:function(){
+            var minHeightHead = ($('#cropContainerEyecandy').width()/1280)*77;
+            $('#customHead').height(minHeightHead);
+            $('#customHead').width($('#cropContainerEyecandy').width());
+            validateImages();
+          },
+          onError: function(errormessage){ console.log('onError:'+errormessage) }
+        };
+
+        var minHeight = ($('#cropContainerEyecandy').width()/1280)*465;
+        $('#cropContainerEyecandy').height(minHeight);
+        setTimeout( function(){
+          croppicContainerEyecandyOptions.uploadData.xview = $('#cropContainerEyecandy').width();
+          croppicContainerEyecandyOptions.uploadData.sview = 1280;
+          croppicContainerEyecandyOptions.uploadData.cwuser_id = $('#user_space_id').val();
+          cropContainerEyecandy = new Croppic('cropContainerEyecandy', croppicContainerEyecandyOptions);
+          var minHeightHead = ($('#cropContainerEyecandy').width()/1280)*77;
+          $('#customHead').height(minHeightHead);
+          $('#customHead').width($('#cropContainerEyecandy').width());
+          $('#cropContainerHeaderDiv').width($('#cropContainerEyecandy').width());
+          $('#cropContainerHeaderDiv').height(minHeight);
+        }, 500 );
+
+      });
+
+
+
+    </script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/autocombobox.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/formValidation.min.js' %}"></script>
+    <script src="{% static 'js/fv.bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/formValidation.min.css' %}">
+    <link href="{% static 'css/dropzone.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/dropzone.js' %}" type="text/javascript"></script>
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+    <!-- marketing day/hour selection -->
+    <script type="text/javascript" src="{% static 'js/list-space-helper.js' %}"></script>
+
+    <script src="{% static 'js/croppic.js' %}"></script>
+    <script src="{% static 'js/coworkerPopups.js' %}"></script>
+
+
+
 {% endblock content %}
 

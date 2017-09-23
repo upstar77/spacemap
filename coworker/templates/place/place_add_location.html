@@ -123,6 +123,9 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?key=&amp;v=1.2&amp;services=true"></script>
 
     <script type="text/javascript">
+        $(function() {
+          searchByStationName();
+        });
       // <![CDATA[
       //Create and initialize the map£º
       function initMap() {
@@ -140,7 +143,6 @@
         window.map = map;
         window.localSearch = new BMap.LocalSearch(map);
         window.localSearch.enableAutoViewport(); //Allow automatic adjustment
-        searchByStationName();
       }
 
       // control tool of the map£º

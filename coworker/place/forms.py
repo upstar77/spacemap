@@ -289,9 +289,6 @@ class PlacePhotoForm(forms.ModelForm):
             self.cleaned_data['file'] = self.files['img']
             self.cleaned_data["is_header_image"] = True
 
-    # def clean(self):
-    #     if self.data.get("xview"):
-    #         self.file = self.files
-    #         self.cleaned_data["is_header_image"] = True
+
 
 

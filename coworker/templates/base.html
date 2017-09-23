@@ -574,10 +574,10 @@
         'type' : 'POST',
         'data' : $form.serialize(),
         'success' : function(result){
-          if (result.form.errors.length !== 0) {
+          if (result.form && result.form.errors.length !== 0) {
             alert(result.form.errors);
           } else {
-              window.location.href = result.location;
+            window.location.href = result.location;
           }
         }
       }).error(function(jqXHR, textStatus, errorThrown) {

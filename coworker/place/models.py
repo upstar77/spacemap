@@ -128,7 +128,7 @@ class MeetingRoom(models.Model):
 
 class Photos(models.Model):
     file = models.FileField(upload_to="user/photos", null=False, blank=False)
-    # user = models.ForeignKey(get_user_model())
+    place = models.ForeignKey('Place', null=True, blank=True)
     user = models.ForeignKey('users.User')
     upload_date = models.DateTimeField(auto_now_add=True)
     is_header_image = models.BooleanField(default=False)
