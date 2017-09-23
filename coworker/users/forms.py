@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
+from .widgets import IndastrySelect2, TagSelec2
 
 
 class ProfileForm(forms.ModelForm):
@@ -9,14 +10,32 @@ class ProfileForm(forms.ModelForm):
         label=_('Birth day'),
         widget=extras.SelectDateWidget(years=range(2014, 1900, -1))
     )
+    registration = forms.DateField(
+        label=_('Registration'),
+        widget=extras.SelectDateWidget(years=range(2014, 1900, -1))
+    )
+
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+        tags_filed = self.fields['tags']
+        self.fields['tags'].widget.attrs["value"] = ",".join([item.name for item in tags_filed.queryset])
 
     class Meta:
+        widgets = {
+            'tags': TagSelec2,
+            'industries': IndastrySelect2,
+        }
         model = get_user_model()
-        fields = ['birth_day', 'birth_day', 'aboutme']
-
-    def clean(self):
-        super(ProfileForm, self).clean()
-        return
+        fields = [
+            'birth_day',
+            'aboutme',
+            'business_summarize',
+            'registration',
+            'business_name',
+            'tags',
+            'industries',
+        ]
 
     def save(self, *args, **kwargs):
         return super(ProfileForm, self).save(*args, **kwargs)

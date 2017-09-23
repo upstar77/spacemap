@@ -16,7 +16,7 @@ APPS_DIR = ROOT_DIR.path('coworker')
 env = environ.Env()
 
 # .env file, should load only in development environment
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
+READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=True)
 
 if READ_DOT_ENV_FILE:
     # Operating System Environment variables have precedence over variables defined in the .env file,
@@ -50,6 +50,8 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'widget_tweaks',
+    'rest_framework',
+    'django_select2',
 ]
 
 # Apps specific for this project go here.
@@ -63,6 +65,9 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
 ]
 
+REST_FRAMEWORK = {
+    'UNAUTHENTICATED_USER': None
+}
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

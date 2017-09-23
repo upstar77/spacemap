@@ -160,73 +160,52 @@
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">{{ user.full_name }}</div>
                                 </div>
 
-                                <div id="dv_birthday" class="col-xs-12 pade_none profile_con">
-                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Date of Birth:</div>
-                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
-                                        <input class="col-sm-8 col-md-8 col-xs-8 pade_none" id="my_birthday" type="text" value="{{ user.birth_day|date:"M d, Y" }}" readonly="readonly">
-{#                                        {% render_field form.birth_day class="col-sm-8 col-md-8 col-xs-8 pade_none" id="my_birthday" type="text" value="" readonly="readonly" %}#}
-                                        <div class="col-sm-4 col-md-4 col-xs-4 pade_none change_btn">
-                                            <a href="javascript:void(0);" onclick="showEditBirthday();">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="dv_birthday_edit" style="display:none;">
-                                    <div class="col-xs-12 pade_none profile_con04">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Date of Birth:</div>
-                                        <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
-                                            <div class="col-sm-11 col-md-11 col-xs-11 pade_none profile_rgt_con">
-                                                {{ form.birth_day }}
-{#                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">#}
-{#                                                    <input id="b_day" value="1" readonly="" aria-valuemin="1" aria-valuemax="31" aria-valuenow="1" autocomplete="off" class="ui-spinner-input" role="spinbutton">#}
-{#                                                    <a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>#}
-{#                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">#}
-{#                                                    <input id="b_month" value="0" readonly="" aria-valuenow="0" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>#}
-{#                                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">#}
-{#                                                    <input id="b_year" value="1970" readonly="" aria-valuemin="1930" aria-valuemax="2016" aria-valuenow="1970" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span>#}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 pade_none profile_con03">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con"></div>
-                                        <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
-                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateBirthday(event);">Save</a></div>
-                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="hideEditBirthday();">Cancel</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="dv_aboutme" class="col-xs-12 pade_none profile_con03">
-                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">About Me:</div>
-                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
-                                        <p id="p_aboutme" class="col-sm-9 col-md-9 col-xs-9 pade_none">
-                                            {% if user.aboutme %}
-                                                {{ user.aboutme }}
-                                            {% else %}
-                                                <span id="add_aboutme" onclick="showEditAboutme();">+ add some details about yourself</span>
-                                            {% endif %}
-                                        </p>
-                                        <div id="dv_aboutme_button" class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn">
-                                            <a href="javascript:void(0);" onclick="showEditAboutme();">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="dv_aboutme_edit" style="display:none;">
-                                    <div class="col-xs-12 pade_none profile_con04">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">About Me:</div>
-                                        <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
-                                            {% render_field form.aboutme id="aboutme" name="aboutme" class="col-sm-12 col-md-12 col-xs-12" %}
-{#                                            <textarea id="aboutme" name="aboutme" class="col-sm-12 col-md-12 col-xs-12"></textarea>#}
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 pade_none profile_con03">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con"></div>
-                                        <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
-                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateAboutme(event);">Save</a></div>
-                                            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="hideEditAboutme();">Cancel</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="c_uid" id="c_uid" value="11040">
+                                {% include 'users/show_edit_field.html' with field=form.birth_day value=user.birth_day %}
+                                {% include 'users/show_edit_field.html' with field=form.aboutme value=user.aboutme %}
+                                {% include 'users/show_edit_field.html' with field=form.business_name value=user.business_name %}
+                                {% include 'users/show_edit_field.html' with field=form.registration value=user.registration %}
+                                {% include 'users/show_edit_field.html' with field=form.business_summarize value=user.business_summarize %}
+                                {% include 'users/show_edit_field.html' with field=form.industries value=user.get_industries %}
+                                {% include 'users/show_edit_field.html' with field=form.tags value=user.get_tags %}
+                                {{ form.media.js }}
                             </form>
+
+                            <style>
+                                #id_tags, #id_industries {
+                                    width: 200px;
+                                }
+                            </style>
+
+                            <script>
+                              $("[name=tags]").select2({
+                                width: 'resolve',
+                                tags: true,
+                                multiple: true,
+                                allowClear: true,
+                                createTag: function (params) {
+                                  var term = $.trim(params.term);
+
+                                  if (term === '') {
+                                    return null;
+                                  }
+
+                                  return {
+                                    id: term,
+                                    text: term,
+                                    newTag: true
+                                  }
+                                }
+                              });
+                              $("[name=industries]").select2({
+                                width: 'resolve',
+                                tags: true,
+                                multiple: true,
+                                createTag: function(params) {
+                                  return undefined;
+                                }
+                              });
+                            </script>
+
                         </div>
                         <!--REVIEWS-->
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer2" style="display:none">
@@ -309,7 +288,7 @@
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-11 col-md-11 col-xs-11 pade_none profile_rgt_con">
                                                 {% render_field form.email class="col-sm-12 col-md-12 col-xs-12" id="nc_email" type="text" %}
-{#                                                <input class="col-sm-12 col-md-12 col-xs-12" id="nc_email" name="nc_email" type="text" value="stupak.alexn@gmail.com">#}
+                                                {#                                                <input class="col-sm-12 col-md-12 col-xs-12" id="nc_email" name="nc_email" type="text" value="stupak.alexn@gmail.com">#}
                                             </div>
                                         </div>
                                     </div>
@@ -326,7 +305,7 @@
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                         <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con">
                                             {% render_field form.email class="col-sm-12 col-md-12 col-xs-12" type="password" value="{{ user.email }}" %}
-{#                                            <input class="col-sm-12 col-md-12 col-xs-12" type="password" value="stupak.alexn@gmail.com">#}
+                                            {#                                            <input class="col-sm-12 col-md-12 col-xs-12" type="password" value="stupak.alexn@gmail.com">#}
                                         </div>
                                         <div class="col-sm-4 col-md-4 col-xs-4 pade_none change_btn"><a href="javascript:void(0);" onclick="showPassword(event);">Change</a></div>
                                     </div>
@@ -497,31 +476,44 @@
     </script>
 
 
+    <script>
+      function updateField(e, calback){
+        var $target = $(event.target);
+        var $form = $target.closest("form");
+        var edit_block = $(event.target).closest(".edit_block");
+        var content_block = edit_block.prev();
+        $.ajax({
+          'url': '{% url "users:update_aboutme" %}',
+          'type': 'POST',
+          'data': $form.serialize(),
+          'success': function(res){
+{#            var field_val = edit_block.find("input,textarea,select").attr("name");#}
+{#            $("#" + field_val + "-value").html(res.obj[field_val]);#}
+            $.each(res.obj, function(key, value) {
+              $(".show_block #" + key + "-value").html(value);
+            });
+            content_block.show();
+            edit_block.hide();
+            if (calback) {
+              calback();
+            }
+          }
+        });
+      }
+      function showEdit(e){
+        var show_block = $(e.target).closest(".show_block");
+        show_block.hide();
+        show_block.next().show()
+      }
+
+      function hideEdit(e){
+        var edit_block = $(e.target).closest(".edit_block");
+        edit_block.hide();
+        edit_block.prev().show();
+      }
+    </script>
     <script type="text/javascript">
-      function showEditBirthday(){
-        $('#dv_birthday').hide();
-        $('#dv_birthday_edit').show();
-      }
-      function hideEditBirthday(){
-        $('#dv_birthday').show();
-        $('#dv_birthday_edit').hide();
-      }
-      function showContactEmail(){
-        $('#dv_contact').hide();
-        $('#dv_contact_email').show();
-      }
-      function hideContactEmail(){
-        $('#dv_contact').show();
-        $('#dv_contact_email').hide();
-      }
-      function showPassword(){
-        $('#dv_change').hide();
-        $('#dv_password').show();
-      }
-      function hidePassword(){
-        $('#dv_change').show();
-        $('#dv_password').hide();
-      }
+
       function updateUser(){
         var n_pass = ($('#n_password').val()).trim();
         var cn_pass = $('#cn_password').val().trim();
@@ -550,64 +542,7 @@
           $('#user_form').submit();
         }
       }
-      function showEditAboutme(){
-        $('#dv_aboutme').hide();
-        $('#dv_aboutme_edit').show();
-      }
-      function hideEditAboutme(){
-        if($('#p_aboutme').find('#add_aboutme').length>0){
-          $('#dv_aboutme_button').hide();
-        } else {
-          $('#dv_aboutme_button').show();
-        }
-        $('#dv_aboutme').show();
-        $('#dv_aboutme_edit').hide();
-      }
-      function updateAboutme(e){
-        if($('#aboutme').val().trim()!=''){
-          var xmsg = $('#aboutme').val().trim();
-          var $form = $(e.target).closest("form");
-          $.ajax({
-            'url' : '{% url "users:update_aboutme" %}',
-            'type' : 'POST',
-            'data' : $form.serialize(),
-            'success' : function(data){
-{#              var result = $.parseJSON(data);#}
-{#              if(result.msg == 'SCS') {#}
-                $('#p_aboutme').text(xmsg);
-                $('#p_aboutme').show();
-                $('#dv_aboutme').show();
-                $('#dv_aboutme_button').show();
-                $('#dv_aboutme_edit').hide();
-{#              } else {#}
-{##}
-{#              }#}
-            }
-          });
-        } else
-          alert('Please enter some details');
-      }
-      function updateBirthday(e){
-{#        var xday  = $('#b_day').spinner('value');#}
-{#        var xmonth= $('#b_month').textSpinner('value')+1;#}
-{#        var xyear = $('#b_year').spinner('value');#}
-        var $form = $(event.target).closest("form");
-        $.ajax({
-          'url' : '{% url "users:update_aboutme" %}',
-          'type' : 'POST',
-{#          'data' : {'c_uid' : $('#c_id').val(), 'day':, 'month':xmonth, 'year':xyear},#}
-          'data' : $form.serialize(),
-          'success' : function(data){
-{#            if(result.msg == 'SCS') {#}
-              $('#my_birthday').val(data.birthday);
-              $('#dv_birthday').show();
-              $('#dv_birthday_edit').hide();
-{#            } else {#}
-{##}
-{#            }#}
-          }
-        });
-      }
+
       function validateEmail(email) {
         var re = /\S+@\S+\.\S+/;
         return re.test(email);
@@ -642,12 +577,12 @@
         });
       };
       (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk')
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk')
       );
 
       function updatePhoto (argument) {
@@ -794,542 +729,6 @@
       });
     </script>
 
-    <script type="text/javascript">
-
-      var msg_login = 0;
-      $(document).ready(function(){
-        $('body').append($('<div>', {id:'nvmyLoading',class: 'modal'}));
-        $('#nvmyLoading').initLoading({pathLoading:'https://www.coworker.com/'});
-        $('body').append($('<div>', {id:'nvloginModal',class: 'modal'}));
-        $('#nvloginModal').initLogin({pathLoading:'https://www.coworker.com/'});
-        $('body').append($('<div>', {id:'nvmy_Modal',class: 'popup_outer'}));
-        $('#nvmy_Modal').initSignup({pathLoading:'https://www.coworker.com/'});
-        $('body').append($('<div>', {id:'nvmy_Signup',class: 'container modal'}));
-        $('#nvmy_Signup').initNewSignup({pathLoading:'https://www.coworker.com/'});
-        $('.form_outer').click(function(event) {
-          if(event.target.id=='fo_target'){
-            $('#nvmy_Signup').modal('hide');
-          } else{
-            event.stopPropagation();
-          }
-        });
-        $('#top').click(function(){
-          $('#n_popup').flexModal({align: "top", y_offset: 10});
-        });
-        $('#right').click(function(){
-          $('#n_popup').flexModal({align: "right", x_offset: 30});
-        });
-        $('#bottom').click(function(){
-          $('#n_popup').flexModal({align: "bottom"});
-        });
-        $('#left').click(function(){
-          $('#n_popup').flexModal({align: "left"});
-        });
-      });
-      function redirectNavFB(){
-        analytics.track('Click_Sign_Up_by_facebook', {
-          category: 'Account'
-        });
-
-        analytics.page('Click_Sign_Up_by_facebook',
-          { title: 'Click_Sign_Up_by_facebook',
-            url: 'https://www.coworker.com/Click_Sign_Up_by_facebook'}
-        );
-        window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=8be027d9faa9ec9ea6e4d88ee1b01f77&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb&scope=email%2Cuser_friends";
-
-      }
-      function redirectNavFBForLogin(){
-
-        analytics.track('Click_Login_facebook_button', {
-          category: 'Account'
-        });
-
-        analytics.page('Click_Login_facebook_button',
-          { title: 'Click_Login_facebook_button',
-            url: 'https://www.coworker.com/Click_Login_facebook_button'}
-        );
-        window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=8be027d9faa9ec9ea6e4d88ee1b01f77&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb&scope=email%2Cuser_friends";
-      }
-
-
-      function openNavLoging(){
-        msg_login=0;
-
-        analytics.track('Click_Login_button', {
-          category: 'Account'
-        });
-
-        analytics.page('popup_log_in',
-          { title: 'popup_log_in',
-            url: 'https://www.coworker.com/popup_log_in'}
-        );
-
-        $('#nvmy_Signup').normalSignupTitle();
-        $('#nvloginModal').modal('toggle');
-      }
-      function openNavSignup(){
-        msg_login=0;
-
-        analytics.track('Click_Sign_Up_button', {
-          category: 'Account'
-        });
-
-        analytics.page('popup_sign_up',
-          { title: 'popup_sign_up',
-            url: 'https://www.coworker.com/popup_sign_up'}
-        );
-
-
-        $('#nvmy_Signup').normalSignupTitle();
-        $('#nvmy_Signup').modal('toggle');
-      }
-      function openNavSignupForm(){
-        if(msg_login){
-          $('#nvmy_Signup').msgSignupTitle();
-        } else {
-          $('#nvmy_Signup').normalSignupTitle();
-        }
-
-        analytics.track('Click_Sign_Up_by_email', {
-          category: 'Account'
-        });
-
-        analytics.page('Click_Sign_Up_by_email',
-          { title: 'Click_Sign_Up_by_email',
-            url: 'https://www.coworker.com/Click_Sign_Up_by_email'}
-        );
-
-
-        $('#nvmy_Signup').modal('toggle');
-        $('#n_popup').flexModal();
-      }
-      function navSignupLogin(){
-        if(msg_login){
-          $('#nvmy_Signup').msgSignupTitle();
-        } else {
-          $('#nvmy_Signup').normalSignupTitle();
-        }
-        $('#nvmy_Signup').modal('toggle');
-        $('#nvloginModal').modal('toggle');
-      }
-      function navLoginSignup(){
-        if(msg_login){
-          $('#nvmy_Signup').msgSignupTitle();
-        } else {
-          $('#nvmy_Signup').normalSignupTitle();
-        }
-        $('#nvloginModal').modal('toggle');
-        $('#nvmy_Signup').modal('toggle');
-      }
-      function openNavSignupLogin(){
-        $('#flex-overlay').click();
-        $('#nvloginModal').modal('toggle');
-      }
-      function isEmpty(str){
-        return str.replace(/^\s+/g, '').length==0;
-      }
-
-      function validateNavSignup() {
-        var f_name = $('#nvfirst_name').val();
-        var l_name = $('#nvlast_name').val();
-        var xemail = $('#nvemail').val();
-        var pass   = $('#nvpassword').val();
-        /*var xday   = $('#nvdaySelect').val();
-        var xmonth = $('#nvmonthSelect').val();
-        var xyear  = $('#nvyearSelect').val();*/
-        var promotions = 0;
-        if(jQuery('#c1').is(":checked"))
-          promotions = 1;
-        if (isEmpty(f_name)){
-          alert('First Name is required!');
-        } else if (isEmpty(l_name)){
-          alert('Last Name is required!');
-        } else if (isEmpty(xemail)){
-          alert('Email is required!');
-        } else if (!validateEmail(xemail)){
-          alert('Invalid email!');
-        } else if (isEmpty(pass)){
-          alert('Password is required!');
-        } /*else if (xday == -1){
-      alert('Day is required!');
-  } else if (xmonth == -1){
-      alert('Month is required!');
-  } else if (xyear == -1 ){
-      alert('Year is required!');
-  }*/ else {
-          var message = {};
-          message["Data"] = "New User Signup : "+f_name+" "+l_name;
-          $.ajax({
-            'url' : 'https://www.coworker.com/validate_navsignup',
-            'type' : 'POST',
-            'dataType': 'json',
-            'data' : {'form_signup':1, 'fname' : f_name, 'lname' : l_name, 'semail' : xemail, 'spass' : pass,'day':0, 'month':0, 'year':0, 'promo':promotions, 'msg_log':msg_login},
-            'success' : function(result){
-              if(result.msg == 'SCS') {
-                socket.emit('UserTrigerClient',message);
-
-                // segment tracking
-                analytics.track('Signed_Up_by_email', {
-                  category: 'Account',
-                  label: 'Email',
-                  SignUpType: 'Email',
-                  SignUp_FirstName: f_name,
-                  SignUp_LastName: l_name,
-                  SignUp_Email: xemail
-                });
-
-                analytics.page('Signed_Up_by_email',
-                  { title: 'Signed_Up_by_email',
-                    url: 'https://www.coworker.com/Signed_Up_by_email'}
-                );
-                window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
-              } else {
-                alert(result.error);
-              }
-            }
-          });
-        }
-      }
-      var RURLF =  'https://www.coworker.com/'+window.location.pathname.slice(1);
-      var RURLS =  'https://www.coworker.com/profile/my-space';
-      function validateNavLogin() {
-        var xemail = $('#nvl_email').val();
-        var pass   = $('#nvl_password').val();
-        if (isEmpty(xemail)){
-          alert('Email is required!');
-        } else if (!validateEmail(xemail)){
-          alert('Invalid email!');
-        } else if (isEmpty(pass)){
-          alert('Password is required!');
-        } else {
-          $.ajax({
-            'url' : 'https://www.coworker.com/validate_navlogin',
-            'type' : 'POST',
-            'data' : {'form_login':1, 'semail' : xemail, 'spass' : pass,'msg_log':msg_login},
-            'success' : function(data){
-              var result = $.parseJSON(data);
-              if(result.msg == 'SCS') {
-
-                analytics.track('Log_in', {
-                  category: 'Account',
-                  label: 'Email',
-                  LogInType: 'Email'
-                });
-
-                analytics.page('Log_in',
-                  { title: 'log_in',
-                    url: 'https://www.coworker.com/log_in'}
-                );
-
-
-                if(result.lab) {
-                  jQuery.ajax({
-                    type: "POST",
-                    url: "https://www.coworker.com/lab/wp-admin/admin-ajax.php",
-                    data: {'action':'cw_login','log':xemail,'pwd':pass},
-                    success: function(msg){
-                      window.location.href = RURLF;
-                    },
-                    error: function(msg){}
-                  });
-                } else {
-                  window.location.href = RURLF;
-                }
-              } else {
-                alert(result.error);
-              }
-            }
-          });
-        }
-      }
-
-      /*-- INI :: Signup/login popup for list-space page --------------------------*/
-      function showNewLoginPopup(){
-        $('#newSignup2Wrapper').hide();
-        $('#newSignup1Wrapper').hide();
-        $('#newLoginWrapper').show();
-      }
-      function showNewCreationPopup1(){
-        $('#newLoginWrapper').hide();
-        $('#newSignup2Wrapper').hide();
-        $('#newSignup1Wrapper').show();
-      }
-      function showNewCreationPopup2(){
-        $('#newLoginWrapper').hide();
-        $('#newSignup1Wrapper').hide();
-        $('#newSignup2Wrapper').show();
-      }
-
-      function validateNewLogin(){
-        var v_email = $('#fvl_email').val();
-        var v_passw = $('#fvl_passw').val();
-        var v_cu_id = $('#loc_cu_id').val();
-        var v_token = $('#loc_n_token').val();
-        //alert('email: '+v_email+' passw: '+v_passw+' cu_id: '+v_cu_id+' token: '+v_token);
-        if ( isEmpty(v_email) ){
-          alert('Email is required!');
-        }
-        else if (!validateEmail(v_email)){
-          alert('Invalid email!');
-        }
-        else if ( isEmpty(v_passw) ){
-          alert('Password is required!');
-        }
-        else{
-          var postdata = {
-            'form_login':1,
-            'semail' : v_email,
-            'spass' : v_passw,
-            'stoken' : v_token
-          }
-          $.ajax({
-            'url' : 'https://www.coworker.com/validate_navlogin',
-            'type' : 'POST',
-            'data' : postdata,
-            'success' : function(data){
-              var result = $.parseJSON(data);
-              if(result.msg == 'SCS') {
-                //window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
-
-                $('#cu_id').val(v_cu_id);
-                $('#n_token').val(v_token);
-                $('#n_step').val('continue');
-                $('#redirform')[0].submit();
-
-
-              } else {
-                alert(result.error);
-              }
-            }
-          });
-        }
-      }
-
-      function validateNewSignup() {
-
-        var v_fname = $('#fv_fname').val();
-        var v_lname = $('#fv_lname').val();
-        var v_email = $('#fv_email').val();
-        var v_passw = $('#fv_passw').val();
-
-        var v_cu_id = $('#loc_cu_id').val();
-        var v_token = $('#loc_n_token').val();
-        //alert('first Name:'+v_fname+' Last Name: '+v_lname+' Email: '+v_email+' Password: '+v_passw);
-
-        var promotions = 0;
-        //if(jQuery('#c1').is(":checked"))
-        //  promotions = 1;
-        if (isEmpty(v_fname)){
-          alert('First Name is required!');
-        } else if (isEmpty(v_lname)){
-          alert('Last Name is required!');
-        } else if (isEmpty(v_email)){
-          alert('Email is required!');
-        } else if (!validateEmail(v_email)){
-          alert('Invalid email!');
-        } else if (isEmpty(v_passw)){
-          alert('Password is required!');
-        } else {
-          var datapost = {
-            'form_signup':1,
-            'fname' : v_fname,
-            'lname' : v_lname,
-            'semail' : v_email,
-            'spass' : v_passw,
-            'day':0,
-            'month':0,
-            'year':0,
-            'promo':promotions,
-            'stoken' : v_token
-          }
-          $.ajax({
-            'url' : 'https://www.coworker.com/validate_navsignup',
-            'type' : 'POST',
-            'dataType': 'json',
-            'data' : datapost,
-            'success' : function(result){
-              if(result.msg == 'SCS') {
-                //window.location.href = 'https://www.coworker.com/'+window.location.pathname.slice(1);
-                $('#cu_id').val(v_cu_id);
-                $('#n_token').val(v_token);
-                $('#n_step').val('continue');
-                $('#redirform')[0].submit();
-              } else {
-                alert(result.error);
-              }
-            }
-          });
-        }
-
-      }
-      /*-- END :: Signup/login popup for list-space page --------------------------*/
-      function showRecoverEmail(){
-        swal({
-            title: "Forgot password",
-            text: "Please enter your email:",
-            type: "input",
-            showCancelButton: true,
-            closeOnConfirm: true,
-            animation: "slide-from-top",
-            inputPlaceholder: "Email"
-          },
-          function(inputValue){
-            if(inputValue === false) return false;
-            else if(inputValue === "") {
-              swal.showInputError("You need to write email!");
-              return false;
-            }
-            else if(!validateEmail(inputValue)) {
-              swal.showInputError("You need to write valid email!");
-              return false;
-            } else {
-              $.ajax({
-                'url' : 'https://www.coworker.com/reset_email',
-                'type' : 'POST',
-                'dataType': 'json',
-                'data' : { mail : inputValue, form_reset : 1 },
-                'success' : function(result){
-                  if(result.msg == 'SCS') {
-                    swal("Reset your password", "We can email you a link to reset it.")
-                  } else {
-                    swal.showInputError(result.error);
-                    return false;
-                  }
-                }
-              });
-            }
-          });
-      }
-      $(document).ready(function(){
-        $('#mobBtnOpen').on('click', function(){
-          //$('#mobBtnOpen').hide(500);
-          //$('#mobileMenu').show(300);
-          $('#mobileMenu').css({
-            display:'block'
-          });
-        });
-        $('#mobBtnClose').on('click', function(){
-          //$('#mobileMenu').hide(300);
-          //$('#mobBtnOpen').show(300);
-          $('#mobileMenu').css({
-            display:'none'
-          });
-        });
-        $('#signupBtn').on('click', function(){
-          $('#mobileMenu').css({
-            display:'none'
-          });
-        });
-        $('#loginBtn').on('click', function(){
-          $('#mobileMenu').css({
-            display:'none'
-          });
-        });
-      });
-    </script>
-    <script type="text/javascript">
-      $(function() {
-        $( "#h_location" ).autocomplete({
-          source:function(request, response) {
-            $("#h_place_id").val(0);
-            $("#h_search_place").val(0);
-            $.ajax({
-              url: 'https://www.coworker.com/getAutocomplete',
-              dataType: "json",
-              type: "POST",
-              data: {
-                term : request.term
-              },
-              success: function(data) {
-                response(data);
-              }
-            });
-          },minLength:1,
-          messages: {
-            noResults: '',
-            results: function() {}
-          },appendTo: "#h_aucomplete",
-          select: function (event, ui) {
-            $("#h_place_id").val(ui.item.idx);
-            $("#h_search_place").val(ui.item.loc);
-            $("#xh_location").val(ui.item.value);
-            $('#h_location').val(ui.item.value);
-            if(ui.item.loc==3){
-              if(ui.item.coworkspace_url!='')
-                window.location = '/'+ui.item.coworkspace_url;
-            } else
-              submitSearchH();
-          },
-          open: function(){
-            $('.ui-autocomplete').css('width', $('#h_location').width());
-          }
-        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-          var loc_icon = '<i class="fa fa-buildingui"></i>';
-          var view_all = '';
-          if(item.loc==1)
-            loc_icon = '<i class="fa fa-globeui"></i>';
-          if((item.loc==2) || (item.loc==2.5))
-            loc_icon = '<i class="fa fa-map-markerui"></i>';
-          if(item.loc==5)
-            loc_icon = '<i class="fa fa-map-markerui"></i>';
-          if(item.loc==10)
-            loc_icon = '<i class="fa fa-map-markerui"></i>';
-          if(item.loc==0){
-            loc_icon = "";
-            view_all = 'class="search_view_results_div pade_none"';
-          }
-          return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-        };
-      });
-      function submitSearchH() {
-        if($("#xh_location").val()!=$("#h_location").val()) {
-          $("#h_place_id").val(0);
-          $("#h_search_place").val(0);
-        }
-        $.ajax({
-          url: 'https://www.coworker.com/search/start',
-          dataType: "json",
-          type: "POST",
-          data: {
-            h_place_id     : $("#h_place_id").val(),
-            h_search_place : $("#h_search_place").val(),
-            h_location     : $("#h_location").val(),
-            form_search    : 2
-          },
-          success: function(data) {
-            window.location = 'https://www.coworker.com/search/'+data.s_url;
-          }
-        });
-      }
-      $("#h_location").keypress(function(event) {
-        if (event.which == 13) {
-          event.preventDefault();
-          submitSearchH();
-        }
-      });
-      function overUserMenu(event) {
-        $('#lg_h').show();
-      }
-      function outUserMenu(event) {
-        var om = event.toElement || event.relatedTarget;
-        var ce = ["lg_menu", "lg_c", "lg_p", "lg_s", "lg_i","lg_h"];
-        if(om !== null){
-          if (ce.indexOf(om.id)!=-1) {
-            return;
-          } else if($(om).closest("div").id=="lg_h"){
-            return;
-          } else {
-            $('#lg_h').hide();
-          }
-        }
-      }
-      $(document).ready(function(){
-        if($('#lg_menu').length>0){
-          document.getElementById("lg_menu").addEventListener('mouseout',outUserMenu,true);
-          document.getElementById("lg_menu").addEventListener('mouseover',overUserMenu,true);
-        }
-      });
-    </script>
 
     <script language="JavaScript" type="text/javascript">
       function displayAnswer(divID)
