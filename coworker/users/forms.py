@@ -41,5 +41,10 @@ class ProfileForm(forms.ModelForm):
             'industries',
         ]
 
+    def clean(self):
+        if self.request.user.user_type:
+            self.cleaned_data["user_type"] = self.request.user.user_type
+
+
     def save(self, *args, **kwargs):
         return super(ProfileForm, self).save(*args, **kwargs)
