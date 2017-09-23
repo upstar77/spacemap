@@ -1,0 +1,13 @@
+{% load static %}
+
+
+<div class="col-xs-12 pade_none profile_con show_block">
+
+    <div class="col-sm-12 col-md-3 col-xs-12 pade_none profile_lft_con">{{ field.label }}:</div>
+    <div class="col-sm-8 col-md-6 col-xs-9 pade_none profile_rgt_con" id="{{ field.name }}-value">
+        {{ value|default_if_none:"" }}
+    </div>
+    <div class="col-sm-4 col-md-3 col-xs-3 pade_none change_btn">
+            <a href="javascript:void(0);" onclick="showEdit(event);">Edit</a>
+        </div>
+</div>

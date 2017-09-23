@@ -1,0 +1,22 @@
+{% load widget_tweaks %}
+{% include "users/show_value.html" %}
+
+<div class="edit_block" style="display:none;">
+    <div class="col-xs-12 pade_none profile_con04">
+        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">{{ field.label }}:</div>
+        <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
+            <div class="col-sm-11 col-md-11 col-xs-11 pade_none profile_rgt_con">
+                {{ field }}
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 pade_none profile_con03">
+        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con"></div>
+        <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
+            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="updateField(event);">Save</a></div>
+            <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn"><a href="javascript:void(0);" onclick="hideEdit(event);">Cancel</a></div>
+        </div>
+    </div>
+</div>
+
+

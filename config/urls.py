@@ -10,6 +10,8 @@ urlpatterns = [
     url(settings.ADMIN_URL, admin.site.urls),
 
     # User management
+    url(r'^select2/', include('django_select2.urls')),
+
     url(r'^', include('coworker.main.urls', namespace='main')),
 
     # url(r'^(?P<country>[\w-]+)/', include('coworker.place.urls', namespace='place')),

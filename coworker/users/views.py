@@ -6,6 +6,7 @@ from django.http import JsonResponse
 
 from coworker.core.mixins import AjaxableResponseMixin
 from coworker.users.forms import ProfileForm
+from .serializers import UserSerializer
 from .models import User
 
 
@@ -40,22 +41,31 @@ class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
     def get_object(self, *args, **kwargs):
         return self.request.user
 
+    def get_form_kwargs(self):
+        ctx = super(UserUpdateView, self).get_form_kwargs()
+        ctx["request"] = self.request
+        return ctx
+
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         return ctx
+
+    def form_invalid(self, form):
+        return super(UserUpdateView, self).form_invalid(form)
 
     def form_valid(self, form):
         # We make sure to call the parent's form_valid() method because
         # it might do some processing (in the case of CreateView, it will
         # call form.save() for example).
-        response = super(UserUpdateView, self).form_valid(form)
+        # response = super(UserUpdateView, self).form_valid(form)
         if self.request.is_ajax():
+            obj = form.save()
             data = {
-                'birthday': self.object.birth_day.strftime("%b %d, %Y"),
+                'obj': UserSerializer(obj).data,
             }
             return JsonResponse(data)
-        else:
-            return response
+        # else:
+        #     return response
 
 class UserListView(LoginRequiredMixin, ListView):
     model = User
@@ -66,6 +76,8 @@ class UserListView(LoginRequiredMixin, ListView):
 
 class ReviewsList(LoginRequiredMixin, TemplateView):
     template_name = ''
+
+
 
 
 class UpdateProfileImage(UserFromRequest, UpdateView):

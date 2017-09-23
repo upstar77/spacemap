@@ -75,6 +75,7 @@ class Location(models.Model):
     class Meta:
         abstract = True
 
+
 class AmenitiesManager(models.Manager):
 
     def common(self):
@@ -89,6 +90,7 @@ class Amenities(models.Model):
     is_additional = models.BooleanField(default=False)
 
     objects = AmenitiesManager()
+
     def __str__(self):
         return self.name
 
