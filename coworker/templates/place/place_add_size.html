@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
+
+{% block content %}
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+
+    <div class="cow_submission_main">
+        <div class="container">
+            <div class="row">
+                <form action="{% url "place:place_add_size" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                    <div class="col-xs-12 pade_none coworker_submission_detail">
+                        <h2>我要出租</h2>
+
+                        <div class="col-xs-12 pade_none coworker_submission_detail_inn">
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
+                                {% include "place/forms/menu.html" with active_menu='add_place_size' completed_menus='place_description, contact_details, place_amenties, add_location, add_meeting_rooms, add_opening_hours' %}
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
+                                <h3>What size are you?</h3>
+                                <p>Some people prefer small cozy spaces, and others prefer large open spaces. Help people find your space when they filter.</p>
+                                <h4>Number Of....</h4>
+                                {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <div role="alert" class="alert alert-danger">
+                                        {% for err in form.non_field_errors %}
+                                            {{ err }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="col-xs-12 pade_none co_form_con coworker_event_bottom_panel">
+                                    <div class="col-xs-12 pade_none rooms_con02">
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft size_numberoff_con">
+                                            <div class="form-group{% if form.desks.errors %} has-error{% endif %}">
+                                                <label for="{{ form.desks.auto_id }}">
+                                                    {{ form.desks.label }}
+                                                </label>
+                                                {% render_field form.desks class="meet_icon" %}
+                                                <span class="help-block">
+                                                    {% if form.desks.errors %}
+                                                        {{ form.desks.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                            <div class="form-group{% if form.total_capacity.errors %} has-error{% endif %}">
+                                                <label for="{{ form.total_capacity.auto_id }}">
+                                                    {{ form.total_capacity.label }}
+                                                </label>
+                                                {% render_field form.total_capacity class="meet_icon" %}
+                                                <span class="help-block">
+                                                    {% if form.total_capacity.errors %}
+                                                        {{ form.total_capacity.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                            <div class="form-group{% if form.size_of_your_coworking_space.errors %} has-error{% endif %}">
+                                                <label for="{{ form.size_of_your_coworking_space.auto_id }}">
+                                                    {{ form.size_of_your_coworking_space.label }}
+                                                </label>
+                                                {% render_field form.size_of_your_coworking_space class="meet_icon" %}
+                                                <span class="help-block">
+                                                    {% if form.size_of_your_coworking_space.errors %}
+                                                        {{ form.size_of_your_coworking_space.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt size_numberoff_con">
+                                            <div class="form-group{% if form.private_office.errors %} has-error{% endif %}">
+                                                <label for="{{ form.private_office.auto_id }}">
+                                                    {{ form.private_office.label }}
+                                                </label>
+                                                {% render_field form.private_office class="meet_icon" %}
+                                                <span class="help-block">
+                                                    {% if form.private_office.errors %}
+                                                        {{ form.private_office.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 co_buttns_out">
+                                <div class="right_aln">
+                                    <ul>
+                                        <li><button type="submit">Next</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

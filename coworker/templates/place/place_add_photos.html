@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
+
+{% block content %}
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+
+    <div class="cow_submission_main">
+        <div class="container">
+            <div class="row">
+                <form action="{% url "place:place_add_photos" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                    <div class="col-xs-12 pade_none coworker_submission_detail">
+                        <h2>我要出租</h2>
+
+                        <div class="col-xs-12 pade_none coworker_submission_detail_inn">
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
+                                {% include "place/forms/menu.html" with active_menu='add_photos' completed_menus='place_description, contact_details, place_amenties, add_location, add_meeting_rooms, add_opening_hours, add_place_size' %}
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
+                                <h3>开放时间</h3>
+                                <p>让租客知道您在哪些时间开放</p>
+                                <h4 class="hours_subtitle">开放时间（接待处）</h4>
+                                {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <div role="alert" class="alert alert-danger">
+                                        {% for err in form.non_field_errors %}
+                                            {{ err }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <h3>照片上传</h3>
+                                <p>我们建议您提供专业摄影师拍摄的照片。</p>
+                                <!--<div class="col-xs-12 pade_none dragdrop_con"></div>-->
+                                <div class="col-xs-12 pade_none header_photo_main">
+                                    <div class="col-xs-12 pade_none header_photo_size photos_red_content">
+                                        <p>封面<br><span>尺寸：1920px（宽）</span></p>
+
+
+                                    </div>
+                                    <div class="col-xs-12 pade_none cowork_clipboard_panel">
+  <span>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/add_tool.png' %}" alt="pic"></a>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/subtract_tool.png' %}" alt="pic"></a>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/crop_tool.png' %}" alt="pic"></a>
+  <a href="https://www.coworker.com/list-space/continue#"><img src="{% static 'img/close_tool.png' %}" alt="pic"></a>
+  </span>
+                                    </div>
+                                    <div class="col-xs-12 pade_none">
+                                        <div id="cropContainerEyecandy"></div>
+                                        <div id="cropContainerHeaderDiv">
+                                            <span id="cropContainerHeaderButton" class="btn">点击上传</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 pade_none header_photo_size header_upload_picc">
+                                        <p>上传后，点击<img src="{% static 'img/crop_img.png' %}" style="height: 25px;"> 里的按钮，您可以随意放大、缩小、裁剪照片，达到理想的显示效果</p>
+                                    </div>
+
+                                    <div class="col-xs-12 pade_none room_lft form-group has-error">
+                                        <small id="img_error" class="help-block" style="display:none;">必须: 请上传封面</small>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 pade_none header_photo_main">
+                                    <div class=" col-xs-12 pade_none header_photo_size photos_red_content"><p>附加图片<br><span>最少需添加5张，最多可添加20张；图片所占内存不得超过3MB</span></p></div>
+                                    <div class="col-xs-12 pade_none header_photo_size">
+                                        <div id="spaceAdditional" class="dz-clickable dropzone">
+                                            <div class="dz-message needsclick">拖拽至此或点击上传</div>
+                                        </div>
+                                        <small id="thumbs_error" class="help-block" style="display:none;">必须: 请上传两张附加图片</small>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 co_buttns_out">
+                                <div class="right_aln">
+                                    <ul>
+                                        <li><button type="submit">Next</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

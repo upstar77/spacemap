@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
+
+{% block content %}
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+
+    <div class="cow_submission_main">
+        <div class="container">
+            <div class="row">
+                <form action="{% url "place:place_add_location" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                    <div class="col-xs-12 pade_none coworker_submission_detail">
+                        <h2>我要出租</h2>
+
+                        <div class="col-xs-12 pade_none coworker_submission_detail_inn">
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
+                                {% include "place/forms/menu.html" with active_menu='add_location' completed_menus='place_description, contact_details, place_amenties' %}
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
+                                <h3>帮助租客找到您的场地</h3>
+                                {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <div role="alert" class="alert alert-danger">
+                                        {% for err in form.non_field_errors %}
+                                            {{ err }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <div class="col-xs-12 pade_none co_form_con">
+                                    <div class="col-xs-12 pade_none">
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none cowok_leftcon">
+                                            <h4>在地图上选择您的位置</h4>
+                                            <div class="col-xs-12 pade_none type_text_cowork">Type in "coworker, kiev, Ukraine" into the field below and select your coworking space from the dropdown menu. If your coworking space doesn't appear, type your street address in instead.</div>
+
+                                            <div class="col-xs-12 pade_none coworker_loaction_grey_panel">
+                                                <input id="autocomplete" name="autocomplete" type="text" placeholder="在这里输入您的创客云图场地名、所属城市和所在街道" onkeypress="return searchByStationName(event)">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none2 pade_none">
+                                            <div class="col-sm-12 col-md-12 col-xs-12 pade_none spacemap_text_bott">
+
+                                                <div id="space_map" style="height:300px;"></div>
+
+                                                <p>检查定位是否正确。如果有误，请更换到正确的位置</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 pade_none">&nbsp;</div>
+                                    <h4>下一步</h4>
+                                    <p>在下列空格里补全信息</p>
+                                    <div class="col-xs-12 pade_none coworker_event_bottom_panel">
+                                        <div class="col-xs-12 pade_none">
+                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_leftcon">
+                                                <div class="form-group{% if form.address.errors %} has-error{% endif %}">
+                                                    <label for="{{ form.address.auto_id }}">
+                                                        {{ form.address.label }}
+                                                    </label>
+                                                    {% render_field form.address class="form-control" %}
+                                                    <span class="help-block">
+                                                        {% if form.address.errors %}
+                                                            {{ form.address.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_rgtcon">
+                                                <div class="form-group{% if form.address_sec.errors %} has-error{% endif %}">
+                                                    <label for="{{ form.address_sec.auto_id }}">
+                                                        {{ form.address_sec.label }}
+                                                    </label>
+                                                    {% render_field form.address_sec class="form-control" %}
+                                                    <span class="help-block">
+                                                        {% if form.address_sec.errors %}
+                                                            {{ form.address_sec.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 pade_none">
+                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none cowok_leftcon">
+                                                <div class="form-group{% if form.postal_code.errors %} has-error{% endif %}">
+                                                    <label for="{{ form.postal_code.auto_id }}">
+                                                        {{ form.postal_code.label }}
+                                                    </label>
+                                                    {% render_field form.postal_code class="form-control" %}
+                                                    <span class="help-block">
+                                                        {% if form.postal_code.errors %}
+                                                            {{ form.postal_code.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 co_buttns_out">
+                                <div class="right_aln">
+                                    <ul>
+                                        <li><a href="{% url "place:place_add_amenities" %}" class="previous_btn" style="display: inline;">Previous</a></li>
+                                        <li><button type="submit">Next</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

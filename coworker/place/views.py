@@ -1,20 +1,26 @@
 import logging
+import pickle
+
 from django.shortcuts import render, redirect
 from django.core import serializers
 from django.urls import reverse_lazy
 from django.http import JsonResponse
+from django.forms.models import inlineformset_factory, modelformset_factory, formset_factory
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 
 from coworker.core.form_mixins import PassUser
-from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, PlaceContactDetailsForm
+from .models import Place, MeetingRoom
+from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
+    PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
+    PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm
 
 log = logging.getLogger('debug')
 
 
-class Place(TemplateView):
+class PlaceView(TemplateView):
     template_name = 'place/place.html'
 
     def get_context_data(self, **kwargs):
@@ -32,69 +38,220 @@ class Place(TemplateView):
         return ctx
 
 
-class PlaceAdd(CreateView):
+class PlaceAddBaseView:
+    current_created_place = None
+
+    def get_current_created_place(self):
+        current_created_place_pickle = self.request.session.get('current_created_place')
+        if current_created_place_pickle:
+            try:
+                return pickle.loads(current_created_place_pickle)
+            except pickle.PickleError:
+                pass
+        return None
+
+
+class PlaceAddView(CreateView):
     template_name = 'place/list_space.html'
     form_class = PlaceFirstForm
+    request = None
 
     def get_success_url(self):
         return reverse_lazy('place:place_add_description')
 
     def get_form_kwargs(self):
-        kwargs = super(PlaceAdd, self).get_form_kwargs()
+        kwargs = super(PlaceAddView, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
 
-    # def form_invalid(self, form):
-    #     print(form.errors)
-    #     #TODO should be return super().form_invalid(form), that is just for test
-    #     # return redirect('place:list-space-continue')
-    #     return JsonResponse({"status": "ok"})
-    #
-    def form_valid(self, form):
-        return super(PlaceAdd, self).form_valid(form)
-        #return JsonResponse({"status": "ok"})
 
-
-class PlaceAddDescription(CreateView):
+class PlaceAddDescriptionView(PlaceAddBaseView, CreateView):
     template_name = 'place/place_description.html'
     form_class = PlaceDescriptionForm
-    success_url = reverse_lazy('place:place_contact_details')
+    success_url = reverse_lazy('place:place_add_contact_details')
+    request = None
 
     def get_form_kwargs(self):
-        kwargs = super(PlaceAddDescription, self).get_form_kwargs()
+        kwargs = super(PlaceAddDescriptionView, self).get_form_kwargs()
         kwargs['request'] = self.request
-        print(self.request.session['current_created_place'])
-        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
-            kwargs['instance'] = deserialized_object.object
+
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
         return kwargs
 
 
-class PlaceContactDetails(CreateView):
+class PlaceAddContactDetailsView(PlaceAddBaseView, CreateView):
     template_name = 'place/place_contact_details.html'
     form_class = PlaceContactDetailsForm
-    success_url = reverse_lazy('place:place_amenities')
+    success_url = reverse_lazy('place:place_add_amenities')
+    request = None
 
     def get_form_kwargs(self):
-        kwargs = super(PlaceContactDetails, self).get_form_kwargs()
+        kwargs = super(PlaceAddContactDetailsView, self).get_form_kwargs()
         kwargs['request'] = self.request
+        self.current_created_place = self.get_current_created_place()
 
-        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
-            kwargs['instance'] = deserialized_object.object
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
         return kwargs
 
 
-class PlaceAmenities(CreateView):
+class PlaceAddAmenitiesView(CreateView):
     template_name = 'place/place_amenities.html'
-    form_class = PlaceContactDetailsForm
-    success_url = reverse_lazy('place:place_amenities')
+    form_class = PlaceAmenitiesForm
+    success_url = reverse_lazy('place:place_add_location')
+    request = None
 
     def get_form_kwargs(self):
-        kwargs = super(PlaceAmenities, self).get_form_kwargs()
+        kwargs = super(PlaceAddAmenitiesView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        current_created_place_pickle = self.request.session.get('current_created_place')
+        if current_created_place_pickle:
+            try:
+                current_created_place = pickle.loads(current_created_place_pickle)
+                kwargs['instance'] = current_created_place.place
+            except pickle.PickleError:
+                pass
+        return kwargs
+
+
+class PlaceAddLocationView(CreateView):
+    template_name = 'place/place_add_location.html'
+    form_class = PlaceAddLocationForm
+    success_url = reverse_lazy('place:place_add_meeting_rooms')
+    request = None
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddLocationView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        current_created_place_pickle = self.request.session.get('current_created_place')
+        if current_created_place_pickle:
+            try:
+                current_created_place = pickle.loads(current_created_place_pickle)
+                kwargs['instance'] = current_created_place.place
+            except pickle.PickleError:
+                pass
+        return kwargs
+
+
+class PlaceAddMeetingRoomsView(PlaceAddBaseView, FormView):
+    template_name = 'place/place_add_meeting_rooms.html'
+    form_class = PlaceAddMeetingRoomsForm
+    formset_class = inlineformset_factory(
+        Place,
+        MeetingRoom,
+        extra=1,
+        can_delete=False,
+        form=PlaceAddMeetingRoomInlineForm)
+    success_url = reverse_lazy('place:place_add_opening_hours')
+    request = None
+
+    def get_formset(self, **kwargs):
+        return self.formset_class(self.request.POST or None, self.request.FILES or None, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddMeetingRoomsView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
+            kwargs['initial'] = {
+                'meeting_room_number': len(self.current_created_place.meeting_rooms)
+            }
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        ctx = super(PlaceAddMeetingRoomsView, self).get_context_data(**kwargs)
+        self.current_created_place = self.get_current_created_place()
+
+        if not self.current_created_place:
+            return ctx
+        formset_initial_data = []
+        for meeting_room in self.current_created_place.meeting_rooms:
+            formset_initial_data.append({
+                'room_info': meeting_room.room_info,
+                'mr_capacity': meeting_room.mr_capacity
+            })
+
+        self.formset_class.extra = len(formset_initial_data)+1
+        ctx['formset'] = self.get_formset(initial=formset_initial_data)
+
+        return ctx
+
+    def form_valid(self, form):
+        formset = self.get_formset()
+
+        if form.is_valid() and formset.is_valid():
+            obj = form.save(commit=False)
+            formset = self.get_formset(instance=obj)
+            meeting_room_objs = formset.save(commit=False)
+            current_created_place_pickle = self.request.session.get('current_created_place')
+            if current_created_place_pickle:
+                try:
+                    current_created_place = pickle.loads(current_created_place_pickle)
+                    current_created_place.meeting_rooms = meeting_room_objs
+                    self.request.session['current_created_place'] = pickle.dumps(current_created_place)
+                    self.request.session.save()
+                except pickle.PickleError:
+                    pass
+        else:
+            return super(PlaceAddMeetingRoomsView, self).form_invalid(form)
+        return super(PlaceAddMeetingRoomsView, self).form_valid(form)
+
+
+class PlaceAddOpeningHoursView(PlaceAddBaseView, CreateView):
+    template_name = 'place/place_add_opening_hours.html'
+    form_class = PlaceDescriptionForm
+    success_url = reverse_lazy('place:place_add_size')
+    request = None
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddOpeningHoursView, self).get_form_kwargs()
         kwargs['request'] = self.request
 
-        for deserialized_object in serializers.deserialize("json", self.request.session['current_created_place']):
-            kwargs['instance'] = deserialized_object.object
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
         return kwargs
+
+
+class PlaceAddSizeView(PlaceAddBaseView, CreateView):
+    template_name = 'place/place_add_size.html'
+    form_class = PlaceAddSizeForm
+    success_url = reverse_lazy('place:place_add_photos')
+    request = None
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddSizeView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
+        return kwargs
+
+
+class PlaceAddPhotosView(PlaceAddBaseView, CreateView):
+    template_name = 'place/place_add_photos.html'
+    form_class = PlaceAddSizeForm
+    success_url = reverse_lazy('place:place_add_photos')
+    request = None
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddPhotosView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
+        return kwargs
+
 
 
 @method_decorator(csrf_exempt, name='dispatch')
