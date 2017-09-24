@@ -680,3 +680,9 @@
 #id_tags, #id_industries {
   width: 200px;
 }
+
+.user-type-container {
+  display: inline-flex;
+  margin-top: 5px;
+  margin-top: 21px;
+}

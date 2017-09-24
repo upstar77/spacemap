@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
 from .widgets import IndastrySelect2, TagSelec2
+from .models import User
+
 
 
 class ProfileForm(forms.ModelForm):
@@ -44,7 +46,8 @@ class ProfileForm(forms.ModelForm):
     def clean(self):
         if self.request.user.user_type:
             self.cleaned_data["user_type"] = self.request.user.user_type
-
+        else:
+            self.cleaned_data["user_type"] = User.SPACE_OWNER
 
     def save(self, *args, **kwargs):
         return super(ProfileForm, self).save(*args, **kwargs)
