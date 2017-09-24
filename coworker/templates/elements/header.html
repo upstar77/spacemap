@@ -10,7 +10,7 @@
                         <div class="col-md-3 col-sm-3 col-xs-6 pade_none logo_con mobLogoWrapper"> <a href="{% url 'main:index' %}"><img alt="logo" src="{% static "img/SpaceMap_logoCN.png" %}"></a> </div>
                         <div class="col-md-4 col-sm-4 col-xs-12 pade_none search mobSearchWrapper">
                             <div id="h_aucomplete" class="inner_srch_blk">
-                                <form action="{% url "main:search" %}" method="post" accept-charset="utf-8" id="form_search_h" name="form_search_h">
+                                <form action="{% url "place:search" %}" method="post" accept-charset="utf-8" id="form_search_h" name="form_search_h">
                                     <span><img alt="img" src="{% static 'img/srch_ic.png' %}"></span>
                                     <input id="h_location" name="h_location" type="text" placeholder="搜索：场地名称、城市、国家......" class="space_header_input ui-autocomplete-input" autocomplete="off">
                                     <input type="hidden" name="form_search" value="2">

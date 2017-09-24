@@ -31,12 +31,28 @@ class PlaceCountryList(View):
 
     def get(self, request, *args, **kwargs):
         country = self.kwargs["country"]
-        country_origin = country.replace("-", " ")
-        place = get_object_or_404(Place, city_origin__country__name__icontains=country_origin)
+        place = get_object_or_404(Place, city_origin__country__slug__icontains=country)
         return render(request, self.template_name, {
             'place': place,
             'popular_cities': self.get_popular_cities(place)
         })
+
+
+class SearchList(View):
+    template_name = 'pages/search_list.html'
+
+    def get(self, request, *args, **kwargs):
+        country = self.kwargs.get("country")
+        ctx = {}
+        if country:
+            places = Place.objects.by_country(country)
+        else:
+            places = Place.objects.all()
+
+        ctx = {
+            'places': places,
+        }
+        return render(request, self.template_name, ctx)
 
 
 class PlaceView(TemplateView):

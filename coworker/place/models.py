@@ -147,6 +147,12 @@ class Member_Payment(models.Model):
         abstract = True
 
 
+class PlaceManager(models.Manager):
+
+    def by_country(self, country_slug):
+        return self.filter(city_origin__country__slug__icontains=country_slug)
+
+
 class Place(Member_Payment, ContactInfo, Location):
     space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
     city = models.ForeignKey(City, null=True)
@@ -185,7 +191,7 @@ class Place(Member_Payment, ContactInfo, Location):
     #dummpy city location!!!
     city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
 
-
+    objects = PlaceManager()
     class Meta:
         verbose_name = _('Place')
         verbose_name_plural = _('Places')

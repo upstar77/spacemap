@@ -312,7 +312,7 @@
       $("#search_place").val(0);
     }
     $.ajax({
-      url: '{% url "main:search" %}/start',
+      url: '{% url "place:search" %}/start',
       dataType: "json",
       type: "POST",
       data: {
@@ -833,7 +833,7 @@
       $("#h_search_place").val(0);
     }
     $.ajax({
-      url: '{% url "main:search" %}/start',
+      url: '{% url "place:search" %}/start',
       dataType: "json",
       type: "POST",
       data: {
@@ -843,7 +843,7 @@
         form_search    : 2
       },
       success: function(data) {
-        window.location = '{% url "main:search" %}/'+data.s_url;
+        window.location = '{% url "place:search" %}/'+data.s_url;
       }
     });
   }

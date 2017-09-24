@@ -7,7 +7,7 @@
 {#{% endblock %}#}
 
 {% block content %}
-     <!--HEADER END-->
+    <!--HEADER END-->
     <div class="content searh_pg">
         <div class="left_sec">
             <div class="loxcation_map_main_outer">
@@ -31,7 +31,7 @@
                                                 <div class="openplan">
                                                     <h2></h2>
                                                     <div class="openplan-title">
-                                                        <h2开放式办公:</h2>
+                                                        <h2></h2>开放式办公:</h2>
                                                         <div class="openplan-desc">
                                                             <h2>您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公桌、专用办公桌或者共享办公桌.</h2>
                                                             <div class="privateoffice">
@@ -333,17 +333,17 @@
             </div>
             <div class="spc_found" id="sw_results">
                 <ul id="result_list">
-                    {% for item in "xxxxxxx" %}
+                    {% for place in places %}
                         <li class="search_border_outer" onmouseover="changeMarker(&#39;mk_5&#39;);">
                             <div class="search_border_main">
-                                <a class="csSearchLink" href="https://www.coworker.com/s-f/5/hong-kong_hong-kong_the-hive-kennedy-town" id="5">webpage URL</a>
+                                <a class="csSearchLink" href="{{ place.get_absolute_url }}" id="5">webpage URL</a>
                                 <div class="search_popular_now_button">
                                     Popular Now
                                 </div>
-                                <div class="spc_img_sec"><img alt="The Hive (Kennedy Town), Hong Kong" src={% static "img/main-1484672309.jpeg" %} title="The Hive (Kennedy Town) in Hong Kong, Hong Kong"></div>
+                                <div class="spc_img_sec"><img alt="{{ place.name }}" src={% static "img/main-1484672309.jpeg" %} title="{{ place.name }}"></div>
                                 <div class="spc_txt_sec">
                                     <div class="col-xs-12 pade_none search_title_text">
-                                        <a href="https://www.coworker.com/hong-kong/hong-kong/the-hive-kennedy-town">The Hive (Kennedy Town)</a>
+                                        <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
                                     </div>
                                     <div class="col-xs-12 pade_none search_free_pass_container">
                                         <div class="search_review_outer text_middle_con">
@@ -356,226 +356,63 @@
                                 </div><span>HKD 200/Day</span>
                                 <div style="clear:both;"></div>
                             </div>
-                            <div class="search_freepass_con">
-                                <a href="javascript:void(0);">Book <strong>Tour</strong></a>
-                            </div>
+{#                            <div class="search_freepass_con">#}
+{#                                <a href="javascript:void(0);">Book <strong>Tour</strong></a>#}
+{#                            </div>#}
                         </li>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-xs-12 show_pagin_out">
-                <div class="col-sm-6 col-md-6 col-xs-12 pade_non show_result_con" id="sh_result" style="display:none;">
-                    Showing Results 1-4 of 89
-                </div>
-                <div class="col-xs-12 pade_none pagin_con coworker_pagination_main">
-                    <ul id="sw_pagination">
-                        <li>
-                            <a class="page" href="javascript:void(0);" onclick="loadSpacePage(0,1,2);">1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="loadSpacePage(1,1,2);">2</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="loadSpacePage(2,1,2);">3</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="loadSpacePage(3,1,2);">4</a>
-                        </li>
-                        <li class="pagination_dots">...</li>
-                        <li>
-                            <a href="javascript:void(0);" onclick="loadSpacePage(5,1,2);">6</a>
-                        </li>
-                        <li class="next_pagination_tab">
-                            <a href="javascript:void(0);" onclick="nextSpacePage(1,2);">下一页</a>
-                        </li>
-                    </ul>
-                    <div class="col-xs-12 pade_none pagination_text_con" id="sw_pagination_total">
-                        1 of 89 创客云图
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="sign_search">
-                    <h3 id="h_st">对了</h3><br>
-                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="dv_st">
-                       我们仍在收集全国各地的创客云图场地信息。请在下面输入您的邮箱!<br>
-                        我们如果添加新的场地，会第一时间给您发送邮件。
-                    </div>
-                    <div class="col-sm-10 col-md-10 col-xs-12 pade_none">
-                        <br>
-                        <input autocomplete="off" class="location_field ui-autocomplete-input" id="sign_search_mail" name="sign_search_mail" type="text" value="">
-                    </div>
-                    <div class="col-sm-10 col-md-10 col-xs-12 location_btn" style="padding-left: 0px; margin-left: 0px; margin-bottom: 100px;">
-                        <br>
-                        <a href="javascript:void(0);" onclick="registerEmail();" style="font-family:Roboto,sans-serif;font-weight: 300;font-size:15px;">确定接受信息</a>
-                    </div><input id="vloop" name="vloop" type="hidden" value="1">
-                </div>
-            </div>
+{#            <div class="col-xs-12 show_pagin_out">#}
+{#                <div class="col-sm-6 col-md-6 col-xs-12 pade_non show_result_con" id="sh_result" style="display:none;">#}
+{#                    Showing Results 1-4 of 89#}
+{#                </div>#}
+{#                <div class="col-xs-12 pade_none pagin_con coworker_pagination_main">#}
+{#                    <ul id="sw_pagination">#}
+{#                        <li>#}
+{#                            <a class="page" href="javascript:void(0);" onclick="loadSpacePage(0,1,2);">1</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="javascript:void(0);" onclick="loadSpacePage(1,1,2);">2</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="javascript:void(0);" onclick="loadSpacePage(2,1,2);">3</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="javascript:void(0);" onclick="loadSpacePage(3,1,2);">4</a>#}
+{#                        </li>#}
+{#                        <li class="pagination_dots">...</li>#}
+{#                        <li>#}
+{#                            <a href="javascript:void(0);" onclick="loadSpacePage(5,1,2);">6</a>#}
+{#                        </li>#}
+{#                        <li class="next_pagination_tab">#}
+{#                            <a href="javascript:void(0);" onclick="nextSpacePage(1,2);">下一页</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                    <div class="col-xs-12 pade_none pagination_text_con" id="sw_pagination_total">#}
+{#                        1 of 89 创客云图#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="sign_search">#}
+{#                    <h3 id="h_st">对了</h3><br>#}
+{#                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="dv_st">#}
+{#                        我们仍在收集全国各地的创客云图场地信息。请在下面输入您的邮箱!<br>#}
+{#                        我们如果添加新的场地，会第一时间给您发送邮件。#}
+{#                    </div>#}
+{#                    <div class="col-sm-10 col-md-10 col-xs-12 pade_none">#}
+{#                        <br>#}
+{#                        <input autocomplete="off" class="location_field ui-autocomplete-input" id="sign_search_mail" name="sign_search_mail" type="text" value="">#}
+{#                    </div>#}
+{#                    <div class="col-sm-10 col-md-10 col-xs-12 location_btn" style="padding-left: 0px; margin-left: 0px; margin-bottom: 100px;">#}
+{#                        <br>#}
+{#                        <a href="javascript:void(0);" onclick="registerEmail();" style="font-family:Roboto,sans-serif;font-weight: 300;font-size:15px;">确定接受信息</a>#}
+{#                    </div><input id="vloop" name="vloop" type="hidden" value="1">#}
+{#                </div>#}
+{#            </div>#}
         </div><!--====================================================================-->
         <div class="rght_sec">
             <div id="map_canvas" style="height: 777px; position: relative; overflow: hidden;">
-                <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
-                    <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
-                        <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default;" tabindex="0">
-                            <div style="z-index: 1; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
-                                    <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-                                        <div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;">
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 233px; top: 257px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 489px; top: 257px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 233px; top: 1px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: -23px; top: 257px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 233px; top: 513px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 489px; top: 513px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: -23px; top: 513px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 489px; top: 1px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: -23px; top: 1px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 233px; top: 769px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 233px; top: -255px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: -23px; top: 769px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: -23px; top: -255px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 489px; top: -255px;"></div>
-                                            <div style="width: 256px; height: 256px; position: absolute; left: 489px; top: 769px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;">
-                                    <div style="position: absolute; left: 0px; top: 0px; z-index: -1;">
-                                        <div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;">
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 233px; top: 257px;">
-                                                <canvas draggable="false" height="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" width="256"></canvas>
-                                            </div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 489px; top: 257px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 233px; top: 1px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -23px; top: 257px;">
-                                                <canvas draggable="false" height="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" width="256"></canvas>
-                                            </div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 233px; top: 513px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 489px; top: 513px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -23px; top: 513px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 489px; top: 1px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -23px; top: 1px;">
-                                                <canvas draggable="false" height="256" style="user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" width="256"></canvas>
-                                            </div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 233px; top: 769px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 233px; top: -255px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -23px; top: 769px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -23px; top: -255px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 489px; top: -255px;"></div>
-                                            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 489px; top: 769px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-                                    <div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;">
-                                        <div style="position: absolute; left: 233px; top: 257px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt((1))" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 489px; top: 257px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(2)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 233px; top: 1px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(3)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 489px; top: 513px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(4)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: -23px; top: 257px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(5)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 233px; top: 513px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(6)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: -23px; top: 513px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(7)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 233px; top: -255px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(8)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 489px; top: 1px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(9)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: -23px; top: 1px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(10)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 489px; top: -255px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(11)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: -23px; top: -255px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(12)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 489px; top: 769px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(13)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: 233px; top: 769px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(14)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                        <div style="position: absolute; left: -23px; top: 769px; transition: opacity 200ms ease-out;"><img alt="" draggable="false" src={% static "img/vt(15)" %} style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0; transition-duration: 0.8s;">
-                                <p class="gm-style-pbt">Чтобы изменить масштаб, нажмите ⌘&nbsp;+ прокрутка</p>
-                            </div>
-                            <div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;">
-                                <div style="z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></div>
-                            </div>
-                            <div style="z-index: 4; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div>
-                                <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;">
-                            <a href="https://maps.google.com/maps?ll=22.308289,114.177016&amp;z=12&amp;t=m&amp;hl=ru-RU&amp;gl=US&amp;mapclient=apiv3" style="position: static; overflow: visible; float: none; display: inline;" target="_blank" title="Нажмите, чтобы отобразить эту область в Картах Google">
-                                <div style="width: 66px; height: 26px; cursor: pointer;"><img draggable="false" src={% static "img/google4.png" %} style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a>
-                        </div>
-                        <div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 104px; top: 299px;">
-                            <div style="padding: 0px 0px 10px; font-size: 16px;">
-                                Картографические данные
-                            </div>
-                            <div style="font-size: 13px;">
-                                Картографические данные © 2017 Google
-                            </div>
-                            <div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img draggable="false" src={% static "img/mapcnt6.png" %} style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                        </div>
-                        <div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 280px; bottom: 0px; width: 209px;">
-                            <div class="gm-style-cc" draggable="false" style="user-select: none; height: 14px; line-height: 14px;">
-                                <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
-                                    <div style="width: 1px;"></div>
-                                    <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
-                                </div>
-                                <div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;">
-                                    <a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Картографические данные</a><span style="">Картографические данные © 2017 Google</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;">
-                            <div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">
-                                Картографические данные © 2017 Google
-                            </div>
-                        </div>
-                        <div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 154px; bottom: 0px;">
-                            <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
-                                <div style="width: 1px;"></div>
-                                <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
-                            </div>
-                            <div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;">
-                                <a href="https://www.google.com/intl/ru-RU_US/help/terms_maps.html" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);" target="_blank">Условия использования</a>
-                            </div>
-                        </div>
-                        <div style="cursor: pointer; width: 25px; height: 25px; overflow: hidden; margin: 10px 14px; position: absolute; top: 0px; right: 0px;"><img class="gm-fullscreen-control" draggable="false" src={% static "img/sv9.png" %} style="position: absolute; left: -52px; top: -86px; width: 164px; height: 175px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div>
-                        <div class="gm-style-cc" draggable="false" style="user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;">
-                            <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
-                                <div style="width: 1px;"></div>
-                                <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
-                            </div>
-                            <div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;">
-                                <a href="https://www.google.com/maps/@22.308289,114.1770158,12z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;" target="_new" title="Сообщить об ошибке на карте или снимке">Сообщить об ошибке на карте</a>
-                            </div>
-                        </div>
-                        <div class="gmnoprint gm-bundled-control" draggable="false" style="margin: 10px; user-select: none; position: absolute; top: 0px; left: 0px;">
-                            <div class="gmnoprint" style="position: absolute; left: 0px; top: 0px;">
-                                <div draggable="false" style="user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;">
-                                    <div aria-label="Увеличить" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;" tabindex="0" title="Увеличить">
-                                        <div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img draggable="false" src={% static "img/tmapctrl.png" %} style="position: absolute; left: 0px; top: 0px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div>
-                                    </div>
-                                    <div style="position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;"></div>
-                                    <div aria-label="Уменьшить" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;" tabindex="0" title="Уменьшить">
-                                        <div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img draggable="false" src={% static "img/tmapctrl.png" %} style="position: absolute; left: 0px; top: -15px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" style="margin: 10px; user-select: none; position: absolute; bottom: 42px; right: 28px;">
-                            <div class="gm-svpc" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 28px; height: 28px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default; position: absolute; left: 0px; top: 0px;">
-                                <div style="position: absolute; left: 1px; top: 1px;"></div>
-                                <div style="position: absolute; left: 1px; top: 1px;">
-                                    <div aria-label="Перейти в режим просмотра улиц" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img draggable="false" src={% static "img/cb_scout5.png" %} style="position: absolute; left: -147px; top: -26px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                    <div aria-label="Человечек находится над картой" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src={% static "img/cb_scout5.png" %} style="position: absolute; left: -147px; top: -52px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                    <div aria-label="Перейти в режим просмотра улиц" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src={% static "img/cb_scout5.png" %} style="position: absolute; left: -147px; top: -78px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                </div>
-                            </div>
-                            <div class="gmnoprint" style="display: none; position: absolute;">
-                                <div style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; cursor: pointer; background-color: rgb(255, 255, 255); display: none;" title="Повернуть карту на 90&nbsp;градусов"><img draggable="false" src={% static "img/tmapctrl4.png" %} style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                                <div class="gm-tilt" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);"><img draggable="false" src={% static "img/tmapctrl4.png" %} style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div id="over_map">
                 <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>移动地图时自动搜索</label>
@@ -611,740 +448,874 @@
         </div>
     {% endblock %}
 
-    <form action="{% url "main:search" %}" method="post" accept-charset="utf-8" id="form_search" name="search_form"><input id="f_location" name="f_location" type="hidden" placeholder="Where are you going?" class="location_field" value="Hong kong, Hong kong">
-<input type="hidden" name="form_search" value="1">
-<input type="hidden" id="x_location" name="x_location">
-<input type="hidden" id="x_1" name="x_1">
-<input type="hidden" id="y_1" name="y_1">
-<input type="hidden" id="x_2" name="x_2">
-<input type="hidden" id="y_2" name="y_2">
-</form><form action="{% url "main:search" %}" method="post" accept-charset="utf-8" id="form_ws" name="form_ws">  <input type="hidden" name="ws_id" id="ws_id">
+    <form action="{% url "place:search" %}" method="post" accept-charset="utf-8" id="form_search" name="search_form"><input id="f_location" name="f_location" type="hidden" placeholder="Where are you going?" class="location_field" value="Hong kong, Hong kong">
+        <input type="hidden" name="form_search" value="1">
+        <input type="hidden" id="x_location" name="x_location">
+        <input type="hidden" id="x_1" name="x_1">
+        <input type="hidden" id="y_1" name="y_1">
+        <input type="hidden" id="x_2" name="x_2">
+        <input type="hidden" id="y_2" name="y_2">
+    </form><form action="{% url "place:search" %}" method="post" accept-charset="utf-8" id="form_ws" name="form_ws">  <input type="hidden" name="ws_id" id="ws_id">
 </form><script src={% static "js/bootstrap.js" %} type="text/javascript"></script>
-<script src={% static "js/jquery-ui.min.js" %}></script>
-<script src={% static "js/sweetalert.min.js" %}></script>
-<script src={% static "js/coworkerPopups.js" %}></script>
-<script type="text/javascript">
-var c_idx= 0;
-var c_search = 'Hong kong, Hong kong';
-var c_p_id = '1';
-var c_lvl = '2';
-$(".view_show").click(function(){
-  $(".filters_hide_panel").show();
-  $('.view_show').hide();
-  $('#def_filters').hide();
-  $('.view_hide').show();
-});
-$(".view_hide").click(function(){
-  $(".filters_hide_panel").hide();
-  $('.view_show').show();
-  $('#def_filters').show();
-  $('.view_hide').hide();
-});
-function changeCapacity(p_id,level) {
-  loadSpacePage(0,p_id,level);
-}
-function filterToSearch(t,p_id,level){
-  var la_id = $(t).parent().parent().get(0).id;
-  var a_id  = $(t).parent().get(0).id;
-  var df_ids= ["8","16","26","37"];
-  var df_ls = ["l_seating","l_coolstuff","l_facilities","l_accessibility"];
-  if($('#list_filters').find('#'+a_id).length==0){
-    $('#list_filters').append('<li id="'+a_id+'"></li>');
-    if(df_ids.indexOf(a_id)!=-1){
-      if(la_id=='def_filters'){
-        $('#'+df_ls[df_ids.indexOf(a_id)]).find('#'+a_id).toggleClass('active');
-      } else {
-        $('#def_filters').find('#'+a_id).toggleClass('active');
+    <script src={% static "js/jquery-ui.min.js" %}></script>
+    <script src={% static "js/sweetalert.min.js" %}></script>
+    <script src={% static "js/coworkerPopups.js" %}></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=ctDShmu7hqaGe7GPUEwgpfZDBMiilQxQ&v=1.2&amp;services=true"></script>
+
+    <script type="text/javascript">
+      // <![CDATA[
+      //Create and initialize the map£º
+      function initMap() {
+        createMap();
+        setMapEvent();
+        addMapControl();
+        addMarker();
       }
-    }
-    $(t).parent('li').toggleClass('active');
-    loadSpacePage(0,p_id,level);
-  } else {
-    if($('#list_filters').find('#'+a_id).length==1){
-      $('#list_filters').find('#'+a_id).remove();
-      if(df_ids.indexOf(a_id)!=-1){
-        if(la_id=='def_filters'){
-          $('#'+df_ls[df_ids.indexOf(a_id)]).find('#'+a_id).toggleClass('active');
-        } else {
-          $('#def_filters').find('#'+a_id).toggleClass('active');
-        }
+
+      //Create a map function£º
+      function createMap() {
+        var map = new BMap.Map("map_canvas");//Add a map to the container
+            var point = new BMap.Point(123.455123,41.79223);//set the center point
+            map.centerAndZoom(point, 19);//display level
+        window.map = map;
+        window.localSearch = new BMap.LocalSearch(map);
+        window.localSearch.enableAutoViewport(); //Allow automatic adjustment
+
       }
-      $(t).parent('li').toggleClass('active');
-      loadSpacePage(0,p_id,level);
-    }
-  }
-}
-function loadSpacePage(idx,p_id,level){
-  searchSpaces(idx,p_id,level,'get_pagination',true);
-}
-function refreshSpaces(result){
-  $('#sw_pagination').html(result.pagination);
-  $('#sw_pagination_total').html(result.pag_total);
-  $('#result_list').html('');
-  for (var s = 0; s < result.content.length; s++) {
-    $('#result_list').append(get_space(result.content[s],result.sUrl,result.awsUrl));
-  }
-  $('#sh_result').html(result.sh);
-  $('#li_open').html('<span>Open Plan</span> <br />('+result.open+')');
-  $('#li_private').html('<span>Private Office</span><br />('+result.offices+')');
-  if(result.ntotal==1)
-    $('#li_show').html('Show '+result.ntotal+' Listing');
-  else
-    $('#li_show').html('Show '+result.ntotal+' Listings');
-  if(result.ntotal==0){
-    $('#h_st').html('Agh, kittens & rainbows.');
-    $('#dv_st').html('We’ve not listed any coworking spaces in '+$('#h_location').val()+' yet but they’ll be listed<br/>very, very soon!'+
-                     '<br/><br/>Pop your email in here and we\'ll let you know as soon as '+$('#h_location').val()+' hits our radar:');
-    $('#vloop').val(0);
-  } else {
-    $('#h_st').html('Pssssst.');
-    var vcustom = $('#h_location').val();
-    if(vcustom == "" ){
-      $('#dv_st').html('We’re still collecting info about coworking spaces in all countries - so '+
-                     'watch this space!<br/>Pop your email below and we’ll let you know when more get listed:');
-    }else{
-      $('#dv_st').html('We’re still collecting info about coworking spaces in '+$('#h_location').val()+' - so '+
-                     'watch this space!<br/>Pop your email below and we’ll let you know when more get listed:');
-    }
-    $('#vloop').val(1);
-  }
-  if($('#h_location').val()==''){
-    $('#vloop').val(-1);
-  }
-}
-function searchSpaces(idx,p_id,level,url,uleft){
-  if(level!=-1) {
-    var xplan  = 'open';
-    var selected = '';
-    if($('#cp1').is(':checked')){
-      xplan = 'open';
-    }
-    if($('#cp2').is(':checked')){
-      xplan = 'private';
-    }
-    var member_active = $('#membership').find('.active');
-    var xfilter = 'all';
-    if((member_active.length>0)&&(member_active[0].id!='all')){
-      xfilter = member_active[0].id.replace('ly','');
-    }
-    var adx = 0;
-    var no_amenities = ["100", "101", "102"];
-    $('#list_filters li').each(function() {
-      if(no_amenities.indexOf($(this).attr('id'))==-1){
-        if(adx==0){
-          selected = $(this).attr('id');
-        } else {
-          selected = selected+','+$(this).attr('id');
-        }
-        adx++;
+
+      // control tool of the map£º
+      function setMapEvent() {
+        map.enableDragging();
+        map.enableScrollWheelZoom();
+        map.enableDoubleClickZoom();
+        map.enableKeyboard();
       }
-    });
-    var xaccs = '0';
-    var xapps = '0';
-    var deposit = '0';
-    if($('#list_filters').find('#100').length==1){
-      xaccs = '1';
-    }
-    if($('#list_filters').find('#101').length==1){
-      deposit = '1';
-    }
-    if($('#list_filters').find('#102').length==1){
-      xapps = '1';
-    }
-    var c_capacity = $('#capacity').val();
-    var sx_1 = $('#x_1').val();
-    var sx_2 = $('#x_2').val();
-    var sy_1 = $('#y_1').val();
-    var sy_2 = $('#y_2').val();
-    $.ajax({
-      'url'     : '{% url "main:search" %}/'+url,
-      'type'    : 'POST',
-      'dataType': 'json',
-      'data'    : { pIdx:idx, placeId:c_p_id, lvl:c_lvl, sfilter:xfilter, splan: xplan, sammenities:selected, saccs: xaccs, sapps: xapps, sdeposit:deposit, scapacity:c_capacity,search:c_search, x_1:sx_1, x_2:sx_2, y_1:sy_1,y_2:sy_2},
-      'success' : function(response){
-        var result = response;
-        if(url=='get_pagination'){
-          refreshSpaces(result);
-          loadMarkers(result.coords,level,result.nc);
-          c_idx = result.idx;
-          $(".spc_found li").click(function() {
-            window.location = $(this).find("a").attr("href");
-            return false;
+
+      //addMapControl£º
+      function addMapControl() {
+        var ctrl_nav = new BMap.NavigationControl({
+          anchor : BMAP_ANCHOR_TOP_LEFT,
+          type : BMAP_NAVIGATION_CONTROL_LARGE
+        });
+        map.addControl(ctrl_nav);
+        //Scale controls
+        var ctrl_sca = new BMap.ScaleControl({
+          anchor : BMAP_ANCHOR_BOTTOM_LEFT
+        });
+        map.addControl(ctrl_sca);
+      }
+
+      //Indexing array
+      var markerArr = [
+        {% for place in places %}
+                {
+                title : "{{ place.space_name }}",
+                content : "{{ place.space_name }}",
+                point : "123.455123|41.79223",
+{#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
+                isOpen : 1,
+                icon : {
+                  w : 21,
+                  h : 30,
+                  l : 0,
+                  t : 21,
+                  x : 6,
+                  lb : 5
+                }
+              } {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+      ];
+      // creat marker
+      function addMarker() {
+        for ( var i = 0; i < markerArr.length; i++) {
+          var json = markerArr[i];
+          var p0 = json.point.split("|")[0];
+          var p1 = json.point.split("|")[1];
+          var point = new BMap.Point(p0, p1);
+          var iconImg = createIcon(json.icon);
+          var marker = new BMap.Marker(point, {
+            icon : iconImg
           });
-          $("html, body").animate({ scrollTop: 0 }, "fast");
-        } else if(uleft){
-          refreshSpaces(result);
-          loadMarkers(result.coords,level,true);
-          c_idx = result.idx;
-          $(".spc_found li").click(function() {
-            window.location = $(this).find("a").attr("href");
-            return false;
+          var iw = createInfoWindow(i);
+          var label = new BMap.Label(json.title, {
+            "offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
           });
-          $("html, body").animate({ scrollTop: 0 }, "fast");
-        } else {
-          loadMarkers(result.coords,level,false);
+          marker.setLabel(label);
+          map.addOverlay(marker);
+          label.setStyle({
+            borderColor : "#808080",
+            color : "#333",
+            cursor : "pointer"
+          });
+
+          (function() {
+            var index = i;
+            var _iw = createInfoWindow(i);
+            var _marker = marker;
+            _marker.addEventListener("click", function() {
+              this.openInfoWindow(_iw);
+            });
+            _iw.addEventListener("open", function() {
+              _marker.getLabel().hide();
+            })
+            _iw.addEventListener("close", function() {
+              _marker.getLabel().show();
+            })
+            label.addEventListener("click", function() {
+              _marker.openInfoWindow(_iw);
+            })
+            if (!!json.isOpen) {
+              label.hide();
+              _marker.openInfoWindow(_iw);
+            }
+          })()
         }
       }
-    });
-  }
-}
-function loadSpacePageMap(idx,uleft){
-  searchSpaces(idx,0,0,'map_pagination',uleft);
-  isOpen = 0;
-}
-function nextSpacePage(p_id,level){
-  c_idx++;
-  loadSpacePage(c_idx,p_id,level);
-}
-function prevSpacePage(p_id,level){
-  c_idx--;
-  if(c_idx>=0){
-    loadSpacePage(c_idx,p_id,level);
-  } else
-    c_idx=0;
-}
-function refineSearch(){
-  if($("#x_location").val()!=$("#f_location").val()) {
-    $("#place_id").val(0);
-    $("#search_place").val(0);
-  }
-}
-function changeMarker(id){
-  for (var i = 0; i < markers.length; i++) {
-    if(markers[i].id==id) {
-      if("f" in markers[i]){
-        if(markers[i].f>0){
-          markers[i].setAnimation(google.maps.Animation.BOUNCE);
-        } else
-          markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-hover.png');
-      } else
-        markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-hover.png');
-    } else {
-      if("f" in markers[i]){
-        if(markers[i].f>0){
-          if ( markers[i].getAnimation() !== null) {
-            markers[i].setAnimation(null);
+      //creat InfoWindow
+      function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow(
+          "<b class='iw_poi_title' title='" + json.title + "'>"
+          + json.title + "</b><div class='iw_poi_content'>"
+          + json.content + "</div>");
+        return iw;
+      }
+      //creat Icon
+      function createIcon(json) {
+        var icon = new BMap.Icon(
+          "http://api.map.baidu.com/img/markers.png",
+          new BMap.Size(json.w, json.h), {
+            imageOffset : new BMap.Size(-json.l, -json.t),
+            infoWindowOffset : new BMap.Size(json.lb + 5, 1),
+            offset : new BMap.Size(json.x, json.h)
+          })
+        return icon;
+      }
+
+      initMap();//Create and initialize the map
+      // ]]>
+    </script>
+
+    <script type="text/javascript">
+      var c_idx= 0;
+      var c_search = 'Hong kong, Hong kong';
+      var c_p_id = '1';
+      var c_lvl = '2';
+      $(".view_show").click(function(){
+        $(".filters_hide_panel").show();
+        $('.view_show').hide();
+        $('#def_filters').hide();
+        $('.view_hide').show();
+      });
+      $(".view_hide").click(function(){
+        $(".filters_hide_panel").hide();
+        $('.view_show').show();
+        $('#def_filters').show();
+        $('.view_hide').hide();
+      });
+      function changeCapacity(p_id,level) {
+        loadSpacePage(0,p_id,level);
+      }
+      function filterToSearch(t,p_id,level){
+        var la_id = $(t).parent().parent().get(0).id;
+        var a_id  = $(t).parent().get(0).id;
+        var df_ids= ["8","16","26","37"];
+        var df_ls = ["l_seating","l_coolstuff","l_facilities","l_accessibility"];
+        if($('#list_filters').find('#'+a_id).length==0){
+          $('#list_filters').append('<li id="'+a_id+'"></li>');
+          if(df_ids.indexOf(a_id)!=-1){
+            if(la_id=='def_filters'){
+              $('#'+df_ls[df_ids.indexOf(a_id)]).find('#'+a_id).toggleClass('active');
+            } else {
+              $('#def_filters').find('#'+a_id).toggleClass('active');
+            }
+          }
+          $(t).parent('li').toggleClass('active');
+          loadSpacePage(0,p_id,level);
+        } else {
+          if($('#list_filters').find('#'+a_id).length==1){
+            $('#list_filters').find('#'+a_id).remove();
+            if(df_ids.indexOf(a_id)!=-1){
+              if(la_id=='def_filters'){
+                $('#'+df_ls[df_ids.indexOf(a_id)]).find('#'+a_id).toggleClass('active');
+              } else {
+                $('#def_filters').find('#'+a_id).toggleClass('active');
+              }
+            }
+            $(t).parent('li').toggleClass('active');
+            loadSpacePage(0,p_id,level);
           }
         }
-      } else
-        markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
-    }
-  }
-}
-function normalMarker(){
-  for (var i = 0; i < markers.length; i++) {
-    if("f" in markers[i]){
-      if(markers[i].f>0){
-        markers[i].setAnimation(null);
       }
-    } else
-      markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
-  }
-}
-function update_search(p_id,level){
-  loadSpacePage(0,p_id,level);
-  $('.listing').hide();
-  $('#list_filter_cat').hide();
-  $('.show_pagin_out').show();
-  $('#sw_results').show();
-}
-function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1);
-  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *  Math.sin(dLon/2) * Math.sin(dLon/2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  var d = R * c; // Distance in km
-  return d;
-}
-function calculeProximityTotal(cLat,cLng,coords){
-  var closeTotals = 0;
-  var polygonCoordsTemp = new Array();
-  for(var i=0;i<coords.length;i++){
-    if((cLat!=coords[i].xlat*1)&&(cLng!=coords[i].xlng*1)){
-      if((getDistanceFromLatLonInKm(cLat,cLng,coords[i].xlat*1,coords[i].xlng*1))<10){
-        polygonCoordsTemp.push(new google.maps.LatLng(coords[i].xlat*1,coords[i].xlng*1));
-        closeTotals++;
+      function loadSpacePage(idx,p_id,level){
+        searchSpaces(idx,p_id,level,'get_pagination',true);
       }
-    }
-  }
-  var xPoint = {nLat:cLat, nLng:cLng,pts:closeTotals,cTemp: polygonCoordsTemp};
-  return xPoint;
-}
-function deg2rad(deg) {
-  return deg * (Math.PI/180)
-}
-function loadMarkers(coords,lvl,center){
-  deleteMarkers();
-  var content = '';
-  var infowindow = new google.maps.InfoWindow({content: "holding..."});
-  if(lvl==2) {
-    var bounds2 = new google.maps.LatLngBounds();
-    var polygonCoords = new Array();
-    var ncc = center.split(',');
-    for(var i=0;i<coords.length;i++){
-      if((getDistanceFromLatLonInKm(ncc[0],ncc[1],coords[i].xlat*1,coords[i].xlng*1))<10){
-        polygonCoords.push(new google.maps.LatLng(coords[i].xlat*1,coords[i].xlng*1));
-      }
-    }
-    if(polygonCoords.length<=1){
-      var coordsTemp = new Array();
-      for(var i=0;i<coords.length;i++){
-        coordsTemp.push(calculeProximityTotal(coords[i].xlat*1,coords[i].xlng*1,coords));
-      }
-      var m = {nLat:0, nLng:0,pts:0,cTemp: new Array()};
-      for(var i=0;i<coordsTemp.length-1;i++){
-        if (coordsTemp[i].pts > m.pts) {
-          m = coordsTemp[i];
+      function refreshSpaces(result){
+        $('#sw_pagination').html(result.pagination);
+        $('#sw_pagination_total').html(result.pag_total);
+        $('#result_list').html('');
+        for (var s = 0; s < result.content.length; s++) {
+          $('#result_list').append(get_space(result.content[s],result.sUrl,result.awsUrl));
         }
-      }
-      if(m.pts>1) {
-        polygonCoords = m.cTemp;
-      }
-    }
-    for (i = 0; i < polygonCoords.length; i++) {
-      bounds2.extend(polygonCoords[i]);
-    }
-    center = bounds2.getCenter().lat()+','+bounds2.getCenter().lng();
-  }
-  for(var i=0;i<coords.length;i++){
-    var myLatLng = {lat: coords[i].xlat*1, lng: coords[i].xlng*1};
-    var marker = new google.maps.Marker({position:myLatLng, map:map, id:coords[i].id});
-    if("f" in coords[i]){
-      if(coords[i].f>0){
-        marker.f = coords[i].f;
-        marker.setZIndex(800);
-        marker.setIcon('https://www.coworker.com/template/img/featured-icon-red.png');
-      } else {
-        marker.setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
-      }
-    } else {
-      marker.f = 0;
-      marker.setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
-    }
-    markers.push(marker);
-    if(lvl!=0) {
-      if(lvl==1)
-        map.setZoom(5);
-      if(lvl==2)
-        map.setZoom(12);
-      if(lvl==3)
-        map.setZoom(16);
-      if(i==0){
-        if(!center){
-          map.setCenter(marker.getPosition());
-        } else if((lvl==2)||(lvl==2.5)){
-          var nc = center.split(',');
-          map.setCenter(new google.maps.LatLng(nc[0],nc[1]));
-        } else {}
-      }
-
-    }
-    // event to close the infoWindow with a click on the map
-    google.maps.event.addListener(map, 'click', function() {
-      infowindow.close();
-    });
-    var infowindow = new google.maps.InfoWindow({content: "holding..."});
-    google.maps.event.addListener(marker, 'mouseover', function() {
-      load_content(map,this,infowindow);
-    });
-    google.maps.event.addListener(marker, 'mouseleave', function() {
-      marker.setAnimation(null);
-    });
-  }
-  google.maps.event.addListener(infowindow, 'domready', function() {
-    // Reference to the DIV that wraps the bottom of infowindow
-    var iwOuter = $('.gm-style-iw');
-
-    var iwBackground = iwOuter.prev();
-    // Removes background shadow DIV
-    iwBackground.children(':nth-child(2)').css({'display' : 'none'});
-    // Removes white background DIV
-    iwBackground.children(':nth-child(4)').css({'display' : 'none'});
-
-    // Changes the desired tail shadow color.
-    iwBackground.children(':nth-child(3)').find('div').children().css({'background-color' : '#00d191'});
-
-    // Reference to the div that groups the close button elements.
-    var iwCloseBtn = iwOuter.next();
-
-    // Apply the desired effect to the close button
-    iwCloseBtn.css({'display' : 'none'});
-  });
-}
-function load_content(map,marker,infowindow){
-  if((isOpen==0)||(isOpen=='completed')){
-    isOpen='closed';
-  if("f" in marker){
-    if(marker.f>0){
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
-  $.ajax({
-    url: 'https://www.coworker.com/getSpaceInfo',
-    dataType: "json",
-    type: "POST",
-    data: {
-      c_Id : marker.id
-    },
-    success: function(data) {
-      var scontent =
-      ' <div class="map_locate_main">'+
-          '<div class="map_locate_con">'+
-            '<div class="col-xs-12 pade_none map_pic"><a target="_blank" href="'+data.sUrl+'"><img src="'+data.imgUrl+'?w=171&h=121&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" alt="" style="width: 171px; height: 121px;"></a>'+
-              '<div class="col-xs-12 pade_none pen_txt">'+data.sPrice+'</div>'+
-            '</div>'+
-            '<h3>'+data.sName+'</h3>'+
-            '<div class="col-xs-12 map_review">'+data.sRate+
-            '</div>'+
-          '</div>'+
-        '</div>';
-      infowindow.setContent(scontent);
-      infowindow.open(map, marker);
-      $(".map_locate_con").click(function() {
-        //window.location = $(this).find("a").attr("href");
-        window.open($(this).find("a").attr("href"), '_blank');
-        return false;
-      });
-      isOpen='completed';
-    }
-  });
-  }
-}
-
-function get_space(space,sURL,aURL){
-
-  var c_revs = space.rvs + (space.rvs==1 ? ' Review' : ' Reviews');
-  var c_opt  = '';
-  var c_rvt  = '';
-  if(space.e_r==1)
-    c_rvt  = '<div class="col-xs-12 pade_none reserve-sub-head">Reserve Now  <samp>ONLINE</samp></div>';
-  if(space.fd==1)
-    c_opt = '<div class="search_freepass_con"><a href="javascript:void(0)"><strong>Free</strong> Day Pass</a></div>';
-  else if(space.bt==1)
-    c_opt = '<div class="search_freepass_con"><a href="javascript:void(0);">Book <strong>Tour</strong></a></div>';
-  var c_pic = (space.s_img!='') ? space.s_url+space.s_img : 'nophoto.jpg';
-  var c_vfy = space.vf==1 ? '<div class="col-xs-12 pade_none search_verified_text"><i class="fa fa-check" aria-hidden="true"></i>Verified</div>':'';
-  var featured = ['','class="csSearchWrapper"',''];
-  var fd_click = 'href="'+sURL+space.s_url+'"';
-  if(space.s_f>0){
-    var track_url=space.s_url.replace(/\//g, "_");
-    featured = ['class="search_border_outer"','class="search_border_main"','<div class="search_popular_now_button">Popular Now</div>'];
-    fd_click = 'href="'+sURL+'s-f/'+space.id+'/'+track_url+'"';
-  }
-  return '<li '+featured[0]+'onmouseover="changeMarker(\'mk_'+space.id+'\');" onmouseleave="normalMarker();">'+
-          '<div '+featured[1]+'>'+
-            '<a id="'+space.id+'" class="csSearchLink" '+fd_click+'>webpage URL</a>'+
-            ' '+featured[2]+' '+
-            '<div class="spc_img_sec"><img src="'+aURL+'photos/'+c_pic+'?w=450&h=280&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" alt="'+space.s_n+', '+space.cty+'" title="'+space.s_n+' in '+space.cty+', '+space.ctry+'"   /></div>'+
-            '<div class="spc_txt_sec">'+
-              '<div class="col-xs-12 pade_none search_title_text"><a href="'+sURL+space.s_url+'">'+space.s_n+'</a></div>'+
-              c_rvt+
-              '<div class="col-xs-12 pade_none search_free_pass_container">'+
-                '<div class="search_review_outer text_middle_con">'+repeatString('<i class="fa fa-star">&nbsp;</i>',parseInt(space.rt))+repeatString('<i class="fa fa-star02">&nbsp;</i>',(5-parseInt(space.rt)))+c_revs+c_vfy+'</div>'+
-              '</div>'+
-            '</div>'+
-            '<span>'+space.min+'</span>'+
-            '<div style="clear:both;"></div>'+
-          '</div>'+
-          c_opt+
-         '</li>';
-}
-
-// Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
-  }
-  markers = [];
-}
-
-function open_ws(url,id){
-  $('#ws_id').val(id);
-  $('#form_ws').attr('action', url).submit();
-}
-
-function registerEmail(){
-  var s_idx = $('#vloop').val();
-  var reg = 'All';
-  var email = $('#sign_search_mail').val();
-  var searchVal = $('#h_location').val();
-  if(s_idx==0){
-    reg = 'v2';
-  }
-  if(s_idx==1){
-    reg = 'v1';
-  }
-  if (isEmpty(email)){
-    alert('Email is required!');
-  } else if (!validateEmail(email)){
-    alert('Invalid email!');
-  } else {
-    $.ajax({
-      'url' : '{% url "main:search" %}/register_email',
-      'type' : 'POST',
-      'data' : {ver:reg, mail:email, c_location:searchVal},
-      'success' : function(data){
-        swal("", "Excellent, we'll keep you posted.", "success");
-        $('#sign_search_mail').val('');
-      }
-    });
-  }
-}
-function validateEmail(email) {
-  var re = /\S+@\S+\.\S+/;
-  return re.test(email);
-}
-function isEmpty(str){
-  return str.replace(/^\s+/g, '').length==0;
-}
-$(document).ready(function(){
-  $('.filter_blk').click(function(){
-    var filter_blk=$(this);
-    if($(filter_blk).hasClass('abierto')){
-      $('.listing').hide();
-      $('#list_filter_cat').hide();
-      $(this).removeClass('abierto');
-      $('.show_pagin_out').show();
-      $('#sw_results').show();
-    }
-    else{
-      $('.listing').show();
-      $('#list_filter_cat').show();
-      $(this).addClass('abierto');
-      $('.show_pagin_out').hide();
-      $('#sw_results').hide();
-    }
-  });
-  $('.footer_close_button').click(function() {
-    $('.join_coworker_footer').slideUp();
-  });
-});
-function change_state(id,p_id,level){
-  var ul=$('#membership');
-  $("#membership  li").each(function(index) {
-    var li=$(this);
-    if($(li).attr('id')==id) {
-      if($(li).hasClass('active')) {
-        $(li).removeClass('active');
-        return;
-      } else {
-        var active=$('#membership').find('.active');
-        $(active).removeClass('active');
-        $(li).addClass('active');
-        return;
-      }
-    }
-  });
-  loadSpacePage(0,p_id,level);
-}
-function change_plan(id,p_id,level){
-  if($('#cp'+id).is(':checked')){
-    $('#cp'+id).prop('checked', false);
-  }
-  if($('#cp1').is(':checked')){
-    $('#pln_1').addClass('pln_active');
-  } else {
-    $('#pln_1').removeClass('pln_active');
-  }
-  if($('#cp2').is(':checked')){
-    $('#pln_2').addClass('pln_active');
-  } else {
-    $('#pln_2').removeClass('pln_active');
-  }
-  loadSpacePage(0,p_id,level);
-}
-function close_list(){
-  var s_checks = $('.listing').find('input:checked');
-  $(s_checks).prop('checked',false);
-  var capacity=$('.listing').find('input[name=capacity]');
-  $(capacity).val("0");
-  $(this).removeClass('abierto');
-  $('.listing').hide();
-  $('#list_filter_cat').hide();
-  $('.show_pagin_out').show();
-  $('#sw_results').show();
-}
-$(function() {
-  $( "#h_location" ).autocomplete({
-    source:function(request, response) {
-      $("#h_place_id").val(0);
-      $("#h_search_place").val(0);
-      $.ajax({
-        url: 'https://www.coworker.com/getAutocomplete',
-        dataType: "json",
-        type: "POST",
-        data: {
-          term : request.term
-        },
-        success: function(rsp) {
-          response(rsp);
-        }
-      });
-    },minLength:1,
-    messages: {
-        noResults: '',
-        results: function() {}
-    },appendTo: "#h_aucomplete",
-    select: function (event, ui) {
-      c_p_id = ui.item.idx;
-      c_lvl  = ui.item.loc;
-      /* Remove unwanted characters, only accept alphanumeric and space */
-      var key_search = ui.item.value.replace(/[^A-Za-z0-9, ]/g,'');
-      /* Replace multi spaces with a single space */
-      key_search = key_search.replace(/\s{2,}/g,' ');
-      var vals = key_search.split(',');
-      for (var i = 0; i <= vals.length - 1; i++) {
-        if(vals[i].trim()!='')
-        if(i == 0)
-          key_search = vals[i].trim();
+        $('#sh_result').html(result.sh);
+        $('#li_open').html('<span>Open Plan</span> <br />('+result.open+')');
+        $('#li_private').html('<span>Private Office</span><br />('+result.offices+')');
+        if(result.ntotal==1)
+          $('#li_show').html('Show '+result.ntotal+' Listing');
         else
-          key_search = key_search + '/' + vals[i].trim();
-      };
-      /* Replace space with a '-' symbol */
-      key_search = key_search.replace(/\s/g, "-");
-      window.history.pushState("", "-", "/search/"+key_search.toLowerCase());
-      c_search = ui.item.value;
-
-      if(c_lvl == 1 || c_lvl == 2) {
-        $(document).prop('title', 'See All Coworking Spaces in ' + c_search + ' - Coworker.com');
+          $('#li_show').html('Show '+result.ntotal+' Listings');
+        if(result.ntotal==0){
+          $('#h_st').html('Agh, kittens & rainbows.');
+          $('#dv_st').html('We’ve not listed any coworking spaces in '+$('#h_location').val()+' yet but they’ll be listed<br/>very, very soon!'+
+            '<br/><br/>Pop your email in here and we\'ll let you know as soon as '+$('#h_location').val()+' hits our radar:');
+          $('#vloop').val(0);
+        } else {
+          $('#h_st').html('Pssssst.');
+          var vcustom = $('#h_location').val();
+          if(vcustom == "" ){
+            $('#dv_st').html('We’re still collecting info about coworking spaces in all countries - so '+
+              'watch this space!<br/>Pop your email below and we’ll let you know when more get listed:');
+          }else{
+            $('#dv_st').html('We’re still collecting info about coworking spaces in '+$('#h_location').val()+' - so '+
+              'watch this space!<br/>Pop your email below and we’ll let you know when more get listed:');
+          }
+          $('#vloop').val(1);
+        }
+        if($('#h_location').val()==''){
+          $('#vloop').val(-1);
+        }
       }
-      else if(c_lvl ==3) {
-         $(document).prop('title', c_search + ' - Coworker.com');
+      function searchSpaces(idx,p_id,level,url,uleft){
+        if(level!=-1) {
+          var xplan  = 'open';
+          var selected = '';
+          if($('#cp1').is(':checked')){
+            xplan = 'open';
+          }
+          if($('#cp2').is(':checked')){
+            xplan = 'private';
+          }
+          var member_active = $('#membership').find('.active');
+          var xfilter = 'all';
+          if((member_active.length>0)&&(member_active[0].id!='all')){
+            xfilter = member_active[0].id.replace('ly','');
+          }
+          var adx = 0;
+          var no_amenities = ["100", "101", "102"];
+          $('#list_filters li').each(function() {
+            if(no_amenities.indexOf($(this).attr('id'))==-1){
+              if(adx==0){
+                selected = $(this).attr('id');
+              } else {
+                selected = selected+','+$(this).attr('id');
+              }
+              adx++;
+            }
+          });
+          var xaccs = '0';
+          var xapps = '0';
+          var deposit = '0';
+          if($('#list_filters').find('#100').length==1){
+            xaccs = '1';
+          }
+          if($('#list_filters').find('#101').length==1){
+            deposit = '1';
+          }
+          if($('#list_filters').find('#102').length==1){
+            xapps = '1';
+          }
+          var c_capacity = $('#capacity').val();
+          var sx_1 = $('#x_1').val();
+          var sx_2 = $('#x_2').val();
+          var sy_1 = $('#y_1').val();
+          var sy_2 = $('#y_2').val();
+          $.ajax({
+            'url'     : '{% url "place:search" %}/'+url,
+            'type'    : 'POST',
+            'dataType': 'json',
+            'data'    : { pIdx:idx, placeId:c_p_id, lvl:c_lvl, sfilter:xfilter, splan: xplan, sammenities:selected, saccs: xaccs, sapps: xapps, sdeposit:deposit, scapacity:c_capacity,search:c_search, x_1:sx_1, x_2:sx_2, y_1:sy_1,y_2:sy_2},
+            'success' : function(response){
+              var result = response;
+              if(url=='get_pagination'){
+                refreshSpaces(result);
+                loadMarkers(result.coords,level,result.nc);
+                c_idx = result.idx;
+                $(".spc_found li").click(function() {
+                  window.location = $(this).find("a").attr("href");
+                  return false;
+                });
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+              } else if(uleft){
+                refreshSpaces(result);
+                loadMarkers(result.coords,level,true);
+                c_idx = result.idx;
+                $(".spc_found li").click(function() {
+                  window.location = $(this).find("a").attr("href");
+                  return false;
+                });
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+              } else {
+                loadMarkers(result.coords,level,false);
+              }
+            }
+          });
+        }
       }
-      else {
-         $(document).prop('title', 'Search for Coworking Spaces all over the world - Coworker.com');
+      function loadSpacePageMap(idx,uleft){
+        searchSpaces(idx,0,0,'map_pagination',uleft);
+        isOpen = 0;
       }
-
-      loadSpacePage(0,ui.item.idx,ui.item.loc);
-    },
-    open: function(){
-      $('.ui-autocomplete').css('width', $('#h_location').width());
-    }
-  }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-    var loc_icon = '<i class="fa fa-buildingui"></i>';
-    var view_all = '';
-    if(item.loc==1)
-      loc_icon = '<i class="fa fa-globeui"></i>';
-    if((item.loc==2) || (item.loc==2.5))
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==5)
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==10)
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==0){
-      loc_icon = "";
-      view_all = 'class="search_view_results_div pade_none"';
-    }
-      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-  };
-});
-$('#h_location').keyup(function(e){
-  if(e.keyCode == 13) {
-    $('#f_location').val($('#h_location').val());
-    $.ajax({
-      url: '{% url "main:search" %}/start',
-      dataType: "json",
-      type: "POST",
-      data: {
-        h_place_id     : $("#h_place_id").val(),
-        h_search_place : $("#h_search_place").val(),
-        h_location     : $("#h_location").val(),
-        form_search    : 2
-      },
-      success: function(data) {
-        window.location = '{% url "main:search" %}/'+data.s_url;
+      function nextSpacePage(p_id,level){
+        c_idx++;
+        loadSpacePage(c_idx,p_id,level);
       }
-    });
-  }
-});
-function remove_filter(f,idx,p_id,level){
-  $('#'+f+' input').each(function() {
-    $(this).prop('checked',false);
-  });
-  loadSpacePage(idx,p_id,level);
-}
-
-
-$(function() {
-  $( "#sp_location" ).autocomplete({
-    source:function(request, response) {
-      $("#sp_place_id").val(0);
-      $("#sp_search_place").val(0);
-      $.ajax({
-        url: "https://www.coworker.com/getAutocomplete",
-        dataType: "json",
-        type: "POST",
-        data: {
-          term : request.term
-        },
-        success: function(data) {
-          response(data);
-          if(data.length>0){
-            var prefix = $('#sp_location').val().toLowerCase();
-            var first_item = data[0].value.toLowerCase();
-            if(first_item.slice(0, prefix.length) == prefix){
-              $('#sp_location').val(data[0].value);
-              $('#sp_location').selectRange(prefix.length,first_item.length);
+      function prevSpacePage(p_id,level){
+        c_idx--;
+        if(c_idx>=0){
+          loadSpacePage(c_idx,p_id,level);
+        } else
+          c_idx=0;
+      }
+      function refineSearch(){
+        if($("#x_location").val()!=$("#f_location").val()) {
+          $("#place_id").val(0);
+          $("#search_place").val(0);
+        }
+      }
+      function changeMarker(id){
+        for (var i = 0; i < markers.length; i++) {
+          if(markers[i].id==id) {
+            if("f" in markers[i]){
+              if(markers[i].f>0){
+                markers[i].setAnimation(google.maps.Animation.BOUNCE);
+              } else
+                markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-hover.png');
+            } else
+              markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-hover.png');
+          } else {
+            if("f" in markers[i]){
+              if(markers[i].f>0){
+                if ( markers[i].getAnimation() !== null) {
+                  markers[i].setAnimation(null);
+                }
+              }
+            } else
+              markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
+          }
+        }
+      }
+      function normalMarker(){
+        for (var i = 0; i < markers.length; i++) {
+          if("f" in markers[i]){
+            if(markers[i].f>0){
+              markers[i].setAnimation(null);
+            }
+          } else
+            markers[i].setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
+        }
+      }
+      function update_search(p_id,level){
+        loadSpacePage(0,p_id,level);
+        $('.listing').hide();
+        $('#list_filter_cat').hide();
+        $('.show_pagin_out').show();
+        $('#sw_results').show();
+      }
+      function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+        var R = 6371; // Radius of the earth in km
+        var dLat = deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = deg2rad(lon2-lon1);
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *  Math.sin(dLon/2) * Math.sin(dLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c; // Distance in km
+        return d;
+      }
+      function calculeProximityTotal(cLat,cLng,coords){
+        var closeTotals = 0;
+        var polygonCoordsTemp = new Array();
+        for(var i=0;i<coords.length;i++){
+          if((cLat!=coords[i].xlat*1)&&(cLng!=coords[i].xlng*1)){
+            if((getDistanceFromLatLonInKm(cLat,cLng,coords[i].xlat*1,coords[i].xlng*1))<10){
+              polygonCoordsTemp.push(new google.maps.LatLng(coords[i].xlat*1,coords[i].xlng*1));
+              closeTotals++;
             }
           }
         }
+        var xPoint = {nLat:cLat, nLng:cLng,pts:closeTotals,cTemp: polygonCoordsTemp};
+        return xPoint;
+      }
+      function deg2rad(deg) {
+        return deg * (Math.PI/180)
+      }
+      function loadMarkers(coords,lvl,center){
+        deleteMarkers();
+        var content = '';
+        var infowindow = new google.maps.InfoWindow({content: "holding..."});
+        if(lvl==2) {
+          var bounds2 = new google.maps.LatLngBounds();
+          var polygonCoords = new Array();
+          var ncc = center.split(',');
+          for(var i=0;i<coords.length;i++){
+            if((getDistanceFromLatLonInKm(ncc[0],ncc[1],coords[i].xlat*1,coords[i].xlng*1))<10){
+              polygonCoords.push(new google.maps.LatLng(coords[i].xlat*1,coords[i].xlng*1));
+            }
+          }
+          if(polygonCoords.length<=1){
+            var coordsTemp = new Array();
+            for(var i=0;i<coords.length;i++){
+              coordsTemp.push(calculeProximityTotal(coords[i].xlat*1,coords[i].xlng*1,coords));
+            }
+            var m = {nLat:0, nLng:0,pts:0,cTemp: new Array()};
+            for(var i=0;i<coordsTemp.length-1;i++){
+              if (coordsTemp[i].pts > m.pts) {
+                m = coordsTemp[i];
+              }
+            }
+            if(m.pts>1) {
+              polygonCoords = m.cTemp;
+            }
+          }
+          for (i = 0; i < polygonCoords.length; i++) {
+            bounds2.extend(polygonCoords[i]);
+          }
+          center = bounds2.getCenter().lat()+','+bounds2.getCenter().lng();
+        }
+        for(var i=0;i<coords.length;i++){
+          var myLatLng = {lat: coords[i].xlat*1, lng: coords[i].xlng*1};
+          var marker = new google.maps.Marker({position:myLatLng, map:map, id:coords[i].id});
+          if("f" in coords[i]){
+            if(coords[i].f>0){
+              marker.f = coords[i].f;
+              marker.setZIndex(800);
+              marker.setIcon('https://www.coworker.com/template/img/featured-icon-red.png');
+            } else {
+              marker.setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
+            }
+          } else {
+            marker.f = 0;
+            marker.setIcon('https://www.coworker.com/template/img/featured-icon-normal.png');
+          }
+          markers.push(marker);
+          if(lvl!=0) {
+            if(lvl==1)
+              map.setZoom(5);
+            if(lvl==2)
+              map.setZoom(12);
+            if(lvl==3)
+              map.setZoom(16);
+            if(i==0){
+              if(!center){
+                map.setCenter(marker.getPosition());
+              } else if((lvl==2)||(lvl==2.5)){
+                var nc = center.split(',');
+                map.setCenter(new google.maps.LatLng(nc[0],nc[1]));
+              } else {}
+            }
+
+          }
+          // event to close the infoWindow with a click on the map
+          google.maps.event.addListener(map, 'click', function() {
+            infowindow.close();
+          });
+          var infowindow = new google.maps.InfoWindow({content: "holding..."});
+          google.maps.event.addListener(marker, 'mouseover', function() {
+            load_content(map,this,infowindow);
+          });
+          google.maps.event.addListener(marker, 'mouseleave', function() {
+            marker.setAnimation(null);
+          });
+        }
+        google.maps.event.addListener(infowindow, 'domready', function() {
+          // Reference to the DIV that wraps the bottom of infowindow
+          var iwOuter = $('.gm-style-iw');
+
+          var iwBackground = iwOuter.prev();
+          // Removes background shadow DIV
+          iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+          // Removes white background DIV
+          iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+
+          // Changes the desired tail shadow color.
+          iwBackground.children(':nth-child(3)').find('div').children().css({'background-color' : '#00d191'});
+
+          // Reference to the div that groups the close button elements.
+          var iwCloseBtn = iwOuter.next();
+
+          // Apply the desired effect to the close button
+          iwCloseBtn.css({'display' : 'none'});
+        });
+      }
+      function load_content(map,marker,infowindow){
+        if((isOpen==0)||(isOpen=='completed')){
+          isOpen='closed';
+          if("f" in marker){
+            if(marker.f>0){
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+          }
+          $.ajax({
+            url: 'https://www.coworker.com/getSpaceInfo',
+            dataType: "json",
+            type: "POST",
+            data: {
+              c_Id : marker.id
+            },
+            success: function(data) {
+              var scontent =
+                ' <div class="map_locate_main">'+
+                '<div class="map_locate_con">'+
+                '<div class="col-xs-12 pade_none map_pic"><a target="_blank" href="'+data.sUrl+'"><img src="'+data.imgUrl+'?w=171&h=121&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" alt="" style="width: 171px; height: 121px;"></a>'+
+                '<div class="col-xs-12 pade_none pen_txt">'+data.sPrice+'</div>'+
+                '</div>'+
+                '<h3>'+data.sName+'</h3>'+
+                '<div class="col-xs-12 map_review">'+data.sRate+
+                '</div>'+
+                '</div>'+
+                '</div>';
+              infowindow.setContent(scontent);
+              infowindow.open(map, marker);
+              $(".map_locate_con").click(function() {
+                //window.location = $(this).find("a").attr("href");
+                window.open($(this).find("a").attr("href"), '_blank');
+                return false;
+              });
+              isOpen='completed';
+            }
+          });
+        }
+      }
+
+      function get_space(space,sURL,aURL){
+
+        var c_revs = space.rvs + (space.rvs==1 ? ' Review' : ' Reviews');
+        var c_opt  = '';
+        var c_rvt  = '';
+        if(space.e_r==1)
+          c_rvt  = '<div class="col-xs-12 pade_none reserve-sub-head">Reserve Now  <samp>ONLINE</samp></div>';
+        if(space.fd==1)
+          c_opt = '<div class="search_freepass_con"><a href="javascript:void(0)"><strong>Free</strong> Day Pass</a></div>';
+        else if(space.bt==1)
+          c_opt = '<div class="search_freepass_con"><a href="javascript:void(0);">Book <strong>Tour</strong></a></div>';
+        var c_pic = (space.s_img!='') ? space.s_url+space.s_img : 'nophoto.jpg';
+        var c_vfy = space.vf==1 ? '<div class="col-xs-12 pade_none search_verified_text"><i class="fa fa-check" aria-hidden="true"></i>Verified</div>':'';
+        var featured = ['','class="csSearchWrapper"',''];
+        var fd_click = 'href="'+sURL+space.s_url+'"';
+        if(space.s_f>0){
+          var track_url=space.s_url.replace(/\//g, "_");
+          featured = ['class="search_border_outer"','class="search_border_main"','<div class="search_popular_now_button">Popular Now</div>'];
+          fd_click = 'href="'+sURL+'s-f/'+space.id+'/'+track_url+'"';
+        }
+        return '<li '+featured[0]+'onmouseover="changeMarker(\'mk_'+space.id+'\');" onmouseleave="normalMarker();">'+
+          '<div '+featured[1]+'>'+
+          '<a id="'+space.id+'" class="csSearchLink" '+fd_click+'>webpage URL</a>'+
+          ' '+featured[2]+' '+
+          '<div class="spc_img_sec"><img src="'+aURL+'photos/'+c_pic+'?w=450&h=280&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" alt="'+space.s_n+', '+space.cty+'" title="'+space.s_n+' in '+space.cty+', '+space.ctry+'"   /></div>'+
+          '<div class="spc_txt_sec">'+
+          '<div class="col-xs-12 pade_none search_title_text"><a href="'+sURL+space.s_url+'">'+space.s_n+'</a></div>'+
+          c_rvt+
+          '<div class="col-xs-12 pade_none search_free_pass_container">'+
+          '<div class="search_review_outer text_middle_con">'+repeatString('<i class="fa fa-star">&nbsp;</i>',parseInt(space.rt))+repeatString('<i class="fa fa-star02">&nbsp;</i>',(5-parseInt(space.rt)))+c_revs+c_vfy+'</div>'+
+          '</div>'+
+          '</div>'+
+          '<span>'+space.min+'</span>'+
+          '<div style="clear:both;"></div>'+
+          '</div>'+
+          c_opt+
+          '</li>';
+      }
+
+      // Deletes all markers in the array by removing references to them.
+      function deleteMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+
+      function open_ws(url,id){
+        $('#ws_id').val(id);
+        $('#form_ws').attr('action', url).submit();
+      }
+
+      function registerEmail(){
+        //TODO register email notification
+        alert("Thanks");
+        return
+        var s_idx = $('#vloop').val();
+        var reg = 'All';
+        var email = $('#sign_search_mail').val();
+        var searchVal = $('#h_location').val();
+        if(s_idx==0){
+          reg = 'v2';
+        }
+        if(s_idx==1){
+          reg = 'v1';
+        }
+        if (isEmpty(email)){
+          alert('Email is required!');
+        } else if (!validateEmail(email)){
+          alert('Invalid email!');
+        } else {
+          $.ajax({
+            'url' : '{% url "place:search" %}/register_email',
+            'type' : 'POST',
+            'data' : {ver:reg, mail:email, c_location:searchVal},
+            'success' : function(data){
+              swal("", "Excellent, we'll keep you posted.", "success");
+              $('#sign_search_mail').val('');
+            }
+          });
+        }
+      }
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+      function isEmpty(str){
+        return str.replace(/^\s+/g, '').length==0;
+      }
+      $(document).ready(function(){
+        $('.filter_blk').click(function(){
+          var filter_blk=$(this);
+          if($(filter_blk).hasClass('abierto')){
+            $('.listing').hide();
+            $('#list_filter_cat').hide();
+            $(this).removeClass('abierto');
+            $('.show_pagin_out').show();
+            $('#sw_results').show();
+          }
+          else{
+            $('.listing').show();
+            $('#list_filter_cat').show();
+            $(this).addClass('abierto');
+            $('.show_pagin_out').hide();
+            $('#sw_results').hide();
+          }
+        });
+        $('.footer_close_button').click(function() {
+          $('.join_coworker_footer').slideUp();
+        });
       });
-    },minLength:1,
-    messages: {
-        noResults: '',
-        results: function() {}
-    },
-    select: function (event, ui) {
-      c_p_id = ui.item.idx;
-      c_lvl  = ui.item.loc;
-      c_search = ui.item.value;
-      loadSpacePage(0,ui.item.idx,ui.item.loc);
-    }
-  }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-    var loc_icon = '<i class="fa fa-buildingui"></i>';
-    var view_all = '';
-    if(item.loc==1)
-      loc_icon = '<i class="fa fa-globeui"></i>';
-    if((item.loc==2) || (item.loc==2.5))
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==5)
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==10)
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==0){
-      loc_icon = "";
-      view_all = 'class="search_view_results_div pade_none"';
-    }
-      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-  };
+      function change_state(id,p_id,level){
+        var ul=$('#membership');
+        $("#membership  li").each(function(index) {
+          var li=$(this);
+          if($(li).attr('id')==id) {
+            if($(li).hasClass('active')) {
+              $(li).removeClass('active');
+              return;
+            } else {
+              var active=$('#membership').find('.active');
+              $(active).removeClass('active');
+              $(li).addClass('active');
+              return;
+            }
+          }
+        });
+        loadSpacePage(0,p_id,level);
+      }
+      function change_plan(id,p_id,level){
+        if($('#cp'+id).is(':checked')){
+          $('#cp'+id).prop('checked', false);
+        }
+        if($('#cp1').is(':checked')){
+          $('#pln_1').addClass('pln_active');
+        } else {
+          $('#pln_1').removeClass('pln_active');
+        }
+        if($('#cp2').is(':checked')){
+          $('#pln_2').addClass('pln_active');
+        } else {
+          $('#pln_2').removeClass('pln_active');
+        }
+        loadSpacePage(0,p_id,level);
+      }
+      function close_list(){
+        var s_checks = $('.listing').find('input:checked');
+        $(s_checks).prop('checked',false);
+        var capacity=$('.listing').find('input[name=capacity]');
+        $(capacity).val("0");
+        $(this).removeClass('abierto');
+        $('.listing').hide();
+        $('#list_filter_cat').hide();
+        $('.show_pagin_out').show();
+        $('#sw_results').show();
+      }
+      $(function() {
+        $( "#h_location" ).autocomplete({
+          source:function(request, response) {
+            $("#h_place_id").val(0);
+            $("#h_search_place").val(0);
+            $.ajax({
+              url: 'https://www.coworker.com/getAutocomplete',
+              dataType: "json",
+              type: "POST",
+              data: {
+                term : request.term
+              },
+              success: function(rsp) {
+                response(rsp);
+              }
+            });
+          },minLength:1,
+          messages: {
+            noResults: '',
+            results: function() {}
+          },appendTo: "#h_aucomplete",
+          select: function (event, ui) {
+            c_p_id = ui.item.idx;
+            c_lvl  = ui.item.loc;
+            /* Remove unwanted characters, only accept alphanumeric and space */
+            var key_search = ui.item.value.replace(/[^A-Za-z0-9, ]/g,'');
+            /* Replace multi spaces with a single space */
+            key_search = key_search.replace(/\s{2,}/g,' ');
+            var vals = key_search.split(',');
+            for (var i = 0; i <= vals.length - 1; i++) {
+              if(vals[i].trim()!='')
+                if(i == 0)
+                  key_search = vals[i].trim();
+                else
+                  key_search = key_search + '/' + vals[i].trim();
+            };
+            /* Replace space with a '-' symbol */
+            key_search = key_search.replace(/\s/g, "-");
+            window.history.pushState("", "-", "/search/"+key_search.toLowerCase());
+            c_search = ui.item.value;
 
-	$('#search_alt_button').click(function(event){
-		if($('#sp_location').val() != "" ){
-			$('#f_location').val($('#sp_location').val());
-			$("#form_search").submit();
-		}
-	});
+            if(c_lvl == 1 || c_lvl == 2) {
+              $(document).prop('title', 'See All Coworking Spaces in ' + c_search + ' - Coworker.com');
+            }
+            else if(c_lvl ==3) {
+              $(document).prop('title', c_search + ' - Coworker.com');
+            }
+            else {
+              $(document).prop('title', 'Search for Coworking Spaces all over the world - Coworker.com');
+            }
 
-});
-function repeatString(str, times) {
-  var ret = "";
-  for(var i = 0; i < times; i++){
-    ret += str;
-  }
-  return ret;
-}
-</script>
-<script src={% static "js/coworkerPopups.js" %}></script>
-<script src={% static "js/socket.io-1.4.5.js" %}></script>
-<script type="text/javascript">
-    var server = "https://live.coworker.com:8080";
-    var socket = io(server,{secure: true});
-</script>
+            loadSpacePage(0,ui.item.idx,ui.item.loc);
+          },
+          open: function(){
+            $('.ui-autocomplete').css('width', $('#h_location').width());
+          }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+          var loc_icon = '<i class="fa fa-buildingui"></i>';
+          var view_all = '';
+          if(item.loc==1)
+            loc_icon = '<i class="fa fa-globeui"></i>';
+          if((item.loc==2) || (item.loc==2.5))
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==5)
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==10)
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==0){
+            loc_icon = "";
+            view_all = 'class="search_view_results_div pade_none"';
+          }
+          return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
+        };
+      });
+      $('#h_location').keyup(function(e){
+        if(e.keyCode == 13) {
+          $('#f_location').val($('#h_location').val());
+          $.ajax({
+            url: '{% url "place:search" %}/start',
+            dataType: "json",
+            type: "POST",
+            data: {
+              h_place_id     : $("#h_place_id").val(),
+              h_search_place : $("#h_search_place").val(),
+              h_location     : $("#h_location").val(),
+              form_search    : 2
+            },
+            success: function(data) {
+              window.location = '{% url "place:search" %}/'+data.s_url;
+            }
+          });
+        }
+      });
+      function remove_filter(f,idx,p_id,level){
+        $('#'+f+' input').each(function() {
+          $(this).prop('checked',false);
+        });
+        loadSpacePage(idx,p_id,level);
+      }
 
 
-<script src={% static "js/flex.modal.js" %}></script>
-<script src={% static "js/sweetalert.min.js" %}></script>
-<script src={% static "js/segment_tracking.js" %}></script>
+      $(function() {
+        $( "#sp_location" ).autocomplete({
+          source:function(request, response) {
+            $("#sp_place_id").val(0);
+            $("#sp_search_place").val(0);
+            $.ajax({
+              url: "https://www.coworker.com/getAutocomplete",
+              dataType: "json",
+              type: "POST",
+              data: {
+                term : request.term
+              },
+              success: function(data) {
+                response(data);
+                if(data.length>0){
+                  var prefix = $('#sp_location').val().toLowerCase();
+                  var first_item = data[0].value.toLowerCase();
+                  if(first_item.slice(0, prefix.length) == prefix){
+                    $('#sp_location').val(data[0].value);
+                    $('#sp_location').selectRange(prefix.length,first_item.length);
+                  }
+                }
+              }
+            });
+          },minLength:1,
+          messages: {
+            noResults: '',
+            results: function() {}
+          },
+          select: function (event, ui) {
+            c_p_id = ui.item.idx;
+            c_lvl  = ui.item.loc;
+            c_search = ui.item.value;
+            loadSpacePage(0,ui.item.idx,ui.item.loc);
+          }
+        }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+          var loc_icon = '<i class="fa fa-buildingui"></i>';
+          var view_all = '';
+          if(item.loc==1)
+            loc_icon = '<i class="fa fa-globeui"></i>';
+          if((item.loc==2) || (item.loc==2.5))
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==5)
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==10)
+            loc_icon = '<i class="fa fa-map-markerui"></i>';
+          if(item.loc==0){
+            loc_icon = "";
+            view_all = 'class="search_view_results_div pade_none"';
+          }
+          return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
+        };
+
+        $('#search_alt_button').click(function(event){
+          if($('#sp_location').val() != "" ){
+            $('#f_location').val($('#sp_location').val());
+            $("#form_search").submit();
+          }
+        });
+
+      });
+      function repeatString(str, times) {
+        var ret = "";
+        for(var i = 0; i < times; i++){
+          ret += str;
+        }
+        return ret;
+      }
+    </script>
+    <script src={% static "js/coworkerPopups.js" %}></script>
+
+
+    <script src={% static "js/flex.modal.js" %}></script>
+    <script src={% static "js/sweetalert.min.js" %}></script>
+    <script src={% static "js/segment_tracking.js" %}></script>
 
 {% endblock %}
