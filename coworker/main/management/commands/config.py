@@ -18,7 +18,7 @@ LOGGING_CONFIG = {
     'filters': {
     },
     'loggers': {
-        'ali_parser': {
+        'parser': {
             'level': 'DEBUG',
             'handlers': ['console', 'file'],
             'propagate': False,
@@ -52,4 +52,4 @@ LOGGING_CONFIG = {
 
 
 logging.config.dictConfig(LOGGING_CONFIG)
-logger = logging.getLogger('ali_parser')
+logger = logging.getLogger('parser')

@@ -1,7 +1,7 @@
 import logging
 import pickle
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core import serializers
 from django.urls import reverse_lazy
 from django.http import JsonResponse
@@ -13,11 +13,30 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView,
 from django.core.files.images import get_image_dimensions
 from coworker.core.form_mixins import PassUser
 from .models import Place, MeetingRoom
+from coworker.cities.models import Country, CityOrigin
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
     PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm
 
 log = logging.getLogger('debug')
+
+
+class PlaceCountryList(View):
+    template_name = 'place/country.html'
+
+
+    def get_popular_cities(self, place):
+        return CityOrigin.objects.filter(country=place.city_origin.country)
+
+
+    def get(self, request, *args, **kwargs):
+        country = self.kwargs["country"]
+        country_origin = country.replace("-", " ")
+        place = get_object_or_404(Place, city_origin__country__name__icontains=country_origin)
+        return render(request, self.template_name, {
+            'place': place,
+            'popular_cities': self.get_popular_cities(place)
+        })
 
 
 class PlaceView(TemplateView):
@@ -331,4 +350,6 @@ class PlaceAddCurrency(PlaceAddBaseView, CreateView):
         if self.current_created_place:
             kwargs['instance'] = self.current_created_place.place
         return kwargs
+
+
 

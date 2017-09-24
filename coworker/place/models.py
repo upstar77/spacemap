@@ -7,8 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
 from .fields import generate_time_range
-from coworker.cities.models import City
-
+from coworker.cities.models import City, CityOrigin
 
 # Create your models here.
 #MAX_MEETING_ROOM_NUMBER = 500
@@ -182,6 +181,10 @@ class Place(Member_Payment, ContactInfo, Location):
 
     #8 photos
     # cover_img =
+
+    #dummpy city location!!!
+    city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
+
 
     class Meta:
         verbose_name = _('Place')

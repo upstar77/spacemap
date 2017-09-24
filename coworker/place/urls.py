@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^list-space/header-edit/$', view=views.PhotoCrop.as_view(), name='header-edit'),
 
 
-    url(r'^(?P<country>[\w-]+)/$', view=views.PlaceView.as_view(), name='country'),
+    url(r'^(?P<country>[\w-]+)/$', view=views.PlaceCountryList.as_view(), name='country'),
     url(r'^(?P<country>[\w-]+)/(?P<city>[\w-]+)/$', view=views.PlaceView.as_view(), name='city'),
     url(r'^(?P<country>[\w-]+)/(?P<city>[\w-]+)/(?P<place>[\w-]+)/$', view=views.PlaceView.as_view(), name='place'),
     # url(r'^(?P<city>[\w-]+)/(?P<place>.*)/$', view=views.Place.as_view(), name='place'),
