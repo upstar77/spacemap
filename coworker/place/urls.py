@@ -30,7 +30,7 @@ urlpatterns = [
 
 
     url(r'^search/$', view=views.SearchList.as_view(), name='search'),
-    url(r'^search/(?P<country>[\w-]+)/$', view=views.SearchList.as_view(), name='search-country'),
+    url(r'^search/(?P<country>[\w-]+)/', view=views.SearchList.as_view(), name='search-country'), #HERE REMOVED $
 
 
     url(r'^(?P<country>[\w-]+)/$', view=views.PlaceCountryList.as_view(), name='country'),

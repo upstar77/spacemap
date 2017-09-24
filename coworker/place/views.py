@@ -12,12 +12,9 @@ from django.views.generic import TemplateView, View
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 from django.core.files.images import get_image_dimensions
 from coworker.core.form_mixins import PassUser
-<<<<<<< HEAD
 from .models import Place, MeetingRoom, MembershipDeskPrice
-=======
 from .models import Place, MeetingRoom
 from coworker.cities.models import Country, CityOrigin
->>>>>>> alex
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
     PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm, PlaceAddOpeningHoursForm, PlaceAddPaymentMethodsForm,\
@@ -53,6 +50,9 @@ class SearchList(View):
         if country:
             places = Place.objects.by_country(country)
         else:
+            places = Place.objects.all()
+
+        if not places:
             places = Place.objects.all()
 
         ctx = {

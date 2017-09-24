@@ -203,17 +203,13 @@ class MemberPayment(models.Model):
         abstract = True
 
 
-<<<<<<< HEAD
-class Place(MemberPayment, ContactInfo, Location, OpeningHours):
-=======
 class PlaceManager(models.Manager):
 
     def by_country(self, country_slug):
         return self.filter(city_origin__country__slug__icontains=country_slug)
 
 
-class Place(Member_Payment, ContactInfo, Location):
->>>>>>> alex
+class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
     slug = models.SlugField()
 
