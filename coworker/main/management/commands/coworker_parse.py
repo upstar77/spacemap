@@ -1,10 +1,12 @@
 import requests
-from bs4 import BeautifulSoup
-
+from urllib.parse import urlparse, parse_qs
 import re
-from config import logger
-from utils import parse_table
-from browser import Browser
+
+
+from bs4 import BeautifulSoup
+from .config import logger
+from .utils import parse_table
+from .browser import Browser
 
 
 class CoworkerParse:
@@ -13,7 +15,7 @@ class CoworkerParse:
             browser = Browser()
         self.browser = browser
         self.endpoint = url
-        self.items = []
+        self.items = {}
 
     def save(self, name, value):
         self.items[name] = value
@@ -26,15 +28,19 @@ class CoworkerParse:
         res = self.browser.get(self.endpoint)
 
         if res.status_code != 200:
-            logger.info("")
+            logger.info("%s", self.endpoint)
 
         self.main_soup = BeautifulSoup(res.text, "html.parser")
 
         methods = [getattr(self, m) for m in dir(self) if m.startswith("parse_")]
+
         for method in methods:
             try:
-                method()
+                res = method()
+                if isinstance(res, dict):
+                    self.items.update(res)
             except Exception as e:
+                print("error")
                 logger.exception(e)
 
         return self.items
@@ -49,14 +55,31 @@ class CoworkerParse:
         #location
         address = self.main_soup.select_one(".muchroom_mail").text
         google_map_url = self.main_soup.select_one(".spaces_map_outer iframe")["src"]
+        lat, lng = None, None
+
+        location_info = self.main_soup.select('.breadcrumb_outer li p')
+
+        contenent = location_info[1].text
+        country = location_info[2].text
+        city = location_info[3].text
+
+        try:
+            lat, lng = parse_qs(urlparse(google_map_url).query)["q"][0].split(",")
+        except Exception as e:
+            logger.exception(e)
 
         return {
-            "coworking_name": coworking_name,
+            "space_name": coworking_name,
             "is_verified": is_verified,
-            "p_description": p_description,
+            "cs_description": p_description,
             "joined_time": joined_time,
             "address": address,
             "google_map_url": google_map_url,
+            "lat": lat,
+            "lng": lng,
+            "contenent": contenent,
+            "country": country,
+            "city": city,
         }
 
 
@@ -85,7 +108,7 @@ class CoworkerParse:
         for tab_id in tabs_ids:
             table = self.main_soup.select_one("#%s table" % tab_id)
             data = parse_table(table)
-            res["tab_id"] = data
+            res[tab_id] = data
 
         return res
 
@@ -120,5 +143,9 @@ class CoworkerParse:
 
 
 if __name__ == "__main__":
+    logger.info("parser")
     cow = CoworkerParse("https://www.coworker.com/united-states/colorado/montrose/proximity-space")
-    cow.test()
+
+    res = cow.run()
+    #
+    print(res)

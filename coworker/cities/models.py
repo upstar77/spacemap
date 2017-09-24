@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -29,3 +30,56 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Contenent(models.Model):
+    name = models.CharField(_('name'), max_length=40)
+    slug = models.SlugField()
+    desctiption = models.TextField(blank=True, null=True)
+    image = models.FileField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Country(models.Model):
+    name = models.CharField(_('name'), max_length=40)
+    slug = models.SlugField()
+    contenent = models.ForeignKey(Contenent)
+    desctiption = models.TextField(blank=True, null=True)
+    image = models.FileField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('place:country', args=(self.slug,))
+
+
+# class State(models.Model):
+#     name = models.CharField(_('name'), max_length=40)
+#     contenent = models.ForeignKey(Country)
+#
+#
+#     def __str__(self):
+#         return self.name
+
+
+class CityOrigin(models.Model):
+    name = models.CharField(_('Name'), max_length=40)
+    slug = models.SlugField()
+    city_code = models.CharField(_('City code'), max_length=7, blank=True)
+    zip_code = models.CharField(_('Zip code'), max_length=7, blank=True)
+    lat = models.CharField(_('Latitude'), max_length=20, blank=True)
+    lng = models.CharField(_('Longitude'), max_length=20, blank=True)
+    image = models.FileField(blank=True)
+
+    country = models.ForeignKey(Country)
+
+    desctiption = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('place:city', args=(self.country.slug, self.slug,))

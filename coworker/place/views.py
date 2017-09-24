@@ -1,7 +1,7 @@
 import logging
 import pickle
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core import serializers
 from django.urls import reverse_lazy
 from django.http import JsonResponse
@@ -12,7 +12,12 @@ from django.views.generic import TemplateView, View
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 from django.core.files.images import get_image_dimensions
 from coworker.core.form_mixins import PassUser
+<<<<<<< HEAD
 from .models import Place, MeetingRoom, MembershipDeskPrice
+=======
+from .models import Place, MeetingRoom
+from coworker.cities.models import Country, CityOrigin
+>>>>>>> alex
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
     PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm, PlaceAddOpeningHoursForm, PlaceAddPaymentMethodsForm,\
@@ -21,22 +26,65 @@ from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionFo
 log = logging.getLogger('debug')
 
 
-class PlaceView(TemplateView):
+class PlaceCountryList(View):
+    template_name = 'place/country.html'
+
+
+    def get_popular_cities(self, country):
+        return CityOrigin.objects.filter(country=country)
+
+
+    def get(self, request, *args, **kwargs):
+        country = self.kwargs["country"]
+        country = get_object_or_404(Country, slug__icontains=country)
+        return render(request, self.template_name, {
+            'country': country,
+            'popular_cities': self.get_popular_cities(country),
+            'top_places': Place.objects.by_country(country),
+        })
+
+
+class SearchList(View):
+    template_name = 'pages/search_list.html'
+
+    def get(self, request, *args, **kwargs):
+        country = self.kwargs.get("country")
+        ctx = {}
+        if country:
+            places = Place.objects.by_country(country)
+        else:
+            places = Place.objects.all()
+
+        ctx = {
+            'places': places,
+        }
+        return render(request, self.template_name, ctx)
+
+
+class PlaceView(View):
     template_name = 'place/place.html'
 
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
+    # def get_context_data(self, **kwargs):
+    #     ctx = super().get_context_data(**kwargs)
+    #
+    #     if self.kwargs.get("country"):
+    #         self.template_name = 'place/country.html'
+    #
+    #     if self.kwargs.get("city"):
+    #         self.template_name = 'place/city.html'
+    #
+    #     if self.kwargs.get("place"):
+    #         self.template_name = 'place/place.html'
+    #
+    #     return ctx
 
-        if self.kwargs.get("country"):
-            self.template_name = 'place/country.html'
+    def get(self, request, *args, **kwargs):
+        place_slug = self.kwargs["place"]
+        place = get_object_or_404(Place, slug=place_slug)
 
-        if self.kwargs.get("city"):
-            self.template_name = 'place/city.html'
-
-        if self.kwargs.get("place"):
-            self.template_name = 'place/place.html'
-
-        return ctx
+        return render(request, self.template_name, {
+            'place': place,
+        })
 
 
 class PlaceAddBaseView:

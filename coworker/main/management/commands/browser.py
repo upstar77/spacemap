@@ -4,7 +4,7 @@ import time
 
 import requests
 
-from config import LOG_PATH, logger
+from .config import LOG_PATH, logger
 
 
 class Browser:
