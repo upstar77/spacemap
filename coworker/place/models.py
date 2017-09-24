@@ -203,6 +203,9 @@ class Place(Member_Payment, ContactInfo, Location):
     def __str__(self):
         return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city}
 
+    @property
+    def name(self):
+        return self.space_name
 
     def get_absolute_url(self):
         return reverse('place:place', kwargs={
@@ -218,3 +221,10 @@ class Place(Member_Payment, ContactInfo, Location):
         photos = Photos.objects.filter(place=self)
         if photos:
             return photos[0]
+
+    def get_address(self):
+        return "{address} {city} {country}".format(
+            address=self.address, city=self.city_origin.name, country=self.city_origin.country)
+
+    def get_title(self):
+        return "{}, {}".format(self.space_name, self.city_origin.name)

@@ -56,22 +56,30 @@ class SearchList(View):
         return render(request, self.template_name, ctx)
 
 
-class PlaceView(TemplateView):
+class PlaceView(View):
     template_name = 'place/place.html'
 
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
+    # def get_context_data(self, **kwargs):
+    #     ctx = super().get_context_data(**kwargs)
+    #
+    #     if self.kwargs.get("country"):
+    #         self.template_name = 'place/country.html'
+    #
+    #     if self.kwargs.get("city"):
+    #         self.template_name = 'place/city.html'
+    #
+    #     if self.kwargs.get("place"):
+    #         self.template_name = 'place/place.html'
+    #
+    #     return ctx
 
-        if self.kwargs.get("country"):
-            self.template_name = 'place/country.html'
+    def get(self, request, *args, **kwargs):
+        place_slug = self.kwargs["place"]
+        place = get_object_or_404(Place, slug=place_slug)
 
-        if self.kwargs.get("city"):
-            self.template_name = 'place/city.html'
-
-        if self.kwargs.get("place"):
-            self.template_name = 'place/place.html'
-
-        return ctx
+        return render(request, self.template_name, {
+            'place': place,
+        })
 
 
 class PlaceAddBaseView:

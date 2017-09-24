@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load place_tags %}
 
-
-{% block title %}Grass Coworking, Poltava - Read Reviews Online{% endblock %}
+{% block title %}{{ place.get_title }} - Read Reviews Online{% endblock %}
 
 {% block content %}
     <link href="{% static 'css/lightbox.css' %}" rel="stylesheet" type="text/css">
@@ -236,23 +236,10 @@
 
     <div class="main_outer">
         <!--BREADCRUMB START-->
-        <div class="breadcrumb_outer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none breadcrumb_inner">
-                        <ul>
-                            <li><p>World</p>5256</li>
-                            <li><p>Europe</p>1739</li>
-                            <li><p><a href="{% url "place:country" country="ukraine" %}" style="color: inherit;">Ukraine</a></p>55</li>
-                            <li><p><a href="https://www.coworker.com/ukraine/poltava" style="color: inherit;">Poltava</a></p>2</li>
-                            <li><p>Grass Coworking</p>1</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% breadcrumbs place %}
+
         <!--BREADCRUMB END-->
-        <div id="main_img" class="banner_space_outr banner_space_outr_mob" style="background-image:url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/main.jpeg?mark=/template/img/wm_icon.png&amp;markscale=2&amp;markalign=center,middle&#39;);"></div>
+        <div id="main_img" class="banner_space_outr banner_space_outr_mob" style="background-image:url({{ place.get_main_photo }}?mark=/template/img/wm_icon.png&amp;markscale=2&amp;markalign=center,middle&#39;);"></div>
         <!--BANNER END-->
         <!-- Day pass/ Tour -->
 
@@ -268,11 +255,11 @@
                                 <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_lft_main">
                                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none space_top_head space_top_head_spacing">
                                         <div class="col-sm-9 col-md-9 col-xs-12 pade_none kohub_space_headings">
-                                            <h2>Grass Coworking</h2>
+                                            <h2>{{ place.space_name }}</h2>
                                             <div class="col-xs-12 pade_none verified_date_rs">
                                             </div>
                                             <div class="col-xs-12 pade_none much_bord">
-                                                <div class="col-xs-12 pade_none muchroom_mail"><i class="fa fa-map-marker"></i> Куйбишева 12, Poltava, Ukraine</div>
+                                                <div class="col-xs-12 pade_none muchroom_mail"><i class="fa fa-map-marker"></i> {{ place.get_address }}</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-md-3 col-xs-12 pade_none rating_member_outer">
@@ -297,7 +284,13 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="javascript:void(0); " id="link_to_map"> <div class="col-xs-12 pade_none spaces_map_outer"> <iframe src="maps.html style="border: 0px none; pointer-events: none;" allowfullscreen="" frameborder="0"></iframe></div> </a>
+                                <a href="javascript:void(0); " id="link_to_map">
+                                    <div class="col-xs-12 pade_none spaces_map_outer">
+                                        <div id="small_map" style="height: 142px;"></div>
+                                        {#                                        <iframe src="maps.html style="border: 0px none; pointer-events: none;" allowfullscreen="" frameborder="0"></iframe>#}
+                                    </div>
+
+                                </a>
                                 <div class="col-xs-12 pade_none spaces_contact_panel_outer contact_mobile_show">
                                     <div class="col-xs-12 pade_none spaces_contact_top_panel">
                                         <h3>Contact Us</h3>
@@ -331,12 +324,12 @@
                                                     <div class="sticky_bar_con">
                                                         <div class="col-xs-12 pade_none overview_coworker_outer sticky_bar" style="position: relative; top: initial; display: block;">
                                                             <ul>
-                                                                <li><a href="https://www.coworker.com/ukraine/poltava/.much_bord" class="">Overview</a></li>
-                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#amenities" class="">Amenities</a></li>
-                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#photos" class="">Photos</a></li>
-                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#desk_office" class="">Desk &amp; Office Prices</a></li>
-                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#map" id="big_map_link" class="">Map</a></li>
-                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#reviews01" id="reviews_link" class="">Reviews</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}.much_bord" class="">Overview</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#amenities" class="">Amenities</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#photos" class="">Photos</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#desk_office" class="">Desk &amp; Office Prices</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#map" id="big_map_link" class="">Map</a></li>
+                                                                {#                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#reviews01" id="reviews_link" class="">Reviews</a></li>#}
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -348,7 +341,7 @@
                                                                 <div class="lang_other_new" style="display:none;">
                                                                     <img style="cursor:pointer;" src="{% static 'img/flag.png' %}" class="flag flag-gb" onclick="displayDescription(&#39;p&#39;,&#39;e&#39;);">&nbsp;<img style="cursor:pointer;" src="{% static 'img/flag.png' %}" class="flag flag-ua" onclick="displayDescription(&#39;e&#39;,&#39;p&#39;);">
                                                                 </div>
-                                                                <p id="p_description" class="more">Grass Coworking - is a large, bright space with panoramic views of the street. There is also a meeting room and two rooms for 30 people.  In space, there is a screen, projector, and other equipment.</p><p id="e_description" class="more" style="display:none;"></p>                      </div>
+                                                                <p id="p_description" class="more">{{ place.cs_description }}</p><p id="e_description" class="more" style="display:none;"></p>                      </div>
                                                             <div class="col-xs-12 col-sm-12 col-md-3 pade_none opening_hrs_out opening_panel_inner opening_hours_right">
                                                                 <div class="col-xs-12 pade_none opening_hours_events_main">
                                                                     <div class="member_access_content">
@@ -400,73 +393,21 @@
                                             </div>
                                             <div class="col-xs-12 pade_none coworker_slider_main_outer lb-album space_photo_section scroll_navbar" id="photos">
                                                 <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-camera" aria-hidden="true"></i> Photos</div>
+
+
                                                 <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_2photo_outer">
 
-                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/1.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 1">
+                                                    {% for image in place.get_photos %}
+                                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
+                                                            <a alt="{{ place.space_name }}" href="{{ image.file.url }}?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 1">
 
-                                                            <img src="{% static 'img/1.jpg' %}" style="display:none">
-                                                            <div class="example-image slider-bg-pic" alt="Grass Coworking, Poltava" style="background-image: url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/1.jpg?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
+                                                                <img src="{{ image.file.url }}">
+                                                                <div class="example-image slider-bg-pic" alt="{{ place.space_name }}, Poltava" style="background-image: url({{ image.file.url }}?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
 
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/2.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 2">
-
-                                                            <img src="{% static 'img/2.jpg' %}" style="display:none">
-                                                            <div class="example-image slider-bg-pic" alt="Grass Coworking, Poltava" style="background-image: url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/2.jpg?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
-
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/3.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 3">
-
-                                                            <img src="{% static 'img/3.jpg' %}" style="display:none">
-                                                            <div class="example-image slider-bg-pic" alt="Grass Coworking, Poltava" style="background-image: url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/3.jpg?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                    <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/4.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 4">
-
-                                                        <img src="{% static 'img/4.jpg' %}" style="display:none">
-                                                        <div class="example-image slider-bg-pic" alt="Grass Coworking, Poltava" style="background-image: url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/4.jpg?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div></a>
-                                                </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                    <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/5.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 5">
-
-                                                        <img src="{% static 'img/5.jpg' %}" style="display:none">
-                                                        <div class="example-image slider-bg-pic" alt="Grass Coworking, Poltava" style="background-image: url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/5.jpg?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div></a>
-                                                </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                    <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/6.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 6">
-                                                        <div class="see_all_photos_text"><span>See All 19 Photos </span></div>
-                                                        <img src="{% static 'img/6.jpg' %}" style="display:none">
-                                                        <div class="example-image slider-bg-pic" alt="Grass Coworking, Poltava" style="background-image: url(&#39;https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/6.jpg?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div></a>
-                                                </div>
-                                                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space-new-slider-pic-outer" style="height: 0px; overflow: hidden;">
-                                                        <div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                            <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/7.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 7"><img src="{% static 'img/7.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                        </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/8.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 8"><img src="{% static 'img/8.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/9.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 9"><img src="{% static 'img/9.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/10.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 10"><img src="{% static 'img/10.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/11.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 11"><img src="{% static 'img/11.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/12.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 12"><img src="{% static 'img/12.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/13.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 13"><img src="{% static 'img/13.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/14.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 14"><img src="{% static 'img/14.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/15.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 15"><img src="{% static 'img/15.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/16.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 16"><img src="{% static 'img/16.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/17.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 17"><img src="{% static 'img/17.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/18.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 18"><img src="{% static 'img/18.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
-                                                        <a alt="Grass Coworking, Poltava" href="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/19.jpg?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 19"><img src="{% static 'img/19.jpg' %}" alt="Grass Coworking, Poltava"></a>
-                                                    </div>          </div>
+                                                            </a>
+                                                        </div>
+                                                    {% endfor %}
+{#                                                  {% include "place/reviews.html" %}#}
                                                 </div>
                                             </div>
 
@@ -479,7 +420,7 @@
                                                         <li><a data-target="#dedicated_desk" data-toggle="tab">Dedicated <span>Desk</span></a></li>
                                                         <li><a data-target="#private_office" data-toggle="tab" id="private_office_tab">Private <span>Office</span></a></li>
                                                     </ul>
-                                                    <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
+                                                    <form action="{{ place.get_absolute_url }}/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
                                                         <input type="hidden" value="0" id="res_duration" name="res_duration">
                                                         <input type="hidden" value="1" id="res_quantity" name="res_quantity">
                                                         <input type="hidden" value="0" id="res_package_id" name="res_package_id">
@@ -520,7 +461,7 @@
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section">
-                                                                    <tr class="empty-messqage"><td colspan="5">Grass Coworking has not added details about their Dedicated desks yet</td></tr>                          </tbody>
+                                                                    <tr class="empty-messqage"><td colspan="5">{{ place.space_name }} has not added details about their Dedicated desks yet</td></tr>                          </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -539,7 +480,7 @@
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section button-view-all-link">
-                                                                    <tr class="empty-messqage"><td colspan="5">Grass Coworking has not added details about their Private Office yet</td></tr>                          </tbody>
+                                                                    <tr class="empty-messqage"><td colspan="5">{{ place.space_name }} has not added details about their Private Office yet</td></tr>                          </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -552,353 +493,354 @@
 
                                         <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_content_map scroll_navbar" id="map">
                                             <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space pade_top_bottom"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                Location <br><span>Куйбишева 12, Poltava, Ukraine</span>
+                                                Location <br><span>{{ place.get_address }}</span>
                                             </div>
-                                            <iframe src="maps(1).html style="border: 0px none; pointer-events: none;" allowfullscreen="" class="map_con" height="450" frameborder="0" width="600"></iframe>
+                                            <div id="big_map" style="height: 500px;width: 1000px;margin-bottom: 100px;"></div>
                                         </div>
 
-                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_bott reviews_community_main scroll_navbar" id="reviews01">
-                                            <h3>1 <samp>Review</samp> <span>By the coworking community</span></h3>
-                                            <div id="dv_rev_list" class="col-xs-12 pade_none">
-                                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none revies_stars">
-                                                    <div class="col-sm-12 col-md-12 col-xs-12 overall_con_rec">
-                                                        <p>
-                    <span>
-5                    </span>out of 5
-                                                        </p>
-                                                        <div class="r_percentage">
-                                                            <div class="r_percentage_gb" style="width:100%"></div>                  </div>
-                                                    </div>
-                                                    <div class="col-sm-12 col-md-12 col-xs-12 overall_con_rec02">
-                                                        <p><span>100</span>%&nbsp;&nbsp;of coworkers recommended</p>
-                                                        <div class="r_percentage">
-                                                            <div class="r_percentage_gb" style="width:100%"></div>                  </div>
-                                                        <div class=" col-xs-12 pade_none  coworker_more_text">
-                                                            <a href="javascript: void(0);" class="cowork_more_plus">More <i class="fa fa-plus" aria-hidden="true"></i></a>
-                                                            <a href="javascript: void(0);" class="cowork_more_minus" style="display: none;">Less <i class="fa fa-minus" aria-hidden="true"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-md-6 col-xs-12 coworker_memeber_hub_outer">
-                                                    <div class="coworker_member_space_name">
-                                                        <h6>Are you a member of Grass Coworking?</h6>
-                                                        <!--<p>Rate and write a review</p>-->
-                                                        <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/review" method="post" accept-charset="utf-8" id="form_review" name="review_form">                <input type="hidden" name="ws_id" value="1917">
-                                                            <input type="hidden" name="rev_type" id="rev_type" value="1">
-                                                            <a href="javascript:void(0);" onclick="$(this).closest(&#39;form&#39;).submit();">Post a Review</a>
-                                                            <!--<a href="javascript:void(0);" data-toggle="modal" data-target="#splashmyModal" >Post a Review</a>-->
-                                                        </form>              </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 pade_none coworker_overall_rating_panel" style="display: none;">
-                                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_outer02">
-                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none rate_overall_out">
-                                                        <h2>Overall Rating</h2>
-                                                        <div class="col-xs-12 pade_none overall_rates_con">
-                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Excellent</div>
-                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_b" style="width:100%"></div></div></div>
-                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">1</div>
-                                                        </div>
-                                                        <div class="col-xs-12 pade_none overall_rates_con02">
-                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Very Good</div>
-                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>
-                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>
-                                                        </div>
-                                                        <div class="col-xs-12 pade_none overall_rates_con">
-                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Average</div>
-                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>
-                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>
-                                                        </div>
-                                                        <div class="col-xs-12 pade_none overall_rates_con02">
-                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Poor</div>
-                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>
-                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>
-                                                        </div>
-                                                        <div class="col-xs-12 pade_none overall_rates_con">
-                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Terrible</div>
-                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>
-                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none revies_stars reviews_border_hide">
-                                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none rate_overall_out02">
-                                                            <h2>Rating Summary</h2>
-                                                            <div class="rating_rates_con">
-                                                                <div class="pade_none sin_title_con">Location</div>
-                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>
-                                                            </div>
-                                                            <div class="col-xs-12 pade_none summary_rates_con">
-                                                                <div class="pade_none sin_title_con">WiFi</div>
-                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>
-                                                            </div>
-                                                            <div class="col-xs-12 pade_none summary_rates_con">
-                                                                <div class="pade_none sin_title_con">Productive Enviornment</div>
-                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>
-                                                            </div>
-                                                            <div class="col-xs-12 pade_none summary_rates_con">
-                                                                <div class="pade_none sin_title_con">Workspace Comfort</div>
-                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>
-                                                            </div>
-                                                            <div class="col-xs-12 pade_none summary_rates_con">
-                                                                <div class="pade_none sin_title_con">Social &amp; Community</div>
-                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>
-                                                            </div>
-                                                            <div class="col-xs-12 pade_none summary_rates_con00">
-                                                                <div class="pade_none sin_title_con">Amenities</div>
-                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 pade_none reviews_tabs_outer review_tabs_space">
-                                            <ul id="tab_answers">
-                                                <li><a id="tab_answer1" href="javascript:void(0);" class="anchor review_active_tab" onclick="displayAnswer(&#39;answer1&#39;);">Reviews</a></li>
-                                                <li><a id="tab_answer2" href="javascript:void(0);" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">Tips</a></li>
-                                                <li><a id="tab_answer3" href="javascript:void(0);" class="anchor" onclick="displayAnswer(&#39;answer3&#39;);">Q&amp;A</a></li>
-                                            </ul>
-                                        </div>
+                                        {#                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_bott reviews_community_main scroll_navbar" id="reviews01">#}
+                                        {#                                            <h3>1 <samp>Review</samp> <span>By the coworking community</span></h3>#}
+                                        {#                                            <div id="dv_rev_list" class="col-xs-12 pade_none">#}
+                                        {#                                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none revies_stars">#}
+                                        {#                                                    <div class="col-sm-12 col-md-12 col-xs-12 overall_con_rec">#}
+                                        {#                                                        <p>#}
+                                        {#                    <span>#}
+                                        {#5                    </span>out of 5#}
+                                        {#                                                        </p>#}
+                                        {#                                                        <div class="r_percentage">#}
+                                        {#                                                            <div class="r_percentage_gb" style="width:100%"></div>                  </div>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="col-sm-12 col-md-12 col-xs-12 overall_con_rec02">#}
+                                        {#                                                        <p><span>100</span>%&nbsp;&nbsp;of coworkers recommended</p>#}
+                                        {#                                                        <div class="r_percentage">#}
+                                        {#                                                            <div class="r_percentage_gb" style="width:100%"></div>                  </div>#}
+                                        {#                                                        <div class=" col-xs-12 pade_none  coworker_more_text">#}
+                                        {#                                                            <a href="javascript: void(0);" class="cowork_more_plus">More <i class="fa fa-plus" aria-hidden="true"></i></a>#}
+                                        {#                                                            <a href="javascript: void(0);" class="cowork_more_minus" style="display: none;">Less <i class="fa fa-minus" aria-hidden="true"></i></a>#}
+                                        {#                                                        </div>#}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>#}
+                                        {#                                                <div class="col-sm-6 col-md-6 col-xs-12 coworker_memeber_hub_outer">#}
+                                        {#                                                    <div class="coworker_member_space_name">#}
+                                        {#                                                        <h6>Are you a member of {{ place.space_name }}?</h6>#}
+                                        {#                                                        <!--<p>Rate and write a review</p>-->#}
+                                        {#                                                        <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/review" method="post" accept-charset="utf-8" id="form_review" name="review_form">                <input type="hidden" name="ws_id" value="1917">#}
+                                        {#                                                            <input type="hidden" name="rev_type" id="rev_type" value="1">#}
+                                        {#                                                            <a href="javascript:void(0);" onclick="$(this).closest(&#39;form&#39;).submit();">Post a Review</a>#}
+                                        {#                                                            <!--<a href="javascript:void(0);" data-toggle="modal" data-target="#splashmyModal" >Post a Review</a>-->#}
+                                        {#                                                        </form>              </div>#}
+                                        {#                                                </div>#}
+                                        {#                                            </div>#}
+                                        {#                                            <div class="col-xs-12 pade_none coworker_overall_rating_panel" style="display: none;">#}
+                                        {#                                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_outer02">#}
+                                        {#                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none rate_overall_out">#}
+                                        {#                                                        <h2>Overall Rating</h2>#}
+                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con">#}
+                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Excellent</div>#}
+                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_b" style="width:100%"></div></div></div>#}
+                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">1</div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con02">#}
+                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Very Good</div>#}
+                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
+                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con">#}
+                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Average</div>#}
+                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
+                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con02">#}
+                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Poor</div>#}
+                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
+                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con">#}
+                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Terrible</div>#}
+                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
+                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none revies_stars reviews_border_hide">#}
+                                        {#                                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none rate_overall_out02">#}
+                                        {#                                                            <h2>Rating Summary</h2>#}
+                                        {#                                                            <div class="rating_rates_con">#}
+                                        {#                                                                <div class="pade_none sin_title_con">Location</div>#}
+                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
+                                        {#                                                                <div class="pade_none sin_title_con">WiFi</div>#}
+                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
+                                        {#                                                                <div class="pade_none sin_title_con">Productive Enviornment</div>#}
+                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
+                                        {#                                                                <div class="pade_none sin_title_con">Workspace Comfort</div>#}
+                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
+                                        {#                                                                <div class="pade_none sin_title_con">Social &amp; Community</div>#}
+                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con00">#}
+                                        {#                                                                <div class="pade_none sin_title_con">Amenities</div>#}
+                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                        </div>#}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>#}
+                                        {#                                            </div>#}
+                                        {#                                        </div>#}
+                                        {#                                        <div class="col-md-12 col-sm-12 col-xs-12 pade_none reviews_tabs_outer review_tabs_space">#}
+                                        {#                                            <ul id="tab_answers">#}
+                                        {#                                                <li><a id="tab_answer1" href="javascript:void(0);" class="anchor review_active_tab" onclick="displayAnswer(&#39;answer1&#39;);">Reviews</a></li>#}
+                                        {#                                                <li><a id="tab_answer2" href="javascript:void(0);" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">Tips</a></li>#}
+                                        {#                                                <li><a id="tab_answer3" href="javascript:void(0);" class="anchor" onclick="displayAnswer(&#39;answer3&#39;);">Q&amp;A</a></li>#}
+                                        {#                                            </ul>#}
+                                        {#                                        </div>#}
                                         <!--REVIEW TAB START-->
-                                        <div class="col-xs-12 pade_none review_section_tabs review_tabs_section" id="answer1" style="display:block;">
-                                            <div class="col-xs-12 pade_none filter_reviews_By">
-                                                <div class="filter_reviews_head">Filter Reviews By:</div>
-                                                <div class="filter_reviews_checkbox">
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select">
-                                                        <label for="review_select"></label>
-                                                        <span>Written Review</span>
-                                                    </div>
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select02">
-                                                        <label for="review_select02"></label>
-                                                        <span>Video review</span>
-                                                    </div>
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select03">
-                                                        <label for="review_select03"></label>
-                                                        <span>Excellent</span>
-                                                    </div>
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select04">
-                                                        <label for="review_select04"></label>
-                                                        <span>Very Good</span>
-                                                    </div>
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select05">
-                                                        <label for="review_select05"></label>
-                                                        <span>Average</span>
-                                                    </div>
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select06">
-                                                        <label for="review_select06"></label>
-                                                        <span>Poor</span>
-                                                    </div>
-                                                    <div class="filter_checkbox_inn">
-                                                        <input name="review_select" type="checkbox" value="" id="review_select07">
-                                                        <label for="review_select07"></label>
-                                                        <span>Terrible</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="reviews">
-                                                <div id="1rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
-                                                    <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
-                                                        <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="{% static 'not_sure/picture(1)' %}" alt=""></span></div>
-                                                        <span>{{ user.full_name }}</span>
-                                                        <ul>
-                                                            <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li>
-                                                            <li id="total_votes_6855"><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i>0 Helpful  Votes</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
-                                                        <div class="col-xs-12 reviews_txt-new-outer01">
-                                                            <a href="https://www.coworker.com/ukraine/poltava/grass-coworking/review-11040">
-                                                                <h4>"Cool place"</h4>
-                                                            </a>
-                                                            <div class="reviews_txt-new-bottom01">
-                                                                <div class="views-rating-out-b">
-                                                                    <div class="col-xs-12 pade_none review_star_panel">
-                                                                        <div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div>
-                                                                    </div>
-                                                                    <div class="review_pic_outer lb-album"><ul></ul></div>
-                                                                    <div class="review_date date_hide">September 2017</div>
-                                                                </div>
-                                                                <p>I like this place. Best in Poltava</p>
-                                                                <div class="helpful05-out">
-                                                                    <label id="helpful_vote_6855"><a href="javascript:void(0);"><span>helpful ?</span></a></label>
-                                                                    <img id="vote_heart_6855" onclick="register_vote_rev(6855,1,1917);" src="{% static 'img/heart-img01-red.png' %}" class="heart-red-color01">
-                                                                    <p id="vote_thanks_6855" onclick="register_vote_rev(6855,1,1917);"><span id="vote_numbers_6855">0<img src="{% static 'img/thanks-out-bg02.png' %}" class="thanks-out-bg02"></span> Thank Alex</p>
-                                                                    <p id="vote_thanks_msg_6855" style="display:none"><span id="vote_thanks_totals_6855"><img src="{% static 'img/thanks-out-bg02.png' %}" class="thanks-out-bg02"></span> Thanks for your vote!</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="arrow-position-left02"><img class="rply_img" src="{% static 'img/arrow-position-left01.png' %}"></div>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>              </div>
-
-
-                                            <!--PAGINATION HERE-->
-
-                                            <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main coworker_pagination_panel">
-                                                <ul id="rev_pagination">
-                                                </ul>
-                                            </div>
-                                            <!--PAGINATION HERE end-->
-                                        </div>
+                                        {#                                        <div class="col-xs-12 pade_none review_section_tabs review_tabs_section" id="answer1" style="display:block;">#}
+                                        {#                                            <div class="col-xs-12 pade_none filter_reviews_By">#}
+                                        {#                                                <div class="filter_reviews_head">Filter Reviews By:</div>#}
+                                        {#                                                <div class="filter_reviews_checkbox">#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select">#}
+                                        {#                                                        <label for="review_select"></label>#}
+                                        {#                                                        <span>Written Review</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select02">#}
+                                        {#                                                        <label for="review_select02"></label>#}
+                                        {#                                                        <span>Video review</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select03">#}
+                                        {#                                                        <label for="review_select03"></label>#}
+                                        {#                                                        <span>Excellent</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select04">#}
+                                        {#                                                        <label for="review_select04"></label>#}
+                                        {#                                                        <span>Very Good</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select05">#}
+                                        {#                                                        <label for="review_select05"></label>#}
+                                        {#                                                        <span>Average</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select06">#}
+                                        {#                                                        <label for="review_select06"></label>#}
+                                        {#                                                        <span>Poor</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="filter_checkbox_inn">#}
+                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select07">#}
+                                        {#                                                        <label for="review_select07"></label>#}
+                                        {#                                                        <span>Terrible</span>#}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>#}
+                                        {#                                            </div>#}
+                                        {#                                            <div id="reviews">#}
+                                        {#                                                <div id="1rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">#}
+                                        {#                                                    <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">#}
+                                        {#                                                        <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="{% static 'not_sure/picture(1)' %}" alt=""></span></div>#}
+                                        {#                                                        <span>{{ user.full_name }}</span>#}
+                                        {#                                                        <ul>#}
+                                        {#                                                            <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li>#}
+                                        {#                                                            <li id="total_votes_6855"><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i>0 Helpful  Votes</li>#}
+                                        {#                                                        </ul>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">#}
+                                        {#                                                        <div class="col-xs-12 reviews_txt-new-outer01">#}
+                                        {#                                                            <a href="https://www.coworker.com/ukraine/poltava/grass-coworking/review-11040">#}
+                                        {#                                                                <h4>"Cool place"</h4>#}
+                                        {#                                                            </a>#}
+                                        {#                                                            <div class="reviews_txt-new-bottom01">#}
+                                        {#                                                                <div class="views-rating-out-b">#}
+                                        {#                                                                    <div class="col-xs-12 pade_none review_star_panel">#}
+                                        {#                                                                        <div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div>#}
+                                        {#                                                                    </div>#}
+                                        {#                                                                    <div class="review_pic_outer lb-album"><ul></ul></div>#}
+                                        {#                                                                    <div class="review_date date_hide">September 2017</div>#}
+                                        {#                                                                </div>#}
+                                        {#                                                                <p>I like this place. Best in Poltava</p>#}
+                                        {#                                                                <div class="helpful05-out">#}
+                                        {#                                                                    <label id="helpful_vote_6855"><a href="javascript:void(0);"><span>helpful ?</span></a></label>#}
+                                        {#                                                                    <img id="vote_heart_6855" onclick="register_vote_rev(6855,1,1917);" src="{% static 'img/heart-img01-red.png' %}" class="heart-red-color01">#}
+                                        {#                                                                    <p id="vote_thanks_6855" onclick="register_vote_rev(6855,1,1917);"><span id="vote_numbers_6855">0<img src="{% static 'img/thanks-out-bg02.png' %}" class="thanks-out-bg02"></span> Thank Alex</p>#}
+                                        {#                                                                    <p id="vote_thanks_msg_6855" style="display:none"><span id="vote_thanks_totals_6855"><img src="{% static 'img/thanks-out-bg02.png' %}" class="thanks-out-bg02"></span> Thanks for your vote!</p>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </div>#}
+                                        {#                                                            <div class="arrow-position-left02"><img class="rply_img" src="{% static 'img/arrow-position-left01.png' %}"></div>#}
+                                        {##}
+                                        {#                                                        </div>#}
+                                        {##}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>              </div>#}
+                                        {##}
+                                        {##}
+                                        {#                                            <!--PAGINATION HERE-->#}
+                                        {##}
+                                        {#                                            <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main coworker_pagination_panel">#}
+                                        {#                                                <ul id="rev_pagination">#}
+                                        {#                                                </ul>#}
+                                        {#                                            </div>#}
+                                        {#                                            <!--PAGINATION HERE end-->#}
+                                        {#                                        </div>#}
                                         <!-- TIPS TAB START-->
-                                        <div class="col-xs-12 pade_none review_section_tabs top_section_tabs" id="answer2" style="display:none;">
-                                            <div id="dv_tip_list" class="col-xs-12 pade_none filter_reviews_By">
-                                                <div class="filter_reviews_head">Filter Reviews By:<!-- <a href="#">Clear All</a>--></div>
-                                                <div class="filter_reviews_checkbox">
-                                                    <div class="col-xs-12 col-md-4 col-sm-12 pade_none filter_reviews_checkbox_list">
-                                                        <ul>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn filter_checkbox_green">
-                                                                    <input name="review_select" id="review_select_list01" type="checkbox">
-                                                                    <label for="review_select_list01"></label>
-                                                                    <span>Coworking Space Tips</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list02" type="checkbox">
-                                                                    <label for="review_select_list02"></label>
-                                                                    <span>Checking In</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list03" type="checkbox">
-                                                                    <label for="review_select_list03"></label>
-                                                                    <span>Transportation</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list04" type="checkbox">
-                                                                    <label for="review_select_list04"></label>
-                                                                    <span>Making the most of your Visit</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list05" type="checkbox">
-                                                                    <label for="review_select_list05"></label>
-                                                                    <span>Other</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xs-12 col-md-8 col-sm-12 pade_none filter_reviews_checkbox_list filter_reviews_checkbox_list02">
-                                                        <ul>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn filter_checkbox_green">
-                                                                    <input name="review_select" id="area_tips_click" type="checkbox">
-                                                                    <label for="area_tips_click"></label>
-                                                                    <span>Area Tips</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list07" type="checkbox">
-                                                                    <label for="review_select_list07"></label>
-                                                                    <span>Places to eat</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list08" type="checkbox">
-                                                                    <label for="review_select_list08"></label>
-                                                                    <span>Where to stay</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list09" type="checkbox">
-                                                                    <label for="review_select_list09"></label>
-                                                                    <span>Places to socialize</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list10" type="checkbox">
-                                                                    <label for="review_select_list10"></label>
-                                                                    <span>Places to see</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <ul>
-                                                            <li class="list_none">
-                                                                &nbsp;
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list11" type="checkbox">
-                                                                    <label for="review_select_list11"></label>
-                                                                    <span>Activities to try</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list12" type="checkbox">
-                                                                    <label for="review_select_list12"></label>
-                                                                    <span>Best cup of coffee</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list13" type="checkbox">
-                                                                    <label for="review_select_list14"></label>
-                                                                    <span>Places to drink</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list14" type="checkbox">
-                                                                    <label for="review_select_list14"></label>
-                                                                    <span>How to get around</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <ul>
-                                                            <li class="list_none">
-                                                                &nbsp;
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list15" type="checkbox">
-                                                                    <label for="review_select_list15"></label>
-                                                                    <span>Where to Shop</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="filter_checkbox_inn">
-                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list16" type="checkbox">
-                                                                    <label for="review_select_list16"></label>
-                                                                    <span>Other</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="tips">
-
-
-                                            </div>
-                                            <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main">
-                                                <ul id="tips_pagination">
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        {#                                        <div class="col-xs-12 pade_none review_section_tabs top_section_tabs" id="answer2" style="display:none;">#}
+                                        {#                                            <div id="dv_tip_list" class="col-xs-12 pade_none filter_reviews_By">#}
+                                        {#                                                <div class="filter_reviews_head">Filter Reviews By:<!-- <a href="#">Clear All</a>--></div>#}
+                                        {#                                                <div class="filter_reviews_checkbox">#}
+                                        {#                                                    <div class="col-xs-12 col-md-4 col-sm-12 pade_none filter_reviews_checkbox_list">#}
+                                        {#                                                        <ul>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn filter_checkbox_green">#}
+                                        {#                                                                    <input name="review_select" id="review_select_list01" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list01"></label>#}
+                                        {#                                                                    <span>Coworking Space Tips</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list02" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list02"></label>#}
+                                        {#                                                                    <span>Checking In</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list03" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list03"></label>#}
+                                        {#                                                                    <span>Transportation</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list04" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list04"></label>#}
+                                        {#                                                                    <span>Making the most of your Visit</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list05" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list05"></label>#}
+                                        {#                                                                    <span>Other</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                        </ul>#}
+                                        {#                                                    </div>#}
+                                        {#                                                    <div class="col-xs-12 col-md-8 col-sm-12 pade_none filter_reviews_checkbox_list filter_reviews_checkbox_list02">#}
+                                        {#                                                        <ul>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn filter_checkbox_green">#}
+                                        {#                                                                    <input name="review_select" id="area_tips_click" type="checkbox">#}
+                                        {#                                                                    <label for="area_tips_click"></label>#}
+                                        {#                                                                    <span>Area Tips</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list07" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list07"></label>#}
+                                        {#                                                                    <span>Places to eat</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list08" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list08"></label>#}
+                                        {#                                                                    <span>Where to stay</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list09" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list09"></label>#}
+                                        {#                                                                    <span>Places to socialize</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list10" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list10"></label>#}
+                                        {#                                                                    <span>Places to see</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                        </ul>#}
+                                        {#                                                        <ul>#}
+                                        {#                                                            <li class="list_none">#}
+                                        {#                                                                &nbsp;#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list11" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list11"></label>#}
+                                        {#                                                                    <span>Activities to try</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list12" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list12"></label>#}
+                                        {#                                                                    <span>Best cup of coffee</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list13" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list14"></label>#}
+                                        {#                                                                    <span>Places to drink</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list14" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list14"></label>#}
+                                        {#                                                                    <span>How to get around</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                        </ul>#}
+                                        {#                                                        <ul>#}
+                                        {#                                                            <li class="list_none">#}
+                                        {#                                                                &nbsp;#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list15" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list15"></label>#}
+                                        {#                                                                    <span>Where to Shop</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                            <li>#}
+                                        {#                                                                <div class="filter_checkbox_inn">#}
+                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list16" type="checkbox">#}
+                                        {#                                                                    <label for="review_select_list16"></label>#}
+                                        {#                                                                    <span>Other</span>#}
+                                        {#                                                                </div>#}
+                                        {#                                                            </li>#}
+                                        {#                                                        </ul>#}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>#}
+                                        {#                                            </div>#}
+                                        {#                                            <div id="tips">#}
+                                        {##}
+                                        {##}
+                                        {#                                            </div>#}
+                                        {#                                            <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main">#}
+                                        {#                                                <ul id="tips_pagination">#}
+                                        {#                                                </ul>#}
+                                        {#                                            </div>#}
+                                        {#                                        </div>#}
                                         <!--QA TAB START-->
-                                        <div class="col-xs-12 pade_none top_section_tabs cowork_ask_question_tab" id="answer3" style="display:none;">
-                                            <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://www.coworker.com/ukraine/poltava/grass-coworking" width="100%" data-numposts="5" fb-xfbml-state="rendered"><span style="height: 717px;"><iframe id="f137aeed99717a4" name="f18eed4afcebcb8" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="comments.html style="border: none; overflow: hidden; height: 717px; width: 100%;"></iframe></span></div>
-                                        </div>
+                                        {#                                        <div class="col-xs-12 pade_none top_section_tabs cowork_ask_question_tab" id="answer3" style="display:none;">#}
+                                        {#                                            <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://www.coworker.com/ukraine/poltava/grass-coworking" width="100%" data-numposts="5" fb-xfbml-state="rendered"><span style="height: 717px;"><iframe id="f137aeed99717a4" name="f18eed4afcebcb8" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="comments.html style="border: none; overflow: hidden; height: 717px; width: 100%;"></iframe></span></div>#}
+                                        {#                                        </div>#}
                                     </div>
+                                    <br>
                                     <!--LEFT PANEL END-->
                                     <!-- RIGHT PANEL START-->
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con" id="contact_hide_mobile">
@@ -932,4 +874,150 @@
         </div>
         <!--NGINX SOFTWARE END-->
     </div>
+
+
+    <script type="text/javascript">
+      // <![CDATA[
+      //Create and initialize the map£º
+      function initMap() {
+        createMap2();
+        createMap();
+        setMapEvent();
+        addMapControl();
+        addMarker();
+      }
+
+      //Create a map function£º
+      function createMap() {
+        var map = new BMap.Map("big_map");//Add a map to the container
+        var point = new BMap.Point(123.455123,41.79223);//set the center point
+        map.centerAndZoom(point, 19);//display level
+        window.map = map;
+        window.localSearch = new BMap.LocalSearch(map);
+        window.localSearch.enableAutoViewport(); //Allow automatic adjustment
+
+      }
+
+      function createMap2() {
+        var map = new BMap.Map("small_map");//Add a map to the container
+        var point = new BMap.Point(123.455123,41.79223);//set the center point
+        map.centerAndZoom(point, 19);//display level
+        window.map2 = map;
+        window.localSearch = new BMap.LocalSearch(map);
+        window.localSearch.enableAutoViewport(); //Allow automatic adjustment
+
+      }
+
+      // control tool of the map£º
+      function setMapEvent() {
+        map.enableDragging();
+        map.enableScrollWheelZoom();
+        map.enableDoubleClickZoom();
+        map.enableKeyboard();
+      }
+
+      //addMapControl£º
+      function addMapControl() {
+        var ctrl_nav = new BMap.NavigationControl({
+          anchor : BMAP_ANCHOR_TOP_LEFT,
+          type : BMAP_NAVIGATION_CONTROL_LARGE
+        });
+        map.addControl(ctrl_nav);
+        //Scale controls
+        var ctrl_sca = new BMap.ScaleControl({
+          anchor : BMAP_ANCHOR_BOTTOM_LEFT
+        });
+        map.addControl(ctrl_sca);
+      }
+
+      //Indexing array
+      var markerArr = [
+        {% for place in places %}
+          {
+            title : "{{ place.space_name }}",
+            content : "{{ place.space_name }}",
+            point : "123.455123|41.79223",
+            {#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
+            isOpen : 1,
+            icon : {
+              w : 21,
+              h : 30,
+              l : 0,
+              t : 21,
+              x : 6,
+              lb : 5
+            }
+          } {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      ];
+      // creat marker
+      function addMarker() {
+        for ( var i = 0; i < markerArr.length; i++) {
+          var json = markerArr[i];
+          var p0 = json.point.split("|")[0];
+          var p1 = json.point.split("|")[1];
+          var point = new BMap.Point(p0, p1);
+          var iconImg = createIcon(json.icon);
+          var marker = new BMap.Marker(point, {
+            icon : iconImg
+          });
+          var iw = createInfoWindow(i);
+          var label = new BMap.Label(json.title, {
+            "offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+          });
+          marker.setLabel(label);
+          map.addOverlay(marker);
+          label.setStyle({
+            borderColor : "#808080",
+            color : "#333",
+            cursor : "pointer"
+          });
+
+          (function() {
+            var index = i;
+            var _iw = createInfoWindow(i);
+            var _marker = marker;
+            _marker.addEventListener("click", function() {
+              this.openInfoWindow(_iw);
+            });
+            _iw.addEventListener("open", function() {
+              _marker.getLabel().hide();
+            })
+            _iw.addEventListener("close", function() {
+              _marker.getLabel().show();
+            })
+            label.addEventListener("click", function() {
+              _marker.openInfoWindow(_iw);
+            })
+            if (!!json.isOpen) {
+              label.hide();
+              _marker.openInfoWindow(_iw);
+            }
+          })()
+        }
+      }
+      //creat InfoWindow
+      function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow(
+          "<b class='iw_poi_title' title='" + json.title + "'>"
+          + json.title + "</b><div class='iw_poi_content'>"
+          + json.content + "</div>");
+        return iw;
+      }
+      //creat Icon
+      function createIcon(json) {
+        var icon = new BMap.Icon(
+          "http://api.map.baidu.com/img/markers.png",
+          new BMap.Size(json.w, json.h), {
+            imageOffset : new BMap.Size(-json.l, -json.t),
+            infoWindowOffset : new BMap.Size(json.lb + 5, 1),
+            offset : new BMap.Size(json.x, json.h)
+          })
+        return icon;
+      }
+
+      initMap();//Create and initialize the map
+      // ]]>
+    </script>
 {% endblock content %}
