@@ -8,83 +8,91 @@
 {% block content %}
     <div class="main_outer">
 
-        <div class="breadcrumb_outer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none breadcrumb_inner">
-                        <ul>
-                            <li><p>World</p>5256</li>
-                            <li><p>{{ place.city_origin.country.name }}</p>1379</li>
-                            <li><p><a href="{{ city_origin.country.name.get_absolute_url }}" style="color: inherit;">{{ place.city_origin.country.name }}</a></p>134</li>
-                        </ul>
-                    </div>
+    <div class="breadcrumb_outer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xs-12 pade_none breadcrumb_inner">
+                    <ul>
+                        <li><p>World</p>5256</li>
+                        <li><p>{{ country.contenent.name }}</p>1379</li>
+                        <li>
+                            <p>
+                                <a href="{{ country.name.get_absolute_url }}" style="color: inherit;">
+                                    {{ country.name }}
+                                </a>
+                            </p>134
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <!--BREADCRUMB END-->
-        <!--BANNER START-->
-        <div class="city_main_outr"
-             style="background-image:url(&#39;https://coworker.imgix.net/pictures/Co45/edit/{{ place.city_origin.country.name }} resize.jpg?mark=/template/img/wm_icon.png&amp;markscale=2&amp;markalign=center,middle&#39;);"
-        >
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none city_inner_main">
-                        <div class="city_inner">
-                            <div class="city_bang_out">
-                                {#                                <img src="{% static 'img/flag.png' %}" class="flag flag-cn">{{ place.city_origin.country.name }}  <br>#}
-                                {{ place.city_origin.country.name }}  <br>
-                                <span>134 Spaces</span>
+    </div>
+    <!--BREADCRUMB END-->
+    <!--BANNER START-->
+    <div class="city_main_outr"
+         style="background-image:url({{ country.image.url }}?mark=/template/img/wm_icon.png&amp;markscale=2&amp;markalign=center,middle&#39;);"
+    >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xs-12 pade_none city_inner_main">
+                    <div class="city_inner">
+                        <div class="city_bang_out">
+                            {#                                <img src="{% static 'img/flag.png' %}" class="flag flag-cn">{{ country.name }}  <br>#}
+                            {{ country.name }}  <br>
+                            <span>134 Spaces</span>
+                        </div>
+                        <form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
+                            <div class="col-xs-12 pade_none city_white_out">
+                                <h2>Search for coworking spaces in <span>{{ country.name }}</span></h2>
+                                <div class="col-xs-12 pade_none city_search_main">
+                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none city_daily_con">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="c1" name="cc" value="dai">
+                                                <label for="c1"><span></span>Daily</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="c2" name="cc" value="week">
+                                                <label for="c2"><span></span>Weekly</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="c3" name="cc" value="month">
+                                                <label for="c3"><span></span>Monthly</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 pade_none city_checkoout">
+                                    <a href="javascript:void(0);" onclick="refineSearch();">
+                                        Check out 134 Coworking Spaces in {{ country.name }}</a></div>
                             </div>
-                            <form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
-                                <div class="col-xs-12 pade_none city_white_out">
-                                    <h2>Search for coworking spaces in <span>{{ place.city_origin.country.name }}</span></h2>
-                                    <div class="col-xs-12 pade_none city_search_main">
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none city_daily_con">
-                                            <ul>
-                                                <li>
-                                                    <input type="checkbox" id="c1" name="cc" value="dai">
-                                                    <label for="c1"><span></span>Daily</label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" id="c2" name="cc" value="week">
-                                                    <label for="c2"><span></span>Weekly</label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" id="c3" name="cc" value="month">
-                                                    <label for="c3"><span></span>Monthly</label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 pade_none city_checkoout"><a href="javascript:void(0);" onclick="refineSearch();">Check out 134 Coworking Spaces in {{ place.country.name }}</a></div>
-                                </div>
-                                <input id="c_h_location" name="c_h_location" type="hidden" value="{{ place.city_origin.country.name }}">
-                                <input type="hidden" id="c_place_id" name="c_place_id" value="45">
-                            </form></div>
-                    </div>
+                            <input id="c_h_location" name="c_h_location" type="hidden" value="{{ country.name }}">
+                            <input type="hidden" id="c_place_id" name="c_place_id" value="45">
+                        </form></div>
                 </div>
             </div>
         </div>
-        <!--BANNER END-->
-        <!--HOT COWORKER DETINATIONS START-->
-        <div class="popular_cities_main02">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none popular_cities_outer" style="display:block">
-                        <h2>Popular Cities in {{ place.city_origin.country.name }}</h2>
-                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-                            {% for city in popular_cities %}
-                                <div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
-                                    <div class="col-xs-12 pade_none popular_cities_pic01" style="background-image:url(&#39;https://coworker.imgix.net/pictures/C709/edit/beijing-coworking_thumb.jpeg?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
-                                        <div class="thailnd_for_auto">
-                                            <div class="thailnd_ver_midd"><p>
-                                                <a href="{{ city.get_absolute_url }}"
-                                                   style="color: inherit;">{{ city.name }}</a></p>
-                                            </div>
+    </div>
+    <!--BANNER END-->
+    <!--HOT COWORKER DETINATIONS START-->
+    <div class="popular_cities_main02">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xs-12 pade_none popular_cities_outer" style="display:block">
+                    <h2>Popular Cities in {{ country.name }}</h2>
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none">
+                        {% for city in popular_cities %}
+                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
+                                <div class="col-xs-12 pade_none popular_cities_pic01" style="background-image:url({{ city.image.url }}?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
+                                    <div class="thailnd_for_auto">
+                                        <div class="thailnd_ver_midd"><p>
+                                            <a href="{{ city.get_absolute_url }}"
+                                               style="color: inherit;">{{ city.name }}</a></p>
                                         </div>
                                     </div>
                                 </div>
-                            {% endfor %}
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -96,127 +104,92 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none thailand_main_inner ">
-                        <h2>Top Coworking Spaces in {{ place.city_origin.country.name }}</h2>
+                        <h2>Top Coworking Spaces in {{ country.name }}</h2>
                         <div class="col-xs-12 pade_none">
                             <div class="col-xs-12 pade_none thailnd_coworker_spaces">
 
                                 <div class="col-sm-6 col-md-6 col-xs-12 pade_none thailnd_lft_out">
-                                    <div class="col-xs-12 pade_none thailand_inner_out">
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
-                                            <div class="col-xs-12 pade_none tbh_con">2800 CNY /m</div>
-                                            <a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/naked-hub-fu-xing-lu"><img src="{% static 'img/main_thumb.jpg' %}" alt="Naked Hub - Fu Xing Lu, Shanghai" title="Naked Hub - Fu Xing Lu in Shanghai, {{ place.city_origin.country.name }}"></a>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
-                                            <h3>Naked Hub - Fu Xing Lu</h3>
-                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
-                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
-                                                <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
+
+                                    {% for place in top_places %}
+                                        <div class="col-xs-12 pade_none thailand_inner_out">
+                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
+                                                <div class="col-xs-12 pade_none tbh_con">2800 CNY /m</div>
+                                                <a href="{{ place.get_absolute_url }}">
+                                                    <img src="{% static 'img/main_thumb.jpg' %}"
+                                                         alt="{{ place.space_name }}"
+                                                         title="{{ place.space_name }}{{ country.name }}">
+                                                </a>
                                             </div>
-                                            <p>This is where work and life meld together. Another venue in the commercial and dynamic Shanghai hub of {{ place.city_origin.country.name }} under the um...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/naked-hub-fu-xing-lu">More</a></p>
-                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/naked-hub-fu-xing-lu">Details and Prices</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 pade_none thailand_inner_out">
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
-                                            <div class="col-xs-12 pade_none tbh_con">168 CNY /d</div>
-                                            <a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/agora-space"><img src="{% static 'img/main-1491047401_thumb.jpg' %}" alt="Agora Space, Shanghai" title="Agora Space in Shanghai, {{ place.city_origin.country.name }}"></a>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
-                                            <h3>Agora Space</h3>
-                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
-                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
-                                                <div class="col-xs-6 pade_none start_rate_conn">4/5</div>
+                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
+                                                <h3>{{ place.space_name }}</h3>
+                                                <div class="col-xs-12 pade_none pade_none thlnd_stras">
+                                                    <div class="col-xs-6 pade_none thailnd_star">
+                                                        <img src="{% static 'img/img_thail_star.png' %}" alt="">
+                                                        <img src="{% static 'img/img_thail_star.png' %}" alt="">
+                                                        <img src="{% static 'img/img_thail_star.png' %}" alt="">
+                                                        <img src="{% static 'img/img_thail_star.png' %}" alt="">
+                                                        <img src="{% static 'img/img_thail_star.png' %}" alt="">
+                                                    </div>
+                                                    <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
+                                                </div>
+                                                <p>{{ place.cs_description|truncatechars:100 }}.&nbsp;<a href="{{ place.get_absolute_url }}">More</a>
+                                                </p>
+                                                <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/{{ country.name }}/shanghai/naked-hub-fu-xing-lu">Details and Prices</a></div>
                                             </div>
-                                            <p>Agora Space is an international working community for creators, dreamers, freelancers and entrepreneurs of different cult...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/agora-space">More</a></p>
-                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/agora-space">Details and Prices</a></div>
                                         </div>
-                                    </div>
+                                    {% endfor %}
+
                                 </div>
-
-                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none thailnd_rgt_out">
-
-                                    <div class="col-xs-12 pade_none thailand_inner_out">
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
-                                            <div class="col-xs-12 pade_none tbh_con">688 CNY /m</div>
-                                            <a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up"><img src="{% static 'img/main_thumb.jpeg' %}" alt="DAY DAY UP, Beijing" title="DAY DAY UP in Beijing, {{ place.city_origin.country.name }}"></a>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
-                                            <h3>DAY DAY UP</h3>
-                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
-                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
-                                                <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
-                                            </div>
-                                            <p>Aiming to create a shared workspace environment and community as a business platform for global professional independents...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up">More</a></p>
-                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up">Details and Prices</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 pade_none thailand_inner_out">
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
-                                            <div class="col-xs-12 pade_none tbh_con">800 CNY /m</div>
-                                            <a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shenzhen/simplywork-20"><img src="{% static 'img/main-1492161507_thumb.jpg' %}" alt="SimplyWork 2.0, Shenzhen" title="SimplyWork 2.0 in Shenzhen, {{ place.city_origin.country.name }}"></a>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd_rgt">
-                                            <h3>SimplyWork 2.0</h3>
-                                            <div class="col-xs-12 pade_none pade_none thlnd_stras">
-                                                <div class="col-xs-6 pade_none thailnd_star"><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""><img src="{% static 'img/img_thail_star.png' %}" alt=""></div>
-                                                <div class="col-xs-6 pade_none start_rate_conn">5/5</div>
-                                            </div>
-                                            <p>Founded by a group of young entrepreneurs, SimplyWork is Shenzhen’s most dreambitious co-working space. Currently we ha...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shenzhen/simplywork-20">More</a></p>
-                                            <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shenzhen/simplywork-20">Details and Prices</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
 
-                            <div class="col-xs-12 pade_none view_all_thailand_btn"><a href="javascript:void(0);" onclick="refineSearch();">View All Coworking Spaces in {{ place.city_origin.country.name }}</a></div>
+                            <div class="col-xs-12 pade_none view_all_thailand_btn"><a href="javascript:void(0);" onclick="refineSearch();">View All Coworking Spaces in {{ country.name }}</a></div>
 
                         </div>
 
                         <!--RECENT REVIEWS START-->
-                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_bangkok_out02">
-                            <h3>Recent reviews in {{ place.city_origin.country.name }}</h3>
-
-                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
-                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
-                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
-                                    <div class="review_txt02">I have been coming to CoderBunker for about six months, which is being hosted at Agora Space. I came here...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/agora-space">Show More</a></div>
-                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
-                                </div>
-                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/picture(1)' %}" alt=""></div>
-                                <div class="col-xs-12 pade_none john_con">Joseph Beltrami</div>
-                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/shanghai/agora-space" style="color: inherit;">Agora Space</a></div>
-                            </div>
-                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
-                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
-                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
-                                    <div class="review_txt02">DayDayUp is the most international co-working space in {{ place.city_origin.country.name }}. There is an average of 3-5 events each week...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up">Show More</a></div>
-                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
-                                </div>
-                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/picture(2)' %}" alt=""></div>
-                                <div class="col-xs-12 pade_none john_con">Zhang Wang</div>
-                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up" style="color: inherit;">DAY DAY UP</a></div>
-                            </div>
-                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
-                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
-                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
-                                    <div class="review_txt02">DayDayUp is the most international co-working space in {{ place.city_origin.country.name }}. There is an average of 3-5 events each week...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up">Show More</a></div>
-                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
-                                </div>
-                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'img/animalavatar05.png' %}" alt=""></div>
-                                <div class="col-xs-12 pade_none john_con">Mystery Coworker</div>
-                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/day-day-up" style="color: inherit;">DAY DAY UP</a></div>
-                            </div>
-                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">
-                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">
-                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>
-                                    <div class="review_txt02">I visited Coffizz a while back for a meeting and it must be one of the best coworking spaces in {{ place.city_origin.country.name }}. It...&nbsp;<a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/coffizz">Show More</a></div>
-                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>
-                                </div>
-                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/c473cc191ea9864bf4bb187885882ccf' %}" alt=""></div>
-                                <div class="col-xs-12 pade_none john_con">John Li</div>
-                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ place.city_origin.country.name }}/beijing/coffizz" style="color: inherit;">Coffizz</a></div>
-                            </div></div>
+                        {#                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_bangkok_out02">#}
+                        {#                            <h3>Recent reviews in {{ country.name }}</h3>#}
+                        {##}
+                        {#                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">#}
+                        {#                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">#}
+                        {#                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>#}
+                        {#                                    <div class="review_txt02">I have been coming to CoderBunker for about six months, which is being hosted at Agora Space. I came here...&nbsp;<a href="https://www.coworker.com/{{ country.name }}/shanghai/agora-space">Show More</a></div>#}
+                        {#                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>#}
+                        {#                                </div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/picture(1)' %}" alt=""></div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con">Joseph Beltrami</div>#}
+                        {#                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ country.name }}/shanghai/agora-space" style="color: inherit;">Agora Space</a></div>#}
+                        {#                            </div>#}
+                        {#                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">#}
+                        {#                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">#}
+                        {#                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>#}
+                        {#                                    <div class="review_txt02">DayDayUp is the most international co-working space in {{ country.name }}. There is an average of 3-5 events each week...&nbsp;<a href="https://www.coworker.com/{{ country.name }}/beijing/day-day-up">Show More</a></div>#}
+                        {#                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>#}
+                        {#                                </div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/picture(2)' %}" alt=""></div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con">Zhang Wang</div>#}
+                        {#                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ country.name }}/beijing/day-day-up" style="color: inherit;">DAY DAY UP</a></div>#}
+                        {#                            </div>#}
+                        {#                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">#}
+                        {#                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">#}
+                        {#                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>#}
+                        {#                                    <div class="review_txt02">DayDayUp is the most international co-working space in {{ country.name }}. There is an average of 3-5 events each week...&nbsp;<a href="https://www.coworker.com/{{ country.name }}/beijing/day-day-up">Show More</a></div>#}
+                        {#                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>#}
+                        {#                                </div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'img/animalavatar05.png' %}" alt=""></div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con">Mystery Coworker</div>#}
+                        {#                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ country.name }}/beijing/day-day-up" style="color: inherit;">DAY DAY UP</a></div>#}
+                        {#                            </div>#}
+                        {#                            <div class="col-sm-3 col-md-3 col-xs-12 pade_none review_outr">#}
+                        {#                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none review_inn02">#}
+                        {#                                    <div class="review_lft02"><img src="{% static 'img/img_inverted_commas.png' %}" alt=""></div>#}
+                        {#                                    <div class="review_txt02">I visited Coffizz a while back for a meeting and it must be one of the best coworking spaces in {{ country.name }}. It...&nbsp;<a href="https://www.coworker.com/{{ country.name }}/beijing/coffizz">Show More</a></div>#}
+                        {#                                    <div class="bottm_arrw"><img src="{% static 'img/img_bott_arrw.png' %}" alt=""></div>#}
+                        {#                                </div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con_pic"><img src="{% static 'not_sure/c473cc191ea9864bf4bb187885882ccf' %}" alt=""></div>#}
+                        {#                                <div class="col-xs-12 pade_none john_con">John Li</div>#}
+                        {#                                <div class="col-xs-12 pade_none cospace_nme_con"><a href="https://www.coworker.com/{{ country.name }}/beijing/coffizz" style="color: inherit;">Coffizz</a></div>#}
+                        {#                            </div></div>#}
 
                         <!--RECENT THAILAND REVIEWS END-->
                     </div>
@@ -229,10 +202,10 @@
         <!--MAP CONATINER-->
         <div class="thailand_map_out">
             <div class="bangkok_frame_con02">
-                <div class="see_map_con02"><a href="javascript:void(0);" onclick="refineSearch();">See a Map of all Spaces in {{ place.city_origin.country.name }}</a></div>
-
+                <div class="see_map_con02"><a href="javascript:void(0);" onclick="refineSearch();">
+                    See a Map of all Spaces in {{ country.name }}</a>
+                </div>
                 <div id="country_canvas" class="bangkok_map" style="position: relative; overflow: hidden;"></div>
-
             </div>
         </div>
         <div class="container">
@@ -241,17 +214,12 @@
                     <!--TABS START-->
                     <div class="simpleTabs" id="tabber102">
                         <ul class="simpleTabsNavigation">
-                            <li><a id="tabber102_a_0" class="current" href="javascript:void(0);" style="cursor:initial;">About {{ place.city_origin.country.name }}</a></li>
+                            <li><a id="tabber102_a_0" class="current" href="javascript:void(0);" style="cursor:initial;">About {{ country.name }}</a></li>
                         </ul>
                         <div class="simpleTabsContent currentTab" id="tabber102_div_0" style="padding-bottom: 60px;">
                             <div class="col-xs-12 pade_none hongkonk_out">
-                                <p>Despite the internet being available all over {{ place.city_origin.country.name }}, the Wi-Fi connections may leave you a little underwhelmed and social media networks may only be limited to the Chinese versions  The world's most populated country, its landscape ranges from desert, rivers and mountain ranges to grassland areas.  Shanghai, the pulsating heart of {{ place.city_origin.country.name }}, is a global financial center dotted with skyscrapers.<br>
-                                    <br>
-                                    Looked upon as the startups "El Dorado", {{ place.city_origin.country.name }} has seen an explosive 4.4 million new companies born. The government is actively encouraging the young budding entrepreneurs to realize their dreams with funding and making administrative approvals easy to obtain. It is being said that despite the super active market of digital startups, there is a general lack of quality and innovative ideas happening in a world climate that requires more effectiveness.  There have been a few startups out of {{ place.city_origin.country.name }} that have made an impact such as "Didi Kuaidi", which is Uber's competitor in {{ place.city_origin.country.name }}.    <br>
-                                    <br>
-                                    Coworking spaces are beginning to pop up around {{ place.city_origin.country.name }}, whilst many Internet cafes have ceased offering wireless connections due to the costs of new regulations. Do remember that if you are outside of a big city, your chances of finding a sweet spot to put your laptop to work will decrease rapidly, as do urban comforts. On mainland {{ place.city_origin.country.name }} you will find that social sites such as YouTube, Twitter and Facebook are not always available and access to most of Google products is currently blocked, so plan accordingly and find substitutes for these services. <br>
-                                    <br>
-                                    To find a coworking space in {{ place.city_origin.country.name }}, browse through our interactive map below.</p>          </div>
+                                {{ country.desctiption|default:"-" }}
+                            </div>
                         </div>
                     </div>
                     <!--TABS END-->
@@ -262,5 +230,139 @@
         <!--FOOTER END-->
     </div>
 
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=ctDShmu7hqaGe7GPUEwgpfZDBMiilQxQ&v=1.2&amp;services=true"></script>
+    <script type="text/javascript">
+      // <![CDATA[
+      //Create and initialize the map£º
+      function initMap() {
+        createMap();
+{#        setMapEvent();#}
+{#        addMapControl();#}
+{#        addMarker();#}
+      }
+
+      //Create a map function£º
+      function createMap() {
+        var map = new BMap.Map("country_canvas");//Add a map to the container
+        var point = new BMap.Point(123.455123,41.79223);//set the center point
+        map.centerAndZoom(point, 19);//display level
+        window.map = map;
+        window.localSearch = new BMap.LocalSearch(map);
+        window.localSearch.enableAutoViewport(); //Allow automatic adjustment
+
+      }
+
+      // control tool of the map£º
+      function setMapEvent() {
+        map.enableDragging();
+        map.enableScrollWheelZoom();
+        map.enableDoubleClickZoom();
+        map.enableKeyboard();
+      }
+
+      //addMapControl£º
+      function addMapControl() {
+        var ctrl_nav = new BMap.NavigationControl({
+          anchor : BMAP_ANCHOR_TOP_LEFT,
+          type : BMAP_NAVIGATION_CONTROL_LARGE
+        });
+        map.addControl(ctrl_nav);
+        //Scale controls
+        var ctrl_sca = new BMap.ScaleControl({
+          anchor : BMAP_ANCHOR_BOTTOM_LEFT
+        });
+        map.addControl(ctrl_sca);
+      }
+
+      //Indexing array
+      var markerArr = [
+        {% for place in places %}
+          {
+            title : "{{ place.space_name }}",
+            content : "{{ place.space_name }}",
+            point : "123.455123|41.79223",
+            {#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
+            isOpen : 1,
+            icon : {
+              w : 21,
+              h : 30,
+              l : 0,
+              t : 21,
+              x : 6,
+              lb : 5
+            }
+          } {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      ];
+      // creat marker
+      function addMarker() {
+        for ( var i = 0; i < markerArr.length; i++) {
+          var json = markerArr[i];
+          var p0 = json.point.split("|")[0];
+          var p1 = json.point.split("|")[1];
+          var point = new BMap.Point(p0, p1);
+          var iconImg = createIcon(json.icon);
+          var marker = new BMap.Marker(point, {
+            icon : iconImg
+          });
+          var iw = createInfoWindow(i);
+          var label = new BMap.Label(json.title, {
+            "offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+          });
+          marker.setLabel(label);
+          map.addOverlay(marker);
+          label.setStyle({
+            borderColor : "#808080",
+            color : "#333",
+            cursor : "pointer"
+          });
+
+          (function() {
+            var index = i;
+            var _iw = createInfoWindow(i);
+            var _marker = marker;
+            _marker.addEventListener("click", function() {
+              this.openInfoWindow(_iw);
+            });
+            _iw.addEventListener("open", function() {
+              _marker.getLabel().hide();
+            })
+            _iw.addEventListener("close", function() {
+              _marker.getLabel().show();
+            })
+            label.addEventListener("click", function() {
+              _marker.openInfoWindow(_iw);
+            })
+            if (!!json.isOpen) {
+              label.hide();
+              _marker.openInfoWindow(_iw);
+            }
+          })()
+        }
+      }
+      //creat InfoWindow
+      function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow(
+          "<b class='iw_poi_title' title='" + json.title + "'>"
+          + json.title + "</b><div class='iw_poi_content'>"
+          + json.content + "</div>");
+        return iw;
+      }
+      //creat Icon
+      function createIcon(json) {
+        var icon = new BMap.Icon(
+          "http://api.map.baidu.com/img/markers.png",
+          new BMap.Size(json.w, json.h), {
+            imageOffset : new BMap.Size(-json.l, -json.t),
+            infoWindowOffset : new BMap.Size(json.lb + 5, 1),
+            offset : new BMap.Size(json.x, json.h)
+          })
+        return icon;
+      }
+
+      initMap();//Create and initialize the map
+      // ]]>
+    </script>
 {% endblock content %}
 

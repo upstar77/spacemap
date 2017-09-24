@@ -3,6 +3,7 @@ import os
 
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
@@ -155,6 +156,8 @@ class PlaceManager(models.Manager):
 
 class Place(Member_Payment, ContactInfo, Location):
     space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
+    slug = models.SlugField()
+
     city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
@@ -192,6 +195,7 @@ class Place(Member_Payment, ContactInfo, Location):
     city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
 
     objects = PlaceManager()
+
     class Meta:
         verbose_name = _('Place')
         verbose_name_plural = _('Places')
@@ -199,3 +203,18 @@ class Place(Member_Payment, ContactInfo, Location):
     def __str__(self):
         return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city}
 
+
+    def get_absolute_url(self):
+        return reverse('place:place', kwargs={
+            'country': self.city_origin.country.slug,
+            'city': self.city_origin.slug,
+            'place': self.slug,
+        })
+
+    def get_photos(self):
+        return Photos.objects.filter(place=self)
+
+    def get_main_photo(self):
+        photos = Photos.objects.filter(place=self)
+        if photos:
+            return photos[0]

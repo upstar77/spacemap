@@ -25,16 +25,17 @@ class PlaceCountryList(View):
     template_name = 'place/country.html'
 
 
-    def get_popular_cities(self, place):
-        return CityOrigin.objects.filter(country=place.city_origin.country)
+    def get_popular_cities(self, country):
+        return CityOrigin.objects.filter(country=country)
 
 
     def get(self, request, *args, **kwargs):
         country = self.kwargs["country"]
-        place = get_object_or_404(Place, city_origin__country__slug__icontains=country)
+        country = get_object_or_404(Country, slug__icontains=country)
         return render(request, self.template_name, {
-            'place': place,
-            'popular_cities': self.get_popular_cities(place)
+            'country': country,
+            'popular_cities': self.get_popular_cities(country),
+            'top_places': Place.objects.by_country(country),
         })
 
 
