@@ -36,7 +36,7 @@
                                         <label for="{{ form.space_name.auto_id }}">
                                             {{ form.space_name.label }}
                                         </label>
-                                        {% render_field form.space_name class="form-control" %}
+                                        {% render_field form.space_name %}
                                         <span class="help-block">
                                             {% if form.space_name.errors %}
                                                 {{ form.space_name.errors.as_text }}
@@ -47,7 +47,7 @@
                                         <label for="{{ form.cs_description.auto_id }}">
                                             {{ form.cs_description.label }}
                                         </label>
-                                        {% render_field form.cs_description class="form-control" %}
+                                        {% render_field form.cs_description %}
                                         <span class="help-block">
                                             {% if form.cs_description.errors %}
                                                 {{ form.cs_description.errors.as_text }}

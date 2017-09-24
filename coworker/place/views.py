@@ -12,10 +12,11 @@ from django.views.generic import TemplateView, View
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 from django.core.files.images import get_image_dimensions
 from coworker.core.form_mixins import PassUser
-from .models import Place, MeetingRoom
+from .models import Place, MeetingRoom, MembershipDeskPrice
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
-    PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm
+    PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm, PlaceAddOpeningHoursForm, PlaceAddPaymentMethodsForm,\
+    PlaceAddMembershipHotDeskPriceInlineForm, PlaceAddMembershipDescPriceForm
 
 log = logging.getLogger('debug')
 
@@ -204,7 +205,7 @@ class PlaceAddMeetingRoomsView(PlaceAddBaseView, FormView):
 
 class PlaceAddOpeningHoursView(PlaceAddBaseView, CreateView):
     template_name = 'place/place_add_opening_hours.html'
-    form_class = PlaceDescriptionForm
+    form_class = PlaceAddOpeningHoursForm
     success_url = reverse_lazy('place:place_add_size')
     request = None
 
@@ -213,7 +214,7 @@ class PlaceAddOpeningHoursView(PlaceAddBaseView, CreateView):
         kwargs['request'] = self.request
 
         self.current_created_place = self.get_current_created_place()
-
+        print(self.current_created_place.place)
         if self.current_created_place:
             kwargs['instance'] = self.current_created_place.place
         return kwargs
@@ -236,24 +237,29 @@ class PlaceAddSizeView(PlaceAddBaseView, CreateView):
         return kwargs
 
 
-class PlaceAddPhotosView(PlaceAddBaseView, CreateView):
+class PlaceAddPhotosView(TemplateView):
     template_name = 'place/place_add_photos.html'
-    form_class = PlaceAddSizeForm
-    request = None
-    success_url = reverse_lazy('place:place_add_currency')
+    # form_class = PlaceAddSizeForm
+    # request = None
+    # success_url = reverse_lazy('place:place_add_payment_methods')
+    #
+    # def get_form_kwargs(self):
+    #     kwargs = super(PlaceAddPhotosView, self).get_form_kwargs()
+    #     kwargs['request'] = self.request
+    #
+    #     self.current_created_place = self.get_current_created_place()
+    #
+    #     if self.current_created_place:
+    #         print(self.current_created_place.place.desks)
+    #         kwargs['instance'] = self.current_created_place.place
+    #     return kwargs
+    #
+    # def form_invalid(self, form):
+    #     print(form.errors)
+    #     return super(PlaceAddPhotosView, self).form_invalid(form)
 
-    def get_form_kwargs(self):
-        kwargs = super(PlaceAddPhotosView, self).get_form_kwargs()
-        kwargs['request'] = self.request
 
-        self.current_created_place = self.get_current_created_place()
-
-        if self.current_created_place:
-            kwargs['instance'] = self.current_created_place.place
-        return kwargs
-
-
-
+#TODO remove this
 @method_decorator(csrf_exempt, name='dispatch')
 class PlaceAddContinue(CreateView):
     template_name = 'place/place_description.html'
@@ -317,11 +323,10 @@ class PhotoCrop(View):
         })
 
 
-
-class PlaceAddCurrency(PlaceAddBaseView, CreateView):
-    template_name = 'place/place_description.html'
-    form_class = PlaceDescriptionForm
-    success_url = reverse_lazy('place:place_add_size')
+class PlaceAddPaymentMethodsView(PlaceAddBaseView, CreateView):
+    template_name = 'place/place_add_payment_methods.html'
+    form_class = PlaceAddPaymentMethodsForm
+    success_url = reverse_lazy('place:place_add_desc_price')
     request = None
 
     def get_form_kwargs(self):
@@ -332,3 +337,68 @@ class PlaceAddCurrency(PlaceAddBaseView, CreateView):
             kwargs['instance'] = self.current_created_place.place
         return kwargs
 
+
+class PlaceAddMembershipDescPriceView(PlaceAddBaseView, FormView):
+    template_name = 'place/place_add_desk_price.html'
+    form_class = PlaceAddMembershipDescPriceForm
+    success_url = reverse_lazy('place:place_add_desc_price')
+    hot_desks_formset_class = inlineformset_factory(
+        Place,
+        MembershipDeskPrice,
+        extra=3,
+        can_delete=False,
+        form=PlaceAddMembershipHotDeskPriceInlineForm)
+    request = None
+
+    def get_hot_desks_formset(self, **kwargs):
+        return self.hot_desks_formset_class(self.request.POST or None, self.request.FILES or None, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super(PlaceAddMembershipDescPriceView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        ctx = super(PlaceAddMembershipDescPriceView, self).get_context_data(**kwargs)
+        self.current_created_place = self.get_current_created_place()
+
+        if not self.current_created_place:
+            return ctx
+        hot_desks_formset_initial_data = []
+
+        for hot_desks_membership_price in self.current_created_place.hot_desks_membership_prices:
+            hot_desks_formset_initial_data.append({
+                'duration': hot_desks_membership_price.duration,
+                'seating_price': hot_desks_membership_price.seating_price,
+                'member_accs': hot_desks_membership_price.member_accs
+            })
+
+        self.hot_desks_formset_class.extra = len(hot_desks_formset_initial_data)+3
+        ctx['hot_desks_formset'] = self.get_hot_desks_formset(initial=hot_desks_formset_initial_data)
+        return ctx
+
+    def form_valid(self, form):
+        hot_desks_formset = self.get_hot_desks_formset()
+
+        if form.is_valid() and hot_desks_formset.is_valid():
+            obj = form.save(commit=False)
+
+            hot_desks_formset = self.get_hot_desks_formset(instance=obj)
+            hot_desks_membership_price_objs = hot_desks_formset.save(commit=False)
+
+            current_created_place_pickle = self.request.session.get('current_created_place')
+            if current_created_place_pickle:
+                try:
+                    current_created_place = pickle.loads(current_created_place_pickle)
+                    current_created_place.hot_desks_membership_prices = hot_desks_membership_price_objs
+                    self.request.session['current_created_place'] = pickle.dumps(current_created_place)
+                    self.request.session.save()
+                except pickle.PickleError:
+                    pass
+        else:
+            return super(PlaceAddMembershipDescPriceView, self).form_invalid(form)
+        return super(PlaceAddMembershipDescPriceView, self).form_valid(form)

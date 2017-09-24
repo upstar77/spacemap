@@ -51,17 +51,17 @@
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="9" onclick="jumpToTab(9);">
+        <a href="javascript:;" class="anchor{% if 'add_payment_methods' in completed_menus %} left_active{% endif %} side-link-anchor">
             <span class="sp_pm">
         <i class="fa fa-usd"></i> 9. 支付方式&nbsp;&nbsp;
-        <img id="i_mp" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"></span>
+        <img id="i_mp" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_payment_methods'%} hidden{% endif %}"></span>
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="10" onclick="jumpToTab(10);">
+        <a href="javascript:;" class="anchor{% if 'add_desk_price' in completed_menus %} left_active{% endif %} side-link-anchor">
             <span class="sp_pm">
         <i class="fa fa-usd"></i> 10. 办公桌价格&nbsp;&nbsp;
-        <img id="i_price" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"></span>
+        <img id="i_price" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_desk_price'%} hidden{% endif %}"></span>
         </a>
     </li>
     <li>

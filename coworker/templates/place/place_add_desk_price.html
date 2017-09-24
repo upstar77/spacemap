@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
+
+
+{% block js %}
+    <script>
+        function PlaceAddDeskPricePage() {
+        }
+
+        PlaceAddDeskPricePage.prototype.add_inline_form = function(e, selector, type) {
+            e.preventDefault();
+            var newElement = $(selector).clone(true);
+            var total = $('#id_' + type + '-TOTAL_FORMS').val();
+            $(newElement).find(':input').each(function() {
+                var name = $(this).attr('name').replace('-' + (total-1) + '-','-' + total + '-');
+                var id = 'id_' + name;
+                $(this).attr({'name': name, 'id': id}).val('').removeAttr('checked');
+            });
+            $(newElement).find('label').each(function() {
+                var newFor = $(this).attr('for').replace('-' + (total-1) + '-','-' + total + '-');
+                $(this).attr('for', newFor);
+            });
+
+            total++;
+            $('#id_' + type + '-TOTAL_FORMS').val(total);
+            $(selector).after(newElement);
+        };
+
+        PlaceAddDeskPricePage.prototype.remove_inline_form = function(e, elem, type) {
+            var total = parseInt($('#id_' + type + '-TOTAL_FORMS').val());
+            $(elem).parent().parent().remove();
+            $('#id_' + type + '-TOTAL_FORMS').val(total-1);
+        };
+
+        var placeAddDeskPricePage = new PlaceAddDeskPricePage();
+    </script>
+{% endblock %}
+
+{% block content %}
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+
+    <div class="cow_submission_main">
+        <div class="container">
+            <div class="row">
+                <form action="{% url "place:place_add_desc_price" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                    <div class="col-xs-12 pade_none coworker_submission_detail">
+                        <h2>我要出租</h2>
+
+                        <div class="col-xs-12 pade_none coworker_submission_detail_inn">
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
+                                {% include "place/forms/menu.html" with active_menu='add_desk_price' completed_menus='place_description, contact_details, place_amenties, add_location, add_meeting_rooms, add_opening_hours, add_place_size, add_photos, add_payment_methods' %}
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
+
+                                <h3>Membership Prices: Desks</h3>
+                                <h4>Hot Desks / Open Plan Seating</h4>
+
+                                {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <div role="alert" class="alert alert-danger">
+                                        {% for err in form.non_field_errors %}
+                                            {{ err }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <div class="col-xs-12 pade_none coworker_event_bottom_panel  hot-deskdiv-outer">
+                                    <div class="col-xs-12 pade_none co_form_con">
+
+                                        <div class="col-xs-12 pade_none duration-label-out-panel">
+                                            <div class="col-sm-4 col-md-4 col-xs-12 pade_none room_lft form-group"><label class="lbl-desk-price">Duration</label></div>
+                                            <div class="col-sm-4 col-md-4 col-xs-12 pade_none room_lft form-group"><label class="lbl-desk-price">Price</label></div>
+                                            <div class="col-sm-4 col-md-4 col-xs-12 pade_none room_lft form-group"><label class="lbl-desk-price">Access Hours</label></div>
+                                        </div>
+
+
+                                        <div id="open_plans" class="col-xs-12 pade_none">
+                                            {{ hot_desks_formset.management_form }}
+                                            <div id="hot-desks-formset">
+                                                {% if hot_desks_formset.total_error_count %}
+                                                    {% for dict in hot_desks_formset.errors %}
+                                                        {% for error in dict.values %}
+                                                            <div class="row">
+                                                                <div class="small-12 columns text-center error">
+                                                                    <small>{{ error }}</small>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {% for formrow in hot_desks_formset %}
+                                                    <div class="formset-row">
+                                                        {% for field in formrow.visible_fields %}
+                                                            <div class="col-sm-4 col-md-4 col-xs-12 pade_none room_lft form-group">
+                                                                {% render_field field %}
+                                                                <small>{{ field.errors }}</small>
+                                                                {% if forloop.last %}
+                                                                    <div class="price-cross-position " data-target="duration_del_cont1" onclick="placeAddDeskPricePage.remove_inline_form(event, this, 'membershipdeskprice_set');">x</div>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endfor %}
+                                                        {% for hidden in formrow.hidden_fields %}
+                                                            {{ hidden }}
+                                                        {% endfor %}
+                                                    </div><!-- /formset row -->
+                                                {% endfor %}
+                                            </div>
+                                            <label id="add_duration_open" class="lbl-add-price" onclick="placeAddDeskPricePage.add_inline_form(event, '#hot-desks-formset .formset-row:last', 'membershipdeskprice_set');">+ Add another duration</label>
+                                        </div>
+                                    </div>
+
+
+
+{#                                    <h4>Dedicated Desks</h4>#}
+{#                                    <div class="col-xs-12 pade_none coworker_event_bottom_panel">#}
+{#                                        <div class="col-xs-12 pade_none co_form_con">#}
+{#                                            #}
+{#                                            <label id="add_duration_dedic" class="lbl-add-price" onclick="enableDedicPrice(this);">+ Add another duration</label>#}
+{#                                        </div>#}
+{#                                    </div>#}
+
+
+                                </div>
+                                <div class="col-xs-12 co_buttns_out">
+                                    <div class="right_aln">
+                                        <ul>
+                                            <li><button type="submit">Next</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

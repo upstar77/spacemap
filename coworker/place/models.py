@@ -62,6 +62,21 @@ MEMBER_ACCS_CHOISE = (
     ("24H", "24 hours")
 )
 
+MEMBERSHIP_DESK_PRICE_DURATION_CHOICES = (
+    ("1h", _("1 hour")),
+    ("1d", _("1 hour")),
+    ("1w", _("1 week")),
+    ("1m", _("1 month")),
+    ("3m", _("3 months")),
+    ("6m", _("6 months")),
+    ("1y", _("1 year"))
+)
+
+MEMBERSHIP_DESK_PRICE_ACCS_CHOICES = (
+    (OPENING_HOURS_KEY, "Reception Hours"),
+    ("24H", "24 hours")
+)
+
 
 class Location(models.Model):
     # location_name = models.CharField(max_length=250)
@@ -110,6 +125,34 @@ class ContactInfo(models.Model):
         abstract = True
 
 
+class OpeningHours(models.Model):
+    monday_from = models.CharField(max_length=4, choices=generate_time_range())
+    monday_to = models.CharField(max_length=4, choices=generate_time_range())
+
+    tuesday_from = models.CharField(max_length=4, choices=generate_time_range())
+    tuesday_to = models.CharField(max_length=4, choices=generate_time_range())
+
+    wednesday_from = models.CharField(max_length=4, choices=generate_time_range())
+    wednesday_to = models.CharField(max_length=4, choices=generate_time_range())
+
+    thursday_from = models.CharField(max_length=4, choices=generate_time_range())
+    thursday_to = models.CharField(max_length=4, choices=generate_time_range())
+
+    friday_from = models.CharField(max_length=4, choices=generate_time_range())
+    friday_to = models.CharField(max_length=4, choices=generate_time_range())
+
+    saturday_from = models.CharField(max_length=4, choices=generate_time_range(), default='-1')
+    saturday_to = models.CharField(max_length=4, choices=generate_time_range(), default='-1')
+
+    sunday_from = models.CharField(max_length=4, choices=generate_time_range(), default='-1')
+    sunday_to = models.CharField(max_length=4, choices=generate_time_range(), default='-1')
+
+    member_accs = models.CharField(max_length=3, choices=MEMBER_ACCS_CHOISE, default=OPENING_HOURS_KEY)
+
+    class Meta:
+        abstract = True
+
+
 class MeetingRoom(models.Model):
     room_info = models.CharField(max_length=250)
     mr_capacity = models.PositiveIntegerField(
@@ -126,6 +169,18 @@ class MeetingRoom(models.Model):
         verbose_name_plural = _('Meeting Rooms')
 
 
+class MembershipDeskPrice(models.Model):
+    duration = models.CharField(max_length=4, choices=MEMBERSHIP_DESK_PRICE_DURATION_CHOICES)
+    seating_price = models.IntegerField()
+    hot_desks = models.BooleanField(default=False)
+    member_accs = models.CharField(max_length=3, choices=MEMBERSHIP_DESK_PRICE_ACCS_CHOICES, default=OPENING_HOURS_KEY)
+    place = models.ForeignKey('Place')
+
+    class Meta:
+        verbose_name = _('Membership Desk Price')
+        verbose_name_plural = _('Membership Desk Prices')
+
+
 class Photos(models.Model):
     file = models.FileField(upload_to="user/photos", null=False, blank=False)
     place = models.ForeignKey('Place', null=True, blank=True)
@@ -137,18 +192,18 @@ class Photos(models.Model):
         return self.file.name
 
 
-class Member_Payment(models.Model):
-    currency = models.CharField(max_length=250)
-    opay = models.BooleanField(default=True, help_text=_("Can members pay online?"))
-    accs = models.BooleanField(default=True, help_text=_("Do you accept credit cards?"))
-    apps = models.BooleanField(default=True, help_text=_("Can members pay with PayPal?"))
-    deposit = models.CharField(max_length=250, help_text=_("eg. none, 1 month, etc"))
+class MemberPayment(models.Model):
+    # currency = models.CharField(max_length=250)
+    opay = models.BooleanField(_("Can members pay online?"), default=True)
+    accs = models.BooleanField(_("Do you accept credit cards?"), default=True)
+    apps = models.BooleanField(_("Can members pay with PayPal?"), default=True)
+    deposit = models.CharField(_("eg. none, 1 month, etc"), max_length=250, blank=True)
 
     class Meta:
         abstract = True
 
 
-class Place(Member_Payment, ContactInfo, Location):
+class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
     city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
@@ -163,12 +218,6 @@ class Place(Member_Payment, ContactInfo, Location):
         default=50
     )
 
-    #page 6
-    hours = JSONField()
-    sat_open = models.CharField(max_length=4, choices=generate_time_range(), blank=True)
-    sun_close = models.CharField(max_length=4, choices=generate_time_range(), blank=True)
-    member_accs = models.CharField(max_length=2, choices=MEMBER_ACCS_CHOISE, default=OPENING_HOURS_KEY)
-    #size 7
     desks = models.PositiveIntegerField(
         validators=[MinValueValidator(1)], choices=[(i, i) for i in range(MAX_DESC_COUNT)])
 
@@ -179,9 +228,6 @@ class Place(Member_Payment, ContactInfo, Location):
     size_of_your_coworking_space = models.PositiveIntegerField(choices=SIZE_OF_YOUR_COWORKING_SPACE_CHOISES, default=0)
 
     amenities = models.ManyToManyField(Amenities, blank=True, related_name="amenities")
-
-    #8 photos
-    # cover_img =
 
     class Meta:
         verbose_name = _('Place')

@@ -3,10 +3,10 @@ import pickle
 
 from django.core import serializers
 from django import forms
-from .models import Place, MeetingRoom, Amenities, Photos
+from .models import Place, MeetingRoom, Amenities, Photos, MembershipDeskPrice
 from django.forms import extras
 from django.utils.translation import ugettext_lazy as _
-from .fields import JsonHoursChoiceField
+from .fields import JsonHoursChoiceField, generate_time_range
 from coworker.cities.models import City
 
 
@@ -14,6 +14,7 @@ class CurrentCreatedPlace:
     place = None
     amenities = []
     meeting_rooms = []
+    hot_desks_membership_prices = []
     step = 0
 
 
@@ -54,9 +55,8 @@ class PlaceDescriptionForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceDescriptionForm, self).save(commit=False)
-        current_created_place = CurrentCreatedPlace()
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
-        current_created_place.step = 1
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
@@ -76,7 +76,7 @@ class PlaceContactDetailsForm(forms.ModelForm):
     def save(self, commit=False):
         obj = super(PlaceContactDetailsForm, self).save(commit=False)
         obj.id = 999
-        current_created_place = CurrentCreatedPlace()
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
@@ -123,7 +123,7 @@ class PlaceAmenitiesForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAmenitiesForm, self).save(commit=False)
-        current_created_place = CurrentCreatedPlace()
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
         current_created_place.amenities = self.cleaned_data['amenities']
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
@@ -157,7 +157,7 @@ class PlaceAddLocationForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAddLocationForm, self).save(commit=False)
-        current_created_place = CurrentCreatedPlace()
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
@@ -183,7 +183,7 @@ class PlaceAddMeetingRoomsForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAddMeetingRoomsForm, self).save(commit=False)
-        current_created_place = CurrentCreatedPlace()
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
@@ -195,6 +195,42 @@ class PlaceAddMeetingRoomInlineForm(forms.ModelForm):
     class Meta:
         model = MeetingRoom
         fields = ['room_info', 'mr_capacity']
+
+
+class PlaceAddOpeningHoursForm(forms.ModelForm):
+    monday_friday_from = forms.ChoiceField(required=False, label=_('Monday - Friday'), choices=generate_time_range())
+    monday_friday_to = forms.ChoiceField(required=False, label=_('To'), choices=generate_time_range())
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = ["monday_from",
+                  "monday_to",
+                  "tuesday_from",
+                  "tuesday_to",
+                  "wednesday_from",
+                  "wednesday_to",
+                  "thursday_from",
+                  "thursday_to",
+                  "friday_from",
+                  "friday_to",
+                  "saturday_from",
+                  "saturday_to",
+                  "sunday_from",
+                  "sunday_to",
+                  "member_accs"]
+
+    def save(self, commit=False):
+        obj = super(PlaceAddOpeningHoursForm, self).save(commit=False)
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
+        self.request.session.save()
+        return obj
 
 
 class PlaceAddSizeForm(forms.ModelForm):
@@ -210,12 +246,54 @@ class PlaceAddSizeForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceAddSizeForm, self).save(commit=False)
-        current_created_place = CurrentCreatedPlace()
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
 
+
+class PlaceAddPaymentMethodsForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+        self.fields['opay'].widget = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
+        self.fields['accs'].widget = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
+        self.fields['apps'].widget = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
+
+    class Meta:
+        model = Place
+        fields = ["opay", "accs", "apps", "deposit"]
+
+    def save(self, commit=False):
+        obj = super(PlaceAddPaymentMethodsForm, self).save(commit=False)
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
+        self.request.session.save()
+        return obj
+
+
+class PlaceAddMembershipDescPriceForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Place
+        fields = []
+
+
+class PlaceAddMembershipHotDeskPriceInlineForm(forms.ModelForm):
+    hot_desks = forms.BooleanField(widget=forms.HiddenInput(), initial=True)
+
+    class Meta:
+        model = MembershipDeskPrice
+        fields = ['duration', 'seating_price', 'member_accs']
 
 
 class JsonMixinValidate:

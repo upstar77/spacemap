@@ -39,7 +39,7 @@
                                                 <label for="{{ form.ls_email.auto_id }}">
                                                     {{ form.ls_email.label }}
                                                 </label>
-                                                {% render_field form.ls_email class="form-control" %}
+                                                {% render_field form.ls_email %}
                                                 <span class="help-block">
                                                     {% if form.ls_email.errors %}
                                                         {{ form.ls_email.errors.as_text }}
@@ -50,7 +50,7 @@
                                                 <label for="{{ form.tel.auto_id }}">
                                                     {{ form.tel.label }}
                                                 </label>
-                                                {% render_field form.tel class="form-control" %}
+                                                {% render_field form.tel %}
                                                 <span class="help-block">
                                                     {% if form.tel.errors %}
                                                         {{ form.tel.errors.as_text }}
@@ -61,7 +61,7 @@
                                                 <label for="{{ form.website_url.auto_id }}">
                                                     {{ form.website_url.label }}
                                                 </label>
-                                                {% render_field form.website_url class="form-control" %}
+                                                {% render_field form.website_url %}
                                                 <span class="help-block">
                                                     {% if form.website_url.errors %}
                                                         {{ form.website_url.errors.as_text }}
@@ -76,7 +76,7 @@
                                                 <label for="{{ form.notification_email.auto_id }}">
                                                     {{ form.notification_email.label }}
                                                 </label>
-                                                {% render_field form.notification_email class="form-control" %}
+                                                {% render_field form.notification_email %}
                                             <span class="help-block">
                                                 {% if form.notification_email.errors %}
                                                     {{ form.notification_email.errors.as_text }}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
+
+{% block content %}
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+
+    <div class="cow_submission_main">
+        <div class="container">
+            <div class="row">
+                <form action="{% url "place:place_add_payment_methods" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                    <div class="col-xs-12 pade_none coworker_submission_detail">
+                        <h2>我要出租</h2>
+
+                        <div class="col-xs-12 pade_none coworker_submission_detail_inn">
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
+                                {% include "place/forms/menu.html" with active_menu='add_payment_methods' completed_menus='place_description, contact_details, place_amenties, add_location, add_meeting_rooms, add_opening_hours, add_place_size, add_photos' %}
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
+                                {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <div role="alert" class="alert alert-danger">
+                                        {% for err in form.non_field_errors %}
+                                            {{ err }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                <h3>Member Payment Options</h3>
+                                {#                                <p>Let people know how they can pay for their memberships.</p>#}
+                                {#                                <div class="col-xs-12 pade_none co_form_con rooms_con03 coworker_event_bottom_panel">#}
+                                {#                                    <label>Currency</label>#}
+                                {#                                    <select id="currency_id" name="currency_id" onchange="changeCurrency();">#}
+                                {#                                        <option value="1">Afghanistan - AFN (Afghan afghani ) </option><option value="2">Aland Islands - EUR (European euro ) </option><option value="3">Albania - ALL (Albanian lek ) </option><option value="4">Algeria - DZD (Algerian dinar ) </option><option value="5">American Samoa - USD (United States dollar ) </option><option value="6">Andorra - EUR (European euro ) </option><option value="7">Angola - AOA (Angolan kwanza) </option><option value="8">Anguilla - XCD (East Caribbean dollar) </option><option value="10">Antigua and Barbuda - XCD (East Caribbean dollar) </option><option value="11">Argentina - ARS (Argentine peso) </option><option value="12">Armenia - AMD (Armenian dram) </option><option value="13">Aruba - AWG (Aruban florin) </option><option value="14">Australia - AUD (Australian dollar) </option><option value="15">Austria - EUR (European euro) </option><option value="16">Azerbaijan - AZN (Azerbaijani manat) </option><option value="17">Bahamas - BSD (Bahamian dollar) </option><option value="18">Bahrain - BHD (Bahraini dinar) </option><option value="19">Bangladesh - BDT (Bangladeshi taka) </option><option value="20">Barbados - BBD (Barbadian dollar) </option><option value="21">Belarus - BYR (Belarusian ruble) </option><option value="22">Belgium - EUR (European euro) </option><option value="23">Belize - BZD (Belize dollar) </option><option value="24">Benin - XOF (West African CFA franc) </option><option value="25">Bermuda - BMD (Bermudian dollar) </option><option value="26">Bhutan - BTN (Bhutanese ngultrum) </option><option value="27">Bolivia - BOB (Bolivian boliviano) </option><option value="28">Bosnia and Herzegovina - BAM (Bosnia and Herzegovina convertible mark) </option><option value="29">Botswana - BWP (Botswana pula) </option><option value="31">Brazil - BRL (Brazilian real) </option><option value="32">British Indian Ocean Territory - USD (United States dollar) </option><option value="33">Brunei Darussalam - BND (Brunei dollar) </option><option value="34">Bulgaria - BGN (Bulgarian lev) </option><option value="35">Burkina Faso - XOF (West African CFA franc) </option><option value="36">Burundi - BIF (Burundi franc) </option><option value="37">Cambodia - KHR (Cambodian riel) </option><option value="38">Cameroon - XAF (Central African CFA franc) </option><option value="39">Canada - CAD (Canadian dollar) </option><option value="41">Cayman Islands - KYD (Cayman Islands dollar) </option><option value="42">Central African Republic - XAF (Central African CFA franc) </option><option value="43">Chad - XAF (Central African CFA franc) </option><option value="44">Chile - CLP (Chilean peso) </option><option value="45">China - CNY (Chinese Yuan Renminbi) </option><option value="46">Christmas Island - AUD (Australian dollar) </option><option value="47">Cocos (Keeling) Islands - AUD (Australian dollar) </option><option value="48">Colombia - COP (Colombian peso) </option><option value="49">Comoros - KMF (Comorian franc) </option><option value="50">Congo - XAF (Central African CFA franc) </option><option value="52">Cook Islands - none (Cook Islands dollar) </option><option value="53">Costa Rica - CRC (Costa Rican colon) </option><option value="54">Cote D'ivoire - XOF (West African CFA franc) </option><option value="55">Croatia - HRK (Croatian kuna) </option><option value="56">Cuba - CUP (Cuban peso) </option><option value="57">Cyprus - EUR (European euro) </option><option value="58">Czech Republic - CZK (Czech koruna) </option><option value="59">Denmark - DKK (Danish krone) </option><option value="60">Djibouti - DJF (Djiboutian franc) </option><option value="61">Dominica - XCD (East Caribbean dollar) </option><option value="62">Dominican Republic - DOP (Dominican peso) </option><option value="63">Ecuador - USD (United States dollar) </option><option value="64">Egypt - EGP (Egyptian pound) </option><option value="65">El Salvador - USD (United States dollar) </option><option value="66">Equatorial Guinea - XAF (Central African CFA franc) </option><option value="67">Eritrea - ERN (Eritrean nakfa) </option><option value="68">Estonia - EUR (European euro) </option><option value="69">Ethiopia - ETB (Ethiopian birr) </option><option value="70">Falkland Islands (Malvinas) - FKP (Falkland Islands pound) </option><option value="71">Faroe Islands - none (Faroese krona) </option><option value="72">Fiji - FJD (Fijian dollar) </option><option value="73">Finland - EUR (European euro) </option><option value="74">France - EUR (European euro) </option><option value="75">French Guiana - EUR (European euro) </option><option value="76">French Polynesia - XPF (CFP franc) </option><option value="78">Gabon - XAF (Central African CFA franc) </option><option value="79">Gambia - GMD (Gambian dalasi) </option><option value="80">Georgia - GEL (Georgian lari) </option><option value="81">Germany - EUR (European euro) </option><option value="82">Ghana - GHS (Ghanaian cedi) </option><option value="83">Gibraltar - GIP (Gibraltar pound) </option><option value="84">Greece - EUR (European euro) </option><option value="85">Greenland - DKK (Danish krone) </option><option value="86">Grenada - XCD (East Caribbean dollar) </option><option value="87">Guadeloupe - EUR (European euro) </option><option value="88">Guam - USD (United States dollar) </option><option value="89">Guatemala - GTQ (Guatemalan quetzal) </option><option value="90">Guernsey - GGP (Guernsey Pound) </option><option value="91">Guinea - GNF (Guinean franc) </option><option value="92">Guinea-bissau - XOF (West African CFA franc) </option><option value="93">Guyana - GYD (Guyanese dollar) </option><option value="94">Haiti - HTG (Haitian gourde) </option><option value="97">Honduras - HNL (Honduran lempira) </option><option value="98">Hong Kong - HKD (Hong Kong dollar) </option><option value="99">Hungary - HUF (Hungarian forint) </option><option value="100">Iceland - ISK (Icelandic krona) </option><option value="101">India - INR (Indian rupee) </option><option value="102">Indonesia - IDR (Indonesian rupiah) </option><option value="103">Iran - IRR (Iranian rial) </option><option value="104">Iraq - IQD (Iraqi dinar) </option><option value="105">Ireland - EUR (European euro) </option><option value="106">Isle of Man - IMP (Manx pound) </option><option value="107">Israel - ILS (Israeli new sheqel) </option><option value="108">Italy - EUR (European euro) </option><option value="109">Jamaica - JMD (Jamaican dollar) </option><option value="110">Japan - JPY (Japanese yen) </option><option value="111">Jersey - JEP (Jersey pound) </option><option value="112">Jordan - JOD (Jordanian dinar) </option><option value="113">Kazakhstan - KZT (Kazakhstani tenge) </option><option value="114">Kenya - KES (Kenyan shilling) </option><option value="115">Kiribati - AUD (Australian dollar) </option><option value="118">Kuwait - KWD (Kuwaiti dinar) </option><option value="119">Kyrgyzstan - KGS (Kyrgyzstani som) </option><option value="120">Laos - LAK (Lao kip) </option><option value="121">Latvia - EUR (European euro) </option><option value="122">Lebanon - LBP (Lebanese pound) </option><option value="123">Lesotho - LSL (Lesotho loti) </option><option value="124">Liberia - LRD (Liberian dollar) </option><option value="125">Libya - LYD (Libyan dinar) </option><option value="126">Liechtenstein - CHF (Swiss franc) </option><option value="127">Lithuania - EUR (European euro) </option><option value="128">Luxembourg - EUR (European euro) </option><option value="129">Macao - MOP (Macanese pataca) </option><option value="130">Macedonia - MKD (Macedonian denar) </option><option value="131">Madagascar - MGA (Malagasy ariary) </option><option value="132">Malawi - MWK (Malawian kwacha) </option><option value="133">Malaysia - MYR (Malaysian ringgit) </option><option value="134">Maldives - MVR (Maldivian rufiyaa) </option><option value="135">Mali - XOF (West African CFA franc) </option><option value="136">Malta - EUR (European euro) </option><option value="137">Marshall Islands - USD (United States dollar) </option><option value="138">Martinique - EUR (European euro) </option><option value="139">Mauritania - MRO (Mauritanian ouguiya) </option><option value="140">Mauritius - MUR (Mauritian rupee) </option><option value="141">Mayotte - EUR (European euro) </option><option value="142">Mexico - MXN (Mexican peso) </option><option value="143">Micronesia - USD (United States dollar) </option><option value="144">Moldova - MDL (Moldovan leu) </option><option value="145">Monaco - EUR (European euro) </option><option value="146">Mongolia - MNT (Mongolian tugrik) </option><option value="147">Montenegro - EUR (European euro) </option><option value="148">Montserrat - XCD (East Caribbean dollar) </option><option value="149">Morocco - MAD (Moroccan dirham) </option><option value="150">Mozambique - MZN (Mozambican metical) </option><option value="151">Myanmar - MMK (Myanmar kyat) </option><option value="152">Namibia - NAD (Namibian dollar) </option><option value="153">Nauru - AUD (Australian dollar) </option><option value="154">Nepal - NPR (Nepalese rupee) </option><option value="155">Netherlands - EUR (European euro) </option><option value="157">New Caledonia - XPF (CFP franc) </option><option value="158">New Zealand - NZD (New Zealand dollar) </option><option value="159">Nicaragua - NIO (Nicaraguan cordoba) </option><option value="160">Niger - XOF (West African CFA franc) </option><option value="161">Nigeria - NGN (Nigerian naira) </option><option value="162">Niue - NZD (New Zealand dollar) </option><option value="163">Norfolk Island - AUD (Australian dollar) </option><option value="164">Northern Mariana Islands - USD (United States dollar) </option><option value="165">Norway - NOK (Norwegian krone) </option><option value="166">Oman - OMR (Omani rial) </option><option value="167">Pakistan - PKR (Pakistani rupee) </option><option value="168">Palau - USD (United States dollar) </option><option value="169">Palestinia - ILS (Israeli new sheqel) </option><option value="170">Panama - USD (United States dollar) </option><option value="171">Papua New Guinea - PGK (Papua New Guinean kina) </option><option value="172">Paraguay - PYG (Paraguayan guarani) </option><option value="173">Peru - PEN (Peruvian nuevo sol) </option><option value="174">Philippines - PHP (Philippine peso) </option><option value="175">Pitcairn - NZD (New Zealand dollar) </option><option value="176">Poland - PLN (Polish zloty) </option><option value="177">Portugal - EUR (European euro) </option><option value="178">Puerto Rico - USD (United States dollar) </option><option value="179">Qatar - QAR (Qatari riyal) </option><option value="117">Republic of Korea - KPW (North Korean won) </option><option value="180">Reunion - EUR (European euro) </option><option value="181">Romania - RON (Romanian leu) </option><option value="182">Russia - RUB (Russian ruble) </option><option value="183">Rwanda - RWF (Rwandan franc) </option><option value="184">Saint Helena - SHP (Saint Helena pound) </option><option value="185">Saint Kitts and Nevis - XCD (East Caribbean dollar) </option><option value="186">Saint Lucia - XCD (East Caribbean dollar) </option><option value="187">Saint Pierre and Miquelon - EUR (European euro) </option><option value="188">Saint Vincent and The Grenadines - XCD (East Caribbean dollar) </option><option value="189">Samoa - WST (Samoan tala) </option><option value="190">San Marino - EUR (European euro) </option><option value="191">Sao Tome and Principe - STD (Sao Tome and Principe dobra) </option><option value="192">Saudi Arabia - SAR (Saudi riyal) </option><option value="193">Senegal - XOF (West African CFA franc) </option><option value="194">Serbia - RSD (Serbian dinar) </option><option value="195">Seychelles - SCR (Seychellois rupee) </option><option value="196">Sierra Leone - SLL (Sierra Leonean leone) </option><option value="197">Singapore - SGD (Singapore dollar) </option><option value="198">Slovakia - EUR (European euro) </option><option value="199">Slovenia - EUR (European euro) </option><option value="200">Solomon Islands - SBD (Solomon Islands dollar) </option><option value="201">Somalia - SOS (Somali shilling) </option><option value="202">South Africa - ZAR (South African rand) </option><option value="116">South Korea - KRW (South Korean won) </option><option value="204">Spain - EUR (European euro) </option><option value="205">Sri Lanka - LKR (Sri Lankan rupee) </option><option value="206">Sudan - SDG (Sudanese pound) </option><option value="207">Suriname - SRD (Surinamese dollar) </option><option value="208">Svalbard and Jan Mayen - NOK (Norwegian krone) </option><option value="209">Swaziland - SZL (Swazi lilangeni) </option><option value="210">Sweden - SEK (Swedish krona ) </option><option value="211">Switzerland - CHF (Swiss franc ) </option><option value="212">Syrian Arab Republic - SYP (Syrian pound ) </option><option value="213">Taiwan - TWD (New Taiwan dollar ) </option><option value="214">Tajikistan - TJS (Tajikistani somoni ) </option><option value="215">Tanzania - TZS (Tanzanian shilling ) </option><option value="216">Thailand - THB (Thai baht ) </option><option value="51">The Democratic Republic of The Congo - CDF (Congolese franc) </option><option value="217">Timor-leste - USD (United States dollar ) </option><option value="218">Togo - XOF (West African CFA franc ) </option><option value="219">Tokelau - NZD (New Zealand dollar ) </option><option value="220">Tonga - TOP (Tongan pa'anga ) </option><option value="221">Trinidad and Tobago - TTD (Trinidad and Tobago dollar ) </option><option value="222">Tunisia - TND (Tunisian dinar ) </option><option value="223">Turkey - TRY (Turkish lira ) </option><option value="224">Turkmenistan - TMT (Turkmenistani manat ) </option><option value="225">Turks and Caicos Islands - USD (United States dollar ) </option><option value="226">Tuvalu - AUD (Australian dollar ) </option><option value="227">Uganda - UGX (Ugandan shilling ) </option><option value="228" selected="selected">Ukraine - UAH (Ukrainian hryvnia ) </option><option value="229">United Arab Emirates - AED (UAE dirham ) </option><option value="230">United Kingdom - GBP (Pound sterling ) </option><option value="231">United States - USD (United States dollar ) </option><option value="233">Uruguay - UYU (Uruguayan peso ) </option><option value="234">Uzbekistan - UZS (Uzbekistani som ) </option><option value="235">Vanuatu - VUV (Vanuatu vatu ) </option><option value="236">Venezuela - VEF (Venezuelan bolivar ) </option><option value="237">Vietnam - VND (Vietnamese dong ) </option><option value="239">Virgin Islands, U.S. - USD (United States dollar ) </option><option value="240">Wallis and Futuna - XPF (CFP franc ) </option><option value="242">Yemen - YER (Yemeni rial ) </option><option value="243">Zambia - ZMW (Zambian kwacha ) </option><option value="244">Zimbabwe - USD (United States dollar ) </option>    </select>#}
+                                {#                                </div>#}
+                                <div class="col-xs-12 pade_none co_form_con rooms_con03 coworker_event_bottom_panel004">
+                                    <label class="rooms_sub">{{ form.opay.label }}</label>
+                                    <div class="col-xs-12 pade_none room_lft form-group whiteboard_listspace_con">
+                                        <div class="col-xs-6 col-md-3 col-sm-3 pade_none">
+                                            {{ form.opay.0.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.opay.auto_id }}_0">
+                                                {{ form.opay.0.choice_label }}
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3 col-sm-3 pade_none">
+                                            {{ form.opay.1.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.opay.auto_id }}_1">
+                                                {{ form.opay.1.choice_label }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 pade_none co_form_con rooms_con03 coworker_event_bottom_panel004">
+                                    <label class="rooms_sub">{{ form.accs.label }}</label>
+                                    <div class="col-xs-12 pade_none room_lft form-group whiteboard_listspace_con">
+                                        <div class="col-xs-6 col-md-3 col-sm-3 pade_none">
+                                            {{ form.accs.0.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.accs.auto_id }}_0">
+                                                {{ form.accs.0.choice_label }}
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3 col-sm-3 pade_none">
+                                            {{ form.accs.1.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.accs.auto_id }}_1">
+                                                {{ form.accs.1.choice_label }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 pade_none co_form_con rooms_con03 coworker_event_bottom_panel004">
+                                    <label class="rooms_sub">{{ form.apps.label }}</label>
+                                    <div class="col-xs-12 pade_none room_lft form-group whiteboard_listspace_con">
+                                        <div class="col-xs-6 col-md-3 col-sm-3 pade_none">
+                                            {{ form.apps.0.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.apps.auto_id }}_0">
+                                                {{ form.apps.0.choice_label }}
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3 col-sm-3 pade_none">
+                                            {{ form.apps.1.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.apps.auto_id }}_1">
+                                                {{ form.apps.1.choice_label }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 pade_none coworker_event_bottom_panel form-group{% if form.space_name.errors %} has-error{% endif %}">
+                                    <label for="{{ form.deposit.auto_id }}">
+                                        {{ form.deposit.label }}
+                                    </label>
+                                    {% render_field form.deposit class="form-control" %}
+                                    <span class="help-block">
+                                        {% if form.deposit.errors %}
+                                            {{ form.deposit.errors.as_text }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 co_buttns_out">
+                                <div class="right_aln">
+                                    <ul>
+                                        <li><button type="submit">Next</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
