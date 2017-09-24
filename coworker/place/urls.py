@@ -15,7 +15,8 @@ urlpatterns = [
     url(r'^list-space/place_add_opening_hours/$', view=views.PlaceAddOpeningHoursView.as_view(), name='place_add_opening_hours'),
     url(r'^list-space/place_add_size/$', view=views.PlaceAddSizeView.as_view(), name='place_add_size'),
     url(r'^list-space/place_add_photos/$', view=views.PlaceAddPhotosView.as_view(), name='place_add_photos'),
-    url(r'^list-space/place_add_currency/$', view=views.PlaceAddCurrency.as_view(), name='place_add_payment_options'),
+    url(r'^list-space/place_add_payment_methods/$', view=views.PlaceAddPaymentMethodsView.as_view(), name='place_add_payment_methods'),
+    url(r'^list-space/place_add_desc_price/$', view=views.PlaceAddMembershipDescPriceView.as_view(), name='place_add_desc_price'),
 
     url(r'^list-space/success/$', view=views.PlaceAddContinue.as_view(), name='list-space-success'),
     url(r'^list-space/success/$', view=views.PlaceAddContinue.as_view(), name='list-space-success'),

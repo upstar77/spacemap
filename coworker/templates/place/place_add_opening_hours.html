@@ -5,6 +5,39 @@
 
 {% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
 
+
+{% block js %}
+
+    <script>
+        $(function(){
+            var $dayOfWeekFromEls = $("#{{ form.monday_from.auto_id }}, #{{ form.tuesday_from.auto_id }}, #{{ form.wednesday_from.auto_id }}, #{{ form.thursday_from.auto_id }}, #{{ form.friday_from.auto_id }}");
+            var $dayOfWeekToEls = $("#{{ form.monday_to.auto_id }}, #{{ form.tuesday_to.auto_id }}, #{{ form.wednesday_to.auto_id }}, #{{ form.thursday_to.auto_id }}, #{{ form.friday_to.auto_id }}");
+
+            $("#diffr_from_con").click(function() {
+                $("#from_show").show();
+                $("#monday_friday_from").hide();
+            });
+            $("#combine_from_con").click(function() {
+                $("#from_show").hide();
+                $("#monday_friday_from").show();
+            });
+            $("#sat_clk").click(function () {
+                $("#sat_panel").toggle();
+            });
+            $("#sun_clk").click(function () {
+                $("#sun_panel").toggle();
+            });
+            $("#{{ form.monday_friday_from.auto_id }}").change(function(){
+                $dayOfWeekFromEls.val($(this).val());
+            });
+            $("#{{ form.monday_friday_to.auto_id }}").change(function(){
+                $dayOfWeekToEls.val($(this).val());
+            });
+        });
+    </script>
+{% endblock %}
+
+
 {% block content %}
     <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
 
@@ -33,112 +66,290 @@
                                 {% endif %}
 
                                 <div class="col-xs-12 pade_none co_form_con">
-                                    <div class="col-xs-12 pade_none coworker_opening_hours_panel">
+                                    <div class="col-xs-12 pade_none coworker_opening_hours_panel" id="monday_friday_from">
                                         <div class="col-xs-12 pade_none">
                                             <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
-                                                <label id="lbl_monday">星期一至星期五</label>
-{#                                                {% hours_select 1 "open" %}#}
-                                                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursMonOpen" data-fv-result="NOT_VALIDATED" style="display: none;">您什么时候开放?</small></div>
+                                                <label for="{{ form.monday_friday_from.auto_id }}">
+                                                    {{ form.monday_friday_from.label }}
+                                                </label>
+                                                {% render_field form.monday_friday_from %}
+                                                <span class="help-block">
+                                                    {% if form.monday_friday_from.errors %}
+                                                        {{ form.monday_friday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
                                             <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
-                                                <label>To</label>
-{#                                                {% hours_select 1 "close" %}#}
-                                                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursMonClose" data-fv-result="NOT_VALIDATED" style="display: none;">您什么时候关闭?</small></div>
+                                                <label for="{{ form.monday_friday_to.auto_id }}">
+                                                    {{ form.monday_friday_to.label }}
+                                                </label>
+                                                {% render_field form.monday_friday_to %}
+                                                <span class="help-block">
+                                                    {% if form.monday_friday_to.errors %}
+                                                        {{ form.monday_friday_to.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
                                             <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
-                                                <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" style="display:block" id="diffr_from_con">
+                                                <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" id="diffr_from_con">
                                                     <label>其他时间段</label>
-                                                    <label class="lbl-hours"><input type="checkbox" id="ccc1" name="cc"><span class="lbl padding-8"></span></label>
+                                                    <label class="lbl-hours">
+                                                        <input type="checkbox" id="ccc1" name="cc">
+                                                        <span class="lbl padding-8"></span>
+                                                    </label>
                                                 </div>
-                                                <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" style="display:none;" id="combine_from_con">
-                                                    <label>星期五同步</label>
-                                                    <label class="lbl-hours"><input type="checkbox" id="ccc2" name="cc"><span class="lbl padding-8"></span></label>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 pade_none from_con" id="from_show" style="display:none;">
-{#                                        {% for week in "Tuesday,Wednesday,Thursday,Friday,Saturday"|split:"," %}#}
-{#                                            <div class="col-xs-12 pade_none coworker_week_value_con">#}
-{#                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft form-group">#}
-{#                                                    <label>{{ week }}</label>#}
-{#                                                    {% hours_select forloop.counter|add:"1" "open" %}#}
-{#                                                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursTueOpen" data-fv-result="NOT_VALIDATED" style="display: none;">What time do you open?</small></div>#}
-{#                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt form-group">#}
-{#                                                    <label>To</label>#}
-{#                                                    {% hours_select forloop.counter|add:"1" "close" %}#}
-{#                                                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursTueClose" data-fv-result="NOT_VALIDATED" style="display: none;">What time do you close?</small></div>#}
-{#                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        {% endfor %}#}
-                                        <div class="col-sm-2 col-md-2 col-xs-12 pade_none sat_open_last_div">&nbsp;</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 pade_none sat_open_pane co_form_con">
-                                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="sat_clk">
-                                        <input type="checkbox" id="ccc3" name="sat" style="width: 20px; height: 20px; margin: 0px;"><span class="lbl padding-8 lbl-form">Sat - Open</span>
-                                    </div>
-                                    <div class="col-xs-12 pade_none saturday_cowork_text" style="display: none;">
-                                        <div class="col-xs-12 col-sm-10 col-md-10 pade_none cowork_from_panel">
-                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft form-group" id="sat_open" style="display: none;">
-                                                <label>From</label>
-{#                                                {% hours_select 'name="sat_open" class="meet_icon hoursSatOpen" data-fv-field="hoursSatOpen"' %}#}
-                                                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSatOpen" data-fv-result="IGNORED" style="display: none;">What time do you open?</small></div>
-                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt form-group" id="sat_open02" style="display: none;">
-                                                <label>To</label>
-{#                                                {% hours_select 'name="sat_close" class="meet_icon hoursSatClose" onchange="validateChangeClose(this);" data-fv-field="hoursSatClose"' %}#}
-                                                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSatClose" data-fv-result="IGNORED" style="display: none;">What time do you close?</small></div>
-                                        </div>
-                                        <div class="col-sm-2 col-md-2 col-xs-12 pade_none sat_open_last_div">&nbsp;</div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-xs-12 pade_none sat_open_panel co_form_con">
-                                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="sun_clk">
-                                        <input type="checkbox" id="ccc4" name="sun" style="width: 20px; height: 20px; margin: 0px;"><span class="lbl padding-8 lbl-form">Sun - Open</span>
-                                    </div>
-
-                                    <div class="col-xs-12 pade_none saturday_cowork_text002" style="display: none;">
-                                        <div class="col-xs-12 col-sm-10 col-md-10 pade_none cowork_from_panel">
-                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft form-group cowork_from_panel" id="sun_open" style="display: none;">
-                                                <label>From</label>
-{#                                                {% hours_select 'name="sun_open" class="meet_icon hoursSunOpen" data-fv-field="hoursSunOpen"' %}#}
-                                                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSunOpen" data-fv-result="IGNORED" style="display: none;">What time do you open?</small></div>
-                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt form-group cowork_from_panel" id="sun_open02" style="display: none;">
-                                                <label>To</label>
-{#                                                {% hours_select 'name="sun_close" class="meet_icon hoursSunClose" onchange="validateChangeClose(this);" data-fv-field="hoursSunClose"' %}#}
-                                                <small class="help-block" data-fv-validator="notEmpty" data-fv-for="hoursSunClose" data-fv-result="IGNORED" style="display: none;">What time do you close?</small>
+                                    <div class="col-xs-12 pade_none from_con" id="from_show" style="display: none;">
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.monday_from.auto_id }}">
+                                                        {{ form.monday_from.label }}
+                                                    </label>
+                                                    {% render_field form.monday_from %}
+                                                <span class="help-block">
+                                                    {% if form.monday_from.errors %}
+                                                        {{ form.monday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.monday_to.auto_id }}">
+                                                        {{ form.monday_to.label }}
+                                                    </label>
+                                                    {% render_field form.monday_to %}
+                                                    <span class="help-block">
+                                                        {% if form.monday_to.errors %}
+                                                            {{ form.monday_to.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                    <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" style="display:block" id="diffr_from_con">
+                                                        <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" id="combine_from_con">
+                                                            <label>星期五同步</label>
+                                                            <label class="lbl-hours"><input type="checkbox" id="ccc2" name="cc"><span class="lbl padding-8"></span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-2 col-md-2 col-xs-12 pade_none sat_open_last_div">&nbsp;</div>
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.tuesday_from.auto_id }}">
+                                                        {{ form.tuesday_from.label }}
+                                                    </label>
+                                                    {% render_field form.tuesday_from %}
+                                                <span class="help-block">
+                                                    {% if form.tuesday_from.errors %}
+                                                        {{ form.tuesday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.tuesday_to.auto_id }}">
+                                                        {{ form.tuesday_to.label }}
+                                                    </label>
+                                                    {% render_field form.tuesday_to %}
+                                                <span class="help-block">
+                                                    {% if form.tuesday_to.errors %}
+                                                        {{ form.tuesday_to.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.wednesday_from.auto_id }}">
+                                                        {{ form.wednesday_from.label }}
+                                                    </label>
+                                                    {% render_field form.wednesday_from %}
+                                                <span class="help-block">
+                                                    {% if form.wednesday_from.errors %}
+                                                        {{ form.wednesday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.wednesday_to.auto_id }}">
+                                                        {{ form.wednesday_to.label }}
+                                                    </label>
+                                                    {% render_field form.wednesday_to %}
+                                                <span class="help-block">
+                                                    {% if form.wednesday_to.errors %}
+                                                        {{ form.wednesday_to.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.thursday_from.auto_id }}">
+                                                        {{ form.thursday_from.label }}
+                                                    </label>
+                                                    {% render_field form.thursday_from %}
+                                                <span class="help-block">
+                                                    {% if form.thursday_from.errors %}
+                                                        {{ form.thursday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.thursday_to.auto_id }}">
+                                                        {{ form.thursday_to.label }}
+                                                    </label>
+                                                    {% render_field form.thursday_to %}
+                                                <span class="help-block">
+                                                    {% if form.thursday_to.errors %}
+                                                        {{ form.thursday_to.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.friday_from.auto_id }}">
+                                                        {{ form.friday_from.label }}
+                                                    </label>
+                                                    {% render_field form.friday_from %}
+                                                <span class="help-block">
+                                                    {% if form.friday_from.errors %}
+                                                        {{ form.friday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.friday_to.auto_id }}">
+                                                        {{ form.friday_to.label }}
+                                                    </label>
+                                                    {% render_field form.friday_to %}
+                                                    <span class="help-block">
+                                                        {% if form.friday_to.errors %}
+                                                            {{ form.friday_to.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 pade_none sat_open_pane co_form_con">
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="sat_clk">
+                                            <input type="checkbox" id="ccc3" name="sat" style="width: 20px; height: 20px; margin: 0px;"><span class="lbl padding-8 lbl-form">Sat - Open</span>
+                                        </div>
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel" style="display: none" id="sat_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.saturday_from.auto_id }}">
+                                                        {{ form.saturday_from.label }}
+                                                    </label>
+                                                    {% render_field form.saturday_from %}
+                                                    <span class="help-block">
+                                                        {% if form.saturday_from.errors %}
+                                                            {{ form.saturday_from.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.saturday_to.auto_id }}">
+                                                        {{ form.saturday_to.label }}
+                                                    </label>
+                                                    {% render_field form.saturday_to %}
+                                                    <span class="help-block">
+                                                        {% if form.saturday_to.errors %}
+                                                            {{ form.saturday_to.errors.as_text }}
+                                                        {% endif %}
+                                                    </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-12 pade_none sat_open_panel co_form_con">
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="sun_clk">
+                                            <input type="checkbox" id="ccc4" name="sun" style="width: 20px; height: 20px; margin: 0px;"><span class="lbl padding-8 lbl-form">Sun - Open</span>
+                                        </div>
+
+                                        <div class="col-xs-12 pade_none coworker_opening_hours_panel" style="display: none" id="sun_panel">
+                                            <div class="col-xs-12 pade_none">
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_lft friday_to_monday_con form-group">
+                                                    <label for="{{ form.sunday_from.auto_id }}">
+                                                        {{ form.sunday_from.label }}
+                                                    </label>
+                                                    {% render_field form.sunday_from %}
+                                                <span class="help-block">
+                                                    {% if form.sunday_from.errors %}
+                                                        {{ form.sunday_from.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-5 col-md-5 col-xs-12 pade_none room_rgt friday_to_monday_con02 form-group">
+                                                    <label for="{{ form.sunday_to.auto_id }}">
+                                                        {{ form.sunday_to.label }}
+                                                    </label>
+                                                    {% render_field form.sunday_to %}
+                                                <span class="help-block">
+                                                    {% if form.sunday_to.errors %}
+                                                        {{ form.sunday_to.errors.as_text }}
+                                                    {% endif %}
+                                                </span>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div style="clear:both;"></div>
+                                    <h4 class="hours_subtitle">Member Access Hours</h4>
+                                    <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
+                                        {% render_field form.member_accs %}
+{#                                        <div class="col-xs-12 col-sm-6 col-md-4 pade_none room_lft form-group">#}
+{#                                            <input name="member_accs" type="radio" class="lbl-radio-vopt" id="access_hours" value="OH">#}
+{#                                            <label class="lbl-credit-card" for="access_hours">Same as opening hours</label>#}
+{#                                        </div>#}
+{#                                        <div class="col-xs-12 col-sm-6 col-md-4 pade_none room_lft form-group">#}
+{#                                            <input name="member_accs" type="radio" class="lbl-radio-vopt" id="hours24" checked="checked" value="24H">#}
+{#                                            <label class="lbl-credit-card" for="hours24">24 hours</label>#}
+{#                                        </div>#}
                                     </div>
 
 
                                 </div>
-
-                                <div style="clear:both;"></div>
-                                <h4 class="hours_subtitle">Member Access Hours</h4>
-                                <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-                                    <div class="col-xs-12 col-sm-6 col-md-4 pade_none room_lft form-group">
-                                        <input name="member_accs" type="radio" class="lbl-radio-vopt" id="access_hours" value="OH">
-                                        <label class="lbl-credit-card" for="access_hours">Same as opening hours</label>
+                                <div class="col-xs-12 co_buttns_out">
+                                    <div class="right_aln">
+                                        <ul>
+                                            <li><a href="{% url "place:place_add_meeting_rooms" %}" class="previous_btn" style="display: inline;">Previous</a></li>
+                                            <li><button type="submit">Next</button></li>
+                                        </ul>
                                     </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-4 pade_none room_lft form-group">
-                                        <input name="member_accs" type="radio" class="lbl-radio-vopt" id="hours24" checked="checked" value="24H">
-                                        <label class="lbl-credit-card" for="hours24">24 hours</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-xs-12 co_buttns_out">
-                                <div class="right_aln">
-                                    <ul>
-                                        <li><a href="{% url "place:place_add_meeting_rooms" %}" class="previous_btn" style="display: inline;">Previous</a></li>
-                                        <li><button type="submit">Next</button></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>

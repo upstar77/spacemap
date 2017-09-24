@@ -60,7 +60,7 @@
                                                     <label for="{{ form.address.auto_id }}">
                                                         {{ form.address.label }}
                                                     </label>
-                                                    {% render_field form.address class="form-control" %}
+                                                    {% render_field form.address %}
                                                     <span class="help-block">
                                                         {% if form.address.errors %}
                                                             {{ form.address.errors.as_text }}
@@ -73,7 +73,7 @@
                                                     <label for="{{ form.address_sec.auto_id }}">
                                                         {{ form.address_sec.label }}
                                                     </label>
-                                                    {% render_field form.address_sec class="form-control" %}
+                                                    {% render_field form.address_sec %}
                                                     <span class="help-block">
                                                         {% if form.address_sec.errors %}
                                                             {{ form.address_sec.errors.as_text }}
@@ -88,7 +88,7 @@
                                                     <label for="{{ form.postal_code.auto_id }}">
                                                         {{ form.postal_code.label }}
                                                     </label>
-                                                    {% render_field form.postal_code class="form-control" %}
+                                                    {% render_field form.postal_code %}
                                                     <span class="help-block">
                                                         {% if form.postal_code.errors %}
                                                             {{ form.postal_code.errors.as_text }}
