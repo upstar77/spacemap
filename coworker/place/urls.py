@@ -17,9 +17,10 @@ urlpatterns = [
     url(r'^list-space/place_add_photos/$', view=views.PlaceAddPhotosView.as_view(), name='place_add_photos'),
     url(r'^list-space/place_add_payment_methods/$', view=views.PlaceAddPaymentMethodsView.as_view(), name='place_add_payment_methods'),
     url(r'^list-space/place_add_desc_price/$', view=views.PlaceAddMembershipDescPriceView.as_view(), name='place_add_desc_price'),
+    url(r'^list-space/place_add_private_office_price/$', view=views.PlaceAddMembershipOfficePriceView.as_view(), name='place_add_private_office_price'),
+    url(r'^list-space/place_add_marketing/$', view=views.PlaceAddMarketingView.as_view(), name='place_add_marketing'),
 
-    url(r'^list-space/success/$', view=views.PlaceAddContinue.as_view(), name='list-space-success'),
-    url(r'^list-space/success/$', view=views.PlaceAddContinue.as_view(), name='list-space-success'),
+    #url(r'^list-space/success/$', view=views.PlaceAddSuccess.as_view(), name='list-space-success'),
 
 
     #photo edit urls

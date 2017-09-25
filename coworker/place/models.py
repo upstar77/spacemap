@@ -77,6 +77,30 @@ MEMBERSHIP_DESK_PRICE_ACCS_CHOICES = (
     ("24H", "24 hours")
 )
 
+MEMBERSHIP_PRIVATE_OFFICE_PRICE_NUMBER_OF_PEOPLE_CHOICES = (
+    (0, _("0")),
+    (1, _("1")),
+)
+
+MEMBERSHIP_PRIVATE_OFFICE_PRICE_NUMBER_OF_THIS_OFFICE_TYPE_CHOICES = (
+    (0, _("0")),
+    (1, _("1")),
+)
+
+MEMBERSHIP_OFFICE_PRICE_DURATION_CHOICES = (
+    ("1m", _("1 month")),
+    ("3m", _("3 months")),
+    ("6m", _("6 months")),
+    ("1y", _("1 year")),
+    ("18m", _("18 months")),
+    ("2y", _("2 years"))
+)
+
+MEMBERSHIP_OFFICE_PRICE_ACCS_CHOICES = (
+    (OPENING_HOURS_KEY, "Reception Hours"),
+    ("24H", "24 hours")
+)
+
 
 class Location(models.Model):
     # location_name = models.CharField(max_length=250)
@@ -172,13 +196,36 @@ class MeetingRoom(models.Model):
 class MembershipDeskPrice(models.Model):
     duration = models.CharField(max_length=4, choices=MEMBERSHIP_DESK_PRICE_DURATION_CHOICES)
     seating_price = models.IntegerField()
-    hot_desks = models.BooleanField(default=False)
+    hot_desk = models.BooleanField(default=False)
     member_accs = models.CharField(max_length=3, choices=MEMBERSHIP_DESK_PRICE_ACCS_CHOICES, default=OPENING_HOURS_KEY)
     place = models.ForeignKey('Place')
 
     class Meta:
         verbose_name = _('Membership Desk Price')
         verbose_name_plural = _('Membership Desk Prices')
+
+
+class MembershipPrivateOffice(models.Model):
+    office_name = models.CharField(_("Name of private office"), max_length=250)
+    number_of_people = models.PositiveIntegerField(choices=MEMBERSHIP_PRIVATE_OFFICE_PRICE_NUMBER_OF_PEOPLE_CHOICES, default=0)
+    wboard = models.BooleanField(_("Does the office have a whiteboard"))
+    qty = models.PositiveIntegerField(choices=MEMBERSHIP_PRIVATE_OFFICE_PRICE_NUMBER_OF_THIS_OFFICE_TYPE_CHOICES, default=0)
+    place = models.ForeignKey('Place')
+
+    class Meta:
+        verbose_name = _('Private office')
+        verbose_name_plural = _('Private offices')
+
+
+class MembershipOfficePrice(models.Model):
+    duration = models.CharField(max_length=4, choices=MEMBERSHIP_OFFICE_PRICE_DURATION_CHOICES)
+    seating_price = models.IntegerField()
+    member_accs = models.CharField(max_length=3, choices=MEMBERSHIP_OFFICE_PRICE_ACCS_CHOICES, default=OPENING_HOURS_KEY)
+    office = models.ForeignKey('MembershipPrivateOffice')
+
+    class Meta:
+        verbose_name = _('Membership Office Price')
+        verbose_name_plural = _('Membership Office Prices')
 
 
 class Photos(models.Model):
@@ -228,6 +275,10 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     size_of_your_coworking_space = models.PositiveIntegerField(choices=SIZE_OF_YOUR_COWORKING_SPACE_CHOISES, default=0)
 
     amenities = models.ManyToManyField(Amenities, blank=True, related_name="amenities")
+
+    book_tour = models.BooleanField(_("Book A Tour"), default=True, help_text=_("Choose the days and times that visitors can book a tour."))
+    free_day_pass = models.BooleanField(_("Get a Free Day Pass"), default=True, help_text=_("Choose the days that visitors can book a free day pass, and the hours they have access."))
+    enable_reservation = models.BooleanField(_("Enable reservations"), default=True, help_text=_("This will allow people to select the membership type they want and start date. You'll receive their reservation request via email so you can follow up with them to confirm and arrange payment."))
 
     class Meta:
         verbose_name = _('Place')

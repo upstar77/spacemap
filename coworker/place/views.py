@@ -16,7 +16,7 @@ from .models import Place, MeetingRoom, MembershipDeskPrice
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
     PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm, PlaceAddOpeningHoursForm, PlaceAddPaymentMethodsForm,\
-    PlaceAddMembershipHotDeskPriceInlineForm, PlaceAddMembershipDescPriceForm
+    PlaceAddMembershipHotDeskPriceInlineForm, PlaceAddMembershipDescPriceForm, PlaceAddMarketingForm
 
 log = logging.getLogger('debug')
 
@@ -50,6 +50,34 @@ class PlaceAddBaseView:
             except pickle.PickleError:
                 pass
         return None
+
+    def save_place(self):
+        self.current_created_place = self.get_current_created_place()
+        place = self.current_created_place.place
+        place.id = None
+        place.save()
+
+        amenities = self.current_created_place.amenities
+        meeting_rooms = self.current_created_place.meeting_rooms
+        hot_desks_membership_prices = self.current_created_place.hot_desks_membership_prices
+        for amenities_obj in amenities:
+            place.amenities.add(amenities_obj)
+        place.save()
+        for meeting_room in meeting_rooms:
+            meeting_room.place = place
+            meeting_room.save()
+        for hot_desks_membership_price in hot_desks_membership_prices:
+            hot_desks_membership_price.place = place
+            hot_desks_membership_price.save()
+
+        # try:
+        #     place = Place.objects.get(id=999999999)
+        #     print(place)
+        #     place.delete()
+        # except Place.DoesNotExist:
+        #     pass
+
+
 
 
 class PlaceAddView(CreateView):
@@ -341,7 +369,7 @@ class PlaceAddPaymentMethodsView(PlaceAddBaseView, CreateView):
 class PlaceAddMembershipDescPriceView(PlaceAddBaseView, FormView):
     template_name = 'place/place_add_desk_price.html'
     form_class = PlaceAddMembershipDescPriceForm
-    success_url = reverse_lazy('place:place_add_desc_price')
+    success_url = reverse_lazy('place:place_add_private_office_price')
     hot_desks_formset_class = inlineformset_factory(
         Place,
         MembershipDeskPrice,
@@ -401,4 +429,30 @@ class PlaceAddMembershipDescPriceView(PlaceAddBaseView, FormView):
                     pass
         else:
             return super(PlaceAddMembershipDescPriceView, self).form_invalid(form)
+
         return super(PlaceAddMembershipDescPriceView, self).form_valid(form)
+
+
+class PlaceAddMembershipOfficePriceView(TemplateView):
+    template_name = 'place/place_add_private_office_price.html'
+
+
+class PlaceAddMarketingView(PlaceAddBaseView, CreateView):
+    template_name = 'place/place_add_marketing.html'
+    form_class = PlaceAddMarketingForm
+    success_url = reverse_lazy('main:index')
+
+    request = None
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['request'] = self.request
+        self.current_created_place = self.get_current_created_place()
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
+        return kwargs
+
+    def form_valid(self, form):
+        super().form_valid(form)
+        self.save_place()
+        return redirect(self.success_url)
