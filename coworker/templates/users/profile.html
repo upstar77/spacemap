@@ -38,7 +38,7 @@
                             <span id="upload_lbl" class="upload_picture">
                                 <ul>
                                   <li>
-                                    <h3 id="upload_text">Update Profile Picture<br><span id="text_res">500 x 500px</span></h3>
+                                    <h3 id="upload_text">更新个人资料图片<br><span id="text_res">500 x 500px</span></h3>
                                   </li>
                                   <li><i id="camera_icon" class="fa fa-camera50" aria-hidden="true"></i></li>
                                 </ul>
@@ -100,8 +100,8 @@
                                 <input id="fileUpload" type="file" name="profile_image">
                                 {% csrf_token %}
                                 <div id="upload_btns" class="upload_btn">
-                                    <a href="javascript:void(0);" onclick="updatePhoto(event);">&nbsp;Save&nbsp;</a>
-                                    <a href="javascript:void(0);" onclick="restorePhoto(event);">Cancel</a>
+                                    <a href="javascript:void(0);" onclick="updatePhoto(event);">&nbsp;保存&nbsp;</a>
+                                    <a href="javascript:void(0);" onclick="restorePhoto(event);">取消</a>
                                 </div>
                             </form>
                         </div>
@@ -109,7 +109,7 @@
                             <ul>
                                 <li>
                                     <a href="{% url "users:profile" %}#answer1" class="anchor" onclick="displayAnswer(&#39;answer1&#39;);">
-                                        <i class="fa fa-list-alt" aria-hidden="true"></i> My Profile
+                                        <i class="fa fa-list-alt" aria-hidden="true"></i> 我的资料
                                     </a>
                                 </li>
                                 <!--<li>
@@ -124,22 +124,22 @@
                                 </li>-->
                                 <li>
                                     <a href="{% url "users:profile" %}#answer2" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">
-                                        <i class="fa fa-star002"></i> Reviews
+                                        <i class="fa fa-star002"></i> 评论
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{% url "users:profile" %}#answer6" class="anchor for_website_icon" onclick="displayAnswer(&#39;answer6&#39;);">
-                                        <img src="{% static 'img/img_swag_website.png' %}" alt="swag icon"> For your Website
+                                        <img src="{% static 'img/img_swag_website.png' %}" alt="swag icon"> 网站
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{% url "users:profile" %}#answer3" class="anchor" onclick="displayAnswer(&#39;answer3&#39;);">
-                                        <i class="fa fa-users"></i> Connections
+                                        <i class="fa fa-users"></i> 联系方式
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{% url "users:profile" %}#answer4" class="anchor" onclick="displayAnswer(&#39;answer4&#39;);">
-                                        <i class="fa fa-cog"></i> Settings
+                                        <i class="fa fa-cog"></i> 设置
                                     </a>
                                 </li>
                             </ul>
@@ -148,13 +148,12 @@
                     <div class="col-sm-8 col-md-8 col-xs-12 pade_none connection_rgt_out">
                         <div class="col-xs-12 pade_none connect_leanee_top">
                             <h2>Welcome, {{ user.first_name }}</h2>
-                            <h3>This is your coworker account, where you can keep track
-                                of all the stuff you've got going on.</h3>
+                            <h3>这是您的创客云图账号, 您可以查看您所有的历史操作</h3>
                         </div>
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer1" style="display:block">
                             <form action="{% url "users:editprofile" %}" method="post" accept-charset="utf-8" id="edit_form" name="edit_form">
                                 <a href="{% url "users:profile" %}#" id="answer1"></a>
-                                <h2>Profile</h2>
+                                <h2>资料</h2>
                                 <div class="col-xs-12 pade_none profile_con">
                                     <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Name:</div>
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">{{ user.full_name }}</div>
@@ -212,8 +211,8 @@
                         <!--CONNECTIONS-->
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer3" style="display:none">
                             <a href="{% url "users:profile" %}#" id="#answer3"></a>
-                            <h2>Seems like you're alone here…</h2>
-                            <p>Invite your friends to join you on Coworker!</p>
+                            <h2>好像您此处空空如也</h2>
+                            <p>邀请您的好友加入到创客云图吧!</p>
                             <br>
                             <a href="javascript:void(0);" onclick="openFB(11040);"><img src="{% static 'img/invite_friends.jpg' %}" style="height: 50px;"></a>  <div id="fri_reviews">
                         </div>
@@ -227,7 +226,7 @@
                         <!-- COWORKING SPACES -->
                         <div class="col-xs-12 pade_none profile_leanee_outer spaces_outer" id="answer5" style="display:none">
                             <a href="{% url "users:profile" %}#" id="answer5"></a>
-                            <h2>My Coworking  Spaces.&nbsp; </h2>
+                            <h2>我的创客云图场地.&nbsp; </h2>
                             <div id="user_spaces">
                             </div>
                             <div class="col-xs-12 pade_none coworker_pagination_main">
@@ -242,7 +241,7 @@
                                 <a href="{% url "users:profile" %}#" id="answer4"></a>
 
                                 <div id="dv_contact" class="col-xs-12 pade_none profile_con02">
-                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Contact Email:</div>
+                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">邮箱:</div>
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_rgt_con">
                                         <input class="col-sm-8 col-md-8 col-xs-8" name="email" type="text" value="{{ user.email }}" readonly="readonly">
                                         <div class="col-sm-4 col-md-4 col-xs-4 pade_none change_btn"><a href="javascript:void(0);" onclick="showContactEmail(event);">Change</a></div>
@@ -250,7 +249,7 @@
                                 </div>
                                 <div id="dv_contact_email" style="display:none;">
                                     <div class="col-xs-12 pade_none profile_con04">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">New Contact Email:</div>
+                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">新邮箱:</div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-11 col-md-11 col-xs-11 pade_none profile_rgt_con">
                                                 {% render_field form.email class="col-sm-12 col-md-12 col-xs-12" id="nc_email" type="text" %}
@@ -267,7 +266,7 @@
                                     </div>
                                 </div>
                                 <div id="dv_change" class="col-xs-12 pade_none profile_con03">
-                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Password:</div>
+                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">密码:</div>
                                     <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                         <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con">
                                             {% render_field form.email class="col-sm-12 col-md-12 col-xs-12" type="password" value="{{ user.email }}" %}
@@ -278,19 +277,19 @@
                                 </div>
                                 <div id="dv_password" style="display:none;">
                                     <div class="col-xs-12 pade_none profile_con04">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">New Password:</div>
+                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">新密码:</div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con"><input class="col-sm-12 col-md-12 col-xs-12" id="n_password" name="n_password" type="password" value=""></div>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 pade_none profile_con04">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Confirm New Password:</div>
+                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">确认新密码:</div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con"><input class="col-sm-12 col-md-12 col-xs-12" id="cn_password" name="cn_password" type="password" value=""></div>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 pade_none profile_con04">
-                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">Current Password:</div>
+                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con">旧密码:</div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-8 col-md-8 col-xs-8 pade_none profile_rgt_con"><input class="col-sm-12 col-md-12 col-xs-12" id="c_password" name="c_password" type="password" value=""></div>
                                         </div>
@@ -299,10 +298,10 @@
                                         <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_con"></div>
                                         <div class="col-sm-8 col-md-9 col-xs-12 pade_none">
                                             <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn">
-                                                <a href="javascript:void(0);" onclick="updateUser(event);">Save</a>
+                                                <a href="javascript:void(0);" onclick="updateUser(event);">保存</a>
                                             </div>
                                             <div class="col-sm-3 col-md-3 col-xs-3 pade_none change_btn">
-                                                <a href="javascript:void(0);" onclick="hidePassword(event);">Cancel</a>
+                                                <a href="javascript:void(0);" onclick="hidePassword(event);">取消</a>
                                             </div>
                                         </div>
                                     </div>
@@ -338,7 +337,7 @@
                         <h2 id="popup_confirm_h2"></h2>
                         <div class="col-xs-12 pade_none pop_inner" id="popup_confirm_msg"></div>
                         <div class="col-xs-12 pade_none pop_btn" id="cancel_submit">
-                            <a href="javascript:void(0);" onclick="closePopupConfirm();">Close</a>
+                            <a href="javascript:void(0);" onclick="closePopupConfirm();">关闭</a>
                         </div>
                     </div>
                 </div>
