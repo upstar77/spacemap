@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans "Coworker ­- cowork spaces for coworking people" %}{% endblock %}
+
+{% block content %}
+    <link href="{% static 'css/croppic.css' %}" rel="stylesheet">
+
+    <div class="cow_submission_main">
+        <div class="container">
+            <div class="row">
+                <form action="{% url "place:place_add_marketing" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
+                    <div class="col-xs-12 pade_none coworker_submission_detail">
+                        <h2>我要出租</h2>
+
+                        <div class="col-xs-12 pade_none coworker_submission_detail_inn">
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
+                                {% include "place/forms/menu.html" with active_menu='add_marketing' completed_menus='place_description, contact_details, place_amenties, add_location, add_meeting_rooms, add_opening_hours, add_place_size, add_photos, add_payment_methods, add_desk_price, add_private_office_price' %}
+                            </div>
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
+                                <div class="col-xs-12 pade_none co_descrip_con" id="answer12" style="">
+                                    <h3>Marketing</h3>
+                                    {% csrf_token %}
+                                    {% if form.non_field_errors %}
+                                        <div role="alert" class="alert alert-danger">
+                                            {% for err in form.non_field_errors %}
+                                                {{ err }}<br>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="col-xs-12 pade_none coworker_event_bottom_panel">
+                                        <div id="darkLayer" class="darkLeadgen" style="display:none"></div>
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="tour_clk">
+                                            {% render_field form.book_tour style="width: 20px; height: 20px; margin: 0px;" %}
+                                            <span class="lbl padding-8 lbl-form">{{ form.book_tour.label }}</span>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_cowrk_con lbl-normal" id="daypass_clk">
+                                            {% render_field form.free_day_pass style="width: 20px; height: 20px; margin: 0px;" %}
+                                            <span class="lbl padding-8 lbl-form">{{ form.free_day_pass.label }}</span>
+                                        </div>
+
+                                        <div class="col-xs-12 pade_none reservation_listspace_outer">
+                                            <div class="col-xs-12 pade_none co_descrip_con">
+                                                <span class="lbl padding-8 lbl-form enable_space">{{ form.enable_reservation.label }}</span>
+                                                <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
+                                                    <div class="col-xs-12  pade_none room_lft form-group enable_left">
+                                                        {{ form.enable_reservation.0.tag }}
+                                                        <label class="lbl-credit-card" for="{{ form.enable_reservation.auto_id }}_0">{{ form.enable_reservation.0.choice_label }}</label>
+                                                    </div>
+                                                    <div class="col-xs-12 pade_none room_lft form-group enable_left">
+                                                        {{ form.enable_reservation.1.tag }}
+                                                        <label class="lbl-credit-card" for="{{ form.enable_reservation.auto_id }}_1">{{ form.enable_reservation.1.choice_label }}</label>
+                                                    </div>
+                                                </div>
+                                                <p>{{ form.enable_reservation.help_text }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 co_buttns_out">
+                                <div class="right_aln">
+                                    <ul>
+                                        <li><a href="{% url "place:place_add_private_office_price" %}" class="previous_btn" style="display: inline;">Previous</a></li>
+                                        <li><button type="submit">Submit</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

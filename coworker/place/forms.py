@@ -37,6 +37,7 @@ class PlaceFirstForm(forms.ModelForm):
         obj = super(PlaceFirstForm, self).save(commit=False)
         current_created_place = CurrentCreatedPlace()
         current_created_place.place = obj
+        obj.id = 999999999
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
         self.request.session.save()
         return obj
@@ -75,7 +76,6 @@ class PlaceContactDetailsForm(forms.ModelForm):
 
     def save(self, commit=False):
         obj = super(PlaceContactDetailsForm, self).save(commit=False)
-        obj.id = 999
         current_created_place = pickle.loads(self.request.session['current_created_place'])
         current_created_place.place = obj
         self.request.session['current_created_place'] = pickle.dumps(current_created_place)
@@ -294,6 +294,26 @@ class PlaceAddMembershipHotDeskPriceInlineForm(forms.ModelForm):
     class Meta:
         model = MembershipDeskPrice
         fields = ['duration', 'seating_price', 'member_accs']
+
+
+class PlaceAddMarketingForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        if "request" in kwargs:
+            self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+        self.fields['enable_reservation'].widget = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
+
+    class Meta:
+        model = Place
+        fields = ["book_tour", "free_day_pass", "enable_reservation"]
+
+    def save(self, commit=False):
+        obj = super(PlaceAddMarketingForm, self).save(commit=False)
+        current_created_place = pickle.loads(self.request.session['current_created_place'])
+        current_created_place.place = obj
+        self.request.session['current_created_place'] = pickle.dumps(current_created_place)
+        self.request.session.save()
+        return obj
 
 
 class JsonMixinValidate:

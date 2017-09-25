@@ -65,16 +65,16 @@
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="11" onclick="jumpToTab(11);">
+        <a href="javascript:;" class="anchor{% if 'add_private_office_price' in completed_menus %} left_active{% endif %} side-link-anchor">
             <span class="sp_pp">
         <i class="fa fa-usd"></i> 11. 私人办公室价格&nbsp;&nbsp;
-        <img id="i_office" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick"></span>
+        <img id="i_office" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_private_office_price'%} hidden{% endif %}"></span>
         </a>
     </li>
     <li>
-        <a href="javascript:;" class="anchor side-link-anchor" id="12" onclick="jumpToTab(12);">
+        <a href="javascript:;" class="anchor{% if 'add_marketing' in completed_menus %} left_active{% endif %} side-link-anchor">
             <i class="fa fa-bolt"></i> 12. 促销活动&nbsp;&nbsp;
-            <img id="i_marketing" src="{% static 'img/tick.png' %}" style="display:none;" class="listspace_green_tick">
+            <img id="i_marketing" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'add_marketing'%} hidden{% endif %}">
         </a>
     </li>
 </ul>
