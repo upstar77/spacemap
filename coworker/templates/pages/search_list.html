@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} See All Coworking Spaces in Hong kong, Hong kong - Coworker.com {% endblock %}
+{% block title %}查看该城市的所有创客空间{% endblock %}
 
-{#{% block header %}#}
-{#    {% include 'elements/header.html' %}#}
-{#{% endblock %}#}
+{% block header %}
+    {#    {% include 'elements/header_main.html' %}#}
+    {% include 'elements/header.html' %}
+{% endblock %}
+
 
 {% block content %}
     <!--HEADER END-->
@@ -95,7 +97,7 @@
                                             <li id="daily" onclick="change_state(&#39;daily&#39;,1,2);">日租</li>
                                             <li id="weekly" onclick="change_state(&#39;weekly&#39;,1,2);">周租</li>
                                             <li id="monthly" onclick="change_state(&#39;monthly&#39;,1,2);">月租</li>
-                                            <li id="all" onclick="change_state(&#39;all&#39;,1,2);"全部</li>
+                                            <li id="all" onclick="change_state(&#39;all&#39;,1,2);">全部</li>
                                         </ul>
                                     </div>
                                 </div><!--membership ends-->
@@ -356,59 +358,61 @@
                                 </div><span>HKD 200/Day</span>
                                 <div style="clear:both;"></div>
                             </div>
-{#                            <div class="search_freepass_con">#}
-{#                                <a href="javascript:void(0);">Book <strong>Tour</strong></a>#}
-{#                            </div>#}
+                            {#                            <div class="search_freepass_con">#}
+                            {#                                <a href="javascript:void(0);">Book <strong>Tour</strong></a>#}
+                            {#                            </div>#}
                         </li>
+                    {% empty %}
+                        <h2>Not found by filter {{ filter }}</h2>
                     {% endfor %}
                 </ul>
             </div>
-{#            <div class="col-xs-12 show_pagin_out">#}
-{#                <div class="col-sm-6 col-md-6 col-xs-12 pade_non show_result_con" id="sh_result" style="display:none;">#}
-{#                    Showing Results 1-4 of 89#}
-{#                </div>#}
-{#                <div class="col-xs-12 pade_none pagin_con coworker_pagination_main">#}
-{#                    <ul id="sw_pagination">#}
-{#                        <li>#}
-{#                            <a class="page" href="javascript:void(0);" onclick="loadSpacePage(0,1,2);">1</a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a href="javascript:void(0);" onclick="loadSpacePage(1,1,2);">2</a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a href="javascript:void(0);" onclick="loadSpacePage(2,1,2);">3</a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a href="javascript:void(0);" onclick="loadSpacePage(3,1,2);">4</a>#}
-{#                        </li>#}
-{#                        <li class="pagination_dots">...</li>#}
-{#                        <li>#}
-{#                            <a href="javascript:void(0);" onclick="loadSpacePage(5,1,2);">6</a>#}
-{#                        </li>#}
-{#                        <li class="next_pagination_tab">#}
-{#                            <a href="javascript:void(0);" onclick="nextSpacePage(1,2);">下一页</a>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                    <div class="col-xs-12 pade_none pagination_text_con" id="sw_pagination_total">#}
-{#                        1 of 89 创客云图#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="sign_search">#}
-{#                    <h3 id="h_st">对了</h3><br>#}
-{#                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="dv_st">#}
-{#                        我们仍在收集全国各地的创客云图场地信息。请在下面输入您的邮箱!<br>#}
-{#                        我们如果添加新的场地，会第一时间给您发送邮件。#}
-{#                    </div>#}
-{#                    <div class="col-sm-10 col-md-10 col-xs-12 pade_none">#}
-{#                        <br>#}
-{#                        <input autocomplete="off" class="location_field ui-autocomplete-input" id="sign_search_mail" name="sign_search_mail" type="text" value="">#}
-{#                    </div>#}
-{#                    <div class="col-sm-10 col-md-10 col-xs-12 location_btn" style="padding-left: 0px; margin-left: 0px; margin-bottom: 100px;">#}
-{#                        <br>#}
-{#                        <a href="javascript:void(0);" onclick="registerEmail();" style="font-family:Roboto,sans-serif;font-weight: 300;font-size:15px;">确定接受信息</a>#}
-{#                    </div><input id="vloop" name="vloop" type="hidden" value="1">#}
-{#                </div>#}
-{#            </div>#}
+            {#            <div class="col-xs-12 show_pagin_out">#}
+            {#                <div class="col-sm-6 col-md-6 col-xs-12 pade_non show_result_con" id="sh_result" style="display:none;">#}
+            {#                    Showing Results 1-4 of 89#}
+            {#                </div>#}
+            {#                <div class="col-xs-12 pade_none pagin_con coworker_pagination_main">#}
+            {#                    <ul id="sw_pagination">#}
+            {#                        <li>#}
+            {#                            <a class="page" href="javascript:void(0);" onclick="loadSpacePage(0,1,2);">1</a>#}
+            {#                        </li>#}
+            {#                        <li>#}
+            {#                            <a href="javascript:void(0);" onclick="loadSpacePage(1,1,2);">2</a>#}
+            {#                        </li>#}
+            {#                        <li>#}
+            {#                            <a href="javascript:void(0);" onclick="loadSpacePage(2,1,2);">3</a>#}
+            {#                        </li>#}
+            {#                        <li>#}
+            {#                            <a href="javascript:void(0);" onclick="loadSpacePage(3,1,2);">4</a>#}
+            {#                        </li>#}
+            {#                        <li class="pagination_dots">...</li>#}
+            {#                        <li>#}
+            {#                            <a href="javascript:void(0);" onclick="loadSpacePage(5,1,2);">6</a>#}
+            {#                        </li>#}
+            {#                        <li class="next_pagination_tab">#}
+            {#                            <a href="javascript:void(0);" onclick="nextSpacePage(1,2);">下一页</a>#}
+            {#                        </li>#}
+            {#                    </ul>#}
+            {#                    <div class="col-xs-12 pade_none pagination_text_con" id="sw_pagination_total">#}
+            {#                        1 of 89 创客云图#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#                <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="sign_search">#}
+            {#                    <h3 id="h_st">对了</h3><br>#}
+            {#                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none" id="dv_st">#}
+            {#                        我们仍在收集全国各地的创客云图场地信息。请在下面输入您的邮箱!<br>#}
+            {#                        我们如果添加新的场地，会第一时间给您发送邮件。#}
+            {#                    </div>#}
+            {#                    <div class="col-sm-10 col-md-10 col-xs-12 pade_none">#}
+            {#                        <br>#}
+            {#                        <input autocomplete="off" class="location_field ui-autocomplete-input" id="sign_search_mail" name="sign_search_mail" type="text" value="">#}
+            {#                    </div>#}
+            {#                    <div class="col-sm-10 col-md-10 col-xs-12 location_btn" style="padding-left: 0px; margin-left: 0px; margin-bottom: 100px;">#}
+            {#                        <br>#}
+            {#                        <a href="javascript:void(0);" onclick="registerEmail();" style="font-family:Roboto,sans-serif;font-weight: 300;font-size:15px;">确定接受信息</a>#}
+            {#                    </div><input id="vloop" name="vloop" type="hidden" value="1">#}
+            {#                </div>#}
+            {#            </div>#}
         </div><!--====================================================================-->
         <div class="rght_sec">
             <div id="map_canvas" style="height: 777px; position: relative; overflow: hidden;">
@@ -434,18 +438,20 @@
 
 
     {% block footer %}
-        <div class="join_coworker_footer">
-            <div class="footer_close_button">
-                x
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="join_coworker_footer_inner">
-                        <p>爱上创客云图了吗? 成千上万的人都加入到了创客云图的共享办公当中了.</p><span class="footer_log_button"><a href="javascript:void(0);" onclick="openNavLoging();">登录</a></span> <span class="footer_sign_button"><a href="javascript:void(0);" onclick="openNavSignup();">注册</a></span>
+        {% if not user.is_authenticated %}
+            <div class="join_coworker_footer">
+                <div class="footer_close_button">
+                    x
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="join_coworker_footer_inner">
+                            <p>爱上创客云图了吗? 成千上万的人都加入到了创客云图的共享办公当中了.</p><span class="footer_log_button"><a href="javascript:void(0);" onclick="openNavLoging();">登录</a></span> <span class="footer_sign_button"><a href="javascript:void(0);" onclick="openNavSignup();">注册</a></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     {% endblock %}
 
     <form action="{% url "place:search" %}" method="post" accept-charset="utf-8" id="form_search" name="search_form"><input id="f_location" name="f_location" type="hidden" placeholder="Where are you going?" class="location_field" value="Hong kong, Hong kong">
@@ -475,8 +481,8 @@
       //Create a map function£º
       function createMap() {
         var map = new BMap.Map("map_canvas");//Add a map to the container
-            var point = new BMap.Point(123.455123,41.79223);//set the center point
-            map.centerAndZoom(point, 19);//display level
+        var point = new BMap.Point(123.455123,41.79223);//set the center point
+        map.centerAndZoom(point, 19);//display level
         window.map = map;
         window.localSearch = new BMap.LocalSearch(map);
         window.localSearch.enableAutoViewport(); //Allow automatic adjustment
@@ -508,22 +514,22 @@
       //Indexing array
       var markerArr = [
         {% for place in places %}
-                {
-                title : "{{ place.space_name }}",
-                content : "{{ place.space_name }}",
-                point : "123.455123|41.79223",
-{#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
-                isOpen : 1,
-                icon : {
-                  w : 21,
-                  h : 30,
-                  l : 0,
-                  t : 21,
-                  x : 6,
-                  lb : 5
-                }
-              } {% if not forloop.last %}, {% endif %}
-            {% endfor %}
+          {
+            title : "{{ place.space_name }}",
+            content : "{{ place.space_name }}",
+            point : "123.455123|41.79223",
+            {#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
+            isOpen : 1,
+            icon : {
+              w : 21,
+              h : 30,
+              l : 0,
+              t : 21,
+              x : 6,
+              lb : 5
+            }
+          } {% if not forloop.last %}, {% endif %}
+        {% endfor %}
       ];
       // creat marker
       function addMarker() {

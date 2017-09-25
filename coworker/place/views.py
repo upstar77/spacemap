@@ -59,6 +59,7 @@ class PlaceCityList(View):
         })
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class SearchList(View):
     template_name = 'pages/search_list.html'
 
@@ -70,13 +71,22 @@ class SearchList(View):
         else:
             places = Place.objects.all()
 
+        filter = request.GET.get("q") or request.POST.get('h_location')
+        if filter:
+            places = places.filter(space_name__search=filter)
+
         if not places:
             places = Place.objects.all()
 
         ctx = {
             'places': places,
+            'filter': filter
         }
         return render(request, self.template_name, ctx)
+
+    def post(self, request, *args, **kwargs):
+        #TODO figure out why and where called post method
+        return self.get(request, *args, **kwargs)
 
 
 class PlaceView(View):

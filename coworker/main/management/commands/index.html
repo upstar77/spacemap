@@ -110,7 +110,7 @@ $(document).ready(function(){
     $('.spaces_map_outer iframe').css("pointer-events", "none");
   });
 
-  var isLoggedIn = "0"; 
+  var isLoggedIn = "0";
   if(isLoggedIn === "1" && (typeof $.cookie('triggerLeadPop') !== 'undefined')) {
     var leadPopType = $.cookie('triggerLeadPop');
     $.removeCookie('triggerLeadPop');
@@ -128,7 +128,7 @@ $(document).ready(function(){
 
   $("#sched_tour_button").attr("src", "https://coworker.imgix.net/template/img/button_tour2.png");
   $("#sched_tour_button")
-      .mouseover(function() { 
+      .mouseover(function() {
           $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2_rollover.png");
       })
       .mouseout(function() {
@@ -136,42 +136,42 @@ $(document).ready(function(){
   });
 
   $(".message-space a")
-      .mouseover(function() { 
+      .mouseover(function() {
           $(this).addClass("csshover");
       })
       .mouseout(function() {
           $(this).removeClass("csshover");
-  });    
+  });
     $("#free_daypass_button")
-        .mouseover(function() { 
+        .mouseover(function() {
             $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2_rollover.png");
         })
         .mouseout(function() {
            $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2.png");
-    });        
+    });
     $("#sched_tour_button02")
-        .mouseover(function() { 
+        .mouseover(function() {
             $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2_rollover.png");
         })
         .mouseout(function() {
            $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2.png");
-    });        
+    });
     $("#free_daypass_button02")
-        .mouseover(function() { 
+        .mouseover(function() {
             $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2_rollover.png");
         })
         .mouseout(function() {
            $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2.png");
     });
     $("#get_daypass_button")
-        .mouseover(function() { 
+        .mouseover(function() {
             $(this).attr("src", "https://coworker.imgix.net/template/img/get_day_pass2.png");
         })
         .mouseout(function() {
            $(this).attr("src", "https://coworker.imgix.net/template/img/get_day_pass.png");
     });
     $("#rq_daypass_button")
-        .mouseover(function() { 
+        .mouseover(function() {
             $(this).attr("src", "https://coworker.imgix.net/template/img/rq_day_pass2.png");
         })
         .mouseout(function() {
@@ -181,7 +181,7 @@ $(document).ready(function(){
   $( "#datepicker_availability_request2" ).datepicker();
   $(".see_membership").click(function(){
     $(".trans_black_bg").show();
-  }); 
+  });
   $(".cross_outer a").click(function(){
     $(".trans_black_bg").hide();
   });
@@ -284,7 +284,7 @@ function displayAnswer(divID){
 												<div class="col-md-3 col-sm-3 col-xs-6 pade_none logo_con mobLogoWrapper"> <a href="/"><img alt="logo" src="https://www.coworker.com/template/img/new_logo.svg"></a> </div>
 						<div class="col-md-4 col-sm-4 col-xs-12 pade_none search mobSearchWrapper">
 							<div id="h_aucomplete" class="inner_srch_blk">
-																<form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="form_search_h" name="form_search_h"> 
+																<form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="form_search_h" name="form_search_h">
 									<span><img alt="img" src="https://coworker.imgix.net/template/img/srch_ic.png"></span>
 									<input id="h_location" name="h_location" type="text" placeholder="Search by coworking space, city or country" class="space_header_input">
 									<input type="hidden" name="form_search" value="2" >
@@ -327,7 +327,7 @@ function displayAnswer(divID){
 						<li><a href="https://www.coworker.com/lab" class="white-text"><i class="fa fa-caret-right"></i>The Lab</a></li>
 						<li><a href="javascript:void(0);" onclick="openNavSignup();" class="white-text" id="signupBtn"><i class="fa fa-caret-right"></i>Sign Up</a></li>
 						<li class="lastNoBorder"><a href="javascript:void(0);" onclick="openNavLoging();" class="white-text" id="loginBtn"><i class="fa fa-caret-right"></i>Login</a></li>
-						
+
 					</ul>
 				</div>
 			</div>
@@ -354,7 +354,7 @@ function displayAnswer(divID){
 			<h2>Reset Password</h2>
 			<div class="col-xs-12 login_forget_content">
 				<p>Enter the email address you signed up with and we'll email you a link to reset your password.</p>
-            
+
                 <div class="col-xs-121 pade_none login_forget_input_outer">
                 <input name="email-reset" id="email-reset" type="text" class="validate[required,custom[email],funcCall[is_EmailDoesnotExists[email-recovery]]]" Placeholder="Email">
                 </div>
@@ -362,8 +362,8 @@ function displayAnswer(divID){
                  <button onclick="ValidateRecovery();" name="Sent Reset Link"><span id="LblSend">Send Reset Link</span></button>
                  </div>
                 </div>
-              
-		
+
+
 			</div>
 		</div>
 	</div>
@@ -455,8 +455,8 @@ function displayAnswer(divID){
 <!--BREADCRUMB END-->
 <div id="main_img" class="banner_space_outr banner_space_outr_mob" style="background-image:url('https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/main.jpeg?mark=/template/img/wm_icon.png&markscale=2&markalign=center,middle');"></div>
 <!--BANNER END-->
-<!-- Day pass/ Tour -->    
- 
+<!-- Day pass/ Tour -->
+
 
 <!--NGINX SOFTWARE START-->
   <div class="nginx_main_outer nginx_main_outer_mob">
@@ -516,7 +516,7 @@ function displayAnswer(divID){
           </ul>
         </div>
       </div>
-      <a href="javascript:void(0); " id="link_to_map"> <div class="col-xs-12 pade_none spaces_map_outer"> <iframe src="https://maps.google.com/maps?q=38.4780749,-107.878127&amp;z=14&amp;output=embed&amp;iwloc=1" style="border: 0px none; pointer-events: none;" allowfullscreen="" frameborder="0"></iframe></div> </a> 
+      <a href="javascript:void(0); " id="link_to_map"> <div class="col-xs-12 pade_none spaces_map_outer"> <iframe src="https://maps.google.com/maps?q=38.4780749,-107.878127&amp;z=14&amp;output=embed&amp;iwloc=1" style="border: 0px none; pointer-events: none;" allowfullscreen="" frameborder="0"></iframe></div> </a>
       <div class="col-xs-12 pade_none spaces_contact_panel_outer contact_mobile_show">
         <div class="col-xs-12 pade_none spaces_contact_top_panel">
           <h3>Contact Us</h3>
@@ -548,7 +548,7 @@ function displayAnswer(divID){
           <div class="col-xs-12 pade_none muchroom_main">
             <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_lft_main">
               <div class="overviews_tabs_outer">
-			  
+
 			  <div class="sticky_bar_con">
                 <div class="col-xs-12 pade_none overview_coworker_outer sticky_bar">
                   <ul>
@@ -561,7 +561,7 @@ function displayAnswer(divID){
                   </ul>
                 </div>
 				</div>
-				
+
                 <div class="hrLine_sticky_ifnnxc"></div>
                 <div class="col-xs-12 pade_none overview_happiness_main scroll_navbar" id="overview">
                   <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_street_con ngiborder_none">
@@ -683,33 +683,33 @@ Create valuable connections through engaging in collaborative opportunities with
 
       <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
         <a alt="Proximity Space, Montrose" href="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/1.jpeg?h=600&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" data-fancybox="images" data-caption="Photo 1">
-		
+
 		<img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/1.jpeg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" style="display:none">
 		<div class="example-image slider-bg-pic"  alt="Proximity Space, Montrose"  style="background-image: url('https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/1.jpeg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle')"></div>
-		
+
 		</a>
       </div>
       <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
         <a alt="Proximity Space, Montrose" href="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/2.jpg?h=600&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" data-fancybox="images" data-caption="Photo 2">
-		
+
 		<img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/2.jpg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" style="display:none">
 		<div class="example-image slider-bg-pic"  alt="Proximity Space, Montrose"  style="background-image: url('https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/2.jpg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle')"></div>
-		
+
 		</a>
       </div>
 <div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
             <a alt="Proximity Space, Montrose" href="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/3.jpg?h=600&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" data-fancybox="images" data-caption="Photo 3">
-            
+
             <img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/3.jpg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" style="display:none">
 		<div class="example-image slider-bg-pic"  alt="Proximity Space, Montrose"  style="background-image: url('https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/3.jpg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle')"></div></a>
           </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
             <a alt="Proximity Space, Montrose" href="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/4.jpg?h=600&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" data-fancybox="images" data-caption="Photo 4">
-            
+
             <img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/4.jpg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" style="display:none">
 		<div class="example-image slider-bg-pic"  alt="Proximity Space, Montrose"  style="background-image: url('https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/4.jpg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle')"></div></a>
           </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
             <a alt="Proximity Space, Montrose" href="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/5.jpeg?h=600&fit=crop&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" data-fancybox="images" data-caption="Photo 5">
-            
+
             <img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/5.jpeg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle" style="display:none">
 		<div class="example-image slider-bg-pic"  alt="Proximity Space, Montrose"  style="background-image: url('https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/5.jpeg?w=600&mark=/template/img/wm_icon.png&markscale=5&markalign=center,middle')"></div></a>
           </div><div class="col-sm-3 col-md-3 col-xs-12 pade_none nginx_pic01 slider_mobile_new space-new-slider-pic02">
@@ -734,7 +734,7 @@ Create valuable connections through engaging in collaborative opportunities with
             </div>          </div>
             </div>
             </div>
-            
+
             <div class="col-xs-12 pade_none membership_fees_main scroll_navbar" id="desk_office">
               <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa membership"><img src="https://www.coworker.com/template/img/space/membership_icon_img.png" alt="membership_icon_img"></i> Membership Fees</div>
               <!--TABS START-->
@@ -744,7 +744,7 @@ Create valuable connections through engaging in collaborative opportunities with
                   <li><a data-target="#dedicated_desk" data-toggle="tab">Dedicated <span>Desk</span></a></li>
                   <li><a data-target="#private_office" data-toggle="tab"  id="private_office_tab">Private <span>Office</span></a></li>
                 </ul>
-<form action="https://www.coworker.com/united-states/colorado/montrose/proximity-space/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">    
+<form action="https://www.coworker.com/united-states/colorado/montrose/proximity-space/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
       <input type="hidden" value="0" id="res_duration" name="res_duration" />
       <input type="hidden" value="1" id="res_quantity" name="res_quantity" />
       <input type="hidden" value="0" id="res_package_id" name="res_package_id" />
@@ -814,14 +814,14 @@ Create valuable connections through engaging in collaborative opportunities with
             </div>
             <!--TABS END-->
           </div>
-            
+
           <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_content_map scroll_navbar" id="map">
-            <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space pade_top_bottom"><i class="fa fa-map-marker" aria-hidden="true"></i> 
+            <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space pade_top_bottom"><i class="fa fa-map-marker" aria-hidden="true"></i>
               Location <br><span>Address 210 E Main St, Montrose, United States</span>
             </div>
             <iframe src="https://maps.google.com/maps?q=38.4780749,-107.878127&amp;z=14&amp;output=embed&amp;iwloc=1" style="border: 0px none; pointer-events: none;" allowfullscreen="" class="map_con" height="450" frameborder="0" width="600"></iframe>
           </div>
-           
+
           <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_bott reviews_community_main scroll_navbar" id="reviews01">
             <h3>213 <samp>Reviews</samp> <span>By the coworking community</span></h3>
             <div id="dv_rev_list" class="col-xs-12 pade_none">
@@ -931,37 +931,37 @@ Create valuable connections through engaging in collaborative opportunities with
                 <div class="filter_reviews_checkbox">
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select">
-                    <label for="review_select"></label> 
+                    <label for="review_select"></label>
                     <span>Written Review</span>
                   </div>
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select02">
-                    <label for="review_select02"></label> 
+                    <label for="review_select02"></label>
                     <span>Video review</span>
                   </div>
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select03">
-                    <label for="review_select03"></label> 
+                    <label for="review_select03"></label>
                     <span>Excellent</span>
                   </div>
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select04">
-                    <label for="review_select04"></label> 
+                    <label for="review_select04"></label>
                     <span>Very Good</span>
                   </div>
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select05">
-                    <label for="review_select05"></label> 
+                    <label for="review_select05"></label>
                     <span>Average</span>
                   </div>
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select06">
-                    <label for="review_select06"></label> 
+                    <label for="review_select06"></label>
                     <span>Poor</span>
                   </div>
                   <div class="filter_checkbox_inn">
                     <input name="review_select" type="checkbox" value="" id="review_select07">
-                    <label for="review_select07"></label> 
+                    <label for="review_select07"></label>
                     <span>Terrible</span>
                   </div>
                 </div>
@@ -998,9 +998,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="2rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1033,9 +1033,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="3rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1068,15 +1068,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="4rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar11.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1092,18 +1092,18 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>I was able to be very productive in this comfortable and inspirational work environment.  Will definitely come in again. </p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="5rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar06.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1119,12 +1119,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>I didn't realize how much I needed an environment like Proximity Space.  I love working solo on a project for hours- I also love receiving feedback from peers when desired, rebooting with other humans, and having a dedicated space to run my "home" business from.  Couldn't be happier to have found this gem. </p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="6rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1157,15 +1157,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="7rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar15.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1181,12 +1181,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>Thanks to all the people who stick their necks out to make proximity space happen. This is a great resource for telecommuters, freelancers and out of town visitors. I've not only work in the space but have had the opportunity to collaborate with you go there as well. Now I need to work more so I can be there more…smile/wink. </p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="8rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1219,15 +1219,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="9rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar02.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1243,18 +1243,18 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>Having had the opportunity to attend, host and participate in numerous events in Proximity Space,  no other place in Montrose, or our region, has attracted such diverse interests and opportunities for dynamic community involvement . The level of professionalism shown in every aspect of its execution is truly remarkable.  </p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="10rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar01.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1270,18 +1270,18 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>The Proximity Space - and the innovative minds that created and manage it - has an immeasurable impact on the perception and the experience of economic vitality in Montrose.  Our downtown Main Street truly came alive with a vibe of youth and creativity when Proximity emerged.  I can't think of any more dramatic and enduring economic development stimulant to attract and retain "the cultural creatives" that our economic sustainability truly depends on!  </p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="11rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar12.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1297,12 +1297,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>Stopped in to check these guys out last week while I was passing through on business. I was very disappointed in the overall feel of the coworking environment. I'll pass on future time here, you might want to consider other spaces before stopping.</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="12rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1335,15 +1335,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="13rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar16.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1359,12 +1359,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>The folks that run Proximity are super friendly and helpful, the location is awesome right in downtown Montrose, close to everything, and the interwebs are super too. Highly recommend it!</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="14rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1397,15 +1397,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="15rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar09.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1421,12 +1421,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>The environment here is truly based on the people who created it and visit each day - which is awesome, good natured and helpful!</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="16rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1459,9 +1459,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="17rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1494,9 +1494,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="18rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1529,9 +1529,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="19rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1564,9 +1564,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="20rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1599,9 +1599,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="21rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1634,9 +1634,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="22rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1669,9 +1669,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="23rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1704,9 +1704,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="24rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1739,9 +1739,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="25rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1774,9 +1774,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="26rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1809,9 +1809,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="27rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1844,9 +1844,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="28rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1879,15 +1879,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="29rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar14.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -1903,12 +1903,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>Relaxed atmosphere, I liked the private meeting space and the openness .</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="30rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1941,9 +1941,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="31rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -1976,9 +1976,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="32rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2011,9 +2011,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="33rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2046,9 +2046,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="34rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2081,9 +2081,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="35rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2116,9 +2116,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="36rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2151,9 +2151,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="37rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2186,15 +2186,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="38rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar07.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -2210,12 +2210,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>The space is great and the people are always friendly!!</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="39rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2248,9 +2248,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="40rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2283,9 +2283,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="41rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2318,9 +2318,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="42rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2353,15 +2353,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="43rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar02.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -2377,12 +2377,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>I have been involved in a few events at the Proximity Space and they went of in exceptional fasion.  The video equipment was great, the web connection was amazing and the staff is very knowledgeable and helpful.</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="44rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2415,9 +2415,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="45rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2450,9 +2450,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="46rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2485,9 +2485,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="47rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2520,15 +2520,15 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="48rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
                     <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar12.png" alt=""></span></div>
                     <span>Mystery Coworker</span>
-                    
+
                   </div>
                   <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">
                     <div class="col-xs-12 reviews_txt-new-outer01">
@@ -2544,12 +2544,12 @@ Create valuable connections through engaging in collaborative opportunities with
                           <div class="review_date date_hide">July 2016</div>
                         </div>
                         <p>Proximity space provided us with a short term  office space , great meeting space and friendly co workers! PROXIMITY SPACE ROCKS!</p>
-                        
+
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="49rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2582,9 +2582,9 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div><div id="50rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">
                   <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
@@ -2617,12 +2617,12 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
                       </div>
                       <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
-                      
+
                     </div>
-                    
+
                   </div>
                 </div>              </div>
-              
+
 
               <!--PAGINATION HERE-->
 
@@ -2642,35 +2642,35 @@ Create valuable connections through engaging in collaborative opportunities with
                       <li>
                         <div class="filter_checkbox_inn filter_checkbox_green" >
                         <input name="review_select" id="review_select_list01" type="checkbox">
-                        <label for="review_select_list01"></label> 
+                        <label for="review_select_list01"></label>
                         <span>Coworking Space Tips</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass" id="review_select_list02" type="checkbox">
-                        <label for="review_select_list02"></label> 
+                        <label for="review_select_list02"></label>
                         <span>Checking In</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass" id="review_select_list03" type="checkbox">
-                        <label for="review_select_list03"></label> 
+                        <label for="review_select_list03"></label>
                         <span>Transportation</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass" id="review_select_list04" type="checkbox">
-                        <label for="review_select_list04"></label> 
+                        <label for="review_select_list04"></label>
                         <span>Making the most of your Visit</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass" id="review_select_list05" type="checkbox">
-                        <label for="review_select_list05"></label> 
+                        <label for="review_select_list05"></label>
                         <span>Other</span>
                         </div>
                       </li>
@@ -2681,35 +2681,35 @@ Create valuable connections through engaging in collaborative opportunities with
                       <li>
                         <div class="filter_checkbox_inn filter_checkbox_green" >
                         <input name="review_select" id="area_tips_click" type="checkbox">
-                        <label for="area_tips_click"></label> 
+                        <label for="area_tips_click"></label>
                         <span>Area Tips</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02" id="review_select_list07" type="checkbox">
-                        <label for="review_select_list07"></label> 
+                        <label for="review_select_list07"></label>
                         <span>Places to eat</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"  id="review_select_list08" type="checkbox">
-                        <label for="review_select_list08"></label> 
+                        <label for="review_select_list08"></label>
                         <span>Where to stay</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"  id="review_select_list09" type="checkbox">
-                        <label for="review_select_list09"></label> 
+                        <label for="review_select_list09"></label>
                         <span>Places to socialize</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"   id="review_select_list10" type="checkbox">
-                        <label for="review_select_list10"></label> 
+                        <label for="review_select_list10"></label>
                         <span>Places to see</span>
                         </div>
                       </li>
@@ -2721,28 +2721,28 @@ Create valuable connections through engaging in collaborative opportunities with
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"  id="review_select_list11" type="checkbox">
-                        <label for="review_select_list11"></label> 
+                        <label for="review_select_list11"></label>
                         <span>Activities to try</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"  id="review_select_list12" type="checkbox">
-                        <label for="review_select_list12"></label> 
+                        <label for="review_select_list12"></label>
                         <span>Best cup of coffee</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"  id="review_select_list13" type="checkbox">
-                        <label for="review_select_list14"></label> 
+                        <label for="review_select_list14"></label>
                         <span>Places to drink</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"   id="review_select_list14" type="checkbox">
-                        <label for="review_select_list14"></label> 
+                        <label for="review_select_list14"></label>
                         <span>How to get around</span>
                         </div>
                       </li>
@@ -2754,14 +2754,14 @@ Create valuable connections through engaging in collaborative opportunities with
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"  id="review_select_list15" type="checkbox">
-                        <label for="review_select_list15"></label> 
+                        <label for="review_select_list15"></label>
                         <span>Where to Shop</span>
                         </div>
                       </li>
                       <li>
                         <div class="filter_checkbox_inn">
                         <input name="review_select" class="checkBoxClass02"   id="review_select_list16" type="checkbox">
-                        <label for="review_select_list16"></label> 
+                        <label for="review_select_list16"></label>
                         <span>Other</span>
                         </div>
                       </li>
@@ -2803,14 +2803,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar15.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Couple decent restaurants within walking distance, and a nail salon across the street… Reminds me of my New York days</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -2820,14 +2820,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar02.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Within a block are the best spots to shop for an amazing array of outdoor clothing and adventure gear,  and a top notch bike shop next store! </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -2837,14 +2837,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar01.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">The Bistro next door offers terrific food and wine - and is really affordable!</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3057,14 +3057,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar02.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">It is in the downtown area with several good restaurants and interesting shops to vist. </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3132,14 +3132,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar04.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Great for Montrose </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3178,14 +3178,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar08.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">#5b on the Community Norms!</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3195,14 +3195,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar12.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">I am an out-of-towner but really enjoyed the drive in from Utah.  Proximity Space is in a beautiful location and very easy to find. </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3212,14 +3212,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar09.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">I am an out of towner but loved the drive there from Utah!  Beautiful location!</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3229,14 +3229,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar12.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">The Bistro is right next door and a great place to eat.</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3246,14 +3246,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar14.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Look out for the Chicken! </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3582,14 +3582,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar02.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Grab lunch at Backstreet Bagel and sit outside on their back patio for some fresh air. </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3628,14 +3628,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar01.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Check out Colorado Boy for a great Brew!</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3645,14 +3645,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar08.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">WHY not live where other people vacation !! That is if you like mountains you are in - if you like the ocean go West !!</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3778,14 +3778,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar15.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">The Bistro next door has great food and lunch specials. </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3882,14 +3882,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar01.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">Colorado Boy a few doors down has great pizza!</p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -3899,14 +3899,14 @@ Create valuable connections through engaging in collaborative opportunities with
             <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">
               <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="https://coworker.imgix.net/template/img/avatars/small/animalavatar14.png" alt=""></span></div>
               <span>&nbsp;Mystery Coworker</span>
-              
+
             </div>
             <div class="col-sm-8 col-md-9 col-xs-12 reviews_right-text-outer-main">
               <div class="col-xs-12 reviews_txt-new-outer01">
                 <div class="reviews_txt-new-bottom01">
                   <div class="col-xs-12 pade_none review_sandwiches_outer">
                     <p class="upper_space_con">A WONDERFUL EXPERIENCE RIGHT IN THE HEART OF HISTORIC DOWNTOWN MONTROSE!  </p>
-              
+
                   </div>
                 </div>
                 <div class="arrow-position-left02"><img class="rply_img" src="https://www.coworker.com/template/img/arrow-position-left01.png"></div>
@@ -4030,7 +4030,7 @@ Create valuable connections through engaging in collaborative opportunities with
               </div>
             </div>
           </div>
-                
+
               </div>
               <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main">
                 <ul id='tips_pagination'>
@@ -4044,13 +4044,13 @@ Create valuable connections through engaging in collaborative opportunities with
         </div>
         <!--LEFT PANEL END-->
         <!-- RIGHT PANEL START-->
-        <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con" id="contact_hide_mobile"> 
+        <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con" id="contact_hide_mobile">
           <div class="coworker_space_right_inner_panel">
             <div class="col-xs-12 pade_none spaces_contact_panel_outer stickybar contact_hide_mobile">
               <div class="col-xs-12 pade_none space_shadow_div">
                 <div class="col-xs-12 pade_none spaces_contact_top_panel">
                   <h3>Contact Us</h3>
-                  
+
 				  <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">Membership Enquiry</a></div>
                   <div class="coworker_freedaypass_button"><a href="javascript:void(0);" alt="Request Day Pass" onclick="bookRqDaypass('0');">Request Day Pass</a></div>
                   <div class="coworker_freedaypass_button"><a href="#" onclick="bookTour('0')" alt="Schedule A Tour">Book a Tour</a></div>
@@ -4176,7 +4176,7 @@ n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/20
 e.parentNode.insertBefore(n, e);
 })(document,"script","hs-analytics",300000);
 </script>
-<!-- End of Async HubSpot Analytics Code --> 
+<!-- End of Async HubSpot Analytics Code -->
 
 <script>
 $(document).ready(function(){
@@ -4308,7 +4308,7 @@ $(document).ready(function(){
       <div class="col-xs-12 pade_none pop_inn">
         <div class="popup_icon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></div>
         <div class="pop_rgt"><input id="c_phone" type="text" placeholder="Phone Number"></div>
-      </div>    
+      </div>
       <div class="col-xs-12 pade_none pop_inn">
         <div class="popup_icon"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
         <div class="pop_rgt"><textarea  id="c_message" cols="" rows="" placeholder="Message"></textarea></div>
@@ -4328,7 +4328,7 @@ $(document).ready(function(){
     <div class="availability-request-outer" >
       <h2>Message Space</h2>
       <div class="col-xs-12 pade_none availability-request-inner">
-        <div class="col-xs-12 pade_none availability-request-img-outer"><img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/main.jpeg?w=450&h=165&fit=crop" alt="Proximity Space"></div>    
+        <div class="col-xs-12 pade_none availability-request-img-outer"><img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/main.jpeg?w=450&h=165&fit=crop" alt="Proximity Space"></div>
         <div class="col-xs-12 pade_none private-office-outer">
           <div class="col-xs-12 pade_none private_office_inner_con message_space_outer">
             <input id="c_name" type="text" Placeholder="Name" class="message_space_name">
@@ -4455,7 +4455,7 @@ $(document).ready(function(){
           <div class="col-xs-12 pade_none freepass_textfield_inner schedule_input_form">
             <input id="rqdaypass_email" type="text" Placeholder="Email Address" class="right_space" value="">
             <!--input id="rqdaypass_phone" type="text" Placeholder="Phone Number" class="left_space"-->
-            <input type="hidden" id="tour_timeslot2" value=""/> 
+            <input type="hidden" id="tour_timeslot2" value=""/>
           </div>
           <div class="col-xs-12 pade_none freepass_textfield_inner">
             <input name="daypass_date" type="text" class="right_space datepicker_pic date_img_none" id="daypass_date" readonly="readonly" placeholder="Select Date">
@@ -4522,42 +4522,42 @@ function setTimeOptions2() {
       dayOfWeek = 6;
   var timeStart = ((obj[dayOfWeek].timeFrom.charAt(0) === '0')?obj[dayOfWeek].timeFrom.slice( 1 ):obj[dayOfWeek].timeFrom).split(":");
   var timeEnd = ((obj[dayOfWeek].timeTill.charAt(0) === '0')?obj[dayOfWeek].timeTill.slice( 1 ):obj[dayOfWeek].timeTill).split(":");
-  
+
   if(timeEnd[0]==0){
     timeEnd[0]=24;
   }
-  
+
   $("#tour_time_ul2").empty();
   $('#tour_timeslot2').val("");
-  
-  $("#tour_select_span2").html("Est. Arrival Time");                     
+
+  $("#tour_select_span2").html("Est. Arrival Time");
   $('#rqDayPassDd dt a').addClass('dropdownactive');
 
   for(var i = parseInt(timeStart[0]); i <= parseInt(timeEnd[0]); i++)
   {
       if(i === parseInt(timeStart[0]) && parseInt(timeStart[1]) === 30 && (i+1) <= parseInt(timeEnd[0])) {
-          optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");     
+          optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");
           $("#tour_time_ul2").append("<li><a class=\"default\">"+optionText+"</a></li>");
-      }    
+      }
       else if(i === parseInt(timeEnd[0]) && parseInt(timeEnd[1]) === 30) {
-          optionText = formatTime(i, ":00") + " - " + formatTime(i, ":30");                             
+          optionText = formatTime(i, ":00") + " - " + formatTime(i, ":30");
           if(i === parseInt(timeStart[0]))
               $("#tour_time_ul2").append("<li><a class=\"default\">"+optionText+"</a></li>");
-          else    
+          else
               $("#tour_time_ul2").append("<li><a>"+optionText+"</a></li>");
-      }     
+      }
       else if(i < parseInt(timeEnd[0])){
-          optionText = formatTime(i, ":00") + " - " + formatTime(i, ":30");                                                     
-          
+          optionText = formatTime(i, ":00") + " - " + formatTime(i, ":30");
+
           if(i === parseInt(timeStart[0]))
               $("#tour_time_ul2").append("<li><a class=\"default\">"+optionText+"</a></li>");
-          else    
+          else
               $("#tour_time_ul2").append("<li><a>"+optionText+"</a></li>");
-          
-          optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");                             
+
+          optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");
           $("#tour_time_ul2").append("<li><a>"+optionText+"</a></li>");
       }
-  }                                   
+  }
   initDropdown2();
 }
 function bookRqDaypass(loggedIn){
@@ -4575,7 +4575,7 @@ function bookRqDaypass(loggedIn){
 }
 function closeRqDaypass(){
   $("#the_hub").modal("hide");
-} 
+}
 function closeRqDayConfirm(){
   $("#rqpass_confirm").modal("hide");
   //refineSearch();
@@ -4583,20 +4583,20 @@ function closeRqDayConfirm(){
 function initDropdown2() {
   var dropdowns = $("#rqDayPassDd");
   // Onclick on a dropdown, toggle visibility
-  dropdowns.find("dt").click(function(){                    
+  dropdowns.find("dt").click(function(){
     dropdowns.find("dd ul").hide();
     $(this).next().children().toggle();
   });
 
   // Clic handler for dropdown
   dropdowns.find("dd ul li a").click(function() {
-    var leSpan = $(this).parents("#rqDayPassDd").find("dt a span");          
+    var leSpan = $(this).parents("#rqDayPassDd").find("dt a span");
     $('#tour_timeslot2').val($(this).text());
 
     // Remove selected class
     $(this).parents("#rqDayPassDd").find('dd a').each(function(){
       $(this).removeClass('selected');
-    });          
+    });
 
     // Update selected value
     leSpan.html($(this).html());
@@ -4607,7 +4607,7 @@ function initDropdown2() {
     } else {
       leSpan.addClass('selected');
       $(this).addClass('selected');
-    }          
+    }
     // Close dropdown
     $(this).parents("ul").hide();
   });
@@ -4628,7 +4628,7 @@ function initDropdown2() {
       if(!$(this).addClass('dropdownactive')) {
       } else {
         $(this).addClass('dropdownactive');
-        $(this).next().stop(true,true).removeClass('dropdownactive');                    
+        $(this).next().stop(true,true).removeClass('dropdownactive');
       }
     });
   });
@@ -4636,7 +4636,7 @@ function initDropdown2() {
 
 if($("#tour_date2").val() !== '' ) {
   $("#tour_date2").val('');
-}    
+}
 initDropdown2();
 </script>
 <div class="modal fade" id="tour_pop" role="dialog">
@@ -4650,11 +4650,11 @@ initDropdown2();
       <div class="col-xs-12 pade_none freepass_timer_outer">
         <form action="#" method="get">
           <input type="hidden" id="tour_user_id" value="-2"/>
-          <input type="hidden" id="tour_user_pic" value="http://www.gravatar.com/avatar/a9178bc903fe6ad4cd1970bec4755af9?s=100&d=mm&r=g"/>   
+          <input type="hidden" id="tour_user_pic" value="http://www.gravatar.com/avatar/a9178bc903fe6ad4cd1970bec4755af9?s=100&d=mm&r=g"/>
           <div class="col-xs-12 pade_none freepass_textfield_inner">
-            <input class="right_space" type="text" id="tour_user_name" placeholder="Full name" value=""/>                            
+            <input class="right_space" type="text" id="tour_user_name" placeholder="Full name" value=""/>
             <input class="left_space" id="tour_email" type="text" placeholder="Email address" value="">
-            <input type="hidden" id="tour_timeslot" value=""/>                            
+            <input type="hidden" id="tour_timeslot" value=""/>
           </div>
           <div class="col-xs-12 pade_none freepass_textfield_inner">
             <input type="text" id="tour_date" class="right_space datepicker_pic" placeholder="Select Date" readonly="readonly">
@@ -4688,7 +4688,7 @@ initDropdown2();
         <h3>Great, your  <samp>tour</samp>  is booked in! </h3>
         <span><a id="tour_confirm_date" href="javascript:void(0);"></a></span>
         <p>We hope you like the space, and don't forget to post a review for them afterwards!</p>
-      </div>      
+      </div>
       <div class="col-xs-12 pade_none free-trial-daypass-grey_main">
         <p>Want to invite friends or colleagues to check out<br> Proximity Space too?</p>
         <div class="col-xs-12 pade_none free-trial-popup-social-icons">
@@ -4716,41 +4716,41 @@ $(function(){
 function setTimeOptions() {
   var obj = JSON.parse('[{"isActive":true,"timeFrom":"10:00","timeTill":"16:00"},{"isActive":true,"timeFrom":"10:00","timeTill":"16:00"},{"isActive":true,"timeFrom":"10:00","timeTill":"16:00"},{"isActive":true,"timeFrom":"10:00","timeTill":"16:00"},{"isActive":true,"timeFrom":"10:00","timeTill":"16:00"},{"isActive":false,"timeFrom":"","timeTill":""},{"isActive":false,"timeFrom":"","timeTill":""}]');
   var date = $("#tour_date").datepicker('getDate');
-  
+
   var dayOfWeek = date.getDay()-1;
   if(dayOfWeek === -1)
     dayOfWeek = 6;
 
   var timeStart = ((obj[dayOfWeek].timeFrom.charAt(0) === '0')?obj[dayOfWeek].timeFrom.slice( 1 ):obj[dayOfWeek].timeFrom).split(":");
   var timeEnd = ((obj[dayOfWeek].timeTill.charAt(0) === '0')?obj[dayOfWeek].timeTill.slice( 1 ):obj[dayOfWeek].timeTill).split(":");
-  
+
   if(timeEnd[0]==0){
     timeEnd[0]=24;
   }
-  
+
   $("#tour_time_ul").empty();
   $('#tour_timeslot').val("");
-  
-  $("#tour_select_span").html("Select Time");                     
+
+  $("#tour_select_span").html("Select Time");
   $('.dropdown dt a').addClass('dropdownactive');
-  
+
   for(var i = parseInt(timeStart[0]); i <= parseInt(timeEnd[0]); i++) {
     if(i === parseInt(timeStart[0]) && parseInt(timeStart[1]) === 30 && (i+1) <= parseInt(timeEnd[0])) {
-      optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");     
+      optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");
       $("#tour_time_ul").append("<li><a class=\"default\">"+optionText+"</a></li>");
     } else if(i === parseInt(timeEnd[0]) && parseInt(timeEnd[1]) === 30) {
       optionText = formatTime(i, ":00") + " - " + formatTime(i, ":30");
       if(i === parseInt(timeStart[0]))
         $("#tour_time_ul").append("<li><a class=\"default\">"+optionText+"</a></li>");
-      else    
+      else
         $("#tour_time_ul").append("<li><a>"+optionText+"</a></li>");
     } else if(i < parseInt(timeEnd[0])){
       optionText = formatTime(i, ":00") + " - " + formatTime(i, ":30");
       if(i === parseInt(timeStart[0]))
         $("#tour_time_ul").append("<li><a class=\"default\">"+optionText+"</a></li>");
-      else    
+      else
         $("#tour_time_ul").append("<li><a>"+optionText+"</a></li>");
-      
+
       optionText = formatTime(i, ":30") + " - " + formatTime((i+1), ":00");
       $("#tour_time_ul").append("<li><a>"+optionText+"</a></li>");
     }
@@ -4778,7 +4778,7 @@ function bookTour(loggedIn){
   $('#tour_timeslot').val("");
   $("#tour_select_span").html("Select Time");
   /*
-  // Prompt for login               
+  // Prompt for login
   if(loggedIn == '0') {
       $.cookie('triggerLeadPop', 'tour');
       openNavLoging();
@@ -4789,12 +4789,12 @@ function bookTour(loggedIn){
 
 function closeTour(){
   $("#tour_pop").modal("hide");
-} 
+}
 
 function initDropdown() {
   var dropdowns = $("#bookTourDd");
   // Onclick on a dropdown, toggle visibility
-  dropdowns.find("dt").click(function(){                    
+  dropdowns.find("dt").click(function(){
       dropdowns.find("dd ul").hide();
       $(this).next().children().toggle();
   });
@@ -4839,7 +4839,7 @@ function initDropdown() {
       if(!$(this).addClass('dropdownactive')) {
       } else {
         $(this).addClass('dropdownactive');
-        $(this).next().stop(true,true).removeClass('dropdownactive');                    
+        $(this).next().stop(true,true).removeClass('dropdownactive');
       }
     });
   });
@@ -4938,7 +4938,7 @@ initDropdown();
           <p class="daypass-touch-soon">Proximity Space has received your membership enquiry and will be in touch with you soon.</p>
         </span>
         <p>Enjoy your experience coworking there, and don't forget to post a review for them afterwards!</p>
-      </div>        
+      </div>
       <div class="col-xs-12 pade_none free-trial-daypass-grey_main">
         <p>Want to invite friends or colleagues to check out<br> Proximity Space too?</p>
         <div class="col-xs-12 pade_none free-trial-popup-social-icons">
@@ -4958,7 +4958,7 @@ initDropdown();
     <div class="availability-request-outer" >
       <h2 id="ar_title">Availability Request</h2>
       <div class="col-xs-12 pade_none availability-request-inner">
-        <div class="col-xs-12 pade_none availability-request-img-outer"><img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/main.jpeg?w=415&h=140&fit=crop" alt="Proximity Space"></div>    
+        <div class="col-xs-12 pade_none availability-request-img-outer"><img src="https://coworker.imgix.net/photos/united-states/colorado/montrose/proximity-space/main.jpeg?w=415&h=140&fit=crop" alt="Proximity Space"></div>
         <div class="col-xs-12 pade_none private-office-outer">
           <h3 id="ar_subtitle"></h3>
           <div class="col-xs-12 pade_none private_office_inner_con">
@@ -5026,28 +5026,28 @@ function formatTime(hour24, minutes)
 {
     var hour12 = ((hour24 + 11) % 12) + 1;
     var amPm = hour24 > 11 ? (hour24 == 24 ? 'am' :'pm') : 'am';
-    return hour12 + minutes + amPm;                
+    return hour12 + minutes + amPm;
 }
-function sendLeadBooking(type,ws_id) 
+function sendLeadBooking(type,ws_id)
 {
   var xdate = $('#'+type+'_date').val();
   var xmsg = $('#'+type+'_msg').val();
   var xuseremail = $('#'+type+'_email').val();
   var xuserpic = $('#'+type+'_user_pic').val();
   var xusername = $('#'+type+'_user_name').val();
-  var xuserid = $('#'+type+'_user_id').val();  
-  var xtimeslot = $('#'+type+'_timeslot').val();   
-  
+  var xuserid = $('#'+type+'_user_id').val();
+  var xtimeslot = $('#'+type+'_timeslot').val();
+
   if (isEmpty(xusername)){
-      alert('Name is required!');  
+      alert('Name is required!');
   } else if (isEmpty(xdate)){
       alert('Date is required!');
   } else if (xtimeslot === "" && type === "tour"){
-      alert('Time slot is required!');              
+      alert('Time slot is required!');
   } else if (isEmpty(xuseremail)){
       alert('Email is required!');
   } else if (!validateEmail(xuseremail)){
-      alert('Invalid email!');      
+      alert('Invalid email!');
   } else {
     if(!send_booking){
     $('#'+type+'_submit').attr('disabled',true);
@@ -5055,7 +5055,7 @@ function sendLeadBooking(type,ws_id)
     send_booking = true;
     $.ajax({
       url  : 'https://www.coworker.com/send_lead_booking',
-      type : 'POST', 
+      type : 'POST',
       dataType: "json",
       data : {'visitdate' : xdate, 'useremail' : xuseremail, 'userpic' : xuserpic, 'username' : xusername,'userid' : xuserid, 'timeslot' : xtimeslot, 'msg' : JSON.stringify(xmsg), 'wsid':ws_id, 'type':type},
       success : function(rsp){
@@ -5079,7 +5079,7 @@ function sendLeadBooking(type,ws_id)
             $('#'+type+'_confirm_date').html(xdate + " from " + xtimeslot);
           else
             $('#'+type+'_confirm_date').html(xdate);
-          $('#'+type+'_confirm').modal("show");     
+          $('#'+type+'_confirm').modal("show");
           $('#'+type+'_submit').attr('disabled',false);
         } else {
           swal({
@@ -5093,7 +5093,7 @@ function sendLeadBooking(type,ws_id)
         $('#'+type+'_submit').attr('disabled',false);
         $('#'+type+'_pop').modal("hide");
         send_booking = false;
-        alert("There was an issue sending your booking request. Please try again.");        
+        alert("There was an issue sending your booking request. Please try again.");
       }
     });
     $('#'+type+'_submit').toggleClass('btn_disabled');
@@ -5273,7 +5273,7 @@ function registerMessage2() {
   if (isEmpty(xmsg)){
     errors++;
     alert('Message is required!');
-  } 
+  }
   msg_data.c_message = JSON.stringify(xmsg);
   if(errors==0) {
     msg_data.wsId = ws_id;
@@ -5606,18 +5606,18 @@ function register_join(){
   if (validateEmail(email)){
     $.ajax({
       'url' : 'https://www.coworker.com/register_join',
-      'type' : 'POST', 
+      'type' : 'POST',
       'data' : {'email' : email},
       'success' : function(data){
         if(data=='saved') {
           swal({ title: "BOOM you're in!", text: "Welcome to the coworking crew, homie.", confirmButtonText: "Keep Exploring",imageUrl: "https://www.coworker.com/template/img/signup.gif"});
-          
+
           // segment tracking
           analytics.track('Subscription_form_submit', {
             category: 'EmailSubscription',
             label : email,
             Subscription_Mail : email
-          }); 
+          });
 
         } else {
           swal("BOOM you're in!", "Email already joined", "error");
@@ -5689,7 +5689,7 @@ $(document).on("click", ".lk_contact_us, .lk_contact_us2", function () {
   if(typeof ga === "function") {
     if($(this).text() == "Contact Us Now")
       ga('send', 'event', 'cta', 'click', 'contact_us','0');
-    else 
+    else
       ga('send', 'event', 'cta', 'click', 'message_space','0');
   }
   cleanContact();
@@ -5718,19 +5718,19 @@ function sendReserveDayPass(uId, cs_id){
   } else if (isEmpty(user_fname)){
     alert('First Name is required!');
   } else if (xtimeslot === ""){
-    alert('Time slot is required!');              
+    alert('Time slot is required!');
   } else if (isEmpty(user_email)){
     alert('Email is required!');
   } else if (!validateEmail(user_email)){
     alert('Invalid email!');
-  } else {    
+  } else {
     $.ajax({
       url  : 'https://www.coworker.com/reserve-daypass',
-      type : 'POST', 
+      type : 'POST',
       dataType: "json",
-      data : {'package_id':package_id, 'cs_id':cs_id, 'start_date':start_date, 'user_id':user_id, 'user_email':user_email, 'user_phone':'', 
+      data : {'package_id':package_id, 'cs_id':cs_id, 'start_date':start_date, 'user_id':user_id, 'user_email':user_email, 'user_phone':'',
               'user_nationality':'', 'user_fname':user_fname, 'user_lname':user_lname, 'additional_info':JSON.stringify(additional_info), 'time_slot':xtimeslot,
-              'package_single_rate':package_single_rate, 'quantity_reserved':quantity_reserved, 'duration_reserved':duration_reserved, 'amount_owed':amount_owed, 'package_currency':package_currency}, 
+              'package_single_rate':package_single_rate, 'quantity_reserved':quantity_reserved, 'duration_reserved':duration_reserved, 'amount_owed':amount_owed, 'package_currency':package_currency},
       success : function(data){
 
 
@@ -5741,7 +5741,7 @@ function sendReserveDayPass(uId, cs_id){
           ReqDayPass_Email: user_email,
           ReqDayPass_Phone: '' ,
           ReqDayPass_Date: start_date,
-          ReqDayPass_ArrivalTime:xtimeslot 
+          ReqDayPass_ArrivalTime:xtimeslot
         });
 
         analytics.page({ title: 'Send_Request_Day_Pass_form',
@@ -5881,9 +5881,9 @@ function addMessageRequest(wsId,t){
       data    : msg_data,
       success: function(rsp) {
         if(t==2){
-          
 
-         
+
+
            analytics.track('Send_Enquire_open_plan', {
             category: 'CoworkingPage',
             EnquireOpenPlan_Name : msg_data.c_name,
@@ -5968,7 +5968,7 @@ function addQuestion(uId,wsId){
         question: JSON.stringify(xquestion)
       },
       success: function(rsp) {
-        
+
       }
     });
   }
@@ -6076,14 +6076,14 @@ jQuery(document).ready(function($){
     if(thumbs == 1){
       $('.fancybox-button.fancybox-button--thumbs').trigger('click');
     }
-    $('.fancybox-caption').css('bottom','60px');    
+    $('.fancybox-caption').css('bottom','60px');
   });
-  $('body').on('mouseover', '.fancybox-caption-wrap', function(){ 
+  $('body').on('mouseover', '.fancybox-caption-wrap', function(){
   $('.fancybox-container').addClass('fancybox-show-thumbs');
     $('.fancybox-thumbs').css('display','block');
     $('.fancybox-caption').css('bottom','60px');
   });
-  $('body').on('mouseover', '.fancybox-thumbs', function(){ 
+  $('body').on('mouseover', '.fancybox-thumbs', function(){
   $('.fancybox-container').removeClass('fancybox-show-thumbs');
     $('.fancybox-thumbs').css('display','block');
     $('.fancybox-caption').css('bottom','60px');
@@ -6091,7 +6091,7 @@ jQuery(document).ready(function($){
   $('body').on('mouseout', '.fancybox-caption-wrap', function(){
     $('.fancybox-container').addClass('fancybox-show-thumbs');
     $('.fancybox-thumbs').css('display','none');
-    $('.fancybox-caption').css('bottom','0px');  
+    $('.fancybox-caption').css('bottom','0px');
   });
   var $grid = $('.amenities_panel_con').masonry();
   var icones = $('.beach_icon_outer ul li').text();
@@ -6100,7 +6100,7 @@ jQuery(document).ready(function($){
 	$('.beach_icon_outer').addClass('beach_icon_display');
 	$('.beach_icon_outer').parent().addClass('beach_icon_display_outer');
   }
-  
+
   $('body').on('click', '.fancybox-arrow', function() {
     $('.fancybox-thumbs-active').focus();
   });
@@ -6138,7 +6138,7 @@ $('[data-fancybox]').fancybox({
 <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
 <script type="text/javascript">
-            
+
 var msg_login = 0;
 $(document).ready(function(){
   $('body').append($('<div>', {id:'nvmyLoading',class: 'modal'}));
@@ -6149,7 +6149,7 @@ $(document).ready(function(){
   $('#nvmy_Modal').initSignup({pathLoading:'https://www.coworker.com/'});
   $('body').append($('<div>', {id:'nvmy_Signup',class: 'container modal'}));
   $('#nvmy_Signup').initNewSignup({pathLoading:'https://www.coworker.com/'});
-  $('.form_outer').click(function(event) { 
+  $('.form_outer').click(function(event) {
     if(event.target.id=='fo_target'){
       $('#nvmy_Signup').modal('hide');
     } else{
@@ -6179,7 +6179,7 @@ function redirectNavFB(){
       url: 'https://www.coworker.com/Click_Sign_Up_by_facebook'}
     );
   window.location = "https://www.facebook.com/v2.5/dialog/oauth?client_id=778242928950690&state=a21f965622ba7f03e4c4375f05fd18ef&response_type=code&sdk=php-sdk-5.0.0&redirect_uri=https%3A%2F%2Fwww.coworker.com%2Fcoworker_fb%2Flogin_fb%2F1533&scope=email%2Cuser_friends";
- 
+
 }
 function redirectNavFBForLogin(){
 
@@ -6209,7 +6209,7 @@ function openNavLoging(){
   analytics.page('popup_log_in',
   { title: 'popup_log_in',
     url: 'https://www.coworker.com/popup_log_in'}
-  );  
+  );
 
   $('#nvmy_Signup').normalSignupTitle();
   $('#nvloginModal').modal('toggle');
@@ -6315,7 +6315,7 @@ function validateNavSignup() {
         if(result.msg == 'SCS') {
           socket.emit('UserTrigerClient',message);
 
-          // segment tracking 
+          // segment tracking
           analytics.track('Signed_Up_by_email', {
             category: 'Account',
             label: 'Email',
@@ -6367,7 +6367,7 @@ function validateNavLogin() {
           { title: 'log_in',
             url: 'https://www.coworker.com/log_in'}
           );
-          
+
 
           if(result.lab) {
             jQuery.ajax({
@@ -6578,58 +6578,58 @@ function showRecoverEmail(){
 <script src="https://www.coworker.com/template/js/sweetalert.min.js"></script>
 <script type="text/javascript">
 $(function() {
-  $( "#h_location" ).autocomplete({
-    source:function(request, response) {
-      $("#h_place_id").val(0);
-      $("#h_search_place").val(0);
-      $.ajax({
-        url: 'https://www.coworker.com/getAutocomplete',
-        dataType: "json",
-        type: "POST",
-        data: {
-          term : request.term
-        },
-        success: function(data) {
-          response(data);
-        }
-      });
-    },minLength:1,
-    messages: {
-        noResults: '',
-        results: function() {}
-    },appendTo: "#h_aucomplete",
-    select: function (event, ui) {
-      $("#h_place_id").val(ui.item.idx);
-      $("#h_search_place").val(ui.item.loc);
-      $("#xh_location").val(ui.item.value);
-      $('#h_location').val(ui.item.value);
-      if(ui.item.loc==3){
-        if(ui.item.coworkspace_url!='')
-          window.location = '/'+ui.item.coworkspace_url;
-      } else
-        submitSearchH();
-    },
-    open: function(){
-      $('.ui-autocomplete').css('width', $('#h_location').width());
-    }
-  }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-    var loc_icon = '<i class="fa fa-buildingui"></i>';
-    var view_all = '';
-    if(item.loc==1)
-      loc_icon = '<i class="fa fa-globeui"></i>';
-    if((item.loc==2) || (item.loc==2.5))
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==5)
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==10)
-      loc_icon = '<i class="fa fa-map-markerui"></i>';
-    if(item.loc==0){
-      loc_icon = "";
-      view_all = 'class="search_view_results_div pade_none"';
-    }
-    return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-  };
-});
+{#  $( "#h_location" ).autocomplete({#}
+{#    source:function(request, response) {#}
+{#      $("#h_place_id").val(0);#}
+{#      $("#h_search_place").val(0);#}
+{#      $.ajax({#}
+{#        url: 'https://www.coworker.com/getAutocomplete',#}
+{#        dataType: "json",#}
+{#        type: "POST",#}
+{#        data: {#}
+{#          term : request.term#}
+{#        },#}
+{#        success: function(data) {#}
+{#          response(data);#}
+{#        }#}
+{#      });#}
+{#    },minLength:1,#}
+{#    messages: {#}
+{#        noResults: '',#}
+{#        results: function() {}#}
+{#    },appendTo: "#h_aucomplete",#}
+{#    select: function (event, ui) {#}
+{#      $("#h_place_id").val(ui.item.idx);#}
+{#      $("#h_search_place").val(ui.item.loc);#}
+{#      $("#xh_location").val(ui.item.value);#}
+{#      $('#h_location').val(ui.item.value);#}
+{#      if(ui.item.loc==3){#}
+{#        if(ui.item.coworkspace_url!='')#}
+{#          window.location = '/'+ui.item.coworkspace_url;#}
+{#      } else#}
+{#        submitSearchH();#}
+{#    },#}
+{#    open: function(){#}
+{#      $('.ui-autocomplete').css('width', $('#h_location').width());#}
+{#    }#}
+{#  }).autocomplete( "instance" )._renderItem = function( ul, item ) {#}
+{#    var loc_icon = '<i class="fa fa-buildingui"></i>';#}
+{#    var view_all = '';#}
+{#    if(item.loc==1)#}
+{#      loc_icon = '<i class="fa fa-globeui"></i>';#}
+{#    if((item.loc==2) || (item.loc==2.5))#}
+{#      loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#    if(item.loc==5)#}
+{#      loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#    if(item.loc==10)#}
+{#      loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#    if(item.loc==0){#}
+{#      loc_icon = "";#}
+{#      view_all = 'class="search_view_results_div pade_none"';#}
+{#    }#}
+{#    return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );#}
+{#  };#}
+{#});#}
 function submitSearchH() {
   if($("#xh_location").val()!=$("#h_location").val()) {
     $("#h_place_id").val(0);
@@ -6669,7 +6669,7 @@ function outUserMenu(event) {
       return;
     } else {
       $('#lg_h').hide();
-    } 
+    }
   }
 }
 $(document).ready(function(){
