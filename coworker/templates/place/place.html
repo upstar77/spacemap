@@ -262,14 +262,14 @@
                                                 <div class="col-xs-12 pade_none muchroom_mail"><i class="fa fa-map-marker"></i> {{ place.get_address }}</div>
                                             </div>
                                         </div>
-{#                                        <div class="col-sm-3 col-md-3 col-xs-12 pade_none rating_member_outer">#}
-{#                                            <div class="col-xs-12 pade_none member55_reviews_outer"> <a href="javascript:void(0);" id="link_to_reviews">#}
-{#                                                <h6>1 <span>Member Review</span></h6>#}
-{#                                                <div class="rating">#}
-{#                                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>              </div>#}
-{#                                            </a>#}
-{#                                            </div>#}
-{#                                        </div>#}
+                                        {#                                        <div class="col-sm-3 col-md-3 col-xs-12 pade_none rating_member_outer">#}
+                                        {#                                            <div class="col-xs-12 pade_none member55_reviews_outer"> <a href="javascript:void(0);" id="link_to_reviews">#}
+                                        {#                                                <h6>1 <span>Member Review</span></h6>#}
+                                        {#                                                <div class="rating">#}
+                                        {#                                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>              </div>#}
+                                        {#                                            </a>#}
+                                        {#                                            </div>#}
+                                        {#                                        </div>#}
                                     </div>
                                 </div>
                             </div>
@@ -324,11 +324,11 @@
                                                     <div class="sticky_bar_con">
                                                         <div class="col-xs-12 pade_none overview_coworker_outer sticky_bar" style="position: relative; top: initial; display: block;">
                                                             <ul>
-                                                                <li><a href="{{ place.get_absolute_url }}.much_bord" class="">Overview</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#amenities" class="">Amenities</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#photos" class="">Photos</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#desk_office" class="">Desk &amp; Office Prices</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#map" id="big_map_link" class="">Map</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}.much_bord" class="">综述</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#amenities" class="">设施</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#photos" class="">照片</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#desk_office" class="">办公桌 &amp; 办公室价格</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#map" id="big_map_link" class="">地图</a></li>
                                                                 {#                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#reviews01" id="reviews_link" class="">Reviews</a></li>#}
                                                             </ul>
                                                         </div>
@@ -345,8 +345,8 @@
                                                             <div class="col-xs-12 col-sm-12 col-md-3 pade_none opening_hrs_out opening_panel_inner opening_hours_right">
                                                                 <div class="col-xs-12 pade_none opening_hours_events_main">
                                                                     <div class="member_access_content">
-                                                                        <h4><i class="fa"><img src="{% static 'img/clock_icon_img.png' %}" alt="clock_icon_img"></i> Opening Hours</h4>
-                                                                        <h5>Mon-Fri</h5><div class="col-xs-12 pade_none open_timings_con">9:00 am  -  9:00 pm</div><h5>Sat</h5><div class="col-xs-12 pade_none open_timings_con">Closed</div><h5>Sun</h5><div class="col-xs-12 pade_none open_timings_con">Closed</div>                          </div>
+                                                                        <h4><i class="fa"><img src="{% static 'img/clock_icon_img.png' %}" alt="clock_icon_img"></i> 开放时间</h4>
+                                                                        <h5>星期一到星期五</h5><div class="col-xs-12 pade_none open_timings_con">9:00 上午  -  9:00 下午</div><h5>星期六</h5><div class="col-xs-12 pade_none open_timings_con">关闭</div><h5>星期日</h5><div class="col-xs-12 pade_none open_timings_con">关闭</div>                          </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -354,37 +354,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 pade_none amenities_main amenities_main_rs scroll_navbar" id="amenities">
-                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-heart" aria-hidden="true"></i> Amenities</div>
+                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-heart" aria-hidden="true"></i> 设施</div>
                                                 <div class="amenities_panel_con col-xs-12 pade_none" style="position: relative; height: 208px;">
                                                     <div class="col-xs-12 col-md-6 col-sm-12 amenities_inner_boxes" style="position: absolute; left: 0px; top: 0px;">
                                                         <div class="amenities_inner_part">
-                                                            <div class="heading_cl">Food &amp; Drink</div>
+                                                            <div class="heading_cl">食物 &amp; 饮料</div>
                                                             <div class="amenities">
                                                                 <ul>
-                                                                    <li>Free Coffee / Tea</li>
-                                                                    <li>Free Drinking Water</li>
-                                                                    <li>Kitchen</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-md-6 col-sm-12 amenities_inner_boxes" style="position: absolute; left: 431px; top: 0px;">
-                                                        <div class="amenities_inner_part">
-                                                            <div class="heading_cl">Community</div>
-                                                            <div class="amenities">
-                                                                <ul>
-                                                                    <li>Lounge / Chill-out Area</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-md-6 col-sm-12 amenities_inner_boxes" style="position: absolute; left: 431px; top: 89px;">
-                                                        <div class="amenities_inner_part">
-                                                            <div class="heading_cl">Equipment</div>
-                                                            <div class="amenities">
-                                                                <ul>
-                                                                    <li>Printer</li>
-                                                                    <li>Scanner</li>
+                                                                    <li>免费咖啡 / 茶</li>
+                                                                    <li>免费凉白开</li>
+                                                                    <li>厨房</li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -407,20 +386,20 @@
                                                             </a>
                                                         </div>
                                                     {% endfor %}
-{#                                                  {% include "place/reviews.html" %}#}
+                                                    {#                                                  {% include "place/reviews.html" %}#}
                                                 </div>
                                             </div>
 
                                             <div class="col-xs-12 pade_none membership_fees_main scroll_navbar" id="desk_office">
-                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa membership"><img src="{% static 'img/membership_icon_img.png' %}" alt="membership_icon_img"></i> Membership Fees</div>
+                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa membership"><img src="{% static 'img/membership_icon_img.png' %}" alt="membership_icon_img"></i> 会员费</div>
                                                 <!--TABS START-->
                                                 <div class="col-xs-12 pade_none membership_fees_tabs">
                                                     <ul class="nav nav-tabs" id="myTab">
-                                                        <li><a data-target="#hot_desk" data-toggle="tab" id="hotdesk_tab" class="membership_fees_tabs_active">Hot Desk / Open Plan <span>Seating</span></a></li>
-                                                        <li><a data-target="#dedicated_desk" data-toggle="tab">Dedicated <span>Desk</span></a></li>
-                                                        <li><a data-target="#private_office" data-toggle="tab" id="private_office_tab">Private <span>Office</span></a></li>
+                                                        <li><a data-target="#hot_desk" data-toggle="tab" id="hotdesk_tab" class="membership_fees_tabs_active">热门办公桌 / 开敞式办公室 <span>座位</span></a></li>
+                                                        <li><a data-target="#dedicated_desk" data-toggle="tab">专用 <span>办公桌</span></a></li>
+                                                        <li><a data-target="#private_office" data-toggle="tab" id="private_office_tab">私人 <span>办公室</span></a></li>
                                                     </ul>
-                                                    <form action="{{ place.get_absolute_url }}/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
+                                                    <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
                                                         <input type="hidden" value="0" id="res_duration" name="res_duration">
                                                         <input type="hidden" value="1" id="res_quantity" name="res_quantity">
                                                         <input type="hidden" value="0" id="res_package_id" name="res_package_id">
@@ -431,17 +410,17 @@
                                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th># People</th>
-                                                                        <th>Duration</th>
-                                                                        <th>Price</th>
-                                                                        <th>Access Hours</th>
-                                                                        <th>Availability</th>
+                                                                        <th># 人</th>
+                                                                        <th>持续时间</th>
+                                                                        <th>价格</th>
+                                                                        <th>准入时间</th>
+                                                                        <th>有效时间</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section">
-                                                                    <tr><td>1</td><td>1 Day</td><td>UAH 60.00</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-day&#39;,1);">Enquire</a></td></tr>
-                                                                    <tr><td>1</td><td>1 Week</td><td>UAH 250.00</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-week&#39;,1);">Enquire</a></td></tr>
-                                                                    <tr><td>1</td><td>1 Month</td><td>UAH 750.00</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-month&#39;,1);">Enquire</a></td></tr>
+                                                                    <tr><td>1</td><td>1 天</td><td>人民币 60.00</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-day&#39;,1);">查询</a></td></tr>
+                                                                    <tr><td>1</td><td>1 周</td><td>人民币 250.00</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-week&#39;,1);">查询</a></td></tr>
+                                                                    <tr><td>1</td><td>1 月</td><td>人民币 750.00</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-month&#39;,1);">查询</a></td></tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -453,15 +432,15 @@
                                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th># People</th>
-                                                                        <th>Duration</th>
-                                                                        <th>Price</th>
-                                                                        <th>Access Hours</th>
-                                                                        <th>Availability</th>
+                                                                        <th># 人</th>
+                                                                        <th>持续时间</th>
+                                                                        <th>价格</th>
+                                                                        <th>准入时间</th>
+                                                                        <th>有效时间</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section">
-                                                                    <tr class="empty-messqage"><td colspan="5">{{ place.space_name }} has not added details about their Dedicated desks yet</td></tr>                          </tbody>
+                                                                    <tr class="empty-messqage"><td colspan="5">Grass Coworking 还没有添加他们专用办公桌的细节</td></tr>                          </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -472,15 +451,15 @@
                                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th># People</th>
-                                                                        <th>Duration</th>
-                                                                        <th>Price </th>
-                                                                        <th>Access Hours</th>
-                                                                        <th>Availability</th>
+                                                                        <th># 人</th>
+                                                                        <th>持续时间</th>
+                                                                        <th>价格</th>
+                                                                        <th>准入时间</th>
+                                                                        <th>有效时间</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section button-view-all-link">
-                                                                    <tr class="empty-messqage"><td colspan="5">{{ place.space_name }} has not added details about their Private Office yet</td></tr>                          </tbody>
+                                                                    <tr class="empty-messqage"><td colspan="5">Grass Coworking 还没有添加他们私人办公室的细节</td></tr>                          </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -506,19 +485,19 @@
                                             <div class="col-xs-12 pade_none spaces_contact_panel_outer stickybar contact_hide_mobile is-affixed" style="display: block;"><div class="sidebar__inner" style="position: relative; border: none;">
                                                 <div class="col-xs-12 pade_none space_shadow_div">
                                                     <div class="col-xs-12 pade_none spaces_contact_top_panel">
-                                                        <h3>Contact Us</h3>
+                                                        <h3>联系我们</h3>
 
-                                                        <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">Membership Enquiry</a></div>
-                                                        <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic">  Message</a></div>
+                                                        <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">会员查询</a></div>
+                                                        <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic">  信息</a></div>
                                                     </div>
-                                                    <div class="col-xs-12 pade_none spaces_contact_bottom_panel">
-                                                        <h5>Share</h5>
-                                                        <div class="col-xs-12 pade_none social_space_outer">
-                                                            <a href="javascript:void(0);" onclick="openShare();"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.coworker.com%2Fukraine%2Fpoltava%2Fgrass-coworking&amp;text=Check+out+Grass+Coworking+on+%40coworkerglobal%21+&amp;hashtags=coworkingspace" data-dnt="true"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>
-                                                            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.coworker.com/ukraine/poltava/grass-coworking&amp;title=&amp;summary=&amp;source=https://www.coworker.com/" target="_blank"><i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i></a>
-                                                        </div>
-                                                    </div>
+{#                                                    <div class="col-xs-12 pade_none spaces_contact_bottom_panel">#}
+{#                                                        <h5>分享</h5>#}
+{#                                                        <div class="col-xs-12 pade_none social_space_outer">#}
+{#                                                            <a href="javascript:void(0);" onclick="openShare();"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>#}
+{#                                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.coworker.com%2Fukraine%2Fpoltava%2Fgrass-coworking&amp;text=Check+out+Grass+Coworking+on+%40coworkerglobal%21+&amp;hashtags=coworkingspace" data-dnt="true"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>#}
+{#                                                            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.coworker.com/ukraine/poltava/grass-coworking&amp;title=&amp;summary=&amp;source=https://www.coworker.com/" target="_blank"><i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i></a>#}
+{#                                                        </div>#}
+{#                                                    </div>#}
                                                 </div>
                                                 <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div></div>
                                         </div>
@@ -548,8 +527,8 @@
       //Create a map function£º
       function createMap() {
         var map = new BMap.Map("big_map");//Add a map to the container
-        var point = new BMap.Point(123.455123,41.79223);//set the center point
-        map.centerAndZoom(point, 19);//display level
+        var point = new BMap.Point({{ place.lng }}, {{ place.lat }});//set the center point
+        map.centerAndZoom(point, 18);//display level
         window.map = map;
         window.localSearch = new BMap.LocalSearch(map);
         window.localSearch.enableAutoViewport(); //Allow automatic adjustment
@@ -558,8 +537,8 @@
 
       function createMap2() {
         var map = new BMap.Map("small_map");//Add a map to the container
-        var point = new BMap.Point(123.455123,41.79223);//set the center point
-        map.centerAndZoom(point, 19);//display level
+        var point = new BMap.Point({{ place.lng }}, {{ place.lat }});//set the center point
+        map.centerAndZoom(point, 18);//display level
         window.map2 = map;
         window.localSearch = new BMap.LocalSearch(map);
         window.localSearch.enableAutoViewport(); //Allow automatic adjustment
@@ -590,23 +569,20 @@
 
       //Indexing array
       var markerArr = [
-        {% for place in places %}
-          {
-            title : "{{ place.space_name }}",
-            content : "{{ place.space_name }}",
-            point : "123.455123|41.79223",
-            {#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
-            isOpen : 1,
-            icon : {
-              w : 21,
-              h : 30,
-              l : 0,
-              t : 21,
-              x : 6,
-              lb : 5
-            }
-          } {% if not forloop.last %}, {% endif %}
-        {% endfor %}
+        {
+          title : "{{ place.space_name }}",
+          content : "{{ place.space_name }}",
+          point : "{{ place.lng }}|{{ place.lat }}",
+          isOpen : 1,
+          icon : {
+            w : 21,
+            h : 30,
+            l : 0,
+            t : 22,
+            x : 6,
+            lb : 5
+          }
+        } {% if not forloop.last %}, {% endif %}
       ];
       // creat marker
       function addMarker() {

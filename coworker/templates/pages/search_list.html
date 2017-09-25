@@ -206,119 +206,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Classic Basics</h5>
-                        <ul id="l_classicbasics">
-                            <li id="1">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">High Speed WiFi</a>
-                            </li>
-                            <li id="5">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Heating</a>
-                            </li>
-                            <li id="4">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Air Conditioning</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Equipment</h5>
-                        <ul id="l_equipment">
-                            <li id="22">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Dual / Single Monitors</a>
-                            </li>
-                            <li id="28">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Sound Recording Equipment</a>
-                            </li>
-                            <li id="29">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Video Recording Equipment</a>
-                            </li>
-                            <li id="32">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Printer</a>
-                            </li>
-                            <li id="33">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Scanner</a>
-                            </li>
-                            <li id="34">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Photocopier</a>
-                            </li>
-                            <li id="35">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">3D Printer</a>
-                            </li>
-                            <li id="40">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Computers (PCs)</a>
-                            </li>
-                            <li id="41">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Computers (Macs)</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Relax Zones</h5>
-                        <ul id="l_relaxzones">
-                            <li id="12">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Outdoor Terrace</a>
-                            </li>
-                            <li id="13">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Swimming Pool</a>
-                            </li>
-                            <li id="2">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Lounge / Chill-out Area</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Community</h5>
-                        <ul id="l_community">
-                            <li id="20">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Event and/or Workshops</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Accessibility</h5>
-                        <ul id="l_accessibility">
-                            <li id="14">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Free Parking on Premise</a>
-                            </li>
-                            <li id="15">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Wheelchair Accessibility</a>
-                            </li>
-                            <li id="37">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">24hr Member Access</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Payment</h5>
-                        <ul id="l_payment">
-                            <li id="100">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Accepts Credit Cards</a>
-                            </li>
-                            <li id="102">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Accepts PayPal</a>
-                            </li>
-                            <li id="101">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">No Deposit</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
-                        <h5>Catering</h5>
-                        <ul id="l_catering">
-                            <li id="3">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Free Coffee / Tea</a>
-                            </li>
-                            <li id="7">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Free Drinking Water</a>
-                            </li>
-                            <li id="17">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">On-site Cafe / Restaurant</a>
-                            </li>
-                            <li id="19">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">Alcohol available for purchase</a>
-                            </li>
-                        </ul>
-                    </div>
+
+
                     <div class="col-xs-12 pade_none search_looking_bottom hide_filters_spacing">
                         <h5>Meeting Rooms</h5><samp><span class="capacity_box"><select class="meet_icon" id="capacity" onchange="changeCapacity(1,2);">
 						<option value="0">
@@ -481,8 +370,8 @@
       //Create a map function£º
       function createMap() {
         var map = new BMap.Map("map_canvas");//Add a map to the container
-        var point = new BMap.Point(123.455123,41.79223);//set the center point
-        map.centerAndZoom(point, 19);//display level
+        var point = new BMap.Point(113.9934901, 22.5382373);//set the center point
+        map.centerAndZoom(point, 13);//display level
         window.map = map;
         window.localSearch = new BMap.LocalSearch(map);
         window.localSearch.enableAutoViewport(); //Allow automatic adjustment
@@ -516,15 +405,15 @@
         {% for place in places %}
           {
             title : "{{ place.space_name }}",
-            content : "{{ place.space_name }}",
-            point : "123.455123|41.79223",
-            {#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
+            content : " ",
+{#            point : "123.455123|41.79223",#}
+            point : "{{ place.lng }}|{{ place.lat }}",
             isOpen : 1,
             icon : {
               w : 21,
               h : 30,
               l : 0,
-              t : 21,
+              t : 22,
               x : 6,
               lb : 5
             }
@@ -572,7 +461,7 @@
             })
             if (!!json.isOpen) {
               label.hide();
-              _marker.openInfoWindow(_iw);
+{#              _marker.openInfoWindow(_iw);#}
             }
           })()
         }
@@ -789,6 +678,7 @@
         }
       }
       function changeMarker(id){
+        return;
         for (var i = 0; i < markers.length; i++) {
           if(markers[i].id==id) {
             if("f" in markers[i]){

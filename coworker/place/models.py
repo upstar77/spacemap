@@ -301,7 +301,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
         verbose_name_plural = _('Places')
 
     def __str__(self):
-        return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city}
+        return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city_origin}
 
     @property
     def name(self):

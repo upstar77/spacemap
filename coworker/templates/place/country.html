@@ -41,7 +41,7 @@
                             {{ country.name }}  <br>
                             <span>134 Spaces</span>
                         </div>
-                        <form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
+                        <form action="/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
                             <div class="col-xs-12 pade_none city_white_out">
                                 <h2>Search for coworking spaces in <span>{{ country.name }}</span></h2>
                                 <div class="col-xs-12 pade_none city_search_main">
@@ -49,15 +49,15 @@
                                         <ul>
                                             <li>
                                                 <input type="checkbox" id="c1" name="cc" value="dai">
-                                                <label for="c1"><span></span>Daily</label>
+                                                <label for="c1"><span></span>日租</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="c2" name="cc" value="week">
-                                                <label for="c2"><span></span>Weekly</label>
+                                                <label for="c2"><span></span>周租</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="c3" name="cc" value="month">
-                                                <label for="c3"><span></span>Monthly</label>
+                                                <label for="c3"><span></span>月租</label>
                                             </li>
                                         </ul>
                                     </div>
@@ -133,7 +133,7 @@
                                                 </div>
                                                 <p>{{ place.cs_description|truncatechars:100 }}.&nbsp;<a href="{{ place.get_absolute_url }}">More</a>
                                                 </p>
-                                                <div class="col-xs-12 pade_none detail_price_btn"><a href="https://www.coworker.com/{{ country.name }}/shanghai/naked-hub-fu-xing-lu">Details and Prices</a></div>
+                                                <div class="col-xs-12 pade_none detail_price_btn"><a href="{{ place.get_absolute_url }}">Details and Prices</a></div>
                                             </div>
                                         </div>
                                     {% endfor %}
