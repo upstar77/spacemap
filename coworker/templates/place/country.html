@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title %}{% endblock %}
+{% block title %}查看该城市的所有创客空间{% endblock %}
 
 
 {% block content %}
@@ -83,7 +83,7 @@
                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none">
                         {% for city in popular_cities %}
                             <div class="col-sm-3 col-md-3 col-xs-12 pade_none popular_cities_pic">
-                                <div class="col-xs-12 pade_none popular_cities_pic01" style="background-image:url({{ city.image.url }}?w=278&amp;h=310&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
+                                <div class="col-xs-12 pade_none popular_cities_pic01" style="background-image:url({{ city.image.url }}); background-size: cover;background-position: center center;max-width:278px;margin: 0 auto;float:none;">
                                     <div class="thailnd_for_auto">
                                         <div class="thailnd_ver_midd"><p>
                                             <a href="{{ city.get_absolute_url }}"
@@ -100,7 +100,7 @@
         <!--HOT COWORKER DETINATIONS END-->
 
         <!--RECOMMENDED SPACECS IN BANGKOK START-->
-        <div class="bangkok_main_outr">
+        <div class="bangkok_main_outr" style="margin-top: 23px;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none thailand_main_inner ">
@@ -109,13 +109,12 @@
                             <div class="col-xs-12 pade_none thailnd_coworker_spaces">
 
                                 <div class="col-sm-6 col-md-6 col-xs-12 pade_none thailnd_lft_out">
-
                                     {% for place in top_places %}
                                         <div class="col-xs-12 pade_none thailand_inner_out">
                                             <div class="col-sm-6 col-md-6 col-xs-12 pade_none pic_thlnd">
                                                 <div class="col-xs-12 pade_none tbh_con">2800 CNY /m</div>
                                                 <a href="{{ place.get_absolute_url }}">
-                                                    <img src="{% static 'img/main_thumb.jpg' %}"
+                                                    <img src="{{ place.get_main_photo.image.url }}"
                                                          alt="{{ place.space_name }}"
                                                          title="{{ place.space_name }}{{ country.name }}">
                                                 </a>
@@ -200,14 +199,7 @@
         </div>
         <!--RECOMMENDED SPACECS IN BANGKOK END-->
         <!--MAP CONATINER-->
-        <div class="thailand_map_out">
-            <div class="bangkok_frame_con02">
-                <div class="see_map_con02"><a href="javascript:void(0);" onclick="refineSearch();">
-                    See a Map of all Spaces in {{ country.name }}</a>
-                </div>
-                <div id="country_canvas" class="bangkok_map" style="position: relative; overflow: hidden;"></div>
-            </div>
-        </div>
+        {% include "place/elements/big_map.html" with obj=country %}
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-xs-12 pade_none bangkok_map_out">
@@ -230,139 +222,7 @@
         <!--FOOTER END-->
     </div>
 
-<script type="text/javascript" src="http://api.map.baidu.com/api?key=ctDShmu7hqaGe7GPUEwgpfZDBMiilQxQ&v=1.2&amp;services=true"></script>
-    <script type="text/javascript">
-      // <![CDATA[
-      //Create and initialize the map£º
-      function initMap() {
-        createMap();
-{#        setMapEvent();#}
-{#        addMapControl();#}
-{#        addMarker();#}
-      }
+    {#<script type="text/javascript" src="http://api.map.baidu.com/api?key=ctDShmu7hqaGe7GPUEwgpfZDBMiilQxQ&v=1.2&amp;services=true"></script>#}
 
-      //Create a map function£º
-      function createMap() {
-        var map = new BMap.Map("country_canvas");//Add a map to the container
-        var point = new BMap.Point(123.455123,41.79223);//set the center point
-        map.centerAndZoom(point, 19);//display level
-        window.map = map;
-        window.localSearch = new BMap.LocalSearch(map);
-        window.localSearch.enableAutoViewport(); //Allow automatic adjustment
-
-      }
-
-      // control tool of the map£º
-      function setMapEvent() {
-        map.enableDragging();
-        map.enableScrollWheelZoom();
-        map.enableDoubleClickZoom();
-        map.enableKeyboard();
-      }
-
-      //addMapControl£º
-      function addMapControl() {
-        var ctrl_nav = new BMap.NavigationControl({
-          anchor : BMAP_ANCHOR_TOP_LEFT,
-          type : BMAP_NAVIGATION_CONTROL_LARGE
-        });
-        map.addControl(ctrl_nav);
-        //Scale controls
-        var ctrl_sca = new BMap.ScaleControl({
-          anchor : BMAP_ANCHOR_BOTTOM_LEFT
-        });
-        map.addControl(ctrl_sca);
-      }
-
-      //Indexing array
-      var markerArr = [
-        {% for place in places %}
-          {
-            title : "{{ place.space_name }}",
-            content : "{{ place.space_name }}",
-            point : "123.455123|41.79223",
-            {#                point : "{{ place.city_origin.loc.lng }}|{{ place.city_origin.loc.lng }}",#}
-            isOpen : 1,
-            icon : {
-              w : 21,
-              h : 30,
-              l : 0,
-              t : 21,
-              x : 6,
-              lb : 5
-            }
-          } {% if not forloop.last %}, {% endif %}
-        {% endfor %}
-      ];
-      // creat marker
-      function addMarker() {
-        for ( var i = 0; i < markerArr.length; i++) {
-          var json = markerArr[i];
-          var p0 = json.point.split("|")[0];
-          var p1 = json.point.split("|")[1];
-          var point = new BMap.Point(p0, p1);
-          var iconImg = createIcon(json.icon);
-          var marker = new BMap.Marker(point, {
-            icon : iconImg
-          });
-          var iw = createInfoWindow(i);
-          var label = new BMap.Label(json.title, {
-            "offset" : new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
-          });
-          marker.setLabel(label);
-          map.addOverlay(marker);
-          label.setStyle({
-            borderColor : "#808080",
-            color : "#333",
-            cursor : "pointer"
-          });
-
-          (function() {
-            var index = i;
-            var _iw = createInfoWindow(i);
-            var _marker = marker;
-            _marker.addEventListener("click", function() {
-              this.openInfoWindow(_iw);
-            });
-            _iw.addEventListener("open", function() {
-              _marker.getLabel().hide();
-            })
-            _iw.addEventListener("close", function() {
-              _marker.getLabel().show();
-            })
-            label.addEventListener("click", function() {
-              _marker.openInfoWindow(_iw);
-            })
-            if (!!json.isOpen) {
-              label.hide();
-              _marker.openInfoWindow(_iw);
-            }
-          })()
-        }
-      }
-      //creat InfoWindow
-      function createInfoWindow(i) {
-        var json = markerArr[i];
-        var iw = new BMap.InfoWindow(
-          "<b class='iw_poi_title' title='" + json.title + "'>"
-          + json.title + "</b><div class='iw_poi_content'>"
-          + json.content + "</div>");
-        return iw;
-      }
-      //creat Icon
-      function createIcon(json) {
-        var icon = new BMap.Icon(
-          "http://api.map.baidu.com/img/markers.png",
-          new BMap.Size(json.w, json.h), {
-            imageOffset : new BMap.Size(-json.l, -json.t),
-            infoWindowOffset : new BMap.Size(json.lb + 5, 1),
-            offset : new BMap.Size(json.x, json.h)
-          })
-        return icon;
-      }
-
-      initMap();//Create and initialize the map
-      // ]]>
-    </script>
 {% endblock content %}
 

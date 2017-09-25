@@ -127,17 +127,17 @@ class MeetingRoom(models.Model):
 
 
 class Photos(models.Model):
-    file = models.FileField(upload_to="user/photos", null=False, blank=False)
+    image = models.FileField(upload_to="user/photos", null=False, blank=False)
     place = models.ForeignKey('Place', null=True, blank=True)
-    user = models.ForeignKey('users.User')
+    user = models.ForeignKey('users.User', blank=True, null=True)
     upload_date = models.DateTimeField(auto_now_add=True)
     is_header_image = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.file.name
+        return self.image.name
 
 
-class Member_Payment(models.Model):
+class MemberPayment(models.Model):
     currency = models.CharField(max_length=250)
     opay = models.BooleanField(default=True, help_text=_("Can members pay online?"))
     accs = models.BooleanField(default=True, help_text=_("Do you accept credit cards?"))
@@ -153,8 +153,11 @@ class PlaceManager(models.Manager):
     def by_country(self, country_slug):
         return self.filter(city_origin__country__slug__icontains=country_slug)
 
+    def by_city(self, slug):
+        return self.filter(city_origin=slug)
 
-class Place(Member_Payment, ContactInfo, Location):
+
+class Place(MemberPayment, ContactInfo, Location):
     space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
     slug = models.SlugField()
 
@@ -211,16 +214,17 @@ class Place(Member_Payment, ContactInfo, Location):
         return reverse('place:place', kwargs={
             'country': self.city_origin.country.slug,
             'city': self.city_origin.slug,
-            'place': self.slug,
+            'place': self.slug
         })
 
     def get_photos(self):
         return Photos.objects.filter(place=self)
 
     def get_main_photo(self):
-        photos = Photos.objects.filter(place=self)
-        if photos:
-            return photos[0]
+        try:
+            return Photos.objects.filter(place=self, is_header_image=True).first().image.url
+        except Exception as e:
+            return
 
     def get_address(self):
         return "{address} {city} {country}".format(
