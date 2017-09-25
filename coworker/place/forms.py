@@ -379,12 +379,12 @@ class PlaceForm(JsonMixinValidate, forms.ModelForm):
 class PlacePhotoForm(forms.ModelForm):
     class Meta:
         model = Photos
-        fields = ['file', 'is_header_image']
+        fields = ["image", 'is_header_image']
 
     def clean(self):
         if self.data.get("xview"):
             del self.errors['file']
-            self.cleaned_data['file'] = self.files['img']
+            self.cleaned_data["image"] = self.files['img']
             self.cleaned_data["is_header_image"] = True
 
 

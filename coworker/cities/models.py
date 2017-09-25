@@ -55,7 +55,6 @@ class Country(models.Model):
     def get_absolute_url(self):
         return reverse('place:country', args=(self.slug,))
 
-
 # class State(models.Model):
 #     name = models.CharField(_('name'), max_length=40)
 #     contenent = models.ForeignKey(Country)
@@ -76,7 +75,9 @@ class CityOrigin(models.Model):
 
     country = models.ForeignKey(Country)
 
-    desctiption = models.TextField(blank=True, null=True)
+    short_name = models.CharField(max_length=2, blank=True)
+
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name

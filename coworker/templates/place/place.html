@@ -239,7 +239,7 @@
         {% breadcrumbs place %}
 
         <!--BREADCRUMB END-->
-        <div id="main_img" class="banner_space_outr banner_space_outr_mob" style="background-image:url({{ place.get_main_photo }}?mark=/template/img/wm_icon.png&amp;markscale=2&amp;markalign=center,middle&#39;);"></div>
+        <div id="main_img" class="banner_space_outr banner_space_outr_mob" style="background-image:url({{ place.get_main_photo }});"></div>
         <!--BANNER END-->
         <!-- Day pass/ Tour -->
 
@@ -262,14 +262,14 @@
                                                 <div class="col-xs-12 pade_none muchroom_mail"><i class="fa fa-map-marker"></i> {{ place.get_address }}</div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 col-md-3 col-xs-12 pade_none rating_member_outer">
-                                            <div class="col-xs-12 pade_none member55_reviews_outer"> <a href="javascript:void(0);" id="link_to_reviews">
-                                                <h6>1 <span>Member Review</span></h6>
-                                                <div class="rating">
-                                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>              </div>
-                                            </a>
-                                            </div>
-                                        </div>
+{#                                        <div class="col-sm-3 col-md-3 col-xs-12 pade_none rating_member_outer">#}
+{#                                            <div class="col-xs-12 pade_none member55_reviews_outer"> <a href="javascript:void(0);" id="link_to_reviews">#}
+{#                                                <h6>1 <span>Member Review</span></h6>#}
+{#                                                <div class="rating">#}
+{#                                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>              </div>#}
+{#                                            </a>#}
+{#                                            </div>#}
+{#                                        </div>#}
                                     </div>
                                 </div>
                             </div>
@@ -399,9 +399,9 @@
 
                                                     {% for image in place.get_photos %}
                                                         <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
-                                                            <a alt="{{ place.space_name }}" href="{{ image.file.url }}?h=600&amp;fit=crop&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle" data-fancybox="images" data-caption="Photo 1">
+                                                            <a alt="{{ place.space_name }}" href="{{ image.image.url }}" data-fancybox="images" data-caption="Photo 1">
 
-                                                                <img src="{{ image.file.url }}">
+                                                                <img src="{{ image.image.url }}">
                                                                 <div class="example-image slider-bg-pic" alt="{{ place.space_name }}, Poltava" style="background-image: url({{ image.file.url }}?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
 
                                                             </a>
@@ -497,348 +497,6 @@
                                             </div>
                                             <div id="big_map" style="height: 500px;width: 1000px;margin-bottom: 100px;"></div>
                                         </div>
-
-                                        {#                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_bott reviews_community_main scroll_navbar" id="reviews01">#}
-                                        {#                                            <h3>1 <samp>Review</samp> <span>By the coworking community</span></h3>#}
-                                        {#                                            <div id="dv_rev_list" class="col-xs-12 pade_none">#}
-                                        {#                                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none revies_stars">#}
-                                        {#                                                    <div class="col-sm-12 col-md-12 col-xs-12 overall_con_rec">#}
-                                        {#                                                        <p>#}
-                                        {#                    <span>#}
-                                        {#5                    </span>out of 5#}
-                                        {#                                                        </p>#}
-                                        {#                                                        <div class="r_percentage">#}
-                                        {#                                                            <div class="r_percentage_gb" style="width:100%"></div>                  </div>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="col-sm-12 col-md-12 col-xs-12 overall_con_rec02">#}
-                                        {#                                                        <p><span>100</span>%&nbsp;&nbsp;of coworkers recommended</p>#}
-                                        {#                                                        <div class="r_percentage">#}
-                                        {#                                                            <div class="r_percentage_gb" style="width:100%"></div>                  </div>#}
-                                        {#                                                        <div class=" col-xs-12 pade_none  coworker_more_text">#}
-                                        {#                                                            <a href="javascript: void(0);" class="cowork_more_plus">More <i class="fa fa-plus" aria-hidden="true"></i></a>#}
-                                        {#                                                            <a href="javascript: void(0);" class="cowork_more_minus" style="display: none;">Less <i class="fa fa-minus" aria-hidden="true"></i></a>#}
-                                        {#                                                        </div>#}
-                                        {#                                                    </div>#}
-                                        {#                                                </div>#}
-                                        {#                                                <div class="col-sm-6 col-md-6 col-xs-12 coworker_memeber_hub_outer">#}
-                                        {#                                                    <div class="coworker_member_space_name">#}
-                                        {#                                                        <h6>Are you a member of {{ place.space_name }}?</h6>#}
-                                        {#                                                        <!--<p>Rate and write a review</p>-->#}
-                                        {#                                                        <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/review" method="post" accept-charset="utf-8" id="form_review" name="review_form">                <input type="hidden" name="ws_id" value="1917">#}
-                                        {#                                                            <input type="hidden" name="rev_type" id="rev_type" value="1">#}
-                                        {#                                                            <a href="javascript:void(0);" onclick="$(this).closest(&#39;form&#39;).submit();">Post a Review</a>#}
-                                        {#                                                            <!--<a href="javascript:void(0);" data-toggle="modal" data-target="#splashmyModal" >Post a Review</a>-->#}
-                                        {#                                                        </form>              </div>#}
-                                        {#                                                </div>#}
-                                        {#                                            </div>#}
-                                        {#                                            <div class="col-xs-12 pade_none coworker_overall_rating_panel" style="display: none;">#}
-                                        {#                                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_main_outer02">#}
-                                        {#                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none rate_overall_out">#}
-                                        {#                                                        <h2>Overall Rating</h2>#}
-                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con">#}
-                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Excellent</div>#}
-                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_b" style="width:100%"></div></div></div>#}
-                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">1</div>#}
-                                        {#                                                        </div>#}
-                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con02">#}
-                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Very Good</div>#}
-                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
-                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
-                                        {#                                                        </div>#}
-                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con">#}
-                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Average</div>#}
-                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
-                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
-                                        {#                                                        </div>#}
-                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con02">#}
-                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Poor</div>#}
-                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
-                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
-                                        {#                                                        </div>#}
-                                        {#                                                        <div class="col-xs-12 pade_none overall_rates_con">#}
-                                        {#                                                            <div class="col-sm-4 col-md-6 col-xs-4 pade_none overall_con">Terrible</div>#}
-                                        {#                                                            <div class="col-sm-7 col-md-5 col-xs-7 pade_none overall_con"><div class="r_percentage"><div class="r_percentage_a" style="width:0%"></div></div></div>#}
-                                        {#                                                            <div class="col-sm-1 col-md-1 col-xs-1 pade_none r_percentage_con">0</div>#}
-                                        {#                                                        </div>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="col-sm-6 col-md-6 col-xs-12 pade_none revies_stars reviews_border_hide">#}
-                                        {#                                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none rate_overall_out02">#}
-                                        {#                                                            <h2>Rating Summary</h2>#}
-                                        {#                                                            <div class="rating_rates_con">#}
-                                        {#                                                                <div class="pade_none sin_title_con">Location</div>#}
-                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
-                                        {#                                                                <div class="pade_none sin_title_con">WiFi</div>#}
-                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
-                                        {#                                                                <div class="pade_none sin_title_con">Productive Enviornment</div>#}
-                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
-                                        {#                                                                <div class="pade_none sin_title_con">Workspace Comfort</div>#}
-                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con">#}
-                                        {#                                                                <div class="pade_none sin_title_con">Social &amp; Community</div>#}
-                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                            <div class="col-xs-12 pade_none summary_rates_con00">#}
-                                        {#                                                                <div class="pade_none sin_title_con">Amenities</div>#}
-                                        {#                                                                <div class="pade_none pade_none rate_overall_stars_con"><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div><div class="pade_none s-border"><i class="fa fa-star05"></i></div></div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                        </div>#}
-                                        {#                                                    </div>#}
-                                        {#                                                </div>#}
-                                        {#                                            </div>#}
-                                        {#                                        </div>#}
-                                        {#                                        <div class="col-md-12 col-sm-12 col-xs-12 pade_none reviews_tabs_outer review_tabs_space">#}
-                                        {#                                            <ul id="tab_answers">#}
-                                        {#                                                <li><a id="tab_answer1" href="javascript:void(0);" class="anchor review_active_tab" onclick="displayAnswer(&#39;answer1&#39;);">Reviews</a></li>#}
-                                        {#                                                <li><a id="tab_answer2" href="javascript:void(0);" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">Tips</a></li>#}
-                                        {#                                                <li><a id="tab_answer3" href="javascript:void(0);" class="anchor" onclick="displayAnswer(&#39;answer3&#39;);">Q&amp;A</a></li>#}
-                                        {#                                            </ul>#}
-                                        {#                                        </div>#}
-                                        <!--REVIEW TAB START-->
-                                        {#                                        <div class="col-xs-12 pade_none review_section_tabs review_tabs_section" id="answer1" style="display:block;">#}
-                                        {#                                            <div class="col-xs-12 pade_none filter_reviews_By">#}
-                                        {#                                                <div class="filter_reviews_head">Filter Reviews By:</div>#}
-                                        {#                                                <div class="filter_reviews_checkbox">#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select">#}
-                                        {#                                                        <label for="review_select"></label>#}
-                                        {#                                                        <span>Written Review</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select02">#}
-                                        {#                                                        <label for="review_select02"></label>#}
-                                        {#                                                        <span>Video review</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select03">#}
-                                        {#                                                        <label for="review_select03"></label>#}
-                                        {#                                                        <span>Excellent</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select04">#}
-                                        {#                                                        <label for="review_select04"></label>#}
-                                        {#                                                        <span>Very Good</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select05">#}
-                                        {#                                                        <label for="review_select05"></label>#}
-                                        {#                                                        <span>Average</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select06">#}
-                                        {#                                                        <label for="review_select06"></label>#}
-                                        {#                                                        <span>Poor</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="filter_checkbox_inn">#}
-                                        {#                                                        <input name="review_select" type="checkbox" value="" id="review_select07">#}
-                                        {#                                                        <label for="review_select07"></label>#}
-                                        {#                                                        <span>Terrible</span>#}
-                                        {#                                                    </div>#}
-                                        {#                                                </div>#}
-                                        {#                                            </div>#}
-                                        {#                                            <div id="reviews">#}
-                                        {#                                                <div id="1rv" class="col-sm-12 col-md-12 col-xs-12 pade_none reviews_con reivew_new_outer">#}
-                                        {#                                                    <div class="col-sm-4 col-md-3 col-xs-12 reivew_new_outer">#}
-                                        {#                                                        <div class="col-xs-12 pade_none mahaer_pic_outer"><span><img src="{% static 'not_sure/picture(1)' %}" alt=""></span></div>#}
-                                        {#                                                        <span>{{ user.full_name }}</span>#}
-                                        {#                                                        <ul>#}
-                                        {#                                                            <li><i class="fa fa-commenting commenting-new01" aria-hidden="true"></i>1 Review</li>#}
-                                        {#                                                            <li id="total_votes_6855"><i class="fa fa-thumbs-up thumbs-up04" aria-hidden="true"></i>0 Helpful  Votes</li>#}
-                                        {#                                                        </ul>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none reviews_right-text-outer-main">#}
-                                        {#                                                        <div class="col-xs-12 reviews_txt-new-outer01">#}
-                                        {#                                                            <a href="https://www.coworker.com/ukraine/poltava/grass-coworking/review-11040">#}
-                                        {#                                                                <h4>"Cool place"</h4>#}
-                                        {#                                                            </a>#}
-                                        {#                                                            <div class="reviews_txt-new-bottom01">#}
-                                        {#                                                                <div class="views-rating-out-b">#}
-                                        {#                                                                    <div class="col-xs-12 pade_none review_star_panel">#}
-                                        {#                                                                        <div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div><div class="pade_none s-border02"><i class="fa fa-star07"></i></div>#}
-                                        {#                                                                    </div>#}
-                                        {#                                                                    <div class="review_pic_outer lb-album"><ul></ul></div>#}
-                                        {#                                                                    <div class="review_date date_hide">September 2017</div>#}
-                                        {#                                                                </div>#}
-                                        {#                                                                <p>I like this place. Best in Poltava</p>#}
-                                        {#                                                                <div class="helpful05-out">#}
-                                        {#                                                                    <label id="helpful_vote_6855"><a href="javascript:void(0);"><span>helpful ?</span></a></label>#}
-                                        {#                                                                    <img id="vote_heart_6855" onclick="register_vote_rev(6855,1,1917);" src="{% static 'img/heart-img01-red.png' %}" class="heart-red-color01">#}
-                                        {#                                                                    <p id="vote_thanks_6855" onclick="register_vote_rev(6855,1,1917);"><span id="vote_numbers_6855">0<img src="{% static 'img/thanks-out-bg02.png' %}" class="thanks-out-bg02"></span> Thank Alex</p>#}
-                                        {#                                                                    <p id="vote_thanks_msg_6855" style="display:none"><span id="vote_thanks_totals_6855"><img src="{% static 'img/thanks-out-bg02.png' %}" class="thanks-out-bg02"></span> Thanks for your vote!</p>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </div>#}
-                                        {#                                                            <div class="arrow-position-left02"><img class="rply_img" src="{% static 'img/arrow-position-left01.png' %}"></div>#}
-                                        {##}
-                                        {#                                                        </div>#}
-                                        {##}
-                                        {#                                                    </div>#}
-                                        {#                                                </div>              </div>#}
-                                        {##}
-                                        {##}
-                                        {#                                            <!--PAGINATION HERE-->#}
-                                        {##}
-                                        {#                                            <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main coworker_pagination_panel">#}
-                                        {#                                                <ul id="rev_pagination">#}
-                                        {#                                                </ul>#}
-                                        {#                                            </div>#}
-                                        {#                                            <!--PAGINATION HERE end-->#}
-                                        {#                                        </div>#}
-                                        <!-- TIPS TAB START-->
-                                        {#                                        <div class="col-xs-12 pade_none review_section_tabs top_section_tabs" id="answer2" style="display:none;">#}
-                                        {#                                            <div id="dv_tip_list" class="col-xs-12 pade_none filter_reviews_By">#}
-                                        {#                                                <div class="filter_reviews_head">Filter Reviews By:<!-- <a href="#">Clear All</a>--></div>#}
-                                        {#                                                <div class="filter_reviews_checkbox">#}
-                                        {#                                                    <div class="col-xs-12 col-md-4 col-sm-12 pade_none filter_reviews_checkbox_list">#}
-                                        {#                                                        <ul>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn filter_checkbox_green">#}
-                                        {#                                                                    <input name="review_select" id="review_select_list01" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list01"></label>#}
-                                        {#                                                                    <span>Coworking Space Tips</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list02" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list02"></label>#}
-                                        {#                                                                    <span>Checking In</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list03" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list03"></label>#}
-                                        {#                                                                    <span>Transportation</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list04" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list04"></label>#}
-                                        {#                                                                    <span>Making the most of your Visit</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass" id="review_select_list05" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list05"></label>#}
-                                        {#                                                                    <span>Other</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                        </ul>#}
-                                        {#                                                    </div>#}
-                                        {#                                                    <div class="col-xs-12 col-md-8 col-sm-12 pade_none filter_reviews_checkbox_list filter_reviews_checkbox_list02">#}
-                                        {#                                                        <ul>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn filter_checkbox_green">#}
-                                        {#                                                                    <input name="review_select" id="area_tips_click" type="checkbox">#}
-                                        {#                                                                    <label for="area_tips_click"></label>#}
-                                        {#                                                                    <span>Area Tips</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list07" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list07"></label>#}
-                                        {#                                                                    <span>Places to eat</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list08" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list08"></label>#}
-                                        {#                                                                    <span>Where to stay</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list09" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list09"></label>#}
-                                        {#                                                                    <span>Places to socialize</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list10" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list10"></label>#}
-                                        {#                                                                    <span>Places to see</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                        </ul>#}
-                                        {#                                                        <ul>#}
-                                        {#                                                            <li class="list_none">#}
-                                        {#                                                                &nbsp;#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list11" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list11"></label>#}
-                                        {#                                                                    <span>Activities to try</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list12" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list12"></label>#}
-                                        {#                                                                    <span>Best cup of coffee</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list13" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list14"></label>#}
-                                        {#                                                                    <span>Places to drink</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list14" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list14"></label>#}
-                                        {#                                                                    <span>How to get around</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                        </ul>#}
-                                        {#                                                        <ul>#}
-                                        {#                                                            <li class="list_none">#}
-                                        {#                                                                &nbsp;#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list15" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list15"></label>#}
-                                        {#                                                                    <span>Where to Shop</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                            <li>#}
-                                        {#                                                                <div class="filter_checkbox_inn">#}
-                                        {#                                                                    <input name="review_select" class="checkBoxClass02" id="review_select_list16" type="checkbox">#}
-                                        {#                                                                    <label for="review_select_list16"></label>#}
-                                        {#                                                                    <span>Other</span>#}
-                                        {#                                                                </div>#}
-                                        {#                                                            </li>#}
-                                        {#                                                        </ul>#}
-                                        {#                                                    </div>#}
-                                        {#                                                </div>#}
-                                        {#                                            </div>#}
-                                        {#                                            <div id="tips">#}
-                                        {##}
-                                        {##}
-                                        {#                                            </div>#}
-                                        {#                                            <div class="col-xs-12 pade_none reviews_btn_con coworker_pagination_main">#}
-                                        {#                                                <ul id="tips_pagination">#}
-                                        {#                                                </ul>#}
-                                        {#                                            </div>#}
-                                        {#                                        </div>#}
-                                        <!--QA TAB START-->
-                                        {#                                        <div class="col-xs-12 pade_none top_section_tabs cowork_ask_question_tab" id="answer3" style="display:none;">#}
-                                        {#                                            <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="https://www.coworker.com/ukraine/poltava/grass-coworking" width="100%" data-numposts="5" fb-xfbml-state="rendered"><span style="height: 717px;"><iframe id="f137aeed99717a4" name="f18eed4afcebcb8" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="comments.html style="border: none; overflow: hidden; height: 717px; width: 100%;"></iframe></span></div>#}
-                                        {#                                        </div>#}
                                     </div>
                                     <br>
                                     <!--LEFT PANEL END-->

@@ -4,7 +4,7 @@ import pickle
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core import serializers
 from django.urls import reverse_lazy
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from django.forms.models import inlineformset_factory, modelformset_factory, formset_factory
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -41,6 +41,24 @@ class PlaceCountryList(View):
         })
 
 
+class PlaceCityList(View):
+    template_name = 'place/city.html'
+
+
+    def get_popular_places(self, city):
+        return Place.objects.all()
+
+
+    def get(self, request, *args, **kwargs):
+        country = self.kwargs["country"]
+        city = self.kwargs["city"]
+        city = get_object_or_404(CityOrigin, country__slug__icontains=country, slug=city)
+        return render(request, self.template_name, {
+            'city': city,
+            'top_places': Place.objects.by_city(city),
+        })
+
+
 class SearchList(View):
     template_name = 'pages/search_list.html'
 
@@ -64,23 +82,11 @@ class SearchList(View):
 class PlaceView(View):
     template_name = 'place/place.html'
 
-    # def get_context_data(self, **kwargs):
-    #     ctx = super().get_context_data(**kwargs)
-    #
-    #     if self.kwargs.get("country"):
-    #         self.template_name = 'place/country.html'
-    #
-    #     if self.kwargs.get("city"):
-    #         self.template_name = 'place/city.html'
-    #
-    #     if self.kwargs.get("place"):
-    #         self.template_name = 'place/place.html'
-    #
-    #     return ctx
-
     def get(self, request, *args, **kwargs):
         place_slug = self.kwargs["place"]
-        place = get_object_or_404(Place, slug=place_slug)
+        place = Place.objects.filter(slug=place_slug).first()
+        if not place:
+            raise Http404
 
         return render(request, self.template_name, {
             'place': place,
