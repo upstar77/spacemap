@@ -3,7 +3,7 @@
 
 <ul>
     <li>
-        <a href="javascript:;" class="anchor{% if 'place_description' in completed_menus %} left_active{% endif %} side-link-anchor">
+        <a href="{% if 'place_description' in completed_menus %}{% url 'place:place_add_description' %}{% else %}javascript:;{% endif %}" class="anchor{% if 'place_description' in completed_menus %} left_active{% endif %} side-link-anchor">
         <i class="fa fa-file-text-o"></i> 1. 详细介绍&nbsp;&nbsp;
         <img id="i_desc" src="{% static 'img/tick.png' %}" class="listspace_green_tick{% if active_menu != 'place_description'%} hidden{% endif %}">
     </a>

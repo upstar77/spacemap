@@ -125,6 +125,7 @@ class PlaceAddBaseView:
         amenities = self.current_created_place.amenities
         meeting_rooms = self.current_created_place.meeting_rooms
         hot_desks_membership_prices = self.current_created_place.hot_desks_membership_prices
+        photos = self.current_created_place.photos
         for amenities_obj in amenities:
             place.amenities.add(amenities_obj)
         place.save()
@@ -135,16 +136,21 @@ class PlaceAddBaseView:
             hot_desks_membership_price.place = place
             hot_desks_membership_price.save()
 
-        for photo_id in self.request.session["photos_ids"]:
+        for photo_id in photos:
             try:
                 Photos.objects.filter(id=photo_id).update(place=place)
             except Exception as e:
                 print(e)
+        # try:
+        #     self.request.session["photos_ids"].clear()
+        #     place.user = self.request.user
+        # except Exception as e:
+        #     print(e)
+
         try:
-            self.request.session["photos_ids"].clear()
-            place.user = self.request.user
-        except Exception as e:
-            print(e)
+            del self.request.session['current_created_place']
+        except KeyError:
+            pass
 
         try:
             place.city_origin = CityOrigin.objects.order_by("?").first()
@@ -152,6 +158,7 @@ class PlaceAddBaseView:
         except Exception as e:
             print(e)
         place.save()
+
         # try:
         #     place = Place.objects.get(id=999999999)
         #     print(place)
@@ -228,7 +235,7 @@ class PlaceAddAmenitiesView(CreateView):
         return kwargs
 
 
-class PlaceAddLocationView(CreateView):
+class PlaceAddLocationView(PlaceAddBaseView, CreateView):
     template_name = 'place/place_add_location.html'
     form_class = PlaceAddLocationForm
     success_url = reverse_lazy('place:place_add_meeting_rooms')
@@ -237,13 +244,10 @@ class PlaceAddLocationView(CreateView):
     def get_form_kwargs(self):
         kwargs = super(PlaceAddLocationView, self).get_form_kwargs()
         kwargs['request'] = self.request
-        current_created_place_pickle = self.request.session.get('current_created_place')
-        if current_created_place_pickle:
-            try:
-                current_created_place = pickle.loads(current_created_place_pickle)
-                kwargs['instance'] = current_created_place.place
-            except pickle.PickleError:
-                pass
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            kwargs['instance'] = self.current_created_place.place
         return kwargs
 
 
@@ -396,7 +400,7 @@ class PlaceAddContinue(CreateView):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class PhotoDropzone(CreateView):
+class PhotoDropzone(PlaceAddBaseView, CreateView):
     # template_name = 'place/continue_page.html'
     form_class = PlacePhotoForm
     template_name = ""
@@ -413,14 +417,20 @@ class PhotoDropzone(CreateView):
         photo.user = self.request.user
         photo.save()
 
-        photos_ids = self.request.session.get('photos_ids')
-        if photos_ids:
-            photos_ids.append(photo.id)
-        else:
-            photos_ids = [photo.id]
 
-        self.request.session["photos_ids"] = photos_ids
-        self.request.session.save()
+        # photos_ids = self.request.session.get('photos_ids')
+        # if photos_ids:
+        #     photos_ids.append(photo.id)
+        # else:
+        #     photos_ids = [photo.id]
+        #
+        # self.request.session["photos_ids"] = photos_ids
+        # self.request.session.save()
+
+        self.current_created_place = self.get_current_created_place()
+
+        if self.current_created_place:
+            self.current_created_place.photos.append(photo.id)
 
         if photo.is_header_image:
             w, h = get_image_dimensions(photo.image)

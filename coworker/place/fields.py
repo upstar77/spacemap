@@ -3,12 +3,15 @@ from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 
 
-def generate_time_range():
-    HOURS_CHOISE = [('-1', _("Closed"))]
+def generate_time_range(empty_label=''):
+    hours_choices = []
+    if empty_label:
+        hours_choices.append(('', empty_label))
+    hours_choices.append(('-1', _("Closed")))
     for hr in range(0, 24):
         for min in range(0, 60, 30):
-            HOURS_CHOISE.append(("%s_%s" % (hr, min), datetime(2012, 1, 1, hr, min, 0).strftime("%I:%M %p")))
-    return HOURS_CHOISE
+            hours_choices.append(("%s_%s" % (hr, min), datetime(2012, 1, 1, hr, min, 0).strftime("%I:%M %p")))
+    return hours_choices
 
 
 class JsonHoursChoiceField(forms.ChoiceField):
