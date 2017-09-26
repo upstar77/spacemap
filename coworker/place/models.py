@@ -291,6 +291,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     free_day_pass = models.BooleanField(_("Get a Free Day Pass"), default=True, help_text=_("Choose the days that visitors can book a free day pass, and the hours they have access."))
     enable_reservation = models.BooleanField(_("Enable reservations"), default=True, help_text=_("This will allow people to select the membership type they want and start date. You'll receive their reservation request via email so you can follow up with them to confirm and arrange payment."))
 
+    user = models.ForeignKey('users.User', blank=True, null=True)
     #dummpy city location!!!
     city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
 
@@ -308,11 +309,14 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
         return self.space_name
 
     def get_absolute_url(self):
-        return reverse('place:place', kwargs={
-            'country': self.city_origin.country.slug,
-            'city': self.city_origin.slug,
-            'place': self.slug
-        })
+        try:
+            return reverse('place:place', kwargs={
+                'country': self.city_origin.country.slug,
+                'city': self.city_origin.slug,
+                'place': self.slug
+            })
+        except Exception as e:
+            pass
 
     def get_photos(self):
         return Photos.objects.filter(place=self)

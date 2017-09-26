@@ -12,8 +12,9 @@ from django.views.generic import TemplateView, View
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
 from django.core.files.images import get_image_dimensions
 from coworker.core.form_mixins import PassUser
-from .models import Place, MeetingRoom, MembershipDeskPrice
+from .models import Place, MeetingRoom, MembershipDeskPrice, Photos
 from .models import Place, MeetingRoom
+from django.utils.text import slugify
 from coworker.cities.models import Country, CityOrigin
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
@@ -134,6 +135,23 @@ class PlaceAddBaseView:
             hot_desks_membership_price.place = place
             hot_desks_membership_price.save()
 
+        for photo_id in self.request.session["photos_ids"]:
+            try:
+                Photos.objects.filter(id=photo_id).update(place=place)
+            except Exception as e:
+                print(e)
+        try:
+            self.request.session["photos_ids"].clear()
+            place.user = self.request.user
+        except Exception as e:
+            print(e)
+
+        try:
+            place.city_origin = CityOrigin.objects.order_by("?").first()
+            place.slug = slugify(place.name)
+        except Exception as e:
+            print(e)
+        place.save()
         # try:
         #     place = Place.objects.get(id=999999999)
         #     print(place)
@@ -395,12 +413,20 @@ class PhotoDropzone(CreateView):
         photo.user = self.request.user
         photo.save()
 
-        if photo.is_header_image:
-
-            w, h = get_image_dimensions(photo.file)
-            d = {"status": "success", "url": photo.file.url, "width": w, "height": h}
+        photos_ids = self.request.session.get('photos_ids')
+        if photos_ids:
+            photos_ids.append(photo.id)
         else:
-            d = {"name": photo.file.url, "ext": "jpg", "msg": "scs"}
+            photos_ids = [photo.id]
+
+        self.request.session["photos_ids"] = photos_ids
+        self.request.session.save()
+
+        if photo.is_header_image:
+            w, h = get_image_dimensions(photo.image)
+            d = {"status": "success", "url": photo.image.url, "width": w, "height": h}
+        else:
+            d = {"name": photo.image.url, "ext": "jpg", "msg": "scs"}
         return JsonResponse(d)
 
 

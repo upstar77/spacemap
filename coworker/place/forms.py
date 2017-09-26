@@ -383,10 +383,15 @@ class PlacePhotoForm(forms.ModelForm):
 
     def clean(self):
         if self.data.get("xview"):
-            del self.errors['file']
+            del self.errors['image']
             self.cleaned_data["image"] = self.files['img']
             self.cleaned_data["is_header_image"] = True
 
-
+        try:
+            if self.files.get("file"):
+                self.cleaned_data["image"] = self.files['file']
+                del self.errors['image']
+        except Exception as e:
+            pass
 
 

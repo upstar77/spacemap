@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
+
+from coworker.place.models import Place
 from .mixins import LoginRequiredMixin
 from django.http import JsonResponse
 
@@ -47,6 +49,7 @@ class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        ctx["places"] = Place.objects.filter(user=self.request.user)
         return ctx
 
     def form_invalid(self, form):

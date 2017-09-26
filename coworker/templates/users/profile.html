@@ -124,7 +124,7 @@
                                 </li>-->
                                 <li>
                                     <a href="{% url "users:profile" %}#answer2" class="anchor" onclick="displayAnswer(&#39;answer2&#39;);">
-                                        <i class="fa fa-star002"></i> 评论
+                                        <i class="fa fa-star002"></i> 地方
                                     </a>
                                 </li>
                                 <li>
@@ -176,21 +176,18 @@
                         <div class="col-xs-12 pade_none profile_leanee_outer" id="answer2" style="display:none">
                             <a href="#" id="answer2"></a>
 
-                            <h2>Your Reviews</h2>
+                            <h2>你的地方</h2>
                             <div id="user_reviews">
-                                <div class="col-xs-12 pade_none profile_con">
-                                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_pic"><img src="https://coworker.imgix.net/photos/ukraine/poltava/grass-coworking/main.jpeg?w=140&amp;h=140&amp;fit=crop" alt=""></div>
-                                    <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_review_con">
-                                        <h3>Grass Coworking</h3>
-                                        <span>12th September 2017</span>
-                                        <p>"I like this place. Best in Poltava"</p>
-                                        <div class="col-xs-12 pade_none full_review_btn"><a href="{% url "place:place" "ukraine" "poltava" "grass-coworking" %}">View Full Review</a></div>
+                                {% for place in places %}
+                                    <div class="col-xs-12 pade_none profile_con">
+                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none profile_lft_pic"><img src="{{ place.get_main_photo }}" alt=""></div>
+                                        <div class="col-sm-8 col-md-9 col-xs-12 pade_none profile_review_con">
+                                            <h3>{{ place.name }}</h3>
+                                            <p>{{ place.cs_description|truncatechars:50 }}</p>
+                                            <div class="col-xs-12 pade_none full_review_btn"><a href="{{ place.get_absolute_url }}">细节</a></div>
+                                        </div>
                                     </div>
-                                </div></div>
-                            <div class="col-xs-12 pade_none coworker_pagination_main">
-                                <ul id="sw_pagination">
-                                </ul>
-                                <div id="sw_pagination_total" class="col-xs-12 pade_none pagination_text_con">1 of 1 reviews</div>
+                                {% endfor %}
                             </div>
                         </div>
 
