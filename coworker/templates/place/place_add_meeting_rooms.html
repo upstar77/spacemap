@@ -118,7 +118,7 @@
                                                             <label for="{{ formrow.mr_capacity.auto_id }}">
                                                                 {{ formrow.mr_capacity.label }}
                                                             </label>
-                                                            {% render_field formrow.mr_capacity class="form-control" %}
+                                                            {% render_field formrow.mr_capacity %}
                                                             <span class="help-block">
                                                                 {% if formrow.mr_capacity.errors %}
                                                                     {{ formrow.mr_capacity.errors.as_text }}
@@ -136,28 +136,34 @@
                                     </div>
 
                                     <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-                                        <label class="rooms_sub">允许非会员租用我的会议室?</label>
+                                        <label class="rooms_sub">{{ form.rent_nm.label }}</label>
                                         <div class="col-xs-12 pade_none room_lft form-group">
-                                            {#                    {% render_field form.rent_nm type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes" %}#}
-                                            <input name="rent_nm" type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes">
-                                            <label class="lbl-credit-card" for="meeting_room01">允许</label>
+                                            {{ form.rent_nm.0.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.rent_nm.auto_id }}_0">
+                                                {{ form.rent_nm.0.choice_label }}
+                                            </label>
                                         </div>
                                         <div class="col-xs-12 pade_none room_lft form-group">
-                                            {#                    {% render_field form.rent_nm type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes" %}#}
-                                            <input name="rent_nm" type="radio" class="lbl-radio-vopt" id="meeting_room02" checked="checked" value="no">
-                                            <label class="lbl-credit-card" for="meeting_room02">不允许</label>
+                                            {{ form.rent_nm.1.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.rent_nm.auto_id }}_1">
+                                                {{ form.rent_nm.1.choice_label }}
+                                            </label>
                                         </div>
                                     </div>
 
                                     <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-                                        <label class="rooms_sub">允许非会员在我的创客云图场地举办大型活动?</label>
+                                        <label class="rooms_sub">{{ form.hire_nm.label }}</label>
                                         <div class="col-xs-12 pade_none room_lft form-group">
-                                            <input name="hire_nm" type="radio" class="lbl-radio-vopt" value="yes" id="meeting_room03">
-                                            <label class="lbl-credit-card" for="meeting_room03">允许</label>
+                                            {{ form.hire_nm.0.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.hire_nm.auto_id }}_0">
+                                                {{ form.hire_nm.0.choice_label }}
+                                            </label>
                                         </div>
                                         <div class="col-xs-12 pade_none room_lft form-group">
-                                            <input name="hire_nm" type="radio" class="lbl-radio-vopt" checked="checked" value="no" id="meeting_room04">
-                                            <label class="lbl-credit-card" for="meeting_room04">不允许</label>
+                                            {{ form.hire_nm.1.tag }}
+                                            <label class="lbl-credit-card" for="{{ form.hire_nm.auto_id }}_1">
+                                                {{ form.hire_nm.1.choice_label }}
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
