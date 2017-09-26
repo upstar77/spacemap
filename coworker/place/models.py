@@ -105,9 +105,10 @@ MEMBERSHIP_OFFICE_PRICE_ACCS_CHOICES = (
 class Location(models.Model):
     # location_name = models.CharField(max_length=250)
 
-    address = models.CharField(max_length=250, blank=True)
+    address = models.CharField(max_length=250)
     address_sec = models.CharField(max_length=250, blank=True)
-    postal_code = models.CharField(max_length=250, blank=True)
+    postal_code = models.CharField(max_length=250)
+    #TODO: Why do we need this field ?
     area = models.CharField(max_length=400, blank=True)
     lat = models.CharField(max_length=250, blank=True)
     lng = models.CharField(max_length=250, blank=True)
@@ -267,9 +268,8 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
 
-    rent_nm = models.BooleanField(default=False, help_text="Do you allow non-members to rent your meeting rooms?")
-    hire_nm = models.BooleanField(
-        default=False, help_text="Do you allow non-members to hire your coworking space for bigger events?")
+    rent_nm = models.BooleanField(_('允许非会员租用我的会议室?'), default=False)
+    hire_nm = models.BooleanField(_('允许非会员在我的创客云图场地举办大型活动?'), default=False)
 
     max_people_capacity = models.PositiveIntegerField(
         choices=MAX_PEOPLE_CAPACITY_RANGE,

@@ -10,11 +10,18 @@ from .fields import JsonHoursChoiceField, generate_time_range
 from coworker.cities.models import City
 
 
+YES_NO_CHOICES = (
+    (True, _('允许')),
+    (False, _('不允许'))
+)
+
+
 class CurrentCreatedPlace:
     place = None
     amenities = []
     meeting_rooms = []
     hot_desks_membership_prices = []
+    photos = []
     step = 0
 
 
@@ -169,8 +176,6 @@ class PlaceAddMeetingRoomsForm(forms.ModelForm):
         label=_('会议室编号'),
         required=False,
         choices=[(i, i) for i in range(500)])
-    rent_nm = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
-    hire_nm = forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')])
 
     def __init__(self, *args, **kwargs):
         if "request" in kwargs:
@@ -180,6 +185,10 @@ class PlaceAddMeetingRoomsForm(forms.ModelForm):
     class Meta:
         model = Place
         fields = ['rent_nm', 'hire_nm']
+        widgets = {
+            'rent_nm': forms.RadioSelect(choices=YES_NO_CHOICES),
+            'hire_nm': forms.RadioSelect(choices=YES_NO_CHOICES),
+        }
 
     def save(self, commit=False):
         obj = super(PlaceAddMeetingRoomsForm, self).save(commit=False)
@@ -198,8 +207,10 @@ class PlaceAddMeetingRoomInlineForm(forms.ModelForm):
 
 
 class PlaceAddOpeningHoursForm(forms.ModelForm):
-    monday_friday_from = forms.ChoiceField(required=False, label=_('Monday - Friday'), choices=generate_time_range())
-    monday_friday_to = forms.ChoiceField(required=False, label=_('To'), choices=generate_time_range())
+    monday_friday_from = forms.ChoiceField(label=_('Monday - Friday'), choices=generate_time_range(empty_label='-----'))
+    monday_friday_to = forms.ChoiceField(label=_('To'), choices=generate_time_range(empty_label='-----'))
+    friday_combine_hours = forms.BooleanField(required=False, label=_('其他时间段'), initial=True)
+    different_hours = forms.BooleanField(required=False, label=_('其他时间段'), initial=False)
 
     def __init__(self, *args, **kwargs):
         if "request" in kwargs:
@@ -223,6 +234,30 @@ class PlaceAddOpeningHoursForm(forms.ModelForm):
                   "sunday_from",
                   "sunday_to",
                   "member_accs"]
+
+    def clean(self):
+        friday_combine_hours = self.cleaned_data.get('friday_combine_hours', False)
+        day_of_weeks_fields = [
+            "monday_from",
+            "monday_to",
+            "tuesday_from",
+            "tuesday_to",
+            "wednesday_from",
+            "wednesday_to",
+            "thursday_from",
+            "thursday_to",
+            "friday_from",
+            "friday_to"]
+
+        if friday_combine_hours:
+            for day_of_week in day_of_weeks_fields:
+                if self.errors.get(day_of_week):
+                    del self.errors[day_of_week]
+        else:
+            del self.errors['monday_friday_from']
+            del self.errors['monday_friday_to']
+
+        return self.cleaned_data
 
     def save(self, commit=False):
         obj = super(PlaceAddOpeningHoursForm, self).save(commit=False)
