@@ -377,14 +377,16 @@
                                                 <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_2photo_outer">
 
                                                     {% for image in place.get_photos %}
-                                                        <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
-                                                            <a alt="{{ place.space_name }}" href="{{ image.image.url }}" data-fancybox="images" data-caption="Photo 1">
+                                                        {% if image.image %}
+                                                            <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
+                                                                <a alt="{{ place.space_name }}" href="{{ image.image.url }}" data-fancybox="images" data-caption="Photo 1">
 
-                                                                <img src="{{ image.image.url }}">
-                                                                <div class="example-image slider-bg-pic" alt="{{ place.space_name }}, Poltava" style="background-image: url({{ image.file.url }}?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
+                                                                    <img src="{{ image.image.url }}">
+                                                                    <div class="example-image slider-bg-pic" alt="{{ place.space_name }}, Poltava" style="background-image: url({{ image.file.url }}?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
 
-                                                            </a>
-                                                        </div>
+                                                                </a>
+                                                            </div>
+                                                        {% endif %}
                                                     {% endfor %}
                                                     {#                                                  {% include "place/reviews.html" %}#}
                                                 </div>
