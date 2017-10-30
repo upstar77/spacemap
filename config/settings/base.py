@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
+from django.utils.translation import ugettext_lazy as _
 
 ROOT_DIR = environ.Path(__file__) - 3  # (coworker/config/settings/base.py - 3 = coworker/)
 APPS_DIR = ROOT_DIR.path('coworker')
@@ -77,6 +78,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -136,6 +138,15 @@ TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+    ('zh-hans', _('China')),
+    ('en', _('English')),
+)
+
+LOCALE_PATHS = (
+    str(ROOT_DIR('locale')),
+)
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1

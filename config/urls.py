@@ -4,11 +4,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from django.conf.urls.i18n import i18n_patterns
 
-urlpatterns = [
+
+urlpatterns = i18n_patterns(
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
-
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     # User management
     url(r'^select2/', include('django_select2.urls')),
 
@@ -24,7 +26,7 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
 
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
