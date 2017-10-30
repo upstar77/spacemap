@@ -1,6 +1,9 @@
 {% load static %}
+{% load i18n %}
+{% load i18n %}
 
 <header class="coworker_banner_new_outer">
+    {% load i18n %}
     <!--HEADER START-->
     <div class="new_header_main">
         <div class="mobile_menu">
@@ -8,10 +11,10 @@
                 <span class="minus_outer"><img alt="" src="static/img/res_menu_minus.jpg"></span>
                 <ul>
                     <li>
-                        <a href="{% url "main:index" %}"><i class="fa fa-caret-right"></i>首页</a>
+                        <a href="{% url "main:index" %}"><i class="fa fa-caret-right"></i>{% trans 'hello' %}</a>
                     </li>
                     <li>
-                        <a href="{% url "place:search" %}"><i class="fa fa-caret-right"></i>搜索</a>
+                        <a href="{% url "place:search" %}"><i class="fa fa-caret-right"></i>{% trans 'search' %}</a>
                     </li>
                     <li>
                         <a href="{% url "main:cities" %}"><i class="fa fa-caret-right"></i>全部城市</a>
@@ -22,6 +25,7 @@
                     <li class="lastNoBorder">
                         <a href="javascript:void(0);" onclick="openNavLoging();"><i class="fa fa-caret-right"></i>登录</a>
                     </li>
+
                 </ul>
             </div>
             <div class="mob_menu_bottom">
@@ -68,10 +72,26 @@
                 <div class="coworker_new_right">
                     <ul>
                         <li>
-                            <a href="{% url "main:about" %}"><i aria-hidden="true" class="fa fa-heart11"></i> 关于</a>
+                            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                <select name="language">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% get_available_languages as LANGUAGES %}
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                            {{ language.name_local }} ({{ language.code }})
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="{% trans 'Change' %}" />
+                            </form>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" onclick="openNavSignup();"><i aria-hidden="true" class="fa fa-user"></i> 注册</a>
+                            <a href="{% url "main:about" %}"><i aria-hidden="true" class="fa fa-heart11"></i>{% trans 'About' %}</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="openNavSignup();"><i aria-hidden="true" class="fa fa-user"></i>{% trans ' Sign up' %}</a>
                         </li>
                         <li class="new_login_con">
                             <a href="javascript:void(0);" onclick="openNavLoging();">登录</a>
@@ -126,17 +146,17 @@
 
             <div class="item coworker_pic_slide02 coworker_slider_pic">
                 <div class="coworker_styling_text">
-                        <h2>Guajajaras Coworking<span>Belo Horizonte, Brazil</span></h2>
+                    <h2>Guajajaras Coworking<span>Belo Horizonte, Brazil</span></h2>
                 </div>
             </div>
             <div class="item coworker_pic_slide03 coworker_slider_pic active">
                 <div class="coworker_styling_text">
-                        <h2>Acceler8<span>Makati, Philippines</span></h2>
+                    <h2>Acceler8<span>Makati, Philippines</span></h2>
                 </div>
             </div>
             <div class="item coworker_pic_slide04 coworker_slider_pic">
                 <div class="coworker_styling_text">
-                        <h2>Dr. Schnapps<span>Porto, Portugal</span></h2>
+                    <h2>Dr. Schnapps<span>Porto, Portugal</span></h2>
                 </div>
             </div>
 
