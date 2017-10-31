@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-31 13:02+0000\n"
+"POT-Creation-Date: 2017-10-31 18:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -796,14 +796,14 @@ msgstr ""
 msgid "已经是会员?"
 msgstr ""
 
-#: coworker/templates/base.html:929 coworker/templates/elements/footer.html:63
+#: coworker/templates/base.html:929 coworker/templates/elements/footer.html:65
 #: coworker/templates/elements/header.html:61
 #: coworker/templates/elements/header_main.html:26
 #: coworker/templates/elements/header_main.html:97
 #: coworker/templates/elements/header_search.html:28
 #: coworker/templates/elements/header_search.html:56
 #: coworker/templates/elements/login.html:40
-#: coworker/templates/elements/sign-up.html:32
+#: coworker/templates/elements/sign-up.html:36
 #: coworker/templates/pages/search_list.html:339
 #: coworker/templates/templates/base.html:929
 #: coworker/templates/templates/elements/footer.html:63
@@ -839,8 +839,8 @@ msgid "首页"
 msgstr ""
 
 #: coworker/templates/base_origin.html:44
-#: coworker/templates/elements/footer.html:7
-#: coworker/templates/elements/footer.html:99
+#: coworker/templates/elements/footer.html:9
+#: coworker/templates/elements/footer.html:101
 #: coworker/templates/elements/header.html:59
 #: coworker/templates/elements/header_search.html:26
 #: coworker/templates/templates/base_origin.html:44
@@ -866,8 +866,8 @@ msgstr ""
 msgid "使用此文档可以快速链接到你搜索的页面."
 msgstr ""
 
-#: coworker/templates/elements/footer.html:10
-#: coworker/templates/elements/footer.html:20
+#: coworker/templates/elements/footer.html:12
+#: coworker/templates/elements/footer.html:22
 #: coworker/templates/elements/header_internal.html:71
 #: coworker/templates/elements/header_search.html:52
 #: coworker/templates/pages/about.html:68
@@ -879,8 +879,8 @@ msgstr ""
 msgid "搜索"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:13
-#: coworker/templates/elements/footer.html:40
+#: coworker/templates/elements/footer.html:15
+#: coworker/templates/elements/footer.html:42
 #: coworker/templates/elements/header_main.html:119
 #: coworker/templates/templates/elements/footer.html:13
 #: coworker/templates/templates/elements/footer.html:40
@@ -890,42 +890,42 @@ msgstr ""
 msgid "评论"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:23
+#: coworker/templates/elements/footer.html:25
 #: coworker/templates/templates/elements/footer.html:23
 msgid "搜索场地"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:26
+#: coworker/templates/elements/footer.html:28
 #: coworker/templates/templates/elements/footer.html:26
 msgid "按城市搜索"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:29
+#: coworker/templates/elements/footer.html:31
 #: coworker/templates/templates/elements/footer.html:29
 msgid "最优场地排行"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:32
+#: coworker/templates/elements/footer.html:34
 #: coworker/templates/templates/elements/footer.html:32
 msgid "最热评论场地"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:35
+#: coworker/templates/elements/footer.html:37
 #: coworker/templates/templates/elements/footer.html:35
 msgid "共享办公地图"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:43
+#: coworker/templates/elements/footer.html:45
 #: coworker/templates/templates/elements/footer.html:43
 msgid "查看全部评论"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:48
+#: coworker/templates/elements/footer.html:50
 #: coworker/templates/templates/elements/footer.html:48
 msgid "合作信息"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:51
+#: coworker/templates/elements/footer.html:53
 #: coworker/templates/elements/header.html:63
 #: coworker/templates/elements/header_internal.html:37
 #: coworker/templates/elements/header_main.html:101
@@ -962,17 +962,17 @@ msgstr ""
 msgid "我要出租"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:57
+#: coworker/templates/elements/footer.html:59
 #: coworker/templates/templates/elements/footer.html:57
 msgid "会员功能"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:60
+#: coworker/templates/elements/footer.html:62
 #: coworker/templates/elements/header.html:60
 #: coworker/templates/elements/header_main.html:23
 #: coworker/templates/elements/header_search.html:27
 #: coworker/templates/elements/header_search.html:55
-#: coworker/templates/elements/sign-up.html:29
+#: coworker/templates/elements/sign-up.html:33
 #: coworker/templates/pages/search_list.html:339
 #: coworker/templates/templates/elements/footer.html:60
 #: coworker/templates/templates/elements/header.html:60
@@ -984,33 +984,33 @@ msgstr ""
 msgid "注册"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:68
+#: coworker/templates/elements/footer.html:70
 #: coworker/templates/templates/elements/footer.html:68
 msgid "创客云图实验室"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:71
+#: coworker/templates/elements/footer.html:73
 #: coworker/templates/templates/elements/footer.html:71
 msgid "博客"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:74
+#: coworker/templates/elements/footer.html:76
 #: coworker/templates/templates/elements/footer.html:74
 msgid "赞助商"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:77
+#: coworker/templates/elements/footer.html:79
 #: coworker/templates/templates/elements/footer.html:77
 msgid "最新文章"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:80
+#: coworker/templates/elements/footer.html:82
 #: coworker/templates/templates/elements/footer.html:80
 msgid "活动"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:85
-#: coworker/templates/elements/footer.html:94
+#: coworker/templates/elements/footer.html:87
+#: coworker/templates/elements/footer.html:96
 #: coworker/templates/pages/contact.html:79
 #: coworker/templates/place/place.html:491
 #: coworker/templates/templates/elements/footer.html:85
@@ -1020,22 +1020,22 @@ msgstr ""
 msgid "联系我们"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:88
+#: coworker/templates/elements/footer.html:90
 #: coworker/templates/templates/elements/footer.html:88
 msgid "新闻媒体"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:91
+#: coworker/templates/elements/footer.html:93
 #: coworker/templates/templates/elements/footer.html:91
 msgid "第三方接口"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:102
+#: coworker/templates/elements/footer.html:104
 #: coworker/templates/templates/elements/footer.html:102
 msgid "我们的故事"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:105
+#: coworker/templates/elements/footer.html:107
 #: coworker/templates/elements/top_cities_list.html:11
 #: coworker/templates/pages/cities.html:438
 #: coworker/templates/pages/team.html:16
@@ -1046,17 +1046,17 @@ msgstr ""
 msgid "加入我们"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:108
+#: coworker/templates/elements/footer.html:110
 #: coworker/templates/templates/elements/footer.html:108
 msgid "帮助中心"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:139
+#: coworker/templates/elements/footer.html:141
 #: coworker/templates/templates/elements/footer.html:139
 msgid "隐私政策"
 msgstr ""
 
-#: coworker/templates/elements/footer.html:142
+#: coworker/templates/elements/footer.html:144
 #: coworker/templates/templates/elements/footer.html:142
 msgid "使用条款"
 msgstr ""
@@ -1208,6 +1208,7 @@ msgid "或"
 msgstr ""
 
 #: coworker/templates/elements/login.html:16
+#: coworker/templates/elements/sign-up.html:23
 #: coworker/templates/pages/team.html:59
 #: coworker/templates/place/forms/contact.html:37
 #: coworker/templates/templates/elements/login.html:16
@@ -1217,6 +1218,7 @@ msgid "邮箱"
 msgstr ""
 
 #: coworker/templates/elements/login.html:20
+#: coworker/templates/elements/sign-up.html:29
 #: coworker/templates/templates/elements/login.html:20
 msgid "密码"
 msgstr ""
@@ -1246,7 +1248,19 @@ msgstr ""
 msgid "加入共享云图"
 msgstr ""
 
-#: coworker/templates/elements/sign-up.html:32
+#: coworker/templates/elements/sign-up.html:12
+msgid "姓氏"
+msgstr ""
+
+#: coworker/templates/elements/sign-up.html:18
+#: coworker/templates/pages/team.html:58
+#: coworker/templates/place/forms/description.html:8
+#: coworker/templates/templates/pages/team.html:58
+#: coworker/templates/templates/place/forms/description.html:8
+msgid "名字"
+msgstr ""
+
+#: coworker/templates/elements/sign-up.html:36
 #: coworker/templates/templates/elements/sign-up.html:32
 msgid "已有账号？"
 msgstr ""
@@ -2484,13 +2498,6 @@ msgstr ""
 #: coworker/templates/templates/pages/team.html:56
 msgid ""
 "如果你有任何疑问，或者想和我们分享您非凡的经历，请填写下列表格或发送邮箱至"
-msgstr ""
-
-#: coworker/templates/pages/team.html:58
-#: coworker/templates/place/forms/description.html:8
-#: coworker/templates/templates/pages/team.html:58
-#: coworker/templates/templates/place/forms/description.html:8
-msgid "名字"
 msgstr ""
 
 #: coworker/templates/pages/team.html:60
