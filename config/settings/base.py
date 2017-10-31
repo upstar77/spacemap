@@ -142,6 +142,7 @@ LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
     ('zh-hans', _('China')),
     ('en', _('English')),
+    ('ru', _('Русский')),
 )
 
 LOCALE_PATHS = (

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-30 23:42+0000\n"
+"POT-Creation-Date: 2017-10-31 00:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,10 +23,6 @@ msgstr ""
 
 #: config/settings/base.py:144
 msgid "English"
-msgstr ""
-
-#: config/settings/base.py:145
-msgid "Russian"
 msgstr ""
 
 #: coworker/cities/models.py:8
@@ -612,42 +608,42 @@ msgstr ""
 msgid "Sign Up"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:13
+#: coworker/templates/elements/header_main.html:14
 #, fuzzy
 #| msgid "Hello"
 msgid "hello"
 msgstr "首页"
 
-#: coworker/templates/elements/header_main.html:16
+#: coworker/templates/elements/header_main.html:17
 msgid "search"
 msgstr "搜索"
 
-#: coworker/templates/elements/header_main.html:86
+#: coworker/templates/elements/header_main.html:87
 msgid "Change"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:90
+#: coworker/templates/elements/header_main.html:91
 #, fuzzy
 #| msgid "about_trans"
-msgid "about"
+msgid "About"
 msgstr "关于"
 
-#: coworker/templates/elements/header_main.html:93
+#: coworker/templates/elements/header_main.html:94
 msgid " Sign up"
 msgstr ""
 
-#: coworker/templates/place/place_add_desk_price.html:6
-#: coworker/templates/place/place_add_location.html:6
-#: coworker/templates/place/place_add_marketing.html:6
-#: coworker/templates/place/place_add_meeting_rooms.html:6
-#: coworker/templates/place/place_add_opening_hours.html:6
-#: coworker/templates/place/place_add_payment_methods.html:6
-#: coworker/templates/place/place_add_photos.html:6
-#: coworker/templates/place/place_add_private_office_price.html:6
-#: coworker/templates/place/place_add_size.html:6
-#: coworker/templates/place/place_amenities.html:6
-#: coworker/templates/place/place_contact_details.html:6
-#: coworker/templates/place/place_description.html:6
+#: coworker/templates/place/place_add_desk_price.html:7
+#: coworker/templates/place/place_add_location.html:7
+#: coworker/templates/place/place_add_marketing.html:7
+#: coworker/templates/place/place_add_meeting_rooms.html:7
+#: coworker/templates/place/place_add_opening_hours.html:7
+#: coworker/templates/place/place_add_payment_methods.html:7
+#: coworker/templates/place/place_add_photos.html:7
+#: coworker/templates/place/place_add_private_office_price.html:7
+#: coworker/templates/place/place_add_size.html:7
+#: coworker/templates/place/place_amenities.html:7
+#: coworker/templates/place/place_contact_details.html:7
+#: coworker/templates/place/place_description.html:7
 msgid "Coworker ­- cowork spaces for coworking people"
 msgstr ""
 
