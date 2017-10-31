@@ -8,7 +8,7 @@
     <div class="new_header_main">
         <div class="mobile_menu">
             <div class="mob_menu_top">
-                <span class="minus_outer"><img alt="" src="static/img/res_menu_minus.jpg"></span>
+                <span class="minus_outer"><img alt="" src="/static/img/res_menu_minus.jpg"></span>
                 <ul>
                     <li>
                         <a href="{% url "main:index" %}"><i class="fa fa-caret-right"></i>{% trans 'hello' %}</a>
@@ -41,7 +41,7 @@
             <a href="{% url 'main:index' %}"><img alt="Logo New" src="{% static "img/SpaceMap_logoCN1.png" %}"></a>
         </div>
         <div class="col-sm-8 col-md-6 col-xs-12 pade_none coworker_new_right_main">
-            <a class="res_menu" href="javascript:;"><img alt="" src="static/img/res_menu.jpg"></a>
+            <a class="res_menu" href="javascript:;"><img alt="" src="/static/img/res_menu.jpg"></a>
             {% if user.is_authenticated %}
                 <div class="help_outer">
                     <div class="help_inner">
@@ -163,11 +163,11 @@
         </div><!-- Left and right controls -->
         <div class="slider_left_arrow">
             <a class="left carousel-control" data-slide="prev" href="/#myCarousel" role="button"><!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
-                <img alt="" src="static/img/img_coworker_slider_arrow_left.png"> <span class="sr-only"></span></a>
+                <img alt="" src="/static/img/img_coworker_slider_arrow_left.png"> <span class="sr-only"></span></a>
         </div>
         <div class="slider_right_arrow">
             <a class="right carousel-control" data-slide="next" href="/#myCarousel" role="button"><!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
-                <img alt="" src="static/img/img_coworker_slider_arrow_right.png"> <span class="sr-only"></span></a>
+                <img alt="" src="/static/img/img_coworker_slider_arrow_right.png"> <span class="sr-only"></span></a>
         </div>
     </div>
 </header>
