@@ -1,0 +1,12 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block inner %}
+    <h1>{% trans "确认你的邮箱地址" %}</h1>
+
+    <p>{% blocktrans %}我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。 如果您在几分钟内没有收到，请与我们联系{% endblocktrans %}</p>
+{% endblock %}
+

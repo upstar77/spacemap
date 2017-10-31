@@ -1,0 +1,27 @@
+{% load pdb_debug %}
+
+<select name="{{ field.name }}" id="{{ field.name }}">
+    {% for pk, choice in field.field.widget.choices %}
+        <option value="{{ pk }}"
+        {% for name, value in field.field.widget.attrs.items %}
+            {% if value is not False %} {{ name }}
+                {% if value is not True %}="{{ value|stringformat:'s' }}"
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        >{{ choice }}</option>
+{% endfor %}
+</select>
+
+
+{#    {% for pk, choice in queryset.field.widget.choices %}#}
+{#        <div class="col-sm-6 col-md-6 col-xs-12 pade_none">#}
+{#            <ul>#}
+{#                <li>#}
+{#                    <input id="c_{{ pk }}" value="{{ pk }}" name="amenities" type="checkbox"#}
+{#                    ><label for="c_{{ pk }}">{{ choice }}</label>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    {% endfor %}#}
