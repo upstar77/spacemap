@@ -9,21 +9,25 @@
         {% csrf_token %}
         <p class="signup_f">
             <img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -5px;">
-            {% render_field form.first_name id="nvfirst_name" placeholder={% trans ""姓氏" %}
+            {% trans "姓氏" as first_name %}
+            {% render_field form.first_name id="nvfirst_name" placeholder=first_name %}
         </p>
 
         <p class="signup_f">
             <img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -4px;">
-            {% render_field form.last_name id="nvlast_name" placeholder={% trans "名字" %}
+            {% trans "名字" as last_name %}
+            {% render_field form.last_name id="nvlast_name" placeholder=last_name %}
         </p>
         <p class="signup_f">
             <img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;">
-            {% render_field form.email id="nvemail" placeholder={% trans "邮箱" %}
+            {% trans "邮箱" as email %}
+            {% render_field form.email id="nvemail" placeholder=email %}
         </p>
 
         <p class="signup_f">
             <img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;">
-            {% render_field form.password placeholder={% trans "密码" %} id="nvpassword" type="password" %}
+            {% trans "密码" as password %}
+            {% render_field form.password placeholder=password id="nvpassword" type="password" %}
         </p>
 
         <button class="btn btn-primary" onclick="validateNavSignup(event);" type="submit">{% trans "注册" %} »</button>
