@@ -367,3 +367,5 @@ coworker/media/
 
 /scripts/pages_saved/
 /.idea/
+/package-lock.json
+/todo.txt

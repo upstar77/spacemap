@@ -18526,8 +18526,9 @@ border-radius: 3px;
 }
 .coworker_floating_main {
   margin: auto;
-  width: 700px;
+  /*width: 700px;*/
   text-align:center;
+  padding: 40px 30px;
 }
 .coworker_floating_main h1
 {
@@ -18546,19 +18547,19 @@ border-radius: 3px;
 .coworker_floating_main input[type="text"] {
   background: #fff ;
   width: 90%;
- height: 47px;
-    line-height: 30px;
-    padding: 0 17px;
+  height: 60px;
+  line-height: 30px;
+  padding: 13px 23px 14px;
   color:#171213;
   font-size:15.27px;
   font-family: "Roboto",sans-serif;
   font-weight: 300;
   border:none !important;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
- margin-right: 5px;
-float:left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-right: 5px;
+  float:left;
 }
 
 
@@ -18568,8 +18569,8 @@ float:left;
 
     /* Safari only override */
     ::i-block-chrome,.coworker_floating_main input[type="text"] {
-padding: 17px 17px 0; line-height:47px !important;
-}
+        padding: 17px 17px 0; line-height:47px !important;
+    }
 }
 
 
@@ -18579,12 +18580,13 @@ padding: 17px 17px 0; line-height:47px !important;
   background: #00d192 ;
   border: none !important;
   -webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   color: #fff;
   float: left;
-    padding: 7px 11px 6px;
+  padding: 14px 29px 13px;
 }
+
 .coworker_floating_main button:hover {
   background: #fff;
   color: #00d192;

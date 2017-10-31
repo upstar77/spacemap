@@ -1,0 +1,121 @@
+{% load static %}
+{% load i18n %}
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+<link rel="stylesheet" href="{% static "css/new-form.css" %}">
+
+
+<div class="container-agoda">
+
+
+    <div id="hero-banner-hosted">
+
+        <ul id="hero-banner-tab-nav" class="ag-tab-nav clearfix">
+            <li class="active"><a href="#tab-hotel" data-toggle="tab" data-tab="hotel">{% trans "Spaces" %}</a></li>
+
+            <li class="" data-selenium="tab-flights"><a href="#tab-flight" data-toggle="tab" data-tab="flight">{% trans "Activities" %}</a></li>
+        </ul>
+        <div class="tab-content" id="tab-content">
+            <div id="tab-hotel" class="tab-pane active">
+                <div id="flight-searchbox" class="flight-searchbox2">
+                    <div id="flight-widget2" style="position: absolute; display: inline; width: 0px; height: 0px; z-index: 1000; padding: 0px; overflow: visible;">
+                        <form accept-charset="utf-8" action="{% url "place:search" %}" id="form_search" method="post" name="search_form">
+                            <div class="coworker_floating_main">
+                                <div class="col-xs-12 pade_none" id="f_aucomplete">
+                                    <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="{% trans "搜索：场地名称、城市、国家......" %}" type="text" value="{{ filter }}"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>
+                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>
+                                </div>
+                                <div class="col-xs-12 pade_none coworker_explore_con">
+                                </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div id="tab-flight" class="tab-pane">
+                <div class="search-bar" data-selenium="search-bar">
+                    <div class="container-agoda">
+                        <div id="oneline-searchbox" class="oneline-searchbox" data-selenium="searchBox">
+
+                            <dl class="form-group ">
+                                <dd data-selenium="input-box">
+                                    <div class="search">
+                                        <i class="fa fa-search fa-1x"></i>
+                                        <div class="container-cell">
+                                            <input type="text" class="form-control text-editor oneline-text-editor" placeholder="{% trans "Activity" %}">
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+
+                            <dl class="form-group ">
+                                <dd data-selenium="input-box">
+                                    <div class="search dist">
+                                        <div class="container-cell">
+                                            <input type="text" class="form-control text-editor oneline-text-editor" placeholder="{% trans "Country" %}" >
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+
+                            <dl class="form-group ">
+                                <dd data-selenium="input-box">
+                                    <div class="search dist">
+                                        <div class="container-cell">
+                                            <input type="text" class="form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="form-group">
+                                <dd class="dates checkin">
+                                    <div id="olsb-checkIn" class="date">
+
+                                        <i class="fa fa-calendar fa-1x"></i>
+                                        <div class="container-cell">
+                                            <input type="text" name="daterange" class="form-control daterange oneline-checkin checkin-input date-input hasDatepicker"  data-date="2017-11-10">
+                                            <span id="checkInWeekday"></span>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+
+                            <dl class="form-actions">
+                                <dd class="actions">
+                                    <button type="submit" class="btn btn-primary search-button oneline-search-button">
+                                        <span class="js-search-button-unclicked-label">
+                                            {% trans "Search" %}
+                                        </span>
+
+                                        <span class="js-search-button-clicked-label search-button-clicked-label">
+                                            <i class="submit-progress-spinner"></i>
+                                        </span>
+                                    </button>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(function() {
+      $('input[name="daterange"]').daterangepicker();
+    });
+
+</script>

@@ -62,7 +62,8 @@ LOCAL_APPS = [
     'coworker.users.apps.UsersConfig',
     'coworker.main.apps.MainConfig',
     'coworker.place.apps.PlaceConfig',
-    'coworker.cities.apps.CitiesConfig'
+    'coworker.cities.apps.CitiesConfig',
+    'coworker.events.apps.EventsConfig',
     # 'place',
     # Your stuff: custom apps go here
 ]
@@ -142,7 +143,6 @@ LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
     ('zh-hans', _('China')),
     ('en', _('English')),
-    ('ru', _('Русский')),
 )
 
 LOCALE_PATHS = (

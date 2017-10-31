@@ -22,6 +22,7 @@ urlpatterns = i18n_patterns(
     url(r'^accounts/', include('allauth.urls')),
 
     url(r'^', include('coworker.place.urls', namespace='place')),
+    url(r'^', include('coworker.events.urls', namespace='events')),
 
     # Your stuff: custom urls includes go here
 

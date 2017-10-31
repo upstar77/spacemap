@@ -109,16 +109,17 @@
         <div class="container">
             <div class="row">
                 <form accept-charset="utf-8" action="{% url "place:search" %}" id="form_search" method="post" name="search_form">
-                    <div class="coworker_floating_main">
-                        <h1>您<span>加入</span>{% trans "共享E族了吗?" %}<sup style="font-size:18px;">™</sup></h1>
-                        <div class="col-xs-12 pade_none" id="f_aucomplete">
-                            <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="{% trans "搜索：场地名称、城市、国家......" %}" type="text" value="{{ filter }}"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>
-                            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>
-                        </div>
-                        <div class="col-xs-12 pade_none coworker_explore_con">
-                            {% trans "超过5000个工作场地 10000条会员提示和" %} &amp; {% trans "评论" %}
-                        </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">
-                    </div>
+                    {% include 'elements/new_form.html' %}
+{#                    <div class="coworker_floating_main">#}
+{#                        <h1>{% trans "您" %}<span>{% trans "加入"%}</span>{% trans "共享E族了吗?" %}<sup style="font-size:18px;">™</sup></h1>#}
+{#                        <div class="col-xs-12 pade_none" id="f_aucomplete">#}
+{#                            <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="{% trans "搜索：场地名称、城市、国家......" %}" type="text" value="{{ filter }}"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>#}
+{#                            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>#}
+{#                        </div>#}
+{#                        <div class="col-xs-12 pade_none coworker_explore_con">#}
+{#                            {% trans "超过5000个工作场地 10000条会员提示和" %} &amp; {% trans "评论" %}#}
+{#                        </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">#}
+{#                    </div>#}
                 </form>
             </div>
         </div>
