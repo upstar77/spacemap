@@ -30,6 +30,9 @@ if READ_DOT_ENV_FILE:
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
+
+DEFAULT_CURRENCY = 'USD'
+
 DJANGO_APPS = [
     # Default Django apps:
     'django.contrib.auth',
