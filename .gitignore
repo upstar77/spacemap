@@ -369,3 +369,4 @@ coworker/media/
 /.idea/
 /package-lock.json
 /todo.txt
+/fabfile.py
