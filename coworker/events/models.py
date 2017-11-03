@@ -1,12 +1,14 @@
 from datetime import datetime
 
+from django.urls import reverse
+from django_prices.forms import PriceField
 from pytz import timezone
 
 from django.db import models
 from django.conf import settings
 from django.db.models.query import QuerySet
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 
 
 def utcnow():
@@ -45,6 +47,21 @@ class EventManager(models.Manager):
         return self.get_queryset().current_and_future()
 
 
+class Person(models.Model):
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    email = models.EmailField()
+    phone = models.CharField(max_length=200)
+    position = models.CharField(max_length=300)
+    description = models.TextField()
+
+
+class TicketInfo(models.Model):
+    sales_end = models.DateTimeField(db_index=True)
+    price = PriceField(
+        pgettext_lazy('Shipping method country field', 'price'), max_digits=12, decimal_places=2)
+
+
 class Event(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -52,11 +69,13 @@ class Event(models.Model):
     start_time = models.DateTimeField(db_index=True)
     end_time = models.DateTimeField()
     url = models.URLField(blank=True)
-    latitude = models.FloatField(null=True)
-    longitude = models.FloatField(null=True)
+    lat = models.FloatField(null=True)
+    lng = models.FloatField(null=True)
     country_code = models.CharField(max_length=2, blank=True)
     continent_code = models.CharField(max_length=2, null=True)
-
+    place = models.ForeignKey('place.Place', blank=True, null=True)
+    slug = models.SlugField()
+    image = models.FileField(upload_to="events/photos", null=False, blank=False)
     objects = EventManager()
 
     class Meta:
@@ -74,3 +93,9 @@ class Event(models.Model):
         """Return the abbreviated month name with the abbr html tag."""
         # for l10n, the abbreviated month strings include the tag
         return u'<abbr>{0:%b}</abbr>'.format(self.start_time)
+
+
+    def get_absolute_url(self):
+        return reverse('events:event', kwargs={
+            'event': self.slug,
+        })
