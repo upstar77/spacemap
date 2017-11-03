@@ -1,6 +1,8 @@
 coworker
 ========
 
+purifycss coworker/static/css/base_styles.css coworker/templates/events.html  --info --out index.css
+
 A short description of the project.
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg

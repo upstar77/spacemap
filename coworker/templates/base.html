@@ -777,64 +777,12 @@
 </script>
 <script type="text/javascript">
   $(function() {
-
-    $( "#h_location" ).keypress(function(e) {
-      if(e.which == 13) {
+    $("#h_location").keypress(function (e) {
+      if (e.which == 13) {
         submitSearch();
       }
     });
-{#    $( "#h_location" ).autocomplete({#}
-{#      source:function(request, response) {#}
-{#        $("#h_place_id").val(0);#}
-{#        $("#h_search_place").val(0);#}
-{#        $.ajax({#}
-{#          url: 'https://www.coworker.com/getAutocomplete',#}
-{#          dataType: "json",#}
-{#          type: "POST",#}
-{#          data: {#}
-{#            term : request.term#}
-{#          },#}
-{#          success: function(data) {#}
-{#            response(data);#}
-{#          }#}
-{#        });#}
-{#      },minLength:1,#}
-{#      messages: {#}
-{#        noResults: '',#}
-{#        results: function() {}#}
-{#      },appendTo: "#h_aucomplete",#}
-{#      select: function (event, ui) {#}
-{#        $("#h_place_id").val(ui.item.idx);#}
-{#        $("#h_search_place").val(ui.item.loc);#}
-{#        $("#xh_location").val(ui.item.value);#}
-{#        $('#h_location').val(ui.item.value);#}
-{#        if(ui.item.loc==3){#}
-{#          if(ui.item.coworkspace_url!='')#}
-{#            window.location = '/'+ui.item.coworkspace_url;#}
-{#        } else#}
-{#          submitSearchH();#}
-{#      },#}
-{#      open: function(){#}
-{#        $('.ui-autocomplete').css('width', $('#h_location').width());#}
-{#      }#}
-{#    }).autocomplete( "instance" )._renderItem = function( ul, item ) {#}
-{#      var loc_icon = '<i class="fa fa-buildingui"><\/i>';#}
-{#      var view_all = '';#}
-{#      if(item.loc==1)#}
-{#        loc_icon = '<i class="fa fa-globeui"><\/i>';#}
-{#      if((item.loc==2) || (item.loc==2.5))#}
-{#        loc_icon = '<i class="fa fa-map-markerui"><\/i>';#}
-{#      if(item.loc==5)#}
-{#        loc_icon = '<i class="fa fa-map-markerui"><\/i>';#}
-{#      if(item.loc==10)#}
-{#        loc_icon = '<i class="fa fa-map-markerui"><\/i>';#}
-{#      if(item.loc==0){#}
-{#        loc_icon = "";#}
-{#        view_all = 'class="search_view_results_div pade_none"';#}
-{#      }#}
-{#      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );#}
-{#    };#}
-{#  });#}
+  });
 
   function submitSearchH() {
     if($("#xh_location").val()!=$("#h_location").val()) {
@@ -856,15 +804,18 @@
       }
     });
   }
+
   $("#h_location").keypress(function(event) {
     if (event.which == 13) {
       event.preventDefault();
       submitSearchH();
     }
   });
+
   function overUserMenu(event) {
     $('#lg_h').show();
   }
+
   function outUserMenu(event) {
     var om = event.toElement || event.relatedTarget;
     var ce = ["lg_menu", "lg_c", "lg_p", "lg_s", "lg_i","lg_h"];
@@ -879,11 +830,12 @@
     }
   }
   $(document).ready(function(){
-    if($('#lg_menu').length>0){
+    if($('#lg_menu').length>0) {
       document.getElementById("lg_menu").addEventListener('mouseout',outUserMenu,true);
       document.getElementById("lg_menu").addEventListener('mouseover',overUserMenu,true);
     }
   });
+
 </script>
 
 <span aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible" role="status"></span>

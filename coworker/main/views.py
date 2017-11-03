@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 from coworker.place.models import Place
 
+
 class Index(TemplateView):
     template_name = 'pages/index.html'
 

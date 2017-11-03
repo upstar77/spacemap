@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import pgettext_lazy
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
 from .fields import generate_time_range
@@ -251,6 +252,31 @@ class MemberPayment(models.Model):
         abstract = True
 
 
+class Category(models.Model):
+    name = models.CharField(
+        pgettext_lazy('Category field', 'name'), max_length=128)
+    slug = models.SlugField(
+        pgettext_lazy('Category field', 'slug'), max_length=50)
+    description = models.TextField(
+        pgettext_lazy('Category field', 'description'), blank=True)
+    hidden = models.BooleanField(
+        pgettext_lazy('Category field', 'hidden'), default=False)
+
+    class Meta:
+        verbose_name = pgettext_lazy('Category model', 'category')
+        verbose_name_plural = pgettext_lazy('Category model', 'categories')
+
+    def __str__(self):
+        return self.name
+
+    # def get_absolute_url(self, ancestors=None):
+    #     return reverse('product:category',
+    #                    kwargs={'path': self.get_full_path(ancestors),
+    #                            'category_id': self.id})
+
+
+
+
 class PlaceManager(models.Manager):
 
     def by_country(self, country_slug):
@@ -294,6 +320,8 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     user = models.ForeignKey('users.User', blank=True, null=True)
     #dummpy city location!!!
     city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
+
+    category = models.ForeignKey(Category)
 
     objects = PlaceManager()
 
