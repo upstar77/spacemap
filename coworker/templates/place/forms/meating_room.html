@@ -3,53 +3,53 @@
 {% load i18n %}
 
 
-<h3>{% trans "会议室" %}</h3>
-<p>{% trans "部分会员想租用附带会议室的创客云图场地" %}</p>
+<h3>{% trans "Meeting room" %}</h3>
+<p>{% trans "Some members want to rent the SpacesMap site attached to the conference room" %}</p>
 <div class="col-xs-12 pade_none coworker_event_bottom_panel">
     <div class="col-xs-12 pade_none co_form_con">
         <div class="col-xs-12 pade_none rooms_con">
-            <label>{% trans "会议室编号" %}</label>
+            <label>{% trans "Conference room number" %}</label>
             {% render_field form.meeting_room_number id="meeting_room_number" class="meet_icon" %}
         </div>
         <div class="col-xs-12 pade_none rooms_con02">
             <div id="room_names" class="col-sm-6 col-md-6 col-xs-12 pade_none room_lft" style="visibility:hidden">
-                <label>{% trans "会议室名字" %}</label>
+                <label>{% trans "Name of the Meeting roon" %}</label>
             </div>
             <div id="room_caps" class="col-sm-6 col-md-6 col-xs-12 pade_none room_rgt" style="visibility:hidden">
-                <label>{% trans "会议室容量" %}</label>
+                <label>{% trans "Meeting room capacity" %}</label>
             </div>
         </div>
     </div>
 
     <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-        <label class="rooms_sub">{% trans "允许非会员租用我的会议室?" %}</label>
+        <label class="rooms_sub">{% trans "Allow non members to rent my conference room?" %}</label>
         <div class="col-xs-12 pade_none room_lft form-group">
             {#                    {% render_field form.rent_nm type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes" %}#}
             <input name="rent_nm" type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes">
-            <label class="lbl-credit-card" for="meeting_room01">{% trans "允许" %}</label>
+            <label class="lbl-credit-card" for="meeting_room01">{% trans "allow" %}</label>
         </div>
         <div class="col-xs-12 pade_none room_lft form-group">
             {#                    {% render_field form.rent_nm type="radio" class="lbl-radio-vopt" id="meeting_room01" value="yes" %}#}
             <input name="rent_nm" type="radio" class="lbl-radio-vopt" id="meeting_room02" checked="checked" value="no">
-            <label class="lbl-credit-card" for="meeting_room02">{% trans "不允许" %}</label>
+            <label class="lbl-credit-card" for="meeting_room02">{% trans "Not allow" %}</label>
         </div>
     </div>
 
     <div class="col-xs-12 pade_none co_form_con whiteboard_listspace_con">
-        <label class="rooms_sub">{% trans "允许非会员在我的创客云图场地举办大型活动?" %}</label>
+        <label class="rooms_sub">{% trans "Allow non members to organize big events at my maker cloud site?" %}</label>
         <div class="col-xs-12 pade_none room_lft form-group">
             <input name="hire_nm" type="radio" class="lbl-radio-vopt" value="yes" id="meeting_room03">
-            <label class="lbl-credit-card" for="meeting_room03">{% trans "允许" %}</label>
+            <label class="lbl-credit-card" for="meeting_room03">{% trans "allow" %}</label>
         </div>
         <div class="col-xs-12 pade_none room_lft form-group">
             <input name="hire_nm" type="radio" class="lbl-radio-vopt" checked="checked" value="no" id="meeting_room04">
-            <label class="lbl-credit-card" for="meeting_room04">{% trans "不允许" %}</label>
+            <label class="lbl-credit-card" for="meeting_room04">{% trans "Not allow" %}</label>
         </div>
     </div>
     <div class="col-xs-12 pade_none co_form_con" id="max_cap" style="display:none">
         <div class="col-xs-12 pade_none rooms_con">
             <div class="col-xs-12 pade_none room_lft">
-                <label>{% trans "最大容量" %}</label>
+                <label>{% trans "Maximum capacity" %}</label>
                 {% render_field form.max_people_capacity class="meet_icon" %}
             </div>
         </div>

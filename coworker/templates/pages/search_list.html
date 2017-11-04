@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %}{% trans "查看该城市的所有创客空间" %}{% endblock %}
+{% block title %}{% trans "Look at all of the city's guest space" %}{% endblock %}
 
 {% block header %}
     {#    {% include 'elements/header_main.html' %}#}
@@ -19,14 +19,14 @@
                         <div class="plan">
                             <div class="col-sm-12 pade_none search_alt_form_wrapper">
                                 <div class="search_form_box">
-                                    <input autocomplete="off" class="search_alt_input ui-autocomplete-input" id="sp_location" name="sp_location" placeholder="{% trans "搜索：城市、行政（区、县）" %} type="text" value="Hong kong, Hong kong"> <button class="search_alt_btn" id="search_alt_button" name="Submit" type="button" value="true"><i class="fa fa-search"></i></button> <input id="sp_search_place" name="sp_search_place" type="hidden" value="0"> <input id="sp_place_id" name="sp_place_id" type="hidden" value="0"> <input id="xsp_location" name="xsp_location" type="hidden">
+                                    <input autocomplete="off" class="search_alt_input ui-autocomplete-input" id="sp_location" name="sp_location" placeholder="{% trans "Search: City, Administration (District, county)" %} type="text" value="Hong kong, Hong kong"> <button class="search_alt_btn" id="search_alt_button" name="Submit" type="button" value="true"><i class="fa fa-search"></i></button> <input id="sp_search_place" name="sp_search_place" type="hidden" value="0"> <input id="sp_place_id" name="sp_place_id" type="hidden" value="0"> <input id="xsp_location" name="xsp_location" type="hidden">
                                     <div style="clear:both;"></div>
                                 </div>
                             </div>
                             <div class="col-sm-12 pade_none">
                                 <div class="look_for">
                                     <div class="col-md-3 col-sm-12 pade_none">
-                                        <h2>{% trans "查找" %} <span id="stooltip"><i class="fa fa-question" style="margin-left:-35%;"></i></span></h2>
+                                        <h2>{% trans "Lookup" %} <span id="stooltip"><i class="fa fa-question" style="margin-left:-35%;"></i></span></h2>
                                         <div id="search_tooltip">
                                             <h2></h2>
                                             <div class="tooltipbox">
@@ -34,13 +34,13 @@
                                                 <div class="openplan">
                                                     <h2></h2>
                                                     <div class="openplan-title">
-                                                        <h2></h2>{% trans "开放式办公:" %}</h2>
+                                                        <h2></h2>{% trans "Open office:" %}</h2>
                                                         <div class="openplan-desc">
-                                                            <h2>{% trans "您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公桌、专用办公桌或者共享办公桌." %}</h2>
+                                                            <h2>{% trans "Do you want to work with other people?" So this function is set foryou. Here you can find hot desk, desk or desk for sharing " %}</h2>
                                                             <div class="privateoffice">
                                                                 <h2></h2>
                                                                 <div class="privateoffice-title">
-                                                                    <h2>{% trans "私人办公室:" %}</h2>
+                                                                    <h2>{% trans "Private office:" %}</h2>
                                                                     <div class="privateoffice-desc">
                                                                         <h2>{% trans "您如果带领一个小团队，想要一些私人空间，而不想被别人打扰，那么请在这里搜索试试看!"%}</h2>
                                                                         <div style="clear:both;">
@@ -66,7 +66,7 @@
                                                         <span id="stooltip"><input id="cp1" name="cp1" onclick="change_plan(2,1,2);" type="checkbox"> <label for="cp1"><span class="green"></span></label></span>
                                                     </div>
                                                 </li>
-                                                <li id="li_open"><span>{% trans "开放式办公" %}</span><br>
+                                                <li id="li_open"><span>{% trans "Open office" %}</span><br>
                                                     (89)</li>
                                                 <li>&nbsp;</li>
                                             </ul>
@@ -80,7 +80,7 @@
                                                         <input id="cp2" name="cp2" onclick="change_plan(1,1,2);" type="checkbox"> <label for="cp2"><span class="green"></span></label>
                                                     </div>
                                                 </li>
-                                                <li id="li_private"><span>{% trans "私人办公室" %}</span><br>
+                                                <li id="li_private"><span>{% trans "Private office" %}</span><br>
                                                     (57)</li>
                                                 <li>&nbsp;</li>
                                             </ul>
@@ -91,14 +91,14 @@
                             <div class="col-sm-12 pade_none">
                                 <div class="membership">
                                     <div class="col-md-3 pade_none">
-                                        <h2>{% trans "租用时间" %}</h2>
+                                        <h2>{% trans "Hire time" %}</h2>
                                     </div>
                                     <div class="col-md-8 pade_none" id="membership">
                                         <ul>
-                                            <li id="daily" onclick="change_state(&#39;daily&#39;,1,2);">{% trans "日租" %}</li>
-                                            <li id="weekly" onclick="change_state(&#39;weekly&#39;,1,2);">{% trans "周租" %}</li>
-                                            <li id="monthly" onclick="change_state(&#39;monthly&#39;,1,2);">{% trans "月租" %}</li>
-                                            <li id="all" onclick="change_state(&#39;all&#39;,1,2);">{% trans "全部" %}</li>
+                                            <li id="daily" onclick="change_state(&#39;daily&#39;,1,2);">{% trans "Daily rental" %}</li>
+                                            <li id="weekly" onclick="change_state(&#39;weekly&#39;,1,2);">{% trans "Week rent" %}</li>
+                                            <li id="monthly" onclick="change_state(&#39;monthly&#39;,1,2);">{% trans "Monthly" %}</li>
+                                            <li id="all" onclick="change_state(&#39;all&#39;,1,2);">{% trans "Whole" %}</li>
                                         </ul>
                                     </div>
                                 </div><!--membership ends-->
@@ -114,16 +114,16 @@
                     <div class="col-sm-9 col-md-10 col-xs-9 pade_none search_looking_bottom hide_filter selected_filter">
                         <ul id="def_filters">
                             <li id="16">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "免费啤酒" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Free beer" %}</a>
                             </li>
                             <li id="26">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Skype 室" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Skype room" %}</a>
                             </li>
                             <li id="8">
                                 <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "立式办公桌</a>
                             </li>" %}"
                             <li id="37">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "会员全天准入" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Membership all day admission" %}</a>
                             </li>
                         </ul>
                         <div id="list_filters" style="margin-left: 2em">
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-2 col-xs-3 pade_none view_filters_outer">
-                        <a href="javascript:void(0);"><span class="view_show">{% trans "查看全部筛选信息" %}</span><span class="view_hide">{% trans "掩藏按钮" %}</span></a>
+                        <a href="javascript:void(0);"><span class="view_show">{% trans "View all filter information" %}</span><span class="view_hide">{% trans "Hide button" %}</span></a>
                     </div>
                 </div>
                 <div class="col-xs-12 pade_none filters_hide_panel">
@@ -139,31 +139,31 @@
                         <h5>{% trans "Cool Stuff" %}</h5>
                         <ul id="l_coolstuff">
                             <li id="9">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "台球" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Billiards" %}</a>
                             </li>
                             <li id="10">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "桌式足球" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Foosball" %}</a>
                             </li>
                             <li id="24">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "蹦床" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Trampoline" %}</a>
                             </li>
                             <li id="25">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "迷你高尔夫" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Miniature Golf" %}</a>
                             </li>
                             <li id="27">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "兵乓球" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Table tennis" %}</a>
                             </li>
                             <li id="30">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "图书室" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Library" %}</a>
                             </li>
                             <li id="16">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "免费啤酒" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Free beer" %}</a>
                             </li>
                             <li id="38">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "宠物狗" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Pet dog" %}</a>
                             </li>
                             <li id="39">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "宠物猫" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Pet cat" %}</a>
                             </li>
                         </ul>
                     </div>
@@ -171,13 +171,13 @@
                         <h5>{% trans "Seating" %}</h5>
                         <ul id="l_seating">
                             <li id="8">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "立式办公桌" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Vertical office table" %}</a>
                             </li>
                             <li id="11">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "懒人沙发" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Lazy sofa" %}</a>
                             </li>
                             <li id="18">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "人体工学椅" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Ergonomic chair" %}</a>
                             </li>
                         </ul>
                     </div>
@@ -185,25 +185,25 @@
                         <h5>Facilites</h5>
                         <ul id="l_facilities">
                             <li id="6">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "厨房" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Kitchen" %}</a>
                             </li>
                             <li id="21">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "播客厅" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Podcast Hall" %}</a>
                             </li>
                             <li id="26">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Skype 室" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Skype room" %}</a>
                             </li>
                             <li id="23">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "宿舍公寓" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Dormitory apartment" %}</a>
                             </li>
                             <li id="31">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "儿童看护" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "child care" %}</a>
                             </li>
                             <li id="36">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "创客空间" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Maker space" %}</a>
                             </li>
                             <li id="42">
-                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "个人储物柜" %}</a>
+                                <a href="javascript:void(0);" onclick="filterToSearch(this,1,2);">{% trans "Personal lockers" %}</a>
                             </li>
                         </ul>
                     </div>
@@ -239,9 +239,9 @@
                                     </div>
                                     <div class="col-xs-12 pade_none search_free_pass_container">
                                         <div class="search_review_outer text_middle_con">
-                                            <i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i>{% trans "1 评论" %}"
+                                            <i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i>{% trans "1 comments" %}"
                                             <div class="col-xs-12 pade_none search_verified_text">
-                                                <i aria-hidden="true" class="fa fa-check"></i>{% trans "验证" %}
+                                                <i aria-hidden="true" class="fa fa-check"></i>{% trans "Verification" %}
                                             </div>
                                         </div>
                                     </div>
@@ -309,14 +309,14 @@
 
             </div>
             <div id="over_map">
-                <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>{% trans "移动地图时自动搜索" %}</label>
+                <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>{% trans "Automatic search while moving map" %}</label>
             </div>
             <div class="instant_cont">
                 <div class="instant_txt_outer">
                     <div class="instant_img"><img alt="img" src={% static "img/instant_img.png" %}></div>
                     <div class="instant_txt">
-                        <h3>{% trans "即时联络" %}</h3>
-                        <p>{% trans "创客云图的信息将快速直达" %}</p>
+                        <h3>{% trans "Instant contact" %}</h3>
+                        <p>{% trans "SpacesMap’s information will be fast through" %}</p>
                     </div>
                 </div>
             </div><!--instant contact ends-->
@@ -336,7 +336,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="join_coworker_footer_inner">
-                            <p>{% trans "爱上创客云图了吗? 成千上万的人都加入到了创客云图的共享办公当中了." %}</p><span class="footer_log_button"><a href="javascript:void(0);" onclick="openNavLoging();">{% trans "登录" %}</a></span> <span class="footer_sign_button"><a href="javascript:void(0);" onclick="openNavSignup();">{% trans "注册" %}</a></span>
+                            <p>{% trans "Have you fallen in love with the picture of the SpacesMap?Thousands of people have joined the shared office of the SpacesMapimage" %}</p><span class="footer_log_button"><a href="javascript:void(0);" onclick="openNavLoging();">{% trans "Sign in" %}</a></span> <span class="footer_sign_button"><a href="javascript:void(0);" onclick="openNavSignup();">{% trans "register" %}</a></span>
                         </div>
                     </div>
                 </div>

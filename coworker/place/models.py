@@ -19,19 +19,19 @@ PRIVATE_OFFICES = 500
 MEETING_ROOM_CAPACITY_RANGE = (2, 50)
 
 USER_TYPE_CHOICES = (
-    ('ot', _('官方团队')),
-    ('cm', _('新会员')),
-    ('pm', _('老会员')),
+    ('ot', _('Official team')),
+    ('cm', _('New member')),
+    ('pm', _('Old member')),
 )
 
 
 PRIVATE_OFFICE_CHOISES = ((0, "Number of private offices"))
 
-TOTAL_CAPACITY_KEY = "%s {}".format(_("members"))
+TOTAL_CAPACITY_KEY = "%s {}".format(_("成员"))
 TOTAL_CAPACITY = [(i, TOTAL_CAPACITY_KEY % i) for i in range(1, 500)] + \
                  [(i, TOTAL_CAPACITY_KEY % i) for i in range(500, 1500, 100)]
 
-PEOPLE_KEY = "%s {}".format(_("people"))
+PEOPLE_KEY = "%s {}".format(_("种族"))
 
 MAX_PEOPLE_CAPACITY_RANGE = [(i, PEOPLE_KEY % i) for i in range(1, 10)] + \
                  [(i, PEOPLE_KEY % i) for i in range(500, 1500, 100)]
@@ -287,15 +287,15 @@ class PlaceManager(models.Manager):
 
 
 class Place(MemberPayment, ContactInfo, Location, OpeningHours):
-    space_name = models.CharField(_("创客云图场地的名称"), max_length=250)
+    space_name = models.CharField(_("Name of the site SpacesMap"), max_length=250)
     slug = models.SlugField()
 
     city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
     cs_description = models.TextField(_("Description"))
 
-    rent_nm = models.BooleanField(_('允许非会员租用我的会议室?'), default=False)
-    hire_nm = models.BooleanField(_('允许非会员在我的创客云图场地举办大型活动?'), default=False)
+    rent_nm = models.BooleanField(_('Allow non members to rent my conference room?'), default=False)
+    hire_nm = models.BooleanField(_('Allow non members to organize big events at my maker cloud site?'), default=False)
 
     max_people_capacity = models.PositiveIntegerField(
         choices=MAX_PEOPLE_CAPACITY_RANGE,

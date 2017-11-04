@@ -56,9 +56,9 @@
                                 {% include "place/forms/menu.html" with active_menu='add_opening_hours' completed_menus='place_description, contact_details, place_amenties, add_location, add_meeting_rooms' %}
                             </div>
                             <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
-                                <h3>{% trans "开放时间" %}</h3>
-                                <p>{% trans "让租客知道您在哪些时间开放" %}</p>
-                                <h4 class="hours_subtitle">{% trans "开放时间（接待处）" %}</h4>
+                                <h3>{% trans "Opening Hours" %}</h3>
+                                <p>{% trans "Let the tenant know when you are open" %}</p>
+                                <h4 class="hours_subtitle">{% trans "Opening hours (reception)" %}</h4>
                                 {% csrf_token %}
                                 {% if form.non_field_errors %}
                                     <div role="alert" class="alert alert-danger">
@@ -96,7 +96,7 @@
                                             <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
 
                                                 <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" id="diffr_from_con">
-                                                    <label>{% trans "其他时间段" %}</label>
+                                                    <label>{% trans "Other time periods" %}</label>
                                                     <label class="lbl-hours">
                                                         {% render_field form.friday_combine_hours %}
 {#                                                        <input type="checkbox" id="ccc1" name="cc">#}
@@ -135,7 +135,7 @@
                                                 <div class="col-sm-2 col-md-2 col-xs-12 pade_none opening_cowrk_con_out differ_text_con differ_content_panel">
                                                     <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" style="display:block" id="diffr_from_con">
                                                         <div class="col-xs-12 pade_none opening_cowrk_con different_text_panel" id="combine_from_con">
-                                                            <label>{% trans "星期五同步" %}</label>
+                                                            <label>{% trans "Friday sync" %}</label>
 
                                                             <label class="lbl-hours">
                                                                 {% render_field form.different_hours %}

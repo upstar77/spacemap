@@ -16,8 +16,8 @@
                     <div class="submission_form_main">
                         <div class="submission_form_inner">
                             <h2 style="text-align:center;line-height:30px;margin-bottom:20px;">
-                                {% trans "添加我的创客云图场地" %}<br>
-                                <span style="font-size:18px;">{% trans "( 不收任何费用 )" %}</span>
+                                {% trans "Add my SpacesMap site" %}<br>
+                                <span style="font-size:18px;">{% trans "(without any fees.)" %}</span>
                             </h2>
 
                             <form action="{% url "place:list-space" %}" method="post" id="user_space_form" name="user_space_form" class="fv-form fv-form-bootstrap" novalidate="novalidate">
@@ -41,7 +41,7 @@
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <label>{% trans "所在城市" %}</label>
+                                    <label>{% trans "City" %}</label>
                                     {% render_field form.city %}
                                     <script>
                                         $( "#{{ form.city.auto_id }}" ).select2({
@@ -52,7 +52,7 @@
                                 <div class="form_group {% if form.user_type.errors %} has-error{% endif %}">
                                     <div class="list_space_user_type">
                                         <div class="usertype_label">
-                                            <label>{% trans "我是..." %}</label>
+                                            <label>{% trans "I am..." %}</label>
                                         </div>
                                         <span class="help-block">
                                             {% if form.user_type.errors %}
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit">{% trans "继续" %}</button>
+                                    <button type="submit">{% trans "Continue" %}</button>
                                 </div>
                             </form>
                         </div>

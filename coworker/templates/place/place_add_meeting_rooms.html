@@ -63,15 +63,15 @@
             <div class="row">
                 <form action="{% url "place:place_add_meeting_rooms" %}" method="post" class="fv-form fv-form-bootstrap" novalidate="novalidate">
                     <div class="col-xs-12 pade_none coworker_submission_detail">
-                        <h2>{% trans "我要出租" %}</h2>
+                        <h2>{% trans "I want to rent" %}</h2>
 
                         <div class="col-xs-12 pade_none coworker_submission_detail_inn">
                             <div class="col-sm-4 col-md-3 col-xs-12 pade_none co_submmision_left">
                                 {% include "place/forms/menu.html" with active_menu='add_meeting_rooms' completed_menus='place_description, contact_details, place_amenties, add_location' %}
                             </div>
                             <div class="col-sm-8 col-md-9 col-xs-12 pade_none co_submmision_rgt">
-                                <h3>{% trans "会议室" %}</h3>
-                                <p>{% trans "部分会员想租用附带会议室的创客云图场地" %}</p>
+                                <h3>{% trans "Meeting room" %}</h3>
+                                <p>{% trans "Some members want to rent the SpacesMap site attached to the conference room" %}</p>
                                 {% csrf_token %}
                                 {% if form.non_field_errors %}
                                     <div role="alert" class="alert alert-danger">

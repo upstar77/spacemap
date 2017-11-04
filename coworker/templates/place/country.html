@@ -3,7 +3,7 @@
 {% load i18n %}
 
 
-{% block title %}{% trans "查看该城市的所有创客空间" %}{% endblock %}
+{% block title %}{% trans "Look at all of the city's guest space" %}{% endblock %}
 
 
 {% block content %}
@@ -44,21 +44,21 @@
                         </div>
                         <form action="/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
                             <div class="col-xs-12 pade_none city_white_out">
-                                <h2>{% trans "Search for coworking spaces in" %}<span>{{ country.name }}</span></h2>
+                                <h2>{% trans "Beijing and its surrounding SpacesMap site recommended" %}<span>{{ country.name }}</span></h2>
                                 <div class="col-xs-12 pade_none city_search_main">
                                     <div class="col-sm-6 col-md-6 col-xs-12 pade_none city_daily_con">
                                         <ul>
                                             <li>
                                                 <input type="checkbox" id="c1" name="cc" value="dai">
-                                                <label for="c1"><span></span>{% trans "日租" %}</label>
+                                                <label for="c1"><span></span>{% trans "Daily rental" %}</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="c2" name="cc" value="week">
-                                                <label for="c2"><span></span>{% trans "周租" %}</label>
+                                                <label for="c2"><span></span>{% trans "Week rent" %}</label>
                                             </li>
                                             <li>
                                                 <input type="checkbox" id="c3" name="cc" value="month">
-                                                <label for="c3"><span></span>{% trans "月租" %}</label>
+                                                <label for="c3"><span></span>{% trans "Monthly" %}</label>
                                             </li>
                                         </ul>
                                     </div>

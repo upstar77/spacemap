@@ -325,11 +325,11 @@
                                                     <div class="sticky_bar_con">
                                                         <div class="col-xs-12 pade_none overview_coworker_outer sticky_bar" style="position: relative; top: initial; display: block;">
                                                             <ul>
-                                                                <li><a href="{{ place.get_absolute_url }}.much_bord" class="">{% trans "综述" %}</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#amenities" class="">{% trans "设施" %}</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#photos" class="">{% trans "照片" %}</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#desk_office" class="">{% trans "办公桌" %} &amp; {% trans "办公室价格" %}</a></li>
-                                                                <li><a href="{{ place.get_absolute_url }}#map" id="big_map_link" class="">{% trans "地图" %}</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}.much_bord" class="">{% trans "Overview" %}</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#amenities" class="">{% trans "Facilities" %}</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#photos" class="">{% trans "Photo" %}</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#desk_office" class="">{% trans "Desk" %} &amp; {% trans "Office price" %}</a></li>
+                                                                <li><a href="{{ place.get_absolute_url }}#map" id="big_map_link" class="">{% trans "Map" %}</a></li>
                                                                 {#                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#reviews01" id="reviews_link" class="">Reviews</a></li>#}
                                                             </ul>
                                                         </div>
@@ -346,8 +346,8 @@
                                                             <div class="col-xs-12 col-sm-12 col-md-3 pade_none opening_hrs_out opening_panel_inner opening_hours_right">
                                                                 <div class="col-xs-12 pade_none opening_hours_events_main">
                                                                     <div class="member_access_content">
-                                                                        <h4><i class="fa"><img src="{% static 'img/clock_icon_img.png' %}" alt="clock_icon_img"></i> {% trans "开放时间" %}</h4>
-                                                                        <h5>{% trans "星期一到星期五" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "9:00 上午  -  9:00 下午" %}</div><h5>{% trans "星期六" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "关闭" %}</div><h5>{% trans "星期日" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "关闭" %}</div>                          </div>
+                                                                        <h4><i class="fa"><img src="{% static 'img/clock_icon_img.png' %}" alt="clock_icon_img"></i> {% trans "Opening Hours" %}</h4>
+                                                                        <h5>{% trans "Monday to Friday" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "9:00 a.m. - 9:00 p.m." %}</div><h5>{% trans "Saturday" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "Close" %}</div><h5>{% trans "Sunday" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "Close" %}</div>                          </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -355,16 +355,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 pade_none amenities_main amenities_main_rs scroll_navbar" id="amenities">
-                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-heart" aria-hidden="true"></i>{% trans "设施" %}</div>
+                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-heart" aria-hidden="true"></i>{% trans "Facilities" %}</div>
                                                 <div class="amenities_panel_con col-xs-12 pade_none" style="position: relative; height: 208px;">
                                                     <div class="col-xs-12 col-md-6 col-sm-12 amenities_inner_boxes" style="position: absolute; left: 0px; top: 0px;">
                                                         <div class="amenities_inner_part">
-                                                            <div class="heading_cl">{% trans "食物" %} &amp; {% trans "饮料" %}</div>
+                                                            <div class="heading_cl">{% trans "Foods" %} &amp; {% trans "Drinks" %}</div>
                                                             <div class="amenities">
                                                                 <ul>
-                                                                    <li>{% trans "免费咖啡 / 茶" %}</li>
-                                                                    <li>{% trans "免费凉白开" %}</li>
-                                                                    <li>{% trans "厨房" %}</li>
+                                                                    <li>{% trans "Free coffee / tea" %}</li>
+                                                                    <li>{% trans "Free cold boiled water" %}</li>
+                                                                    <li>{% trans "Kitchen" %}</li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -394,13 +394,13 @@
                                             </div>
 
                                             <div class="col-xs-12 pade_none membership_fees_main scroll_navbar" id="desk_office">
-                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa membership"><img src="{% static 'img/membership_icon_img.png' %}" alt="membership_icon_img"></i> {% trans "会员费" %}</div>
+                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa membership"><img src="{% static 'img/membership_icon_img.png' %}" alt="membership_icon_img"></i> {% trans "Membership fee" %}</div>
                                                 <!--TABS START-->
                                                 <div class="col-xs-12 pade_none membership_fees_tabs">
                                                     <ul class="nav nav-tabs" id="myTab">
-                                                        <li><a data-target="#hot_desk" data-toggle="tab" id="hotdesk_tab" class="membership_fees_tabs_active">{% trans "热门办公桌 / 开敞式办公室" %} <span>{% trans "座位" %}</span></a></li>
-                                                        <li><a data-target="#dedicated_desk" data-toggle="tab">{% trans "专用" %} <span>{% trans "办公桌" %}</span></a></li>
-                                                        <li><a data-target="#private_office" data-toggle="tab" id="private_office_tab">{% trans "私人" %} <span>{% trans "办公室" %}</span></a></li>
+                                                        <li><a data-target="#hot_desk" data-toggle="tab" id="hotdesk_tab" class="membership_fees_tabs_active">{% trans "Hot desk / Open Office" %} <span>{% trans "Seat" %}</span></a></li>
+                                                        <li><a data-target="#dedicated_desk" data-toggle="tab">{% trans "Special-purpose" %} <span>{% trans "Desk" %}</span></a></li>
+                                                        <li><a data-target="#private_office" data-toggle="tab" id="private_office_tab">{% trans "Private" %} <span>{% trans "Office" %}</span></a></li>
                                                     </ul>
                                                     <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
                                                         <input type="hidden" value="0" id="res_duration" name="res_duration">
@@ -413,17 +413,17 @@
                                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th>{% trans "# 人" %}</th>
-                                                                        <th>{% trans "持续时间" %}</th>
-                                                                        <th>{% trans "价格" %}</th>
-                                                                        <th>{% trans "准入时间" %}</th>
-                                                                        <th>{% trans "有效时间" %}</th>
+                                                                        <th>{% trans "# people" %}</th>
+                                                                        <th>{% trans "Duration" %}</th>
+                                                                        <th>{% trans "Price" %}</th>
+                                                                        <th>{% trans "Access time" %}</th>
+                                                                        <th>{% trans "Effective time" %}</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section">
-                                                                    <tr><td>1</td><td>{% trans "1 天" %}</td><td>{% trans "人民币 60.00" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-day&#39;,1);">{% trans "查询" %}</a></td></tr>
-                                                                    <tr><td>1</td><td>{% trans "1 周" %}</td><td>{% trans "人民币 250.00" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-week&#39;,1);">{% trans "查询" %}</a></td></tr>
-                                                                    <tr><td>1</td><td>1 月</td><td>{% trans "人民币 750.00" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-month&#39;,1);">{% trans "查询" %}</a></td></tr>
+                                                                    <tr><td>1</td><td>{% trans "One day" %}</td><td>{% trans "60.00 CNY" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-day&#39;,1);">{% trans "Query" %}</a></td></tr>
+                                                                    <tr><td>1</td><td>{% trans "One week" %}</td><td>{% trans "250.00 CNY" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-week&#39;,1);">{% trans "Query" %}</a></td></tr>
+                                                                    <tr><td>1</td><td>1 月</td><td>{% trans "750.00 CNY" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-month&#39;,1);">{% trans "Query" %}</a></td></tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -435,15 +435,15 @@
                                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th>{% trans "# 人" %}</th>
-                                                                        <th>{% trans "持续时间" %}</th>
-                                                                        <th>{% trans "价格" %}</th>
-                                                                        <th>{% trans "准入时间" %}</th>
-                                                                        <th>{% trans "有效时间" %}</th>
+                                                                        <th>{% trans "# people" %}</th>
+                                                                        <th>{% trans "Duration" %}</th>
+                                                                        <th>{% trans "Price" %}</th>
+                                                                        <th>{% trans "Access time" %}</th>
+                                                                        <th>{% trans "Effective time" %}</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section">
-                                                                    <tr class="empty-messqage"><td colspan="5">{% trans "Grass Coworking 还没有添加他们专用办公桌的细节" %}</td></tr>                          </tbody>
+                                                                    <tr class="empty-messqage"><td colspan="5">{% trans "Grass Coworking haven't added details of their dedicated desks yet" %}</td></tr>                          </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -454,15 +454,15 @@
                                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th>{% trans "# 人" %}</th>
-                                                                        <th>{% trans "持续时间" %}</th>
-                                                                        <th>{% trans "价格" %}</th>
-                                                                        <th>{% trans "准入时间" %}</th>
-                                                                        <th>{% trans "有效时间" %}</th>
+                                                                        <th>{% trans "# people" %}</th>
+                                                                        <th>{% trans "Duration" %}</th>
+                                                                        <th>{% trans "Price" %}</th>
+                                                                        <th>{% trans "Access time" %}</th>
+                                                                        <th>{% trans "Effective time" %}</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody class="tbody_section button-view-all-link">
-                                                                    <tr class="empty-messqage"><td colspan="5">{% trans "Grass Coworking 还没有添加他们私人办公室的细节" %}</td></tr>                          </tbody>
+                                                                    <tr class="empty-messqage"><td colspan="5">{% trans "Grass Coworking they have not added private office details" %}</td></tr>                          </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -488,10 +488,10 @@
                                             <div class="col-xs-12 pade_none spaces_contact_panel_outer stickybar contact_hide_mobile is-affixed" style="display: block;"><div class="sidebar__inner" style="position: relative; border: none;">
                                                 <div class="col-xs-12 pade_none space_shadow_div">
                                                     <div class="col-xs-12 pade_none spaces_contact_top_panel">
-                                                        <h3>{% trans "联系我们" %}</h3>
+                                                        <h3>{% trans "Contact us" %}</h3>
 
-                                                        <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">{% trans "会员查询" %}</a></div>
-                                                        <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic"> {% trans "信息" %}</a></div>
+                                                        <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">{% trans "Membership query" %}</a></div>
+                                                        <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic"> {% trans "Information" %}</a></div>
                                                     </div>
 {#                                                    <div class="col-xs-12 pade_none spaces_contact_bottom_panel">#}
 {#                                                        <h5>{% trans "分享" %}</h5>#}

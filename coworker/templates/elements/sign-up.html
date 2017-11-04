@@ -4,7 +4,7 @@
 
 
 <form class="sign_up_form shadow" action="{% url 'account_signup' %}" method="post">
-    <h2>{% trans "加入共享云图" %}</h2>
+    <h2>{% trans "Adding shared SpacesMap" %}</h2>
     <div class="col-xs-12 pade_none coworker_popup_inner">
         {% csrf_token %}
         <p class="signup_f">
@@ -30,9 +30,9 @@
             {% render_field form.password placeholder=password id="nvpassword" type="password" %}
         </p>
 
-        <button class="btn btn-primary" onclick="validateNavSignup(event);" type="submit">{% trans "注册" %} »</button>
+        <button class="btn btn-primary" onclick="validateNavSignup(event);" type="submit">{% trans "register" %} »</button>
     </div>
     <div class="col-xs-12 pade_none popup_bottom">
-        <span>{% trans "已有账号？" %}</span> <a class="login" href="javascript:void(0);" onclick="openNavSignupLogin();">{% trans "登录" %}</a>
+        <span>{% trans "Existing accounts?" %}</span> <a class="login" href="javascript:void(0);" onclick="openNavSignupLogin();">{% trans "Sign in" %}</a>
     </div>
 </form>

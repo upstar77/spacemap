@@ -11,8 +11,8 @@ from coworker.cities.models import City
 
 
 YES_NO_CHOICES = (
-    (True, _('允许')),
-    (False, _('不允许'))
+    (True, _('allow')),
+    (False, _('Not allow'))
 )
 
 
@@ -173,7 +173,7 @@ class PlaceAddLocationForm(forms.ModelForm):
 
 class PlaceAddMeetingRoomsForm(forms.ModelForm):
     meeting_room_number = forms.ChoiceField(
-        label=_('会议室编号'),
+        label=_('Conference room number'),
         required=False,
         choices=[(i, i) for i in range(500)])
 
@@ -209,8 +209,8 @@ class PlaceAddMeetingRoomInlineForm(forms.ModelForm):
 class PlaceAddOpeningHoursForm(forms.ModelForm):
     monday_friday_from = forms.ChoiceField(label=_('Monday - Friday'), choices=generate_time_range(empty_label='-----'))
     monday_friday_to = forms.ChoiceField(label=_('To'), choices=generate_time_range(empty_label='-----'))
-    friday_combine_hours = forms.BooleanField(required=False, label=_('其他时间段'), initial=True)
-    different_hours = forms.BooleanField(required=False, label=_('其他时间段'), initial=False)
+    friday_combine_hours = forms.BooleanField(required=False, label=_('Other time periods'), initial=True)
+    different_hours = forms.BooleanField(required=False, label=_('Other time periods'), initial=False)
 
     def __init__(self, *args, **kwargs):
         if "request" in kwargs:

@@ -13,7 +13,7 @@
                                 <form action="{% url "place:search" %}" method="get" accept-charset="utf-8" id="form_search_h" name="form_search_h">
                                     {% csrf_token %}
                                     <span><img alt="img" src="{% static 'img/srch_ic.png' %}"></span>
-                                    <input id="h_location" name="h_location" type="text" placeholder={% trans "搜索：场地名称、城市、国家......" %} class="space_header_input ui-autocomplete-input" autocomplete="off">
+                                    <input id="h_location" name="h_location" type="text" placeholder={% trans "Search: site name, city, country......" %} class="space_header_input ui-autocomplete-input" autocomplete="off">
                                     <input type="hidden" name="form_search" value="2">
                                     <input type="hidden" id="h_search_place" name="h_search_place" value="0">
                                     <input type="hidden" id="h_place_id" name="h_place_id" value="0">
@@ -31,12 +31,12 @@
                                         <div id="lg_c" class="inner_li help_clk"><p id="lg_p">{{ user.first_name }}</p><span id="lg_s"><img id="lg_i" alt="img" src="{{ user.profile_image_url }}"></span></div>
                                         <div id="lg_h" class="help_list" style="display: none;">
                                             <ul>
-                                                <li><a href="{% url "users:myreviews" %}"><i class="fa fa-comment-o100"></i>{% trans "我的评论" %}</a></li>
-                                                <li><a href="{% url "users:profile" %}"><i class="fa fa-pencil100"></i>{% trans "编辑资料" %}</a></li>
-                                                <li><a href="{% url "users:editprofile" %}"><i class="fa fa-cog100"></i>{% trans "账号设置" %}</a></li>
-                                                <li><a href="{% url "place:list-space" %}"><i class="fa fa-plus-circle100"></i>{% trans "我要出租" %}</a></li>
+                                                <li><a href="{% url "users:myreviews" %}"><i class="fa fa-comment-o100"></i>{% trans "My comment" %}</a></li>
+                                                <li><a href="{% url "users:profile" %}"><i class="fa fa-pencil100"></i>{% trans "Edit data" %}</a></li>
+                                                <li><a href="{% url "users:editprofile" %}"><i class="fa fa-cog100"></i>{% trans "Account Settings" %}</a></li>
+                                                <li><a href="{% url "place:list-space" %}"><i class="fa fa-plus-circle100"></i>{% trans "I want to rent" %}</a></li>
                                                 <li>
-                                                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>{% trans "退出" %}</a>
+                                                    <a href="{% url 'account_logout' %}"><i class="fa fa-sign-out100"></i>{% trans "Sign out" %}</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -67,21 +67,21 @@
                             </div>
                             <div class="mobMenuTop">
                                 <ul>
-                                    <li><a href="{% url "main:index" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "首页" %}</a></li>
-                                    <li><a href="{% url "place:search" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "搜索" %}</a></li>
-                                    <li><a href="https://www.coworker.com/cities" class="white-text"><i class="fa fa-caret-right"></i>{% trans "全部城市" %}</a></li>
-                                    <li><a href="https://www.coworker.com/lab" class="white-text"><i class="fa fa-caret-right"></i>{% trans "实验室" %}</a></li>
-                                    <li><a href="{% url "users:myreviews" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "我的评论" %}</a></li>
+                                    <li><a href="{% url "main:index" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "home page" %}</a></li>
+                                    <li><a href="{% url "place:search" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Search" %}</a></li>
+                                    <li><a href="https://www.coworker.com/cities" class="white-text"><i class="fa fa-caret-right"></i>{% trans "All cities" %}</a></li>
+                                    <li><a href="https://www.coworker.com/lab" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Laboratory" %}</a></li>
+                                    <li><a href="{% url "users:myreviews" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "My comment" %}</a></li>
 
-                                    <li class="lastNoBorder"><a href="https://www.coworker.com/logout" class="white-text"><i class="fa fa-caret-right"></i>{% trans "退出" %}</a></li>
+                                    <li class="lastNoBorder"><a href="https://www.coworker.com/logout" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Sign out" %}</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="mobMenuBottomWrapper">
                             <div class="mobMenuBottom">
-                                <h2>{% trans "创客云图业主" %}</h2>
+                                <h2>{% trans "Maker of SpacesMap images" %}</h2>
                                 <ul>
-                                    <li class="lastNoBorder"><a href="{% url "place:list-space" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "添加场地" %}</a></li>
+                                    <li class="lastNoBorder"><a href="{% url "place:list-space" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Add site" %}</a></li>
                                 </ul>
                             </div>
                         </div>

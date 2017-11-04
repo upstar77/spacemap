@@ -14,7 +14,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-8 pade_none search mobSearchWrapper01">
                         <div id="h_aucomplete" class="inner_srch_blk">
                             <span><img alt="img" src={% static "img/srch_ic.png" %}></span>
-                            <input id="h_location" name="h_location" type="text" value="Hong kong, Hong kong" placeholder="{% trans "搜索：按照场地、城市或国家......" %}" class="space_header_input ui-autocomplete-input" autocomplete="off">
+                            <input id="h_location" name="h_location" type="text" value="Hong kong, Hong kong" placeholder="{% trans "Search: according to the site, city or country......" %}" class="space_header_input ui-autocomplete-input" autocomplete="off">
                             <input type="hidden" name="form_search" value="2">
                             <input type="hidden" id="h_search_place" name="h_search_place" value="0">
                             <input type="hidden" id="h_place_id" name="h_place_id" value="0">
@@ -23,11 +23,11 @@
                     </div>
                     <div class="col-md-5 col-sm-5 col-xs-12 pade_none login_blk mobButtonsWrapper01">
                         <ul>
-                            <li> <a href="{% url "main:about" %}"><img alt="img" src={% static "img/heart_grey.png" %} width="18" height="18"> <span>{% trans "关于" %}</span></a> </li>
-                            <li> <a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src={% static "img/img_002.png" %}> <span>{% trans "注册" %}</span></a> </li>
-                            <li> <a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src={% static "img/img_003.png" %}> <span>{% trans "登录" %}</span></a> </li>
+                            <li> <a href="{% url "main:about" %}"><img alt="img" src={% static "img/heart_grey.png" %} width="18" height="18"> <span>{% trans "About" %}</span></a> </li>
+                            <li> <a href="javascript:void(0);" onclick="openNavSignup();"><img alt="img" src={% static "img/img_002.png" %}> <span>{% trans "register" %}</span></a> </li>
+                            <li> <a href="javascript:void(0);" onclick="openNavLoging();"><img alt="img" src={% static "img/img_003.png" %}> <span>{% trans "Sign in" %}</span></a> </li>
                         </ul>
-                        <div class="space"> <a href="{% url "place:list-space" %}">{% trans "我要出租" %}</a> </div>
+                        <div class="space"> <a href="{% url "place:list-space" %}">{% trans "I want to rent" %}</a> </div>
                     </div>
                 </div>
             </div>
@@ -48,21 +48,21 @@
                             <div class="mobMenucloseBtn"><span id="mobBtnClose" class="mobBtnClose" href="#"><i class="fa fa-minus"></i></span></div>
                             <div class="mobMenuTop">
                                 <ul>
-                                    <li><a href="https://www.coworker.com/" class="white-text"><i class="fa fa-caret-right"></i>{% trans "首页" %}</a></li>
-                                    <li><a href="{% url "place:search" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "搜索" %}</a></li>
-                                    <li><a href="{% url "main:cities" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "全部城市" %}</a></li>
-                                    <li><a href="https://www.coworker.com/lab" class="white-text"><i class="fa fa-caret-right"></i>{% trans "实验室" %}</a></li>
-                                    <li><a href="javascript:void(0);" onclick="openNavSignup();" class="white-text" id="signupBtn"><i class="fa fa-caret-right"></i>{% trans "注册" %}</a></li>
-                                    <li class="lastNoBorder"><a href="javascript:void(0);" onclick="openNavLoging();" class="white-text" id="loginBtn"><i class="fa fa-caret-right"></i>{% trans "登录" %}</a></li>
+                                    <li><a href="https://www.coworker.com/" class="white-text"><i class="fa fa-caret-right"></i>{% trans "home page" %}</a></li>
+                                    <li><a href="{% url "place:search" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Search" %}</a></li>
+                                    <li><a href="{% url "main:cities" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "All cities" %}</a></li>
+                                    <li><a href="https://www.coworker.com/lab" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Laboratory" %}</a></li>
+                                    <li><a href="javascript:void(0);" onclick="openNavSignup();" class="white-text" id="signupBtn"><i class="fa fa-caret-right"></i>{% trans "register" %}</a></li>
+                                    <li class="lastNoBorder"><a href="javascript:void(0);" onclick="openNavLoging();" class="white-text" id="loginBtn"><i class="fa fa-caret-right"></i>{% trans "Sign in" %}</a></li>
 
                                 </ul>
                             </div>
                         </div>
                         <div class="mobMenuBottomWrapper">
                             <div class="mobMenuBottom">
-                                <h2>{% trans "创客云图业主" %}</h2>
+                                <h2>{% trans "Maker of SpacesMap images" %}</h2>
                                 <ul>
-                                    <li class="lastNoBorder"><a href="{% url "place:list-space" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "添加场地" %}</a></li>
+                                    <li class="lastNoBorder"><a href="{% url "place:list-space" %}" class="white-text"><i class="fa fa-caret-right"></i>{% trans "Add site" %}</a></li>
                                 </ul>
                             </div>
                         </div>

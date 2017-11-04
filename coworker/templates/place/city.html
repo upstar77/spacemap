@@ -3,7 +3,7 @@
 {% load i18n %}
 
 
-{% block title %}{% trans "查看该城市的所有创客空间" %}{% endblock %}
+{% block title %}{% trans "Look at all of the city's guest space" %}{% endblock %}
 
 
 {% block content %}
@@ -45,30 +45,30 @@
                             <div class="city_bang_out">
                                 {#                                <img src="{% static 'img/flag.png' %}" class="flag flag-cn">{{ city.name }}#}
                                 {{ city.name }}
-                                <span>{% trans "71 场地" %}</span>
+                                <span>{% trans "71 blocks" %}</span>
                             </div>
                             <form action="https://www.coworker.com/search" method="post" accept-charset="utf-8" id="search_form" name="search_form">
                                 <div class="col-xs-12 pade_none city_white_out">
-                                    <h2>{% trans "搜索北京的" %} <span>{{ city.name }}</span></h2>
+                                    <h2>{% trans "Search for Beijing" %} <span>{{ city.name }}</span></h2>
                                     <div class="col-xs-12 pade_none city_search_main">
                                         <div class="col-sm-6 col-md-6 col-xs-12 pade_none city_daily_con">
                                             <ul>
                                                 <li>
                                                     <input type="checkbox" id="c1" name="cc" value="dai">
-                                                    <label for="c1"><span></span>{% trans "日租" %}</label>
+                                                    <label for="c1"><span></span>{% trans "Daily rental" %}</label>
                                                 </li>
                                                 <li>
                                                     <input type="checkbox" id="c2" name="cc" value="week">
-                                                    <label for="c2"><span></span>{% trans "周租" %}</label>
+                                                    <label for="c2"><span></span>{% trans "Week rent" %}</label>
                                                 </li>
                                                 <li>
                                                     <input type="checkbox" id="c3" name="cc" value="month">
-                                                    <label for="c3"><span></span>{% trans "月租" %}</label>
+                                                    <label for="c3"><span></span>{% trans "Monthly" %}</label>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 pade_none city_checkoout"><a href="javascript:void(0);" onclick="refineSearch();">{% trans "找出N个创客云图场地" %} {{ city.name }}</a></div>
+                                    <div class="col-xs-12 pade_none city_checkoout"><a href="javascript:void(0);" onclick="refineSearch();">{% trans "Find N SpacesMap sites" %} {{ city.name }}</a></div>
                                 </div>
                                 <input id="c_h_location" name="c_h_location" type="hidden" value="beijing/china">
                                 <input type="hidden" id="c_place_id" name="c_place_id" value="709">
@@ -83,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none bangkok_main_inner">
-                        <h2>{% trans "北京及周边创客云图场地推荐" %}</h2>
+                        <h2>{% trans "" %}</h2>
                         <div class="col-xs-12 pade_none slider_out">
                             <div id="demo">
                                 <div id="owl-demo_slide" class="owl-carousel owl-theme">
@@ -130,7 +130,7 @@
                             <div class="simpleTabs" id="tabber102">
 
                                 <ul class="simpleTabsNavigation">
-                                    <li><a id="tabber102_a_0" class="current" href="javascript:void(0);" style="cursor:initial;">{% trans "北京" %}</a></li>
+                                    <li><a id="tabber102_a_0" class="current" href="javascript:void(0);" style="cursor:initial;">{% trans "Bei Jing" %}</a></li>
                                 </ul>
                                 <div class="simpleTabsContent currentTab" id="tabber102_div_0">
                                     <div class="col-xs-12 pade_none hongkonk_out">

@@ -7,14 +7,14 @@
 <html>
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>{% block title %}{% trans "创客云图：您最好的孵化器选择工具!" %}{% endblock %}</title>
+    <title>{% block title %}{% trans "SpacesMap：Your best incubator selection tool!" %}{% endblock %}</title>
     <meta content={% trans "创客云图提供办公室出租、写字楼出租、商业中心出租、会议室出租、创业园出租房源，房源100%质量保证。免费发布办公出租信息，不收任何中介费。出租房源租用房源，选择创客云图。" %} name="description">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="coworker.com" name="author">
-    <meta content={% trans "办公、共享、上班、创客云图" %} name="keywords">
+    <meta content={% trans "Office, Share,Work,SpacesMap" %} name="keywords">
     <meta content="coworker.png" property="og:image">
 
 
@@ -113,13 +113,13 @@
                     <button class="close" data-dismiss="modal" onclick="closeContact();" type="button">×</button>
                     <h2>重置密码</h2>
                     <div class="col-xs-12 login_forget_content">
-                        <p>{% trans "输入您注册的电子邮件地址，我们将通过电子邮件发送一个链接以重置密码." %}</p>
+                        <p>{% trans "Enter your registered email address, we will email a link to reset your password." %}</p>
                         <div class="col-xs-121 pade_none login_forget_input_outer">
                             <input class="validate[required,custom[email],funcCall[is_EmailDoesnotExists[email-recovery]]]" id="email-reset" name="email-reset" placeholder="Email" type="text">
                         </div>
                         <div class="forget_submit_button">
                             <button name="Sent Reset Link" onclick="ValidateRecovery();">
-                                <span id="LblSend">{% trans "发送重置链接" %}</span></button>
+                                <span id="LblSend">{% trans "Send reset link" %}</span></button>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-11 col-xs-12 pade_none" id="r_popup">
                     <div class="col-sm-12 col-md-12 col-xs-12 pade_none email_message">
-                        <i aria-hidden="true" class="fa fa-commenting"></i> {% trans "已经发送重置密码的链接" %}" <span id="message_email">test@gmail.com</span> <button class="close" data-dismiss="modal" onclick="closeMessageEmail();" type="button">×</button>
+                        <i aria-hidden="true" class="fa fa-commenting"></i> {% trans "A link to the reset password has been sent" %}" <span id="message_email">test@gmail.com</span> <button class="close" data-dismiss="modal" onclick="closeMessageEmail();" type="button">×</button>
                     </div>
                 </div>
             </div>
@@ -867,7 +867,7 @@
 <div class="container modal" id="nvmy_Signup">
     <div class="col-xs-12 form_outer" id="fo_target">
         <div class="main-white">
-            <h2 id="signup_title">{% trans "加入创客云图社区" %}</h2>
+            <h2 id="signup_title">{% trans "Join the SpacesMap community" %}</h2>
 {#            <div class="col-xs-12 fcb_con">#}
                 <!--<a href="javascript:void(0)" id="signup_href" onclick="redirectNavFB();"><img alt="" src="{% static 'img/continue_fb.png' %}"></a>-->
 {#            </div>#}
@@ -877,8 +877,8 @@
             <div class="col-xs-12 msg_con">
                 <a href="javascript:void(0)" onclick="openNavSignupForm();"><img alt="" src="{% static 'img/img-msg.png' %}"></a>
             </div>
-            <p>{% trans "登录即表示您同意创客云图的" %}<a href="{% url "main:terms" %}" target="_blank">{% trans "服务条款" %}</a> 和 <a href="{% url "main:privacy-policy" %}" target="_blank">{% trans "隐私条款" %}</a></p>
-            <h4>{% trans "已经是会员?" %}" <a href="javascript:void(0);" onclick="navSignupLogin();">{% trans "登录" %}</a></h4>
+            <p>{% trans "Login means that you agree the SpacesMap" %}<a href="{% url "main:terms" %}" target="_blank">{% trans "Terms of service" %}</a> 和 <a href="{% url "main:privacy-policy" %}" target="_blank">{% trans "Privacy clause" %}</a></p>
+            <h4>{% trans "Is it a member already?" %}" <a href="javascript:void(0);" onclick="navSignupLogin();">{% trans "Sign in" %}</a></h4>
         </div>
     </div>
 </div>
