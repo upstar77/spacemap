@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-04 12:10+0000\n"
+"POT-Creation-Date: 2017-11-04 22:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -799,6 +799,7 @@ msgstr ""
 #: coworker/templates/elements/footer.html:12
 #: coworker/templates/elements/footer.html:22
 #: coworker/templates/elements/header_internal.html:71
+#: coworker/templates/elements/header_main.html:17
 #: coworker/templates/elements/header_search.html:52
 #: coworker/templates/elements/new_form.html:79
 #: coworker/templates/elements/new_form.html:161
@@ -867,7 +868,6 @@ msgstr ""
 
 #: coworker/templates/elements/footer.html:62
 #: coworker/templates/elements/header.html:60
-#: coworker/templates/elements/header_main.html:23
 #: coworker/templates/elements/header_search.html:27
 #: coworker/templates/elements/header_search.html:55
 #: coworker/templates/elements/sign-up.html:33
@@ -994,11 +994,11 @@ msgid "Maker of SpacesMap images"
 msgstr ""
 
 #: coworker/templates/elements/header_main.html:14
-msgid "hello"
+msgid "Hello"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:17
-msgid "search"
+#: coworker/templates/elements/header_main.html:23
+msgid "Register"
 msgstr ""
 
 #: coworker/templates/elements/header_main.html:32
@@ -1014,7 +1014,7 @@ msgstr ""
 #: coworker/templates/elements/header_main.html:94
 #, fuzzy
 #| msgid " Sign up"
-msgid " Sign up"
+msgid "Sign up"
 msgstr "Регистрация"
 
 #: coworker/templates/elements/header_search.html:17

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-04 12:10+0000\n"
+"POT-Creation-Date: 2017-11-04 22:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -555,8 +555,6 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
-""
-
 
 #: coworker/templates/account/email_confirm.html:20
 msgid "Confirm"
@@ -568,8 +566,8 @@ msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
-"他的电子邮件确认链接过期或无效。请<a href="
-"\"%(email_url)s\">问题一个新的电 子邮件请求确认</a>'"
+"他的电子邮件确认链接过期或无效。请<a href=\"%(email_url)s\">问题一个新的电 子"
+"邮件请求确认</a>'"
 
 #: coworker/templates/account/login.html:7
 #: coworker/templates/account/login.html:11
@@ -750,8 +748,8 @@ msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
 "mail address</a>."
 msgstr ""
-"<strong>注：</strong>你仍然可以<a href=\"%(email_url)s\">改变你的E—邮件地址"
-"</a>"
+"<strong>注：</strong>你仍然可以<a href=\"%(email_url)s\">改变你的E—邮件地址</"
+"a>"
 
 #: coworker/templates/base.html:10
 msgid "SpacesMap：Your best incubator selection tool!"
@@ -852,6 +850,7 @@ msgstr ""
 #: coworker/templates/elements/footer.html:12
 #: coworker/templates/elements/footer.html:22
 #: coworker/templates/elements/header_internal.html:71
+#: coworker/templates/elements/header_main.html:17
 #: coworker/templates/elements/header_search.html:52
 #: coworker/templates/elements/new_form.html:79
 #: coworker/templates/elements/new_form.html:161
@@ -920,7 +919,6 @@ msgstr "会员功能"
 
 #: coworker/templates/elements/footer.html:62
 #: coworker/templates/elements/header.html:60
-#: coworker/templates/elements/header_main.html:23
 #: coworker/templates/elements/header_search.html:27
 #: coworker/templates/elements/header_search.html:55
 #: coworker/templates/elements/sign-up.html:33
@@ -1047,14 +1045,14 @@ msgstr "创客云图业主"
 #: coworker/templates/elements/header_main.html:14
 #, fuzzy
 #| msgid "Hello"
-msgid "hello"
+msgid "Hello"
 msgstr "首页"
 
-#: coworker/templates/elements/header_main.html:17
+#: coworker/templates/elements/header_main.html:23
 #, fuzzy
-#| msgid "Search"
-msgid "search"
-msgstr "搜索"
+#| msgid "register"
+msgid "Register"
+msgstr "注册"
 
 #: coworker/templates/elements/header_main.html:32
 msgid "SpacesMap of the owners"
@@ -1069,8 +1067,8 @@ msgstr "改变"
 #: coworker/templates/elements/header_main.html:94
 #, fuzzy
 #| msgid "Sign up"
-msgid " Sign up"
-msgstr " 注册"
+msgid "Sign up"
+msgstr "注册"
 
 #: coworker/templates/elements/header_search.html:17
 #, fuzzy
@@ -3766,6 +3764,11 @@ msgstr "企业名称"
 #| msgid "Business summarize"
 msgid "Business summarize "
 msgstr "业务概述"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "search"
+#~ msgstr "搜索"
 
 #~ msgid "Русский"
 #~ msgstr "俄语"
