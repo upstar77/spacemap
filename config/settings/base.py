@@ -57,6 +57,7 @@ THIRD_PARTY_APPS = [
     'widget_tweaks',
     'rest_framework',
     'django_select2',
+    'rosetta',
 ]
 
 # Apps specific for this project go here.
@@ -84,6 +85,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'coworker.main.middleware.DetectChineUser',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -326,3 +328,12 @@ ADMIN_URL = r'^admin/'
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+
+GEOIP_PATH = env("DJANGO_GEOIP_PATH")
+
+# Django-rosetta
+ROSETTA_MESSAGES_PER_PAGE = 100
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = 'ru'
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'Russian'
+ROSETTA_UWSGI_AUTO_RELOAD = True
+ROSETTA_SHOW_AT_ADMIN_PANEL = True
