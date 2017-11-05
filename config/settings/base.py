@@ -69,7 +69,7 @@ LOCAL_APPS = [
     'coworker.cities.apps.CitiesConfig',
     'coworker.events.apps.EventsConfig',
     'coworker.services.apps.ServicesConfig',
-    'coworker.apps.lab..LabConfig',
+    'coworker.lab.apps.LabConfig',
     # 'place',
     # Your stuff: custom apps go here
 ]
