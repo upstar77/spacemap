@@ -69,6 +69,7 @@ LOCAL_APPS = [
     'coworker.cities.apps.CitiesConfig',
     'coworker.events.apps.EventsConfig',
     'coworker.services.apps.ServicesConfig',
+    'coworker.lab.apps.LabConfig',
     # 'place',
     # Your stuff: custom apps go here
 ]
@@ -333,7 +334,7 @@ GEOIP_PATH = env("DJANGO_GEOIP_PATH")
 
 # Django-rosetta
 ROSETTA_MESSAGES_PER_PAGE = 100
-ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = 'ru'
-ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'Russian'
+# ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = 'ru'
+# ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'Russian'
 ROSETTA_UWSGI_AUTO_RELOAD = True
 ROSETTA_SHOW_AT_ADMIN_PANEL = True
