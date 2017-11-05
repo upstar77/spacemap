@@ -56,3 +56,4 @@ django-widget-tweaks==1.4.1
 djangorestframework==3.6.4
 Django-Select2==5.11.1
 django-rosetta==0.7.13
+geoip2==2.6.0
