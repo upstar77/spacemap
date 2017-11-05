@@ -25,3 +25,6 @@ class EventDetailView(DetailView):
     model = Event
     template_name = 'events/event_detail.html'
     slug_url_kwarg = "event"
+
+    def get_context_data(self, **kwargs):
+        return super(EventDetailView, self).get_context_data(**kwargs)

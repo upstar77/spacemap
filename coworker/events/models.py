@@ -62,6 +62,15 @@ class TicketInfo(models.Model):
         pgettext_lazy('Shipping method country field', 'price'), max_digits=12, decimal_places=2)
 
 
+
+class Investor(models.Model):
+    name = models.CharField(max_length=200)
+    picture = models.FileField(upload_to="investor/photos")
+
+    def __str__(self):
+        return self.name
+
+
 class Event(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -76,6 +85,7 @@ class Event(models.Model):
     place = models.ForeignKey('place.Place', blank=True, null=True)
     slug = models.SlugField()
     image = models.FileField(upload_to="events/photos", null=False, blank=False)
+    investors = models.ManyToManyField(Investor)
     objects = EventManager()
 
     class Meta:

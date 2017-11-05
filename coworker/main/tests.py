@@ -1,3 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
+class BaseTest(TestCase):
+    def test_create_user(self):
+        from django.contrib.gis.geoip2 import GeoIP2
+        GeoIP2("127.0.0.1")
