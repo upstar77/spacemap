@@ -74,7 +74,7 @@
                             </dl>
                             <dl class="form-actions">
                                 <dd class="actions">
-                                    <button type="submit" class="btn btn-primary search-button oneline-search-button">
+                                    <button type="submit" class="btn btn-primary search-button oneline-search-button" data-url="{% url "place:search" %}">
                                         <span class="js-search-button-unclicked-label">
                                             {% trans "Search" %}
                                         </span>
@@ -89,22 +89,6 @@
                         </div>
                     </div>
                 </div>
-
-                {#                <div id="flight-searchbox" class="flight-searchbox2">#}
-                {#                    <div id="flight-widget2" style="position: absolute; display: inline; width: 0px; height: 0px; z-index: 1000; padding: 0px; overflow: visible;">#}
-                {#                        <form accept-charset="utf-8" action="{% url "place:search" %}" id="form_search" method="post" name="search_form">#}
-                {#                            <div class="coworker_floating_main">#}
-                {#                                <div class="col-xs-12 pade_none" id="f_aucomplete">#}
-                {#                                    <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="{% trans "搜索：场地名称、城市、国家......" %}" type="text" value="{{ filter }}"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>#}
-                {#                                    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>#}
-                {#                                </div>#}
-                {#                                <div class="col-xs-12 pade_none coworker_explore_con">#}
-                {#                                </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">#}
-                {#                            </div>#}
-                {#                        </form>#}
-                {##}
-                {#                    </div>#}
-                {#                </div>#}
             </div>
 
             <div id="tab-flight" class="tab-pane">
@@ -221,7 +205,7 @@
                             </dl>
                             <dl class="form-actions">
                                 <dd class="actions">
-                                    <button type="submit" class="btn btn-primary search-button oneline-search-button">
+                                    <button type="submit" class="btn btn-primary search-button oneline-search-button" data-url="{% url "place:search" %}">
                                         <span class="js-search-button-unclicked-label">
                                             {% trans "Search" %}
                                         </span>
