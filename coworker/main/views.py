@@ -17,5 +17,3 @@ class Index(TemplateView):
         return ctx
 
 
-
-

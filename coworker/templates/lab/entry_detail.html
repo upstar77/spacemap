@@ -1,0 +1,55 @@
+{% extends "lab/lab_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block lab_content %}
+    <div id="main-content">
+        <div class="container">
+            <div id="content-area" class="clearfix">
+                <div class="et_pb_extra_column_main">
+                    <article id="post-4482" class="module single-post-module post-4482 post type-post status-publish format-standard has-post-thumbnail hentry category-fun category-work tag-coworking-questions tag-remote-lifestyle tag-remote-work et-has-post-format-content et_post_format-et-post-format-standard">
+                        <div class="post-header">
+                            <h1 class="entry-title">{{ article.title }}</h1>
+                            <div class="post-meta vcard">
+                                {% block entry-authors %}
+                                    {% with authors=article.authors.all %}
+                                        {% if authors|length %}
+                                            {% trans "by" %}
+                                            {% for author in authors %}
+                                                <span class="vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                                <a href="#" class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
+                                                 title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}" itemprop="url">{{ author }}</a></span>{% if not forloop.last %}, {% endif %}
+                                            {% endfor %}
+                                            {% trans "on" context "on date" %}
+                                        {% else %}
+                                            {% trans "Written on" context "on date" %}
+                                        {% endif %}
+                                    {% endwith %}
+                                {% endblock entry-authors %}
+                                |<span class="updated">{{ article.publication_date }}</span> |
+                                {% block entry-tags %}
+                                    <meta itemprop="keywords" content="{{ article.tags }}" />
+                                    {% for tag in article.tags_list %}
+                                        {#                                                                    <a href="{% url 'zinnia:tag_detail' tag %}"#}
+                                        <a href="#"
+                                           title="{% blocktrans %}Show all entries tagged by {{ tag }}{% endblocktrans %}"
+                                           rel="tag" itemprop="articleSection">{{ tag }}</a>,
+                                    {% empty %}
+                                        <span>{% trans "No tags" %}</span>
+                                    {% endfor %}
+                                {% endblock entry-tags %}
+                            </div>
+                        </div>
+
+                        <div class="post-thumbnail header">
+                            <img src="{{ article.image.url }}" alt="{{ article.image_caption|default:article.title }}" itemprop="contentUrl" />
+
+                        <div class="post-wrap">
+                            <div class="post-content entry-content">{{ article.content|safe }}</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

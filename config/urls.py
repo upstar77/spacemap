@@ -6,6 +6,26 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from django.conf.urls.i18n import i18n_patterns
 
+#
+# blog_urls = ([
+#     url(r'^', include('zinnia.urls.capabilities')),
+#     url(r'^search/', include('zinnia.urls.search')),
+#     url(r'^sitemap/', include('zinnia.urls.sitemap')),
+#     url(r'^trackback/', include('zinnia.urls.trackback')),
+#     url(r'^blog/tags/', include('zinnia.urls.tags')),
+#     url(r'^blog/feeds/', include('zinnia.urls.feeds')),
+#     url(r'^blog/random/', include('zinnia.urls.random')),
+#     url(r'^blog/authors/', include('zinnia.urls.authors')),
+#     url(r'^blog/categories/', include('zinnia.urls.categories')),
+#     url(r'^blog/comments/', include('zinnia.urls.comments')),
+#     url(r'^blog/', include('zinnia.urls.entries')),
+#     url(r'^blog/', include('zinnia.urls.archives')),
+#     url(r'^blog/', include('zinnia.urls.shortlink')),
+#     url(r'^blog/', include('zinnia.urls.quick_entry'))
+# ], 'zinnia')
+#
+
+
 
 urlpatterns = i18n_patterns(
     # Django Admin, use {% url 'admin:index' %}
@@ -15,7 +35,6 @@ urlpatterns = i18n_patterns(
     url(r'^select2/', include('django_select2.urls')),
 
     url(r'^', include('coworker.main.urls', namespace='main')),
-
     # url(r'^(?P<country>[\w-]+)/', include('coworker.place.urls', namespace='place')),
     url(r'^profile/', include('coworker.users.urls', namespace='users')),
 
@@ -24,11 +43,17 @@ urlpatterns = i18n_patterns(
     url(r'^places/', include('coworker.place.urls', namespace='place')),
     url(r'^events/', include('coworker.events.urls', namespace='events')),
     url(r'^services/', include('coworker.services.urls', namespace='services')),
+    # url(r'^', include(blog_urls)),
+    url(r'^lab/', include('coworker.lab.urls', namespace='lab')),
 
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^comments/', include('django_comments.urls')),
     # Your stuff: custom urls includes go here
 
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [

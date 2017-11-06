@@ -58,6 +58,11 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'django_select2',
     'rosetta',
+
+    'django_comments',
+    'mptt',
+    'tagging',
+    'sekizai',
 ]
 
 # Apps specific for this project go here.
@@ -70,6 +75,9 @@ LOCAL_APPS = [
     'coworker.events.apps.EventsConfig',
     'coworker.services.apps.ServicesConfig',
     'coworker.lab.apps.LabConfig',
+
+    'tinymce',
+    # 'zinnia',
     # 'place',
     # Your stuff: custom apps go here
 ]
@@ -198,6 +206,8 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'zinnia.context_processors.version',  # Optional
+                'sekizai.context_processors.sekizai',
                 # Your stuff: custom template context processors go here
                 # 'coworker.main.context_processors.auth_forms',
             ],
@@ -338,3 +348,27 @@ ROSETTA_MESSAGES_PER_PAGE = 100
 # ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'Russian'
 ROSETTA_UWSGI_AUTO_RELOAD = True
 ROSETTA_SHOW_AT_ADMIN_PANEL = True
+
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'skin': "o2k7",
+    'skin_variant': "silver",
+    'relative_urls': False,
+    'width': "640",
+    'height': "500",
+    'theme_advanced_toolbar_location': "top",
+    'theme_advanced_toolbar_align': "left",
+    'theme_advanced_statusbar_location': "bottom",
+    'theme_advanced_resizing': True,
+    'element_format': "html",
+    'plugins' : "contextmenu,directionality,fullscreen,paste,preview,searchreplace,spellchecker,visualchars,wordcount,table",
+    'theme_advanced_buttons3_add' : "tablecontrols",
+    'table_styles' : "Header 1=header1;Header 2=header2;Header 3=header3",
+    'table_cell_styles' : "Header 1=header1;Header 2=header2;Header 3=header3;Table Cell=tableCel1",
+    'table_row_styles' : "Header 1=header1;Header 2=header2;Header 3=header3;Table Row=tableRow1",
+    'table_cell_limit' : 100,
+    'table_row_limit' : 5,
+    'table_col_limit' : 5,
+    'table_inline_editing': True,
+}

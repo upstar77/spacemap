@@ -1,0 +1,963 @@
+{% extends 'lab/lab_base.html' %}
+{% load i18n %}
+{% load static %}
+{% load sekizai_tags %}
+{% load zinnia %}
+
+{% block lab_content %}
+    <div id="main-content">
+        <div class="container">
+            <div id="content-area" class="with_sidebar with_sidebar_right clearfix">
+                <div class="et_pb_extra_column_main">
+                    <div class="et_pb_section  et_pb_section_0 et_section_regular">
+                        <div class=" et_pb_row et_pb_row_0">
+                            <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
+                                <div class="module featured-posts-slider-module et_pb_extra_module blog_slider_main et_pb_featured_posts_slider_0 et_slide_transition_to_next et_pb_bg_layout_dark" data-breadcrumbs="enabled">
+{#                                    <div class="posts-slider-module-items carousel-items et_pb_slides">#}
+{#                                        <article id="post-4512" class="post carousel-item et_pb_slide post-4512 type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworking tag-crowd-fund tag-entrepreneurship et-has-post-format-content et_post_format-et-post-format-standard" style="background-image: url(&quot;/lab/wp-content/uploads/2017/11/Anna-Souvignier-Sophie-Zepnik-Photo-Credits-Elina-Nomad-1.jpg&quot;); z-index: 1; display: none; opacity: 0; height: 502.941px;">#}
+{#                                            <div class="post-content-box">#}
+{#                                                <div class="post-content">#}
+{#                                                    <h3 class="entry-title"><a href="/lab/meet-the-founders-of-hejhej-mats/">Meet the Founders of hejhej-mats</a></h3>#}
+{#                                                    <div class="expert_content">#}
+{#                                                        <p>Anna and Sophie are two ambitious entrepreneurs from Germany who have utilized coworking spaces in Malmö, Sweden to build their yoga mat startup, hejhej-mats. Here, Anna and Sophie share a bit about …</p>#}
+{#                                                    </div>#}
+{#                                                    <div class="post-meta vcard">#}
+{#                                                        <p>Posted by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Nov 2, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>					</p></div>#}
+{#                                                    <div class="category_btn">#}
+{#                                                        <a data-id="Faces" class="button" href="/lab/category/faces/">Faces</a>					</div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </article>#}
+{#                                        <article id="post-4481" class="post carousel-item et_pb_slide post-4481 type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworkers-of-the-world tag-coworking tag-morning-routines et-has-post-format-content et_post_format-et-post-format-standard et-pb-moved-slide" style="background-image: url(&quot;/lab/wp-content/uploads/2017/10/DSC00239-1280x768.jpg&quot;); z-index: 2; display: none; opacity: 0; height: 502.941px;">#}
+{#                                            <div class="post-content-box">#}
+{#                                                <div class="post-content">#}
+{#                                                    <h3 class="entry-title"><a href="/lab/get-to-know-rafael-tudela-hernandez/">Get to Know Rafael Tudela Hernandez</a></h3>#}
+{#                                                    <div class="expert_content">#}
+{#                                                        <p>Coworking spaces are filled with some of the world’s &nbsp;most interesting people, as each coworker is working on something inspiring while offering a unique perspective on life.&nbsp;Coworker has decided …</p>#}
+{#                                                    </div>#}
+{#                                                    <div class="post-meta vcard">#}
+{#                                                        <p>Posted by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 27, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>					</p></div>#}
+{#                                                    <div class="category_btn">#}
+{#                                                        <a data-id="Faces" class="button" href="/lab/category/faces/">Faces</a>					</div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </article>#}
+{#                                        <article id="post-4465" class="post carousel-item et_pb_slide post-4465 type-post status-publish format-standard has-post-thumbnail hentry category-happenings tag-coworking-dubai tag-coworking-hotels tag-grand-opening et-has-post-format-content et_post_format-et-post-format-standard et-pb-active-slide" style="background-image: url(&quot;/lab/wp-content/uploads/2017/10/NEST-@-TRYP-hotel-1280x768.jpg&quot;); z-index: 1; display: block; opacity: 1; height: 502.941px;">#}
+{#                                            <div class="post-content-box">#}
+{#                                                <div class="post-content">#}
+{#                                                    <h3 class="entry-title"><a href="/lab/nest-coworking-space-grand-opening/">Celebrating the Grand Opening of NEST Co-Working Space</a></h3>#}
+{#                                                    <div class="expert_content">#}
+{#                                                        <p>NEST– a space where Dubai’s most Innovative, Creative and Entrepreneurial Communities Collide.&nbsp;&nbsp; During the week of October 29th, 2017 &nbsp;The First Group, &nbsp;TRYP by Wyndham Dubai, Nest Co-Wor…</p>#}
+{#                                                    </div>#}
+{#                                                    <div class="post-meta vcard">#}
+{#                                                        <p>Posted by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 25, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>					</p></div>#}
+{#                                                    <div class="category_btn">#}
+{#                                                        <a data-id="Happenings" class="button" href="/lab/category/happenings/">Happenings</a>					</div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </article>#}
+{#                                    </div>#}
+                                    <div class="et-pb-slider-arrows"><a class="et-pb-arrow-prev" href="/lab/#"><span>Previous</span></a><a class="et-pb-arrow-next" href="/lab/#"><span>Next</span></a></div><div class="et-pb-controllers"><a href="/lab/#" class="">1</a><a href="/lab/#" class="">2</a><a href="/lab/#" class="et-pb-active-control">3</a></div></div>
+
+                                <div class="module posts-carousel-module et_pb_extra_module all_latest_carousel et_pb_posts_carousel_0" style="border-top-color:#ffffff">
+
+                                    <div class="module-head">
+                                        <h1 style="color:#f75757">All</h1>
+                                        <div class="module-filter">Latest</div>
+                                    </div>
+
+                                    <div class="posts-slider-module-items carousel-items et_pb_bg_layout_dark">
+                                        {% for article in articles %}
+                                            <article id="post-4482" class="carousel-item post-4482 post type-post status-publish format-standard has-post-thumbnail hentry category-fun category-work tag-coworking-questions tag-remote-lifestyle tag-remote-work et-has-post-format-content et_post_format-et-post-format-standard">
+                                                <a gfdgdf="" href="{{ article.get_absolute_url }}" title="{{ article.title }}" class="post-thumbnail" style="max-height: 112.8px;">
+                                                    <img src="{% static 'img/man-traveler-with-hat-and-backpack-enjoying-the-P7MY3SB-440x264.jpg' %}" alt="Your Top 5 Questions About Working Remotely Answered"><span class="et_pb_extra_overlay"></span>
+                                                </a>
+                                                <div class="post-content-box">
+                                                    <div class="post-content">
+                                                        <h3 class="entry-title"><a href="{{ article.get_absolute_url }}">{{ article.title|widont }}</a></h3>
+                                                        <div class="post-meta vcard">
+                                                            {% block entry-authors %}
+                                                                {% with authors=article.authors.all %}
+                                                                    {% if authors|length %}
+                                                                        {% trans "by" %}
+                                                                        {% for author in authors %}
+                                                                            <span class="vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <a href="#" class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
+           title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}" itemprop="url">{{ author }}</a></span>{% if not forloop.last %}, {% endif %}
+                                                                        {% endfor %}
+                                                                        {% trans "on" context "on date" %}
+                                                                    {% else %}
+                                                                        {% trans "Written on" context "on date" %}
+                                                                    {% endif %}
+                                                                {% endwith %}
+                                                            {% endblock entry-authors %}
+
+                                                            |
+                                                            <span class="updated">{{ article.publication_date }}</span> |
+                                                            {% block entry-tags %}
+                                                                <meta itemprop="keywords" content="{{ article.tags }}" />
+                                                                {% for tag in article.tags_list %}
+{#                                                                    <a href="{% url 'zinnia:tag_detail' tag %}"#}
+                                                                    <a href="#"
+                                                                       title="{% blocktrans %}Show all entries tagged by {{ tag }}{% endblocktrans %}"
+                                                                       rel="tag" itemprop="articleSection">{{ tag }}</a>,
+                                                                {% empty %}
+                                                                    <span>{% trans "No tags" %}</span>
+                                                                {% endfor %}
+                                                            {% endblock entry-tags %}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+{#                        <div class=" et_pb_row et_pb_row_1">#}
+{##}
+{##}
+{#                        <div class="et_pb_column et_pb_column_1_3  et_pb_column_1">#}
+{##}
+{##}
+{#                            <div class="module post-module et_pb_extra_module blog_post_colum work_latest_post et_pb_posts_0" style="border-top-color:#5496d3">#}
+{#                                <div class="module-head">#}
+{#                                    <a href="/lab/category/work/"><h1 style="color:#5496d3">Work</h1></a>#}
+{#                                    <span class="module-filter">Latest</span>#}
+{#                                </div>#}
+{#                                <div class="main-post">#}
+{#                                    <article id="post-4446" class="post-4446 post type-post status-publish format-standard has-post-thumbnail hentry category-work tag-coworking-skills tag-habits-for-success tag-remote-work tag-tips et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <div class="header">#}
+{#                                            <a gfdgdf="" href="/lab/6-communication-habits-make-successful-remote-teams/" title="6 Awesome Communication Habits That Make Successful Remote Teams" class="featured-image">#}
+{#                                                <img src="{% static 'img/woman-working-in-home-office-P4X888V-627x376.jpg' %}" alt="6 Awesome Communication Habits That Make Successful Remote Teams"><span class="et_pb_extra_overlay"></span>#}
+{#                                            </a>			</div>#}
+{#                                        <div class="post-content">#}
+{#                                            <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/6-communication-habits-make-successful-remote-teams/">6 Awesome Communication Habits That Make Successful Remote Teams</a></h2>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/gloria-kopp/" class="url fn" title="Posts by Gloria Kopp" rel="author">Gloria Kopp</a> | <span class="updated">Oct 19, 2017</span> | <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                            </div>#}
+{#                                            <div class="excerpt entry-summary">#}
+{#                                                <p>The levels of communication you have with your remote teams will be the crux of your team’s...</p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{#                                </div>#}
+{#                                <ul class="posts-list">#}
+{#                                    <li>#}
+{#                                        <article id="post-4228" class="title-thumb-hover post-4228 post type-post status-publish format-standard has-post-thumbnail hentry category-work tag-coworkingtips tag-leadership tag-remote-work et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/8-way-remote-workers-practice-leadership/" title="8 Ways Remote Workers Can Practice Leadership" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/tim-bogdanov-97988-150x150.jpg' %}" alt="8 Ways Remote Workers Can Practice Leadership" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/8-way-remote-workers-practice-leadership/" data-hover-color="#5496d3">8 Ways Remote Workers Can Practice Leadership</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/ashmi-pathela/" class="url fn" title="Posts by Ashmi Pathela" rel="author">Ashmi Pathela</a> | <span class="updated">Sep 11, 2017</span> | <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-4166" class="title-thumb-hover post-4166 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings category-spaces category-work tag-coworkertools tag-kickstarter tag-spacesofcoworker tag-thefocusjournal tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/latelier-launches-the-focus-journal/" title="L’Atelier Coworking Launches a Kickstarter Campaign for The Focus Journal" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/IMG_0387-150x150.jpg' %}" alt="L’Atelier Coworking Launches a Kickstarter Campaign for The Focus Journal" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/latelier-launches-the-focus-journal/" data-hover-color="#5496d3">L’Atelier Coworking Launches a Kickstarter Campaign for The Focus Journal</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Sep 8, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a>, <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-4120" class="title-thumb-hover post-4120 post type-post status-publish format-standard has-post-thumbnail hentry category-play category-work tag-coworking-community tag-coworking-tribe tag-remote-work et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/how-remote-workers-can-find-their-tribe/" title="How Remote Workers Can Find Their Tribe" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/amusement-leisure-funny-happiness-enjoyment-P5U7L7G-150x150.jpg' %}" alt="How Remote Workers Can Find Their Tribe" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/how-remote-workers-can-find-their-tribe/" data-hover-color="#5496d3">How Remote Workers Can Find Their Tribe</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/ashmi-pathela/" class="url fn" title="Posts by Ashmi Pathela" rel="author">Ashmi Pathela</a> | <span class="updated">Aug 28, 2017</span> | <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{##}
+{#                            </div>#}
+{##}
+{#                        </div> <div class="et_pb_column et_pb_column_1_3  et_pb_column_2">#}
+{##}
+{##}
+{#                        <div class="module post-module et_pb_extra_module blog_post_colum play_latest_post et_pb_posts_1" style="border-top-color:#5496d3">#}
+{#                            <div class="module-head">#}
+{#                                <a href="/lab/category/play/"><h1 style="color:#5496d3">Play</h1></a>#}
+{#                                <span class="module-filter">Latest</span>#}
+{#                            </div>#}
+{#                            <div class="main-post">#}
+{#                                <article id="post-4287" class="post-4287 post type-post status-publish format-standard has-post-thumbnail hentry category-play category-spaces tag-coworkingworkouts tag-officefitness tag-onecowork tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <div class="header">#}
+{#                                        <a gfdgdf="" href="/lab/working-out-coworkingspace-7-fullbody-exercises/" title="7 Full Body Exercises You Can Do From Any Coworking Space" class="featured-image">#}
+{#                                            <img src="{% static 'img/woman-doing-squats-and-exercising-outdoors-PM2F3HB-627x376.jpg' %}" alt="7 Full Body Exercises You Can Do From Any Coworking Space"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			</div>#}
+{#                                    <div class="post-content">#}
+{#                                        <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/working-out-coworkingspace-7-fullbody-exercises/">7 Full Body Exercises You Can Do From Any Coworking Space</a></h2>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/laura-matukeviciute/" class="url fn" title="Posts by Laura Matukeviciute" rel="author">Laura Matukeviciute</a> | <span class="updated">Sep 21, 2017</span> | <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                        <div class="excerpt entry-summary">#}
+{#                                            <p>It is officially autumn now, which means that we are almost done with the New Year’s resolutions...</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </article>#}
+{#                            </div>#}
+{#                            <ul class="posts-list">#}
+{#                                <li>#}
+{#                                    <article id="post-4256" class="title-thumb-hover post-4256 post type-post status-publish format-standard has-post-thumbnail hentry category-play category-spaces tag-coolamenities tag-coolcoworkingspaces tag-spacesofcoworker tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/4-coworking-spaces-coolest-amenities/" title="4 Coworking Spaces with the Coolest Amenities" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/people-playing-enjoying-foosball-table-soccer-P6FC3UD-150x150.jpg' %}" alt="4 Coworking Spaces with the Coolest Amenities" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/4-coworking-spaces-coolest-amenities/" data-hover-color="#5496d3">4 Coworking Spaces with the Coolest Amenities</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/cameronchardukian/" class="url fn" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> | <span class="updated">Sep 15, 2017</span> | <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-4109" class="title-thumb-hover post-4109 post type-post status-publish format-standard has-post-thumbnail hentry category-play category-work tag-coworking-etiquette tag-coworking-tips tag-how-to-cowork et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/coworking-etiquette/" title="Stop! Coworking Etiquette — How to Not Be “That Annoying Guy”" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/modern-office-worker-PY3C9VY-150x150.jpg' %}" alt="Stop! Coworking Etiquette — How to Not Be “That Annoying Guy”" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/coworking-etiquette/" data-hover-color="#5496d3">Stop! Coworking Etiquette — How to Not Be “That Annoying Guy”</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/cameronchardukian/" class="url fn" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> | <span class="updated">Aug 28, 2017</span> | <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-4003" class="title-thumb-hover post-4003 post type-post status-publish format-standard has-post-thumbnail hentry category-faces category-play category-spaces tag-coliving tag-coworksurf tag-spacesofcoworker tag-workoutsidethebox et_post_format-et-post-format-video et-has-post-format-content">#}
+{#                                        <a gfdgdf="" href="/lab/founders-interview-coworksurf/" title="An Exclusive Interview with the Founders of CoWorkSurf" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/Screen-Shot-2017-08-15-at-9.21.50-AM-150x150.png' %}" alt="An Exclusive Interview with the Founders of CoWorkSurf" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/founders-interview-coworksurf/" data-hover-color="#5496d3">An Exclusive Interview with the Founders of CoWorkSurf</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/terri-witherden/" class="url fn" title="Posts by Terri Witherden" rel="author">Terri Witherden</a> | <span class="updated">Aug 7, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>, <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                            </ul>#}
+{##}
+{#                        </div>#}
+{##}
+{#                    </div> <div class="et_pb_column et_pb_column_1_3  et_pb_column_3">#}
+{##}
+{##}
+{#                        <div class="module post-module et_pb_extra_module blog_post_colum spaces_latest_post et_pb_posts_2" style="border-top-color:#5496d3">#}
+{#                            <div class="module-head">#}
+{#                                <a href="/lab/category/spaces/"><h1 style="color:#5496d3">Spaces</h1></a>#}
+{#                                <span class="module-filter">Latest</span>#}
+{#                            </div>#}
+{#                            <div class="main-post">#}
+{#                                <article id="post-4155" class="post-4155 post type-post status-publish format-standard has-post-thumbnail hentry category-play category-spaces category-work tag-coworkingtips tag-productivity tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <div class="header">#}
+{#                                        <a gfdgdf="" href="/lab/working-at-home-vs-cafes-vs-coworking-spaces/" title="The Difference Between Working at Home vs Cafes vs Coworking Spaces" class="featured-image">#}
+{#                                            <img src="{% static 'img/theworkprojectatmidtownsoundwillplazaiihongkong-627x376.jpg' %}" alt="The Difference Between Working at Home vs Cafes vs Coworking Spaces"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			</div>#}
+{#                                    <div class="post-content">#}
+{#                                        <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/working-at-home-vs-cafes-vs-coworking-spaces/">The Difference Between Working at Home vs Cafes vs Coworking Spaces</a></h2>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/cameronchardukian/" class="url fn" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> | <span class="updated">Oct 6, 2017</span> | <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a>, <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                        </div>#}
+{#                                        <div class="excerpt entry-summary">#}
+{#                                            <p>People around the world are becoming increasingly entrepreneurial and embracing alternative forms...</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </article>#}
+{#                            </div>#}
+{#                            <ul class="posts-list">#}
+{#                                <li>#}
+{#                                    <article id="post-4374" class="title-thumb-hover post-4374 post type-post status-publish format-standard has-post-thumbnail hentry category-places category-play category-spaces tag-coworking-toronto tag-coworking-tours tag-district-28 tag-spaces-of-coworker et_post_format-et-post-format-video et-has-post-format-content">#}
+{#                                        <a gfdgdf="" href="/lab/interview-with-district-28/" title="Coworker Exclusive Interview with District 28" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/Screen-Shot-2017-09-27-at-2.03.42-PM-150x150.png' %}" alt="Coworker Exclusive Interview with District 28" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/interview-with-district-28/" data-hover-color="#5496d3">Coworker Exclusive Interview with District 28</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 5, 2017</span> | <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a>, <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-4361" class="title-thumb-hover post-4361 post type-post status-publish format-standard has-post-thumbnail hentry category-spaces tag-eco-friendly-coworking tag-green-coworking-spaces tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/coworking-spaces-part-save-environment/" title="Coworking Spaces Doing Their Part to Save the Environment" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/room-with-furniture-and-plants-P9RDSRT-150x150.jpg' %}" alt="Coworking Spaces Doing Their Part to Save the Environment" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/coworking-spaces-part-save-environment/" data-hover-color="#5496d3">Coworking Spaces Doing Their Part to Save the Environment</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/cameronchardukian/" class="url fn" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> | <span class="updated">Oct 2, 2017</span> | <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-4353" class="title-thumb-hover post-4353 post type-post status-publish format-standard has-post-thumbnail hentry category-places category-play category-spaces tag-coworking-activities tag-fun-coworking-spaces tag-work-hard-play-hard et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/unique-coworking-activities/" title="Spaces With Unique After Coworking Activities You Should Try" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/beach-volleyball-PHJQUV6-150x150.jpg' %}" alt="Spaces With Unique After Coworking Activities You Should Try" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/unique-coworking-activities/" data-hover-color="#5496d3">Spaces With Unique After Coworking Activities You Should Try</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/cameronchardukian/" class="url fn" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> | <span class="updated">Sep 29, 2017</span> | <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a>, <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                            </ul>#}
+{##}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                    </div>  #}
+{#                    <div class=" et_pb_row et_pb_row_2">#}
+{##}
+{##}
+{#                        <div class="et_pb_column et_pb_column_4_4  et_pb_column_4">#}
+{##}
+{##}
+{#                            <div class="module post-module et_pb_extra_module blog_post_trending et_pb_posts_3" style="border-top-color:#dadfe4">#}
+{#                                <div class="module-head">#}
+{#                                    <h1 style="color:#5496d3">Trending this week</h1>#}
+{#                                    <span class="module-filter"></span>#}
+{#                                </div>#}
+{#                                <div class="main-post">#}
+{#                                    <article id="post-4512" class="post-4512 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworking tag-crowd-fund tag-entrepreneurship et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <div class="header">#}
+{#                                            <a gfdgdf="" href="/lab/meet-the-founders-of-hejhej-mats/" title="Meet the Founders of hejhej-mats" class="featured-image">#}
+{#                                                <img src="{% static 'img/Anna-Souvignier-Sophie-Zepnik-Photo-Credits-Elina-Nomad-1-627x376.jpg' %}" alt="Meet the Founders of hejhej-mats"><span class="et_pb_extra_overlay"></span>#}
+{#                                            </a>			</div>#}
+{#                                        <div class="post-content">#}
+{#                                            <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/meet-the-founders-of-hejhej-mats/">Meet the Founders of hejhej-mats</a></h2>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Nov 2, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a></p>#}
+{#                                            </div>#}
+{#                                            <div class="excerpt entry-summary">#}
+{#                                                <p>Anna and Sophie are two ambitious entrepreneurs from Germany who have utilized coworking spaces i...</p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{#                                </div>#}
+{#                                <ul class="posts-list">#}
+{#                                    <li>#}
+{#                                        <article id="post-4481" class="title-thumb-hover post-4481 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworkers-of-the-world tag-coworking tag-morning-routines et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/get-to-know-rafael-tudela-hernandez/" title="Get to Know Rafael Tudela Hernandez" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/DSC00239-150x150.jpg' %}" alt="Get to Know Rafael Tudela Hernandez" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/get-to-know-rafael-tudela-hernandez/" data-hover-color="#5496d3">Get to Know Rafael Tudela Hernandez</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 27, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-4465" class="title-thumb-hover post-4465 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings tag-coworking-dubai tag-coworking-hotels tag-grand-opening et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/nest-coworking-space-grand-opening/" title="Celebrating the Grand Opening of NEST Co-Working Space" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/NEST-@-TRYP-hotel-150x150.jpg' %}" alt="Celebrating the Grand Opening of NEST Co-Working Space" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/nest-coworking-space-grand-opening/" data-hover-color="#5496d3">Celebrating the Grand Opening of NEST Co-Working Space</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 25, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-4446" class="title-thumb-hover post-4446 post type-post status-publish format-standard has-post-thumbnail hentry category-work tag-coworking-skills tag-habits-for-success tag-remote-work tag-tips et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/6-communication-habits-make-successful-remote-teams/" title="6 Awesome Communication Habits That Make Successful Remote Teams" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/woman-working-in-home-office-P4X888V-150x150.jpg' %}" alt="6 Awesome Communication Habits That Make Successful Remote Teams" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/6-communication-habits-make-successful-remote-teams/" data-hover-color="#5496d3">6 Awesome Communication Habits That Make Successful Remote Teams</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/gloria-kopp/" class="url fn" title="Posts by Gloria Kopp" rel="author">Gloria Kopp</a> | <span class="updated">Oct 19, 2017</span> | <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-4435" class="title-thumb-hover post-4435 post type-post status-publish format-standard has-post-thumbnail hentry category-spaces tag-coworking-fitness tag-coworking-gyms tag-gyms tag-spaces-of-coworker et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/3-coworking-spaces-greatest-gyms/" title="3 Coworking Spaces with the Greatest Gyms" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/young-woman-bouldering-in-climbing-gym-P73ZDRT-150x150.jpg' %}" alt="3 Coworking Spaces with the Greatest Gyms" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/3-coworking-spaces-greatest-gyms/" data-hover-color="#5496d3">3 Coworking Spaces with the Greatest Gyms</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/cameronchardukian/" class="url fn" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> | <span class="updated">Oct 18, 2017</span> | <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{##}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                    </div> <div class=" et_pb_row et_pb_row_3">#}
+
+
+{#                        <div class="et_pb_column et_pb_column_4_4  et_pb_column_5">#}
+{##}
+{##}
+{#                            <div class="module posts-carousel-module et_pb_extra_module all_latest_carousel et_pb_posts_carousel_1" style="border-top-color:#ffffff">#}
+{#                                <div class="module-head">#}
+{#                                    <h1 style="color:#f75757">Most Recent</h1>#}
+{#                                    <div class="module-filter"></div>#}
+{#                                </div>#}
+{#                                <div class="posts-slider-module-items carousel-items et_pb_bg_layout_dark">#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#                                    <div class="carousel-group et_pb_slide et-pb-active-slide" style="min-height: 280px;"><article id="post-4482" class="carousel-item post-4482 post type-post status-publish format-standard has-post-thumbnail hentry category-fun category-work tag-coworking-questions tag-remote-lifestyle tag-remote-work et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/top-5-questions-working-remotely-answered/" title="Your Top 5 Questions About Working Remotely Answered" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                            <img src="{% static 'img/man-traveler-with-hat-and-backpack-enjoying-the-P7MY3SB-440x264.jpg' %}" alt="Your Top 5 Questions About Working Remotely Answered"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			<div class="post-content-box">#}
+{#                                        <div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/top-5-questions-working-remotely-answered/">Your Top 5 Questions About Working Remotely Answered</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                by <a href="/lab/author/coworker/" title="Posts by Coworker" rel="author">Coworker</a> |#}
+{#                                                <span class="updated">Nov 3, 2017</span> |#}
+{#                                                <a rel="tag" href="/lab/category/fun/" data-id="Fun">Fun</a>, <a rel="tag" href="/lab/category/work/" data-id="Work">Work</a>,#}
+{##}
+{#                                            </div>#}
+{##}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article><article id="post-4512" class="carousel-item post-4512 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworking tag-crowd-fund tag-entrepreneurship et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/meet-the-founders-of-hejhej-mats/" title="Meet the Founders of hejhej-mats" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                            <img src="{% static 'img/Anna-Souvignier-Sophie-Zepnik-Photo-Credits-Elina-Nomad-1-440x264.jpg' %}" alt="Meet the Founders of hejhej-mats"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			<div class="post-content-box">#}
+{#                                        <div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/meet-the-founders-of-hejhej-mats/">Meet the Founders of hejhej-mats</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                by <a href="/lab/author/madison/" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> |#}
+{#                                                <span class="updated">Nov 2, 2017</span> |#}
+{#                                                <a rel="tag" href="/lab/category/faces/" data-id="Faces">Faces</a>,#}
+{##}
+{#                                            </div>#}
+{##}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article><article id="post-4481" class="carousel-item post-4481 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworkers-of-the-world tag-coworking tag-morning-routines et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/get-to-know-rafael-tudela-hernandez/" title="Get to Know Rafael Tudela Hernandez" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                            <img src="{% static 'img/DSC00239-440x264.jpg' %}" alt="Get to Know Rafael Tudela Hernandez"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			<div class="post-content-box">#}
+{#                                        <div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/get-to-know-rafael-tudela-hernandez/">Get to Know Rafael Tudela Hernandez</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                by <a href="/lab/author/coworker/" title="Posts by Coworker" rel="author">Coworker</a> |#}
+{#                                                <span class="updated">Oct 27, 2017</span> |#}
+{#                                                <a rel="tag" href="/lab/category/faces/" data-id="Faces">Faces</a>,#}
+{##}
+{#                                            </div>#}
+{##}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article><article id="post-4465" class="carousel-item post-4465 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings tag-coworking-dubai tag-coworking-hotels tag-grand-opening et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/nest-coworking-space-grand-opening/" title="Celebrating the Grand Opening of NEST Co-Working Space" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                            <img src="{% static 'img/NEST-@-TRYP-hotel-440x264.jpg' %}" alt="Celebrating the Grand Opening of NEST Co-Working Space"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			<div class="post-content-box">#}
+{#                                        <div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/nest-coworking-space-grand-opening/">Celebrating the Grand Opening of NEST Co-Working Space</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                by <a href="/lab/author/coworker/" title="Posts by Coworker" rel="author">Coworker</a> |#}
+{#                                                <span class="updated">Oct 25, 2017</span> |#}
+{#                                                <a rel="tag" href="/lab/category/happenings/" data-id="Happenings">Happenings</a>,#}
+{##}
+{#                                            </div>#}
+{##}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article></div><div class="carousel-group et_pb_slide" style="min-height: 280px;"><article id="post-4458" class="carousel-item post-4458 post type-post status-publish format-standard has-post-thumbnail hentry category-work tag-advertising tag-business-tips tag-marketing-tools et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <a gfdgdf="" href="/lab/ultimate-beginners-advertising-guide/" title="The Ultimate Beginner’s Guide to Advertising" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                        <img src="{% static 'img/business-colleagues-together-teamwork-working-PG6BWNX-440x264.jpg' %}" alt="The Ultimate Beginner’s Guide to Advertising"><span class="et_pb_extra_overlay"></span>#}
+{#                                    </a>			<div class="post-content-box">#}
+{#                                    <div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/ultimate-beginners-advertising-guide/">The Ultimate Beginner’s Guide to Advertising</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            by <a href="/lab/author/stacy-edwards/" title="Posts by Stacy Edwards" rel="author">Stacy Edwards</a> |#}
+{#                                            <span class="updated">Oct 23, 2017</span> |#}
+{#                                            <a rel="tag" href="/lab/category/work/" data-id="Work">Work</a>,#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                </article><article id="post-4452" class="carousel-item post-4452 post type-post status-publish format-standard has-post-thumbnail hentry category-spaces tag-coworker-interviews tag-coworking-spaces-for-developers tag-coworking-toronto tag-spaces-of-coworker et_post_format-et-post-format-video et-has-post-format-content">#}
+{#                                    <a gfdgdf="" href="/lab/inside-devhub-coworking-space-developers/" title="A Look Inside Devhub – Toronto’s First Coworking Space for Developers" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                        <img src="{% static 'img/26897044032_e40d83b9cf_k-440x264.jpg' %}" alt="A Look Inside Devhub – Toronto’s First Coworking Space for Developers"><span class="et_pb_extra_overlay"></span>#}
+{#                                    </a>			<div class="post-content-box">#}
+{#                                    <div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/inside-devhub-coworking-space-developers/">A Look Inside Devhub – Toronto’s First Coworking Space for Developer...</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            by <a href="/lab/author/coworker/" title="Posts by Coworker" rel="author">Coworker</a> |#}
+{#                                            <span class="updated">Oct 23, 2017</span> |#}
+{#                                            <a rel="tag" href="/lab/category/spaces/" data-id="Spaces">Spaces</a>,#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                </article><article id="post-4446" class="carousel-item post-4446 post type-post status-publish format-standard has-post-thumbnail hentry category-work tag-coworking-skills tag-habits-for-success tag-remote-work tag-tips et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <a gfdgdf="" href="/lab/6-communication-habits-make-successful-remote-teams/" title="6 Awesome Communication Habits That Make Successful Remote Teams" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                        <img src="{% static 'img/woman-working-in-home-office-P4X888V-440x264.jpg' %}" alt="6 Awesome Communication Habits That Make Successful Remote Teams"><span class="et_pb_extra_overlay"></span>#}
+{#                                    </a>			<div class="post-content-box">#}
+{#                                    <div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/6-communication-habits-make-successful-remote-teams/">6 Awesome Communication Habits That Make Successful Remote Teams</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            by <a href="/lab/author/gloria-kopp/" title="Posts by Gloria Kopp" rel="author">Gloria Kopp</a> |#}
+{#                                            <span class="updated">Oct 19, 2017</span> |#}
+{#                                            <a rel="tag" href="/lab/category/work/" data-id="Work">Work</a>,#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                </article><article id="post-4435" class="carousel-item post-4435 post type-post status-publish format-standard has-post-thumbnail hentry category-spaces tag-coworking-fitness tag-coworking-gyms tag-gyms tag-spaces-of-coworker et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <a gfdgdf="" href="/lab/3-coworking-spaces-greatest-gyms/" title="3 Coworking Spaces with the Greatest Gyms" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                        <img src="{% static 'img/young-woman-bouldering-in-climbing-gym-P73ZDRT-440x264.jpg' %}" alt="3 Coworking Spaces with the Greatest Gyms"><span class="et_pb_extra_overlay"></span>#}
+{#                                    </a>			<div class="post-content-box">#}
+{#                                    <div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/3-coworking-spaces-greatest-gyms/">3 Coworking Spaces with the Greatest Gyms</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            by <a href="/lab/author/cameronchardukian/" title="Posts by Cameron Chardukian" rel="author">Cameron Chardukian</a> |#}
+{#                                            <span class="updated">Oct 18, 2017</span> |#}
+{#                                            <a rel="tag" href="/lab/category/spaces/" data-id="Spaces">Spaces</a>,#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                </article></div><div class="carousel-group et_pb_slide" style="min-height: 280px;"><article id="post-4424" class="carousel-item post-4424 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworker-stories tag-coworking-software tag-digital-nomad tag-expectation-management tag-faces-of-coworker et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <a gfdgdf="" href="/lab/wait-software-doesnt-make-toast/" title="Wait, this software doesn’t make toast?!" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                        <img src="{% static 'img/heap-of-toasted-bread-PM877F3-1-440x264.jpg' %}" alt="Wait, this software doesn’t make toast?!"><span class="et_pb_extra_overlay"></span>#}
+{#                                    </a>			<div class="post-content-box">#}
+{#                                    <div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/wait-software-doesnt-make-toast/">Wait, this software doesn’t make toast?!</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            by <a href="/lab/author/ryan-chatterton/" title="Posts by Ryan Chatterton" rel="author">Ryan Chatterton</a> |#}
+{#                                            <span class="updated">Oct 16, 2017</span> |#}
+{#                                            <a rel="tag" href="/lab/category/faces/" data-id="Faces">Faces</a>,#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                </article><article id="post-4409" class="carousel-item post-4409 post type-post status-publish format-standard has-post-thumbnail hentry category-spaces tag-cryptocurrency tag-hub-hoi-an tag-spaces-of-coworker tag-work-outside-the-box et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <a gfdgdf="" href="/lab/hub-hoi-an-welcomes-cryptocurrency/" title="Coworking Space Hub Hoi An Welcomes Cryptocurrency as a Form of Payment" class="post-thumbnail" style="max-height: 112.8px;">#}
+{#                                        <img src="{% static 'img/SarahKuhlemann-440x264.jpeg' %}" alt="Coworking Space Hub Hoi An Welcomes Cryptocurrency as a Form of Payment"><span class="et_pb_extra_overlay"></span>#}
+{#                                    </a>			<div class="post-content-box">#}
+{#                                    <div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/hub-hoi-an-welcomes-cryptocurrency/">Coworking Space Hub Hoi An Welcomes Cryptocurrency as a Form of Payment</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            by <a href="/lab/author/madison/" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> |#}
+{#                                            <span class="updated">Oct 13, 2017</span> |#}
+{#                                            <a rel="tag" href="/lab/category/spaces/" data-id="Spaces">Spaces</a>,#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                </article></div><div class="et-pb-slider-arrows"><a class="et-pb-arrow-prev" href="/lab/#" style="top: 81.5px;"><span>Previous</span></a><a class="et-pb-arrow-next" href="/lab/#" style="top: 81.5px;"><span>Next</span></a></div></div>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+                    </div>
+{#                    <div class=" et_pb_row et_pb_row_4">#}
+{##}
+{##}
+{#                        <div class="et_pb_column et_pb_column_1_3  et_pb_column_6">#}
+{##}
+{##}
+{#                            <div class="module post-module et_pb_extra_module blog_post_colum faces_latest_post et_pb_posts_4" style="border-top-color:#e71e64">#}
+{#                                <div class="module-head">#}
+{#                                    <a href="/lab/category/faces/"><h1 style="color:#5496d3">Faces</h1></a>#}
+{#                                    <span class="module-filter">Latest</span>#}
+{#                                </div>#}
+{#                                <div class="main-post">#}
+{#                                    <article id="post-4389" class="post-4389 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-coworking-journeys tag-digital-nomad tag-faces-of-coworker tag-work-outside-the-box tag-work-remote et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <div class="header">#}
+{#                                            <a gfdgdf="" href="/lab/digital-nomad-seeks-meaning-to-life/" title="Advertisement: Digital Nomad Seeks Meaning To Life. Will Work For Food." class="featured-image">#}
+{#                                                <img src="{% static 'img/IMG_9485-627x376.jpg' %}" alt="Advertisement: Digital Nomad Seeks Meaning To Life. Will Work For Food."><span class="et_pb_extra_overlay"></span>#}
+{#                                            </a>			</div>#}
+{#                                        <div class="post-content">#}
+{#                                            <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/digital-nomad-seeks-meaning-to-life/">Advertisement: Digital Nomad Seeks Meaning To Life. Will Work For Food.</a></h2>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/ryan-chatterton/" class="url fn" title="Posts by Ryan Chatterton" rel="author">Ryan Chatterton</a> | <span class="updated">Oct 10, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a></p>#}
+{#                                            </div>#}
+{#                                            <div class="excerpt entry-summary">#}
+{#                                                <p>Introduction – My Nomad Anniversary This is article 1 of 4 in a series about my findings...</p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </article>#}
+{#                                </div>#}
+{#                                <ul class="posts-list">#}
+{#                                    <li>#}
+{#                                        <article id="post-4332" class="title-thumb-hover post-4332 post type-post status-publish format-standard has-post-thumbnail hentry category-faces tag-behere tag-coworkingexperiences tag-femalefocused tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/meet-meesen-brown-behere-founder/" title="The Behere Founder’s Story – Meet Meesen Brown" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/IMG_6569-150x150.jpg' %}" alt="The Behere Founder’s Story – Meet Meesen Brown" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/meet-meesen-brown-behere-founder/" data-hover-color="#5496d3">The Behere Founder’s Story – Meet Meesen Brown</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/meesen-brown/" class="url fn" title="Posts by Meesen Brown" rel="author">Meesen Brown</a> | <span class="updated">Oct 5, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-3981" class="title-thumb-hover post-3981 post type-post status-publish format-standard has-post-thumbnail hentry category-faces category-happenings et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/guest-post/" title="How To Get Featured On The Coworker Lab" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/get-featured-150x150.png' %}" alt="How To Get Featured On The Coworker Lab" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/guest-post/" data-hover-color="#5496d3">How To Get Featured On The Coworker Lab</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Sep 10, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>, <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <article id="post-4062" class="title-thumb-hover post-4062 post type-post status-publish format-standard has-post-thumbnail hentry category-faces category-places category-spaces tag-facesofcoworker tag-female-focused-coworking tag-shecosystem tag-spacesofcoworker tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                            <a gfdgdf="" href="/lab/meet-shecosystem-founder-emily-rose/" title="Meet Emily Rose Antflick – Founder of Shecosystem" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                                <img src="{% static 'img/MG_0518-copy-150x150.jpg' %}" alt="Meet Emily Rose Antflick – Founder of Shecosystem" style="background-color:#5496d3">#}
+{#                                            </a>				<div class="post-content">#}
+{#                                            <h3 class="entry-title"><a href="/lab/meet-shecosystem-founder-emily-rose/" data-hover-color="#5496d3">Meet Emily Rose Antflick – Founder of Shecosystem</a></h3>#}
+{#                                            <div class="post-meta vcard">#}
+{#                                                <p>by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Aug 18, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>, <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </article>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{##}
+{#                            </div>#}
+{##}
+{#                        </div> <div class="et_pb_column et_pb_column_1_3  et_pb_column_7">#}
+{##}
+{##}
+{#                        <div class="module post-module et_pb_extra_module blog_post_colum places_latest_post et_pb_posts_5" style="border-top-color:#4fb9de">#}
+{#                            <div class="module-head">#}
+{#                                <a href="/lab/category/places/"><h1 style="color:#5496d3">Places</h1></a>#}
+{#                                <span class="module-filter">Latest</span>#}
+{#                            </div>#}
+{#                            <div class="main-post">#}
+{#                                <article id="post-4250" class="post-4250 post type-post status-publish format-standard has-post-thumbnail hentry category-places category-play category-spaces tag-coworkingcanada tag-coworkingtours tag-spacesofcoworker tag-workoutsidethebox et_post_format-et-post-format-video et-has-post-format-content">#}
+{#                                    <div class="header">#}
+{#                                        <div class="video-format">#}
+{#                                            <div class="fluid-width-video-wrapper" style="padding-top: 56.2963%;"><iframe src="ilDVjxa4pDc.html frameborder="0" gesture="media" allowfullscreen="" id="fitvid0" style=""></iframe></div>				<div class="video-overlay" style="background-image: url(/lab/wp-content/uploads/2017/09/Screen-Shot-2017-09-25-at-1.42.17-PM.png);">#}
+{#                                            <div class="video-overlay-hover">#}
+{#                                                <a href="/lab/#" class="video-play-button"></a>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="post-content">#}
+{#                                        <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/coworker-interview-cofounders-workhaus/">Coworker Exclusive Interview with the Co-Founders of Workhaus</a></h2>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Sep 25, 2017</span> | <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a>, <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                        <div class="excerpt entry-summary">#}
+{#                                            <p>Workhaus is an amazing collection of coworking spaces in Toronto, Canada, offering four unique...</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </article>#}
+{#                            </div>#}
+{#                            <ul class="posts-list">#}
+{#                                <li>#}
+{#                                    <article id="post-4264" class="title-thumb-hover post-4264 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings category-places category-spaces tag-coworkaholic tag-coworking-chicago tag-coworking-news tag-second-city-chicago tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/second-city-opens-doors-coworking/" title="Second City Chicago Opens its Doors to Coworking" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/Copy-of-TimothyMSchmidt-2267-150x150.jpg' %}" alt="Second City Chicago Opens its Doors to Coworking" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/second-city-opens-doors-coworking/" data-hover-color="#5496d3">Second City Chicago Opens its Doors to Coworking</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Sep 18, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>, <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-3963" class="title-thumb-hover post-3963 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings category-places tag-coworkingnews tag-coworkingrecord tag-kccoworking tag-kccoworkingday et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/kc-alliance-setting-world-coworking-record/" title="Kansas City Coworking Alliance Aims to Set a World Coworking Record" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/KC-Coworking-Day-150x150.png' %}" alt="Kansas City Coworking Alliance Aims to Set a World Coworking Record" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/kc-alliance-setting-world-coworking-record/" data-hover-color="#5496d3">Kansas City Coworking Alliance Aims to Set a World Coworking Record</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Aug 7, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>, <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-3921" class="title-thumb-hover post-3921 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings category-places category-play tag-coworking-events tag-cuasia tag-workoutsidethebox et_post_format-et-post-format-video et-has-post-format-content">#}
+{#                                        <a gfdgdf="" href="/lab/recap-cu-asia-2017/" title="Coworker Exclusive: A Recap of CU Asia 2017 in Chiang Mai" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/Imag1-150x150.jpg' %}" alt="Coworker Exclusive: A Recap of CU Asia 2017 in Chiang Mai" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/recap-cu-asia-2017/" data-hover-color="#5496d3">Coworker Exclusive: A Recap of CU Asia 2017 in Chiang Mai</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Jul 16, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>, <a href="/lab/category/places/" rel="tag" data-id="Places">Places</a>, <a href="/lab/category/play/" rel="tag" data-id="Play">Play</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                            </ul>#}
+{##}
+{#                        </div>#}
+{##}
+{#                    </div> <div class="et_pb_column et_pb_column_1_3  et_pb_column_8">#}
+{##}
+{##}
+{#                        <div class="module post-module et_pb_extra_module blog_post_colum happenings_latest_post et_pb_posts_6" style="border-top-color:#9c27b0">#}
+{#                            <div class="module-head">#}
+{#                                <a href="/lab/category/happenings/"><h1 style="color:#5496d3">Happenings</h1></a>#}
+{#                                <span class="module-filter">Latest</span>#}
+{#                            </div>#}
+{#                            <div class="main-post">#}
+{#                                <article id="post-4313" class="post-4313 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings category-spaces tag-coworking-unconference tag-coworkingbansko tag-coworkingevents tag-travelblogging et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                    <div class="header">#}
+{#                                        <a gfdgdf="" href="/lab/coworking-bansko-hosts-bloggers-on-top-2017/" title="Coworking Bansko Hosts Bloggers on Top 2017" class="featured-image">#}
+{#                                            <img src="{% static 'img/22050583_10155619396470782_1936018673_o-627x376.jpg' %}" alt="Coworking Bansko Hosts Bloggers on Top 2017"><span class="et_pb_extra_overlay"></span>#}
+{#                                        </a>			</div>#}
+{#                                    <div class="post-content">#}
+{#                                        <h2 class="entry-title"><a class="et-accent-color" style="color:#5496d3;" href="/lab/coworking-bansko-hosts-bloggers-on-top-2017/">Coworking Bansko Hosts Bloggers on Top 2017</a></h2>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Sep 27, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>, <a href="/lab/category/spaces/" rel="tag" data-id="Spaces">Spaces</a></p>#}
+{#                                        </div>#}
+{#                                        <div class="excerpt entry-summary">#}
+{#                                            <p>From October 13-15, 2017 Coworking Bansko will be hosting the much-anticipated conference,...</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </article>#}
+{#                            </div>#}
+{#                            <ul class="posts-list">#}
+{#                                <li>#}
+{#                                    <article id="post-4133" class="title-thumb-hover post-4133 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings tag-co-create tag-ikea tag-startup tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/ten-ikea-startups-cocreate-future/" title="Ten Startups will Cowork to Co-Create the Future with IKEA" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/Ikea-150x150.jpg' %}" alt="Ten Startups will Cowork to Co-Create the Future with IKEA" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/ten-ikea-startups-cocreate-future/" data-hover-color="#5496d3">Ten Startups will Cowork to Co-Create the Future with IKEA</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Sep 6, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-4135" class="title-thumb-hover post-4135 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings tag-coworkingcommunity tag-coworkingcompassionproject tag-workoutsidethebox et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/coworking-compassion-project/" title="Everything You Need To Know About The Coworking Compassion Project" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/IMG_5932-150x150.png' %}" alt="Everything You Need To Know About The Coworking Compassion Project" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/coworking-compassion-project/" data-hover-color="#5496d3">Everything You Need To Know About The Coworking Compassion Project</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Sep 4, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <article id="post-4036" class="title-thumb-hover post-4036 post type-post status-publish format-standard has-post-thumbnail hentry category-happenings tag-coworkingconferences tag-coworkingdublin tag-coworkingeurope et-has-post-format-content et_post_format-et-post-format-standard">#}
+{#                                        <a gfdgdf="" href="/lab/coworking-europe-conference-2017/" title="Dublin Hosts the 2017 Coworking Europe Conference" class="post-thumbnail" style="background-color:#5496d3">#}
+{#                                            <img src="{% static 'img/Screen-Shot-2017-08-16-at-10.12.06-PM-150x150.png' %}" alt="Dublin Hosts the 2017 Coworking Europe Conference" style="background-color:#5496d3">#}
+{#                                        </a>				<div class="post-content">#}
+{#                                        <h3 class="entry-title"><a href="/lab/coworking-europe-conference-2017/" data-hover-color="#5496d3">Dublin Hosts the 2017 Coworking Europe Conference</a></h3>#}
+{#                                        <div class="post-meta vcard">#}
+{#                                            <p>by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Aug 16, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a></p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    </article>#}
+{#                                </li>#}
+{#                            </ul>#}
+{##}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                    </div>#}
+
+                    </div>
+                </div>
+
+{#                <div class="et_pb_extra_column_sidebar">#}
+{#                    <div id="search-2" class="et_pb_widget widget_search"><h4 class="widgettitle">=</h4><form role="search" method="get" class="search-form" action="/lab/">#}
+{#                        <label>#}
+{#                            <span class="screen-reader-text">Search for:</span>#}
+{#                            <input type="search" class="search-field" placeholder="Search …" value="" name="s">#}
+{#                        </label>#}
+{#                        <input type="submit" class="search-submit" value="Search">#}
+{#                    </form></div> 		<div id="et-recent-posts-2" class="et_pb_widget widget_et_recent_entries">		<h4 class="widgettitle">Most Popular Posts</h4>		<ul class="widget_list">#}
+{#                    <li>#}
+{#                        <a gfdgdf="" href="/lab/top-5-questions-working-remotely-answered/" title="Your Top 5 Questions About Working Remotely Answered" class="widget_list_thumbnail">#}
+{#                            <img src="{% static 'img/man-traveler-with-hat-and-backpack-enjoying-the-P7MY3SB-150x150.jpg' %}" alt="Your Top 5 Questions About Working Remotely Answered">#}
+{#                        </a>								<div class="post_info">#}
+{#                        <a href="/lab/top-5-questions-working-remotely-answered/" class="title">Your Top 5 Questions About Working Remotely Answered</a>#}
+{#                        <div class="post-meta">#}
+{#                            by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Nov 3, 2017</span> | <a href="/lab/category/fun/" rel="tag" data-id="Fun">Fun</a>, <a href="/lab/category/work/" rel="tag" data-id="Work">Work</a>					</div>#}
+{#                    </div>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <a gfdgdf="" href="/lab/meet-the-founders-of-hejhej-mats/" title="Meet the Founders of hejhej-mats" class="widget_list_thumbnail">#}
+{#                            <img src="{% static 'img/Anna-Souvignier-Sophie-Zepnik-Photo-Credits-Elina-Nomad-1-150x150.jpg' %}" alt="Meet the Founders of hejhej-mats">#}
+{#                        </a>								<div class="post_info">#}
+{#                        <a href="/lab/meet-the-founders-of-hejhej-mats/" class="title">Meet the Founders of hejhej-mats</a>#}
+{#                        <div class="post-meta">#}
+{#                            by <a href="/lab/author/madison/" class="url fn" title="Posts by Madison Maidment" rel="author">Madison Maidment</a> | <span class="updated">Nov 2, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>					</div>#}
+{#                    </div>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <a gfdgdf="" href="/lab/get-to-know-rafael-tudela-hernandez/" title="Get to Know Rafael Tudela Hernandez" class="widget_list_thumbnail">#}
+{#                            <img src="{% static 'img/DSC00239-150x150.jpg' %}" alt="Get to Know Rafael Tudela Hernandez">#}
+{#                        </a>								<div class="post_info">#}
+{#                        <a href="/lab/get-to-know-rafael-tudela-hernandez/" class="title">Get to Know Rafael Tudela Hernandez</a>#}
+{#                        <div class="post-meta">#}
+{#                            by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 27, 2017</span> | <a href="/lab/category/faces/" rel="tag" data-id="Faces">Faces</a>					</div>#}
+{#                    </div>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <a gfdgdf="" href="/lab/nest-coworking-space-grand-opening/" title="Celebrating the Grand Opening of NEST Co-Working Space" class="widget_list_thumbnail">#}
+{#                            <img src="{% static 'img/NEST-@-TRYP-hotel-150x150.jpg' %}" alt="Celebrating the Grand Opening of NEST Co-Working Space">#}
+{#                        </a>								<div class="post_info">#}
+{#                        <a href="/lab/nest-coworking-space-grand-opening/" class="title">Celebrating the Grand Opening of NEST Co-Working Space</a>#}
+{#                        <div class="post-meta">#}
+{#                            by <a href="/lab/author/coworker/" class="url fn" title="Posts by Coworker" rel="author">Coworker</a> | <span class="updated">Oct 25, 2017</span> | <a href="/lab/category/happenings/" rel="tag" data-id="Happenings">Happenings</a>					</div>#}
+{#                    </div>#}
+{#                    </li>#}
+{#                </ul>#}
+{#                </div> #}
+{#                <div id="text-2" class="et_pb_widget widget_text"><h4 class="widgettitle">TheBox Giveaway</h4>			<div class="textwidget"><div class="hustle_main_outer">#}
+{#                    <div class="hustle_image"><img src="{% static 'img/theboxgiveaway_img.png' %}" alt="hustle_con_img"><div class="icon_div"></div></div>#}
+{#                    <div class="hustle_content"><h3>Coworking Europe Ticket Discount</h3><span>Coworking Europe Conference</span><p>Use this exclusive promo code to recieve 5% off your ticket to the 8th annual Coworking Europe Conference, held in Dublin, Ireland from November 8-10, 2017!</p><div class="right_enter_btn"><a href="https://coworkingeurope.net/book-now/" style="color:#ffffff !important;">coworkerCWE2017</a></div></div>#}
+{#                </div>#}
+{#                </div>#}
+{#                </div> 		<div id="et-recent-videos-2" class="et_pb_widget widget_et_recent_videos">		<h4 class="widgettitle">Recent Videos</h4>		<div class="widget_video_wrapper" style="height: 152.438px;"><div class="widget_video fadeIn"><div class="fluid-width-video-wrapper" style="padding-top: 56.2963%;"><iframe src="EiSK_jp9wLc.html frameborder="0" gesture="media" allowfullscreen="" style="width: 271px; height: 152.438px;" id="fitvid1"></iframe></div>							<div class="video-overlay" style="background-image: url(/lab/wp-content/uploads/2017/10/26897044032_e40d83b9cf_k-1280x768.jpg);">#}
+{#                    <div class="video-overlay-hover">#}
+{#                        <a href="/lab/#" class="video-play-button"></a>#}
+{#                    </div>#}
+{#                </div></div>#}
+{#                    <img src="{% static 'img/pagination-loading.gif' %}" alt="Loading..." class="widget_video_loading">#}
+{#                </div>#}
+{#                    <div class="widget_content">#}
+{#                        <script type="text/template" class="widget-video-item widget-video-item-4452">#}
+{#                            <iframe width="1080" height="608" src="https://www.youtube.com/embed/EiSK_jp9wLc?feature=oembed" frameborder="0" gesture="media" allowfullscreen></iframe>							<div class="video-overlay" style="background-image: url(/lab/wp-content/uploads/2017/10/26897044032_e40d83b9cf_k-1280x768.jpg);">#}
+{#                                <div class="video-overlay-hover">#}
+{#                                    <a href="#" class="video-play-button"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </script>#}
+{#                        <script type="text/template" class="widget-video-item widget-video-item-4374">#}
+{#                            <iframe width="1080" height="608" src="https://www.youtube.com/embed/flFD42n_3wc?feature=oembed" frameborder="0" gesture="media" allowfullscreen></iframe>							<div class="video-overlay" style="background-image: url(/lab/wp-content/uploads/2017/09/Screen-Shot-2017-09-27-at-2.03.42-PM-1280x751.png);">#}
+{#                                <div class="video-overlay-hover">#}
+{#                                    <a href="#" class="video-play-button"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </script>#}
+{#                        <script type="text/template" class="widget-video-item widget-video-item-empty">#}
+{#                            <h4 class="no-video-title">No Video Found</h4>#}
+{#                        </script>#}
+{#                    </div>#}
+{#                    <ul class="widget_list">#}
+{#                        <li>#}
+{#                            <a href="/lab/inside-devhub-coworking-space-developers/" data-video-id="4452" class="title active">A Look Inside Devhub – Toronto’s First Coworking Space for Developers</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="/lab/interview-with-district-28/" data-video-id="4374" class="title">Coworker Exclusive Interview with District 28</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div> 		<div id="polls-widget-3" class="et_pb_widget widget_polls-widget"><h4 class="widgettitle">Polls</h4><div id="polls-3" class="wp-polls">#}
+{#                    <form id="polls_form_3" class="wp-polls-form" action="/lab/index.php" method="post">#}
+{#                        <p style="display: none;"><input type="hidden" id="poll_3_nonce" name="wp-polls-nonce" value="b52fc7fba4"></p>#}
+{#                        <p style="display: none;"><input type="hidden" name="poll_id" value="3"></p>#}
+{#                        <p style="text-align: center;"><strong>What is the most important feature in a coworking space?</strong></p><div id="polls-3-ans" class="wp-polls-ans"><ul class="wp-polls-ul">#}
+{#                        <li><input type="radio" id="poll-answer-13" name="poll_3" value="13"> <label for="poll-answer-13">Diverse Work Areas</label></li>#}
+{#                        <li><input type="radio" id="poll-answer-14" name="poll_3" value="14"> <label for="poll-answer-14">Ergonomic Seating</label></li>#}
+{#                        <li><input type="radio" id="poll-answer-15" name="poll_3" value="15"> <label for="poll-answer-15">Private Rooms For Phone Calls</label></li>#}
+{#                        <li><input type="radio" id="poll-answer-16" name="poll_3" value="16"> <label for="poll-answer-16">Free Coffee</label></li>#}
+{#                    </ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(3);"></p><p style="text-align: center;"><a href="/lab/#ViewPollResults" onclick="poll_result(3); return false;" title="View Results Of This Poll">View Results</a></p></div>#}
+{#                    </form>#}
+{#                </div>#}
+{#                    <div id="polls-3-loading" class="wp-polls-loading"><img src="{% static 'img/loading.gif' %}" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image">&nbsp;Loading ...</div>#}
+{#                    <ul><li><a href="/lab/">Polls Archive</a></li></ul></div> <div id="text-7" class="et_pb_widget widget_text"><h4 class="widgettitle">#WorkOutsideTheBox</h4>			<div class="textwidget"><script type="text/javascript" src="{% static 'js/front-subscribers.js' %}"></script>#}
+{#                    <script type="text/javascript">#}
+{#                      /* <![CDATA[ */#}
+{#                      var wysijaAJAX = {"action":"wysija_ajax","controller":"subscribers","ajaxurl":"/lab/wp-admin/admin-ajax.php","loadingTrans":"Loading..."};#}
+{#                      /* ]]> */#}
+{#                    </script><script type="text/javascript" src="{% static 'js/front-subscribers.js' %}"></script>#}
+{##}
+{##}
+{#                    <div class="widget_wysija_cont html_wysija"><div id="msg-form-wysija-html5963153996f44-2" class="wysija-msg ajax"></div><form id="form-wysija-html5963153996f44-2" method="post" action="/lab/#wysija" class="widget_wysija html_wysija">#}
+{#                        <p class="signup_text">Sign up for our weekly newsletter</p>#}
+{##}
+{#                        <div class="wysija-paragraph">#}
+{#                            <input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]] email-field" title="Email" placeholder="Email" value="">#}
+{#                            <div class="error-message" style="display:none">Field is required.</div>#}
+{#                            <span class="abs-req"><input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value=""></span>#}
+{#                        </div>#}
+{#                        <div class="wysija-paragraph">#}
+{##}
+{##}
+{#                            <input type="text" name="wysija[user][firstname]" class="wysija-input for-form-class" title="Company (Optional)" placeholder="Company (Optional)" value="">#}
+{##}
+{##}
+{##}
+{#                            <span class="abs-req">#}
+{#        <input type="text" name="wysija[user][abs][firstname]" class="wysija-input validated[abs][firstname] " value="">#}
+{#    </span>#}
+{##}
+{#                        </div>#}
+{#                        <input class="wysija-submit wysija-submit-field form-submit-wbc" type="submit" value="Subscribe">#}
+{#                        <p class="content">Just good stuff, once a week. Don't worry we hate spam too</p>#}
+{##}
+{##}
+{#                        <input type="hidden" name="form_id" value="2">#}
+{#                        <input type="hidden" name="action" value="save">#}
+{#                        <input type="hidden" name="controller" value="subscribers">#}
+{#                        <input type="hidden" value="1" name="wysija-page">#}
+{##}
+{##}
+{#                        <input type="hidden" name="wysija[user_list][list_ids]" value="1">#}
+{##}
+{#                    </form></div>#}
+{#                </div>#}
+{#                </div> <div id="text-9" class="et_pb_widget widget_text"><h4 class="widgettitle">What We’re Listening To “Mid Day Hustle”</h4>			<div class="textwidget"><iframe src="embed.html width="100%" height="307" frameborder="0" allowtransparency="true" class="spotify_frame"></iframe></div>#}
+{#                </div> <div id="text-8" class="et_pb_widget widget_text"><h4 class="widgettitle">Stay Connected</h4>			<div class="textwidget"><div class="social-feed-main">#}
+{#                    <div class="social_icon_widget"><span class="social_inner twitter-icon" data-related="twitter"></span><span class="social_inner instagram-icon active-icon" data-related="instagram"></span><span class="social_inner pinterest-icon" data-related="pinterest"></span></div>#}
+{#                    <div class="instagram-widget social_widget_inner" style="display: block;" id="instagram">#}
+{#                        <div class="user-name">@Coworker</div>#}
+{#                        The access_token provided is invalid.</div>#}
+{#                    <div class="twitter-widget social_widget_inner" id="twitter" style="display: none;">#}
+{#                        <div class="user-name">@Coworkerglobal</div><br>#}
+{#                        <b>Warning</b>:  Invalid argument supplied for foreach() in <b>/home/coworker/public_html/lab/wp-content/plugins/feed-them-social/feeds/twitter/twitter-feed.php</b> on line <b>439</b><br>#}
+{#                        <div class="twitter-followers-fts-singular"><a href="https://twitter.com/@coworkerglobal" target="_blank">Followers:</a> </div>                <div id="twitter-feed-@coworkerglobal" class="feed_dynamic_classDlALmfeftN_twitter fts-twitter-div fts-twitter-scrollable" style="height:180px">#}
+{##}
+{#                        <br>#}
+{#                        <b>Warning</b>:  Invalid argument supplied for foreach() in <b>/home/coworker/public_html/lab/wp-content/plugins/feed-them-social/feeds/twitter/twitter-feed.php</b> on line <b>536</b><br>#}
+{#                        <a class="fts-powered-by-text" href="https://www.slickremix.com/" target="_blank">Powered by Feed Them Social</a></div><script>Query.fn.isolatedScrollTwitter = function () {this.bind('mousewheel DOMMouseScroll', function (e) {var delta = e.wheelDelta || (e.originalEvent && e.originalEvent.wheelDelta) || -e.detail,bottomOverflow = this.scrollTop + jQuery(this).outerHeight() - this.scrollHeight >= 0,topOverflow = this.scrollTop <= 0;if ((delta < 0 && bottomOverflow) || (delta > 0 && topOverflow)){e.preventDefault();}});return this;};jQuery('.fts-twitter-scrollable').isolatedScrollTwitter();</script><div class="fts-clear"></div></div>#}
+{#                    <div class="pinterest-widget social_widget_inner" id="pinterest" style="display: none;">#}
+{#                        <div class="user-name">Coworkerglobal</div><div class="fts-pinterest-wrapper"><a class="fts-pin-board-wrap" href="https://www.pinterest.com/coworkerglobal/coworking-spaces-in-boston/" target="_blank"><div class="fts-pin-board-img-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/88/6b/af/886baf265bc02192f2282c2ad44ae1cd.jpg)"><span class="hoverMask"></span></div><div class="fts-pin-board-thumbs-wrap"><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/25/3f/01/253f013a236ec09fadc73884ccd545cc.jpg);"><span class="hoverMask"></span></div><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/2d/05/f6/2d05f6a18ae789f125e98820fc2aacb6.jpg);"><span class="hoverMask"></span></div></div><h3 class="fts-pin-board-board_title"><span>Coworking spaces in Boston</span></h3></a><a class="fts-pin-board-wrap" href="https://www.pinterest.com/coworkerglobal/coworking-in-texas/" target="_blank"><div class="fts-pin-board-img-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/16/6a/80/166a80e753d73ca8733d325f785d5475.png)"><span class="hoverMask"></span></div><div class="fts-pin-board-thumbs-wrap"><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/17/aa/1d/17aa1ded5b984b2525ebe8ce407a02fb.png);"><span class="hoverMask"></span></div><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/de/f2/54/def2549a944ab6497a740e523edce3a3.png);"><span class="hoverMask"></span></div></div><h3 class="fts-pin-board-board_title"><span>Coworking in Texas</span></h3></a><a class="fts-pin-board-wrap" href="https://www.pinterest.com/coworkerglobal/coworking-spaces-in-san-francisco/" target="_blank"><div class="fts-pin-board-img-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/02/c3/46/02c3461a347a129e11c5bf035438a184.jpg)"><span class="hoverMask"></span></div><div class="fts-pin-board-thumbs-wrap"><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/d9/24/94/d92494a3e122092e5f051c9e1dc6cd93.png);"><span class="hoverMask"></span></div><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/ca/c4/da/cac4da9e063cc83c82ef677f4a02b408.png);"><span class="hoverMask"></span></div></div><h3 class="fts-pin-board-board_title"><span>Coworking spaces in San Francisco</span></h3></a><a class="fts-pin-board-wrap" href="https://www.pinterest.com/coworkerglobal/coworking-spaces-in-san-diego/" target="_blank"><div class="fts-pin-board-img-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/2e/4c/18/2e4c18a65a952a6191ac72f162ca1bff.jpg)"><span class="hoverMask"></span></div><div class="fts-pin-board-thumbs-wrap"><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/ff/01/3d/ff013d0b13878b2561bf1980b3080d7b.jpg);"><span class="hoverMask"></span></div><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/4c/b9/bf/4cb9bf5a931de9eeefeb4369e8f69132.jpg);"><span class="hoverMask"></span></div></div><h3 class="fts-pin-board-board_title"><span>Coworking spaces in San Diego</span></h3></a><a class="fts-pin-board-wrap" href="https://www.pinterest.com/coworkerglobal/coworking-spaces-in-barcelona/" target="_blank"><div class="fts-pin-board-img-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/10/0b/06/100b06a9467ac9eb0d6790fbe048e230.jpg)"><span class="hoverMask"></span></div><div class="fts-pin-board-thumbs-wrap"><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/37/dd/09/37dd09a0975fdc80d35a1561630c3503.png);"><span class="hoverMask"></span></div><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/55/30/34/55303432afd2a7dd27218730c0f513ec.png);"><span class="hoverMask"></span></div></div><h3 class="fts-pin-board-board_title"><span>Coworking spaces in Barcelona</span></h3></a><a class="fts-pin-board-wrap" href="https://www.pinterest.com/coworkerglobal/coworking-spaces-in-lisbon/" target="_blank"><div class="fts-pin-board-img-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/13/eb/a8/13eba876722edf97a4e6e10a7607e3f9.jpg)"><span class="hoverMask"></span></div><div class="fts-pin-board-thumbs-wrap"><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/f3/c5/83/f3c5838608e36b2fb4afec4fc4f8345a.jpg);"><span class="hoverMask"></span></div><div class="pinterest-single-thumb-wrap" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/13/eb/a8/13eba876722edf97a4e6e10a7607e3f9.jpg);"><span class="hoverMask"></span></div></div><h3 class="fts-pin-board-board_title"><span>Coworking spaces in Lisbon</span></h3></a><div class="fts-clear"></div></div></div></div></div></div>#}
+{#                </div> </div>#}
+
+        </div>
+    </div>
+{% endblock %}
