@@ -70,7 +70,7 @@
                                         {% for article in articles %}
                                             <article id="post-4482" class="carousel-item post-4482 post type-post status-publish format-standard has-post-thumbnail hentry category-fun category-work tag-coworking-questions tag-remote-lifestyle tag-remote-work et-has-post-format-content et_post_format-et-post-format-standard">
                                                 <a gfdgdf="" href="{{ article.get_absolute_url }}" title="{{ article.title }}" class="post-thumbnail" style="max-height: 112.8px;">
-                                                    <img src="{% static 'img/man-traveler-with-hat-and-backpack-enjoying-the-P7MY3SB-440x264.jpg' %}" alt="Your Top 5 Questions About Working Remotely Answered"><span class="et_pb_extra_overlay"></span>
+                                                    <img src="{{ article.get_image_url }}" alt="{{ article.title }}"><span class="et_pb_extra_overlay"></span>
                                                 </a>
                                                 <div class="post-content-box">
                                                     <div class="post-content">

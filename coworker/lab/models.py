@@ -514,6 +514,10 @@ class ImageEntry(models.Model):
     class Meta:
         abstract = True
 
+    def get_image_url(self):
+        if self.image:
+            return self.image.url
+
 
 class FeaturedEntry(models.Model):
     """
