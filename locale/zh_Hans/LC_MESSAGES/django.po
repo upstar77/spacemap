@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#: coworker/templates/place/city.html:86
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-04 22:37+0000\n"
+"POT-Creation-Date: 2017-11-06 23:09+0000\n"
 "PO-Revision-Date: 2017-11-05 11:29+0000\n"
 "Last-Translator: b'  <stupak.alexn@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: config/settings/base.py:148 coworker/cities/models.py:7
+#: config/settings/base.py:159 coworker/cities/models.py:7
 msgid "China"
 msgstr "中国"
 
-#: config/settings/base.py:149
+#: config/settings/base.py:160
 msgid "English"
 msgstr "英语"
 
@@ -31,15 +32,15 @@ msgid "Province"
 msgstr "行省"
 
 #: coworker/cities/models.py:9 coworker/templates/elements/new_form.html:60
-#: coworker/templates/elements/new_form.html:139
-#: coworker/templates/elements/new_form.html:207
+#: coworker/templates/elements/new_form.html:123
+#: coworker/templates/elements/new_form.html:191
 #: coworker/templates/place/list_space.html:44
 msgid "City"
 msgstr "城市"
 
 #: coworker/cities/models.py:10 coworker/templates/elements/new_form.html:50
-#: coworker/templates/elements/new_form.html:129
-#: coworker/templates/elements/new_form.html:197
+#: coworker/templates/elements/new_form.html:113
+#: coworker/templates/elements/new_form.html:181
 msgid "Country"
 msgstr "国家"
 
@@ -77,7 +78,7 @@ msgstr "经度"
 msgid "Chinese Pinyin"
 msgstr "中文拼音"
 
-#: coworker/cities/models.py:28
+#: coworker/cities/models.py:28 coworker/lab/models.py:137
 msgid "status"
 msgstr "身份"
 
@@ -91,6 +92,463 @@ msgstr "姓名"
 msgctxt "Shipping method country field"
 msgid "price"
 msgstr "价格"
+
+#: coworker/lab/admin/category.py:35
+msgid "tree path"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:34
+#: coworker/templates/admin/lab1/widgets/quickpost.html:17
+#, fuzzy
+#| msgid "Contact"
+msgid "Content"
+msgstr "联系"
+
+#: coworker/lab/admin/entry.py:36
+#, fuzzy
+#| msgid "Duration"
+msgid "Illustration"
+msgstr "持续时间"
+
+#: coworker/lab/admin/entry.py:39
+#, fuzzy
+#| msgid "Communication"
+msgid "Publication"
+msgstr "交流"
+
+#: coworker/lab/admin/entry.py:43
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:6
+#: coworker/templates/zinnia/_entry_detail_base.html:136
+msgid "Discussions"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:47
+#, fuzzy
+#| msgid "Private"
+msgid "Privacy"
+msgstr "私人"
+
+#: coworker/lab/admin/entry.py:50
+msgid "Templates"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:53
+#, fuzzy
+#| msgid "My data"
+msgid "Metadatas"
+msgstr "我的资料"
+
+#: coworker/lab/admin/entry.py:82
+#, python-format
+msgid "%(title)s (%(word_count)i words)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:89
+#, python-format
+msgid "%(title)s (%(reactions)i reaction)"
+msgid_plural "%(title)s (%(reactions)i reactions)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/lab/admin/entry.py:94 coworker/lab/models.py:53
+#: coworker/lab/models.py:129
+msgid "title"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:110
+msgid "author(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:124
+msgid "category(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:137
+msgid "tag(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:151
+msgid "site(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:163
+msgid "short url"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:171
+msgid "is visible"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:249
+msgid "The selected entries now belong to you."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:250
+msgid "Set the entries to the user"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:260
+msgid "The selected entries are now marked as published."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:261
+msgid "Set entries selected as published"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:270
+msgid "The selected entries are now marked as hidden."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:271
+msgid "Set entries selected as hidden"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:279
+msgid "Comments are now closed for selected entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:280
+msgid "Close the comments for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:289
+msgid "Pingbacks are now closed for selected entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:291
+msgid "Close the pingbacks for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:299
+msgid "Trackbacks are now closed for selected entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:301
+msgid "Close the trackbacks for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:310
+msgid "The selected entries are now set at the current date."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:312
+msgid "Put the selected entries on top at the current date"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:320
+msgid "Selected entries are now marked as featured."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:321
+msgid "Mark selected entries as featured"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:329
+msgid "Selected entries are no longer marked as featured."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:331
+msgid "Unmark selected entries as featured"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:352
+#, python-format
+msgid "%(directory)s directory succesfully pinged %(success)d entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:356
+msgid "Ping Directories for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/filters.py:29
+#, python-format
+msgid "%(item)s (%(count)i entry)"
+msgid_plural "%(item)s (%(count)i entries)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/lab/admin/filters.py:61
+msgid "published categories"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:21
+#, fuzzy
+#| msgid "Pet cat"
+msgid "Parent category"
+msgstr "宠物猫"
+
+#: coworker/lab/admin/forms.py:22
+msgid "No parent category"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:40
+msgid "A category cannot be parent of itself."
+msgstr ""
+
+#: coworker/lab/admin/forms.py:57 coworker/templates/zinnia/base.html:39
+#: coworker/templates/zinnia/category_list.html:6
+msgid "Categories"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:59 coworker/lab/models.py:106
+#: coworker/lab/models.py:556
+msgid "categories"
+msgstr ""
+
+#: coworker/lab/apps.py:12
+msgid "Weblog"
+msgstr ""
+
+#: coworker/lab/models.py:56 coworker/lab/models.py:132
+msgid "slug"
+msgstr ""
+
+#: coworker/lab/models.py:57
+msgid "Used to build the category's URL."
+msgstr ""
+
+#: coworker/lab/models.py:60
+#, fuzzy
+#| msgid "Description"
+msgid "description"
+msgstr "描述"
+
+#: coworker/lab/models.py:67
+msgid "parent category"
+msgstr ""
+
+#: coworker/lab/models.py:105
+msgid "category"
+msgstr ""
+
+#: coworker/lab/models.py:124
+msgid "draft"
+msgstr ""
+
+#: coworker/lab/models.py:125
+#, fuzzy
+#| msgid "Forbidden"
+msgid "hidden"
+msgstr "被禁止的"
+
+#: coworker/lab/models.py:126
+msgid "published"
+msgstr ""
+
+#: coworker/lab/models.py:134 coworker/lab/models.py:143
+msgid "Used to build the entry's URL."
+msgstr ""
+
+#: coworker/lab/models.py:141
+msgid "publication date"
+msgstr ""
+
+#: coworker/lab/models.py:146
+msgid "start publication"
+msgstr ""
+
+#: coworker/lab/models.py:148
+#, fuzzy
+#| msgid "Shared office location"
+msgid "Start date of publication."
+msgstr "共享办公地点"
+
+#: coworker/lab/models.py:151
+#, fuzzy
+#| msgid "Re-send Verification"
+msgid "end publication"
+msgstr "重新发送验证码"
+
+#: coworker/lab/models.py:153
+msgid "End date of publication."
+msgstr ""
+
+#: coworker/lab/models.py:158
+#, fuzzy
+#| msgid "Website"
+msgid "sites"
+msgstr "网站"
+
+#: coworker/lab/models.py:159
+msgid "Sites where the entry will be published."
+msgstr ""
+
+#: coworker/lab/models.py:162
+msgid "creation date"
+msgstr ""
+
+#: coworker/lab/models.py:166
+#, fuzzy
+#| msgid "To update"
+msgid "last update"
+msgstr "更新"
+
+#: coworker/lab/models.py:274
+#, fuzzy
+#| msgid "Country"
+msgid "entry"
+msgstr "国家"
+
+#: coworker/lab/models.py:275
+msgid "entries"
+msgstr ""
+
+#: coworker/lab/models.py:289
+msgid "content"
+msgstr ""
+
+#: coworker/lab/models.py:325
+#, fuzzy
+#| msgid "1 comments"
+msgid "comments enabled"
+msgstr "1 评论"
+
+#: coworker/lab/models.py:326
+msgid "Allows comments if checked."
+msgstr ""
+
+#: coworker/lab/models.py:328
+msgid "pingbacks enabled"
+msgstr ""
+
+#: coworker/lab/models.py:329
+msgid "Allows pingbacks if checked."
+msgstr ""
+
+#: coworker/lab/models.py:331
+msgid "trackbacks enabled"
+msgstr ""
+
+#: coworker/lab/models.py:332
+msgid "Allows trackbacks if checked."
+msgstr ""
+
+#: coworker/lab/models.py:335
+#, fuzzy
+#| msgid "My comment"
+msgid "comment count"
+msgstr "我的评论"
+
+#: coworker/lab/models.py:337
+#, fuzzy
+#| msgid "Existing accounts?"
+msgid "pingback count"
+msgstr "已有账号？"
+
+#: coworker/lab/models.py:339
+msgid "trackback count"
+msgstr ""
+
+#: coworker/lab/models.py:423
+msgid "related entries"
+msgstr ""
+
+#: coworker/lab/models.py:441
+msgid "lead"
+msgstr ""
+
+#: coworker/lab/models.py:442
+msgid "Lead paragraph"
+msgstr ""
+
+#: coworker/lab/models.py:460
+msgid "excerpt"
+msgstr ""
+
+#: coworker/lab/models.py:461
+msgid "Used for SEO purposes."
+msgstr ""
+
+#: coworker/lab/models.py:506
+#, fuzzy
+#| msgid "User image"
+msgid "image"
+msgstr "用户形象"
+
+#: coworker/lab/models.py:508
+msgid "Used for illustration."
+msgstr ""
+
+#: coworker/lab/models.py:511
+#, fuzzy
+#| msgid "Location"
+msgid "caption"
+msgstr "地点"
+
+#: coworker/lab/models.py:512
+msgid "Image's caption."
+msgstr ""
+
+#: coworker/lab/models.py:527
+#, fuzzy
+#| msgid "Saturday"
+msgid "featured"
+msgstr "星期六"
+
+#: coworker/lab/models.py:542
+msgid "authors"
+msgstr ""
+
+#: coworker/lab/models.py:566
+msgid "tags"
+msgstr ""
+
+#: coworker/lab/models.py:585
+#, fuzzy
+#| msgid "Required"
+msgid "login required"
+msgstr "必填"
+
+#: coworker/lab/models.py:586
+msgid "Only authenticated users can view the entry."
+msgstr ""
+
+#: coworker/lab/models.py:598
+#, fuzzy
+#| msgid "Password"
+msgid "password"
+msgstr "密码"
+
+#: coworker/lab/models.py:599
+msgid "Protects the entry with a password."
+msgstr ""
+
+#: coworker/lab/models.py:611
+msgid "content template"
+msgstr ""
+
+#: coworker/lab/models.py:613 coworker/lab/models.py:629
+msgid "Default template"
+msgstr ""
+
+#: coworker/lab/models.py:615
+msgid "Template used to display the entry's content."
+msgstr ""
+
+#: coworker/lab/models.py:627
+msgid "detail template"
+msgstr ""
+
+#: coworker/lab/models.py:631
+msgid "Template used to display the entry's detail page."
+msgstr ""
+
+#: coworker/lab/views_zin/mixins/entry_preview.py:25
+msgid "No entry found matching the query"
+msgstr ""
+
+#: coworker/lab/views_zin/search.py:30
+msgid "The pattern is too short"
+msgstr ""
+
+#: coworker/lab/views_zin/search.py:34
+msgid "No pattern to search found"
+msgstr ""
+
+#: coworker/lab/views_zin/tags.py:48
+#, python-format
+msgid "No Tag found matching \"%s\"."
+msgstr ""
 
 #: coworker/place/fields.py:10 coworker/place/fields.py:23
 msgid "Closed"
@@ -377,8 +835,7 @@ msgstr ""
 msgid "Name of the site SpacesMap"
 msgstr "创客云图场地的名称"
 
-#: coworker/place/models.py:295
-#: coworker/templates/events/event_detail.html:320
+#: coworker/place/models.py:295 coworker/templates/events/event_detail.html:323
 msgid "Description"
 msgstr "描述"
 
@@ -419,7 +876,9 @@ msgid ""
 "This will allow people to select the membership type they want and start "
 "date. You'll receive their reservation request via email so you can follow "
 "up with them to confirm and arrange payment."
-msgstr "这将允许人们选择他们想要的会员类型并开始。日期。你会收到他们的预订请求通过电子邮件，所以你可以跟随 与他们一起确认和安排付款。"
+msgstr ""
+"这将允许人们选择他们想要的会员类型并开始。日期。你会收到他们的预订请求通过电"
+"子邮件，所以你可以跟随 与他们一起确认和安排付款。"
 
 #: coworker/place/models.py:329
 msgid "Place"
@@ -463,9 +922,11 @@ msgstr "好像什么地方出错了!"
 
 #: coworker/templates/500.html:10
 msgid ""
-"We will automatically track these errors, but if the problempersists, please"
-" feel free to contact us. In the meantime, pleasetry to refresh."
-msgstr "我们会自动跟踪这些错误，但如果问题仍然存在，请随时与我们联系。 在此期间，请尝试刷新."
+"We will automatically track these errors, but if the problempersists, please "
+"feel free to contact us. In the meantime, pleasetry to refresh."
+msgstr ""
+"我们会自动跟踪这些错误，但如果问题仍然存在，请随时与我们联系。 在此期间，请尝"
+"试刷新."
 
 #: coworker/templates/account/account_inactive.html:5
 #: coworker/templates/account/account_inactive.html:8
@@ -519,13 +980,15 @@ msgstr "警告："
 #: coworker/templates/account/email.html:46
 #, fuzzy
 #| msgid ""
-#| "You currently do not have any e-mail address set up. Youshould really add an"
-#| " e-mail address so you can receivenotifications, reset your password, etc."
+#| "You currently do not have any e-mail address set up. Youshould really add "
+#| "an e-mail address so you can receivenotifications, reset your password, "
+#| "etc."
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
-"an e-mail address so you can receive notifications, reset your password, "
-"etc."
-msgstr "您目前没有设置任何电子邮件地址。你真的应该加上有一个电子邮件地址，这样你就可以接收通知，重新设置密码等。"
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"您目前没有设置任何电子邮件地址。你真的应该加上有一个电子邮件地址，这样你就可"
+"以接收通知，重新设置密码等。"
 
 #: coworker/templates/account/email.html:51
 msgid "Add E-mail Address"
@@ -558,9 +1021,11 @@ msgstr "确认"
 #: coworker/templates/account/email_confirm.html:27
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr "他的电子邮件确认链接过期或无效。请<a href=\"%(email_url)s\">问题一个新的电 子邮件请求确认</a>'"
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"他的电子邮件确认链接过期或无效。请<a href=\"%(email_url)s\">问题一个新的电 子"
+"邮件请求确认</a>'"
 
 #: coworker/templates/account/login.html:7
 #: coworker/templates/account/login.html:11
@@ -573,15 +1038,17 @@ msgstr "登录"
 #, fuzzy, python-format
 #| msgid ""
 #| "Please sign in with one\n"
-#| "of your existing third party accounts. Or, <a href=\"%(signup_url)s\\>sign up</a>\n"
+#| "of your existing third party accounts. Or, <a href=\"%(signup_url)s"
+#| "\\>sign up</a>\n"
 #| "for a %(site_name)s account and sign in below:"
 msgid ""
 "Please sign in with one\n"
-"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign up</a>\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
+"up</a>\n"
 "for a %(site_name)s account and sign in below:"
 msgstr ""
-"请用'N'签名。您现有的第三方帐户。或者，< a href ='%（signup_url）s'>标志<一>是N "
-"/起来一%（site_name）帐号登录以下："
+"请用'N'签名。您现有的第三方帐户。或者，< a href ='%（signup_url）s'>标志<一>"
+"是N /起来一%（site_name）帐号登录以下："
 
 #: coworker/templates/account/login.html:26
 msgid "or"
@@ -628,12 +1095,14 @@ msgstr "密码重置"
 #: coworker/templates/account/password_reset.html:16
 #, fuzzy
 #| msgid ""
-#| "Forgotten your password? Enter your e-mail address below, and we'llsend you "
-#| "an e-mail allowing you to reset it."
+#| "Forgotten your password? Enter your e-mail address below, and we'llsend "
+#| "you an e-mail allowing you to reset it."
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you"
-" an e-mail allowing you to reset it."
-msgstr "忘记密码了吗？请在下面输入您的电子邮件地址，我们会发送给您允许您重新设置的电子邮件。"
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"忘记密码了吗？请在下面输入您的电子邮件地址，我们会发送给您允许您重新设置的电"
+"子邮件。"
 
 #: coworker/templates/account/password_reset.html:21
 msgid "Reset My Password"
@@ -646,8 +1115,8 @@ msgstr "如果您的密码有任何问题，请与我们联系。"
 #: coworker/templates/account/password_reset_done.html:15
 #, fuzzy
 #| msgid ""
-#| "We have sent you an e-mail. Please contact us if you do not receiveit within"
-#| " a few minutes."
+#| "We have sent you an e-mail. Please contact us if you do not receiveit "
+#| "within a few minutes."
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
@@ -665,9 +1134,11 @@ msgstr "口令错误"
 #| "reset</a>."
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
-"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
-"reset</a>."
-msgstr "密码重置链接无效，可能是因为它已经是用。请要求< a href ='%（passwd_reset_url）s'>新密码重置< /a>."
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"密码重置链接无效，可能是因为它已经是用。请要求< a href "
+"='%（passwd_reset_url）s'>新密码重置< /a>."
 
 #: coworker/templates/account/password_reset_from_key.html:18
 #, fuzzy
@@ -702,19 +1173,23 @@ msgid "Verify Your E-mail Address"
 msgstr "验证您的电子邮件地址"
 
 #: coworker/templates/account/verification_sent.html:8
-msgid "Verify Your E-mail Address"
-msgstr "确认你的邮箱地址"
+msgid "确认你的邮箱地址"
+msgstr ""
 
 #: coworker/templates/account/verification_sent.html:10
-msgid "We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes."
-msgstr "我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。 如果您在几分钟内没有收到，请与我们联系。"
+msgid ""
+"我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。 如果您在几分钟"
+"内没有收到，请与我们联系。"
+msgstr ""
 
 #: coworker/templates/account/verified_email_required.html:12
 msgid ""
 "This part of the site requires us to verify that\n"
 "you are who you claim to be. For this purpose, we require that you\n"
 "verify ownership of your e-mail address. "
-msgstr "站点的这一部分要求我们验证你自称是谁。为此，我们要求你方验证电子邮件地址的所有权。"
+msgstr ""
+"站点的这一部分要求我们验证你自称是谁。为此，我们要求你方验证电子邮件地址的所"
+"有权。"
 
 #: coworker/templates/account/verified_email_required.html:16
 msgid ""
@@ -728,77 +1203,318 @@ msgstr ""
 #: coworker/templates/account/verified_email_required.html:20
 #, python-format
 msgid ""
-"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
-"e-mail address</a>."
-msgstr "<strong>注：</strong>你仍然可以<a href=\"%(email_url)s\">改变你的E—邮件地址</a>"
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>注：</strong>你仍然可以<a href=\"%(email_url)s\">改变你的E—邮件地址</"
+"a>"
 
-#: coworker/templates/base.html:10
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:5
+#, fuzzy
+#| msgid "Contact us"
+msgid "Contents"
+msgstr "联系我们"
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:11
+#: coworker/templates/zinnia/author_list.html:19
+#: coworker/templates/zinnia/category_list.html:18
+#: coworker/templates/zinnia/tag_list.html:18
+#: coworker/templates/zinnia/tags/authors.html:8
+#: coworker/templates/zinnia/tags/categories.html:7
+#: coworker/templates/zinnia/tags/categories_tree.html:8
+#: coworker/templates/zinnia/tags/statistics.html:7
+#, python-format
+msgid "%(entry_count)s entry"
+msgid_plural "%(entry_count)s entries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:18
+#: coworker/templates/zinnia/_entry_detail_base.html:144
+#: coworker/templates/zinnia/tags/entries_popular.html:8
+#: coworker/templates/zinnia/tags/statistics.html:16
+#, python-format
+msgid "%(comment_count)s comment"
+msgid_plural "%(comment_count)s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:27
+#: coworker/templates/zinnia/tags/statistics.html:13
+#, python-format
+msgid "%(category_count)s category"
+msgid_plural "%(category_count)s categories"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:30
+#: coworker/templates/zinnia/_entry_detail_base.html:163
+#: coworker/templates/zinnia/tags/statistics.html:19
+#, python-format
+msgid "%(pingback_count)s pingback"
+msgid_plural "%(pingback_count)s pingbacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:35
+#: coworker/templates/zinnia/tags/statistics.html:10
+#, python-format
+msgid "%(tag_count)s tag"
+msgid_plural "%(tag_count)s tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:38
+#: coworker/templates/zinnia/_entry_detail_base.html:172
+#: coworker/templates/zinnia/tags/statistics.html:22
+#, python-format
+msgid "%(trackback_count)s trackback"
+msgid_plural "%(trackback_count)s trackbacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:45
+#: coworker/templates/zinnia/tags/statistics.html:4
+#, python-format
+msgid "%(author_count)s author"
+msgid_plural "%(author_count)s authors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:54
+#: coworker/templates/zinnia/tags/statistics.html:25
+#, python-format
+msgid "%(reject_count)s rejected item"
+msgid_plural "%(reject_count)s rejected items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:61
+msgid "Statistics"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:63
+#: coworker/templates/zinnia/tags/statistics.html:28
+#, python-format
+msgid "%(entries_per_month)s entries per month"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:68
+#: coworker/templates/zinnia/tags/statistics.html:31
+#, python-format
+msgid "%(words_per_entry)s words per entry"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:71
+#: coworker/templates/zinnia/tags/statistics.html:34
+#, python-format
+msgid "%(words_per_comment)s words per comment"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:76
+#: coworker/templates/zinnia/tags/statistics.html:37
+#, python-format
+msgid "%(comments_per_entry)s comments per entry"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:79
+#: coworker/templates/zinnia/tags/statistics.html:40
+#, python-format
+msgid "%(linkbacks_per_entry)s linkbacks per entry"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:6
+#, python-format
+msgid ""
+"<a href=\"%(entry_edit_url)s\" title=\"Edit the entry\"> %(entry_title)s </"
+"a> on <time>%(publication_date)s</time>"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:17
+#, fuzzy
+#| msgid "Overview"
+msgid "Preview"
+msgstr "综述"
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:24
+#: coworker/templates/zinnia/tags/entries_draft.html:9
+msgid "No draft entries."
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:33
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:34
+#, fuzzy
+#| msgid "View all reviews"
+msgid "View all draft entries"
+msgstr "查看全部评论"
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:12
+#, python-format
+msgid ""
+"<strong>%(comment_author)s</strong> in <strong> <a href="
+"\"%(entry_url)s#comment-%(comment_pk)s-by-%(comment_author_slug)s\" title="
+"\"Comment on %(entry_title)s\"> %(entry_title)s </a> </strong>"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:26
+#, fuzzy
+#| msgid "The hottest comment"
+msgid "Edit the comment"
+msgstr "评论最热"
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:27
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:22
+#: coworker/templates/users/show_value.html:12
+msgid "Edit"
+msgstr "编辑"
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:34
+#: coworker/templates/zinnia/_entry_detail_base.html:148
+#: coworker/templates/zinnia/entry_detail_base.html:232
+#: coworker/templates/zinnia/tags/comments_recent.html:17
+#, fuzzy
+#| msgid "No account yet?"
+msgid "No comments yet."
+msgstr "还没有账号？"
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:43
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:44
+#, fuzzy
+#| msgid "The hottest comment"
+msgid "Manage the comments"
+msgstr "评论最热"
+
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:8
+#, python-format
+msgid ""
+"<a href=\"%(linkback_url)s\">%(linkback_name)s</a> made a linkback on <a "
+"href=\"%(entry_url)s#%(linkback_type)s-%(linkback_pk)s\" title=\"Linkback on "
+"%(entry_title)s\"> %(entry_title)s </a>"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:21
+msgid "Edit the linkback"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:29
+#: coworker/templates/zinnia/tags/linkbacks_recent.html:18
+msgid "No linkbacks yet."
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/content_stats.html:6
+#: coworker/templates/admin/lab1/widgets/content_stats.html:8
+msgid "Today"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/draft_entries.html:6
+#: coworker/templates/admin/lab1/widgets/draft_entries.html:8
+msgid "Draft entries"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:5
+#: coworker/templates/admin/lab1/widgets/quickpost.html:6
+msgid "Quick publishing"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:9
+msgid "Title"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:25
+#: coworker/templates/zinnia/_entry_detail_base.html:113
+#: coworker/templates/zinnia/base.html:55
+#: coworker/templates/zinnia/tag_list.html:6
+msgid "Tags"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:33
+msgid "Save as draft"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:34
+msgid "Publish"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/recent_comments.html:6
+#: coworker/templates/admin/lab1/widgets/recent_comments.html:8
+#: coworker/templates/zinnia/base.html:64
+#, fuzzy
+#| msgid "1 comments"
+msgid "Recent comments"
+msgstr "1 评论"
+
+#: coworker/templates/admin/lab1/widgets/recent_linkbacks.html:6
+#: coworker/templates/admin/lab1/widgets/recent_linkbacks.html:8
+#: coworker/templates/zinnia/base.html:68
+msgid "Recent linkbacks"
+msgstr ""
+
+#: coworker/templates/base.html:12
 msgid "SpacesMap：Your best incubator selection tool!"
 msgstr "创客云图：您最好的孵化器选择工具!"
 
-#: coworker/templates/base.html:11
-#, python-format
-msgid "Create a guest cloud office to provide office rental, office rental, commercial center rental, conference room rental, rental market listings, housing 100 %% quality assurance. Free post office rental information, without any agency fees. Rental listings for rent housing, select a guest cloud."
+#: coworker/templates/base.html:13
+msgid ""
+"Looking for the best coworking spaces? Read real reviews, get prices, see "
+"photos, view maps and more. Find your perfect coworking space in 100+ "
+"countries!"
 msgstr ""
-"创客云图提供办公室出租、写字楼出租、商业中心出租、会议室出租、创业园出租房源，房源100%%质量保证。免费发布办公出租信息，不收任何中介费。出租房源租用房源，选择创客云图。"
 
-
-#: coworker/templates/base.html:17
+#: coworker/templates/base.html:19
 msgid "Office, Share,Work,SpacesMap"
 msgstr "办公、共享、上班、创客云图"
 
-#: coworker/templates/base.html:116
+#: coworker/templates/base.html:127
 msgid ""
 "Enter your registered email address, we will email a link to reset your "
 "password."
 msgstr "输入您注册的电子邮件地址，我们将通过电子邮件发送一个链接以重置密码."
 
-#: coworker/templates/base.html:122
+#: coworker/templates/base.html:133
 msgid "Send reset link"
 msgstr "发送重置链接"
 
-#: coworker/templates/base.html:134
+#: coworker/templates/base.html:145
 msgid "A link to the reset password has been sent"
 msgstr "已经发送重置密码的链接"
 
-#: coworker/templates/base.html:870
+#: coworker/templates/base.html:882
 msgid "Join the SpacesMap community"
 msgstr "加入创客云图社区"
 
-#: coworker/templates/base.html:880
+#: coworker/templates/base.html:892
 msgid "Login means that you agree the SpacesMap"
 msgstr "登录即表示您同意创客云图的"
 
-#: coworker/templates/base.html:880
+#: coworker/templates/base.html:892
 msgid "Terms of service"
 msgstr "服务条款"
 
-#: coworker/templates/base.html:880
+#: coworker/templates/base.html:892
 #: coworker/templates/pages/privacy-policy.html:14
 msgid "Privacy clause"
 msgstr "隐私条款"
 
-#: coworker/templates/base.html:881
+#: coworker/templates/base.html:893
 msgid "Is it a member already?"
 msgstr "已经是会员?"
 
-#: coworker/templates/base.html:881 coworker/templates/elements/footer.html:65
+#: coworker/templates/base.html:893 coworker/templates/elements/footer.html:65
 #: coworker/templates/elements/header.html:61
-#: coworker/templates/elements/header_main.html:26
-#: coworker/templates/elements/header_main.html:97
+#: coworker/templates/elements/header_main.html:25
+#: coworker/templates/elements/header_main.html:96
 #: coworker/templates/elements/header_search.html:28
 #: coworker/templates/elements/header_search.html:56
+#: coworker/templates/elements/login.html:11
 #: coworker/templates/elements/login.html:40
 #: coworker/templates/elements/sign-up.html:36
 #: coworker/templates/pages/search_list.html:339
 msgid "Sign in"
 msgstr "登录"
 
-#: coworker/templates/base_origin.html:6
-#: coworker/templates/base_origin.html:36
+#: coworker/templates/base_origin.html:6 coworker/templates/base_origin.html:36
 #: coworker/templates/pages/about.html:12
-#: coworker/templates/pages/about.html:28
-#: coworker/templates/pages/team.html:87
+#: coworker/templates/pages/about.html:28 coworker/templates/pages/team.html:87
 msgid "Maker cloud chart"
 msgstr "创客云图"
 
@@ -812,7 +1528,7 @@ msgstr "首页"
 #: coworker/templates/elements/footer.html:9
 #: coworker/templates/elements/footer.html:101
 #: coworker/templates/elements/header.html:59
-#: coworker/templates/elements/header_main.html:91
+#: coworker/templates/elements/header_main.html:90
 #: coworker/templates/elements/header_search.html:26
 msgid "About"
 msgstr "关于"
@@ -832,12 +1548,13 @@ msgstr ""
 #: coworker/templates/elements/footer.html:12
 #: coworker/templates/elements/footer.html:22
 #: coworker/templates/elements/header_internal.html:71
-#: coworker/templates/elements/header_main.html:17
+#: coworker/templates/elements/header_main.html:16
 #: coworker/templates/elements/header_search.html:52
 #: coworker/templates/elements/new_form.html:79
-#: coworker/templates/elements/new_form.html:161
-#: coworker/templates/elements/new_form.html:226
+#: coworker/templates/elements/new_form.html:145
+#: coworker/templates/elements/new_form.html:210
 #: coworker/templates/pages/about.html:68
+#: coworker/templates/zinnia/skeleton.html:77
 msgid "Search"
 msgstr "搜索"
 
@@ -878,7 +1595,7 @@ msgstr "合作信息"
 #: coworker/templates/elements/footer.html:53
 #: coworker/templates/elements/header.html:63
 #: coworker/templates/elements/header_internal.html:37
-#: coworker/templates/elements/header_main.html:101
+#: coworker/templates/elements/header_main.html:100
 #: coworker/templates/elements/header_search.html:30
 #: coworker/templates/pages/about.html:47
 #: coworker/templates/place/place_add_desk_price.html:52
@@ -913,6 +1630,7 @@ msgid "SpacesMap image laboratory"
 msgstr "创客云图实验室"
 
 #: coworker/templates/elements/footer.html:73
+#: coworker/templates/zinnia/base.html:23
 msgid "Blog"
 msgstr "博客"
 
@@ -925,7 +1643,7 @@ msgid "Latest articles"
 msgstr "最新文章"
 
 #: coworker/templates/elements/footer.html:82
-#: coworker/templates/elements/new_form.html:119
+#: coworker/templates/elements/new_form.html:103
 msgid "Activity"
 msgstr "活动"
 
@@ -976,26 +1694,26 @@ msgstr "搜索：场地名称、城市、国家......"
 #: coworker/templates/elements/header.html:37
 #: coworker/templates/elements/header_internal.html:34
 #: coworker/templates/elements/header_internal.html:74
-#: coworker/templates/elements/header_main.html:60
+#: coworker/templates/elements/header_main.html:59
 msgid "My comment"
 msgstr "我的评论"
 
 #: coworker/templates/elements/header.html:38
 #: coworker/templates/elements/header_internal.html:35
-#: coworker/templates/elements/header_main.html:61
+#: coworker/templates/elements/header_main.html:60
 msgid "Edit data"
 msgstr "编辑资料"
 
 #: coworker/templates/elements/header.html:39
 #: coworker/templates/elements/header_internal.html:36
-#: coworker/templates/elements/header_main.html:62
+#: coworker/templates/elements/header_main.html:61
 msgid "Account Settings"
 msgstr "账号设置"
 
 #: coworker/templates/elements/header.html:40
 #: coworker/templates/elements/header_internal.html:84
-#: coworker/templates/elements/header_main.html:35
-#: coworker/templates/elements/header_main.html:63
+#: coworker/templates/elements/header_main.html:34
+#: coworker/templates/elements/header_main.html:62
 #: coworker/templates/elements/header_search.html:65
 msgid "Add site"
 msgstr "添加场地"
@@ -1003,12 +1721,12 @@ msgstr "添加场地"
 #: coworker/templates/elements/header.html:42
 #: coworker/templates/elements/header_internal.html:39
 #: coworker/templates/elements/header_internal.html:76
-#: coworker/templates/elements/header_main.html:65
+#: coworker/templates/elements/header_main.html:64
 msgid "Sign out"
 msgstr "退出"
 
 #: coworker/templates/elements/header_internal.html:72
-#: coworker/templates/elements/header_main.html:20
+#: coworker/templates/elements/header_main.html:19
 #: coworker/templates/elements/header_search.html:53
 #: coworker/templates/pages/cities.html:16
 msgid "All cities"
@@ -1024,29 +1742,29 @@ msgstr "实验室"
 msgid "Maker of SpacesMap images"
 msgstr "创客云图业主"
 
-#: coworker/templates/elements/header_main.html:14
+#: coworker/templates/elements/header_main.html:13
 #, fuzzy
 #| msgid "Hello"
 msgid "Hello"
 msgstr "首页"
 
-#: coworker/templates/elements/header_main.html:23
+#: coworker/templates/elements/header_main.html:22
 #, fuzzy
 #| msgid "register"
 msgid "Register"
 msgstr "注册"
 
-#: coworker/templates/elements/header_main.html:32
+#: coworker/templates/elements/header_main.html:31
 msgid "SpacesMap of the owners"
 msgstr "创科云图业主"
 
-#: coworker/templates/elements/header_main.html:87
+#: coworker/templates/elements/header_main.html:86
 #: coworker/templates/users/profile.html:245
 #: coworker/templates/users/profile.html:273
 msgid "Change"
 msgstr "改变"
 
-#: coworker/templates/elements/header_main.html:94
+#: coworker/templates/elements/header_main.html:93
 #, fuzzy
 #| msgid "Sign up"
 msgid "Sign up"
@@ -1063,10 +1781,6 @@ msgstr "搜索：场地名称、城市、国家......"
 msgid "24 hours"
 msgstr "24小时"
 
-#: coworker/templates/elements/login.html:11
-msgid "Or"
-msgstr "或者"
-
 #: coworker/templates/elements/login.html:16
 #: coworker/templates/pages/team.html:59
 #: coworker/templates/place/forms/contact.html:37
@@ -1075,6 +1789,7 @@ msgid "E-Mail"
 msgstr "邮箱"
 
 #: coworker/templates/elements/login.html:20
+#: coworker/templates/zinnia/password.html:24
 msgid "Password"
 msgstr "密码"
 
@@ -1119,11 +1834,11 @@ msgid "Space name"
 msgstr "业主"
 
 #: coworker/templates/elements/new_form.html:69
-#: coworker/templates/elements/new_form.html:216
+#: coworker/templates/elements/new_form.html:200
 msgid "Type"
 msgstr ""
 
-#: coworker/templates/elements/new_form.html:187
+#: coworker/templates/elements/new_form.html:171
 msgid "Services Name/Spaces Name"
 msgstr ""
 
@@ -1207,31 +1922,31 @@ msgstr "非洲"
 msgid "Australia"
 msgstr "澳洲"
 
-#: coworker/templates/events/event_detail.html:290
+#: coworker/templates/events/event_detail.html:293
 #: coworker/templates/place/place.html:298
 msgid "Membership Enquiry"
 msgstr "会员问讯处"
 
-#: coworker/templates/events/event_detail.html:300
+#: coworker/templates/events/event_detail.html:303
 #: coworker/templates/place/place.html:308
 msgid "621 people have shared this space"
 msgstr "共有621人共享这个空间。"
 
-#: coworker/templates/events/event_detail.html:336
+#: coworker/templates/events/event_detail.html:339
 msgid "Date and time"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:337
+#: coworker/templates/events/event_detail.html:340
 #, fuzzy
 #| msgid "Hire time"
 msgid "Start time"
 msgstr "租用时间"
 
-#: coworker/templates/events/event_detail.html:339
+#: coworker/templates/events/event_detail.html:342
 msgid "End time"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:373
+#: coworker/templates/events/event_detail.html:381
 #: coworker/templates/place/forms/menu.html:26
 msgid "Location"
 msgstr "地点"
@@ -1253,7 +1968,9 @@ msgid "开放式办公:"
 msgstr ""
 
 #: coworker/templates/events/search_events.html:39
-msgid "您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公桌、专用办公桌或者共享办公桌."
+msgid ""
+"您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公"
+"桌、专用办公桌或者共享办公桌."
 msgstr ""
 
 #: coworker/templates/events/search_events.html:43
@@ -1261,8 +1978,9 @@ msgid "私人办公室:"
 msgstr ""
 
 #: coworker/templates/events/search_events.html:45
-#: coworker/templates/pages/search_list.html:45
-msgid "您如果带领一个小团队，想要一些私人空间，而不想被别人打扰，那么请在这里搜索试试看!"
+msgid ""
+"您如果带领一个小团队，想要一些私人空间，而不想被别人打扰，那么请在这里搜索试"
+"试看!"
 msgstr ""
 
 #: coworker/templates/events/search_events.html:69
@@ -1437,6 +2155,74 @@ msgstr ""
 msgid "注册"
 msgstr ""
 
+#: coworker/templates/lab/entry_detail.html:17
+#: coworker/templates/lab/lab_index.html:82
+msgid "by"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:21
+#: coworker/templates/lab/lab_index.html:86
+#: coworker/templates/zinnia/_entry_detail_base.html:22
+#: coworker/templates/zinnia/author_list.html:17
+#: coworker/templates/zinnia/tags/authors.html:6
+#, python-format
+msgid "Show all %(author)s's entries"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:23
+#: coworker/templates/lab/lab_index.html:88
+#: coworker/templates/zinnia/_entry_detail_base.html:24
+#, fuzzy
+#| msgid "Join"
+msgctxt "on date"
+msgid "on"
+msgstr "加入"
+
+#: coworker/templates/lab/entry_detail.html:25
+#: coworker/templates/lab/lab_index.html:90
+#: coworker/templates/zinnia/_entry_detail_base.html:26
+msgctxt "on date"
+msgid "Written on"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:35
+#: coworker/templates/lab/lab_index.html:102
+#: coworker/templates/zinnia/_entry_detail_base.html:117
+#: coworker/templates/zinnia/tag_list.html:17
+#, python-format
+msgid "Show all entries tagged by %(tag)s"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:38
+#: coworker/templates/lab/lab_index.html:105
+#: coworker/templates/zinnia/_entry_detail_base.html:120
+msgid "No tags"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:8
+msgid ""
+"News, insights, opinions, tips and ideas from the global freelance, startup "
+"and coworking community."
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:12
+msgid "Spacemap Lab - Startups, Coworking &amp; The Future of Work"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:52
+#, fuzzy
+#| msgid "Welcome to SpacesMap"
+msgid "Welcome to the SpaceMap Lab"
+msgstr "欢迎加入创客云图"
+
+#: coworker/templates/lab/lab_base.html:53
+msgid "stories, news &amp; tips"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:54
+msgid "by the coworking community"
+msgstr ""
+
 #: coworker/templates/pages/about.html:5
 msgid "About us"
 msgstr "关于我们"
@@ -1461,7 +2247,9 @@ msgstr "欢迎加入创客云图"
 msgid ""
 "Cloud atlas of entrepreneurship, creating high efficiency and speedin one "
 "WiFi. But most importantly, creating images between the greatman bridge. "
-msgstr "创客云图集创业精神、高效率、极速WiFi于一体。但最重要的是，创客云图在了不起的人之间架起了桥梁。"
+msgstr ""
+"创客云图集创业精神、高效率、极速WiFi于一体。但最重要的是，创客云图在了不起的"
+"人之间架起了桥梁。"
 
 #: coworker/templates/pages/about.html:28
 msgid ""
@@ -1470,7 +2258,9 @@ msgid ""
 msgstr "创客云图将全球120余个国家的5000+个云图场地连成网络。"
 
 #: coworker/templates/pages/about.html:28
-msgid "的场地由会员提供，为会员服务，我们的宗旨是将世界连成一体。你，准备加入我们了吗？"
+msgid ""
+"的场地由会员提供，为会员服务，我们的宗旨是将世界连成一体。你，准备加入我们了"
+"吗？"
 msgstr ""
 
 #: coworker/templates/pages/about.html:42
@@ -1493,10 +2283,12 @@ msgstr "帮助租客找到您的场所，获取完整信息，浏览会员评论
 
 #: coworker/templates/pages/about.html:46
 msgid ""
-"You can also set up a free day for people to visit your site so thatthey can"
-" make an online reservation (we don't accept any agencyfees, and you'll get "
+"You can also set up a free day for people to visit your site so thatthey can "
+"make an online reservation (we don't accept any agencyfees, and you'll get "
 "the full amount of the tenant's payment)."
-msgstr "您还可以设置免费日，让人们来参观您的场地，以便他们在网上预约（我们不收任何中介费，您将获得租客支付的全额款项）。"
+msgstr ""
+"您还可以设置免费日，让人们来参观您的场地，以便他们在网上预约（我们不收任何中"
+"介费，您将获得租客支付的全额款项）。"
 
 #: coworker/templates/pages/about.html:46
 msgid "You will probably win the 2017 hit off the cloud award!"
@@ -1513,23 +2305,25 @@ msgstr "如果您是租客"
 
 #: coworker/templates/pages/about.html:66
 msgid ""
-"You can search by country, city or area. Please browse the selectedsite user"
-" comments - this allows you to understand their culturalbackground."
-msgstr "您可以按照国家、城市或者场地名称搜索。务请浏览所选场地的会员评论——这可以让你了解它们的文化背景。"
+"You can search by country, city or area. Please browse the selectedsite user "
+"comments - this allows you to understand their culturalbackground."
+msgstr ""
+"您可以按照国家、城市或者场地名称搜索。务请浏览所选场地的会员评论——这可以让你"
+"了解它们的文化背景。"
 
 #: coworker/templates/pages/about.html:67
 msgid ""
 "You can also sift the fields through the necessary configuration (for you), "
 "such as whether you offer free beer (Hello!) Verticaldesk, monitor, "
-"accommodation, recording equipment etc.. Tenants havemany projects to choose"
-" from."
+"accommodation, recording equipment etc.. Tenants havemany projects to choose "
+"from."
 msgstr ""
-"您还可以通过必需配置（对您而言）来筛选场地，比如是否提供免费啤酒（喂！）、立式办公桌、监控器、住宿、录音设备等等。租客有众多可供筛选的项目。"
+"您还可以通过必需配置（对您而言）来筛选场地，比如是否提供免费啤酒（喂！）、立"
+"式办公桌、监控器、住宿、录音设备等等。租客有众多可供筛选的项目。"
 
 #: coworker/templates/pages/about.html:80
 msgid ""
-"The interesting thing is that colleagues are to provide support for the "
-"nomad"
+"The interesting thing is that colleagues are to provide support for the nomad"
 msgstr "有趣的是：同事正在为游牧者提供支持"
 
 #: coworker/templates/pages/about.html:82
@@ -1601,14 +2395,17 @@ msgstr "会见创始人"
 msgid ""
 "Leanne abandoned the UK many years ago and has lived &amp; worked in Togo, "
 "Bangladesh, Vietnam, Malaysia and Thailand, to name just a few."
-msgstr "Leanne抛弃英国很多年前已经住&amp;amp；在多哥，孟加拉，越南，马来西亚和泰国，仅举几例。"
+msgstr ""
+"Leanne抛弃英国很多年前已经住&amp;amp；在多哥，孟加拉，越南，马来西亚和泰国，"
+"仅举几例。"
 
 #: coworker/templates/pages/about.html:171
 msgid ""
 "Sam has been a coworking entrepreneur since his college days, where he was "
-"one of the earliest people on the internet to make money with Google "
-"Adwords."
-msgstr "山姆已经从他的大学时代是一个管理的企业家，他在那里与谷歌AdWords赚钱在互联网上最早的人之一。"
+"one of the earliest people on the internet to make money with Google Adwords."
+msgstr ""
+"山姆已经从他的大学时代是一个管理的企业家，他在那里与谷歌AdWords赚钱在互联网上"
+"最早的人之一。"
 
 #: coworker/templates/pages/about.html:172
 msgid ""
@@ -1621,7 +2418,9 @@ msgid ""
 "When he's not on his laptop, you can find him pioneering random adventures "
 "spanning the globe... including skinny dipping in Antartica and walking "
 "around the perimeter of tropical islands."
-msgstr "当他不在笔记本电脑上的时候，你会发现他在世界各地展开冒险探险…包括在Antartica裸泳和周围的热带岛屿散步。"
+msgstr ""
+"当他不在笔记本电脑上的时候，你会发现他在世界各地展开冒险探险…包括在Antartica"
+"裸泳和周围的热带岛屿散步。"
 
 #: coworker/templates/pages/about.html:187
 msgid "In SpacesMap"
@@ -1756,7 +2555,9 @@ msgid ""
 "We hit off the cloud site in the great bridge between people. Youcan search "
 "according to the state, city and site name. You can alsoselect according to "
 "different conditions, such as the price, thismonth score. "
-msgstr "我们通过创客云图场地在了不起的人之间架起桥梁。您可以按照国家、城市、场地名称搜索。您也可以根据不同的条件筛选，比如当日价格、本月评分。"
+msgstr ""
+"我们通过创客云图场地在了不起的人之间架起桥梁。您可以按照国家、城市、场地名称"
+"搜索。您也可以根据不同的条件筛选，比如当日价格、本月评分。"
 
 #: coworker/templates/pages/help.html:36
 msgid "Who can add the site of the SpacesMap?"
@@ -1767,10 +2568,12 @@ msgid ""
 "Anyone can add a site hit off the SpcaeMap! But we need to fill outa lot of "
 "information (area, which can accommodate the number, costand so on), we "
 "suggested by official representatives to add thesite, these official "
-"representative is usually business owners,administrators and cloud site team"
-" members. "
+"representative is usually business owners,administrators and cloud site team "
+"members. "
 msgstr ""
-"任何人都可以添加创客云图场地！但是我们需要填写许多信息（面积、可容纳人数、费用等等），我们更建议由官方代表来添加场地，这些官方代表通常是创业云图场地的业主、管理员和团队成员。"
+"任何人都可以添加创客云图场地！但是我们需要填写许多信息（面积、可容纳人数、费"
+"用等等），我们更建议由官方代表来添加场地，这些官方代表通常是创业云图场地的业"
+"主、管理员和团队成员。"
 
 #: coworker/templates/pages/help.html:45
 msgid "How can i add the site of the SpacesMap?"
@@ -1808,7 +2611,9 @@ msgstr "我提交了场地申请，然后呢？"
 
 #: coworker/templates/pages/help.html:70
 msgid ""
-"当您填写完”出租场地“表格并点击”提交“按钮后，这份表格会传递到审核部。我们会对您的填写内容编辑（如果有拼写或语法错误的话）。当您的场地添加成功时，您会收到我们发送给您的一封邮件。"
+"当您填写完”出租场地“表格并点击”提交“按钮后，这份表格会传递到审核部。我们会对"
+"您的填写内容编辑（如果有拼写或语法错误的话）。当您的场地添加成功时，您会收到"
+"我们发送给您的一封邮件。"
 msgstr ""
 
 #: coworker/templates/pages/help.html:79
@@ -1835,7 +2640,9 @@ msgstr "进一步筛选"
 msgid ""
 "You can choose the site (free beer, vertical desk, monitor, eventrampoline, "
 "etc.) according to all kinds of conditions."
-msgstr "您可以根据各种各样的条件筛选场地（免费啤酒、立式办公桌、监控器，甚至蹦床等等）。"
+msgstr ""
+"您可以根据各种各样的条件筛选场地（免费啤酒、立式办公桌、监控器，甚至蹦床等"
+"等）。"
 
 #: coworker/templates/pages/help.html:98
 msgid "Any other questions?"
@@ -1885,87 +2692,96 @@ msgstr "田园度假"
 msgid "Latest information"
 msgstr "最新资讯"
 
-#: coworker/templates/pages/index.html:141
+#: coworker/templates/pages/index.html:143
 msgid "Shen Zhen"
 msgstr "深圳"
 
-#: coworker/templates/pages/index.html:167
-#: coworker/templates/pages/index.html:171
+#: coworker/templates/pages/index.html:169
+#: coworker/templates/pages/index.html:173
 #: coworker/templates/place/city.html:133
 msgid "Bei Jing"
 msgstr "北京"
 
-#: coworker/templates/pages/index.html:182
-#: coworker/templates/pages/index.html:186
+#: coworker/templates/pages/index.html:184
+#: coworker/templates/pages/index.html:188
 msgid "Guang Zhou"
 msgstr "广州"
 
-#: coworker/templates/pages/index.html:197
-#: coworker/templates/pages/index.html:201
+#: coworker/templates/pages/index.html:199
+#: coworker/templates/pages/index.html:203
 msgid "Zhu Hai"
 msgstr "珠海"
 
-#: coworker/templates/pages/index.html:212
-#: coworker/templates/pages/index.html:216
+#: coworker/templates/pages/index.html:214
+#: coworker/templates/pages/index.html:218
 msgid "Xia Men"
 msgstr "厦门"
 
-#: coworker/templates/pages/index.html:227
-#: coworker/templates/pages/index.html:231
+#: coworker/templates/pages/index.html:229
+#: coworker/templates/pages/index.html:233
 msgid "Wu Han"
 msgstr "武汉"
 
-#: coworker/templates/pages/index.html:238
-#: coworker/templates/pages/index.html:258
-msgid "The hottest"
-msgstr "最热"
+#: coworker/templates/pages/index.html:240
+msgid "Hot"
+msgstr ""
 
-#: coworker/templates/pages/index.html:238
-#: coworker/templates/pages/index.html:258
-msgid "Shared office location"
-msgstr "共享办公地点"
+#: coworker/templates/pages/index.html:240
+msgid "Coworking destinations"
+msgstr ""
 
-#: coworker/templates/pages/index.html:238
-#: coworker/templates/pages/index.html:258
-msgid "Looking for the nearest office site"
-msgstr "寻找距离最近的办公地点"
+#: coworker/templates/pages/index.html:240
+msgid "Find a space near you"
+msgstr ""
 
-#: coworker/templates/pages/index.html:247
-#: coworker/templates/pages/index.html:251
+#: coworker/templates/pages/index.html:249
+#: coworker/templates/pages/index.html:253
 msgid "Cheng Du"
 msgstr "成都"
 
-#: coworker/templates/pages/index.html:267
-#: coworker/templates/pages/index.html:271
+#: coworker/templates/pages/index.html:260
+msgid "The hottest"
+msgstr "最热"
+
+#: coworker/templates/pages/index.html:260
+msgid "Shared office location"
+msgstr "共享办公地点"
+
+#: coworker/templates/pages/index.html:260
+msgid "Looking for the nearest office site"
+msgstr "寻找距离最近的办公地点"
+
+#: coworker/templates/pages/index.html:269
+#: coworker/templates/pages/index.html:273
 msgid "Chong Qing"
 msgstr "重庆"
 
-#: coworker/templates/pages/index.html:282
-#: coworker/templates/pages/index.html:286
+#: coworker/templates/pages/index.html:284
+#: coworker/templates/pages/index.html:288
 msgid "Fo Shan"
 msgstr "佛山"
 
-#: coworker/templates/pages/index.html:297
-#: coworker/templates/pages/index.html:301
+#: coworker/templates/pages/index.html:299
+#: coworker/templates/pages/index.html:303
 msgid "Hang Zhou"
 msgstr "杭州"
 
-#: coworker/templates/pages/index.html:312
-#: coworker/templates/pages/index.html:316
+#: coworker/templates/pages/index.html:314
+#: coworker/templates/pages/index.html:318
 msgid "Nan Jing"
 msgstr "南京"
 
-#: coworker/templates/pages/index.html:327
-#: coworker/templates/pages/index.html:331
+#: coworker/templates/pages/index.html:329
+#: coworker/templates/pages/index.html:333
 msgid "Shang Hai"
 msgstr "上海"
 
-#: coworker/templates/pages/index.html:342
-#: coworker/templates/pages/index.html:346
+#: coworker/templates/pages/index.html:344
+#: coworker/templates/pages/index.html:348
 msgid "Tian Jin"
 msgstr "天津"
 
-#: coworker/templates/pages/index.html:411
+#: coworker/templates/pages/index.html:413
 msgid "Office sites with the most reviews in the custom SpacesMap"
 msgstr "创客云图中评论最多的办公场地"
 
@@ -1979,7 +2795,14 @@ msgstr "释义"
 
 #: coworker/templates/pages/privacy-policy.html:18
 msgid ""
-"创客云图（以下亦称“我们”）尊重并保护所有使用创客云图平台服务的用户的个人隐私权，在您使用创客云图提供的服务时（下称“服务”），我们将按照本隐私权条款收集、使用、共享及保护您的个人信息。本隐私权条款包含了我们收集、存储、使用、共享和保护您的个人信息的条款，我们希望通过本隐私权条款向您清晰地介绍我们对为您提供的访问、更新、控制和保护您个人信息的方式，因此请您完整地阅读本《创客云图隐私条款》（下称“本隐私权条款”），作出您认为适当的选择。如果您不同意本隐私权条款的任何内容，您应立即停止使用创客云图平台服务。当您使用创客云图平台提供的任一服务时，即表示您已同意我们按照本隐私权条款来合法使用和保护您的个人信息。"
+"创客云图（以下亦称“我们”）尊重并保护所有使用创客云图平台服务的用户的个人隐私"
+"权，在您使用创客云图提供的服务时（下称“服务”），我们将按照本隐私权条款收集、"
+"使用、共享及保护您的个人信息。本隐私权条款包含了我们收集、存储、使用、共享和"
+"保护您的个人信息的条款，我们希望通过本隐私权条款向您清晰地介绍我们对为您提供"
+"的访问、更新、控制和保护您个人信息的方式，因此请您完整地阅读本《创客云图隐私"
+"条款》（下称“本隐私权条款”），作出您认为适当的选择。如果您不同意本隐私权条款"
+"的任何内容，您应立即停止使用创客云图平台服务。当您使用创客云图平台提供的任一"
+"服务时，即表示您已同意我们按照本隐私权条款来合法使用和保护您的个人信息。"
 msgstr ""
 
 #: coworker/templates/pages/privacy-policy.html:21
@@ -2014,7 +2837,9 @@ msgid ""
 "region, creating images collectinginformation and data location and access, "
 "in the storage anddisplay. "
 msgstr ""
-"创客云图收集的有关您的信息和资料将保存在创客云图及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或创客云图收集信息和资料所在地并在该地被访问、存储和展示。"
+"创客云图收集的有关您的信息和资料将保存在创客云图及（或）其关联公司的服务器"
+"上，这些信息和资料可能传送至您所在国家、地区或创客云图收集信息和资料所在地并"
+"在该地被访问、存储和展示。"
 
 #: coworker/templates/pages/privacy-policy.html:82
 msgid "Query and change of your personal information"
@@ -2033,7 +2858,10 @@ msgid ""
 "guidance to minors, once the use of thiswebsite, we have considered the "
 "minors' parents or guardian'sconsent or guidance. "
 msgstr ""
-"未满十八岁的未成年人应在其父母或监护人指导下使用我们的服务。我们建议未成年人鼓励他们的父母或监护人阅读本隐私权条款并建议未成年人在提交的个人信息之前寻求父母或监护人的同意和指导，未成年人一旦使用本网站，我们视为有未成年人父母或监护人的同意或指导。"
+"未满十八岁的未成年人应在其父母或监护人指导下使用我们的服务。我们建议未成年人"
+"鼓励他们的父母或监护人阅读本隐私权条款并建议未成年人在提交的个人信息之前寻求"
+"父母或监护人的同意和指导，未成年人一旦使用本网站，我们视为有未成年人父母或监"
+"护人的同意或指导。"
 
 #: coworker/templates/pages/reviews.html:6
 msgid "Coworking Reviews | Spaces Around the World"
@@ -2055,16 +2883,16 @@ msgstr "日期"
 msgid "score"
 msgstr "评分"
 
-#: coworker/templates/pages/reviews.html:54
-#: coworker/templates/pages/reviews.html:89
+#: coworker/templates/pages/reviews.html:57
+#: coworker/templates/pages/reviews.html:92
 msgid "Website link"
 msgstr "网站链接"
 
-#: coworker/templates/pages/reviews.html:57
+#: coworker/templates/pages/reviews.html:60
 msgid "Awesome place, good people!)"
 msgstr "令人敬畏的地方，好人！)"
 
-#: coworker/templates/pages/reviews.html:63
+#: coworker/templates/pages/reviews.html:66
 #, fuzzy
 #| msgid ""
 #| "I was working here for 2 month, and it was really good time, recommend!"
@@ -2072,92 +2900,106 @@ msgid ""
 "I was working here for 2 month, and it was really good time, recommend!)"
 msgstr "我在这里工作了2个月，强烈推荐！"
 
-#: coworker/templates/pages/reviews.html:80
+#: coworker/templates/pages/reviews.html:83
 #: coworker/templates/pages/search_list.html:242
 msgid "1 comments"
 msgstr "1 评论"
 
-#: coworker/templates/pages/reviews.html:81
+#: coworker/templates/pages/reviews.html:84
 msgid "0 useful vote"
 msgstr "0 有用投票"
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid ""
 "My stay in Bansko while working at the coworking space charged me with "
 "positivity and made future seem brighter. Bansko was already a favourite "
 "place for me for the opportunities it offers to spend time in the mountain "
-"hiking, doing your favourite pastime or just enjoying the spectacular views."
-" Because I'm quite busy, it isn't always easy to organize a leasure trip. "
+"hiking, doing your favourite pastime or just enjoying the spectacular views. "
+"Because I'm quite busy, it isn't always easy to organize a leasure trip. "
 "Then Coworking Bansko came to the rescue. The coworking space is organized "
 "so that yours and other members' work is streamlined depending on what you "
 "need to do, so you can either work in the social space if you are after "
-"creative ideas or in the quiet space if you're after deadlines. Work is made"
-" easy by the perfect conditions and proximity of places to stay and eat. "
-"Plus you become a member of a community of hard-working open-minded "
-"individuals who are  ready to help and join in various events happening. I "
-"could only wish I visited the space more often!"
+"creative ideas or in the quiet space if you're after deadlines. Work is made "
+"easy by the perfect conditions and proximity of places to stay and eat. Plus "
+"you become a member of a community of hard-working open-minded individuals "
+"who are  ready to help and join in various events happening. I could only "
+"wish I visited the space more often!"
 msgstr ""
-"我在班斯科而在coworking空间工作指控我的积极性，让未来变得更光明。班斯科已经是一个最喜欢的地方为我提供了在山上徒步旅行花时间的机会，做你最喜欢的消遣或欣赏壮观的景色。因为我很忙，这不总是容易的组织一次休闲之旅。然后来到班斯科救助管理。的coworking空间结构，你和其他成员的工作是精简，根据你的需要来做，这样你就可以在社会空间或者工作，如果你在创意或在安静的空间，如果你在最后期限。工作是完美的条件和接近的地方逗留和吃。另外，你会成为一个乐于助人、乐于参与各种活动的人。我真希望我能经常参观这个地方！"
+"我在班斯科而在coworking空间工作指控我的积极性，让未来变得更光明。班斯科已经是"
+"一个最喜欢的地方为我提供了在山上徒步旅行花时间的机会，做你最喜欢的消遣或欣赏"
+"壮观的景色。因为我很忙，这不总是容易的组织一次休闲之旅。然后来到班斯科救助管"
+"理。的coworking空间结构，你和其他成员的工作是精简，根据你的需要来做，这样你就"
+"可以在社会空间或者工作，如果你在创意或在安静的空间，如果你在最后期限。工作是"
+"完美的条件和接近的地方逗留和吃。另外，你会成为一个乐于助人、乐于参与各种活动"
+"的人。我真希望我能经常参观这个地方！"
 
-#: coworker/templates/pages/reviews.html:86
-#: coworker/templates/pages/reviews.html:100
-#: coworker/templates/pages/reviews.html:121
-#: coworker/templates/pages/reviews.html:135
-#: coworker/templates/pages/reviews.html:156
-#: coworker/templates/pages/reviews.html:180
+#: coworker/templates/pages/reviews.html:89
+#: coworker/templates/pages/reviews.html:103
+#: coworker/templates/pages/reviews.html:124
+#: coworker/templates/pages/reviews.html:138
+#: coworker/templates/pages/reviews.html:159
+#: coworker/templates/pages/reviews.html:183
 msgid "useful"
 msgstr "有用"
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid "A thoughtfully made creative corner"
 msgstr "一个深思熟虑的创作角落"
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid ""
 "Hideout located center of city with well connected Public Transport, "
-"Administration people are more supportive and welcoming, They have wonderful"
-" facilities for all creative fields, with added free introduction workshops,"
-" calm coworking space, with great wifi speed, recreation (Chess, Carrom, "
+"Administration people are more supportive and welcoming, They have wonderful "
+"facilities for all creative fields, with added free introduction workshops, "
+"calm coworking space, with great wifi speed, recreation (Chess, Carrom, "
 "Jenga etc), conference room facilities and unlimited coffe. They also have "
 "provisions for smaller teams and individuals."
 msgstr ""
-"工作地点位于城市的中心拥有通畅的公共交通，管理人非常的支持和欢迎，他们有的美妙的创意领域和良好设施，增加免费介绍研究会、平静的coworking空间，巨大的WiFi速度、娱乐（棋牌、弹球、积木等），会议室设施和无限的咖啡。他们也有小团队和个人的规定。"
+"工作地点位于城市的中心拥有通畅的公共交通，管理人非常的支持和欢迎，他们有的美"
+"妙的创意领域和良好设施，增加免费介绍研究会、平静的coworking空间，巨大的WiFi速"
+"度、娱乐（棋牌、弹球、积木等），会议室设施和无限的咖啡。他们也有小团队和个人"
+"的规定。"
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid ""
 "Awesome people, nice atmosphere, good amenities, affordable, mountains, "
-"nature... and a two- to three-hour drive to the nearest beach in Greece - in"
-" other words, the whole package is there."
-msgstr "极好的人，良好的气氛，舒适的设施，负担得起的，山，自然…还有两到三个小时的车程到最近的希腊海滩，换句话说，整个包裹就在那里。"
+"nature... and a two- to three-hour drive to the nearest beach in Greece - in "
+"other words, the whole package is there."
+msgstr ""
+"极好的人，良好的气氛，舒适的设施，负担得起的，山，自然…还有两到三个小时的车程"
+"到最近的希腊海滩，换句话说，整个包裹就在那里。"
 
-#: coworker/templates/pages/reviews.html:92
+#: coworker/templates/pages/reviews.html:95
 msgid "Nice place!"
 msgstr "美好的地方！"
 
-#: coworker/templates/pages/reviews.html:98
+#: coworker/templates/pages/reviews.html:101
 msgid ""
-"Great place to organize your workspace. Prices are not high for Ukraine. And"
-" good point is a shower inside, so you can get to that location using "
-"bicycle and than not stink for the rest of the day. Also they have kitten!=)"
-msgstr "一个安排您工作的好地方。乌克兰的物价不高。最棒的地方是淋浴，所以你可以骑自行车去那个地方，而不是在白天休息。他们还有小猫！=）"
+"Great place to organize your workspace. Prices are not high for Ukraine. And "
+"good point is a shower inside, so you can get to that location using bicycle "
+"and than not stink for the rest of the day. Also they have kitten!=)"
+msgstr ""
+"一个安排您工作的好地方。乌克兰的物价不高。最棒的地方是淋浴，所以你可以骑自行"
+"车去那个地方，而不是在白天休息。他们还有小猫！=）"
 
-#: coworker/templates/pages/reviews.html:133
+#: coworker/templates/pages/reviews.html:136
 #, fuzzy
 #| msgid ""
-#| "This is a great place to have as your workspot! Here you´ll be inspired and "
-#| "helped in many ways. If you are en entreprenour sitting at home working and "
-#| "got the feeling of loneliness and boredness?  Apply to Big Happy Place - "
-#| "you´ll not regret it. You may "
+#| "This is a great place to have as your workspot! Here you´ll be inspired "
+#| "and helped in many ways. If you are en entreprenour sitting at home "
+#| "working and got the feeling of loneliness and boredness?  Apply to Big "
+#| "Happy Place - you´ll not regret it. You may "
 msgid ""
 "This is a great place to have as your workspot! Her you´ll be inspired and "
 "helped in many ways. If you are en entreprenour sitting at home working and "
-"got the feeling of loneliness and boredness?  Apply to Da Appy Place - "
-"you´ll not regret it. You may "
+"got the feeling of loneliness and boredness?  Apply to Da Appy Place - you"
+"´ll not regret it. You may "
 msgstr ""
-"这是一个让你Workspot的好地方！在这里，你将得到许多方面的鼓舞和帮助。如果你是一enterprenour坐在家里工作的人，会有寂寞和无聊的感觉吗？适用于大快乐的地方-"
-"你不会后悔的。你可以。"
+"这是一个让你Workspot的好地方！在这里，你将得到许多方面的鼓舞和帮助。如果你是"
+"一enterprenour坐在家里工作的人，会有寂寞和无聊的感觉吗？适用于大快乐的地方-你"
+"不会后悔的。你可以。"
 
-#: coworker/templates/pages/reviews.html:201
+#: coworker/templates/pages/reviews.html:204
 #, fuzzy
 #| msgid ""
 #| "I've been a full-time member at The Hive for two months and it's great. "
@@ -2170,11 +3012,12 @@ msgid ""
 "Hive hits the exactly the right spot for delivering the right amenities, "
 "outstanding staff, a convenient central location, and just a nice "
 msgstr ""
-"我是一个在蜂房两个月的全职成员，这里棒极了，有好的地方也有不喜欢的地方，但我认为蜂巢点子最正确的地方是提供好的设施，优秀的员工，一个方便的中心位置，总之是一个很好的地方。"
+"我是一个在蜂房两个月的全职成员，这里棒极了，有好的地方也有不喜欢的地方，但我"
+"认为蜂巢点子最正确的地方是提供好的设施，优秀的员工，一个方便的中心位置，总之"
+"是一个很好的地方。"
 
 #: coworker/templates/pages/search_list.html:4
-#: coworker/templates/place/city.html:6
-#: coworker/templates/place/country.html:6
+#: coworker/templates/place/city.html:6 coworker/templates/place/country.html:6
 #: coworker/templates/place/elements/big_map.html:4
 msgid "Look at all of the city's guest space"
 msgstr "查看该城市的所有创客空间"
@@ -2192,12 +3035,26 @@ msgid "Open office:"
 msgstr "开放式办公:"
 
 #: coworker/templates/pages/search_list.html:39
-msgid "Do you want to work with other people?"
+#, fuzzy
+#| msgid ""
+#| "Do you want to work with other people?\" So this function is set foryou. "
+#| "Here you can find hot desk, desk or desk for sharing "
+msgid ""
+"Do you want to work with other peple?' So this function is set for you. Here "
+"you can find hot desk, desk or desk for sharing "
 msgstr ""
+"您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公"
+"桌、专用办公桌或者共享办公桌."
 
 #: coworker/templates/pages/search_list.html:43
 msgid "Private office:"
 msgstr "私人办公室:"
+
+#: coworker/templates/pages/search_list.html:45
+msgid ""
+"If you like the energy of coworking alongside other people, this is for you. "
+"Includes hotdesks, dedicated desks and shared tables."
+msgstr ""
 
 #: coworker/templates/pages/search_list.html:69
 msgid "Open office"
@@ -2348,8 +3205,8 @@ msgstr "会见同事"
 
 #: coworker/templates/pages/team.html:25
 msgid ""
-"We have gathered around the world the rebels, the outliers,the geniuses, the"
-" geeks, the artists, the writers......"
+"We have gathered around the world the rebels, the outliers,the geniuses, the "
+"geeks, the artists, the writers......"
 msgstr "我们这里汇聚了全世界的反抗者、离群者、天才、科技怪胎、艺术家、作家……"
 
 #: coworker/templates/pages/team.html:55
@@ -2383,7 +3240,9 @@ msgid "@SpacesMap"
 msgstr "@创客云图"
 
 #: coworker/templates/pages/team.html:72
-msgid "在微博上搜索我们的官方微博“创客云图”，您可以看到全世界的人们是如何通过创客云图办公的。"
+msgid ""
+"在微博上搜索我们的官方微博“创客云图”，您可以看到全世界的人们是如何通过创客云"
+"图办公的。"
 msgstr ""
 
 #: coworker/templates/pages/team.html:79
@@ -2395,7 +3254,9 @@ msgid ""
 "Looking for the SpacesMap site? Pay attention to our public numberand tell "
 "us your requirement. We will recommend the right place foryou at the first "
 "time."
-msgstr "想找创客云图场地？关注我们的公众号，把您的需求告诉我们，我们将第一时间为您推荐合适的场地。"
+msgstr ""
+"想找创客云图场地？关注我们的公众号，把您的需求告诉我们，我们将第一时间为您推"
+"荐合适的场地。"
 
 #: coworker/templates/pages/team.html:88
 msgid "Pay attention to our ZhiHu ID, you will get more information!"
@@ -2411,8 +3272,8 @@ msgstr "条款"
 
 #: coworker/templates/pages/terms.html:19
 msgid ""
-"You are welcome to use SpacesMap service! In order to use SpacesMapservices,"
-" you should read and abide by the SpacesMap usage protocoland the SpacesMap "
+"You are welcome to use SpacesMap service! In order to use SpacesMapservices, "
+"you should read and abide by the SpacesMap usage protocoland the SpacesMap "
 "privacy clause. This agreement is a legalagreement between the user and the "
 "SpacesMap, which is the generalterm used by the user to register the "
 "SpacesMap platform account and/ or use the SpacesMap service. Please read "
@@ -2422,13 +3283,33 @@ msgid ""
 "behighlighted in bold black or underlined forms. You should not "
 "takeSpacesMap of this agreement in a reasonable way to alert the user ornot "
 "according to user requirements as to the explanation obligationand claimed "
-"that as a reason or request the court or any other thirdparty to confirm the"
-" relevant provisions of illegal or invalid.Unless you have read and accepted"
-" all the terms of this agreement,you have no right to use the services "
+"that as a reason or request the court or any other thirdparty to confirm the "
+"relevant provisions of illegal or invalid.Unless you have read and accepted "
+"all the terms of this agreement,you have no right to use the services "
 "provided by SpacesMap. The useof your SpacesMap service is considered as a "
 "restriction to theagreement you have read and agreed to. "
 msgstr ""
-"欢迎您使用创客云图的服务！为使用创客云图的服务，您应当阅读并遵守《创客云图使用协议》和《创客云图隐私权条款》。本协议是用户与创客云图之间的法律协议，是用户注册创客云图平台账号和/或使用创客云图服务时使用的通用条款。请您务必审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款、管辖与法律适用条款。限制、免责条款可能以黑体加粗或加下划线的形式提示您重点注意。您不应当以创客云图未对本协议以合理方式提醒用户注意或未根据用户要求尽到说明义务为理由而声称或要求法院或其它任何第三方确认相关条款非法或无效。除非您已阅读并接受本协议所有条款，否则您无权使用创客云图提供的服务。您使用创客云图的服务即视为您已阅读并同意上述协议的约束。"
+"欢迎您使用创客云图的服务！为使用创客云图的服务，您应当阅读并遵守《创客云图使"
+"用协议》和《创客云图隐私权条款》。本协议是用户与创客云图之间的法律协议，是用"
+"户注册创客云图平台账号和/或使用创客云图服务时使用的通用条款。请您务必审慎阅"
+"读、充分理解各条款内容，特别是免除或者限制责任的条款、管辖与法律适用条款。限"
+"制、免责条款可能以黑体加粗或加下划线的形式提示您重点注意。您不应当以创客云图"
+"未对本协议以合理方式提醒用户注意或未根据用户要求尽到说明义务为理由而声称或要"
+"求法院或其它任何第三方确认相关条款非法或无效。除非您已阅读并接受本协议所有条"
+"款，否则您无权使用创客云图提供的服务。您使用创客云图的服务即视为您已阅读并同"
+"意上述协议的约束。"
+
+#: coworker/templates/pages/terms.html:21
+msgid ""
+" 创客云图平台，是指创客云图有限公司旗下运营之创客云图网站（www.SpacesMap.cn."
+"com)。\n"
+"用户，包含注册用户和非注册用户，以下亦称为“您”。注册用户是指通过创客云图平台"
+"完成全部注册程序后，使用创客云图平台服务或创客云图网站资料的用户。非注册用户"
+"是指未进行注册、直接登录创客云图平台或通过其他网站进入创客云图平台直接或间接"
+"地使用创客云图平台服务或创客云图网站资料的用户。\n"
+"协议方，本协议中协议双方合称“协议方”。 创客云图有限公司及其相关服务可能存在的"
+"运营关联单位、创客云图平台在协议中统称为\"创客云图\"。"
+msgstr ""
 
 #: coworker/templates/pages/terms.html:27
 msgid "Effect of agreement"
@@ -2436,30 +3317,41 @@ msgstr "协议的效力"
 
 #: coworker/templates/pages/terms.html:29
 msgid ""
-"在您按照注册页面提示填写信息、阅读并同意本协议并完成全部注册程序后或以其他创客云图允许的方式实际使用创客云图平台服务时，您即受本协议的约束。本协议内容包括本协议正文、《创客云图隐私权条款》，且您在使用创客云图某一特定服务时，该服务可能会另有单独的协议、相关业务规则等（以下统称为“规则”）。所有创客云图已经发布的或将来可能发布的规则为本协议不可分割的组成部分，与本协议具有同等法律效力。除另行明确声明外，任何创客云图及其关联公司提供的服务（以下称为“创客云图平台服务”）均受本协议约束。您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止注册程序或停止使用创客云图平台服务；如您继续访问和使用创客云图平台服务，即视为您已确知并完全同意本协议各项内容。创客云图有权根据国家法律法规的更新、产品和服务规则的调整需要不时地制订、修改本协议及/或各类规则，并提前以网站公示的方式进行公示。如您继续使用创客云图平台服务的，即表示您接受经修订的协议和规则。如发生有关争议时，以创客云图最新的相关协议和规则为准。"
+" 在您按照注册页面提示填写信息、阅读并同意本协议并完成全部注册程序后或以其他创"
+"客云图允许的方式实际使用创客云图平台服务时，您即受本协议的约束。本协议内容包"
+"括本协议正文、《创客云图隐私权条款》，且您在使用创客云图某一特定服务时，该服"
+"务可能会另有单独的协议、相关业务规则等（以下统称为“规则”）。所有创客云图已经"
+"发布的或将来可能发布的规则为本协议不可分割的组成部分，与本协议具有同等法律效"
+"力。除另行明确声明外，任何创客云图及其关联公司提供的服务（以下称为“创客云图平"
+"台服务”）均受本协议约束。您承诺接受并遵守本协议的约定。如果您不同意本协议的约"
+"定，您应立即停止注册程序或停止使用创客云图平台服务；如您继续访问和使用创客云"
+"图平台服务，即视为您已确知并完全同意本协议各项内容。创客云图有权根据国家法律"
+"法规的更新、产品和服务规则的调整需要不时地制订、修改本协议及/或各类规则，并提"
+"前以网站公示的方式进行公示。如您继续使用创客云图平台服务的，即表示您接受经修"
+"订的协议和规则。如发生有关争议时，以创客云图最新的相关协议和规则为准 "
 msgstr ""
 
 #: coworker/templates/pages/terms.html:33
 #, fuzzy
 #| msgid ""
-#| "When you sign this Agreement and complete the registration process,SpacesMap"
-#| " will provide you with a unique numbered SpacesMap account.You respond to "
-#| "your user account, login password and paymentpassword (if any), the "
-#| "verification code and the behavior of theimplementation of security, "
-#| "responsible for using your account andpassword; therefore, any loss or "
-#| "damage, SpacesMap can't take noresponsibility. Unless the law or "
-#| "administrative judicial organs andthe consent of the SpacesMap instruction, "
-#| "agree, otherwise your useraccount, login password, payment password and "
-#| "verification code (ifany) shall not in any way transfer, borrow, gift, "
-#| "inheritance (withthe exception of account related property rights) < or > "
-#| "display orsale in third party platform. Otherwise, all losses caused to "
-#| "youor SpacesMap, any third party) may be borne by you (or responsible\"  "
-#| "\"for compensation). "
+#| "When you sign this Agreement and complete the registration process,"
+#| "SpacesMap will provide you with a unique numbered SpacesMap account.You "
+#| "respond to your user account, login password and paymentpassword (if "
+#| "any), the verification code and the behavior of theimplementation of "
+#| "security, responsible for using your account andpassword; therefore, any "
+#| "loss or damage, SpacesMap can't take noresponsibility. Unless the law or "
+#| "administrative judicial organs andthe consent of the SpacesMap "
+#| "instruction, agree, otherwise your useraccount, login password, payment "
+#| "password and verification code (ifany) shall not in any way transfer, "
+#| "borrow, gift, inheritance (withthe exception of account related property "
+#| "rights) < or > display orsale in third party platform. Otherwise, all "
+#| "losses caused to youor SpacesMap, any third party) may be borne by you "
+#| "(or responsible\"  \"for compensation). "
 msgid ""
-"When you sign this Agreement and complete the registration process,SpacesMap"
-" will provide you with a unique numbered SpacesMap account.You respond to "
-"your user account, login password and paymentpassword (if any), the "
-"verification code and the behavior of theimplementation of security, "
+" \"When you sign this Agreement and complete the registration process,"
+"SpacesMap will provide you with a unique numbered SpacesMap account.You "
+"respond to your user account, login password and paymentpassword (if any), "
+"the verification code and the behavior of theimplementation of security, "
 "responsible for using your account andpassword; therefore, any loss or "
 "damage, SpacesMap can't take noresponsibility. Unless the law or "
 "administrative judicial organs andthe consent of the SpacesMap instruction, "
@@ -2467,28 +3359,37 @@ msgid ""
 "verification code (ifany) shall not in any way transfer, borrow, gift, "
 "inheritance (withthe exception of account related property rights) < or > "
 "display orsale in third party platform. Otherwise, all losses caused to "
-"youor SpacesMap, any third party) may be borne by you (or responsible"
+"youor SpacesMap, any third party) may be borne by you (or responsible\"  "
+"\"for compensation). "
 msgstr ""
-"在您签署本协议，完成注册程序时，创客云图会向您提供唯一编号的创客云图账户。您应对您的用户账户、登录密码、支付密码（如有）、验证码的安全，以及对通过您的账户和密码实施的行为负责；因此所衍生的任何损失或损害，创客云图无法也不承担任何责任。除非有法律规定或行政司法机关的指令，且征得创客云图的同意，否则您的用户账户、登录密码、支付密码（如有）和验证码不得以任何方式转让、借用、赠与、继承（与账户相关的财产权益除外）<或>在第三方平台上进行展示或售卖。否则，由此给您（或创客云图、任何第三方）造成的一切损失，概由您自行承担（或者负责赔偿）。"
+"在您签署本协议，完成注册程序时，创客云图会向您提供唯一编号的创客云图账户。您"
+"应对您的用户账户、登录密码、支付密码（如有）、验证码的安全，以及对通过您的账"
+"户和密码实施的行为负责；因此所衍生的任何损失或损害，创客云图无法也不承担任何"
+"责任。除非有法律规定或行政司法机关的指令，且征得创客云图的同意，否则您的用户"
+"账户、登录密码、支付密码（如有）和验证码不得以任何方式转让、借用、赠与、继承"
+"（与账户相关的财产权益除外）<或>在第三方平台上进行展示或售卖。否则，由此给您"
+"（或创客云图、任何第三方）造成的一切损失，概由您自行承担（或者负责赔偿）。"
 
 #: coworker/templates/pages/terms.html:35
 msgid ""
-"Through the SpacesMap platform, you can publish all kinds of lifeinformation"
-" in accordance with the SpacesMap rules. But theinformation release shall "
-"not contain the following contents:"
-msgstr "通过创客云图平台，您可以按照创客云图的规则发布各种生活信息。但所发布之信息不得含有如下内容："
+"Through the SpacesMap platform, you can publish all kinds of lifeinformation "
+"in accordance with the SpacesMap rules. But theinformation release shall not "
+"contain the following contents:"
+msgstr ""
+"通过创客云图平台，您可以按照创客云图的规则发布各种生活信息。但所发布之信息不"
+"得含有如下内容："
 
 #: coworker/templates/pages/terms.html:38
 msgid ""
-"1) against the basic principles specified in the constitution, incitement to"
-" resist, the destruction of the Constitution and the laws and administrative"
-" regulations."
+"1) against the basic principles specified in the constitution, incitement to "
+"resist, the destruction of the Constitution and the laws and administrative "
+"regulations."
 msgstr "1) 反对宪法所确定的基本原则，煽动抗拒、破坏宪法和法律、行政法规实施的"
 
 #: coworker/templates/pages/terms.html:39
 msgid ""
-"Inciting harm to national security, divulging state secrets,subverting state"
-" power and overthrowing the socialist system;"
+"Inciting harm to national security, divulging state secrets,subverting state "
+"power and overthrowing the socialist system;"
 msgstr "煽动危害国家安全、泄露国家秘密、颠覆国家政权，推翻社会主义制度的；"
 
 #: coworker/templates/pages/terms.html:40
@@ -2508,10 +3409,12 @@ msgstr "捏造或者歪曲事实，散布谣言，扰乱社会秩序的；"
 
 #: coworker/templates/pages/terms.html:43
 msgid ""
-"Political propaganda or destruction of national religious policies,promotion"
-" of feudal superstition, obscenity, pornography, gambling,violence, murder, "
+"Political propaganda or destruction of national religious policies,promotion "
+"of feudal superstition, obscenity, pornography, gambling,violence, murder, "
 "terror, abetting crimes.;"
-msgstr "进行政治宣传或破坏国家宗教政策、宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、恐怖、教唆犯罪的；"
+msgstr ""
+"进行政治宣传或破坏国家宗教政策、宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、"
+"恐怖、教唆犯罪的；"
 
 #: coworker/templates/pages/terms.html:44
 msgid ""
@@ -2524,17 +3427,32 @@ msgid "Other violations of the Constitution and laws andregulations;"
 msgstr "其他违反宪法和法律法规的；"
 
 #: coworker/templates/pages/terms.html:48
+#, fuzzy
+#| msgid ""
+#| "SpacesMap is responsible for the SpacesMap platform to provideservices to "
+#| "you. But the SpacesMap on the SpacesMap platformservices without any "
+#| "express or implied warranties, including butnot limited to the SpacesMap "
+#| "service platform applicability, noerrors or omissions, continuity, "
+#| "accuracy, reliability, suitable fora particular purpose. At the same "
+#| "time, SpacesMap does not make anypromises and guarantees on the "
+#| "effectiveness, accuracy, correctness,reliability, stability, integrity "
+#| "and timeliness of the technologyand information involved in the SpacesMap "
+#| "platform services. "
 msgid ""
-"SpacesMap is responsible for the SpacesMap platform to provideservices to "
-"you. But the SpacesMap on the SpacesMap platformservices without any express"
-" or implied warranties, including butnot limited to the SpacesMap service "
+" SpacesMap is responsible for the SpacesMap platform to provideservices to "
+"you. But the SpacesMap on the SpacesMap platformservices without any express "
+"or implied warranties, including butnot limited to the SpacesMap service "
 "platform applicability, noerrors or omissions, continuity, accuracy, "
 "reliability, suitable fora particular purpose. At the same time, SpacesMap "
 "does not make anypromises and guarantees on the effectiveness, accuracy, "
 "correctness,reliability, stability, integrity and timeliness of the "
 "technologyand information involved in the SpacesMap platform services. "
 msgstr ""
-"创客云图负责向您提供创客云图平台服务。但创客云图对创客云图平台服务不作任何明示或暗示的保证，包括但不限于创客云图平台服务的适用性、没有错误或疏漏、持续性、准确性、可靠性、适用于某一特定用途。同时，创客云图也不对创客云图平台服务所涉及的技术及信息的有效性、准确性、正确性、可靠性、稳定性、完整性和及时性作出任何承诺和保证。"
+"创客云图负责向您提供创客云图平台服务。但创客云图对创客云图平台服务不作任何明"
+"示或暗示的保证，包括但不限于创客云图平台服务的适用性、没有错误或疏漏、持续"
+"性、准确性、可靠性、适用于某一特定用途。同时，创客云图也不对创客云图平台服务"
+"所涉及的技术及信息的有效性、准确性、正确性、可靠性、稳定性、完整性和及时性作"
+"出任何承诺和保证。"
 
 #: coworker/templates/pages/terms.html:50
 msgid "Limitation of liability and limitation of liability"
@@ -2544,36 +3462,46 @@ msgstr "责任范围和责任限制"
 #, fuzzy
 #| msgid ""
 #| "SpacesMap only provides you with SpacesMap platform services, youknow the "
-#| "information on the SpacesMap platform users release, due tothe existence of "
-#| "massive information, and SpacesMap platform can notbe stopped, there may be "
-#| "risks and flaws.\". You should be careful todetermine the authenticity, "
-#| "legality and effectiveness of therelevant information, and pay attention to "
-#| "retaining thecorresponding evidence in order to safeguard rights, if "
-#| "possible, asfar as possible using the site recommended trading methods. "
+#| "information on the SpacesMap platform users release, due tothe existence "
+#| "of massive information, and SpacesMap platform can notbe stopped, there "
+#| "may be risks and flaws.\". You should be careful todetermine the "
+#| "authenticity, legality and effectiveness of therelevant information, and "
+#| "pay attention to retaining thecorresponding evidence in order to "
+#| "safeguard rights, if possible, asfar as possible using the site "
+#| "recommended trading methods. "
 msgid ""
 "SpacesMap only provides you with SpacesMap platform services, youknow the "
 "information on the SpacesMap platform users release, due tothe existence of "
 "massive information, and SpacesMap platform can notbe stopped, there may be "
-"risks and flaws."
+"risks and flaws. You should be careful todetermine the authenticity, "
+"legality and effectiveness of therelevant information, and pay attention to "
+"retaining thecorresponding evidence in order to safeguard rights, if "
+"possible, asfar as possible using the site recommended trading methods. "
 msgstr ""
-"创客云图仅向您提供创客云图平台服务，您了解创客云图平台上的信息系用户自行发布，由于海量信息的存在，且创客云图平台无法杜绝可能存在风险和瑕疵。您应谨慎判断确定相关信息的真实性、合法性和有效性，并注意保留相应的证据以利于维权，如可能，尽量采用网站建议的交易方式进行。"
+"创客云图仅向您提供创客云图平台服务，您了解创客云图平台上的信息系用户自行发"
+"布，由于海量信息的存在，且创客云图平台无法杜绝可能存在风险和瑕疵。您应谨慎判"
+"断确定相关信息的真实性、合法性和有效性，并注意保留相应的证据以利于维权，如可"
+"能，尽量采用网站建议的交易方式进行。"
 
 #: coworker/templates/pages/terms.html:54
 msgid ""
 "Hit off the cloud platform and other online using the Internetwebsite, also "
-"will be affected by various adverse information,network security and network"
-" fault problems, including but notlimited to: (a) other users may release "
+"will be affected by various adverse information,network security and network "
+"fault problems, including but notlimited to: (a) other users may release "
 "fraud or false information,or publication of abuse, curse, slander and "
-"attack the illegalspeech or are obscene, pornographic, obscene, reactionary,"
-" incitingethnic hatred and other people disgust the content (b); other "
+"attack the illegalspeech or are obscene, pornographic, obscene, reactionary, "
+"incitingethnic hatred and other people disgust the content (b); other "
 "usersmay release some of you or any other third party intellectualproperty "
 "rights, the right of portrait, name right, right ofreputation and privacy "
 "and / or other legitimate rights andinterests of the pictures, photos, text "
 "information; (C)"
 msgstr ""
-"创客云图平台与其他的在线使用的互联网网站一样，也会受到各种不良信息、网络安全和网络故障问题的困扰，包括但不限于： (a) "
-"其他用户可能会发布诈骗或虚假信息，或者发表有谩骂、诅咒、诋毁、攻击内容的，或者含有淫秽、色情、下流、反动、煽动民族仇恨等让人反感、厌恶的内容的非法言论；"
-" (b) 其他用户可能会发布一些侵犯您或者其他第三方知识产权、肖像权、姓名权、名誉权、隐私权和/或其他合法权益的图片、照片、文字等资料； (c)"
+"创客云图平台与其他的在线使用的互联网网站一样，也会受到各种不良信息、网络安全"
+"和网络故障问题的困扰，包括但不限于： (a) 其他用户可能会发布诈骗或虚假信息，或"
+"者发表有谩骂、诅咒、诋毁、攻击内容的，或者含有淫秽、色情、下流、反动、煽动民"
+"族仇恨等让人反感、厌恶的内容的非法言论； (b) 其他用户可能会发布一些侵犯您或者"
+"其他第三方知识产权、肖像权、姓名权、名誉权、隐私权和/或其他合法权益的图片、照"
+"片、文字等资料； (c)"
 
 #: coworker/templates/pages/terms.html:56
 msgid "Termination by agreement"
@@ -2584,19 +3512,21 @@ msgid ""
 "You agree that when you find that any content of this website doesnot "
 "conform to the law, or does not conform to the provisions ofthis user "
 "agreement, you have the obligation to notify the clientcloud picture in "
-"time. If you find that your personal information isstolen, your copyright or"
-" other rights infringement, please informthe guests at the same time "
+"time. If you find that your personal information isstolen, your copyright or "
+"other rights infringement, please informthe guests at the same time "
 "nephogram and provide the followinginformation and materials: (a) a "
 "violation of your rightsinformation web site, you can find the number or "
-"other informationin detail; (b) you are the the copyright or other rights of"
-" thelegitimate owners of the rights certificate; (c) your "
-"contactinformation, including contact name, address, telephone number "
-"andemail; (d) a copy of your ID, business license and other "
-"relevantinformation. "
+"other informationin detail; (b) you are the the copyright or other rights of "
+"thelegitimate owners of the rights certificate; (c) your contactinformation, "
+"including contact name, address, telephone number andemail; (d) a copy of "
+"your ID, business license and other relevantinformation. "
 msgstr ""
-"您同意，在发现本网站任何内容不符合法律规定，或不符合本用户协议规定的，您有义务及时通知创客云图。如果您发现您的个人信息被盗用、您的版权或者其他权利被侵害，请将此情况告知创客云图并同时提供如下信息和材料：(a)侵犯您权利的信息的网址，编号或其他可以找到该信息的细节；(b)"
-" 您是所述的版权或者其他权利的合法拥有者的权利证明；（c）您的联系方式，包括联系人姓名，地址，电话号码和电子邮件；(d) "
-"您的身份证复印件、营业执照等其他相关资料。"
+"您同意，在发现本网站任何内容不符合法律规定，或不符合本用户协议规定的，您有义"
+"务及时通知创客云图。如果您发现您的个人信息被盗用、您的版权或者其他权利被侵"
+"害，请将此情况告知创客云图并同时提供如下信息和材料：(a)侵犯您权利的信息的网"
+"址，编号或其他可以找到该信息的细节；(b) 您是所述的版权或者其他权利的合法拥有"
+"者的权利证明；（c）您的联系方式，包括联系人姓名，地址，电话号码和电子邮件；"
+"(d) 您的身份证复印件、营业执照等其他相关资料。"
 
 #: coworker/templates/pages/terms.html:61
 msgid ""
@@ -2605,16 +3535,19 @@ msgid ""
 "emergency, you can first inform the customer servicephone, we will take "
 "appropriate measures according to the situation."
 msgstr ""
-"经审查得到证实的，我们将及时删除相关信息。我们仅接受邮寄、电子邮件或传真方式的书面侵权通知。情况紧急的，您可以通过客服电话先行告知，我们会视情况采取相应措施。"
+"经审查得到证实的，我们将及时删除相关信息。我们仅接受邮寄、电子邮件或传真方式"
+"的书面侵权通知。情况紧急的，您可以通过客服电话先行告知，我们会视情况采取相应"
+"措施。"
 
 #: coworker/templates/pages/terms.html:63
 msgid ""
 "You understand and agree that SpacesMap is not due to any of thefollowing "
 "circumstances caused any damage to your compensationresponsibility, "
-"including but not limited to profits, goodwill, andother aspects of the loss"
-" of use, data or other intangible lossesdamages:"
+"including but not limited to profits, goodwill, andother aspects of the loss "
+"of use, data or other intangible lossesdamages:"
 msgstr ""
-"您了解并同意，创客云图不对因下述任一情况而导致您的任何损害赔偿承担责任，包括但不限于利润、商誉、使用、数据等方面的损失或其它无形损失的损害赔偿："
+"您了解并同意，创客云图不对因下述任一情况而导致您的任何损害赔偿承担责任，包括"
+"但不限于利润、商誉、使用、数据等方面的损失或其它无形损失的损害赔偿："
 
 #: coworker/templates/pages/terms.html:66
 msgid "Using or failing to create the cloud map platform service;"
@@ -2627,9 +3560,11 @@ msgstr "第三方未经批准地使用您的账户或更改您的数据；"
 #: coworker/templates/pages/terms.html:68
 msgid ""
 "Costs and losses arising from the purchase or acquisition of anycommodity, "
-"sample, data, information and other acts or substitutesthrough the SpacesMap"
-" platform;"
-msgstr "通过创客云图平台服务购买或获取任何商品、样品、数据、信息等行为或替代行为产生的费用及损失；"
+"sample, data, information and other acts or substitutesthrough the SpacesMap "
+"platform;"
+msgstr ""
+"通过创客云图平台服务购买或获取任何商品、样品、数据、信息等行为或替代行为产生"
+"的费用及损失；"
 
 #: coworker/templates/pages/terms.html:69
 msgid "Your misunderstanding of SpacesMap platform services;"
@@ -2649,7 +3584,9 @@ msgid ""
 "liable for the possible disputes within thescope of the law and the "
 "agreement;"
 msgstr ""
-"您在创客云图上使用第三方提供的产品或服务时，除遵守本协议约定外，还应遵守第三方的用户协议。创客云图和第三方对可能出现的纠纷在法律规定和约定的范围内各自承担责任;"
+"您在创客云图上使用第三方提供的产品或服务时，除遵守本协议约定外，还应遵守第三"
+"方的用户协议。创客云图和第三方对可能出现的纠纷在法律规定和约定的范围内各自承"
+"担责任;"
 
 #: coworker/templates/pages/terms.html:72
 msgid ""
@@ -2663,7 +3600,11 @@ msgid ""
 "thepromotion or the third party service provider and content fromSpacesMap, "
 "do not assume any responsibility;"
 msgstr ""
-"您同意在使用创客云图平台服务过程中显示创客云图自行或由第三方服务商向您发送的推广或宣传信息（包括商业与非商业信息），其方式和范围可不经向您特别通知而变更。除法律法规明确规定外，您应自行对依该推广信息进行的交易负责，对用户因依该推广信息进行的交易或前述第三方服务商提供的内容而遭受的损失或损害，创客云图不承担任何责任;"
+"您同意在使用创客云图平台服务过程中显示创客云图自行或由第三方服务商向您发送的"
+"推广或宣传信息（包括商业与非商业信息），其方式和范围可不经向您特别通知而变"
+"更。除法律法规明确规定外，您应自行对依该推广信息进行的交易负责，对用户因依该"
+"推广信息进行的交易或前述第三方服务商提供的内容而遭受的损失或损害，创客云图不"
+"承担任何责任;"
 
 #: coworker/templates/pages/terms.html:73
 msgid ""
@@ -2675,26 +3616,33 @@ msgid ""
 "governmentbehavior, judicial and administrative organs of the command or "
 "thirdparty as caused by the service or service cannot be delayed;"
 msgstr ""
-"创客云图对下列不可抗力行为免责：信息网络正常的设备维护，信息网络连接故障，电脑、通讯或其他系统的故障，电力故障，罢工，劳动争议，暴乱，起义，骚乱，生产力或生产资料不足，火灾，洪水，风暴，爆炸，战争，政府行为，司法行政机关的命令或第三方的不作为而造成的不能服务或延迟服务;"
+"创客云图对下列不可抗力行为免责：信息网络正常的设备维护，信息网络连接故障，电"
+"脑、通讯或其他系统的故障，电力故障，罢工，劳动争议，暴乱，起义，骚乱，生产力"
+"或生产资料不足，火灾，洪水，风暴，爆炸，战争，政府行为，司法行政机关的命令或"
+"第三方的不作为而造成的不能服务或延迟服务;"
 
 #: coworker/templates/pages/terms.html:74
 msgid ""
 "You should strictly abide by this Agreement and other agreements andrules "
 "issued by SpacesMap. If you violate the agreement or rules,and cause losses "
 "to the third party or SpacesMap, you should bearthe full responsibility.;"
-msgstr "您应当严格遵守本协议及创客云图发布的其他协议、活动规则，因您违反协议或规则的行为给第三方或创客云图造成损失的，您应当承担全部责任;"
+msgstr ""
+"您应当严格遵守本协议及创客云图发布的其他协议、活动规则，因您违反协议或规则的"
+"行为给第三方或创客云图造成损失的，您应当承担全部责任;"
 
 #: coworker/templates/pages/terms.html:75
 #, fuzzy
 #| msgid ""
 #| "SpacesMap reserves the right to independently decide to refuseservices, "
-#| "close user accounts, clear or edit content or cancelorders within the legal "
-#| "limits of the law of the People's Republicof China mainland.\". "
+#| "close user accounts, clear or edit content or cancelorders within the "
+#| "legal limits of the law of the People's Republicof China mainland.\". "
 msgid ""
 "SpacesMap reserves the right to independently decide to refuseservices, "
 "close user accounts, clear or edit content or cancelorders within the legal "
-"limits of the law of the People's Republicof China mainland."
-msgstr "创客云图保留在中华人民共和国大陆地区法施行之法律允许的范围内独立决定拒绝服务、关闭用户账户、清除或编辑内容或取消订单的权利。"
+"limits of the law of the People's Republicof China mainland. "
+msgstr ""
+"创客云图保留在中华人民共和国大陆地区法施行之法律允许的范围内独立决定拒绝服"
+"务、关闭用户账户、清除或编辑内容或取消订单的权利。"
 
 #: coworker/templates/pages/terms.html:78
 msgid "Intellectual property declaration"
@@ -2702,8 +3650,9 @@ msgstr "知识产权声明"
 
 #: coworker/templates/pages/terms.html:80
 msgid ""
-"“SpacesMap” 、 “创客云图 "
-"”等为创客云图所在公司及其关联公司的商标，受法律保护，任何人不得擅自使用。凡侵犯本公司版权等知识产权的，创客云图将依法追究其相关法律责任。"
+"“SpacesMap” 、 “创客云图 ”等为创客云图所在公司及其关联公司的商标，受法律保"
+"护，任何人不得擅自使用。凡侵犯本公司版权等知识产权的，创客云图将依法追究其相"
+"关法律责任。"
 msgstr ""
 
 #: coworker/templates/pages/terms.html:82
@@ -2722,14 +3671,24 @@ msgid ""
 "direct or indirect access to services orinformation. Any third party in "
 "violation of the provisions of thisagreement in any way, and / or in any "
 "part of any text on theSpacesMap website publish, copy, reprint, change, "
-"quotation, link,download or otherwise, or to provide access to the SpacesMap"
-" website any content to any other third party channels on the "
+"quotation, link,download or otherwise, or to provide access to the SpacesMap "
+"website any content to any other third party channels on the "
 "SpacesMapwebsite the right to use will be immediately terminated, and "
 "anythird party must be in accordance with the requirements of "
-"creatingimages, any copy of the return or any part of the content of thesite"
-" destroyed using the SpacesMap to create data. "
+"creatingimages, any copy of the return or any part of the content of thesite "
+"destroyed using the SpacesMap to create data. "
 msgstr ""
-"创客云图平台所刊登的资料信息（包括但不限于编码、文字、图表、标识、按钮图标、图像、数字下载、数据编辑和软件），均是创客云图或其内容提供者的财产，受中国和国际版权法的保护。本平台上所有内容的汇编是创客云图的排他财产，受中国和国际版权法的保护。本平台上所有软件都是创客云图或其关联公司或其软件供应商的财产，受中国和国际版权法的保护。未经创客云图的明确书面许可，任何第三方不得为任何非私人或商业目的获取或使用创客云图网站的任何部分或通过创客云图网站可直接或间接获得的任何内容、服务或资料。任何第三方违反本协议的规定以任何方式，和/或以任何文字对创客云图网站的任何部分进行发表、复制、转载、更改、引用、链接、下载或以其他方式进行使用，或向任何其他第三方提供获取创客云图网站任何内容的渠道，则对创客云图网站的使用权将立即终止，且任何第三方必须按照创客云图的要求，归还或销毁使用创客云图网站任何部分的内容所创建的资料的任何副本。"
+"创客云图平台所刊登的资料信息（包括但不限于编码、文字、图表、标识、按钮图标、"
+"图像、数字下载、数据编辑和软件），均是创客云图或其内容提供者的财产，受中国和"
+"国际版权法的保护。本平台上所有内容的汇编是创客云图的排他财产，受中国和国际版"
+"权法的保护。本平台上所有软件都是创客云图或其关联公司或其软件供应商的财产，受"
+"中国和国际版权法的保护。未经创客云图的明确书面许可，任何第三方不得为任何非私"
+"人或商业目的获取或使用创客云图网站的任何部分或通过创客云图网站可直接或间接获"
+"得的任何内容、服务或资料。任何第三方违反本协议的规定以任何方式，和/或以任何文"
+"字对创客云图网站的任何部分进行发表、复制、转载、更改、引用、链接、下载或以其"
+"他方式进行使用，或向任何其他第三方提供获取创客云图网站任何内容的渠道，则对创"
+"客云图网站的使用权将立即终止，且任何第三方必须按照创客云图的要求，归还或销毁"
+"使用创客云图网站任何部分的内容所创建的资料的任何副本。"
 
 #: coworker/templates/pages/terms.html:84
 msgid "The following SpacesMap platform can not be arbitrarily:"
@@ -2753,23 +3712,29 @@ msgid ""
 "recovery, and the suspension, freezing andrecovery in timely notice. If the "
 "safety of the site is due toillegal behavior of your SpacesMap, have the "
 "right to terminate theprovision of all or part of creating cloud platform "
-"services to you,permanently frozen (canceled) your account, and you have the"
-" rightto claim for the loss;"
+"services to you,permanently frozen (canceled) your account, and you have the "
+"rightto claim for the loss;"
 msgstr ""
-"(1)您同意，创客云图基于平台服务的安全性，有权中止向您提供部分或全部创客云图平台服务，暂时冻结您的账户，待安全问题解决后及时恢复，并对中止、冻结及恢复的事实及时通知。如果网站的安全问题是由于您的违法行为引起，创客云图有权终止向您提供部分或全部创客云图平台服务，永久冻结（注销）您的帐户，并有权向您对损失进行索赔;"
+"(1)您同意，创客云图基于平台服务的安全性，有权中止向您提供部分或全部创客云图平"
+"台服务，暂时冻结您的账户，待安全问题解决后及时恢复，并对中止、冻结及恢复的事"
+"实及时通知。如果网站的安全问题是由于您的违法行为引起，创客云图有权终止向您提"
+"供部分或全部创客云图平台服务，永久冻结（注销）您的帐户，并有权向您对损失进行"
+"索赔;"
 
 #: coworker/templates/pages/terms.html:94
 msgid ""
-"(2) If you disagree with the amendment of this agreement or are dissatisfied"
-" with the service of SpacesMap, you may exercise the following rights:"
+"(2) If you disagree with the amendment of this agreement or are dissatisfied "
+"with the service of SpacesMap, you may exercise the following rights:"
 msgstr ""
 
 #: coworker/templates/pages/terms.html:98
 msgid ""
 "SpacesMap will be released on the SpacesMap platform, and theprivacy clause "
-"will not be amended. The privacy clause constitutesan effective part of this"
-" agreement;"
-msgstr "创客云图将在创客云图平台公布并不时修订隐私权条款，隐私权条款构成本协议的有效组成部分;"
+"will not be amended. The privacy clause constitutesan effective part of this "
+"agreement;"
+msgstr ""
+"创客云图将在创客云图平台公布并不时修订隐私权条款，隐私权条款构成本协议的有效"
+"组成部分;"
 
 #: coworker/templates/pages/terms.html:100
 msgid ""
@@ -2779,8 +3744,9 @@ msgstr "您知悉并承诺在使用创客云图的服务过程中，遵守《创
 
 #: coworker/templates/pages/terms.html:102
 msgid ""
-"创客云图要求各搜索引擎遵循行业规范，即“拒绝 Robots 访问标准”(Robots Exclusion "
-"Standard)，否则将视你的抓取行为是对我网站财产权利和知识产权的侵犯，有权通过法律诉讼维护网站利益。"
+"创客云图要求各搜索引擎遵循行业规范，即“拒绝 Robots 访问标准”(Robots "
+"Exclusion Standard)，否则将视你的抓取行为是对我网站财产权利和知识产权的侵犯，"
+"有权通过法律诉讼维护网站利益。"
 msgstr ""
 
 #: coworker/templates/pages/terms.html:105
@@ -2790,32 +3756,38 @@ msgstr "法律适用、管辖与其他"
 #: coworker/templates/pages/terms.html:107
 msgid ""
 "Conclusion, this agreement validity, interpretation, revision,supplement, "
-"termination, execution and settlement of the disputesshall apply the laws of"
-" People's Republic of China, such as therelevant provisions of the law, it "
+"termination, execution and settlement of the disputesshall apply the laws of "
+"People's Republic of China, such as therelevant provisions of the law, it "
 "shall refer to generalinternational commercial practice and (or) industry "
 "practices;"
 msgstr ""
-"本协议之订立、生效、解释、修订、补充、终止、执行与争议解决均适用中华人民共和国法律，如法律无相关规定的，则应参照通用国际商业惯例和（或）行业惯例;"
+"本协议之订立、生效、解释、修订、补充、终止、执行与争议解决均适用中华人民共和"
+"国法律，如法律无相关规定的，则应参照通用国际商业惯例和（或）行业惯例;"
 
 #: coworker/templates/pages/terms.html:109
 msgid ""
 "Any provision of this agreement is deemed to be repealed, invalid ornot "
 "enforceable, which shall be deemed to be separable and does notaffect the "
 "validity and enforceability of the remaining provisionsof this agreement.;"
-msgstr "本协议任一条款被视为废止、无效或不可执行，该条应视为可分的且并不影响本协议其余条款的有效性及可执行性;"
+msgstr ""
+"本协议任一条款被视为废止、无效或不可执行，该条应视为可分的且并不影响本协议其"
+"余条款的有效性及可执行性;"
 
 #: coworker/templates/pages/terms.html:111
 msgid ""
 "Controversy, T generated by this Agreement shall be borne by thedispute, "
 "SpacesMap with your friendly consultations; consultationfails, should be "
-"dealt with in accordance with the laws of People'sRepublic of China, and the"
-" Beijing Chaoyang District people's courtfor the jurisdiction of the court "
-"of first instance, in accordancewith the laws of People's Republic of China,"
-" because of theprovisions of jurisdiction, the Beijing Chaoyang District "
+"dealt with in accordance with the laws of People'sRepublic of China, and the "
+"Beijing Chaoyang District people's courtfor the jurisdiction of the court of "
+"first instance, in accordancewith the laws of People's Republic of China, "
+"because of theprovisions of jurisdiction, the Beijing Chaoyang District "
 "people'scourt does not have jurisdiction, to the superior court as "
 "thejurisdiction of the court of first instance. "
 msgstr ""
-"T因本协议产生之争议、纠纷，应由创客云图与您友好协商解决；协商不成的，应依照中华人民共和国法律予以处理，并以北京市朝阳区人民法院为第一审管辖法院，按照中华人民共和国法律，因级别管辖的规定，北京市朝阳区人民法院无权管辖的，以其上级法院作为第一审管辖法院。"
+"T因本协议产生之争议、纠纷，应由创客云图与您友好协商解决；协商不成的，应依照中"
+"华人民共和国法律予以处理，并以北京市朝阳区人民法院为第一审管辖法院，按照中华"
+"人民共和国法律，因级别管辖的规定，北京市朝阳区人民法院无权管辖的，以其上级法"
+"院作为第一审管辖法院。"
 
 #: coworker/templates/pages/terms.html:113
 msgid "Service help"
@@ -2906,7 +3878,9 @@ msgid ""
 "When someone wants to contact you through the page, which mailboxaddress do "
 "you want to receive information, booking request, travelinformation? "
 "(multiple mailbox addresses can be set) "
-msgstr "有人通过页面联系您时，您希望哪个邮箱地址接收信息、预订请求、旅游信息？（可设置多个邮箱地址。）"
+msgstr ""
+"有人通过页面联系您时，您希望哪个邮箱地址接收信息、预订请求、旅游信息？（可设"
+"置多个邮箱地址。）"
 
 #: coworker/templates/place/forms/description.html:5
 #: coworker/templates/place/place_description.html:25
@@ -2943,7 +3917,9 @@ msgid ""
 "Enter your SpacesMap field in the space, and select your SpacesMapsite in "
 "the pop-up drop-down list. If you do not have your sitedisplay drop-down "
 "list, please search the site where the streetstry. "
-msgstr "在空格中输入您的创客云图场地,并在弹出的下拉列表中选择您的创客云图场地。如果下拉列表里没有显示您的场地，请搜索场地所在街道试试。"
+msgstr ""
+"在空格中输入您的创客云图场地,并在弹出的下拉列表中选择您的创客云图场地。如果下"
+"拉列表里没有显示您的场地，请搜索场地所在街道试试。"
 
 #: coworker/templates/place/forms/location.html:20
 #: coworker/templates/place/place_add_location.html:50
@@ -3230,12 +4206,14 @@ msgstr "您有多大的规模？"
 #: coworker/templates/place/forms/size.html:4
 #, fuzzy
 #| msgid ""
-#| "Some people prefer small cozy spaces, and others prefer large "
-#| "openspaces.Help people find your space when they filter"
+#| "Some people prefer small cozy spaces, and others prefer large openspaces."
+#| "Help people find your space when they filter"
 msgid ""
 "Some people prefer small cozy spaces, and others prefer large open spaces. "
 "Help people find your space when they filter"
-msgstr "有些人喜欢小舒适的空间，而有些人则喜欢大的开放空间。当他们选择时帮助人们找到他们的空间，"
+msgstr ""
+"有些人喜欢小舒适的空间，而有些人则喜欢大的开放空间。当他们选择时帮助人们找到"
+"他们的空间，"
 
 #: coworker/templates/place/forms/size.html:5
 #: coworker/templates/place/place_add_size.html:26
@@ -3410,12 +4388,14 @@ msgstr "办公类型数量"
 #: coworker/templates/place/place_add_size.html:25
 #, fuzzy
 #| msgid ""
-#| "Some people prefer small cozy spaces, and others prefer large "
-#| "openspaces.Help people find your space when they filter."
+#| "Some people prefer small cozy spaces, and others prefer large openspaces."
+#| "Help people find your space when they filter."
 msgid ""
 "Some people prefer small cozy spaces, and others prefer large open spaces. "
 "Help people find your space when they filter."
-msgstr "有些人喜欢小舒适的空间，而有些人则喜欢大的开放空间。当他们选择时，帮助人们找到他们的空间。"
+msgstr ""
+"有些人喜欢小舒适的空间，而有些人则喜欢大的开放空间。当他们选择时，帮助人们找"
+"到他们的空间。"
 
 #: coworker/templates/place/place_amenities.html:34
 msgid "Tell coworkers about your space"
@@ -3429,7 +4409,8 @@ msgstr "告诉同事你的空间大小"
 msgid ""
 "Some people look for a coworking space with specific amenities. Help them "
 "find you when they filter."
-msgstr "有些人寻找一个coworking空间的具体设施。当他们选择时帮助他们找到他们想要的。"
+msgstr ""
+"有些人寻找一个coworking空间的具体设施。当他们选择时帮助他们找到他们想要的。"
 
 #: coworker/templates/place/place_amenities.html:36
 msgid "Common Amenities"
@@ -3449,7 +4430,7 @@ msgstr "更新个人资料图片"
 
 #: coworker/templates/users/profile.html:105
 #: coworker/templates/users/profile.html:302
-#: coworker/templates/users/show_edit_field.html:17
+#: coworker/templates/users/show_edit_field.html:19
 msgid "Cancel"
 msgstr "取消"
 
@@ -3488,8 +4469,8 @@ msgstr "为您的网站"
 #: coworker/templates/users/profile.html:200
 #, fuzzy
 #| msgid ""
-#| "Get embeddable widgets and graphics for your own website that showhow much "
-#| "your members love you..."
+#| "Get embeddable widgets and graphics for your own website that showhow "
+#| "much your members love you..."
 msgid ""
 "Get embeddable widgets and graphics for your own website that show how much "
 "your members love you..."
@@ -3540,13 +4521,9 @@ msgstr "预订"
 msgid "Who are you:"
 msgstr "你是谁:"
 
-#: coworker/templates/users/show_edit_field.html:16
+#: coworker/templates/users/show_edit_field.html:18
 msgid "Save"
 msgstr "保存"
-
-#: coworker/templates/users/show_value.html:12
-msgid "Edit"
-msgstr "编辑"
 
 #: coworker/templates/users/user_detail.html:25
 msgid "我的信息"
@@ -3559,6 +4536,664 @@ msgstr "更新"
 #: coworker/templates/users/user_list.html:7
 msgid "User"
 msgstr "用户"
+
+#: coworker/templates/zinnia/_entry_detail_base.html:18
+msgid "Written by"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:36
+#, fuzzy
+#| msgid "Join"
+msgctxt "in categories"
+msgid "in"
+msgstr "加入"
+
+#: coworker/templates/zinnia/_entry_detail_base.html:39
+#: coworker/templates/zinnia/category_list.html:17
+#: coworker/templates/zinnia/tags/categories.html:6
+#: coworker/templates/zinnia/tags/categories_tree.html:7
+#, python-format
+msgid "Show all entries in %(category)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:47
+#, fuzzy
+#| msgid "To update"
+msgid "Last update on"
+msgstr "更新"
+
+#: coworker/templates/zinnia/_entry_detail_base.html:99
+#, python-format
+msgid "%(percent)s%% of %(object)s still remains to read."
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:101
+#, fuzzy
+#| msgid "Continue"
+msgid "Continue reading"
+msgstr "继续"
+
+#: coworker/templates/zinnia/_entry_detail_base.html:126
+#, fuzzy
+#| msgid "Short name"
+msgid "Short url"
+msgstr "简短名称"
+
+#: coworker/templates/zinnia/_entry_detail_base.html:128
+#, python-format
+msgid "Short URL to %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:143
+#: coworker/templates/zinnia/tags/entries_popular.html:7
+#, python-format
+msgid "Comments on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:150
+#, python-format
+msgid "Leave a comment on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:151
+#, fuzzy
+#| msgid "The hottest comment"
+msgid "Be first to comment!"
+msgstr "评论最热"
+
+#: coworker/templates/zinnia/_entry_detail_base.html:154
+#: coworker/templates/zinnia/entry_detail_base.html:228
+#: coworker/templates/zinnia/entry_detail_base.html:234
+msgid "Comments are closed."
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:162
+#, python-format
+msgid "Pingbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:171
+#, python-format
+msgid "Trackbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/author_list.html:4
+#: coworker/templates/zinnia/author_list.html:11
+msgid "Author list"
+msgstr ""
+
+#: coworker/templates/zinnia/author_list.html:6
+#: coworker/templates/zinnia/base.html:45
+msgid "Authors"
+msgstr ""
+
+#: coworker/templates/zinnia/author_list.html:23
+#: coworker/templates/zinnia/tags/authors.html:12
+#, fuzzy
+#| msgid "No account yet?"
+msgid "No authors yet."
+msgstr "还没有账号？"
+
+#: coworker/templates/zinnia/base.html:17
+#, fuzzy
+#| msgid "Select at least one facility"
+msgid "RSS feed of last entries"
+msgstr "选择至少一个设施"
+
+#: coworker/templates/zinnia/base.html:18
+msgid "RSS feed of last discussions"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:29
+#, fuzzy
+#| msgid "Welcome,"
+msgid "Welcome!"
+msgstr "欢迎,"
+
+#: coworker/templates/zinnia/base.html:31
+msgid "This simple theme is the default appearance of Zinnia."
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:34
+msgid ""
+"Don't hesitate to override the template <strong>zinnia/base.html</strong> to "
+"start <a href='http://docs.django-blog-zinnia.com/en/latest/how-to/"
+"customize_look_and_feel.html'>customizing your Weblog</a>."
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:50
+msgid "Calendar"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:60
+msgid "Recent entries"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:72
+msgid "Random entries"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:76
+#, fuzzy
+#| msgid "Popular Now"
+msgid "Popular entries"
+msgstr "现在流行的"
+
+#: coworker/templates/zinnia/base.html:80
+#: coworker/templates/zinnia/entry_archive_day.html:5
+#: coworker/templates/zinnia/entry_archive_day.html:7
+#: coworker/templates/zinnia/entry_archive_day.html:12
+#: coworker/templates/zinnia/entry_archive_day.html:29
+#: coworker/templates/zinnia/entry_archive_month.html:4
+#: coworker/templates/zinnia/entry_archive_month.html:6
+#: coworker/templates/zinnia/entry_archive_month.html:11
+#: coworker/templates/zinnia/entry_archive_month.html:37
+#: coworker/templates/zinnia/entry_archive_today.html:22
+#: coworker/templates/zinnia/entry_archive_week.html:43
+#: coworker/templates/zinnia/entry_archive_year.html:4
+#: coworker/templates/zinnia/entry_archive_year.html:6
+#: coworker/templates/zinnia/entry_archive_year.html:11
+#: coworker/templates/zinnia/tags/entries_archives.html:5
+#: coworker/templates/zinnia/tags/entries_archives_link.html:2
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:6
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:13
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:23
+msgid "Archives"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:85
+msgid "Tools"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:89
+#: coworker/templates/zinnia/base.html:90
+msgid "Dashboard"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:96
+#: coworker/templates/zinnia/base.html:97
+msgid "Post an entry"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:104
+#: coworker/templates/zinnia/base.html:105
+#, fuzzy
+#| msgid "Sign out"
+msgid "Log out"
+msgstr "退出"
+
+#: coworker/templates/zinnia/category_list.html:4
+#: coworker/templates/zinnia/category_list.html:11
+msgid "Category list"
+msgstr ""
+
+#: coworker/templates/zinnia/category_list.html:23
+#: coworker/templates/zinnia/tags/categories.html:11
+#: coworker/templates/zinnia/tags/categories_tree.html:18
+msgid "No categories yet."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive.html:5
+#: coworker/templates/zinnia/entry_archive.html:7
+msgid "Last entries"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive.html:17
+msgid "Yearly archives"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_day.html:17
+#: coworker/templates/zinnia/entry_archive_today.html:16
+msgid "Previous day"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_day.html:23
+#, fuzzy
+#| msgid "One day"
+msgid "Next day"
+msgstr "1 天"
+
+#: coworker/templates/zinnia/entry_archive_day.html:36
+#: coworker/templates/zinnia/entry_archive_week.html:31
+#: coworker/templates/zinnia/entry_archive_week.html:39
+#, python-format
+msgid "Week %(week_number)s of %(year)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_month.html:16
+#: coworker/templates/zinnia/entry_archive_week.html:18
+#, fuzzy
+#| msgid "Daily rental"
+msgid "Daily archives"
+msgstr "日租"
+
+#: coworker/templates/zinnia/entry_archive_month.html:26
+msgid "Previous month"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_month.html:32
+#, fuzzy
+#| msgid "1 month"
+msgid "Next month"
+msgstr "1个月"
+
+#: coworker/templates/zinnia/entry_archive_today.html:4
+#: coworker/templates/zinnia/entry_archive_today.html:6
+#: coworker/templates/zinnia/entry_archive_today.html:11
+msgid "Today archives"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_week.html:5
+#: coworker/templates/zinnia/entry_archive_week.html:7
+#: coworker/templates/zinnia/entry_archive_week.html:12
+#, python-format
+msgid "Archives week %(week_number)s of %(year)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_week.html:28
+msgid "Previous week"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_week.html:36
+#, fuzzy
+#| msgid "One week"
+msgid "Next week"
+msgstr "1 周"
+
+#: coworker/templates/zinnia/entry_archive_year.html:15
+#: coworker/templates/zinnia/sitemap.html:38
+#, fuzzy
+#| msgid "Monthly"
+msgid "Monthly archives"
+msgstr "月租"
+
+#: coworker/templates/zinnia/entry_archive_year.html:25
+msgid "Previous year"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_year.html:31
+#, fuzzy
+#| msgid "1 year"
+msgid "Next year"
+msgstr "1年"
+
+#: coworker/templates/zinnia/entry_detail_base.html:23
+#, python-format
+msgid "RSS feed of discussions on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:25
+#, python-format
+msgid "RSS feed of comments on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:27
+#, python-format
+msgid "RSS feed of pingbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:29
+#, python-format
+msgid "RSS feed of trackbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:48
+#, fuzzy
+#| msgid "Next step"
+msgid "Next entry"
+msgstr "下一步"
+
+#: coworker/templates/zinnia/entry_detail_base.html:62
+msgid "Previous entry"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:76
+msgid "Related entries"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:90
+msgid "Similar entries"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:99
+msgid "Pingbacks"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:108
+#, python-format
+msgid ""
+"<a href=\"%(pingback_url)s\" rel=\"external nofollow\" class=\"fn url org\">"
+"%(pingback_name)s</a> on <time class=\"pingback-published\" datetime="
+"\"%(pingback_technical_date)s\"> %(pingback_human_date)s </time> <a href="
+"\"#pingback-%(pingback_pk)s\" id=\"c%(pingback_pk)s\" class=\"anchor-link\" "
+"title=\"Direct link to this pingback\">#</a>"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:134
+msgid "Pingbacks are open."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:136
+msgid "Pingbacks are closed."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:145
+msgid "Trackbacks"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:154
+#, python-format
+msgid ""
+"<a href=\"%(trackback_url)s\" rel=\"external nofollow\" class=\"fn url org\">"
+"%(trackback_name)s</a> on <time class=\"trackback-published\" datetime="
+"\"%(trackback_technical_date)s\"> %(trackback_human_date)s </time> <a href="
+"\"#trackback-%(trackback_pk)s\" id=\"c%(trackback_pk)s\" class=\"anchor-link"
+"\" title=\"Direct link to this trackback\">#</a>"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:182
+msgid "Trackback URL"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:192
+#, fuzzy
+#| msgid "Comment"
+msgid "Comments"
+msgstr "评论"
+
+#: coworker/templates/zinnia/entry_detail_base.html:206
+#, python-format
+msgid ""
+"<a href=\"%(comment_url)s\" rel=\"external nofollow\" class=\"fn url\">"
+"%(comment_name)s</a> on <time class=\"comment-published\" datetime="
+"\"%(comment_technical_date)s\"> %(comment_human_date)s </time> <a href="
+"\"#comment-%(comment_pk)s-by-%(comment_author_slug)s\" id=\"c%(comment_pk)s"
+"\" class=\"anchor-link\" title=\"Direct link to this comment\">#</a>"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:251
+#: coworker/templates/zinnia/entry_detail_base.html:252
+msgid "Edit the entry"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:10
+#, python-format
+msgid "The last entries categorized under %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:15
+#, python-format
+msgid "The last entries tagged with %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:19
+#, python-format
+msgid "The last entries by %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:24
+#, python-format
+msgid "page %(page_number)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:28
+#, python-format
+msgid "Category %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:32
+#, python-format
+msgid "Tag %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:36
+#, python-format
+msgid "Author %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:41
+#, python-format
+msgid "Page %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:46
+#: coworker/templates/zinnia/entry_list.html:49
+#: coworker/templates/zinnia/entry_list.html:52
+#: coworker/templates/zinnia/entry_list.html:67
+#: coworker/templates/zinnia/entry_list.html:68
+#: coworker/templates/zinnia/entry_list.html:76
+#: coworker/templates/zinnia/entry_list.html:77
+#: coworker/templates/zinnia/entry_list.html:85
+#: coworker/templates/zinnia/entry_list.html:86
+#, python-format
+msgid "RSS feed of %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:62
+#, python-format
+msgid "Category archives: %(category)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:74
+#, python-format
+msgid "Tag archives: %(tag)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:83
+#, python-format
+msgid "Author archives: %(author)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:98
+#: coworker/templates/zinnia/sitemap.html:30
+#: coworker/templates/zinnia/tags/entries_featured.html:9
+#: coworker/templates/zinnia/tags/entries_popular.html:12
+#: coworker/templates/zinnia/tags/entries_random.html:9
+#: coworker/templates/zinnia/tags/entries_recent.html:9
+#, fuzzy
+#| msgid "No account yet?"
+msgid "No entries yet."
+msgstr "还没有账号？"
+
+#: coworker/templates/zinnia/entry_list.html:117
+#: coworker/templates/zinnia/entry_list.html:118
+msgid "Edit the category"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:124
+#: coworker/templates/zinnia/entry_list.html:125
+#, fuzzy
+#| msgid "Edit data"
+msgid "Edit the tag"
+msgstr "编辑资料"
+
+#: coworker/templates/zinnia/entry_list.html:131
+#: coworker/templates/zinnia/entry_list.html:132
+msgid "Edit the author"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_search.html:5
+#: coworker/templates/zinnia/entry_search.html:7
+#: coworker/templates/zinnia/entry_search.html:19
+#, python-format
+msgid "Search results for '%(pattern)s'"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_search.html:12
+#: coworker/templates/zinnia/entry_search.html:25
+#: coworker/templates/zinnia/entry_search.html:26
+#, python-format
+msgid "RSS feed of search results for '%(pattern)s'"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_search.html:33
+#, python-format
+msgid "%(entry_count)s entry found"
+msgid_plural "%(entry_count)s entries found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/zinnia/entry_search.html:45
+msgid "Nothing found."
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:4
+#: coworker/templates/zinnia/login.html:9
+#, fuzzy
+#| msgid "Required"
+msgid "Login required"
+msgstr "必填"
+
+#: coworker/templates/zinnia/login.html:13
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:17
+msgid "You need to be connected to view this entry."
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:34
+msgid "Login"
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:4
+#: coworker/templates/zinnia/password.html:9
+#, fuzzy
+#| msgid "Password Reset"
+msgid "Password required"
+msgstr "密码重置"
+
+#: coworker/templates/zinnia/password.html:13
+msgid "The password provided is not valid. Please try again."
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:17
+msgid "You need to provide a password to view this entry."
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:29
+msgid "Valid"
+msgstr ""
+
+#: coworker/templates/zinnia/sitemap.html:5
+#: coworker/templates/zinnia/sitemap.html:12
+#: coworker/templates/zinnia/skeleton.html:70
+#: coworker/templates/zinnia/skeleton.html:71
+#, fuzzy
+#| msgid "Site area"
+msgid "Sitemap"
+msgstr "场地面积"
+
+#: coworker/templates/zinnia/sitemap.html:7
+#, fuzzy
+#| msgid "SpacesMap of the owners"
+msgid "Sitemap of the weblog"
+msgstr "创科云图业主"
+
+#: coworker/templates/zinnia/sitemap.html:15
+msgid "Entries per categories"
+msgstr ""
+
+#: coworker/templates/zinnia/sitemap.html:24
+#, fuzzy
+#| msgid "Comment"
+msgid "comment"
+msgstr "评论"
+
+#: coworker/templates/zinnia/skeleton.html:10
+msgid "Just another Zinnia weblog."
+msgstr ""
+
+#: coworker/templates/zinnia/skeleton.html:62
+#, fuzzy
+#| msgid "URL link"
+msgid "Useful links"
+msgstr "网址链接"
+
+#: coworker/templates/zinnia/skeleton.html:65
+#: coworker/templates/zinnia/skeleton.html:66
+msgid "Weblog index"
+msgstr ""
+
+#: coworker/templates/zinnia/skeleton.html:88
+#, python-format
+msgid ""
+"Powered by <a href=\"http://www.djangoproject.com\">Django</a> and <a href="
+"\"https://github.com/Fantomas42/django-blog-zinnia\">Zinnia "
+"%(ZINNIA_VERSION)s</a>."
+msgstr ""
+
+#: coworker/templates/zinnia/tag_list.html:4
+#: coworker/templates/zinnia/tag_list.html:11
+msgid "Tag list"
+msgstr ""
+
+#: coworker/templates/zinnia/tag_list.html:22
+#: coworker/templates/zinnia/tags/tag_cloud.html:11
+msgid "No tags yet."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/comments_recent.html:6
+#, python-format
+msgid ""
+"%(comment_author)s in <a href=\"%(entry_url)s#comment-%(comment_pk)s-by-"
+"%(comment_author_slug)s\" title=\"Comment on %(entry_title)s\"> "
+"%(entry_title)s </a>"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/entries_archives.html:12
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:37
+msgid "No archives yet."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/entries_similar.html:9
+msgid "No similar entries."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/linkbacks_recent.html:6
+#, python-format
+msgid ""
+"<a href=\"%(linkback_url)s\">%(linkback_name)s</a> in <a href="
+"\"%(entry_url)s#c%(linkback_pk)s\" title=\"Linkback on %(entry_title)s\"> "
+"%(entry_title)s </a>"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:5
+#, python-format
+msgid "Page %(current_page)s of %(total_page)s"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:11
+msgid "More recent entries"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:21
+#: coworker/templates/zinnia/tags/pagination.html:34
+#: coworker/templates/zinnia/tags/pagination.html:48
+msgid "Entries page"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:57
+msgid "More old entries"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/search_form.html:5
+msgid "Keywords..."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/search_form.html:7
+msgid ""
+"You can use - to exclude words or phrases, &quot;double quotes&quot; for "
+"exact phrases and the AND/OR boolean operators combined with parenthesis for "
+"complex queries."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/tag_cloud.html:6
+#, python-format
+msgid "%(entry_count)s entry tagged by %(tag)s"
+msgid_plural "%(entry_count)s entries tagged by %(tag)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: coworker/users/forms.py:12 coworker/users/models.py:36
 msgid "Birth day"
@@ -3598,6 +5233,28 @@ msgstr "企业名称"
 msgid "Business summarize "
 msgstr "业务概述"
 
+#~ msgid ""
+#~ "We have sent an e-mail to you for verification. Follow the link provided "
+#~ "to finalize the signup process. Please contact us if you do not receive "
+#~ "it within a few minutes."
+#~ msgstr ""
+#~ "我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。 如果您在几分"
+#~ "钟内没有收到，请与我们联系。"
+
+#~ msgid ""
+#~ "Create a guest cloud office to provide office rental, office rental, "
+#~ "commercial center rental, conference room rental, rental market listings, "
+#~ "housing 100 %% quality assurance. Free post office rental information, "
+#~ "without any agency fees. Rental listings for rent housing, select a guest "
+#~ "cloud."
+#~ msgstr ""
+#~ "创客云图提供办公室出租、写字楼出租、商业中心出租、会议室出租、创业园出租房"
+#~ "源，房源100%%质量保证。免费发布办公出租信息，不收任何中介费。出租房源租用"
+#~ "房源，选择创客云图。"
+
+#~ msgid "Or"
+#~ msgstr "或者"
+
 #, fuzzy
 #~ msgid "search"
 #~ msgstr "搜索"
@@ -3615,15 +5272,19 @@ msgstr "业务概述"
 #~ "We have sent you an email to verify. Complete the registrationprocess in "
 #~ "accordance with the provided links.If you do not receivein a few minutes, "
 #~ "please contact us. "
-#~ msgstr "我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。如果您在几分钟内没有收到，请与我们联系。"
+#~ msgstr ""
+#~ "我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。如果您在几分"
+#~ "钟内没有收到，请与我们联系。"
 
 #~ msgid ""
-#~ "Maker cloud provides office rental, office rental, commercialcenter rental, "
-#~ "conference room rental, pioneer park rental housing,housing 100%% quality "
-#~ "assurance. Post office rental information isfree, without any intermediary "
-#~ "fee. Rental housing rental housing,choice of creating images."
+#~ "Maker cloud provides office rental, office rental, commercialcenter "
+#~ "rental, conference room rental, pioneer park rental housing,housing 100%% "
+#~ "quality assurance. Post office rental information isfree, without any "
+#~ "intermediary fee. Rental housing rental housing,choice of creating images."
 #~ msgstr ""
-#~ "创客云图提供办公室出租、写字楼出租、商业中心出租、会议室出租、创业园出租房源，房源100%%质量保证。免费发布办公出租信息，不收任何中介费。出租房源租用房源，选择创客云图。"
+#~ "创客云图提供办公室出租、写字楼出租、商业中心出租、会议室出租、创业园出租房"
+#~ "源，房源100%%质量保证。免费发布办公出租信息，不收任何中介费。出租房源租用"
+#~ "房源，选择创客云图。"
 
 #~ msgid "The use of this document can be quick links to your search page."
 #~ msgstr "使用此文档可以快速链接到你搜索的页面。"
@@ -3635,15 +5296,17 @@ msgstr "业务概述"
 #~ msgstr "超过5000个工作场地 10000条会员提示和"
 
 #~ msgid ""
-#~ "100%% guarantee: owners can enjoy the special offer, cool place, interesting"
-#~ " experience......"
+#~ "100%% guarantee: owners can enjoy the special offer, cool place, "
+#~ "interesting experience......"
 #~ msgstr "100%%保证 :业主可享受特价优惠、酷炫场地、趣味体验……"
 
 #~ msgid ""
 #~ "The site of the created cloud map is provided by members and servesfor "
 #~ "members. Our aim is to integrate the world into one. Are youready to join "
 #~ "us? "
-#~ msgstr "创客云图的场地由会员提供，为会员服务，我们的宗旨是将世界连成一体。你，准备加入我们了吗？"
+#~ msgstr ""
+#~ "创客云图的场地由会员提供，为会员服务，我们的宗旨是将世界连成一体。你，准备"
+#~ "加入我们了吗？"
 
 #~ msgid ""
 #~ "100%% credit guarantee: owners can enjoy the special offer, cool place, "
@@ -3651,12 +5314,14 @@ msgstr "业务概述"
 #~ msgstr "100%%信誉保证: 业主可享受特价优惠、酷炫场地、趣味体验......"
 
 #~ msgid ""
-#~ "When you fill out the' rental site 'form and click' submit 'button,this form"
-#~ " will be sent to the audit department. We will fill in thecontent of your "
-#~ "editor (if any spelling or grammar mistake). Whenyou add the site "
+#~ "When you fill out the' rental site 'form and click' submit 'button,this "
+#~ "form will be sent to the audit department. We will fill in thecontent of "
+#~ "your editor (if any spelling or grammar mistake). Whenyou add the site "
 #~ "successfully, you will receive an email we sent toyou. "
 #~ msgstr ""
-#~ "当您填写完'出租场地'表格并点击'提交'按钮后，这份表格会传递到审核部。我们会对您的填写内容编辑（如果有拼写或语法错误的话）。当您的场地添加成功时，您会收到我们发送给您的一封邮件。"
+#~ "当您填写完'出租场地'表格并点击'提交'按钮后，这份表格会传递到审核部。我们会"
+#~ "对您的填写内容编辑（如果有拼写或语法错误的话）。当您的场地添加成功时，您会"
+#~ "收到我们发送给您的一封邮件。"
 
 #~ msgid ""
 #~ "If you have submitted the site information, please login your account and "
@@ -3665,59 +5330,79 @@ msgstr "业务概述"
 
 #~ msgid ""
 #~ "SpacesMap (hereinafter called\" us \") to respect and protect all useof "
-#~ "cloud platform services hit off the user's personal privacy, whenyou use the"
-#~ " services provided by the cloud off the record (hereinafter referred to as "
-#~ "the\" service \"), we will be in accordancewith the provisions of privacy "
-#~ "collect, use, share and protect yourpersonal information. This privacy "
-#~ "clause contains our collection,storage, use, share and protect your personal"
-#~ " information terms, wehope that through this privacy clause to you clearly "
-#~ "introduce us toprovide you with access, update, control and protect your "
-#~ "personalinformation, so please read the full record off \"cloud "
-#~ "privacy\\provisions\" (hereinafter referred to as \"the privacy clause\"), "
-#~ "makeyou think appropriate. If you do not agree to any of the contents ofthis"
-#~ " privacy clause, you should stop using the cloud map platformservice "
-#~ "immediately. When you use any of the services provided bythe cloud map "
-#~ "platform, it means that you have agreed that we canuse and protect your "
-#~ "personal information in accordance with theprivacy clause. "
+#~ "cloud platform services hit off the user's personal privacy, whenyou use "
+#~ "the services provided by the cloud off the record (hereinafter referred "
+#~ "to as the\" service \"), we will be in accordancewith the provisions of "
+#~ "privacy collect, use, share and protect yourpersonal information. This "
+#~ "privacy clause contains our collection,storage, use, share and protect "
+#~ "your personal information terms, wehope that through this privacy clause "
+#~ "to you clearly introduce us toprovide you with access, update, control "
+#~ "and protect your personalinformation, so please read the full record off "
+#~ "\"cloud privacy\\provisions\" (hereinafter referred to as \"the privacy "
+#~ "clause\"), makeyou think appropriate. If you do not agree to any of the "
+#~ "contents ofthis privacy clause, you should stop using the cloud map "
+#~ "platformservice immediately. When you use any of the services provided "
+#~ "bythe cloud map platform, it means that you have agreed that we canuse "
+#~ "and protect your personal information in accordance with theprivacy "
+#~ "clause. "
 #~ msgstr ""
-#~ "创客云图（以下亦称\"我们\"）尊重并保护所有使用创客云图平台服务的用户的个人隐私权，在您使用创客云图提供的服务时（下称\"服务\"），我们将按照本隐私权条款收集、使用、共享及保护您的个人信息。本隐私权条款包含了我们收集、存储、使用、共享和保护您的个人信息的条款，我们希望通过本隐私权条款向您清晰地介绍我们对为您提供的访问、更新、控制和保护您个人信息的方式，因此请您完整地阅读本《创客云图隐私条款》（下称\"本隐私权条款\"），作出您认为适当的选择。如果您不同意本隐私权条款的任何内容，您应立即停止使用创客云图平台服务。当您使用创客云图平台提供的任一服务时，即表示您已同意我们按照本隐私权条款来合法使用和保护您的个人信息。"
+#~ "创客云图（以下亦称\"我们\"）尊重并保护所有使用创客云图平台服务的用户的个人"
+#~ "隐私权，在您使用创客云图提供的服务时（下称\"服务\"），我们将按照本隐私权条"
+#~ "款收集、使用、共享及保护您的个人信息。本隐私权条款包含了我们收集、存储、使"
+#~ "用、共享和保护您的个人信息的条款，我们希望通过本隐私权条款向您清晰地介绍我"
+#~ "们对为您提供的访问、更新、控制和保护您个人信息的方式，因此请您完整地阅读本"
+#~ "《创客云图隐私条款》（下称\"本隐私权条款\"），作出您认为适当的选择。如果您"
+#~ "不同意本隐私权条款的任何内容，您应立即停止使用创客云图平台服务。当您使用创"
+#~ "客云图平台提供的任一服务时，即表示您已同意我们按照本隐私权条款来合法使用和"
+#~ "保护您的个人信息。"
 
 #~ msgid ""
-#~ "Do you want to work with other people?\" So this function is set foryou. "
-#~ "Here you can find hot desk, desk or desk for sharing "
-#~ msgstr "您想和别人一起工作吗？那么这个功能就是为您设置的。您可以在这里查找热门办公桌、专用办公桌或者共享办公桌."
-
-#~ msgid ""
-#~ "Search our official micro-blog \"maker cloud map\" on micro-blog, andyou can"
-#~ " see how people all over the world work through the cloudmap."
-#~ msgstr "在微博上搜索我们的官方微博\"创客云图\"，您可以看到全世界的人们是如何通过创客云图办公的。"
+#~ "Search our official micro-blog \"maker cloud map\" on micro-blog, andyou "
+#~ "can see how people all over the world work through the cloudmap."
+#~ msgstr ""
+#~ "在微博上搜索我们的官方微博\"创客云图\"，您可以看到全世界的人们是如何通过创"
+#~ "客云图办公的。"
 
 #~ msgid ""
 #~ "In your registered information, according to the prompts to fill thepage "
-#~ "read and agree to this Agreement and complete the registrationprocedures or "
-#~ "in other ways SpacesMap allows the actual use ofSpacesMap platform services,"
-#~ " you are bound by this agreement. Thisagreement includes the main body of "
-#~ "this agreement, \"SpacesMapprivacy clause\", and when you use a specific "
-#~ "SpacesMap service, theservice may have a separate agreement, the relevant "
-#~ "business rules (ereinafter referred to as the \"rules\"). All the rules that"
-#~ " have beenpublished by SpacesMap or may be released in the future "
-#~ "areinseparable parts of this agreement, and have the same legal effectas "
-#~ "this agreement. Unless otherwise expressly stated, any servicesprovided by "
-#~ "SpacesMap and its affiliates (hereinafter referred to asSpacesMap platform "
-#~ "services\") are subject to this agreement. Youpromise to accept and comply "
-#~ "with the agreement of this agreement.If you do not agree to the terms of "
-#~ "this agreement, you shouldimmediately stop the registration process or stop "
-#~ "using SpacesMapplatform services; if you continue to access and use the "
+#~ "read and agree to this Agreement and complete the registrationprocedures "
+#~ "or in other ways SpacesMap allows the actual use ofSpacesMap platform "
+#~ "services, you are bound by this agreement. Thisagreement includes the "
+#~ "main body of this agreement, \"SpacesMapprivacy clause\", and when you "
+#~ "use a specific SpacesMap service, theservice may have a separate "
+#~ "agreement, the relevant business rules (ereinafter referred to as the "
+#~ "\"rules\"). All the rules that have beenpublished by SpacesMap or may be "
+#~ "released in the future areinseparable parts of this agreement, and have "
+#~ "the same legal effectas this agreement. Unless otherwise expressly "
+#~ "stated, any servicesprovided by SpacesMap and its affiliates (hereinafter "
+#~ "referred to asSpacesMap platform services\") are subject to this "
+#~ "agreement. Youpromise to accept and comply with the agreement of this "
+#~ "agreement.If you do not agree to the terms of this agreement, you "
+#~ "shouldimmediately stop the registration process or stop using "
+#~ "SpacesMapplatform services; if you continue to access and use the "
 #~ "SpacesMapservice platform, namely, as you have known and agree to "
-#~ "thecontents of this agreement. SpacesMap has the right to make andrevise the"
-#~ " agreement and / or all kinds of rules from time to time,according to the "
-#~ "updating of the laws and regulations of the state,the adjustment of the "
-#~ "products and service rules, and publicity inadvance by the way of website "
-#~ "publicity. If you continue to use theSpacesMap platform service, that is, "
-#~ "you accept the revised protocoland rules. In the event of any dispute, the "
-#~ "latest relevantagreements and rules of SpacesMap shall prevail. "
+#~ "thecontents of this agreement. SpacesMap has the right to make andrevise "
+#~ "the agreement and / or all kinds of rules from time to time,according to "
+#~ "the updating of the laws and regulations of the state,the adjustment of "
+#~ "the products and service rules, and publicity inadvance by the way of "
+#~ "website publicity. If you continue to use theSpacesMap platform service, "
+#~ "that is, you accept the revised protocoland rules. In the event of any "
+#~ "dispute, the latest relevantagreements and rules of SpacesMap shall "
+#~ "prevail. "
 #~ msgstr ""
-#~ "在您按照注册页面提示填写信息、阅读并同意本协议并完成全部注册程序后或以其他创客云图允许的方式实际使用创客云图平台服务时，您即受本协议的约束。本协议内容包括本协议正文、《创客云图隐私权条款》，且您在使用创客云图某一特定服务时，该服务可能会另有单独的协议、相关业务规则等（以下统称为\"规则\"）。所有创客云图已经发布的或将来可能发布的规则为本协议不可分割的组成部分，与本协议具有同等法律效力。除另行明确声明外，任何创客云图及其关联公司提供的服务（以下称为\"创客云图平台服务\"）均受本协议约束。您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止注册程序或停止使用创客云图平台服务；如您继续访问和使用创客云图平台服务，即视为您已确知并完全同意本协议各项内容。创客云图有权根据国家法律法规的更新、产品和服务规则的调整需要不时地制订、修改本协议及/或各类规则，并提前以网站公示的方式进行公示。如您继续使用创客云图平台服务的，即表示您接受经修订的协议和规则。如发生有关争议时，以创客云图最新的相关协议和规则为准。"
+#~ "在您按照注册页面提示填写信息、阅读并同意本协议并完成全部注册程序后或以其他"
+#~ "创客云图允许的方式实际使用创客云图平台服务时，您即受本协议的约束。本协议内"
+#~ "容包括本协议正文、《创客云图隐私权条款》，且您在使用创客云图某一特定服务"
+#~ "时，该服务可能会另有单独的协议、相关业务规则等（以下统称为\"规则\"）。所有"
+#~ "创客云图已经发布的或将来可能发布的规则为本协议不可分割的组成部分，与本协议"
+#~ "具有同等法律效力。除另行明确声明外，任何创客云图及其关联公司提供的服务（以"
+#~ "下称为\"创客云图平台服务\"）均受本协议约束。您承诺接受并遵守本协议的约定。"
+#~ "如果您不同意本协议的约定，您应立即停止注册程序或停止使用创客云图平台服务；"
+#~ "如您继续访问和使用创客云图平台服务，即视为您已确知并完全同意本协议各项内"
+#~ "容。创客云图有权根据国家法律法规的更新、产品和服务规则的调整需要不时地制"
+#~ "订、修改本协议及/或各类规则，并提前以网站公示的方式进行公示。如您继续使用"
+#~ "创客云图平台服务的，即表示您接受经修订的协议和规则。如发生有关争议时，以创"
+#~ "客云图最新的相关协议和规则为准。"
 
 #~ msgid ""
 #~ "\"SpacesMap\" and \"创客云图\" are trademarks of SpacesMap company andits "
@@ -3726,17 +5411,20 @@ msgstr "业务概述"
 #~ "rights of the company, and will beinvestigated for its legal "
 #~ "responsibilities according to law. "
 #~ msgstr ""
-#~ "\"SpacesMap\"  \"创客云图 "
-#~ "\"等为创客云图所在公司及其关联公司的商标，受法律保护，任何人不得擅自使用。凡侵犯本公司版权等知识产权的，创客云图将依法追究其相关法律责任。"
+#~ "\"SpacesMap\"  \"创客云图 \"等为创客云图所在公司及其关联公司的商标，受法律"
+#~ "保护，任何人不得擅自使用。凡侵犯本公司版权等知识产权的，创客云图将依法追究"
+#~ "其相关法律责任。"
 
 #~ msgid ""
 #~ "Spacesm the search engine according to industry standard, namelyRobots "
-#~ "access standard (Robots Exclusion to Standard), is aviolationof my website "
-#~ "property rights and intellectual propertyrights will depend on your behavior"
-#~ " or crawl, right through thelegal interests of website maintenance. "
+#~ "access standard (Robots Exclusion to Standard), is aviolationof my "
+#~ "website property rights and intellectual propertyrights will depend on "
+#~ "your behavior or crawl, right through thelegal interests of website "
+#~ "maintenance. "
 #~ msgstr ""
-#~ "创客云图要求各搜索引擎遵循行业规范，即\"拒绝 Robots 访问标准\"(Robots Exclusion "
-#~ "Standard)，否则将视你的抓取行为是对我网站财产权利和知识产权的侵犯，有权通过法律诉讼维护网站利益。"
+#~ "创客云图要求各搜索引擎遵循行业规范，即\"拒绝 Robots 访问标准\"(Robots "
+#~ "Exclusion Standard)，否则将视你的抓取行为是对我网站财产权利和知识产权的侵"
+#~ "犯，有权通过法律诉讼维护网站利益。"
 
 #~ msgid ""
 #~ "If you don't have an account, please \n"
@@ -3746,10 +5434,12 @@ msgstr "业务概述"
 #~ "<a href=\"%(signup_url)s\">注册</a>"
 
 #~ msgid ""
-#~ "We have sent you an email for verification. Complete theregistration process"
-#~ " in accordance with the provided links. If youdon't receive it in a few "
-#~ "minutes, please contact us"
-#~ msgstr "我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。 如果您在几分钟内没有收到，请与我们联系"
+#~ "We have sent you an email for verification. Complete theregistration "
+#~ "process in accordance with the provided links. If youdon't receive it in "
+#~ "a few minutes, please contact us"
+#~ msgstr ""
+#~ "我们已发送电子邮件给您进行验证。 按照提供的链接完成注册过程。 如果您在几分"
+#~ "钟内没有收到，请与我们联系"
 
 #~ msgid "It looks like you're empty here"
 #~ msgstr "这个地方您好像空空如也"

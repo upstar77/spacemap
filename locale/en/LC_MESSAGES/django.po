@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-04 22:37+0000\n"
+"POT-Creation-Date: 2017-11-06 23:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/settings/base.py:148 coworker/cities/models.py:7
+#: config/settings/base.py:159 coworker/cities/models.py:7
 msgid "China"
 msgstr ""
 
-#: config/settings/base.py:149
+#: config/settings/base.py:160
 msgid "English"
 msgstr ""
 
@@ -31,15 +31,15 @@ msgid "Province"
 msgstr ""
 
 #: coworker/cities/models.py:9 coworker/templates/elements/new_form.html:60
-#: coworker/templates/elements/new_form.html:139
-#: coworker/templates/elements/new_form.html:207
+#: coworker/templates/elements/new_form.html:123
+#: coworker/templates/elements/new_form.html:191
 #: coworker/templates/place/list_space.html:44
 msgid "City"
 msgstr ""
 
 #: coworker/cities/models.py:10 coworker/templates/elements/new_form.html:50
-#: coworker/templates/elements/new_form.html:129
-#: coworker/templates/elements/new_form.html:197
+#: coworker/templates/elements/new_form.html:113
+#: coworker/templates/elements/new_form.html:181
 msgid "Country"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Chinese Pinyin"
 msgstr ""
 
-#: coworker/cities/models.py:28
+#: coworker/cities/models.py:28 coworker/lab/models.py:137
 msgid "status"
 msgstr ""
 
@@ -88,6 +88,421 @@ msgstr ""
 #: coworker/events/models.py:62
 msgctxt "Shipping method country field"
 msgid "price"
+msgstr ""
+
+#: coworker/lab/admin/category.py:35
+msgid "tree path"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:34
+#: coworker/templates/admin/lab1/widgets/quickpost.html:17
+msgid "Content"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:36
+msgid "Illustration"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:39
+msgid "Publication"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:43
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:6
+#: coworker/templates/zinnia/_entry_detail_base.html:136
+msgid "Discussions"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:47
+msgid "Privacy"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:50
+msgid "Templates"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:53
+msgid "Metadatas"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:82
+#, python-format
+msgid "%(title)s (%(word_count)i words)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:89
+#, python-format
+msgid "%(title)s (%(reactions)i reaction)"
+msgid_plural "%(title)s (%(reactions)i reactions)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/lab/admin/entry.py:94 coworker/lab/models.py:53
+#: coworker/lab/models.py:129
+msgid "title"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:110
+msgid "author(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:124
+msgid "category(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:137
+msgid "tag(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:151
+msgid "site(s)"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:163
+msgid "short url"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:171
+msgid "is visible"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:249
+msgid "The selected entries now belong to you."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:250
+msgid "Set the entries to the user"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:260
+msgid "The selected entries are now marked as published."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:261
+msgid "Set entries selected as published"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:270
+msgid "The selected entries are now marked as hidden."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:271
+msgid "Set entries selected as hidden"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:279
+msgid "Comments are now closed for selected entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:280
+msgid "Close the comments for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:289
+msgid "Pingbacks are now closed for selected entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:291
+msgid "Close the pingbacks for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:299
+msgid "Trackbacks are now closed for selected entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:301
+msgid "Close the trackbacks for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:310
+msgid "The selected entries are now set at the current date."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:312
+msgid "Put the selected entries on top at the current date"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:320
+msgid "Selected entries are now marked as featured."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:321
+msgid "Mark selected entries as featured"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:329
+msgid "Selected entries are no longer marked as featured."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:331
+msgid "Unmark selected entries as featured"
+msgstr ""
+
+#: coworker/lab/admin/entry.py:352
+#, python-format
+msgid "%(directory)s directory succesfully pinged %(success)d entries."
+msgstr ""
+
+#: coworker/lab/admin/entry.py:356
+msgid "Ping Directories for selected entries"
+msgstr ""
+
+#: coworker/lab/admin/filters.py:29
+#, python-format
+msgid "%(item)s (%(count)i entry)"
+msgid_plural "%(item)s (%(count)i entries)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/lab/admin/filters.py:61
+msgid "published categories"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:21
+msgid "Parent category"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:22
+msgid "No parent category"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:40
+msgid "A category cannot be parent of itself."
+msgstr ""
+
+#: coworker/lab/admin/forms.py:57 coworker/templates/zinnia/base.html:39
+#: coworker/templates/zinnia/category_list.html:6
+msgid "Categories"
+msgstr ""
+
+#: coworker/lab/admin/forms.py:59 coworker/lab/models.py:106
+#: coworker/lab/models.py:556
+msgid "categories"
+msgstr ""
+
+#: coworker/lab/apps.py:12
+msgid "Weblog"
+msgstr ""
+
+#: coworker/lab/models.py:56 coworker/lab/models.py:132
+msgid "slug"
+msgstr ""
+
+#: coworker/lab/models.py:57
+msgid "Used to build the category's URL."
+msgstr ""
+
+#: coworker/lab/models.py:60
+msgid "description"
+msgstr ""
+
+#: coworker/lab/models.py:67
+msgid "parent category"
+msgstr ""
+
+#: coworker/lab/models.py:105
+msgid "category"
+msgstr ""
+
+#: coworker/lab/models.py:124
+msgid "draft"
+msgstr ""
+
+#: coworker/lab/models.py:125
+msgid "hidden"
+msgstr ""
+
+#: coworker/lab/models.py:126
+msgid "published"
+msgstr ""
+
+#: coworker/lab/models.py:134 coworker/lab/models.py:143
+msgid "Used to build the entry's URL."
+msgstr ""
+
+#: coworker/lab/models.py:141
+msgid "publication date"
+msgstr ""
+
+#: coworker/lab/models.py:146
+msgid "start publication"
+msgstr ""
+
+#: coworker/lab/models.py:148
+msgid "Start date of publication."
+msgstr ""
+
+#: coworker/lab/models.py:151
+msgid "end publication"
+msgstr ""
+
+#: coworker/lab/models.py:153
+msgid "End date of publication."
+msgstr ""
+
+#: coworker/lab/models.py:158
+msgid "sites"
+msgstr ""
+
+#: coworker/lab/models.py:159
+msgid "Sites where the entry will be published."
+msgstr ""
+
+#: coworker/lab/models.py:162
+msgid "creation date"
+msgstr ""
+
+#: coworker/lab/models.py:166
+msgid "last update"
+msgstr ""
+
+#: coworker/lab/models.py:274
+msgid "entry"
+msgstr ""
+
+#: coworker/lab/models.py:275
+msgid "entries"
+msgstr ""
+
+#: coworker/lab/models.py:289
+msgid "content"
+msgstr ""
+
+#: coworker/lab/models.py:325
+msgid "comments enabled"
+msgstr ""
+
+#: coworker/lab/models.py:326
+msgid "Allows comments if checked."
+msgstr ""
+
+#: coworker/lab/models.py:328
+msgid "pingbacks enabled"
+msgstr ""
+
+#: coworker/lab/models.py:329
+msgid "Allows pingbacks if checked."
+msgstr ""
+
+#: coworker/lab/models.py:331
+msgid "trackbacks enabled"
+msgstr ""
+
+#: coworker/lab/models.py:332
+msgid "Allows trackbacks if checked."
+msgstr ""
+
+#: coworker/lab/models.py:335
+msgid "comment count"
+msgstr ""
+
+#: coworker/lab/models.py:337
+msgid "pingback count"
+msgstr ""
+
+#: coworker/lab/models.py:339
+msgid "trackback count"
+msgstr ""
+
+#: coworker/lab/models.py:423
+msgid "related entries"
+msgstr ""
+
+#: coworker/lab/models.py:441
+msgid "lead"
+msgstr ""
+
+#: coworker/lab/models.py:442
+msgid "Lead paragraph"
+msgstr ""
+
+#: coworker/lab/models.py:460
+msgid "excerpt"
+msgstr ""
+
+#: coworker/lab/models.py:461
+msgid "Used for SEO purposes."
+msgstr ""
+
+#: coworker/lab/models.py:506
+msgid "image"
+msgstr ""
+
+#: coworker/lab/models.py:508
+msgid "Used for illustration."
+msgstr ""
+
+#: coworker/lab/models.py:511
+msgid "caption"
+msgstr ""
+
+#: coworker/lab/models.py:512
+msgid "Image's caption."
+msgstr ""
+
+#: coworker/lab/models.py:527
+msgid "featured"
+msgstr ""
+
+#: coworker/lab/models.py:542
+msgid "authors"
+msgstr ""
+
+#: coworker/lab/models.py:566
+msgid "tags"
+msgstr ""
+
+#: coworker/lab/models.py:585
+msgid "login required"
+msgstr ""
+
+#: coworker/lab/models.py:586
+msgid "Only authenticated users can view the entry."
+msgstr ""
+
+#: coworker/lab/models.py:598
+msgid "password"
+msgstr ""
+
+#: coworker/lab/models.py:599
+msgid "Protects the entry with a password."
+msgstr ""
+
+#: coworker/lab/models.py:611
+msgid "content template"
+msgstr ""
+
+#: coworker/lab/models.py:613 coworker/lab/models.py:629
+msgid "Default template"
+msgstr ""
+
+#: coworker/lab/models.py:615
+msgid "Template used to display the entry's content."
+msgstr ""
+
+#: coworker/lab/models.py:627
+msgid "detail template"
+msgstr ""
+
+#: coworker/lab/models.py:631
+msgid "Template used to display the entry's detail page."
+msgstr ""
+
+#: coworker/lab/views_zin/mixins/entry_preview.py:25
+msgid "No entry found matching the query"
+msgstr ""
+
+#: coworker/lab/views_zin/search.py:30
+msgid "The pattern is too short"
+msgstr ""
+
+#: coworker/lab/views_zin/search.py:34
+msgid "No pattern to search found"
+msgstr ""
+
+#: coworker/lab/views_zin/tags.py:48
+#, python-format
+msgid "No Tag found matching \"%s\"."
 msgstr ""
 
 #: coworker/place/fields.py:10 coworker/place/fields.py:23
@@ -367,7 +782,7 @@ msgstr ""
 msgid "Name of the site SpacesMap"
 msgstr ""
 
-#: coworker/place/models.py:295 coworker/templates/events/event_detail.html:320
+#: coworker/place/models.py:295 coworker/templates/events/event_detail.html:323
 msgid "Description"
 msgstr ""
 
@@ -695,63 +1110,289 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: coworker/templates/base.html:10
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:5
+msgid "Contents"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:11
+#: coworker/templates/zinnia/author_list.html:19
+#: coworker/templates/zinnia/category_list.html:18
+#: coworker/templates/zinnia/tag_list.html:18
+#: coworker/templates/zinnia/tags/authors.html:8
+#: coworker/templates/zinnia/tags/categories.html:7
+#: coworker/templates/zinnia/tags/categories_tree.html:8
+#: coworker/templates/zinnia/tags/statistics.html:7
+#, python-format
+msgid "%(entry_count)s entry"
+msgid_plural "%(entry_count)s entries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:18
+#: coworker/templates/zinnia/_entry_detail_base.html:144
+#: coworker/templates/zinnia/tags/entries_popular.html:8
+#: coworker/templates/zinnia/tags/statistics.html:16
+#, python-format
+msgid "%(comment_count)s comment"
+msgid_plural "%(comment_count)s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:27
+#: coworker/templates/zinnia/tags/statistics.html:13
+#, python-format
+msgid "%(category_count)s category"
+msgid_plural "%(category_count)s categories"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:30
+#: coworker/templates/zinnia/_entry_detail_base.html:163
+#: coworker/templates/zinnia/tags/statistics.html:19
+#, python-format
+msgid "%(pingback_count)s pingback"
+msgid_plural "%(pingback_count)s pingbacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:35
+#: coworker/templates/zinnia/tags/statistics.html:10
+#, python-format
+msgid "%(tag_count)s tag"
+msgid_plural "%(tag_count)s tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:38
+#: coworker/templates/zinnia/_entry_detail_base.html:172
+#: coworker/templates/zinnia/tags/statistics.html:22
+#, python-format
+msgid "%(trackback_count)s trackback"
+msgid_plural "%(trackback_count)s trackbacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:45
+#: coworker/templates/zinnia/tags/statistics.html:4
+#, python-format
+msgid "%(author_count)s author"
+msgid_plural "%(author_count)s authors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:54
+#: coworker/templates/zinnia/tags/statistics.html:25
+#, python-format
+msgid "%(reject_count)s rejected item"
+msgid_plural "%(reject_count)s rejected items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:61
+msgid "Statistics"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:63
+#: coworker/templates/zinnia/tags/statistics.html:28
+#, python-format
+msgid "%(entries_per_month)s entries per month"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:68
+#: coworker/templates/zinnia/tags/statistics.html:31
+#, python-format
+msgid "%(words_per_entry)s words per entry"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:71
+#: coworker/templates/zinnia/tags/statistics.html:34
+#, python-format
+msgid "%(words_per_comment)s words per comment"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:76
+#: coworker/templates/zinnia/tags/statistics.html:37
+#, python-format
+msgid "%(comments_per_entry)s comments per entry"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_content_stats.html:79
+#: coworker/templates/zinnia/tags/statistics.html:40
+#, python-format
+msgid "%(linkbacks_per_entry)s linkbacks per entry"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:6
+#, python-format
+msgid ""
+"<a href=\"%(entry_edit_url)s\" title=\"Edit the entry\"> %(entry_title)s </"
+"a> on <time>%(publication_date)s</time>"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:17
+msgid "Preview"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:24
+#: coworker/templates/zinnia/tags/entries_draft.html:9
+msgid "No draft entries."
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:33
+#: coworker/templates/admin/lab1/widgets/_draft_entries.html:34
+msgid "View all draft entries"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:12
+#, python-format
+msgid ""
+"<strong>%(comment_author)s</strong> in <strong> <a href="
+"\"%(entry_url)s#comment-%(comment_pk)s-by-%(comment_author_slug)s\" title="
+"\"Comment on %(entry_title)s\"> %(entry_title)s </a> </strong>"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:26
+msgid "Edit the comment"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:27
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:22
+#: coworker/templates/users/show_value.html:12
+msgid "Edit"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:34
+#: coworker/templates/zinnia/_entry_detail_base.html:148
+#: coworker/templates/zinnia/entry_detail_base.html:232
+#: coworker/templates/zinnia/tags/comments_recent.html:17
+msgid "No comments yet."
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:43
+#: coworker/templates/admin/lab1/widgets/_recent_comments.html:44
+msgid "Manage the comments"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:8
+#, python-format
+msgid ""
+"<a href=\"%(linkback_url)s\">%(linkback_name)s</a> made a linkback on <a "
+"href=\"%(entry_url)s#%(linkback_type)s-%(linkback_pk)s\" title=\"Linkback on "
+"%(entry_title)s\"> %(entry_title)s </a>"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:21
+msgid "Edit the linkback"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/_recent_linkbacks.html:29
+#: coworker/templates/zinnia/tags/linkbacks_recent.html:18
+msgid "No linkbacks yet."
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/content_stats.html:6
+#: coworker/templates/admin/lab1/widgets/content_stats.html:8
+msgid "Today"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/draft_entries.html:6
+#: coworker/templates/admin/lab1/widgets/draft_entries.html:8
+msgid "Draft entries"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:5
+#: coworker/templates/admin/lab1/widgets/quickpost.html:6
+msgid "Quick publishing"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:9
+msgid "Title"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:25
+#: coworker/templates/zinnia/_entry_detail_base.html:113
+#: coworker/templates/zinnia/base.html:55
+#: coworker/templates/zinnia/tag_list.html:6
+msgid "Tags"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:33
+msgid "Save as draft"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/quickpost.html:34
+msgid "Publish"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/recent_comments.html:6
+#: coworker/templates/admin/lab1/widgets/recent_comments.html:8
+#: coworker/templates/zinnia/base.html:64
+msgid "Recent comments"
+msgstr ""
+
+#: coworker/templates/admin/lab1/widgets/recent_linkbacks.html:6
+#: coworker/templates/admin/lab1/widgets/recent_linkbacks.html:8
+#: coworker/templates/zinnia/base.html:68
+msgid "Recent linkbacks"
+msgstr ""
+
+#: coworker/templates/base.html:12
 msgid "SpacesMap：Your best incubator selection tool!"
 msgstr ""
 
-#: coworker/templates/base.html:11
-#, python-format
+#: coworker/templates/base.html:13
 msgid ""
-"创客云图提供办公室出租、写字楼出租、商业中心出租、会议室出租、创业园出租房"
-"源，房源100%%质量保证。免费发布办公出租信息，不收任何中介费。出租房源租用房"
-"源，选择创客云图。"
+"Looking for the best coworking spaces? Read real reviews, get prices, see "
+"photos, view maps and more. Find your perfect coworking space in 100+ "
+"countries!"
 msgstr ""
 
-#: coworker/templates/base.html:17
+#: coworker/templates/base.html:19
 msgid "Office, Share,Work,SpacesMap"
 msgstr ""
 
-#: coworker/templates/base.html:116
+#: coworker/templates/base.html:127
 msgid ""
 "Enter your registered email address, we will email a link to reset your "
 "password."
 msgstr ""
 
-#: coworker/templates/base.html:122
+#: coworker/templates/base.html:133
 msgid "Send reset link"
 msgstr ""
 
-#: coworker/templates/base.html:134
+#: coworker/templates/base.html:145
 msgid "A link to the reset password has been sent"
 msgstr ""
 
-#: coworker/templates/base.html:870
+#: coworker/templates/base.html:882
 msgid "Join the SpacesMap community"
 msgstr ""
 
-#: coworker/templates/base.html:880
+#: coworker/templates/base.html:892
 msgid "Login means that you agree the SpacesMap"
 msgstr ""
 
-#: coworker/templates/base.html:880
+#: coworker/templates/base.html:892
 msgid "Terms of service"
 msgstr ""
 
-#: coworker/templates/base.html:880
+#: coworker/templates/base.html:892
 #: coworker/templates/pages/privacy-policy.html:14
 msgid "Privacy clause"
 msgstr ""
 
-#: coworker/templates/base.html:881
+#: coworker/templates/base.html:893
 msgid "Is it a member already?"
 msgstr ""
 
-#: coworker/templates/base.html:881 coworker/templates/elements/footer.html:65
+#: coworker/templates/base.html:893 coworker/templates/elements/footer.html:65
 #: coworker/templates/elements/header.html:61
-#: coworker/templates/elements/header_main.html:26
-#: coworker/templates/elements/header_main.html:97
+#: coworker/templates/elements/header_main.html:25
+#: coworker/templates/elements/header_main.html:96
 #: coworker/templates/elements/header_search.html:28
 #: coworker/templates/elements/header_search.html:56
+#: coworker/templates/elements/login.html:11
 #: coworker/templates/elements/login.html:40
 #: coworker/templates/elements/sign-up.html:36
 #: coworker/templates/pages/search_list.html:339
@@ -774,7 +1415,7 @@ msgstr ""
 #: coworker/templates/elements/footer.html:9
 #: coworker/templates/elements/footer.html:101
 #: coworker/templates/elements/header.html:59
-#: coworker/templates/elements/header_main.html:91
+#: coworker/templates/elements/header_main.html:90
 #: coworker/templates/elements/header_search.html:26
 #, fuzzy
 #| msgid "about_trans"
@@ -796,12 +1437,13 @@ msgstr ""
 #: coworker/templates/elements/footer.html:12
 #: coworker/templates/elements/footer.html:22
 #: coworker/templates/elements/header_internal.html:71
-#: coworker/templates/elements/header_main.html:17
+#: coworker/templates/elements/header_main.html:16
 #: coworker/templates/elements/header_search.html:52
 #: coworker/templates/elements/new_form.html:79
-#: coworker/templates/elements/new_form.html:161
-#: coworker/templates/elements/new_form.html:226
+#: coworker/templates/elements/new_form.html:145
+#: coworker/templates/elements/new_form.html:210
 #: coworker/templates/pages/about.html:68
+#: coworker/templates/zinnia/skeleton.html:77
 #, fuzzy
 #| msgid "search"
 msgid "Search"
@@ -844,7 +1486,7 @@ msgstr ""
 #: coworker/templates/elements/footer.html:53
 #: coworker/templates/elements/header.html:63
 #: coworker/templates/elements/header_internal.html:37
-#: coworker/templates/elements/header_main.html:101
+#: coworker/templates/elements/header_main.html:100
 #: coworker/templates/elements/header_search.html:30
 #: coworker/templates/pages/about.html:47
 #: coworker/templates/place/place_add_desk_price.html:52
@@ -879,6 +1521,7 @@ msgid "SpacesMap image laboratory"
 msgstr ""
 
 #: coworker/templates/elements/footer.html:73
+#: coworker/templates/zinnia/base.html:23
 msgid "Blog"
 msgstr ""
 
@@ -891,7 +1534,7 @@ msgid "Latest articles"
 msgstr ""
 
 #: coworker/templates/elements/footer.html:82
-#: coworker/templates/elements/new_form.html:119
+#: coworker/templates/elements/new_form.html:103
 msgid "Activity"
 msgstr ""
 
@@ -942,26 +1585,26 @@ msgstr ""
 #: coworker/templates/elements/header.html:37
 #: coworker/templates/elements/header_internal.html:34
 #: coworker/templates/elements/header_internal.html:74
-#: coworker/templates/elements/header_main.html:60
+#: coworker/templates/elements/header_main.html:59
 msgid "My comment"
 msgstr ""
 
 #: coworker/templates/elements/header.html:38
 #: coworker/templates/elements/header_internal.html:35
-#: coworker/templates/elements/header_main.html:61
+#: coworker/templates/elements/header_main.html:60
 msgid "Edit data"
 msgstr ""
 
 #: coworker/templates/elements/header.html:39
 #: coworker/templates/elements/header_internal.html:36
-#: coworker/templates/elements/header_main.html:62
+#: coworker/templates/elements/header_main.html:61
 msgid "Account Settings"
 msgstr ""
 
 #: coworker/templates/elements/header.html:40
 #: coworker/templates/elements/header_internal.html:84
-#: coworker/templates/elements/header_main.html:35
-#: coworker/templates/elements/header_main.html:63
+#: coworker/templates/elements/header_main.html:34
+#: coworker/templates/elements/header_main.html:62
 #: coworker/templates/elements/header_search.html:65
 msgid "Add site"
 msgstr ""
@@ -969,12 +1612,12 @@ msgstr ""
 #: coworker/templates/elements/header.html:42
 #: coworker/templates/elements/header_internal.html:39
 #: coworker/templates/elements/header_internal.html:76
-#: coworker/templates/elements/header_main.html:65
+#: coworker/templates/elements/header_main.html:64
 msgid "Sign out"
 msgstr ""
 
 #: coworker/templates/elements/header_internal.html:72
-#: coworker/templates/elements/header_main.html:20
+#: coworker/templates/elements/header_main.html:19
 #: coworker/templates/elements/header_search.html:53
 #: coworker/templates/pages/cities.html:16
 msgid "All cities"
@@ -990,27 +1633,27 @@ msgstr ""
 msgid "Maker of SpacesMap images"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:14
+#: coworker/templates/elements/header_main.html:13
 #, fuzzy
 #| msgid "Hello"
 msgid "Hello"
 msgstr "首页"
 
-#: coworker/templates/elements/header_main.html:23
+#: coworker/templates/elements/header_main.html:22
 msgid "Register"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:32
+#: coworker/templates/elements/header_main.html:31
 msgid "SpacesMap of the owners"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:87
+#: coworker/templates/elements/header_main.html:86
 #: coworker/templates/users/profile.html:245
 #: coworker/templates/users/profile.html:273
 msgid "Change"
 msgstr ""
 
-#: coworker/templates/elements/header_main.html:94
+#: coworker/templates/elements/header_main.html:93
 msgid "Sign up"
 msgstr ""
 
@@ -1023,10 +1666,6 @@ msgstr ""
 msgid "24 hours"
 msgstr ""
 
-#: coworker/templates/elements/login.html:11
-msgid "Or"
-msgstr ""
-
 #: coworker/templates/elements/login.html:16
 #: coworker/templates/pages/team.html:59
 #: coworker/templates/place/forms/contact.html:37
@@ -1035,6 +1674,7 @@ msgid "E-Mail"
 msgstr ""
 
 #: coworker/templates/elements/login.html:20
+#: coworker/templates/zinnia/password.html:24
 msgid "Password"
 msgstr ""
 
@@ -1071,11 +1711,11 @@ msgid "Space name"
 msgstr ""
 
 #: coworker/templates/elements/new_form.html:69
-#: coworker/templates/elements/new_form.html:216
+#: coworker/templates/elements/new_form.html:200
 msgid "Type"
 msgstr ""
 
-#: coworker/templates/elements/new_form.html:187
+#: coworker/templates/elements/new_form.html:171
 msgid "Services Name/Spaces Name"
 msgstr ""
 
@@ -1159,29 +1799,29 @@ msgstr ""
 msgid "Australia"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:290
+#: coworker/templates/events/event_detail.html:293
 #: coworker/templates/place/place.html:298
 msgid "Membership Enquiry"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:300
+#: coworker/templates/events/event_detail.html:303
 #: coworker/templates/place/place.html:308
 msgid "621 people have shared this space"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:336
+#: coworker/templates/events/event_detail.html:339
 msgid "Date and time"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:337
+#: coworker/templates/events/event_detail.html:340
 msgid "Start time"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:339
+#: coworker/templates/events/event_detail.html:342
 msgid "End time"
 msgstr ""
 
-#: coworker/templates/events/event_detail.html:373
+#: coworker/templates/events/event_detail.html:381
 #: coworker/templates/place/forms/menu.html:26
 msgid "Location"
 msgstr ""
@@ -1215,7 +1855,6 @@ msgid "私人办公室:"
 msgstr ""
 
 #: coworker/templates/events/search_events.html:45
-#: coworker/templates/pages/search_list.html:45
 msgid ""
 "您如果带领一个小团队，想要一些私人空间，而不想被别人打扰，那么请在这里搜索试"
 "试看!"
@@ -1389,6 +2028,70 @@ msgstr ""
 
 #: coworker/templates/events/search_events.html:339
 msgid "注册"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:17
+#: coworker/templates/lab/lab_index.html:82
+msgid "by"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:21
+#: coworker/templates/lab/lab_index.html:86
+#: coworker/templates/zinnia/_entry_detail_base.html:22
+#: coworker/templates/zinnia/author_list.html:17
+#: coworker/templates/zinnia/tags/authors.html:6
+#, python-format
+msgid "Show all %(author)s's entries"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:23
+#: coworker/templates/lab/lab_index.html:88
+#: coworker/templates/zinnia/_entry_detail_base.html:24
+msgctxt "on date"
+msgid "on"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:25
+#: coworker/templates/lab/lab_index.html:90
+#: coworker/templates/zinnia/_entry_detail_base.html:26
+msgctxt "on date"
+msgid "Written on"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:35
+#: coworker/templates/lab/lab_index.html:102
+#: coworker/templates/zinnia/_entry_detail_base.html:117
+#: coworker/templates/zinnia/tag_list.html:17
+#, python-format
+msgid "Show all entries tagged by %(tag)s"
+msgstr ""
+
+#: coworker/templates/lab/entry_detail.html:38
+#: coworker/templates/lab/lab_index.html:105
+#: coworker/templates/zinnia/_entry_detail_base.html:120
+msgid "No tags"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:8
+msgid ""
+"News, insights, opinions, tips and ideas from the global freelance, startup "
+"and coworking community."
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:12
+msgid "Spacemap Lab - Startups, Coworking &amp; The Future of Work"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:52
+msgid "Welcome to the SpaceMap Lab"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:53
+msgid "stories, news &amp; tips"
+msgstr ""
+
+#: coworker/templates/lab/lab_base.html:54
+msgid "by the coworking community"
 msgstr ""
 
 #: coworker/templates/pages/about.html:5
@@ -1839,87 +2542,96 @@ msgstr ""
 msgid "Latest information"
 msgstr ""
 
-#: coworker/templates/pages/index.html:141
+#: coworker/templates/pages/index.html:143
 msgid "Shen Zhen"
 msgstr ""
 
-#: coworker/templates/pages/index.html:167
-#: coworker/templates/pages/index.html:171
+#: coworker/templates/pages/index.html:169
+#: coworker/templates/pages/index.html:173
 #: coworker/templates/place/city.html:133
 msgid "Bei Jing"
 msgstr ""
 
-#: coworker/templates/pages/index.html:182
-#: coworker/templates/pages/index.html:186
+#: coworker/templates/pages/index.html:184
+#: coworker/templates/pages/index.html:188
 msgid "Guang Zhou"
 msgstr ""
 
-#: coworker/templates/pages/index.html:197
-#: coworker/templates/pages/index.html:201
+#: coworker/templates/pages/index.html:199
+#: coworker/templates/pages/index.html:203
 msgid "Zhu Hai"
 msgstr ""
 
-#: coworker/templates/pages/index.html:212
-#: coworker/templates/pages/index.html:216
+#: coworker/templates/pages/index.html:214
+#: coworker/templates/pages/index.html:218
 msgid "Xia Men"
 msgstr ""
 
-#: coworker/templates/pages/index.html:227
-#: coworker/templates/pages/index.html:231
+#: coworker/templates/pages/index.html:229
+#: coworker/templates/pages/index.html:233
 msgid "Wu Han"
 msgstr ""
 
-#: coworker/templates/pages/index.html:238
-#: coworker/templates/pages/index.html:258
-msgid "The hottest"
+#: coworker/templates/pages/index.html:240
+msgid "Hot"
 msgstr ""
 
-#: coworker/templates/pages/index.html:238
-#: coworker/templates/pages/index.html:258
-msgid "Shared office location"
+#: coworker/templates/pages/index.html:240
+msgid "Coworking destinations"
 msgstr ""
 
-#: coworker/templates/pages/index.html:238
-#: coworker/templates/pages/index.html:258
-msgid "Looking for the nearest office site"
+#: coworker/templates/pages/index.html:240
+msgid "Find a space near you"
 msgstr ""
 
-#: coworker/templates/pages/index.html:247
-#: coworker/templates/pages/index.html:251
+#: coworker/templates/pages/index.html:249
+#: coworker/templates/pages/index.html:253
 msgid "Cheng Du"
 msgstr ""
 
-#: coworker/templates/pages/index.html:267
-#: coworker/templates/pages/index.html:271
+#: coworker/templates/pages/index.html:260
+msgid "The hottest"
+msgstr ""
+
+#: coworker/templates/pages/index.html:260
+msgid "Shared office location"
+msgstr ""
+
+#: coworker/templates/pages/index.html:260
+msgid "Looking for the nearest office site"
+msgstr ""
+
+#: coworker/templates/pages/index.html:269
+#: coworker/templates/pages/index.html:273
 msgid "Chong Qing"
 msgstr ""
 
-#: coworker/templates/pages/index.html:282
-#: coworker/templates/pages/index.html:286
+#: coworker/templates/pages/index.html:284
+#: coworker/templates/pages/index.html:288
 msgid "Fo Shan"
 msgstr ""
 
-#: coworker/templates/pages/index.html:297
-#: coworker/templates/pages/index.html:301
+#: coworker/templates/pages/index.html:299
+#: coworker/templates/pages/index.html:303
 msgid "Hang Zhou"
 msgstr ""
 
-#: coworker/templates/pages/index.html:312
-#: coworker/templates/pages/index.html:316
+#: coworker/templates/pages/index.html:314
+#: coworker/templates/pages/index.html:318
 msgid "Nan Jing"
 msgstr ""
 
-#: coworker/templates/pages/index.html:327
-#: coworker/templates/pages/index.html:331
+#: coworker/templates/pages/index.html:329
+#: coworker/templates/pages/index.html:333
 msgid "Shang Hai"
 msgstr ""
 
-#: coworker/templates/pages/index.html:342
-#: coworker/templates/pages/index.html:346
+#: coworker/templates/pages/index.html:344
+#: coworker/templates/pages/index.html:348
 msgid "Tian Jin"
 msgstr ""
 
-#: coworker/templates/pages/index.html:411
+#: coworker/templates/pages/index.html:413
 msgid "Office sites with the most reviews in the custom SpacesMap"
 msgstr ""
 
@@ -2014,30 +2726,30 @@ msgstr ""
 msgid "score"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:54
-#: coworker/templates/pages/reviews.html:89
+#: coworker/templates/pages/reviews.html:57
+#: coworker/templates/pages/reviews.html:92
 msgid "Website link"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:57
+#: coworker/templates/pages/reviews.html:60
 msgid "Awesome place, good people!)"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:63
+#: coworker/templates/pages/reviews.html:66
 msgid ""
 "I was working here for 2 month, and it was really good time, recommend!)"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:80
+#: coworker/templates/pages/reviews.html:83
 #: coworker/templates/pages/search_list.html:242
 msgid "1 comments"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:81
+#: coworker/templates/pages/reviews.html:84
 msgid "0 useful vote"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid ""
 "My stay in Bansko while working at the coworking space charged me with "
 "positivity and made future seem brighter. Bansko was already a favourite "
@@ -2054,20 +2766,20 @@ msgid ""
 "wish I visited the space more often!"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:86
-#: coworker/templates/pages/reviews.html:100
-#: coworker/templates/pages/reviews.html:121
-#: coworker/templates/pages/reviews.html:135
-#: coworker/templates/pages/reviews.html:156
-#: coworker/templates/pages/reviews.html:180
+#: coworker/templates/pages/reviews.html:89
+#: coworker/templates/pages/reviews.html:103
+#: coworker/templates/pages/reviews.html:124
+#: coworker/templates/pages/reviews.html:138
+#: coworker/templates/pages/reviews.html:159
+#: coworker/templates/pages/reviews.html:183
 msgid "useful"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid "A thoughtfully made creative corner"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid ""
 "Hideout located center of city with well connected Public Transport, "
 "Administration people are more supportive and welcoming, They have wonderful "
@@ -2077,25 +2789,25 @@ msgid ""
 "provisions for smaller teams and individuals."
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:86
+#: coworker/templates/pages/reviews.html:89
 msgid ""
 "Awesome people, nice atmosphere, good amenities, affordable, mountains, "
 "nature... and a two- to three-hour drive to the nearest beach in Greece - in "
 "other words, the whole package is there."
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:92
+#: coworker/templates/pages/reviews.html:95
 msgid "Nice place!"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:98
+#: coworker/templates/pages/reviews.html:101
 msgid ""
 "Great place to organize your workspace. Prices are not high for Ukraine. And "
 "good point is a shower inside, so you can get to that location using bicycle "
 "and than not stink for the rest of the day. Also they have kitten!=)"
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:133
+#: coworker/templates/pages/reviews.html:136
 msgid ""
 "This is a great place to have as your workspot! Her you´ll be inspired and "
 "helped in many ways. If you are en entreprenour sitting at home working and "
@@ -2103,7 +2815,7 @@ msgid ""
 "´ll not regret it. You may "
 msgstr ""
 
-#: coworker/templates/pages/reviews.html:201
+#: coworker/templates/pages/reviews.html:204
 msgid ""
 "I've been a full-time member at The Hive for two months and it's great. "
 "There are fancier places and there are less fancy places but I think The "
@@ -2130,11 +2842,19 @@ msgid "Open office:"
 msgstr ""
 
 #: coworker/templates/pages/search_list.html:39
-msgid "Do you want to work with other people?"
+msgid ""
+"Do you want to work with other peple?' So this function is set for you. Here "
+"you can find hot desk, desk or desk for sharing "
 msgstr ""
 
 #: coworker/templates/pages/search_list.html:43
 msgid "Private office:"
+msgstr ""
+
+#: coworker/templates/pages/search_list.html:45
+msgid ""
+"If you like the energy of coworking alongside other people, this is for you. "
+"Includes hotdesks, dedicated desks and shared tables."
 msgstr ""
 
 #: coworker/templates/pages/search_list.html:69
@@ -2369,13 +3089,25 @@ msgid ""
 "restriction to theagreement you have read and agreed to. "
 msgstr ""
 
+#: coworker/templates/pages/terms.html:21
+msgid ""
+" 创客云图平台，是指创客云图有限公司旗下运营之创客云图网站（www.SpacesMap.cn."
+"com)。\n"
+"用户，包含注册用户和非注册用户，以下亦称为“您”。注册用户是指通过创客云图平台"
+"完成全部注册程序后，使用创客云图平台服务或创客云图网站资料的用户。非注册用户"
+"是指未进行注册、直接登录创客云图平台或通过其他网站进入创客云图平台直接或间接"
+"地使用创客云图平台服务或创客云图网站资料的用户。\n"
+"协议方，本协议中协议双方合称“协议方”。 创客云图有限公司及其相关服务可能存在的"
+"运营关联单位、创客云图平台在协议中统称为\"创客云图\"。"
+msgstr ""
+
 #: coworker/templates/pages/terms.html:27
 msgid "Effect of agreement"
 msgstr ""
 
 #: coworker/templates/pages/terms.html:29
 msgid ""
-"在您按照注册页面提示填写信息、阅读并同意本协议并完成全部注册程序后或以其他创"
+" 在您按照注册页面提示填写信息、阅读并同意本协议并完成全部注册程序后或以其他创"
 "客云图允许的方式实际使用创客云图平台服务时，您即受本协议的约束。本协议内容包"
 "括本协议正文、《创客云图隐私权条款》，且您在使用创客云图某一特定服务时，该服"
 "务可能会另有单独的协议、相关业务规则等（以下统称为“规则”）。所有创客云图已经"
@@ -2386,15 +3118,15 @@ msgid ""
 "图平台服务，即视为您已确知并完全同意本协议各项内容。创客云图有权根据国家法律"
 "法规的更新、产品和服务规则的调整需要不时地制订、修改本协议及/或各类规则，并提"
 "前以网站公示的方式进行公示。如您继续使用创客云图平台服务的，即表示您接受经修"
-"订的协议和规则。如发生有关争议时，以创客云图最新的相关协议和规则为准。"
+"订的协议和规则。如发生有关争议时，以创客云图最新的相关协议和规则为准 "
 msgstr ""
 
 #: coworker/templates/pages/terms.html:33
 msgid ""
-"When you sign this Agreement and complete the registration process,SpacesMap "
-"will provide you with a unique numbered SpacesMap account.You respond to "
-"your user account, login password and paymentpassword (if any), the "
-"verification code and the behavior of theimplementation of security, "
+" \"When you sign this Agreement and complete the registration process,"
+"SpacesMap will provide you with a unique numbered SpacesMap account.You "
+"respond to your user account, login password and paymentpassword (if any), "
+"the verification code and the behavior of theimplementation of security, "
 "responsible for using your account andpassword; therefore, any loss or "
 "damage, SpacesMap can't take noresponsibility. Unless the law or "
 "administrative judicial organs andthe consent of the SpacesMap instruction, "
@@ -2402,7 +3134,8 @@ msgid ""
 "verification code (ifany) shall not in any way transfer, borrow, gift, "
 "inheritance (withthe exception of account related property rights) < or > "
 "display orsale in third party platform. Otherwise, all losses caused to "
-"youor SpacesMap, any third party) may be borne by you (or responsible"
+"youor SpacesMap, any third party) may be borne by you (or responsible\"  "
+"\"for compensation). "
 msgstr ""
 
 #: coworker/templates/pages/terms.html:35
@@ -2459,7 +3192,7 @@ msgstr ""
 
 #: coworker/templates/pages/terms.html:48
 msgid ""
-"SpacesMap is responsible for the SpacesMap platform to provideservices to "
+" SpacesMap is responsible for the SpacesMap platform to provideservices to "
 "you. But the SpacesMap on the SpacesMap platformservices without any express "
 "or implied warranties, including butnot limited to the SpacesMap service "
 "platform applicability, noerrors or omissions, continuity, accuracy, "
@@ -2478,7 +3211,10 @@ msgid ""
 "SpacesMap only provides you with SpacesMap platform services, youknow the "
 "information on the SpacesMap platform users release, due tothe existence of "
 "massive information, and SpacesMap platform can notbe stopped, there may be "
-"risks and flaws."
+"risks and flaws. You should be careful todetermine the authenticity, "
+"legality and effectiveness of therelevant information, and pay attention to "
+"retaining thecorresponding evidence in order to safeguard rights, if "
+"possible, asfar as possible using the site recommended trading methods. "
 msgstr ""
 
 #: coworker/templates/pages/terms.html:54
@@ -2599,7 +3335,7 @@ msgstr ""
 msgid ""
 "SpacesMap reserves the right to independently decide to refuseservices, "
 "close user accounts, clear or edit content or cancelorders within the legal "
-"limits of the law of the People's Republicof China mainland."
+"limits of the law of the People's Republicof China mainland. "
 msgstr ""
 
 #: coworker/templates/pages/terms.html:78
@@ -3337,7 +4073,7 @@ msgstr ""
 
 #: coworker/templates/users/profile.html:105
 #: coworker/templates/users/profile.html:302
-#: coworker/templates/users/show_edit_field.html:17
+#: coworker/templates/users/show_edit_field.html:19
 msgid "Cancel"
 msgstr ""
 
@@ -3424,12 +4160,8 @@ msgstr ""
 msgid "Who are you:"
 msgstr ""
 
-#: coworker/templates/users/show_edit_field.html:16
+#: coworker/templates/users/show_edit_field.html:18
 msgid "Save"
-msgstr ""
-
-#: coworker/templates/users/show_value.html:12
-msgid "Edit"
 msgstr ""
 
 #: coworker/templates/users/user_detail.html:25
@@ -3443,6 +4175,612 @@ msgstr ""
 #: coworker/templates/users/user_list.html:7
 msgid "User"
 msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:18
+msgid "Written by"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:36
+msgctxt "in categories"
+msgid "in"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:39
+#: coworker/templates/zinnia/category_list.html:17
+#: coworker/templates/zinnia/tags/categories.html:6
+#: coworker/templates/zinnia/tags/categories_tree.html:7
+#, python-format
+msgid "Show all entries in %(category)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:47
+msgid "Last update on"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:99
+#, python-format
+msgid "%(percent)s%% of %(object)s still remains to read."
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:101
+msgid "Continue reading"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:126
+msgid "Short url"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:128
+#, python-format
+msgid "Short URL to %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:143
+#: coworker/templates/zinnia/tags/entries_popular.html:7
+#, python-format
+msgid "Comments on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:150
+#, python-format
+msgid "Leave a comment on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:151
+msgid "Be first to comment!"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:154
+#: coworker/templates/zinnia/entry_detail_base.html:228
+#: coworker/templates/zinnia/entry_detail_base.html:234
+msgid "Comments are closed."
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:162
+#, python-format
+msgid "Pingbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/_entry_detail_base.html:171
+#, python-format
+msgid "Trackbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/author_list.html:4
+#: coworker/templates/zinnia/author_list.html:11
+msgid "Author list"
+msgstr ""
+
+#: coworker/templates/zinnia/author_list.html:6
+#: coworker/templates/zinnia/base.html:45
+msgid "Authors"
+msgstr ""
+
+#: coworker/templates/zinnia/author_list.html:23
+#: coworker/templates/zinnia/tags/authors.html:12
+msgid "No authors yet."
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:17
+msgid "RSS feed of last entries"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:18
+msgid "RSS feed of last discussions"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:29
+msgid "Welcome!"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:31
+msgid "This simple theme is the default appearance of Zinnia."
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:34
+msgid ""
+"Don't hesitate to override the template <strong>zinnia/base.html</strong> to "
+"start <a href='http://docs.django-blog-zinnia.com/en/latest/how-to/"
+"customize_look_and_feel.html'>customizing your Weblog</a>."
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:50
+msgid "Calendar"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:60
+msgid "Recent entries"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:72
+msgid "Random entries"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:76
+msgid "Popular entries"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:80
+#: coworker/templates/zinnia/entry_archive_day.html:5
+#: coworker/templates/zinnia/entry_archive_day.html:7
+#: coworker/templates/zinnia/entry_archive_day.html:12
+#: coworker/templates/zinnia/entry_archive_day.html:29
+#: coworker/templates/zinnia/entry_archive_month.html:4
+#: coworker/templates/zinnia/entry_archive_month.html:6
+#: coworker/templates/zinnia/entry_archive_month.html:11
+#: coworker/templates/zinnia/entry_archive_month.html:37
+#: coworker/templates/zinnia/entry_archive_today.html:22
+#: coworker/templates/zinnia/entry_archive_week.html:43
+#: coworker/templates/zinnia/entry_archive_year.html:4
+#: coworker/templates/zinnia/entry_archive_year.html:6
+#: coworker/templates/zinnia/entry_archive_year.html:11
+#: coworker/templates/zinnia/tags/entries_archives.html:5
+#: coworker/templates/zinnia/tags/entries_archives_link.html:2
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:6
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:13
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:23
+msgid "Archives"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:85
+msgid "Tools"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:89
+#: coworker/templates/zinnia/base.html:90
+msgid "Dashboard"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:96
+#: coworker/templates/zinnia/base.html:97
+msgid "Post an entry"
+msgstr ""
+
+#: coworker/templates/zinnia/base.html:104
+#: coworker/templates/zinnia/base.html:105
+msgid "Log out"
+msgstr ""
+
+#: coworker/templates/zinnia/category_list.html:4
+#: coworker/templates/zinnia/category_list.html:11
+msgid "Category list"
+msgstr ""
+
+#: coworker/templates/zinnia/category_list.html:23
+#: coworker/templates/zinnia/tags/categories.html:11
+#: coworker/templates/zinnia/tags/categories_tree.html:18
+msgid "No categories yet."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive.html:5
+#: coworker/templates/zinnia/entry_archive.html:7
+msgid "Last entries"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive.html:17
+msgid "Yearly archives"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_day.html:17
+#: coworker/templates/zinnia/entry_archive_today.html:16
+msgid "Previous day"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_day.html:23
+msgid "Next day"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_day.html:36
+#: coworker/templates/zinnia/entry_archive_week.html:31
+#: coworker/templates/zinnia/entry_archive_week.html:39
+#, python-format
+msgid "Week %(week_number)s of %(year)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_month.html:16
+#: coworker/templates/zinnia/entry_archive_week.html:18
+msgid "Daily archives"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_month.html:26
+msgid "Previous month"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_month.html:32
+msgid "Next month"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_today.html:4
+#: coworker/templates/zinnia/entry_archive_today.html:6
+#: coworker/templates/zinnia/entry_archive_today.html:11
+msgid "Today archives"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_week.html:5
+#: coworker/templates/zinnia/entry_archive_week.html:7
+#: coworker/templates/zinnia/entry_archive_week.html:12
+#, python-format
+msgid "Archives week %(week_number)s of %(year)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_week.html:28
+msgid "Previous week"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_week.html:36
+msgid "Next week"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_year.html:15
+#: coworker/templates/zinnia/sitemap.html:38
+msgid "Monthly archives"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_year.html:25
+msgid "Previous year"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_archive_year.html:31
+msgid "Next year"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:23
+#, python-format
+msgid "RSS feed of discussions on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:25
+#, python-format
+msgid "RSS feed of comments on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:27
+#, python-format
+msgid "RSS feed of pingbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:29
+#, python-format
+msgid "RSS feed of trackbacks on %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:48
+msgid "Next entry"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:62
+msgid "Previous entry"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:76
+msgid "Related entries"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:90
+msgid "Similar entries"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:99
+msgid "Pingbacks"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:108
+#, python-format
+msgid ""
+"<a href=\"%(pingback_url)s\" rel=\"external nofollow\" class=\"fn url org\">"
+"%(pingback_name)s</a> on <time class=\"pingback-published\" datetime="
+"\"%(pingback_technical_date)s\"> %(pingback_human_date)s </time> <a href="
+"\"#pingback-%(pingback_pk)s\" id=\"c%(pingback_pk)s\" class=\"anchor-link\" "
+"title=\"Direct link to this pingback\">#</a>"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:134
+msgid "Pingbacks are open."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:136
+msgid "Pingbacks are closed."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:145
+msgid "Trackbacks"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:154
+#, python-format
+msgid ""
+"<a href=\"%(trackback_url)s\" rel=\"external nofollow\" class=\"fn url org\">"
+"%(trackback_name)s</a> on <time class=\"trackback-published\" datetime="
+"\"%(trackback_technical_date)s\"> %(trackback_human_date)s </time> <a href="
+"\"#trackback-%(trackback_pk)s\" id=\"c%(trackback_pk)s\" class=\"anchor-link"
+"\" title=\"Direct link to this trackback\">#</a>"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:182
+msgid "Trackback URL"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:192
+msgid "Comments"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:206
+#, python-format
+msgid ""
+"<a href=\"%(comment_url)s\" rel=\"external nofollow\" class=\"fn url\">"
+"%(comment_name)s</a> on <time class=\"comment-published\" datetime="
+"\"%(comment_technical_date)s\"> %(comment_human_date)s </time> <a href="
+"\"#comment-%(comment_pk)s-by-%(comment_author_slug)s\" id=\"c%(comment_pk)s"
+"\" class=\"anchor-link\" title=\"Direct link to this comment\">#</a>"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_detail_base.html:251
+#: coworker/templates/zinnia/entry_detail_base.html:252
+msgid "Edit the entry"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:10
+#, python-format
+msgid "The last entries categorized under %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:15
+#, python-format
+msgid "The last entries tagged with %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:19
+#, python-format
+msgid "The last entries by %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:24
+#, python-format
+msgid "page %(page_number)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:28
+#, python-format
+msgid "Category %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:32
+#, python-format
+msgid "Tag %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:36
+#, python-format
+msgid "Author %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:41
+#, python-format
+msgid "Page %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:46
+#: coworker/templates/zinnia/entry_list.html:49
+#: coworker/templates/zinnia/entry_list.html:52
+#: coworker/templates/zinnia/entry_list.html:67
+#: coworker/templates/zinnia/entry_list.html:68
+#: coworker/templates/zinnia/entry_list.html:76
+#: coworker/templates/zinnia/entry_list.html:77
+#: coworker/templates/zinnia/entry_list.html:85
+#: coworker/templates/zinnia/entry_list.html:86
+#, python-format
+msgid "RSS feed of %(object)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:62
+#, python-format
+msgid "Category archives: %(category)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:74
+#, python-format
+msgid "Tag archives: %(tag)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:83
+#, python-format
+msgid "Author archives: %(author)s"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:98
+#: coworker/templates/zinnia/sitemap.html:30
+#: coworker/templates/zinnia/tags/entries_featured.html:9
+#: coworker/templates/zinnia/tags/entries_popular.html:12
+#: coworker/templates/zinnia/tags/entries_random.html:9
+#: coworker/templates/zinnia/tags/entries_recent.html:9
+msgid "No entries yet."
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:117
+#: coworker/templates/zinnia/entry_list.html:118
+msgid "Edit the category"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:124
+#: coworker/templates/zinnia/entry_list.html:125
+msgid "Edit the tag"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_list.html:131
+#: coworker/templates/zinnia/entry_list.html:132
+msgid "Edit the author"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_search.html:5
+#: coworker/templates/zinnia/entry_search.html:7
+#: coworker/templates/zinnia/entry_search.html:19
+#, python-format
+msgid "Search results for '%(pattern)s'"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_search.html:12
+#: coworker/templates/zinnia/entry_search.html:25
+#: coworker/templates/zinnia/entry_search.html:26
+#, python-format
+msgid "RSS feed of search results for '%(pattern)s'"
+msgstr ""
+
+#: coworker/templates/zinnia/entry_search.html:33
+#, python-format
+msgid "%(entry_count)s entry found"
+msgid_plural "%(entry_count)s entries found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: coworker/templates/zinnia/entry_search.html:45
+msgid "Nothing found."
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:4
+#: coworker/templates/zinnia/login.html:9
+msgid "Login required"
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:13
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:17
+msgid "You need to be connected to view this entry."
+msgstr ""
+
+#: coworker/templates/zinnia/login.html:34
+msgid "Login"
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:4
+#: coworker/templates/zinnia/password.html:9
+msgid "Password required"
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:13
+msgid "The password provided is not valid. Please try again."
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:17
+msgid "You need to provide a password to view this entry."
+msgstr ""
+
+#: coworker/templates/zinnia/password.html:29
+msgid "Valid"
+msgstr ""
+
+#: coworker/templates/zinnia/sitemap.html:5
+#: coworker/templates/zinnia/sitemap.html:12
+#: coworker/templates/zinnia/skeleton.html:70
+#: coworker/templates/zinnia/skeleton.html:71
+msgid "Sitemap"
+msgstr ""
+
+#: coworker/templates/zinnia/sitemap.html:7
+msgid "Sitemap of the weblog"
+msgstr ""
+
+#: coworker/templates/zinnia/sitemap.html:15
+msgid "Entries per categories"
+msgstr ""
+
+#: coworker/templates/zinnia/sitemap.html:24
+msgid "comment"
+msgstr ""
+
+#: coworker/templates/zinnia/skeleton.html:10
+msgid "Just another Zinnia weblog."
+msgstr ""
+
+#: coworker/templates/zinnia/skeleton.html:62
+msgid "Useful links"
+msgstr ""
+
+#: coworker/templates/zinnia/skeleton.html:65
+#: coworker/templates/zinnia/skeleton.html:66
+msgid "Weblog index"
+msgstr ""
+
+#: coworker/templates/zinnia/skeleton.html:88
+#, python-format
+msgid ""
+"Powered by <a href=\"http://www.djangoproject.com\">Django</a> and <a href="
+"\"https://github.com/Fantomas42/django-blog-zinnia\">Zinnia "
+"%(ZINNIA_VERSION)s</a>."
+msgstr ""
+
+#: coworker/templates/zinnia/tag_list.html:4
+#: coworker/templates/zinnia/tag_list.html:11
+msgid "Tag list"
+msgstr ""
+
+#: coworker/templates/zinnia/tag_list.html:22
+#: coworker/templates/zinnia/tags/tag_cloud.html:11
+msgid "No tags yet."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/comments_recent.html:6
+#, python-format
+msgid ""
+"%(comment_author)s in <a href=\"%(entry_url)s#comment-%(comment_pk)s-by-"
+"%(comment_author_slug)s\" title=\"Comment on %(entry_title)s\"> "
+"%(entry_title)s </a>"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/entries_archives.html:12
+#: coworker/templates/zinnia/tags/entries_archives_tree.html:37
+msgid "No archives yet."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/entries_similar.html:9
+msgid "No similar entries."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/linkbacks_recent.html:6
+#, python-format
+msgid ""
+"<a href=\"%(linkback_url)s\">%(linkback_name)s</a> in <a href="
+"\"%(entry_url)s#c%(linkback_pk)s\" title=\"Linkback on %(entry_title)s\"> "
+"%(entry_title)s </a>"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:5
+#, python-format
+msgid "Page %(current_page)s of %(total_page)s"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:11
+msgid "More recent entries"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:21
+#: coworker/templates/zinnia/tags/pagination.html:34
+#: coworker/templates/zinnia/tags/pagination.html:48
+msgid "Entries page"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/pagination.html:57
+msgid "More old entries"
+msgstr ""
+
+#: coworker/templates/zinnia/tags/search_form.html:5
+msgid "Keywords..."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/search_form.html:7
+msgid ""
+"You can use - to exclude words or phrases, &quot;double quotes&quot; for "
+"exact phrases and the AND/OR boolean operators combined with parenthesis for "
+"complex queries."
+msgstr ""
+
+#: coworker/templates/zinnia/tags/tag_cloud.html:6
+#, python-format
+msgid "%(entry_count)s entry tagged by %(tag)s"
+msgid_plural "%(entry_count)s entries tagged by %(tag)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: coworker/users/forms.py:12 coworker/users/models.py:36
 msgid "Birth day"
