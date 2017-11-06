@@ -61,3 +61,4 @@ geoip2==2.6.0
 django-sekizai==0.10.0
 django-tinymce==2.6.0
 django-tagging==0.4.6
+django-contrib-comments==1.8.0
