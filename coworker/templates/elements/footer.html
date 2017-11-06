@@ -34,7 +34,7 @@
 						<a href="{% url "place:search" %}/most-reviewed">{% trans "Hottest review site" %}</a>
 					</li>
 					<li>
-						<a href="https://www.coworker.com/map">{% trans "Shared office map" %}</a>
+						<a href="/map">{% trans "Shared office map" %}</a>
 					</li>
 				</ul>
 				<ul>
@@ -70,28 +70,28 @@
 						<h4>{% trans "SpacesMap image laboratory" %}</h4>
 					</li>
 					<li>
-						<a href="https://www.coworker.com/lab/">{% trans "Blog" %}</a>
+						<a href="{% url "lab:index" %}">{% trans "Blog" %}</a>
 					</li>
-					<li>
-						<a href="https://www.coworker.com/lab/guest-post">{% trans "Sponsor" %}</a>
-					</li>
-					<li>
-						<a href="https://www.coworker.com/lab/">{% trans "Latest articles" %}</a>
-					</li>
-					<li>
-						<a href="https://www.coworker.com/lab/category/happenings/">{% trans "Activity" %}</a>
-					</li>
+{#					<li>#}
+{#						<a href="https://www.coworker.com/lab/guest-post">{% trans "Sponsor" %}</a>#}
+{#					</li>#}
+{#					<li>#}
+{#						<a href="https://www.coworker.com/lab/">{% trans "Latest articles" %}</a>#}
+{#					</li>#}
+{#					<li>#}
+{#						<a href="https://www.coworker.com/lab/category/happenings/">{% trans "Activity" %}</a>#}
+{#					</li>#}
 				</ul>
 				<ul class="footer_about_list">
 					<li style="list-style: none; display: inline">
 						<h4>{% trans "Contact us" %}</h4>
 					</li>
-					<li>
-						<a href="https://www.coworker.com/press">{% trans "News Media" %}</a>
-					</li>
-					<li>
-						<a href="https://www.coworker.com/api">{% trans "Third party interface" %}</a>
-					</li><!--<li><a href="#">Become a Partner</a></li>-->
+{#					<li>#}
+{#						<a href="https://www.coworker.com/press">{% trans "News Media" %}</a>#}
+{#					</li>#}
+{#					<li>#}
+{#						<a href="https://www.coworker.com/api">{% trans "Third party interface" %}</a>#}
+{#					</li><!--<li><a href="#">Become a Partner</a></li>-->#}
 					<li>
 						<a href="{% url "main:contact" %}">{% trans "Contact us" %}</a>
 					</li>
@@ -114,21 +114,21 @@
 			<div class="col-xs-12 pade_none footer_new_social_links_main">
 				<div class="col-xs-12 pade_none footer_new_social_links_top">
 					<ul>
-						<li>
-							<a href="https://www.facebook.com/coworkerglobal" target="_blank"><i aria-hidden="true" class="fa fa-facebook"></i></a>
-						</li>
-						<li>
-							<a href="https://twitter.com/coworkerglobal" target="_blank"><i aria-hidden="true" class="fa fa-twitter"></i></a>
-						</li>
-						<li>
-							<a href="https://www.pinterest.com/coworkerglobal/"><i aria-hidden="true" class="fa fa-pinterest-p"></i></a>
-						</li>
-						<li>
-							<a href="https://www.instagram.com/coworker/" target="_blank"><i aria-hidden="true" class="fa fa-instagram"></i></a>
-						</li>
-						<li>
-							<a href="https://www.youtube.com/channel/UCJlxGftk_XMG7R6sVf9UbVQ" target="_blank"><i aria-hidden="true" class="fa fa-youtube-play"></i></a>
-						</li>
+{#						<li>#}
+{#							<a href="https://www.facebook.com/coworkerglobal" target="_blank"><i aria-hidden="true" class="fa fa-facebook"></i></a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a href="https://twitter.com/coworkerglobal" target="_blank"><i aria-hidden="true" class="fa fa-twitter"></i></a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a href="https://www.pinterest.com/coworkerglobal/"><i aria-hidden="true" class="fa fa-pinterest-p"></i></a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a href="https://www.instagram.com/coworker/" target="_blank"><i aria-hidden="true" class="fa fa-instagram"></i></a>#}
+{#						</li>#}
+{#						<li>#}
+{#							<a href="https://www.youtube.com/channel/UCJlxGftk_XMG7R6sVf9UbVQ" target="_blank"><i aria-hidden="true" class="fa fa-youtube-play"></i></a>#}
+{#						</li>#}
 					</ul>
 				</div>
 				<div class="col-xs-12 pade_none footer_new_copyright_outer">
