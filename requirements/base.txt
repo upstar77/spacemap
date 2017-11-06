@@ -62,3 +62,6 @@ django-sekizai==0.10.0
 django-tinymce==2.6.0
 django-tagging==0.4.6
 django-contrib-comments==1.8.0
+django-mptt==0.8.7
+mots-vides==2015.5.11
+beautifulsoup4==4.6.0
