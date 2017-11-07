@@ -34,9 +34,9 @@
                         </ul>
                     </div>
                 </div>
-                <a href="javascript:void(0); " id="link_to_map">
+                <a href="javascript:void(0); " id="#">
                     <div class="col-xs-12 pade_none spaces_map_outer">
-                       <div id="small_map" style="height: 142px;"></div>
+                        <div id="small_map" style="height: 142px;"></div>
                     </div>
                 </a>
                 <div class="col-xs-12 pade_none spaces_contact_panel_outer contact_mobile_show">
@@ -103,46 +103,84 @@
 
                             <!--TABS END-->
                         </div>
+                        {% if event.investors.all %}
+                            <div class="col-xs-12 pade_none coworker_slider_main_outer lb-album space_photo_section scroll_navbar" id="investors">
+                            <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space">{% trans "Investors" %}</div>
+                            <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_2photo_outer">
+                                <div class="row">
+                                    {% for investor in event.investors.all %}
+                                        <div class="col-md-3">
+                                            <div class="contact-box center-version">
+                                                <a href="#">
+                                                    <img alt="image" class="img-circle" src="{{ investor.picture.url }}">
+                                                    <h3 class="m-b-xs"><strong>{{ investor.name }}</strong></h3>
+                                                    <div class="font-bold">{{ investor.position }}r</div>
+                                                    <address class="m-t-md">
+                                                        <strong>{{ investor.description }}</strong>
+                                                        {#                                                        <br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br>#}
+                                                        {#                                                        <abbr title="Phone">P:</abbr> (123) 456-7890 #}
+                                                    </address>
+                                                </a>
+                                                {#                                                    <div class="contact-box-footer"><div class="m-t-xs btn-group">#}
+                                                {#                                                        <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>#}
+                                                {##}
+                                                {#                                                        <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>#}
+                                                {#                                                        <a class="btn btn-xs btn-white"><i class="fa fa-user-plus"></i> Follow</a></div>#}
+                                                {#                                                    </div>#}
+                                            </div>
 
-                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_content_map scroll_navbar" id="map">
-                            <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space pade_top_bottom"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                Location <br><span>{{ event.get_address }}</span>
-                            </div>
-                            <div id="big_map" style="height: 500px;width: 1000px;margin-bottom: 100px;"></div>
-                        </div>
-                    </div>
-                    <br>
-                    <!--LEFT PANEL END-->
-                    <!-- RIGHT PANEL START-->
-                    <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con" id="contact_hide_mobile">
-                        <div class="coworker_space_right_inner_panel">
-                            <div class="col-xs-12 pade_none spaces_contact_panel_outer stickybar contact_hide_mobile is-affixed" style="display: block;"><div class="sidebar__inner" style="position: relative; border: none;">
-                                <div class="col-xs-12 pade_none space_shadow_div">
-                                    {#                                                    <div class="col-xs-12 pade_none spaces_contact_top_panel">#}
-                                    {#                                                        <h3>{% trans "联系我们" %}</h3>#}
-                                    {##}
-                                    {#                                                        <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">{% trans "会员查询" %}</a></div>#}
-                                    {#                                                        <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic"> {% trans "信息" %}</a></div>#}
-                                    {#                                                    </div>#}
-                                    <div class="col-xs-12 pade_none spaces_contact_bottom_panel">
-                                        <h3>{% trans "Location" %}</h3>
-                                        <div>{{ event.location }}</div>
-                                        <a href="#link_to_map">View map</a>
-                                    </div>
-                                    {#                                                    <div class="col-xs-12 pade_none spaces_contact_bottom_panel">#}
-                                    {#                                                        <h5>{% trans "分享" %}</h5>#}
-                                    {#                                                        <div class="col-xs-12 pade_none social_space_outer">#}
-                                    {#                                                            <a href="javascript:void(0);" onclick="openShare();"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>#}
-                                    {#                                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.coworker.com%2Fukraine%2Fpoltava%2Fgrass-coworking&amp;text=Check+out+Grass+Coworking+on+%40coworkerglobal%21+&amp;hashtags=coworkingspace" data-dnt="true"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>#}
-                                    {#                                                            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.coworker.com/ukraine/poltava/grass-coworking&amp;title=&amp;summary=&amp;source=https://www.coworker.com/" target="_blank"><i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i></a>#}
-                                    {#                                                        </div>#}
-                                    {#                                                    </div>#}
+                                        </div>
+                                    {% endfor %}
                                 </div>
-                                <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div></div>
+                            </div>
+                        {% endif %}
                         </div>
+                        {% if event.startups.all %}
+                            <div class="col-xs-12 pade_none coworker_slider_main_outer lb-album space_photo_section scroll_navbar" id="startaups">
+                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space">{% trans "Startups" %}</div>
+
+                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_2photo_outer">
+                                    <div class="row startups">
+                                        {% for startup in event.startups.all %}
+                                            <div class="col-sm-3">
+                                                <a href="{{ startup.url }}"><img src="{{ startup.image.url }}" alt=""></a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_content_map scroll_navbar" id="map">
+                        <div id='link_to_map' class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space pade_top_bottom"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                            Location <br><span>{{ event.get_address }}</span>
+                        </div>
+                        <div id="big_map" style="height: 500px;width: 1000px;margin-bottom: 100px;"></div>
                     </div>
-                    <!--  RIGHT PANEL END-->
                 </div>
+                <br>
+                <!--LEFT PANEL END-->
+                <!-- RIGHT PANEL START-->
+                <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con" id="contact_hide_mobile">
+                    <div class="coworker_space_right_inner_panel">
+                        <div class="col-xs-12 pade_none spaces_contact_panel_outer stickybar contact_hide_mobile is-affixed" style="display: block;"><div class="sidebar__inner" style="position: relative; border: none;">
+                            <div class="col-xs-12 pade_none space_shadow_div">
+                                {#                                                    <div class="col-xs-12 pade_none spaces_contact_top_panel">#}
+                                {#                                                        <h3>{% trans "联系我们" %}</h3>#}
+                                {##}
+                                {#                                                        <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">{% trans "会员查询" %}</a></div>#}
+                                {#                                                        <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic"> {% trans "信息" %}</a></div>#}
+                                {#                                                    </div>#}
+                                <div class="col-xs-12 pade_none spaces_contact_bottom_panel">
+                                    <h3>{% trans "Location" %}</h3>
+                                    <div>{{ event.location }}</div>
+                                    <a href="#link_to_map">View map</a>
+                                </div>
+                            </div>
+                            <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div></div>
+                    </div>
+                </div>
+                <!--  RIGHT PANEL END-->
             </div>
-            <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div>        </div>
+        </div>
+        <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div>        </div>
 {% endblock %}

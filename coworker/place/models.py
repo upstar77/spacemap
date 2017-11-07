@@ -321,7 +321,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
     #dummpy city location!!!
     city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
 
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, null=True)
 
     objects = PlaceManager()
 

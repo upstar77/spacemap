@@ -73,6 +73,17 @@ class Investor(models.Model):
         return self.name
 
 
+class Startup(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.FileField(upload_to="startup/photos")
+    url = models.URLField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+
 class Event(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -88,13 +99,15 @@ class Event(models.Model):
     slug = models.SlugField()
     image = models.FileField(upload_to="events/photos", null=False, blank=False)
     investors = models.ManyToManyField(Investor, blank=True)
+    startups = models.ManyToManyField(Startup, blank=True)
+
     objects = EventManager()
 
     class Meta:
         ordering = ('start_time',)
 
-    def __unicode__(self):
-        return self.title
+    def __str__(self):
+        return self.name
 
     @property
     def day_of_month(self):
