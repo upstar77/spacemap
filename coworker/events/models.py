@@ -127,3 +127,6 @@ class Event(models.Model):
 
     def get_main_photo(self):
         return self.image.url
+
+    def get_title(self):
+        return self.name
