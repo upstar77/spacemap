@@ -308,9 +308,9 @@
             <div id="map_canvas" style="height: 777px; position: relative; overflow: hidden;">
 
             </div>
-            <div id="over_map">
-                <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>{% trans "Automatic search while moving map" %}</label>
-            </div>
+{#            <div id="over_map">#}
+{#                <input checked="checked" id="enable_refresh" name="enable_refresh" type="checkbox"><label for="enable_refresh"><span></span>{% trans "Automatic search while moving map" %}</label>#}
+{#            </div>#}
             <div class="instant_cont">
                 <div class="instant_txt_outer">
                     <div class="instant_img"><img alt="img" src={% static "img/instant_img.png" %}></div>
@@ -357,42 +357,46 @@
     <script src={% static "js/jquery-ui.min.js" %}></script>
     <script src={% static "js/sweetalert.min.js" %}></script>
     <script src={% static "js/coworkerPopups.js" %}></script>
-    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+
+       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+
+
+
     <script>
-        map = new OpenLayers.Map("map_canvas");
-        map.addLayer(new OpenLayers.Layer.OSM());
+    var mymap = L.map('map_canvas').setView([22.5382373, 113.9934901], 13);
 
-        var lonLat = new OpenLayers.LonLat( 113.9934901, 22.5382373 )
-              .transform(
-                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                map.getProjectionObject() // to Spherical Mercator Projection
-              );
-        var markers = new OpenLayers.Layer.Markers( "Markers" );
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        id: 'mapbox.streets'
+    }).addTo(mymap);
 
-        var markerArr = [
-            {% for place in places %}
-              {% if place.lng and  place.lat%}
-                  new OpenLayers.LonLat({{ place.lng }}, {{ place.lat }})
-                  .transform(
-                    new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                    map.getProjectionObject() // to Spherical Mercator Projection
-                  )
-                  {% if not forloop.last %}, {% endif %}
-              {% endif %}
+{#    var markerArr = [#}
+    {% for place in places %}
+      {% if place.lng and  place.lat %}
+          L.marker([{{ place.lat }}, {{ place.lng }}]).addTo(mymap).bindPopup(
+            "<b>Hello world!</b><br />I am a popup.<img src='https://asmaloney.com/images/2014/01/OSM_Logo.png'>")
+          {% if not forloop.last %}, {% endif %}
+      {% endif %}
 
-            {% endfor %}
-        ];
-
-        var zoom=13;
+    {% endfor %}
+{#        ];#}
 
 
-        map.addLayer(markers);
-        $.each(markerArr, function(index, value) {
-          markers.addMarker(new OpenLayers.Marker(value));
-        });
 
+    var popup = L.popup();
 
-        map.setCenter(markerArr[0], zoom);
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(mymap);
+    }
+
+    mymap.on('click', onMapClick);
 
     </script>
 
