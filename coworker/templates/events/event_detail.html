@@ -142,8 +142,10 @@
                                 <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_2photo_outer">
                                     <div class="row startups">
                                         {% for startup in event.startups.all %}
-                                            <div class="col-sm-3">
-                                                <a href="{{ startup.url }}"><img src="{{ startup.image.url }}" alt=""></a>
+                                            <div class="col-sm-2">
+                                                <a href="{{ startup.url }}" style="background-image: url({{ startup.image.url }});">
+{#                                                    <img src="{{ startup.image.url }}" alt="">#}
+                                                </a>
                                             </div>
                                         {% endfor %}
                                     </div>

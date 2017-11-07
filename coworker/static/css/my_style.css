@@ -55,3 +55,11 @@ a{
 .startups img {
     max-width: 100%;
 }
+.startups a {
+    width: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 100px;
+    display: block;
+}
