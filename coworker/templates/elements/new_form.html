@@ -63,12 +63,11 @@
                                 </dd>
                             </dl>
                             <dl class="form-group">
-                                <dd class="dates checkin">
-                                    <div id="olsb-checkIn" class="date">
+                                <dd data-selenium="input-box">
+                                    <div class="search dist">
                                         <div class="container-cell">
-                                            <input type="text" class="auto-complete-ui" placeholder="{% trans "Type" %}">
+                                            <input type="text" class="auto-complete-ui place form-control text-editor oneline-text-editor" placeholder="{% trans "Type" %}">
                                         </div>
-
                                     </div>
                                 </dd>
                             </dl>
@@ -193,13 +192,12 @@
                                     </div>
                                 </dd>
                             </dl>
-                            <dl class="form-group">
-                                <dd class="dates checkin">
-                                    <div id="olsb-checkIn" class="date">
+                            <dl class="form-group ">
+                                <dd data-selenium="input-box">
+                                    <div class="search dist">
                                         <div class="container-cell">
-                                            <input type="text" class="auto-complete-ui" placeholder="{% trans "Type" %}">
+                                            <input type="text" class="auto-complete-ui service form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
                                         </div>
-
                                     </div>
                                 </dd>
                             </dl>
@@ -250,32 +248,12 @@
     $('input[name="daterange"]').daterangepicker();
   });
   $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $(".auto-complete-ui").autocomplete({
-      source: availableTags
+
+    $(".auto-complete-ui.place").autocomplete({
+      source: {{ place_category|safe }}
+    });
+     $(".auto-complete-ui.service").autocomplete({
+      source: {{ place_category|safe }}
     });
   } );
 </script>

@@ -4610,7 +4610,7 @@ html[dir=rtl] .star-rating {
 
 .oneline-searchbox .dates,.oneline-searchbox .occupancy,.oneline-searchbox .search {
   display: table;
-  height: 48px;
+  height: 60px;
   background-color: #fff;
   border: none;
   font-size: 13px;

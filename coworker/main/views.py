@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from coworker.place.models import Place
+from coworker.place.models import Place, Category
 
 
 class Index(TemplateView):
@@ -13,6 +13,9 @@ class Index(TemplateView):
         ctx = {
             "places": Place.objects.order_by('?').all()[:10],
         }
+        ctx['place_category'] = list(Category.objects.values_list('name', flat=True))
+        # event_category = Category.objects.all()
+        # search_category = Category.objects.all()
         ctx.update(d)
         return ctx
 
