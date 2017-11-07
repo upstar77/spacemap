@@ -44,7 +44,7 @@ DJANGO_APPS = [
 
     # Useful template tags:
     # 'django.contrib.humanize',
-
+    'modeltranslation',
     # Admin
     'django.contrib.admin',
     'django.contrib.postgres',

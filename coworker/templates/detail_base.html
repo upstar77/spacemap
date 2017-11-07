@@ -1,0 +1,549 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load place_tags %}
+{% load sekizai_tags %}
+{% block title %}{{ object.get_title }} - Read Reviews Online{% endblock %}
+
+{% addtoblock "css" %}
+    <link href="{% static 'css/lightbox.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/jquery.raty.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet">
+    <link href="{% static 'css/ladda.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.fancybox.css' %}" rel="stylesheet">
+    <style type="text/css">
+        .text {
+            left: 0;
+            position:absolute;
+            height: 100%;
+            color:#fff;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            background:#31d39c;
+            line-height: 150px;
+        }
+        #ui-datepicker-div {
+            width:360px;
+        }
+        .morecontent span {
+            display: none;
+        }
+        .more_content .less{
+            display: inline-block;
+        }
+        .inputError{
+            border:1px solid #f4bfbf !important;
+        }
+        .errorMessage{
+            color: red;
+            display: none;
+            font-size: 13px;
+        }
+    </style>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+    <script src="{% static 'js/lightbox.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.fancybox.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/lightbox.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.fancybox.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $('.overview_coworker_outer li a').click(function(){
+          $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+          }, 500);
+          return false;
+        });
+      });
+
+      var fmsg_button = null;
+      var smsg_button = null;
+      var open_reply  = false;
+      var send_booking= false;
+      $(document).ready(function(){
+        var sections = $('.scroll_navbar'), nav = $('.sticky_bar'), nav_height = nav.outerHeight();
+        $(window).on('scroll', function () {
+          var cur_pos = $(this).scrollTop();
+          sections.each(function() {
+            var top = $(this).offset().top - nav_height,
+              bottom = top + $(this).outerHeight();
+            if (cur_pos >= top && cur_pos <= bottom){
+              nav.find('a').removeClass('overview_coworker_active');
+              sections.removeClass('overview_coworker_active');
+              $(this).addClass('overview_coworker_active');
+              nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('overview_coworker_active');
+            }
+          });
+        });
+        $('.nginx_map_con').click(function () {
+          $('.nginx_map_con iframe').css("pointer-events", "auto");
+        });
+
+        $( ".nginx_map_con" ).mouseleave(function() {
+          $('.nginx_map_con iframe').css("pointer-events", "none");
+        });
+
+        $('.spaces_map_outer').click(function () {
+          $('.spaces_map_outer iframe').css("pointer-events", "auto");
+        });
+        $( ".spaces_map_outer" ).mouseleave(function() {
+          $('.spaces_map_outer iframe').css("pointer-events", "none");
+        });
+
+        var isLoggedIn = "1";
+        if(isLoggedIn === "1" && (typeof $.cookie('triggerLeadPop') !== 'undefined')) {
+          var leadPopType = $.cookie('triggerLeadPop');
+          $.removeCookie('triggerLeadPop');
+          $("#"+leadPopType+"_pop").modal("show");
+        }
+        // Move to Review Section
+        if(typeof $.cookie('triggerAnchorRev') !== 'undefined') {
+          $.removeCookie('triggerAnchorRev', { path: '/' });
+          moveToReviewTabs();
+        }
+        $(".outer_success_more").click(function () {
+          $( "div[id^='show']" ).slideDown(1000);
+          $(".outer_success_more").hide();
+        });
+
+        $("#sched_tour_button").attr("src", "https://coworker.imgix.net/template/img/button_tour2.png");
+        $("#sched_tour_button")
+          .mouseover(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2_rollover.png");
+          })
+          .mouseout(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2.png");
+          });
+
+        $(".message-space a")
+          .mouseover(function() {
+            $(this).addClass("csshover");
+          })
+          .mouseout(function() {
+            $(this).removeClass("csshover");
+          });
+        $("#free_daypass_button")
+          .mouseover(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2_rollover.png");
+          })
+          .mouseout(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2.png");
+          });
+        $("#sched_tour_button02")
+          .mouseover(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2_rollover.png");
+          })
+          .mouseout(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_tour2.png");
+          });
+        $("#free_daypass_button02")
+          .mouseover(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2_rollover.png");
+          })
+          .mouseout(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/button_free2.png");
+          });
+        $("#get_daypass_button")
+          .mouseover(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/get_day_pass2.png");
+          })
+          .mouseout(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/get_day_pass.png");
+          });
+        $("#rq_daypass_button")
+          .mouseover(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/rq_day_pass2.png");
+          })
+          .mouseout(function() {
+            $(this).attr("src", "https://coworker.imgix.net/template/img/rq_day_pass.png");
+          });
+        $( "#datepicker_availability_request" ).datepicker();
+        $( "#datepicker_availability_request2" ).datepicker();
+        $(".see_membership").click(function(){
+          $(".trans_black_bg").show();
+        });
+        $(".cross_outer a").click(function(){
+          $(".trans_black_bg").hide();
+        });
+        // Rating Details
+        $(".cowork_more_plus").click(function(){
+          $(this).hide();
+          $('.cowork_more_minus').show();
+          $(".coworker_overall_rating_panel").toggle();
+        });
+        $(".cowork_more_minus").click(function(){
+          $(this).hide();
+          $('.cowork_more_plus').show();
+          $(".coworker_overall_rating_panel").hide();
+        });
+      });
+
+      $(function(){
+        $('.membership_fees_tabs .nav-tabs li a').click(function(){
+          $('.membership_fees_tabs .nav-tabs li a').removeClass('membership_fees_tabs_active'); // remove the class from the currently selected
+          $(this).addClass('membership_fees_tabs_active'); // add the class to the newly clicked link
+          if(!$(this).addClass('membership_fees_tabs_active')) {
+          } else {
+            $(this).addClass('membership_fees_tabs_active');
+            $(this).next().stop(true,true).removeClass('membership_fees_tabs_active');
+          }
+        });
+      });
+
+      $(function(){
+        $('.reviews_tabs_outer.review_tabs_space li a').click(function(){
+          $('.reviews_tabs_outer.review_tabs_space li a').removeClass('review_active_tab'); // remove the class from the currently selected
+          $(this).addClass('review_active_tab'); // add the class to the newly clicked link
+          if(!$(this).addClass('review_active_tab')) {
+          } else {
+            $(this).addClass('review_active_tab');
+            $(this).next().stop(true,true).removeClass('review_active_tab');
+          }
+        });
+      });
+
+      $(function(){
+        $('.overview_coworker_outer li a').click(function(){
+          $('.overview_coworker_outer li a').removeClass('overview_coworker_active'); // remove the class from the currently selected
+          $(this).addClass('overview_coworker_active'); // add the class to the newly clicked link
+          if(!$(this).addClass('overview_coworker_active')) {
+          } else {
+            $(this).addClass('overview_coworker_active');
+            $(this).next().stop(true,true).removeClass('overview_coworker_active');
+          }
+        });
+      });
+
+
+      function displayDescription(a,b){
+        $('#'+a+'_description').show();
+        $('#'+b+'_description').hide();
+      }
+
+      function displayAnswer(divID){
+
+        if(document.getElementById(divID).style.display == 'block') {
+          var closeAnswer = true;
+        }
+
+        document.getElementById('answer1').style.display = 'none';
+        document.getElementById('answer2').style.display = 'none';
+        document.getElementById('answer3').style.display = 'none';
+
+        if(!closeAnswer) {
+          document.getElementById(divID).style.display = '';
+        }
+        return false;
+      }
+    </script>
+
+{% endaddtoblock %}
+
+{% block content %}
+
+    <div class="main_outer">
+        <!--BREADCRUMB START-->
+        {% breadcrumbs place %}
+
+        <!--BREADCRUMB END-->
+        <div id="main_img" class="banner_space_outr banner_space_outr_mob" style="background-image:url({{ object.get_main_photo }});"></div>
+        <!--BANNER END-->
+        <!-- Day pass/ Tour -->
+
+
+        <!--NGINX SOFTWARE START-->
+        <div class="nginx_main_outer nginx_main_outer_mob">
+            <div class="container">
+                <div class="row">
+                    {% block detail_block %}
+                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_main_inner nginx_main_inner_mob" id="kohub_nginx_main">
+                            <!--LEFT PANEL START-->
+                            <div class="col-sm-8 col-md-9 col-xs-12 pade_none nginx_main_left left_space_rs">
+                                <div class="col-xs-12 pade_none muchroom_main muchroom_new_con">
+                                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_lft_main">
+                                        <div class="col-sm-12 col-md-12 col-xs-12 pade_none space_top_head space_top_head_spacing">
+                                            <div class="col-sm-9 col-md-9 col-xs-12 pade_none kohub_space_headings">
+                                                <h2>{{ object.space_name }}</h2>
+                                                <div class="col-xs-12 pade_none verified_date_rs">
+                                                </div>
+                                                <div class="col-xs-12 pade_none much_bord">
+                                                    <div class="col-xs-12 pade_none muchroom_mail"><i class="fa fa-map-marker"></i> {{ object.get_address }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--LEFT PANEL END-->
+                            <!-- RIGHT PANEL START-->
+                            <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con">
+                                <div class="coworker_space_right_inner_panel" id="space_up_con">
+                                    <div class="col-xs-12 pade_none cowork_spaces_section beach_icon_display_outer">
+                                        <div class="beach_icon_outer beach_icon_display">
+                                            <ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0); " id="link_to_map">
+                                        <div class="col-xs-12 pade_none spaces_map_outer">
+                                            <div id="small_map" style="height: 142px;"></div>
+                                        </div>
+
+                                    </a>
+                                    <div class="col-xs-12 pade_none spaces_contact_panel_outer contact_mobile_show">
+                                        <div class="col-xs-12 pade_none spaces_contact_top_panel">
+                                            <h3>Contact Us</h3>
+                                            <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();"><span>{% trans "Membership Enquiry" %}</span></a></div>
+                                            <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><span> <img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic"> Message</span></a></div>
+                                        </div>
+                                        <div class="col-xs-12 pade_none spaces_contact_bottom_panel">
+                                            <h5>Share</h5>
+                                            <div class="col-xs-12 pade_none social_space_outer">
+                                                <a href="javascript:void(0);" onclick="openShare();"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+                                                <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.coworker.com%2Fukraine%2Fpoltava%2Fgrass-coworking&amp;text=Check+out+Grass+Coworking+on+%40coworkerglobal%21+&amp;hashtags=coworkingspace" data-dnt="true"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.coworker.com/ukraine/poltava/grass-coworking&amp;title=&amp;summary=&amp;source=https://www.coworker.com/" target="_blank"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>
+                                            </div>
+                                            <p>{% trans "621 people have shared this space" %}</p>
+                                        </div>
+                                    </div>
+                                    <div class="coworker_space_right_inner_panel"></div>
+                                </div>
+                            </div>
+                            <!--  RIGHT PANEL END-->
+                            <!--BOTTOM CONTAINER START-->
+                            <div class="container fixed_section" style="position: relative;">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_main_inner nginx_main_inner_mob kohub_new_tab" id="kohub_nginx_main">
+                                        <!--LEFT PANEL START-->
+                                        <div class="col-sm-8 col-md-9 col-xs-12 pade_none nginx_main_left nginx_main_left_mob left_space_rs">
+                                            <div class="col-xs-12 pade_none muchroom_main">
+                                                <div class="col-sm-12 col-md-12 col-xs-12 pade_none opening_lft_main">
+                                                    <div class="overviews_tabs_outer">
+
+                                                        <div class="sticky_bar_con">
+                                                            <div class="col-xs-12 pade_none overview_coworker_outer sticky_bar" style="position: relative; top: initial; display: block;">
+                                                                <ul>
+                                                                    <li><a href="{{ object.get_absolute_url }}.much_bord" class="">{% trans "Overview" %}</a></li>
+                                                                    <li><a href="{{ object.get_absolute_url }}#amenities" class="">{% trans "Facilities" %}</a></li>
+                                                                    <li><a href="{{ object.get_absolute_url }}#photos" class="">{% trans "Photo" %}</a></li>
+                                                                    <li><a href="{{ object.get_absolute_url }}#desk_office" class="">{% trans "Desk" %} &amp; {% trans "Office price" %}</a></li>
+                                                                    <li><a href="{{ object.get_absolute_url }}#map" id="big_map_link" class="">{% trans "Map" %}</a></li>
+                                                                    {#                                                                <li><a href="https://www.coworker.com/ukraine/poltava/grass-coworking#reviews01" id="reviews_link" class="">Reviews</a></li>#}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="hrLine_sticky_ifnnxc"></div>
+                                                        <div class="col-xs-12 pade_none overview_happiness_main scroll_navbar overview_coworker_active" id="overview">
+                                                            <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_street_con ngiborder_none">
+                                                                <div class="col-xs-12 col-sm-12 col-md-9 pade_none overview_content_left">
+                                                                    <div class="lang_other_new" style="display:none;">
+                                                                        <img style="cursor:pointer;" src="{% static 'img/flag.png' %}" class="flag flag-gb" onclick="displayDescription(&#39;p&#39;,&#39;e&#39;);">&nbsp;<img style="cursor:pointer;" src="{% static 'img/flag.png' %}" class="flag flag-ua" onclick="displayDescription(&#39;e&#39;,&#39;p&#39;);">
+                                                                    </div>
+                                                                    <p id="p_description" class="more">{{ object.cs_description }}</p><p id="e_description" class="more" style="display:none;"></p>                      </div>
+                                                                <div class="col-xs-12 col-sm-12 col-md-3 pade_none opening_hrs_out opening_panel_inner opening_hours_right">
+                                                                    <div class="col-xs-12 pade_none opening_hours_events_main">
+                                                                        <div class="member_access_content">
+                                                                            <h4><i class="fa"><img src="{% static 'img/clock_icon_img.png' %}" alt="clock_icon_img"></i> {% trans "Opening Hours" %}</h4>
+                                                                            <h5>{% trans "Monday to Friday" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "9:00 a.m. - 9:00 p.m." %}</div><h5>{% trans "Saturday" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "Close" %}</div><h5>{% trans "Sunday" %}</h5><div class="col-xs-12 pade_none open_timings_con">{% trans "Close" %}</div>                          </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 pade_none amenities_main amenities_main_rs scroll_navbar" id="amenities">
+                                                    <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-heart" aria-hidden="true"></i>{% trans "Facilities" %}</div>
+                                                    <div class="amenities_panel_con col-xs-12 pade_none" style="position: relative; height: 208px;">
+                                                        <div class="col-xs-12 col-md-6 col-sm-12 amenities_inner_boxes" style="position: absolute; left: 0px; top: 0px;">
+                                                            <div class="amenities_inner_part">
+                                                                <div class="heading_cl">{% trans "Foods" %} &amp; {% trans "Drinks" %}</div>
+                                                                <div class="amenities">
+                                                                    <ul>
+                                                                        <li>{% trans "Free coffee / tea" %}</li>
+                                                                        <li>{% trans "Free cold boiled water" %}</li>
+                                                                        <li>{% trans "Kitchen" %}</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 pade_none coworker_slider_main_outer lb-album space_photo_section scroll_navbar" id="photos">
+                                                    <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa fa-camera" aria-hidden="true"></i> Photos</div>
+
+
+                                                    <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_2photo_outer">
+
+                                                        {% for image in object.get_photos %}
+                                                            {% if image.image %}
+                                                                <div class="col-sm-6 col-md-6 col-xs-12 pade_none nginx_pic01 space-new-slider-pic01">
+                                                                    <a alt="{{ object.space_name }}" href="{{ image.image.url }}" data-fancybox="images" data-caption="Photo 1">
+
+                                                                        <img src="{{ image.image.url }}">
+                                                                        <div class="example-image slider-bg-pic" alt="{{ object.space_name }}, Poltava" style="background-image: url({{ image.file.url }}?w=600&amp;mark=/template/img/wm_icon.png&amp;markscale=5&amp;markalign=center,middle&#39;)"></div>
+
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {#                                                  {% include "place/reviews.html" %}#}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-12 pade_none membership_fees_main scroll_navbar" id="desk_office">
+                                                    <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space"><i class="fa membership"><img src="{% static 'img/membership_icon_img.png' %}" alt="membership_icon_img"></i> {% trans "Membership fee" %}</div>
+                                                    <!--TABS START-->
+                                                    <div class="col-xs-12 pade_none membership_fees_tabs">
+                                                        <ul class="nav nav-tabs" id="myTab">
+                                                            <li><a data-target="#hot_desk" data-toggle="tab" id="hotdesk_tab" class="membership_fees_tabs_active">{% trans "Hot desk / Open Office" %} <span>{% trans "Seat" %}</span></a></li>
+                                                            <li><a data-target="#dedicated_desk" data-toggle="tab">{% trans "Special-purpose" %} <span>{% trans "Desk" %}</span></a></li>
+                                                            <li><a data-target="#private_office" data-toggle="tab" id="private_office_tab">{% trans "Private" %} <span>{% trans "Office" %}</span></a></li>
+                                                        </ul>
+                                                        <form action="https://www.coworker.com/ukraine/poltava/grass-coworking/reserve" method="post" accept-charset="utf-8" id="reserve_form_table_reserve" name="reserve_form_table_reserve">
+                                                            <input type="hidden" value="0" id="res_duration" name="res_duration">
+                                                            <input type="hidden" value="1" id="res_quantity" name="res_quantity">
+                                                            <input type="hidden" value="0" id="res_package_id" name="res_package_id">
+                                                        </form>                <div class="tab-content">
+                                                        <div class="tab-pane active" id="hot_desk">
+                                                            <div>
+                                                                <div class="col-xs-12 pade_none Open_Plan_table">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>{% trans "# people" %}</th>
+                                                                            <th>{% trans "Duration" %}</th>
+                                                                            <th>{% trans "Price" %}</th>
+                                                                            <th>{% trans "Access time" %}</th>
+                                                                            <th>{% trans "Effective time" %}</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody class="tbody_section">
+                                                                        <tr><td>1</td><td>{% trans "One day" %}</td><td>{% trans "60.00 CNY" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-day&#39;,1);">{% trans "Query" %}</a></td></tr>
+                                                                        <tr><td>1</td><td>{% trans "One week" %}</td><td>{% trans "250.00 CNY" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-week&#39;,1);">{% trans "Query" %}</a></td></tr>
+                                                                        <tr><td>1</td><td>1 月</td><td>{% trans "750.00 CNY" %}</td><td>-</td><td><a href="javascript:void(0);" class="request_btn" onclick="openAvailableRequest(0,1,&#39;1-month&#39;,1);">{% trans "Query" %}</a></td></tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="dedicated_desk">
+                                                            <div>
+                                                                <div class="col-xs-12 pade_none Open_Plan_table">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>{% trans "# people" %}</th>
+                                                                            <th>{% trans "Duration" %}</th>
+                                                                            <th>{% trans "Price" %}</th>
+                                                                            <th>{% trans "Access time" %}</th>
+                                                                            <th>{% trans "Effective time" %}</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody class="tbody_section">
+                                                                        <tr class="empty-messqage"><td colspan="5">{% trans "Grass Coworking haven't added details of their dedicated desks yet" %}</td></tr>                          </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="private_office">
+                                                            <div>
+                                                                <div class="col-xs-12 pade_none Open_Plan_table">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>{% trans "# people" %}</th>
+                                                                            <th>{% trans "Duration" %}</th>
+                                                                            <th>{% trans "Price" %}</th>
+                                                                            <th>{% trans "Access time" %}</th>
+                                                                            <th>{% trans "Effective time" %}</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody class="tbody_section button-view-all-link">
+                                                                        <tr class="empty-messqage"><td colspan="5">{% trans "Grass Coworking they have not added private office details" %}</td></tr>                          </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <!--TABS END-->
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-12 col-xs-12 pade_none nginx_map_con space_content_map scroll_navbar" id="map">
+                                                <div class="col-xs-12 col-md-12 col-sm-12 pade_none amenities_title amenities_title_space pade_top_bottom"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    Location <br><span>{{ object.get_address }}</span>
+                                                </div>
+                                                <div id="big_map" style="height: 500px;width: 1000px;margin-bottom: 100px;"></div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <!--LEFT PANEL END-->
+                                        <!-- RIGHT PANEL START-->
+                                        <div class="col-sm-4 col-md-3 col-xs-12 pade_none coworker_space_right_main_panel events_page_con" id="contact_hide_mobile">
+                                            <div class="coworker_space_right_inner_panel">
+                                                <div class="col-xs-12 pade_none spaces_contact_panel_outer stickybar contact_hide_mobile is-affixed" style="display: block;"><div class="sidebar__inner" style="position: relative; border: none;">
+                                                    <div class="col-xs-12 pade_none space_shadow_div">
+                                                        <div class="col-xs-12 pade_none spaces_contact_top_panel">
+                                                            <h3>{% trans "Contact us" %}</h3>
+
+                                                            <div class="coworker_enquiry_button"><a href="javascript:void(0);" onclick="openMembershipEnquiry();">{% trans "Membership query" %}</a></div>
+                                                            <div class="coworker_message_button"><a href="javascript:void(0);" class="lk_contact_us"><img src="{% static 'img/img_message_comment_pic.png' %}" alt="pic"> {% trans "Information" %}</a></div>
+                                                        </div>
+                                                        {#                                                    <div class="col-xs-12 pade_none spaces_contact_bottom_panel">#}
+                                                        {#                                                        <h5>{% trans "分享" %}</h5>#}
+                                                        {#                                                        <div class="col-xs-12 pade_none social_space_outer">#}
+                                                        {#                                                            <a href="javascript:void(0);" onclick="openShare();"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>#}
+                                                        {#                                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.coworker.com%2Fukraine%2Fpoltava%2Fgrass-coworking&amp;text=Check+out+Grass+Coworking+on+%40coworkerglobal%21+&amp;hashtags=coworkingspace" data-dnt="true"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>#}
+                                                        {#                                                            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.coworker.com/ukraine/poltava/grass-coworking&amp;title=&amp;summary=&amp;source=https://www.coworker.com/" target="_blank"><i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i></a>#}
+                                                        {#                                                        </div>#}
+                                                        {#                                                    </div>#}
+                                                    </div>
+                                                    <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div></div>
+                                            </div>
+                                        </div>
+                                        <!--  RIGHT PANEL END-->
+                                    </div>
+                                </div>
+                                <object style="display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;overflow: hidden; pointer-events: none; z-index: -1;" type="text/html"></object></div>        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <!--NGINX SOFTWARE END-->
+    </div>
+
+    {% block map_js %}
+        <script>
+          function small_map_init() {
+            var mymap = L.map('small_map').setView([{{ object.lat }}, {{ object.lng }}], 16);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+              maxZoom: 16,
+              attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> , ' +
+              'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+              id: 'mapbox.streets'
+            }).addTo(mymap);
+          }
+
+          function big_map_init() {
+            var mymap = L.map('big_map').setView([{{ object.lat }}, {{ object.lng }}], 16);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+              maxZoom: 16,
+              attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> , ' +
+              'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+              id: 'mapbox.streets'
+            }).addTo(mymap);
+            L.marker([{{ object.lat }}, {{ object.lng }}]).addTo(mymap);
+
+          }
+          function initMap() {
+            big_map_init();
+            small_map_init();
+          }
+          initMap();
+        </script>
+    {% endblock %}
+{% endblock content %}
+

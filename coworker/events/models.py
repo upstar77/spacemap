@@ -66,6 +66,8 @@ class TicketInfo(models.Model):
 class Investor(models.Model):
     name = models.CharField(max_length=200)
     picture = models.FileField(upload_to="investor/photos")
+    position = models.CharField(max_length=200)
+    description = models.TextField()
 
     def __str__(self):
         return self.name

@@ -65,3 +65,4 @@ django-contrib-comments==1.8.0
 django-mptt==0.8.7
 mots-vides==2015.5.11
 beautifulsoup4==4.6.0
+django-modeltranslation==0.12.1

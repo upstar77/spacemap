@@ -23,8 +23,9 @@ from coworker.lab.managers import PUBLISHED
 from coworker.lab.models import Author
 # from coworker.lab.ping import DirectoryPinger
 
+from modeltranslation.admin import TranslationAdmin
 
-class EntryAdmin(admin.ModelAdmin):
+class EntryAdmin(TranslationAdmin):
     """
     Admin for Entry model.
     """
