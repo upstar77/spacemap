@@ -3,7 +3,7 @@ from .models import Event
 
 
 class EventAdmin(admin.ModelAdmin):
-   prepopulated_fields = {'slug': ['title']}
+   prepopulated_fields = {'slug': ['name']}
 
 
 

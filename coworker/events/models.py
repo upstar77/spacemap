@@ -72,7 +72,7 @@ class Investor(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     description = models.TextField()
     location = models.CharField(max_length=255)
     start_time = models.DateTimeField(db_index=True)
@@ -85,7 +85,7 @@ class Event(models.Model):
     place = models.ForeignKey('place.Place', blank=True, null=True)
     slug = models.SlugField()
     image = models.FileField(upload_to="events/photos", null=False, blank=False)
-    investors = models.ManyToManyField(Investor)
+    investors = models.ManyToManyField(Investor, blank=True)
     objects = EventManager()
 
     class Meta:
@@ -109,3 +109,6 @@ class Event(models.Model):
         return reverse('events:event', kwargs={
             'event': self.slug,
         })
+
+    def get_main_photo(self):
+        return self.image.url

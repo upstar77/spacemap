@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.views.decorators.csrf import csrf_exempt
 
 from events.models import Event
@@ -13,7 +13,7 @@ class SearchList(View):
 
     def get(self, request, *args, **kwargs):
         ctx = {}
-        ctx['events'] = Event.objects.all()
+        ctx['object_list'] = Event.objects.all()
         return render(request, self.template_name, ctx)
 
     def post(self, request, *args, **kwargs):
