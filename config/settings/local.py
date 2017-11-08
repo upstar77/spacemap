@@ -63,7 +63,7 @@ if os.environ.get('USE_DOCKER') == 'yes':
 
 # django-extensions
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ['django_extensions', ]
+INSTALLED_APPS += ['django_extensions', 'autofixture',]
 
 # TESTING
 # ------------------------------------------------------------------------------

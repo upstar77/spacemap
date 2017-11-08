@@ -61,6 +61,7 @@ THIRD_PARTY_APPS = [
     'mptt',
     'tagging',
     'sekizai',
+
 ]
 
 # Apps specific for this project go here.
