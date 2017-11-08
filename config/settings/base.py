@@ -31,8 +31,6 @@ if READ_DOT_ENV_FILE:
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
 
-DEFAULT_CURRENCY = 'USD'
-
 DJANGO_APPS = [
     # Default Django apps:
     'django.contrib.auth',
@@ -75,7 +73,7 @@ LOCAL_APPS = [
     'coworker.events.apps.EventsConfig',
     'coworker.services.apps.ServicesConfig',
     'coworker.lab.apps.LabConfig',
-
+    'location_field.apps.DefaultConfig',
     'tinymce',
     # 'zinnia',
     # 'place',
@@ -377,3 +375,42 @@ TINYMCE_DEFAULT_CONFIG = {
 DEFAULT_COUNTRY = 'US'
 DEFAULT_CURRENCY = 'USD'
 AVAILABLE_CURRENCIES = [DEFAULT_CURRENCY]
+
+#
+# LOCATION_FIELD = {
+#     'map.provider': 'openstreetmap',
+#     'provider.openstreetmap.max_zoom': 18,
+# }
+
+
+LOCATION_FIELD_PATH = STATIC_URL + 'location_field'
+
+LOCATION_FIELD = {
+    'map.provider': 'openstreetmap',
+    'map.zoom': 13,
+
+    'search.provider': 'google',
+    'search.suffix': '',
+
+    # Google
+    'provider.google.api': '//maps.google.com/maps/api/js',
+    'provider.google.api_key': '',
+    'provider.google.map_type': 'ROADMAP',
+
+    # Mapbox
+    'provider.mapbox.access_token': '',
+    'provider.mapbox.max_zoom': 18,
+    'provider.mapbox.id': 'mapbox.streets',
+
+    # OpenStreetMap
+    'provider.openstreetmap.max_zoom': 18,
+
+    # misc
+    'resources.root_path': LOCATION_FIELD_PATH,
+    'resources.media': {
+        'js': [
+            LOCATION_FIELD_PATH + '/js/jquery.livequery.js',
+            LOCATION_FIELD_PATH + '/js/form.js',
+        ],
+    },
+}

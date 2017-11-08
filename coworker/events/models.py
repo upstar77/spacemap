@@ -83,7 +83,6 @@ class Startup(models.Model):
         return self.name
 
 
-
 class Event(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -100,7 +99,6 @@ class Event(models.Model):
     image = models.FileField(upload_to="events/photos", null=False, blank=False)
     investors = models.ManyToManyField(Investor, blank=True)
     startups = models.ManyToManyField(Startup, blank=True)
-
     objects = EventManager()
 
     class Meta:
