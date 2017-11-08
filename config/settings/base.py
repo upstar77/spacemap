@@ -372,3 +372,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'table_col_limit' : 5,
     'table_inline_editing': True,
 }
+
+
+DEFAULT_COUNTRY = 'US'
+DEFAULT_CURRENCY = 'USD'
+AVAILABLE_CURRENCIES = [DEFAULT_CURRENCY]

@@ -1,6 +1,9 @@
 coworker
 ========
 
+create extension hstore;
+
+
 purifycss coworker/static/css/base_styles.css coworker/templates/events.html  --info --out index.css
 
 A short description of the project.
