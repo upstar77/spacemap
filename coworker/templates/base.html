@@ -910,10 +910,59 @@
 
 <script src="{% static "js/my_common.js" %}"></script>
 <script>
-    function refineSearch() {
-      window.location = '/place/search/';
-}
-</script>
+
+     function autocomplete(request, response) {
+       var layer = this.element.attr("data-layer");
+       var self = this.element;
+       var q = {
+           text: request.term,
+           api_key: "mapzen-DEkuWBs",
+           layers: layer,
+
+         };
+
+       if (layer != "country") {
+         q["boundary.country"] = $("[name=country]").attr("data-code");
+       }
+
+        $.ajax({
+         url: "https://search.mapzen.com/v1/autocomplete",
+         dataType: "json",
+         data: q,
+         success: function (data) {
+           var list = [];
+           $.each(data.features, function (index, item) {
+             if (item && item.properties) {
+               var val;
+               if (layer === "country") {
+                 val = item.properties.country;
+                 $(self).attr("data-code", item.properties.country_a)
+               } else {
+                 val = item.properties.locality;
+               }
+               list.push(val)
+             }
+           });
+           response(Array.from(new Set(list)));
+         }
+       });
+     }
+      $(function() {
+        $('input[name="daterange"]').daterangepicker();
+
+        $(".autocomplete-api").autocomplete({
+          source: autocomplete,
+          minLength: 3,
+          select: function( event, ui ) {
+{#            log( "Selected: " + ui.item.value + " aka " + ui.item.id );#}
+          }
+        });
+      });
+
+
+    </script>
  <script src="{% static 'js/owl.carousel.js' %}" type="text/javascript"></script>
+
+
 </body>
 </html>

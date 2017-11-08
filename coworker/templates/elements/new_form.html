@@ -35,7 +35,8 @@
                                 <dd data-selenium="input-box">
                                     <div class="search dist">
                                         <div class="container-cell">
-                                            <input id="country" type="text" class="auto-complete-ui form-control text-editor oneline-text-editor" placeholder="{% trans "Country" %}" >
+                                            <input type="text" name="country" data-layer="country" class="autocomplete-api form-control text-editor oneline-text-editor" placeholder="{% trans "Country" %}">
+
                                         </div>
                                     </div>
                                 </dd>
@@ -45,7 +46,8 @@
                                 <dd data-selenium="input-box">
                                     <div class="search dist">
                                         <div class="container-cell">
-                                            <input type="text" class="auto-complete-ui form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
+                                            <input type="text" name="city" data-layer="locality" class="autocomplete-api form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
+
                                         </div>
                                     </div>
                                 </dd>
@@ -98,7 +100,8 @@
                                     <dd data-selenium="input-box">
                                         <div class="search dist">
                                             <div class="container-cell">
-                                                <input type="text" name="country" class="form-control text-editor oneline-text-editor" placeholder="{% trans "Country" %}" >
+                                                <input type="text" name="country" data-layer="country" class="autocomplete-api form-control text-editor oneline-text-editor" placeholder="{% trans "Country" %}">
+
                                             </div>
                                         </div>
                                     </dd>
@@ -108,7 +111,7 @@
                                     <dd data-selenium="input-box">
                                         <div class="search dist">
                                             <div class="container-cell">
-                                                <input type="text" name="city" class="form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
+                                                <input type="text" name="city" data-layer="locality" class="autocomplete-api form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
                                             </div>
                                         </div>
                                     </dd>
@@ -132,7 +135,7 @@
                                                 {% trans "Search" %}
                                             </span>
 
-                                                <span class="js-search-button-clicked-label search-button-clicked-label">
+                                            <span class="js-search-button-clicked-label search-button-clicked-label">
                                                 <i class="submit-progress-spinner"></i>
                                             </span>
                                         </button>
@@ -216,11 +219,11 @@
 <script>
   $(function() {
 
-{#    $(".tab-content button[type=submit]").click(function() {#}
-{#      window.location = $(this).attr("data-url");#}
-{#    });#}
+    {#    $(".tab-content button[type=submit]").click(function() {#}
+    {#      window.location = $(this).attr("data-url");#}
+    {#    });#}
 
-$('input[name="daterange"]').daterangepicker();
+    $('input[name="daterange"]').daterangepicker();
   });
   $( function() {
 
