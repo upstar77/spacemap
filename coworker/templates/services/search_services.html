@@ -1,0 +1,28 @@
+{% extends "search_base.html" %}
+{% load i18n %}
+
+{% block filter %}
+{% endblock %}
+
+
+{% block object_cart %}
+    <div class="search_border_main">
+        <a class="csSearchLink" href="{{ obj.get_absolute_url }}">webpage URL</a>
+        <div class="spc_img_sec"><img alt="{{ obj.name }}" src="{{ obj.get_main_photo }}" title="{{ obj.name }}"></div>
+        <div class="spc_txt_sec">
+            <div class="col-xs-12 pade_none search_title_text">
+                <a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+            </div>
+            <div class="col-xs-12 pade_none search_free_pass_container">
+                <div class="search_review_outer text_middle_con">
+                    <i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i>{% trans "1 comments" %}"
+                    <div class="col-xs-12 pade_none search_verified_text">
+                        <i aria-hidden="true" class="fa fa-check"></i>
+{#                        {% trans "Verification" %}#}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+{% endblock %}

@@ -167,8 +167,9 @@ class Service(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('services:details', kwargs={'slug': self.get_slug(),
-                                                  'services_id': self.id})
+        return reverse('services:details', kwargs={
+            'slug': self.get_slug(),
+            'service_id': self.id})
 
     def get_slug(self):
         return slugify(smart_text(self.name))

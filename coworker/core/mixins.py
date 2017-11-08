@@ -1,5 +1,14 @@
 from django.http import JsonResponse
+from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 
+
+
+class SearchBase:
+     def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["q"] = self.request.GET.get("q", _("Search"))
+
+        return ctx
 
 
 class AjaxableResponseMixin(object):

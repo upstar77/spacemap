@@ -2,8 +2,97 @@
 {% load i18n %}
 
 {% block filter %}
+    <div class="loxcation_map_main_outer">
+        <div class=" col-xs-12 pade_none location_map_main_left">
+            <div class="col-xs-12 pade_none search_looking_main">
+
+                <div class="plan">
+                    <div class="col-sm-12 pade_none search_alt_form_wrapper">
+                        <div class="search_form_box">
+                            <input id="sp_location" name="sp_location" type="text" value="" placeholder="Search by coworking space, city or country" class="search_alt_input ui-autocomplete-input" autocomplete="off">
+                            <button id="search_alt_button" class="search_alt_btn" type="button" name="Submit" value="true"><i class="fa fa-search"></i></button>
+                            <input type="hidden" id="sp_search_place" name="sp_search_place" value="0">
+                            <input type="hidden" id="sp_place_id" name="sp_place_id" value="0">
+                            <input type="hidden" id="xsp_location" name="xsp_location">
+                            <input type="hidden" id="xcorp_filter" name="xcorp_filter" value="">
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 pade_none">
+                        <div class="look_for">
+                            <div class="col-md-6 col-sm-12 pade_none ">
+                                <div id="pln_1" class="open_pln">
+                                    <ul>
+                                        <li>
+                                            <div class="box_check_txt">
+                                                <label for="cp1"><span class="green">{% trans "Country" %}</span></label>
+                                                <input type="text" name="city" class="form-control text-editor oneline-text-editor" placeholder="{% trans "Country" %}">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 pade_none ">
+                                <div id="pln_2" class="office">
+                                    <ul>
+                                        <li>
+                                            <div class="box_check_txt">
+                                                <label for="cp1"><span class="green">{% trans "City" %}</span></label>
+                                                <input type="text" name="city" class="form-control text-editor oneline-text-editor" placeholder="{% trans "City" %}">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!--look_for ends-->
+                    </div>
+                    <div class="col-sm-12 pade_none">
+                        <div class="search-block">
+
+                            <div class="col-md-6 col-sm-12 pade_none ">
+                                <div id="pln_2" class="office">
+                                    <ul>
+                                        <li>
+                                            <div class="box_check_txt">
+                                                <label for="cp1"><span class="green">{% trans "Date" %}</span></label>
+                                                <input type="text" name="daterange" class="form-control daterange oneline-checkin checkin-input date-input hasDatepicker"  data-date="2017-11-10">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 pade_none ">
+                                <div id="pln_2" class="office">
+                                    <ul>
+                                        <li>
+                                            <div class="box_check_txt">
+                                                <label for="cp1"><span class="green">{% trans "Type" %}</span></label>
+                                                <input type="text" class="auto-complete-ui place form-control text-editor oneline-text-editor" placeholder="{% trans "Type" %}">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!--plan ends-->
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+      $(function() {
+        $('input[name="daterange"]').daterangepicker();
+      });
+    </script>
 {% endblock %}
 
+{% block header %}
+    {% include 'elements/header_search.html' %}
+{% endblock %}
 
 {% block object_cart %}
     <div class="search_border_main">
@@ -18,7 +107,7 @@
                     <i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i><i class="fa fa-star">&nbsp;</i>{% trans "1 comments" %}"
                     <div class="col-xs-12 pade_none search_verified_text">
                         <i aria-hidden="true" class="fa fa-check"></i>
-{#                        {% trans "Verification" %}#}
+                        {#                        {% trans "Verification" %}#}
                     </div>
                 </div>
             </div>

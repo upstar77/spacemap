@@ -63,3 +63,8 @@ a{
     height: 100px;
     display: block;
 }
+
+
+.search-block {
+  margin: 25px 0 0;
+}

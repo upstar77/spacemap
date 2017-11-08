@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from coworker.place.models import Place, Category
+from coworker.services.models import Category as ServiceCategory, Service
 
 
 class Index(TemplateView):
@@ -14,6 +15,7 @@ class Index(TemplateView):
             "places": Place.objects.order_by('?').all()[:10],
         }
         ctx['place_category'] = list(Category.objects.values_list('name', flat=True))
+        ctx['service_categories'] = list(ServiceCategory.objects.values_list('name', flat=True))
         # event_category = Category.objects.all()
         # search_category = Category.objects.all()
         ctx.update(d)
