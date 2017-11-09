@@ -62,7 +62,7 @@ THIRD_PARTY_APPS = [
     'tagging',
     'sekizai',
     'cities_light',
-
+    'django_elasticsearch_dsl',
 ]
 
 # Apps specific for this project go here.
@@ -419,5 +419,13 @@ LOCATION_FIELD = {
 
 
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['en', 'cn']
-CITIES_LIGHT_INCLUDE_COUNTRIES = ['FR']
+# CITIES_LIGHT_INCLUDE_COUNTRIES = ['FR']
 CITIES_LIGHT_INCLUDE_CITY_TYPES = ['PPL', 'PPLA', 'PPLA2', 'PPLA3', 'PPLA4', 'PPLC', 'PPLF', 'PPLG', 'PPLL', 'PPLR', 'PPLS', 'STLMT',]
+
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
+

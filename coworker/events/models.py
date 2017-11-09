@@ -128,3 +128,17 @@ class Event(models.Model):
 
     def get_title(self):
         return self.name
+
+
+    def indexing(self):
+        from .search_indexes import EventIndex
+        from config.es_client import es_client
+        # EventIndex.init(using=es_client)
+        obj = EventIndex(
+          meta={'id': self.id},
+          name=self.name,
+          start_time=self.start_time,
+          description=self.description,
+        )
+        obj.save(using=es_client)
+        return obj.to_dict(include_meta=True)
