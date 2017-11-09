@@ -1,0 +1,12 @@
+version: '2'
+
+volumes:
+  postgres_data_local: {}
+  postgres_backup_local: {}
+
+services:
+  search:
+    image: elasticsearch:5.6.4
+    ports:
+      - '127.0.0.1:9200:9200'
+

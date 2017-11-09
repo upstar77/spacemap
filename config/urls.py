@@ -48,7 +48,6 @@ urlpatterns = i18n_patterns(
 
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^comments/', include('django_comments.urls')),
-    url(r'^search/', include('haystack.urls')),
     # Your stuff: custom urls includes go here
 
 
