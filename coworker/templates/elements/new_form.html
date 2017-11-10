@@ -228,11 +228,19 @@
   $( function() {
 
     $(".auto-complete-ui.place").autocomplete({
-      source: {{ place_category|safe }}
+      source: {{ place_category|safe }},
+      minLength: 0
     });
     $(".auto-complete-ui.service").autocomplete({
-      source: {{ service_categories|safe }}
+      source: {{ service_categories|safe }},
+      minLength: 0
     });
+
+    $(".auto-complete-ui").on("focus", function () {
+        this.value = '';
+        $(this).autocomplete("search", '');
+    });
+
   });
 
 
