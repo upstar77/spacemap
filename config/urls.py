@@ -45,6 +45,7 @@ urlpatterns = i18n_patterns(
     url(r'^services/', include('coworker.services.urls', namespace='services')),
     # url(r'^', include(blog_urls)),
     url(r'^lab/', include('coworker.lab.urls', namespace='lab')),
+    url(r'^search/', include('coworker.search.urls', namespace='search')),
 
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^comments/', include('django_comments.urls')),

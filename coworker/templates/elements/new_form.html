@@ -25,7 +25,7 @@
                                     <div class="search">
                                         <i class="fa fa-search fa-1x"></i>
                                         <div class="container-cell">
-                                            <input type="text" class="form-control text-editor oneline-text-editor" placeholder="{% trans "Space name" %}">
+                                            <input id="f_location" name="f_location" type="text" class="form-control text-editor oneline-text-editor" placeholder="{% trans "Space name" %}">
                                         </div>
                                     </div>
                                 </dd>
@@ -218,15 +218,7 @@
 </div>
 <script>
   $(function() {
-
-    {#    $(".tab-content button[type=submit]").click(function() {#}
-    {#      window.location = $(this).attr("data-url");#}
-    {#    });#}
-
     $('input[name="daterange"]').daterangepicker();
-  });
-  $( function() {
-
     $(".auto-complete-ui.place").autocomplete({
       source: {{ place_category|safe }},
       minLength: 0
@@ -237,11 +229,160 @@
     });
 
     $(".auto-complete-ui").on("focus", function () {
-        this.value = '';
-        $(this).autocomplete("search", '');
+      this.value = '';
+      $(this).autocomplete("search", '');
+    });
+  });
+</script>
+
+{#<script>#}
+{#  $(function() {#}
+{#    $("[name=h_location]").autocomplete({#}
+{#      source: function (request, response) {#}
+{#        $.ajax({url: "{% url "search:place" %}",#}
+          {#              dataType: "json",#}
+{#          type: "GET",#}
+{#          data: {#}
+{#            search : request.term#}
+{#          },#}
+{#          success: function(result) {#}
+{##}
+{#            response(result);#}
+{#          }#}
+{#        });#}
+{##}
+{#      }#}
+{#    });#}
+{#  });#}
+{#</script>#}
+
+
+<script type="text/javascript">
+    $(function() {
+      $("#f_location").autocomplete({
+        source: function(request, response) {
+          $("#place_id").val(0);
+          $("#search_place").val(0);
+          $.ajax({
+            url: '{% url "search:place" %}',
+            dataType: "json",
+            type: "GET",
+            data: {
+              search : request.term
+            },
+            success: function(data) {
+              response(data);
+              /*if(data.length>0){
+                var prefix = $('#f_location').val().toLowerCase();
+                var first_item = data[0].value.toLowerCase();
+                if(first_item.slice(0, prefix.length) == prefix){
+                  $('#f_location').val(data[0].value);
+                  $('#f_location').selectRange(prefix.length,first_item.length);
+                }
+              }*/
+            }
+          });
+        },minLength:1,
+        messages: {
+          noResults: '',
+          results: function() {}
+        },appendTo: "#f_aucomplete",
+        select: function (event, ui) {
+{#          $("#place_id").val(ui.item.idx);#}
+{#          $("#search_place").val(ui.item.loc);#}
+{#          $("#x_location").val(ui.item.value);#}
+{#          $('#f_location').val(ui.item.value);#}
+{#          if(ui.item.loc==3){#}
+{#            if(ui.item.coworkspace_url!='')#}
+{#              window.location = ui.item.coworkspace_url;#}
+{#          } else#}
+{#            submitSearch();#}
+        }
+      }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+        var loc_icon = '<i class="fa fa-buildingui"></i>';
+{#        var view_all = '';#}
+{#        if(item.loc==1)#}
+{#          loc_icon = '<i class="fa fa-globeui"></i>';#}
+{#        if((item.loc==2) || (item.loc==2.5))#}
+{#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#        if(item.loc==5)#}
+{#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#        if(item.loc==10)#}
+{#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+{#        if(item.loc==0){#}
+{#          loc_icon = "";#}
+{#          view_all = 'class="search_view_results_div pade_none"';#}
+{#        }#}
+        return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
+      };
     });
 
+  function submitSearch() {
+    if($("#x_location").val()!=$("#f_location").val()) {
+      $("#place_id").val(0);
+      $("#search_place").val(0);
+    }
+    $.ajax({
+      url: 'https://www.coworker.com/search/start',
+      dataType: "json",
+      type: "POST",
+      data: {
+        place_id     : $("#place_id").val(),
+        search_place : $("#search_place").val(),
+        f_location   : $("#f_location").val(),
+        form_search  : 1
+      },
+      success: function(data) {
+        window.location = 'search/'+data.s_url;
+      }
+    });
+  }
+  $("#f_location").keypress(function(event) {
+    if (event.which == 13) {
+      event.preventDefault();
+      submitSearch();
+    }
   });
-
-
+  $(document).ready(function() {
+    var owl = $('#owl-demo02');
+    owl.owlCarousel({
+      stagePadding: 0,
+      margin: 10,
+      nav: true,
+      loop: true,
+      responsive: {
+        0   : { items: 2 },
+        600 : { items: 3 },
+        900 : { items: 5 },
+        1000: { items: 6 }
+      }
+    });
+    var owl = $('#owl-demo03');
+    owl.owlCarousel({
+      stagePadding: 0,
+      margin: 10,
+      nav: true,
+      loop: true,
+      responsive: {
+        0   : { items: 1 },
+        400 : { items: 1 },
+        600 : { items: 2 },
+        768 : { items: 3 },
+        900 : { items: 3 },
+        1000: { items: 4 },
+        1200: { items: 5 },
+        1300: { items: 5 },
+        1400: { items: 5 }
+      }
+    });
+    $("#owl-demo05").owlCarousel({
+      navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem : true,
+      nav: true,
+      loop: true,
+      items : 1,
+    });
+  });
 </script>

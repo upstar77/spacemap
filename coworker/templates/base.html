@@ -274,64 +274,6 @@
 <script src="{% static 'js/coworkerPopups.js' %}">
 </script>
 <script type="text/javascript">
-  $(function() {
-    $( "#f_location" ).autocomplete({
-      source:function(request, response) {
-        $("#place_id").val(0);
-        $("#search_place").val(0);
-        $.ajax({
-          url: 'https://www.coworker.com/getAutocomplete',
-          dataType: "json",
-          type: "POST",
-          data: {
-            term : request.term
-          },
-          success: function(data) {
-            response(data);
-            /*if(data.length>0){
-	              var prefix = $('#f_location').val().toLowerCase();
-	              var first_item = data[0].value.toLowerCase();
-	              if(first_item.slice(0, prefix.length) == prefix){
-	                $('#f_location').val(data[0].value);
-	                $('#f_location').selectRange(prefix.length,first_item.length);
-	              }
-	            }*/
-          }
-        });
-      },minLength:1,
-      messages: {
-        noResults: '',
-        results: function() {}
-      },appendTo: "#f_aucomplete",
-      select: function (event, ui) {
-        $("#place_id").val(ui.item.idx);
-        $("#search_place").val(ui.item.loc);
-        $("#x_location").val(ui.item.value);
-        $('#f_location').val(ui.item.value);
-        if(ui.item.loc==3){
-          if(ui.item.coworkspace_url!='')
-            window.location = ui.item.coworkspace_url;
-        } else
-          submitSearch();
-      }
-    }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-      var loc_icon = '<i class="fa fa-buildingui"><\/i>';
-      var view_all = '';
-      if(item.loc==1)
-        loc_icon = '<i class="fa fa-globeui"><\/i>';
-      if((item.loc==2) || (item.loc==2.5))
-        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
-      if(item.loc==5)
-        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
-      if(item.loc==10)
-        loc_icon = '<i class="fa fa-map-markerui"><\/i>';
-      if(item.loc==0){
-        loc_icon = "";
-        view_all = 'class="search_view_results_div pade_none"';
-      }
-      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-    };
-  });
   function submitSearch() {
     window.location = '/search/?q='+$("#f_location").val();
 {#    if($("#x_location").val()!=$("#f_location").val()) {#}
@@ -352,7 +294,7 @@
 {#        window.location = 'search/'+data.s_url;#}
 {#      }#}
 {#    });#}
-  }
+{#  }#}
   $("#f_location").keypress(function(event) {
     if (event.which == 13) {
       event.preventDefault();

@@ -129,7 +129,6 @@ class Event(models.Model):
     def get_title(self):
         return self.name
 
-
     def indexing(self):
         from .search_indexes import EventIndex
         from config.es_client import es_client

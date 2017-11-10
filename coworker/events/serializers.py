@@ -6,8 +6,8 @@ from .models import Event
 from .search_indexes import EventIndex
 
 
-class ElasticBlogSerializer(ElasticModelSerializer):
+class ElasticEventSerializer(ElasticModelSerializer):
     class Meta:
         model = Event
         es_model = EventIndex
-        fields = ('pk', 'name', 'description')
+        fields = ('pk', 'name', 'start_time', 'description')

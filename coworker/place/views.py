@@ -556,3 +556,6 @@ class PlaceAddMarketingView(PlaceAddBaseView, CreateView):
         super().form_valid(form)
         self.save_place()
         return redirect(self.success_url)
+
+
+

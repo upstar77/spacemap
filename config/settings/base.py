@@ -76,6 +76,7 @@ LOCAL_APPS = [
     'coworker.services.apps.ServicesConfig',
     'coworker.lab.apps.LabConfig',
     'location_field.apps.DefaultConfig',
+    'coworker.search.apps.SearchConfig',
     'tinymce',
     # 'zinnia',
     # 'place',
