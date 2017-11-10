@@ -11,7 +11,6 @@ urlpatterns = [
     url(
         regex=r'^api/list$',
         view=views.EventSearchView.as_view(),
-        name='blog-list'
+        name='search-api'
     ),
-
 ]

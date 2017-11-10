@@ -4,6 +4,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic import DetailView, ListView, TemplateView
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.response import Response
 
 from config.es_client import es_client
 
@@ -62,7 +63,6 @@ class AutocompleteEvent(AutocompleteBase, View):
         return JsonResponse(ctx)
 
 
-
 class EventSearchView(es_views.ListElasticAPIView):
     es_client = es_client
     es_model = EventIndex
@@ -82,3 +82,11 @@ class EventSearchView(es_views.ListElasticAPIView):
         'name',
         'description',
     )
+
+    def list(self, request, *args, **kwargs):
+        search = self.filter_search(self.get_es_search())
+        search = self.excludes_respond_fields(search)
+        res = []
+        for item in self.es_representation(search.scan()):
+            res.append(item["name"])
+        return Response(res)

@@ -110,4 +110,25 @@
         </div>
         <div style="clear:both;"></div>
     </div>
+
+    <script>
+      $(function() {
+        $("[name=h_location]").autocomplete({
+          source: function (request, response) {
+            $.ajax({url: "{% url "events:search-api" %}",
+{#              dataType: "json",#}
+              type: "GET",
+              data: {
+                search : request.term
+              },
+              success: function(result) {
+
+                response(result);
+              }
+            });
+
+          }
+        });
+      });
+    </script>
 {% endblock %}
