@@ -15,11 +15,10 @@
         </ul>
         <div class="tab-content" id="tab-content">
             <div id="tab-hotel" class="tab-pane active">
-
-                <div class="search-bar" data-selenium="search-bar">
+               <form action="{% url "place:search" %}" method="GET">
+                    <div class="search-bar" data-selenium="search-bar">
                     <div class="container-agoda">
                         <div id="oneline-searchbox" class="oneline-searchbox" data-selenium="searchBox">
-
                             <dl class="form-group ">
                                 <dd data-selenium="input-box">
                                     <div class="search">
@@ -78,6 +77,7 @@
                         </div>
                     </div>
                 </div>
+               </form>
             </div>
 
             <div id="tab-flight" class="tab-pane">
@@ -235,27 +235,6 @@
   });
 </script>
 
-{#<script>#}
-{#  $(function() {#}
-{#    $("[name=h_location]").autocomplete({#}
-{#      source: function (request, response) {#}
-{#        $.ajax({url: "{% url "search:place" %}",#}
-          {#              dataType: "json",#}
-{#          type: "GET",#}
-{#          data: {#}
-{#            search : request.term#}
-{#          },#}
-{#          success: function(result) {#}
-{##}
-{#            response(result);#}
-{#          }#}
-{#        });#}
-{##}
-{#      }#}
-{#    });#}
-{#  });#}
-{#</script>#}
-
 
 <script type="text/javascript">
     $(function() {
@@ -300,7 +279,7 @@
         }
       }).autocomplete( "instance" )._renderItem = function( ul, item ) {
         var loc_icon = '<i class="fa fa-buildingui"></i>';
-{#        var view_all = '';#}
+        var view_all = '';
 {#        if(item.loc==1)#}
 {#          loc_icon = '<i class="fa fa-globeui"></i>';#}
 {#        if((item.loc==2) || (item.loc==2.5))#}
@@ -386,3 +365,5 @@
     });
   });
 </script>
+
+

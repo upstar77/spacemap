@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^list-space/header-edit/$', view=views.PhotoCrop.as_view(), name='header-edit'),
 
 
+    url(r'^search/autocomplete/$', views.autocomplete),
 
     url(r'^search/$', view=views.SearchList.as_view(), name='search'),
     url(r'^search/(?P<country>[\w-]+)/', view=views.SearchList.as_view(), name='search-country'), #HERE REMOVED $
@@ -39,7 +40,6 @@ urlpatterns = [
     url(r'^(?P<country>[\w-]+)/(?P<city>[\w-]+)/(?P<place>[\w-]+)/$',
         view=views.PlaceView.as_view(), name='place'),
     # url(r'^(?P<city>[\w-]+)/(?P<place>.*)/$', view=views.Place.as_view(), name='place'),
-
 
 
 ]

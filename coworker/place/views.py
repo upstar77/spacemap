@@ -3,6 +3,7 @@ import pickle
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core import serializers
+from coworker.search.backends import get_search_backend
 from django.urls import reverse_lazy
 from django.http import JsonResponse, Http404
 from django.forms.models import inlineformset_factory, modelformset_factory, formset_factory
@@ -556,6 +557,18 @@ class PlaceAddMarketingView(PlaceAddBaseView, CreateView):
         super().form_valid(form)
         self.save_place()
         return redirect(self.success_url)
+
+
+
+def autocomplete(request):
+    model_or_queryset = Place.objects.all()
+    backend = get_search_backend('default')
+    query = request.GET["q"]
+    results = backend.search(query, model_or_queryset=model_or_queryset)
+    r = {"res": []}
+    for x in results:
+        r["res"].append((x.space_name, x.cs_description))
+    return JsonResponse(r)
 
 
 

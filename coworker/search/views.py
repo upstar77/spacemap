@@ -6,6 +6,7 @@ from config.es_client import es_client
 from rest_framework_elasticsearch import es_views, es_pagination, es_filters
 from events.search_indexes import EventIndex
 from place.documents import PlaceDocument
+from search.serializers import PlaceSerializer
 
 
 class EventSearchView(es_views.ListElasticAPIView):
@@ -66,5 +67,32 @@ class PlaceSearchView(es_views.ListElasticAPIView):
             res.append(item["space_name"])
         return Response(res)
 
-    def post(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
+    # def post(self, request, *args, **kwargs):
+    #     return self.list(request, *args, **kwargs)
+    def get(self, request, *args, **kwargs):
+        backend = get_search_backend('default')
+        query = request.GET["search"]
+        results = backend.search(query, model_or_queryset=Place.objects.all())
+        # {"792-cowerkz": {
+        #     "value":"CoWerkz, Singapore, Singapore","label":"CoWerkz, Singapore, Singapore","loc":"3","idx":"792","coworkspace_url":"singapore\/singapore\/cowerkz"
+        # }
+        # }
+        return Response(PlaceSerializer(results, many=True).data)
+
+
+
+from django import forms
+from django.utils.translation import pgettext
+
+from coworker.search.backends import get_search_backend
+from coworker.place.models import Place
+
+
+class SearchForm(forms.Form):
+    q = forms.CharField(label=pgettext('Search form label', 'Query'), required=True)
+
+    def search(self, model_or_queryset):
+        backend = get_search_backend('default')
+        query = self.cleaned_data['q']
+        results = backend.search(query, model_or_queryset=model_or_queryset)
+        return results

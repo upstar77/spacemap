@@ -10,6 +10,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
 from .fields import generate_time_range
 from coworker.cities.models import City, CityOrigin
+from coworker.search import index
 
 # Create your models here.
 #MAX_MEETING_ROOM_NUMBER = 500
@@ -286,7 +287,8 @@ class PlaceManager(models.Manager):
         return self.filter(city_origin=slug)
 
 
-class Place(MemberPayment, ContactInfo, Location, OpeningHours):
+
+class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     space_name = models.CharField(_("Name of the site SpacesMap"), max_length=250)
     slug = models.SlugField()
 
@@ -329,6 +331,11 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
         verbose_name = _('Place')
         verbose_name_plural = _('Places')
 
+    search_fields = [
+        index.SearchField('space_name', partial_match=True),
+        index.SearchField('cs_description'),
+    ]
+
     def __str__(self):
         return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city_origin}
 
@@ -361,3 +368,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours):
 
     def get_title(self):
         return "{}, {}".format(self.space_name, self.city_origin.name)
+
+    @property
+    def autocomplete_value(self):
+        return "{}, {}, {}".format(self.space_name, self.city_origin.country.name, self.city_origin.name)
