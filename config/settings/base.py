@@ -342,7 +342,7 @@ ADMIN_URL = r'^admin/'
 # ------------------------------------------------------------------------------
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
-GEOIP_PATH = env("DJANGO_GEOIP_PATH")
+GEOIP_PATH = env("DJANGO_GEOIP_PATH", ROOT_DIR("geoip"))
 
 # Django-rosetta
 ROSETTA_MESSAGES_PER_PAGE = 100
@@ -447,12 +447,6 @@ if ES_URL:
             'INDEX': os.environ.get('ELASTICSEARCH_INDEX_NAME', 'storefront'),
             'TIMEOUT': 5,
             'AUTO_UPDATE': True},
-        # 'dashboard': {
-        #     'BACKEND': 'saleor.search.backends.dashboard',
-        #     'URLS': [ES_URL],
-        #     'INDEX': os.environ.get('ELASTICSEARCH_INDEX_NAME', 'storefront'),
-        #     'TIMEOUT': 5,
-        #     'AUTO_UPDATE': False}
     }
 else:
     SEARCH_BACKENDS = {}

@@ -35,6 +35,6 @@ class DetectChineUser(MiddlewareMixin):
             request.is_chine = False
             if g_client.get("country_code", "") == "CN":
                 request.is_chine = True
-        except geoip2.errors.AddressNotFoundError as e:
+        except Exception as e:
             logger.exception(e)
 
