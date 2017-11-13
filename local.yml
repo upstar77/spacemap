@@ -11,7 +11,7 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     depends_on:
       - postgres
-#      - mailhog
+      - es5
     volumes:
       - .:/app
     environment:
@@ -23,7 +23,7 @@ services:
 
   postgres:
     ports:
-      - "5432:5432"
+      - "5433:5432"
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
@@ -32,33 +32,8 @@ services:
       - postgres_backup_local:/backups
     environment:
       - POSTGRES_USER=coworker
-#
-#  mailhog:
-#    image: mailhog/mailhog:v1.0.0
-#    ports:
-#      - "8025:8025"
-#
-#
-#  redis:
-#    image: redis:3.0
-#
-#  celeryworker:
-#    # https://github.com/docker/compose/issues/3220
-#    <<: *django
-#    depends_on:
-#      - redis
-#      - postgres
-#      - mailhog
-#    ports: []
-#    command: /start-celeryworker.sh
-#
-#  celerybeat:
-#    # https://github.com/docker/compose/issues/3220
-#    <<: *django
-#    depends_on:
-#      - redis
-#      - postgres
-#      - mailhog
-#    ports: []
-#    command: /start-celerybeat.sh
 
+  es5:
+    image: elasticsearch:5.6.4
+    ports:
+      - '127.0.0.1:9200:9200'
