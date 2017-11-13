@@ -342,7 +342,7 @@ ADMIN_URL = r'^admin/'
 # ------------------------------------------------------------------------------
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
-GEOIP_PATH = env("DJANGO_GEOIP_PATH", ROOT_DIR("geoip"))
+GEOIP_PATH = os.environ.get("DJANGO_GEOIP_PATH", str(ROOT_DIR("geoip")))
 
 # Django-rosetta
 ROSETTA_MESSAGES_PER_PAGE = 100
