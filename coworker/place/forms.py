@@ -27,7 +27,7 @@ class CurrentCreatedPlace:
 
 class PlaceFirstForm(forms.ModelForm):
     city = forms.ModelChoiceField(
-        queryset=City.objects.filter(level_type__in=[City.CITY, City.PROVINCE]),
+        queryset=City.objects.all(),
         empty_label=None
     )
 

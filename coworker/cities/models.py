@@ -1,7 +1,8 @@
-import swapper
 from django.db import models
-from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from cities_light.abstract_models import (AbstractCity, AbstractRegion, AbstractCountry)
+from cities_light.receivers import connect_default_signals
+
 
 
 CITY_LEVEL_TYPE = (
@@ -12,23 +13,14 @@ CITY_LEVEL_TYPE = (
 )
 
 
-from django.db import models
-
-from cities.models import BaseCountry, BaseCity, BaseContinent
-
-
-
-from cities_light.abstract_models import (AbstractCity, AbstractRegion,
-    AbstractCountry)
-from cities_light.receivers import connect_default_signals
-
-
 class Country(AbstractCountry):
     pass
+
 connect_default_signals(Country)
 
 class Region(AbstractRegion):
     pass
+
 connect_default_signals(Region)
 
 

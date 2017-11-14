@@ -43,12 +43,12 @@ class DetectChineUser(MiddlewareMixin):
             logger.exception(e)
 
 
-class DomainLocaleMiddleware(object):
+class DomainLocaleMiddleware(MiddlewareMixin):
     """
     Set language regarding of domain
     """
     def process_request(self, request):
-        if request.META.has_key('HTTP_ACCEPT_LANGUAGE'):
+        if 'HTTP_ACCEPT_LANGUAGE' in request.META:
             # Totally ignore the browser settings...
             del request.META['HTTP_ACCEPT_LANGUAGE']
 

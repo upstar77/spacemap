@@ -453,6 +453,8 @@ else:
     SEARCH_BACKENDS = {}
 
 
+#cities
+CITIES_LIGHT_APP_NAME = 'cities'
 
 
 LANGUAGES_DOMAINS = {

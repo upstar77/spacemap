@@ -16,7 +16,7 @@ from coworker.core.form_mixins import PassUser
 from .models import Place, MeetingRoom, MembershipDeskPrice, Photos
 from .models import Place, MeetingRoom
 from django.utils.text import slugify
-from coworker.cities.models import Country, CityOrigin
+from coworker.cities.models import Country
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
     PlaceAddMeetingRoomInlineForm, PlaceAddSizeForm, PlaceAddOpeningHoursForm, PlaceAddPaymentMethodsForm,\

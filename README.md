@@ -27,3 +27,8 @@ Then again run:
 Open in browser:
 
 http://0.0.0.0:8000
+
+
+
+# mac
+https://tilemill-project.github.io/tilemill/docs/guides/gdal/

@@ -9,7 +9,7 @@ from django.utils.translation import pgettext_lazy
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
 from .fields import generate_time_range
-from coworker.cities.models import City, CityOrigin
+from coworker.cities.models import City
 from coworker.search import index
 
 # Create your models here.
@@ -281,10 +281,10 @@ class Category(models.Model):
 class PlaceManager(models.Manager):
 
     def by_country(self, country_slug):
-        return self.filter(city_origin__country__slug__icontains=country_slug)
+        return self.filter(city__country__slug__icontains=country_slug)
 
     def by_city(self, slug):
-        return self.filter(city_origin=slug)
+        return self.filter(city=slug)
 
 
 
@@ -321,7 +321,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
 
     user = models.ForeignKey('users.User', blank=True, null=True)
     #dummpy city location!!!
-    city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
+    # city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
 
     category = models.ForeignKey(Category, null=True)
 

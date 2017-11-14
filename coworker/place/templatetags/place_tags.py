@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django import template
 from django.utils.translation import ugettext_lazy as _
-from coworker.cities.models import Country, CityOrigin, Contenent
+from coworker.cities.models import Country
 
 register = template.Library()
 
