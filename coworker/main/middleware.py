@@ -11,9 +11,13 @@ from django.contrib.gis import geoip2
 from django.core.exceptions import MiddlewareNotUsed
 from django.contrib.gis.geoip2 import GeoIP2
 from django.utils.deprecation import MiddlewareMixin
+from django.conf import settings
+from django.utils import translation
 
 
 logger = logging.getLogger(__name__)
+
+
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -38,3 +42,19 @@ class DetectChineUser(MiddlewareMixin):
         except Exception as e:
             logger.exception(e)
 
+
+class DomainLocaleMiddleware(object):
+    """
+    Set language regarding of domain
+    """
+    def process_request(self, request):
+        if request.META.has_key('HTTP_ACCEPT_LANGUAGE'):
+            # Totally ignore the browser settings...
+            del request.META['HTTP_ACCEPT_LANGUAGE']
+
+        current_domain = request.META['HTTP_HOST']
+        lang_code = settings.LANGUAGES_DOMAINS.get(current_domain)
+
+        if lang_code:
+            translation.activate(lang_code)
+            request.LANGUAGE_CODE = lang_code

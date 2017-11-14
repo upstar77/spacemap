@@ -97,6 +97,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'coworker.main.middleware.DetectChineUser',
+    'coworker.main.middleware.DomainLocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -450,3 +451,11 @@ if ES_URL:
     }
 else:
     SEARCH_BACKENDS = {}
+
+
+
+
+LANGUAGES_DOMAINS = {
+    'spacesmap.com': 'en',
+    'spacesmap.hk': 'zh-hans',
+}

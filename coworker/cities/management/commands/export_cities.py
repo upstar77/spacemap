@@ -2,7 +2,7 @@ import os
 import json
 
 from django.core.management.base import BaseCommand, CommandError
-from coworker.cities.models import City
+from coworker.cities_custom.models import City
 
 
 class Command(BaseCommand):
