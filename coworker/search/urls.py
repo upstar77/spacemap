@@ -10,8 +10,8 @@ urlpatterns = [
     #     name='search-api'
     # ),
     url(
-        regex=r'^api/list$',
-        view=views.PlaceSearchView.as_view(),
+        regex=r'^api/autocomplete/(?P<app>[\w-]+)/(?P<model>[\w-]+)',
+        view=views.Autocomplete.as_view(),
         name='place'
     ),
 ]

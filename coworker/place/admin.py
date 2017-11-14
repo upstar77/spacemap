@@ -9,14 +9,19 @@ class AmenitiesAdmin(admin.ModelAdmin):
 
 class MeetingRoomInlineAdmin(admin.StackedInline):
     model = MeetingRoom
+    min_num = 0
+    extra = 1
 
 
 class MembershipDeskPriceInlineAdmin(admin.StackedInline):
     model = MembershipDeskPrice
-
+    min_num = 0
+    extra = 1
 
 class PhotosInlineAdmin(admin.StackedInline):
     model = Photos
+    min_num = 0
+    extra = 2
 
 
 class PlaceAdmin(admin.ModelAdmin):

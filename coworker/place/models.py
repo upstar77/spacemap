@@ -107,7 +107,7 @@ MEMBERSHIP_OFFICE_PRICE_ACCS_CHOICES = (
 
 class Location(BaseLocation, models.Model):
     address_sec = models.CharField(max_length=250, blank=True)
-    postal_code = models.CharField(max_length=250)
+    postal_code = models.CharField(max_length=250, blank=True)
     #TODO: Why do we need this field ?
     area = models.CharField(max_length=400, blank=True)
 
@@ -135,14 +135,14 @@ class Amenities(models.Model):
 
 
 class ContactInfo(models.Model):
-    ls_email = models.EmailField()
+    ls_email = models.EmailField(blank=True)
     tel = models.CharField(_("Tel"), blank=True, null=True, max_length=300)
     website_url = models.CharField(_("Website"), blank=True, null=True, max_length=300)
     facebook = models.CharField(max_length=300, blank=True, null=True)
     twitter = models.CharField(max_length=300, blank=True, null=True)
     instagram = models.CharField(max_length=300, blank=True, null=True)
 
-    notification_email = models.EmailField()
+    notification_email = models.EmailField(blank=True)
 
     class Meta:
         abstract = True

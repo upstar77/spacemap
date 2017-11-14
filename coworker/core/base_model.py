@@ -2,6 +2,7 @@ from django.db import models
 from location_field.models.spatial import LocationField
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
+from coworker.search import index
 
 
 class BaseLocation(models.Model):
@@ -18,3 +19,8 @@ class BaseLocation(models.Model):
     @cached_property
     def lng(self):
         return self.lat_lng.x
+
+
+class BaseSearch(index.Indexed):
+    def get_serializer(self):
+        raise NotImplementedError

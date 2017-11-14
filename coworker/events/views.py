@@ -9,11 +9,11 @@ from rest_framework.response import Response
 from config.es_client import es_client
 
 from rest_framework_elasticsearch import es_views, es_pagination, es_filters
-from .search_indexes import EventIndex
-from .search import bulk_indexing
+# from .search_indexes import EventIndex
+# from .search import bulk_indexing
 
 from core.mixins import SearchBase
-from events.models import Event
+from coworker.events.models import Event
 
 
 class SearchList(SearchBase, TemplateView):

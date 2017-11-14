@@ -2,7 +2,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from cities_light.abstract_models import (AbstractCity, AbstractRegion, AbstractCountry)
 from cities_light.receivers import connect_default_signals
-
+from coworker.core.base_model import BaseSearch
+from coworker.search import index
 
 
 CITY_LEVEL_TYPE = (
@@ -13,18 +14,31 @@ CITY_LEVEL_TYPE = (
 )
 
 
-class Country(AbstractCountry):
+
+class BaseSearchLocation(BaseSearch):
+    search_fields = [
+        index.SearchField('name', partial_match=True),
+        index.SearchField('alternate_names', partial_match=True),
+    ]
+
+    @classmethod
+    def get_serializer(cls):
+        from coworker.cities.serializers import CitySerializer
+        return CitySerializer
+
+
+class Country(AbstractCountry, BaseSearchLocation):
     pass
 
 connect_default_signals(Country)
 
-class Region(AbstractRegion):
+class Region(AbstractRegion, BaseSearchLocation):
     pass
 
 connect_default_signals(Region)
 
 
-class City(AbstractCity):
+class City(AbstractCity, BaseSearchLocation):
     CHINA = 0
     PROVINCE = 1
     CITY = 2

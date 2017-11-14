@@ -19,8 +19,3 @@ class PlaceSerializer(serializers.ModelSerializer):
         model = Place
         fields = ('pk', 'space_name', 'cs_description', 'value', 'label', 'coworkspace_url')
 
-
-class CitySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = City
-        fields = ('pk', 'name')

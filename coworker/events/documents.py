@@ -1,5 +1,5 @@
 from django_elasticsearch_dsl import DocType, Index
-from events.models import Event
+from coworker.events.models import Event
 
 # Name of the Elasticsearch index
 event = Index('events')
