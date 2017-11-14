@@ -10,3 +10,11 @@ services:
     ports:
       - '127.0.0.1:9200:9200'
 
+  posgis:
+    image: mdillon/postgis
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=coworker
+    ports:
+      - "5433:5432"
+

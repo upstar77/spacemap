@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Place, Amenities, Photos, MeetingRoom, MembershipDeskPrice, Category
-
+from cities_light.admin import CityAdmin
 
 class AmenitiesAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_additional')
@@ -21,6 +21,7 @@ class PhotosInlineAdmin(admin.StackedInline):
 
 class PlaceAdmin(admin.ModelAdmin):
     inlines = [MeetingRoomInlineAdmin, MembershipDeskPriceInlineAdmin, PhotosInlineAdmin]
+    raw_id_fields = ("city",)
     # list_display = ('timestamp', application__user, 'amount', 'receipt_image', 'logged')
     # list_filter = ('application__user', )
     # search_fields = ('application__user__first_name', 'application__user__last_name', 'application__user__email')

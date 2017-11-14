@@ -2,20 +2,18 @@ import logging
 import pickle
 
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core import serializers
+from django.utils.text import slugify
 from coworker.search.backends import get_search_backend
 from django.urls import reverse_lazy
 from django.http import JsonResponse, Http404
-from django.forms.models import inlineformset_factory, modelformset_factory, formset_factory
+from django.forms.models import inlineformset_factory
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView, View
-from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView, CreateView, FormView
+from django.views.generic import View, TemplateView, CreateView, FormView
 from django.core.files.images import get_image_dimensions
-from coworker.core.form_mixins import PassUser
-from .models import Place, MeetingRoom, MembershipDeskPrice, Photos
+from .models import MembershipDeskPrice, Photos
 from .models import Place, MeetingRoom
-from django.utils.text import slugify
+from coworker.cities.models import City
 from coworker.cities.models import Country
 from .forms import PlaceForm, PlaceFirstForm, PlacePhotoForm, PlaceDescriptionForm, \
     PlaceContactDetailsForm, PlaceAmenitiesForm, PlaceAddLocationForm, PlaceAddMeetingRoomsForm,\
@@ -30,7 +28,7 @@ class PlaceCountryList(View):
 
 
     def get_popular_cities(self, country):
-        return CityOrigin.objects.filter(country=country)
+        return City.objects.filter(country=country)
 
 
     def get(self, request, *args, **kwargs):
@@ -54,7 +52,7 @@ class PlaceCityList(View):
     def get(self, request, *args, **kwargs):
         country = self.kwargs["country"]
         city = self.kwargs["city"]
-        city = get_object_or_404(CityOrigin, country__slug__icontains=country, slug=city)
+        city = get_object_or_404(City, country__slug__icontains=country, slug=city)
         return render(request, self.template_name, {
             'city': city,
             'top_places': Place.objects.by_city(city),
@@ -81,7 +79,7 @@ class SearchList(View):
             places = Place.objects.all()
 
         ctx = {
-            'places': places,
+            'object_list': places,
             'filter': filter
         }
         return render(request, self.template_name, ctx)
@@ -154,7 +152,7 @@ class PlaceAddBaseView:
             pass
 
         try:
-            place.city_origin = CityOrigin.objects.order_by("?").first()
+            place.city_origin = City.objects.order_by("?").first()
             place.slug = slugify(place.name)
         except Exception as e:
             print(e)

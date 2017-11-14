@@ -154,8 +154,8 @@ class PlaceAddLocationForm(forms.ModelForm):
         fields = ['address',
                   'address_sec',
                   'postal_code',
-                  'lng',
-                  'lat'
+                  # 'lng',
+                  # 'lat'
                   ]
         widgets = {
             'lng': forms.HiddenInput(),

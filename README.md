@@ -14,10 +14,13 @@ Database name: `postgres`, password: `postgres`
 
 `docker-compose -f local.yml exec postgres bash`
 
+
+
 ```bash# psql -U postgres -W
 password: postgres
 postgres=# \c coworker
 coworker=# create extension hstore;
+coworker=# CREATE EXTENSION postgis;
 coworker=# \q
 ```
 
@@ -29,6 +32,5 @@ Open in browser:
 http://0.0.0.0:8000
 
 
-
+./manage.py cities_light
 # mac
-https://tilemill-project.github.io/tilemill/docs/guides/gdal/

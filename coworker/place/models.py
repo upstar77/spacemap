@@ -8,6 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
+from coworker.core.base_model import BaseLocation
 from .fields import generate_time_range
 from coworker.cities.models import City
 from coworker.search import index
@@ -104,16 +105,11 @@ MEMBERSHIP_OFFICE_PRICE_ACCS_CHOICES = (
 )
 
 
-class Location(models.Model):
-    # location_name = models.CharField(max_length=250)
-
-    address = models.CharField(max_length=250)
+class Location(BaseLocation, models.Model):
     address_sec = models.CharField(max_length=250, blank=True)
     postal_code = models.CharField(max_length=250)
     #TODO: Why do we need this field ?
     area = models.CharField(max_length=400, blank=True)
-    lat = models.CharField(max_length=250, blank=True)
-    lng = models.CharField(max_length=250, blank=True)
 
     class Meta:
         abstract = True
@@ -153,20 +149,20 @@ class ContactInfo(models.Model):
 
 
 class OpeningHours(models.Model):
-    monday_from = models.CharField(max_length=4, choices=generate_time_range())
-    monday_to = models.CharField(max_length=4, choices=generate_time_range())
+    monday_from = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
+    monday_to = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
 
-    tuesday_from = models.CharField(max_length=4, choices=generate_time_range())
-    tuesday_to = models.CharField(max_length=4, choices=generate_time_range())
+    tuesday_from = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
+    tuesday_to = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
 
-    wednesday_from = models.CharField(max_length=4, choices=generate_time_range())
-    wednesday_to = models.CharField(max_length=4, choices=generate_time_range())
+    wednesday_from = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
+    wednesday_to = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
 
-    thursday_from = models.CharField(max_length=4, choices=generate_time_range())
-    thursday_to = models.CharField(max_length=4, choices=generate_time_range())
+    thursday_from = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
+    thursday_to = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
 
-    friday_from = models.CharField(max_length=4, choices=generate_time_range())
-    friday_to = models.CharField(max_length=4, choices=generate_time_range())
+    friday_from = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
+    friday_to = models.CharField(max_length=4, choices=generate_time_range(), blank=True, null=True)
 
     saturday_from = models.CharField(max_length=4, choices=generate_time_range(), default='-1')
     saturday_to = models.CharField(max_length=4, choices=generate_time_range(), default='-1')
@@ -324,7 +320,6 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     # city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
 
     category = models.ForeignKey(Category, null=True)
-
     objects = PlaceManager()
 
     class Meta:
@@ -337,7 +332,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     ]
 
     def __str__(self):
-        return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city_origin}
+        return "Place<Space name: %(space_name)s, City: %(city)s>" % {'space_name': self.space_name, 'city': self.city}
 
     @property
     def name(self):

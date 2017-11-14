@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.urls import reverse
 from django_prices.forms import PriceField
+from location_field.models.spatial import LocationField
 from pytz import timezone
 
 from django.db import models
@@ -90,8 +91,9 @@ class Event(models.Model):
     start_time = models.DateTimeField(db_index=True)
     end_time = models.DateTimeField()
     url = models.URLField(blank=True)
-    lat = models.FloatField(null=True)
-    lng = models.FloatField(null=True)
+    lat_lng = LocationField(based_fields=['location'], zoom=7)
+    # lat = models.FloatField(null=True)
+    # lng = models.FloatField(null=True)
     country_code = models.CharField(max_length=2, blank=True)
     continent_code = models.CharField(max_length=2, null=True)
     place = models.ForeignKey('place.Place', blank=True, null=True)

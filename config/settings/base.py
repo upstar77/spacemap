@@ -64,11 +64,13 @@ THIRD_PARTY_APPS = [
     'sekizai',
     'cities_light',
     'django_elasticsearch_dsl',
+    'location_field.apps.DefaultConfig',
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
+
     'coworker.users.apps.UsersConfig',
     'coworker.main.apps.MainConfig',
     'coworker.place.apps.PlaceConfig',
@@ -76,7 +78,6 @@ LOCAL_APPS = [
     'coworker.events.apps.EventsConfig',
     'coworker.services.apps.ServicesConfig',
     'coworker.lab.apps.LabConfig',
-    'location_field.apps.DefaultConfig',
     'coworker.search.apps.SearchConfig',
     'tinymce',
     # 'zinnia',
@@ -145,7 +146,7 @@ DATABASES = {
 }
 
 DATABASES['default']['ATOMIC_REQUESTS'] = True
-
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
