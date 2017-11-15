@@ -32,7 +32,7 @@ class SignupForm(forms.ModelForm):
                     password,
                     user=dummy_user)
             except forms.ValidationError as e:
-                self.add_error('password1', e)
+                self.add_error('password', e)
         return self.cleaned_data
 
     def save(self, request, **kwargs):

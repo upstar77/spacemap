@@ -14,12 +14,13 @@ class AccountAdapter(DefaultAccountAdapter):
                       data=None):
         resp = {}
         status = response.status_code
-
         if redirect_to:
             status = 200
             resp['location'] = redirect_to
         if form:
             resp['form'] = self.ajax_response_form(form)
+            if form.errors:
+                resp["errors"] = form.errors
             if hasattr(response, 'render'):
                 response.render()
             resp['html'] = response.content.decode('utf8')

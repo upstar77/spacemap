@@ -5,7 +5,7 @@
 
 <div class="front-signin js-front-signin">
 
-    <form action="{% url 'account_login' %}" class="t1-form signin" method="post">
+    <form action="{% url 'account_login' %}" class="t1-form signin auth-forms" method="post">
         {% csrf_token %}
         <div class="username field">
             <input type="text" id="signin-email" class="text-input email-input" name="login" autocomplete="username" placeholder="Phone, email or username">

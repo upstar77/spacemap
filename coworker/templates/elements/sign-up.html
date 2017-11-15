@@ -6,7 +6,7 @@
 <div class="front-signup js-front-signup">
     <h2><strong>New to Spacesmap?</strong> Sign up</h2>
 
-    <form action="{% url 'account_signup' %}" class="t1-form signup" id="frontpage-signup-form" method="post">
+    <form action="{% url 'account_signup' %}" class="t1-form signup auth-forms" id="frontpage-signup-form" method="post">
         {% csrf_token %}
         <div class="field">
             {% trans "Full name" as full_name %}
@@ -27,3 +27,4 @@
         </button>
     </form>
 </div>
+

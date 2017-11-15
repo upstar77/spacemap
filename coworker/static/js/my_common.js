@@ -33,6 +33,32 @@ $(function () {
       }
     }
   });
+
+
+   $(".auth-forms").submit(function(e) {
+      e.preventDefault();
+      var $form = $(this);
+      $.ajax({
+        'url' : $form.attr("action"),
+        'type' : 'POST',
+        'data' : $form.serialize(),
+        'success' : function(result){
+          if (result.errors) {
+            var value = result.errors
+            var blkstr = [];
+            $.each(value, function(idx2,val2) {
+              var str = idx2 + ":" + val2;
+              blkstr.push(str);
+            });
+            alert(blkstr.join(", "));
+          } else {
+            window.location.href = result.location;
+          }
+        }
+      }).error(function(jqXHR, textStatus, errorThrown) {
+      });
+    });
+
 });
 
 
