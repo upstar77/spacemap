@@ -1,3 +1,7 @@
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse
+from django.views import View
 from django.views.generic import TemplateView
 from coworker.place.models import Place, Category
 from coworker.services.models import Category as ServiceCategory, Service
@@ -21,4 +25,16 @@ class Index(TemplateView):
         ctx.update(d)
         return ctx
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect(reverse('main:search'))
+        return super().get(request, *args, **kwargs)
 
+
+class SearchView(View):
+    template_name = 'pages/inner_main.html'
+
+    def get(self, request, *args, **kwargs):
+        ctx = {}
+        ctx["object_list"] = Place.objects.order_by('?').all()[:10]
+        return render(request, self.template_name, ctx)

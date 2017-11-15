@@ -2,48 +2,41 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
-    {% csrf_token %}
-{#		<div class="col-sm-12 col-md-12 col-xs-12 pade_none modal-header">#}
-{#			<h2 class="signup_face"><a href="javascript:void(0)" onclick="redirectNavFBForLogin();"><img alt="" src="{% static 'img/login_with_facebook.png' %}" style="width: 325px;"></a></h2>#}
-{#		</div>#}
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<span class="signup_or">{% trans "Sign in" %}</span>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<p class="signup_f">
-                <img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;">
-                <input id="nvl_email" placeholder="{% trans "E-Mail" %}" name="login">
-            </p>
-			<p class="signup_f">
-                <img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;">
-                <input id="nvl_password" placeholder="{% trans "Password" %}" type="password" name="password">
-            </p>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12">
-			<div class="promise_timing_con02" style="padding-left: 30px;">
-				<ul style="text-align:left">
-					<li>
-                        <input id="c3l" name="ccc" type="checkbox" value="2">
-                        <label for="c3l">
-                            <span>{% trans "Remember" %}</span>
-                        </label>
-                        <span style="float:right;margin-right: -25%;">
-                            <a href="#" onclick="ResetPasswordModal(event);" style="color:#666666 !important;">{% trans "Forgot password" %}</a>
-                        </span>
-                    </li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<div class="pade_none signup_save_btn">
-				<a href="javascript:void(0)" onclick="validateNavLogin(event);" style="padding-left: 130px; padding-right: 130px;">{% trans "Sign in" %}</a>
-{#                <button class="primaryAction btn btn-primary" type="submit">注册</button>#}
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-12 col-xs-12 pade_none">
-			<div class="signup_member" style="text-align: left;">
-				<span class="already_member" style="margin-left: 55px;">{% trans "No account yet?" %}&nbsp;&nbsp;</span><a href="javascript:void(0);" onclick="navLoginSignup();"><span class="login_member">{% trans "Sign up now" %}</span></a>
-			</div>
-		</div>
-</form>
+
+<div class="front-signin js-front-signin">
+
+    <form action="{% url 'account_login' %}" class="t1-form signin" method="post">
+        {% csrf_token %}
+        <div class="username field">
+            <input type="text" id="signin-email" class="text-input email-input" name="login" autocomplete="username" placeholder="Phone, email or username">
+        </div>
+
+        <table class="flex-table password-signin">
+            <tbody>
+            <tr>
+                <td class="flex-table-primary">
+                    <div class="password flex-table-form">
+                        <input type="password" id="signin-password" class="text-input flex-table-input" name="password" placeholder="Password" autocomplete="current-password">
+                    </div>
+                </td>
+                <td class="flex-table-secondary">
+                    <button type="submit" class="submit EdgeButton EdgeButton--medium EdgeButton--secondary flex-table-btn js-submit">
+                        Log in
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="remember-forgot">
+            <label class="t1-label remember">
+                <input type="checkbox" value="1" name="remember_me" checked="checked">
+                <span>Remember me</span>
+            </label>
+            <span class="separator">·</span>
+            <a class="forgot" href="https://twitter.com/account/begin_password_reset" rel="noopener">Forgot password?</a>
+        </div>
+        <script src="{% static 'not_sure/js_inst' %}" async=""></script>
+    </form>
+</div>
+

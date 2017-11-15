@@ -2,7 +2,6 @@
 {% load i18n %}
 
 <header class="coworker_banner_new_outer">
-    {% load i18n %}
     <!--HEADER START-->
     <div class="new_header_main">
         <div class="mobile_menu">
@@ -91,19 +90,19 @@
     <div class="coworker_floating_con">
         <div class="container">
             <div class="row">
-{#                <form accept-charset="utf-8" action="{% url "place:search" %}" id="form_search" method="post" name="search_form">#}
-                    {% include 'elements/search-box.html' %}
-{#                    <div class="coworker_floating_main">#}
-{#                        <h1>{% trans "您" %}<span>{% trans "加入"%}</span>{% trans "Do you share the E family?" %}<sup style="font-size:18px;">™</sup></h1>#}
-{#                        <div class="col-xs-12 pade_none" id="f_aucomplete">#}
-{#                            <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="{% trans "Search: site name, city, country......" %}" type="text" value="{{ filter }}"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>#}
-{#                            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>#}
-{#                        </div>#}
-{#                        <div class="col-xs-12 pade_none coworker_explore_con">#}
-{#                            {% trans "More than 5000 work place 10000 tips and members" %} &amp; {% trans "Comment" %}#}
-{#                        </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">#}
-{#                    </div>#}
-{#                </form>#}
+                {#                <form accept-charset="utf-8" action="{% url "place:search" %}" id="form_search" method="post" name="search_form">#}
+                {% include 'elements/search-box.html' %}
+                {#                    <div class="coworker_floating_main">#}
+                {#                        <h1>{% trans "您" %}<span>{% trans "加入"%}</span>{% trans "Do you share the E family?" %}<sup style="font-size:18px;">™</sup></h1>#}
+                {#                        <div class="col-xs-12 pade_none" id="f_aucomplete">#}
+                {#                            <input autocomplete="off" class="ui-autocomplete-input" id="f_location" name="f_location" placeholder="{% trans "Search: site name, city, country......" %}" type="text" value="{{ filter }}"> <button name="Submit" onclick="submitSearch();" type="button"><i class="fa fa-search"></i></button>#}
+                {#                            <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" style="display: none;" tabindex="0"></ul>#}
+                {#                        </div>#}
+                {#                        <div class="col-xs-12 pade_none coworker_explore_con">#}
+                {#                            {% trans "More than 5000 work place 10000 tips and members" %} &amp; {% trans "Comment" %}#}
+                {#                        </div><input name="form_search" type="hidden" value="1"> <input id="search_place" name="search_place" type="hidden" value="0"> <input id="place_id" name="place_id" type="hidden" value="0"> <input id="x_location" name="x_location" type="hidden">#}
+                {#                    </div>#}
+                {#                </form>#}
             </div>
         </div>
     </div>

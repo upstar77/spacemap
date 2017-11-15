@@ -318,7 +318,7 @@ SOCIALACCOUNT_ADAPTER = 'coworker.users.adapters.SocialAccountAdapter'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:profile'
+LOGIN_REDIRECT_URL = 'main:search'
 LOGIN_URL = 'account_login'
 
 # SLUGLIFIER

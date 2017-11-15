@@ -1,0 +1,418 @@
+{% extends 'base2.html' %}
+{% load i18n %}
+
+{% block body_css %} no-nav-banners three-col logged-in user-style-comalex3 AdaptiveSearchPage AdaptiveDefaultPage supports-drag-and-drop {% endblock %}
+{% block content %}
+
+    <div id="page-container" class="AppContent  wrapper-search">
+        {% block search_navigator %}
+            <div class="SearchNavigation">
+                <div class="SearchNavigation-canopy u-bgUserColor">
+                    <div class="SearchNavigation-textContainer">
+                        <h1 class="SearchNavigation-titleText" dir="ltr">
+                            coworker
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="AdaptiveFiltersBar">
+                    <div class="AdaptiveFiltersBar-container" data-component-context="search_filter_nav_bar">
+                        <ul class="AdaptiveFiltersBar-nav">
+                            <li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                                <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="{% url "main:search" %}?f=map" data-nav="search_filter_map">
+                                    {% trans "Map" %}
+                                </a>
+                            </li>
+                            <li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                                <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_top">
+                                    {% trans "Top" %}
+                                </a>
+                            </li>
+                            <li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                                <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=tweets&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_tweets">
+                                    {% trans "Latest" %}
+                                </a>
+                            </li><li class="AdaptiveFiltersBar-item u-borderUserColor is-selected">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover u-textUserColor" href="{% url "main:search" %}?f=places" data-nav="search_filter_places">
+                                {% trans "Spaces" %}
+                            </a>
+                        </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=images&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_images">
+                                {% trans "Events" %}
+                            </a>
+                        </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=videos&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_videos">
+                                {% trans "Services" %}
+                            </a>
+                        </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=news&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_news">
+                                {% trans "News" %}
+                            </a>
+                        </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=broadcasts&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_periscopes">
+                                {% trans "Broadcasts" %}
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        <div class="AppContainer">
+            <div class="AppContent-main u-cf">
+                <div class="Grid Grid--withGutter">
+                    <!-- Column 1 -->
+                    <div class="Grid-cell u-size1of3 u-lg-size1of4">
+                        <div class="SidebarFilterModule is-collapsed with-2-filters">
+                            <div class="SidebarFilterModule-header">
+                                <h3 class="AdaptiveSearchPage-moduleTitle SidebarFilterModule-title">Search filters</h3>
+                                ·
+                                <button class="btn-link SidebarFilterModule-toggle" type="button">
+                                    Show
+                                </button>
+                            </div>
+
+                            <div class="SidebarFilterModule-filters" data-filter-type="social">
+                                <select class="t1-select SidebarFilterModule-select">
+                                    <option value="/search?f=users&amp;vertical=default&amp;q=coworker&amp;src=typd" class="SidebarFilterModule-option" data-nav="reset_social" selected="">
+                                        From anyone
+                                    </option>
+                                    <option value="/search?s=follows&amp;f=users&amp;vertical=default&amp;q=coworker&amp;src=typd" class="SidebarFilterModule-option" data-nav="search_filter_follows">
+                                        People you follow
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="SidebarFilterModule-filters" data-filter-type="location">
+                                <select class="t1-select SidebarFilterModule-select">
+                                    <option value="/search?f=users&amp;vertical=default&amp;q=coworker&amp;src=typd" class="SidebarFilterModule-option" data-nav="reset_location" selected="">
+                                        Anywhere
+                                    </option>
+                                    <option value="/search?f=users&amp;vertical=default&amp;q=coworker&amp;near=me&amp;src=typd" class="SidebarFilterModule-option" data-nav="search_filter_near_me">
+                                        Near you
+                                    </option>
+                                </select>
+                            </div>
+
+                            <a class="SidebarFilterModule-advanced js-nav" href="https://twitter.com/search-advanced" data-nav="advanced_search">Advanced search</a>
+                        </div>
+
+
+
+                        <div class="SidebarCommonModules">
+
+
+
+                            <div class="module wtf-module js-wtf-module roaming-module has-content">
+                                <div class="flex-module">
+                                    <div class="flex-module-header">
+                                        <h3>Who to follow</h3>
+                                        <small>· </small>
+                                        <button type="button" class="btn-link js-refresh-suggestions"><small>Refresh</small></button>
+                                        <small class="view-all">· <a class="js-view-all-link js-nav" href="https://twitter.com/who_to_follow/suggestions" data-element-term="view_all_link">View all</a></small>
+                                    </div>
+
+                                    <div class="js-recommended-followers dashboard-user-recommendations flex-module-inner" data-section-id="wtf" style="opacity: 1;">
+                                        <div class="UserSmallListItem js-account-summary account-summary js-actionable-user" data-user-id="15878114" data-feedback-token="551" data-impression-id="">
+                                            <div class="UserSmallListItem-context">
+                                            </div>
+
+                                            <div class="dismiss js-action-dismiss"><span class="Icon Icon--close"></span></div>
+
+                                            <div class="content">
+                                                <a class="account-group js-recommend-link js-user-profile-link user-thumb" href="https://twitter.com/erikblair" data-user-id="15878114" rel="noopener">
+
+                                                    <img class="avatar js-action-profile-avatar " src="./inner_files/KKsA6rXv_bigger.jpg" alt="">
+                                                    <span class="account-group-inner" data-user-id="15878114">
+        <strong class="fullname">Erik Blair</strong><span class="UserBadges"></span><span class="UserNameBreak">&nbsp;</span><span class="username u-dir" dir="ltr">@<b>erikblair</b></span>
+      </span>
+                                                </a>
+
+
+                                                <div class="user-actions not-following not-muting" data-screen-name="erikblair" data-user-id="15878114">
+
+  <span class="user-actions-follow-button js-follow-btn follow-button">
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--secondary
+    EdgeButton--small
+
+    button-text
+    follow-text">
+      <span aria-hidden="true">Follow</span>
+      <span class="u-hiddenVisually">Follow <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--primary
+    EdgeButton--small
+
+    button-text
+    following-text">
+      <span aria-hidden="true">Following</span>
+      <span class="u-hiddenVisually">Following <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--danger
+    EdgeButton--small
+
+    button-text
+    unfollow-text">
+      <span aria-hidden="true">Unfollow</span>
+      <span class="u-hiddenVisually">Unfollow <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--invertedDanger
+    EdgeButton--small
+
+    button-text
+    blocked-text">
+    <span aria-hidden="true">Blocked</span>
+    <span class="u-hiddenVisually">Blocked <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--danger
+    EdgeButton--small
+
+    button-text
+    unblock-text">
+    <span aria-hidden="true">Unblock</span>
+    <span class="u-hiddenVisually">Unblock <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--secondary
+    EdgeButton--small
+
+    button-text
+    pending-text">
+    <span aria-hidden="true">Pending</span>
+    <span class="u-hiddenVisually">Pending follow request from <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--secondary
+    EdgeButton--small
+
+    button-text
+    cancel-text">
+    <span aria-hidden="true">Cancel</span>
+    <span class="u-hiddenVisually">Cancel your follow request to <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+</span>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="module Trends trends">
+                                <div class="trends-inner"><div class="flex-module trends-container context-trends-container">
+                                    <div class="flex-module-header">
+
+                                        <h3><span class="trend-location js-trend-location">Trends for you</span></h3>
+                                        <span class="middot" aria-hidden="true">·</span>
+                                        <a role="button" href="https://twitter.com/search?f=users&amp;vertical=default&amp;q=coworker&amp;src=typd&amp;lang=en#" data-modal="change-trends" class="btn-link change-trends js-trend-toggle">
+                                            <span aria-hidden="true">Change</span>
+                                            <span class="u-hiddenVisually">Change trend settings</span>
+                                        </a>
+                                    </div>
+                                    <div class="flex-module-inner">
+                                        <ul class="trend-items js-trends">
+                                            <li class="trend-item js-trend-item  context-trend-item" data-trend-name="#IEMOakland" data-trends-id="-1774683555746872672" data-trend-token=":tailored_request:hashtag_trend:taxi_country_source:tweet_count_1000_10000_metadescription:">
+
+                                                <a class="pretty-link js-nav js-tooltip u-linkComplex " href="https://twitter.com/hashtag/IEMOakland?src=tren" data-query-source="trend_click">
+                                                    <span class="u-linkComplex-target trend-name" dir="ltr">#IEMOakland<img class="twitter-hashflag" src="./inner_files/IEM_2017_Emoji.png" draggable="false" alt=""></span>
+
+
+                                                    <div class="js-nav trend-item-context"></div>
+                                                    <div class="js-nav trend-item-stats">
+                                                        1,794 Tweets
+                                                    </div>
+                                                </a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            {% block footer %}
+                                <div class="Footer module roaming-module Footer--slim Footer--blankBackground">
+                                    <div class="flex-module">
+                                        <div class="flex-module-inner js-items-container">
+                                            <ul class="u-cf">
+                                                <li class="Footer-item Footer-copyright copyright">© 2017 Twitter</li>
+                                                <li class="Footer-item"><a class="Footer-link" href="https://twitter.com/about" rel="noopener">About</a></li>
+                                                <li class="Footer-item"><a class="Footer-link" href="https://support.twitter.com/" rel="noopener">Help Center</a></li>
+                                                <li class="Footer-item"><a class="Footer-link" href="https://twitter.com/tos" rel="noopener">Terms</a></li>
+                                                <li class="Footer-item"><a class="Footer-link" href="https://twitter.com/privacy" rel="noopener">Privacy policy</a></li>
+                                                <li class="Footer-item"><a class="Footer-link" href="https://support.twitter.com/articles/20170514" rel="noopener">Cookies</a></li>
+                                                <li class="Footer-item"><a class="Footer-link" href="https://support.twitter.com/articles/20170451" rel="noopener">Ads info</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endblock footer %}
+                        </div>
+
+                    </div>
+                    <!-- Column 1 -->
+
+                    <!-- Column 2, 3, 4 -->
+                    {% block inner_content %}
+                        <div class="Grid-cell u-size2of3 u-lg-size3of4">
+                            <div class="Grid Grid--withGutter">
+
+                                <div class="AdaptiveSearchTimeline--userGrid Grid-cell u-size2of2 u-lg-size3of3" role="main">
+                                    <div class="GridTimeline">
+
+                                        <div class="stream-item js-new-items-bar-container">
+                                        </div>
+
+                                        <div class="GridTimeline-items has-items" role="list" data-max-position="USER-0-17-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAASAAAAAAAAAAIAAAAAiAAGAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAQAAAAAAACAAAAACAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIAAAAAAAAAEIAAAAAAAAAAACACAAAAAAAAgAAAABAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAIgAQAAAQAAAgAgAAACAAAIAAgAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAACAAAAEAAAAAAEAAAAAAACCAEAAJAAAAAAAgBAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAIIAAAEAAABAAAAAAAAAEAEAAgAAACAAQBQAAAAAIAAAIAAAAAAgAAAAAAAAAAAAIBAIAAAAACAAAAAAAAAAAAAAAAAgAQAAQAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAgAAAgEAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAFABAAAAAAAAAAAAAAAAAAAAAAAQABAAAAIAAAAAAAAQAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAACAIAAAAARAAAQAAAAAAAACAAAAAAAAAABAABAACAAACAAAAAAAAAAAAAAEAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAACAAAAAAACAAAABAAAAAAQAAAAACAAAAAAgAAAQAAQAAAACAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAABAAQAABAAAAAA==" data-min-position="USER-0-17-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAASAAAAAAAAAAIAAAAAiAAGAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAQAAAAAAACAAAAACAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIAAAAAAAAAEIAAAAAAAAAAACACAAAAAAAAgAAAABAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAIgAQAAAQAAAgAgAAACAAAIAAgAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAACAAAAEAAAAAAEAAAAAAACCAEAAJAAAAAAAgBAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAIIAAAEAAABAAAAAAAAAEAEAAgAAACAAQBQAAAAAIAAAIAAAAAAgAAAAAAAAAAAAIBAIAAAAACAAAAAAAAAAAAAAAAAgAQAAQAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAgAAAgEAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAFABAAAAAAAAAAAAAAAAAAAAAAAQABAAAAIAAAAAAAAQAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAACAIAAAAARAAAQAAAAAAAACAAAAAAAAAABAABAACAAACAAAAAAAAAAAAAAEAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAACAAAAAAACAAAABAAAAAAQAAAAACAAAAAAgAAAQAAQAAAACAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAABAAQAABAAAAAA==">
+
+
+
+                                            <div class="Grid Grid--withGutter" data-component-context="user" role="presentation">
+
+                                                {% for object in object_list %}
+                                                    {% include "place/search_card.html" with object=object %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="GridTimeline-end has-items has-more-items">
+                                            <div class="GridTimeline-emptyText" id="content-main-heading">
+                                                No results.
+                                            </div>
+
+                                            <div class="GridTimeline-footer">
+                                                <span class="spinner"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                    <!-- Column 2, 3, 4 -->
+                </div>
+            </div>
+        </div>
+
+        <div id="trends_dialog" class="trends-dialog modal-container">
+            <div class="modal draggable">
+                <div class="modal-content">
+                    <button type="button" class="modal-btn modal-close js-close">
+                  <span class="Icon Icon--close Icon--medium">
+                    <span class="visuallyhidden">Close</span>
+                  </span>
+                    </button>
+
+                    <div class="modal-header">
+                        <h3 class="modal-title">
+                            Trends
+
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="trends-personalized content-placeholder" style="display: none;">
+                            <h2 class="title">Trends tailored just for you.</h2>
+                            <p>Trends offer a unique way to get closer to what you care about. They are tailored for you based on your location and who you follow.</p>
+                            <p class="placeholder-actions">
+                                <button type="button" class="EdgeButton EdgeButton--secondary customize-by-location">Change</button><button type="button" class="EdgeButton EdgeButton--primary done">Keep tailored Trends</button>
+                            </p>
+                        </div>
+
+                        <div class="trends-dialog-error">
+                            <p></p>
+                        </div>
+
+                        <div class="trends-wrapper" id="trends_dialog_content">
+
+                            <div class="loading">
+                                <span class="spinner-bigger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer trends-by-location" style="display: none;">
+                        <button type="button" class="EdgeButton EdgeButton--secondary select-default" data-personalized="true">Get tailored Trends</button>
+                        <button type="button" class="EdgeButton EdgeButton--primary done">Done</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="search-settings-dialog" class="modal-container SearchSettingsDialog">
+            <div class="modal draggable">
+                <div class="modal-content">
+                    <button type="button" class="modal-btn modal-close js-close">
+  <span class="Icon Icon--close Icon--medium">
+    <span class="visuallyhidden">Close</span>
+  </span>
+                    </button>
+
+
+                    <div class="modal-header">
+                        <h3 class="modal-title">Search settings</h3>
+                    </div>
+
+                    <div class="modal-body SearchSettingsDialog-body">
+                        <div class="SearchSettingsDialog-row">
+                            <div class="SearchSettingsDialog-cell SearchSettingsDialog-cell--name">
+                                Sensitive content
+                            </div>
+                            <div class="SearchSettingsDialog-cell">
+                                <label class="SearchSettings-label t1-label checkbox">
+
+                                    <input type="checkbox" name="search-settings-nsfw" checked="" class="SearchSettings-toggleInput SearchSettings-toggleInput--sensitive">
+                                    <div class="SearchSettings-toggleText">Hide sensitive content</div>
+                                </label>
+                                <span class="SearchSettings-description t1-infotext">
+  This prevents Tweets with potentially sensitive content from displaying in your search results. <a href="https://support.twitter.com/articles/132700" target="_blank" rel="noopener">Learn&nbsp;more</a>
+</span>
+                            </div>
+                        </div>
+
+                        <div class="SearchSettingsDialog-row">
+                            <div class="SearchSettingsDialog-cell SearchSettingsDialog-cell--name">
+                                Accounts
+                            </div>
+                            <div class="SearchSettingsDialog-cell">
+                                <label class="SearchSettings-label t1-label checkbox">
+
+                                    <input type="checkbox" name="search-settings-blocked-accounts" checked="" class="SearchSettings-toggleInput SearchSettings-toggleInput--accounts">
+                                    <div class="SearchSettings-toggleText">Remove blocked and muted accounts</div>
+                                </label>
+                                <span class="SearchSettings-description t1-infotext">
+  Use this to eliminate search results from accounts you've blocked or muted. <a href="https://support.twitter.com/articles/132700" target="_blank" rel="noopener">Learn&nbsp;more</a>
+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="EdgeButton EdgeButton--tertiary cancel-action js-close">Cancel</button>
+                        <button class="EdgeButton EdgeButton--primary js-confirm">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

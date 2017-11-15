@@ -3,36 +3,27 @@
 {% load widget_tweaks %}
 
 
-<form class="sign_up_form shadow" action="{% url 'account_signup' %}" method="post">
-    <h2>{% trans "Adding shared SpacesMap" %}</h2>
-    <div class="col-xs-12 pade_none coworker_popup_inner">
+<div class="front-signup js-front-signup">
+    <h2><strong>New to Spacesmap?</strong> Sign up</h2>
+
+    <form action="{% url 'account_signup' %}" class="t1-form signup" id="frontpage-signup-form" method="post">
         {% csrf_token %}
-        <p class="signup_f">
-            <img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -5px;">
-            {% trans "姓氏" as first_name %}
-            {% render_field form.first_name id="nvfirst_name" placeholder=first_name %}
-        </p>
+        <div class="field">
+            {% trans "Full name" as full_name %}
+            {% render_field form.first_name class="text-input" autocomplete="off"  maxlength="" placeholder=full_name %}
+        </div>
+        <div class="field">
+            {% trans "Email" as email %}
+            {% render_field form.email type="text" class="text-input email-input" autocomplete="off" placeholder=email %}
+        </div>
+        <div class="field">
+            {% trans "Password" as password %}
+            {% render_field form.password placeholder=password class="text-input" %}
+        </div>
 
-        <p class="signup_f">
-            <img alt="" src="{% static 'img/f_name.png' %}" style="margin-top: -4px;">
-            {% trans "名字" as last_name %}
-            {% render_field form.last_name id="nvlast_name" placeholder=last_name %}
-        </p>
-        <p class="signup_f">
-            <img alt="" src="{% static 'img/email.png' %}" style="margin-top: -5px;">
-            {% trans "邮箱" as email %}
-            {% render_field form.email id="nvemail" placeholder=email %}
-        </p>
-
-        <p class="signup_f">
-            <img alt="" src="{% static 'img/pass.png' %}" style="margin-top: -4px;">
-            {% trans "密码" as password %}
-            {% render_field form.password placeholder=password id="nvpassword" type="password" %}
-        </p>
-
-        <button class="btn btn-primary" onclick="validateNavSignup(event);" type="submit">{% trans "register" %} »</button>
-    </div>
-    <div class="col-xs-12 pade_none popup_bottom">
-        <span>{% trans "Existing accounts?" %}</span> <a class="login" href="javascript:void(0);" onclick="openNavSignupLogin();">{% trans "Sign in" %}</a>
-    </div>
-</form>
+        <input type="hidden" value="" name="context">
+        <button type="submit" class="EdgeButton EdgeButton--medium EdgeButton--primary u-floatRight submit">
+            {% trans "Sign up for Spacesmap" %}
+        </button>
+    </form>
+</div>

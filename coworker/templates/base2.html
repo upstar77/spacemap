@@ -1,0 +1,222 @@
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load auth_forms %}
+
+<!DOCTYPE html>
+<!-- saved from url=(0028)/?lang=en -->
+<html lang="en" data-scribe-reduced-action-queue="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <link rel="stylesheet" href="{% static 'css/twitter_core.bundle.css' %}" class="coreCSSBundles">
+    <link rel="stylesheet" class="moreCSSBundles" href="{% static 'css/twitter_more_1.bundle.css' %}">
+    <link rel="stylesheet" class="moreCSSBundles" href="{% static 'css/twitter_more_2.bundle.css' %}">
+    <link rel="dns-prefetch" href="https://pbs.twimg.com/">
+    <link rel="dns-prefetch" href="https://t.co/">
+    <link rel="preload" href="{% static 'js/init.en.bf9dfe20dc2b0528b94d.js' %}" as="script">
+    <link rel="preload" href="{% static 'js/0.commons.en.7fa3191d28a0545de428.js' %}" as="script">
+
+    <title>{% block title %}{% trans "Spacesmap. It's what's happening." %}{% endblock %}</title>
+    <meta name="robots" content="NOODP">
+    <meta name="description" content="From breaking news and entertainment to sports and politics, get the full story with all the live commentary.">
+
+    <meta name="msapplication-TileImage" content="//abs.twimg.com/favicons/win8-tile-144.png">
+    <meta name="msapplication-TileColor" content="#00aced">
+
+
+
+    <link rel="mask-icon" sizes="any" href="https://abs.twimg.com/a/1510617866/icons/favicon.svg" color="#1da1f2">
+
+    <link rel="shortcut icon" href="https://abs.twimg.com/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" sizes="192x192">
+
+    <link rel="manifest" href="/manifest.json">
+
+
+    <meta name="swift-page-name" id="swift-page-name" content="front">
+    <meta name="swift-page-section" id="swift-section-name" content="front">
+
+    <link rel="canonical" href="/">
+    <link rel="alternate" hreflang="x-default" href="/">
+    <link rel="alternate" hreflang="fr" href="/?lang=fr"><link rel="alternate" hreflang="en" href="/?lang=en"><link rel="alternate" hreflang="ar" href="/?lang=ar"><link rel="alternate" hreflang="ja" href="/?lang=ja"><link rel="alternate" hreflang="es" href="/?lang=es"><link rel="alternate" hreflang="de" href="/?lang=de"><link rel="alternate" hreflang="it" href="/?lang=it"><link rel="alternate" hreflang="id" href="/?lang=id"><link rel="alternate" hreflang="pt" href="/?lang=pt"><link rel="alternate" hreflang="ko" href="/?lang=ko"><link rel="alternate" hreflang="tr" href="/?lang=tr"><link rel="alternate" hreflang="ru" href="/?lang=ru"><link rel="alternate" hreflang="nl" href="/?lang=nl"><link rel="alternate" hreflang="fil" href="/?lang=fil"><link rel="alternate" hreflang="ms" href="/?lang=ms"><link rel="alternate" hreflang="zh-tw" href="/?lang=zh-tw"><link rel="alternate" hreflang="zh-cn" href="/?lang=zh-cn"><link rel="alternate" hreflang="hi" href="/?lang=hi"><link rel="alternate" hreflang="no" href="/?lang=no"><link rel="alternate" hreflang="sv" href="/?lang=sv"><link rel="alternate" hreflang="fi" href="/?lang=fi"><link rel="alternate" hreflang="da" href="/?lang=da"><link rel="alternate" hreflang="pl" href="/?lang=pl"><link rel="alternate" hreflang="hu" href="/?lang=hu"><link rel="alternate" hreflang="fa" href="/?lang=fa"><link rel="alternate" hreflang="he" href="/?lang=he"><link rel="alternate" hreflang="ur" href="/?lang=ur"><link rel="alternate" hreflang="th" href="/?lang=th"><link rel="alternate" hreflang="uk" href="/?lang=uk"><link rel="alternate" hreflang="ca" href="/?lang=ca"><link rel="alternate" hreflang="ga" href="/?lang=ga"><link rel="alternate" hreflang="el" href="/?lang=el"><link rel="alternate" hreflang="eu" href="/?lang=eu"><link rel="alternate" hreflang="cs" href="/?lang=cs"><link rel="alternate" hreflang="gl" href="/?lang=gl"><link rel="alternate" hreflang="ro" href="/?lang=ro"><link rel="alternate" hreflang="hr" href="/?lang=hr"><link rel="alternate" hreflang="en-gb" href="/?lang=en-gb"><link rel="alternate" hreflang="vi" href="/?lang=vi"><link rel="alternate" hreflang="bn" href="/?lang=bn"><link rel="alternate" hreflang="bg" href="/?lang=bg"><link rel="alternate" hreflang="sr" href="/?lang=sr"><link rel="alternate" hreflang="sk" href="/?lang=sk"><link rel="alternate" hreflang="gu" href="/?lang=gu"><link rel="alternate" hreflang="mr" href="/?lang=mr"><link rel="alternate" hreflang="ta" href="/?lang=ta"><link rel="alternate" hreflang="kn" href="/?lang=kn">
+
+
+
+    <link rel="alternate" media="handheld, only screen and (max-width: 640px)" href="https://mobile.twitter.com/?locale=en">
+
+    <link rel="alternate" href="android-app://com.twitter.android/twitter/front?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eandroidseo%7Ctwgr%5Ehome">
+
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Spacesmap">
+
+    <link id="async-css-placeholder">
+    <script type="text/javascript" charset="utf-8" async="" src="{% static 'js/0.commons.en.7fa3191d28a0545de428.js' %}"></script><script type="text/javascript" charset="utf-8" async="" src="{% static 'js/4.pages_home.en.339b101be9b724327414.js' %}"></script>
+</head>
+
+<body class="{% block body_css %} three-col logged-out front-page-photo-set front-page no-nav-banners {% endblock %}" data-fouc-class-names="swift-loading no-nav-banners" dir="ltr">
+
+
+<div id="doc" class="">
+    {% block header %}
+        <div class="topbar js-topbar">
+
+            <div class="global-nav global-nav--newLoggedOut" data-section-term="top_nav">
+                <div class="global-nav-inner">
+                    <div class="container">
+
+
+                        <ul class="nav js-global-actions" role="navigation" id="global-actions">
+                            <li id="global-nav-home" class="home" data-global-action="home">
+                                <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home">
+                                    <span class="Icon Icon--bird Icon--large"></span>
+                                    <span class="text" aria-hidden="true">Home</span>
+                                    <span class="u-hiddenVisually a11y-inactive-page-text">Home</span>
+                                    <span class="u-hiddenVisually a11y-active-page-text">Home, current page.</span>
+                                </a>
+                            </li>
+                            <li id="global-nav-about" class="about" data-global-action="about">
+                                <a class="js-tooltip js-dynamic-tooltip" data-placement="bottom" href="{% url "main:about" %}" target="_blank" data-component-context="about_nav" data-nav="about" rel="noopener" data-original-title="">
+                                    <span class="text">About</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="pull-right nav-extras">
+                            <div role="search">
+                                <form class="t1-form form-search js-search-form" action="/search" id="global-nav-search">
+                                    <label class="visuallyhidden" for="search-query">Search query</label>
+                                    <input class="search-input" type="text" id="search-query" placeholder="Search Spacesmap" name="q" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-dropdown-1">
+                                    <span class="search-icon js-search-action">
+                      <button type="submit" class="Icon Icon--medium Icon--search nav-search" tabindex="-1">
+                        <span class="visuallyhidden">Search Spacesmap</span>
+                      </button>
+                    </span>
+                                    <div role="listbox" class="dropdown-menu typeahead" id="typeahead-dropdown-1">
+                                        <div aria-hidden="true" class="dropdown-caret">
+                                            <div class="caret-outer"></div>
+                                            <div class="caret-inner"></div>
+                                        </div>
+                                        <div role="presentation" class="dropdown-inner js-typeahead-results"><div role="presentation" class="typeahead-recent-searches block0">
+                                            <h3 id="recent-searches-heading" class="typeahead-category-title recent-searches-title">Recent searches</h3><button type="button" tabindex="-1" class="btn-link clear-recent-searches">Clear All</button>
+                                            <ul role="presentation" class="typeahead-items recent-searches-list">
+
+                                                <li role="presentation" class="typeahead-item typeahead-recent-search-item">
+                                                    <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
+                                                    <a role="option" aria-describedby="recent-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="recent_search" tabindex="-1"></a>
+                                                </li>
+                                            </ul>
+                                        </div><div role="presentation" class="typeahead-saved-searches block2">
+                                            <h3 id="saved-searches-heading" class="typeahead-category-title saved-searches-title">Saved searches</h3>
+                                            <ul role="presentation" class="typeahead-items saved-searches-list">
+
+                                                <li role="presentation" class="typeahead-item typeahead-saved-search-item">
+                                                    <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span>
+                                                    <a role="option" aria-describedby="saved-searches-heading" class="js-nav" href="" data-search-query="" data-query-source="" data-ds="saved_search" tabindex="-1"></a>
+                                                </li>
+                                            </ul>
+                                        </div><ul role="presentation" class="typeahead-items typeahead-topics block3" style="display: none;">
+
+                                            <li role="presentation" class="typeahead-item typeahead-topic-item">
+                                                <a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-ds="topics" tabindex="-1"></a>
+                                            </li>
+                                        </ul><ul role="presentation" class="typeahead-items typeahead-accounts social-context js-typeahead-accounts block4" style="display: none;">
+
+                                            <li role="presentation" data-user-id="" data-user-screenname="" data-remote="true" data-score="" class="typeahead-item typeahead-account-item js-selectable">
+
+                                                <a role="option" class="js-nav" data-query-source="typeahead_click" data-search-query="" data-ds="account">
+                                                    <div class="js-selectable typeahead-in-conversation hidden">
+                                                        <span class="Icon Icon--follower Icon--small"></span>
+                                                        <span class="typeahead-in-conversation-text">In this conversation</span>
+                                                    </div>
+                                                    <img class="avatar size32" alt="">
+                                                    <span class="typeahead-user-item-info account-group">
+                                                    <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak">&nbsp;</span><span class="username u-dir" dir="ltr">@<b></b></span>
+                                                    </span>
+                                                    <span class="typeahead-social-context"></span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation" class="js-selectable typeahead-accounts-shortcut js-shortcut"><a role="option" class="js-nav" href="" data-search-query="" data-query-source="typeahead_click" data-shortcut="true" data-ds="account_search"></a></li>
+                                        </ul></div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+    <div id="page-outer">
+        {% block content %}
+            <div id="page-container" class="AppContent  wrapper-front">
+
+                <div class="front-container front-container-full-signup" id="front-container">
+
+                    <div class="front-bg">
+                        <img class="front-image" src="{% static 'img/EU_3.jpg' %}" alt="" style="">
+                    </div>
+
+                    <div class="front-card">
+                        <div class="front-welcome">
+                            <div class="front-welcome-text">
+                                <h1>Welcome to Coworker.</h1>
+                                <p>Are you coworking yet?</p>
+                                <p>Explore over 5500 coworking spaces</p>
+                            </div>
+                        </div>
+
+                        {% login_form %}
+
+                        {% sign_up_form %}
+
+                    </div>
+
+                    <noscript>
+                        &lt;div class="front-warning"&gt;
+                        &lt;h3&gt;Spacesmap.com makes heavy use of JavaScript&lt;/h3&gt;
+                        &lt;p&gt;If you cannot enable it in your browser's preferences, you may have a better experience on our &lt;a href="http://m.twitter.com" rel="noopener"&gt;mobile site&lt;/a&gt;.&lt;/p&gt;
+                        &lt;/div&gt;
+                    </noscript>
+
+                    <div class="front-warning" id="front-no-cookies-warn">
+                        <h3>Spacesmap.com makes heavy use of browser cookies</h3>
+                        <p>Please enable cookies in your browser preferences before signing in.</p>
+                    </div>
+                    {% block footer %}
+                        <div class="footer inline-list">
+                            <ul>
+                                <li><a href="{% url "main:about" %}" rel="noopener">About</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://support.twitter.com/" rel="noopener">Help Center</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://blog.twitter.com/" rel="noopener">Blog</a><span class="dot divider"> ·</span></li>
+                                <li><a href="http://status.twitter.com/" rel="noopener">Status</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://about.twitter.com/careers" rel="noopener">Jobs</a><span class="dot divider"> ·</span></li>
+                                <li><a href="/tos" rel="noopener">Terms</a><span class="dot divider"> ·</span></li>
+                                <li><a href="/privacy" rel="noopener">Privacy policy</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://support.twitter.com/articles/20170514" rel="noopener">Cookies</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://support.twitter.com/articles/20170451" rel="noopener">Ads info</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://about.twitter.com/press/brand-assets" rel="noopener">Brand</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://ads.twitter.com/start?ref=gl-tw-tw-twitter-advertise" rel="noopener">Advertise</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://marketing.twitter.com/" rel="noopener">Marketing</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://business.twitter.com/" rel="noopener">Businesses</a><span class="dot divider"> ·</span></li>
+                                <li><a href="https://dev.twitter.com/" rel="noopener">Developers</a><span class="dot divider"> ·</span></li>
+                                <li><a href="/i/directory/profiles" rel="noopener">Directory</a><span class="dot divider"> ·</span></li>
+                                <li><a href="/settings/personalization" rel="noopener">Settings</a></li>
+                                <li><span class="copyright">© 2017 Spacesmap</span></li>
+                            </ul>
+                        </div>
+                    {% endblock %}
+
+                </div>
+
+            </div>
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -9,6 +9,9 @@ class SignupForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ['first_name', 'last_name', 'password', 'email']
+        widgets = {
+            'password': forms.PasswordInput
+         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

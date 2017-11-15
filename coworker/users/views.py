@@ -28,8 +28,8 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 
     def get_redirect_url(self):
-        return reverse('users:detail',
-                       kwargs={'username': self.request.user.username})
+        return reverse("main:search")
+        # return reverse('users:detail', kwargs={'username': self.request.user.username})
 
 
 class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):

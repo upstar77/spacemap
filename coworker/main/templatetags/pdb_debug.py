@@ -5,7 +5,6 @@ register = template.Library()
 def pdb(element):
     from django.conf import settings
     if settings.DEBUG:
-        pass
-        # import pdb
-        # pdb.set_trace()
+        import pdb
+        pdb.set_trace()
     return element
