@@ -37,7 +37,7 @@ class SearchView(View):
 
     def get(self, request, *args, **kwargs):
         ctx = {}
-        if request.GET["f"] == "map":
+        if request.GET.get("f", "map") == "map":
             self.template_name = 'pages/map_tab.html'
         else:
             ctx["object_list"] = Place.objects.order_by('?').all()[:10]

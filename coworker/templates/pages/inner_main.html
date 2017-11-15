@@ -28,6 +28,10 @@
 
                     $(function() {
                       $(".AdaptiveFiltersBar-target--link").each(function(i) {
+                        if ($.urlParam("f") === null) {
+                          $(".AdaptiveFiltersBar-target--link").eq(0).parent().addClass("is-selected");
+                          return
+                        }
                         if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
                            $(this).parent().addClass("is-selected");
                            return;

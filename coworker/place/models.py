@@ -317,7 +317,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
 
     user = models.ForeignKey('users.User', blank=True, null=True)
     #dummpy city location!!!
-    # city_origin = models.ForeignKey(CityOrigin, blank=True, null=True)
+    # city = models.ForeignKey(CityOrigin, blank=True, null=True)
 
     category = models.ForeignKey(Category, null=True)
     objects = PlaceManager()
@@ -341,8 +341,8 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     def get_absolute_url(self):
         try:
             return reverse('place:place', kwargs={
-                'country': self.city_origin.country.slug,
-                'city': self.city_origin.slug,
+                'country': self.city.country.slug,
+                'city': self.city.slug,
                 'place': self.slug
             })
         except Exception as e:
@@ -359,11 +359,11 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
 
     def get_address(self):
         return "{address} {city} {country}".format(
-            address=self.address, city=self.city_origin.name, country=self.city_origin.country)
+            address=self.address, city=self.city.name, country=self.city.country)
 
     def get_title(self):
-        return "{}, {}".format(self.space_name, self.city_origin.name)
+        return "{}, {}".format(self.space_name, self.city.name)
 
     @property
     def autocomplete_value(self):
-        return "{}, {}, {}".format(self.space_name, self.city_origin.country.name, self.city_origin.name)
+        return "{}, {}, {}".format(self.space_name, self.city.country.name, self.city.name)
