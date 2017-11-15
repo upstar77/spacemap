@@ -3,10 +3,10 @@ from urllib.parse import urlparse, parse_qs
 from bs4 import BeautifulSoup
 import re
 
-
 from .base_parse import BaseParse
 from .utils import parse_table
 from .config import logger
+from django.conf import settings
 
 
 class CoworkerParse(BaseParse):

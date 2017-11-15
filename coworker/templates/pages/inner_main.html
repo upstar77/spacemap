@@ -6,7 +6,7 @@
     <div id="page-container" class="AppContent  wrapper-search">
         {% block search_navigator %}
             <div class="SearchNavigation">
-               {% if q %}
+                {% if q %}
                     <div class="SearchNavigation-canopy u-bgUserColor">
                         <div class="SearchNavigation-textContainer">
                             <h1 class="SearchNavigation-titleText" dir="ltr">
@@ -274,36 +274,53 @@
                     {% block inner_content %}
                         <div class="Grid-cell u-size2of3 u-lg-size3of4">
                             <div class="Grid Grid--withGutter">
+                                {% if object_list %}
+                                    <div class="AdaptiveSearchTimeline--userGrid Grid-cell u-size2of2 u-lg-size3of3" role="main">
+                                        <div class="GridTimeline">
 
-                                <div class="AdaptiveSearchTimeline--userGrid Grid-cell u-size2of2 u-lg-size3of3" role="main">
-                                    <div class="GridTimeline">
-
-                                        <div class="stream-item js-new-items-bar-container">
-                                        </div>
-
-                                        <div class="GridTimeline-items has-items" role="list" data-max-position="USER-0-17-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAASAAAAAAAAAAIAAAAAiAAGAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAQAAAAAAACAAAAACAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIAAAAAAAAAEIAAAAAAAAAAACACAAAAAAAAgAAAABAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAIgAQAAAQAAAgAgAAACAAAIAAgAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAACAAAAEAAAAAAEAAAAAAACCAEAAJAAAAAAAgBAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAIIAAAEAAABAAAAAAAAAEAEAAgAAACAAQBQAAAAAIAAAIAAAAAAgAAAAAAAAAAAAIBAIAAAAACAAAAAAAAAAAAAAAAAgAQAAQAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAgAAAgEAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAFABAAAAAAAAAAAAAAAAAAAAAAAQABAAAAIAAAAAAAAQAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAACAIAAAAARAAAQAAAAAAAACAAAAAAAAAABAABAACAAACAAAAAAAAAAAAAAEAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAACAAAAAAACAAAABAAAAAAQAAAAACAAAAAAgAAAQAAQAAAACAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAABAAQAABAAAAAA==" data-min-position="USER-0-17-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAASAAAAAAAAAAIAAAAAiAAGAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAQAAAAAAACAAAAACAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIAAAAAAAAAEIAAAAAAAAAAACACAAAAAAAAgAAAABAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAIgAQAAAQAAAgAgAAACAAAIAAgAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAACAAAAEAAAAAAEAAAAAAACCAEAAJAAAAAAAgBAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAIIAAAEAAABAAAAAAAAAEAEAAgAAACAAQBQAAAAAIAAAIAAAAAAgAAAAAAAAAAAAIBAIAAAAACAAAAAAAAAAAAAAAAAgAQAAQAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAgAAAgEAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAFABAAAAAAAAAAAAAAAAAAAAAAAQABAAAAIAAAAAAAAQAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAACAIAAAAARAAAQAAAAAAAACAAAAAAAAAABAABAACAAACAAAAAAAAAAAAAAEAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAACAAAAAAACAAAABAAAAAAQAAAAACAAAAAAgAAAQAAQAAAACAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAABAAQAABAAAAAA==">
-
-
-
-                                            <div class="Grid Grid--withGutter" data-component-context="user" role="presentation">
-
-                                                {% for object in object_list %}
-                                                    {% include "place/search_card.html" with object=object %}
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-
-                                        <div class="GridTimeline-end has-items has-more-items">
-                                            <div class="GridTimeline-emptyText" id="content-main-heading">
-                                                No results.
+                                            <div class="stream-item js-new-items-bar-container">
                                             </div>
 
-                                            <div class="GridTimeline-footer">
-                                                <span class="spinner"></span>
+                                            <div class="GridTimeline-items has-items" role="list" data-max-position="USER-0-17-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAASAAAAAAAAAAIAAAAAiAAGAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAQAAAAAAACAAAAACAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIAAAAAAAAAEIAAAAAAAAAAACACAAAAAAAAgAAAABAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAIgAQAAAQAAAgAgAAACAAAIAAgAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAACAAAAEAAAAAAEAAAAAAACCAEAAJAAAAAAAgBAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAIIAAAEAAABAAAAAAAAAEAEAAgAAACAAQBQAAAAAIAAAIAAAAAAgAAAAAAAAAAAAIBAIAAAAACAAAAAAAAAAAAAAAAAgAQAAQAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAgAAAgEAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAFABAAAAAAAAAAAAAAAAAAAAAAAQABAAAAIAAAAAAAAQAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAACAIAAAAARAAAQAAAAAAAACAAAAAAAAAABAABAACAAACAAAAAAAAAAAAAAEAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAACAAAAAAACAAAABAAAAAAQAAAAACAAAAAAgAAAQAAQAAAACAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAABAAQAABAAAAAA==" data-min-position="USER-0-17-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAASAAAAAAAAAAIAAAAAiAAGAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAQAAAAAAACAAAAACAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIAAAAAAAAAEIAAAAAAAAAAACACAAAAAAAAgAAAABAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAIgAQAAAQAAAgAgAAACAAAIAAgAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAAAACAAAAEAAAAAAEAAAAAAACCAEAAJAAAAAAAgBAAAAAAAAAgAAAAAAAAAAAAAABAAAAAAAAAAIIAAAEAAABAAAAAAAAAEAEAAgAAACAAQBQAAAAAIAAAIAAAAAAgAAAAAAAAAAAAIBAIAAAAACAAAAAAAAAAAAAAAAAgAQAAQAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAgAAAgEAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAFABAAAAAAAAAAAAAAAAAAAAAAAQABAAAAIAAAAAAAAQAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAAAACAIAAAAARAAAQAAAAAAAACAAAAAAAAAABAABAACAAACAAAAAAAAAAAAAAEAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAACAAAAAAACAAAABAAAAAAQAAAAACAAAAAAgAAAQAAQAAAACAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAABAAQAABAAAAAA==">
+
+
+
+                                                <div class="Grid Grid--withGutter" data-component-context="user" role="presentation">
+
+                                                    {% for object in object_list %}
+                                                        {% include "place/search_card.html" with object=object %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+
+                                            <div class="GridTimeline-end has-items has-more-items">
+                                                <div class="GridTimeline-emptyText" id="content-main-heading">
+                                                    No results.
+                                                </div>
+
+                                                <div class="GridTimeline-footer">
+                                                    <span class="spinner"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="Grid-cell u-size2of2 u-lg-size2of3">
+                                        <div class="SearchEmptyTimeline">
+
+                                            <div class="SearchEmptyTimeline-empty">
+                                                <div class="SearchEmptyTimeline-emptyTitle">
+                                                    No results for <b>{{ q }}</b>
+                                                </div>
+                                                <div class="SearchEmptyTimeline-emptyDescription">
+                                                    The term you entered did not bring up any results. You may have mistyped your term or your <button type="button" class="js-openSearchSettings btn-link">search setting</button> could be protecting you from some potentially sensitive content.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                {% endif %}
+
                             </div>
                         </div>
                     {% endblock %}
@@ -416,21 +433,21 @@
     </div>
 
 
-<script>
+    <script>
 
 
-    $(function() {
-      $(".AdaptiveFiltersBar-target--link").each(function(i) {
-        if ($.urlParam("f") === null) {
-          $(".AdaptiveFiltersBar-target--link").eq(0).parent().addClass("is-selected");
-          return
-        }
-        if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
-           $(this).parent().addClass("is-selected");
-           return;
-        }
+      $(function() {
+        $(".AdaptiveFiltersBar-target--link").each(function(i) {
+          if ($.urlParam("f") === null) {
+            $(".AdaptiveFiltersBar-target--link").eq(0).parent().addClass("is-selected");
+            return
+          }
+          if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
+            $(this).parent().addClass("is-selected");
+            return;
+          }
+        });
       });
-    });
-</script>
+    </script>
 
 {% endblock %}

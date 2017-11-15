@@ -14,6 +14,7 @@ import urllib.request
 from django.core import files
 from io import BytesIO
 import requests
+from django.conf import settings
 
 
 
@@ -24,7 +25,7 @@ class Command(BaseCommand):
     #     parser.add_argument('--json-file', dest='json-file', type=str)
 
     def handle(self, *args, **options):
-        with open("/Users/admin/projects/coworker/coworker/main/management/commands/resources/cine.txt") as urls_file:
+        with open(os.path.join(str(settings.ROOT_DIR), "coworker/main/management/commands/resources/cine.txt")) as urls_file:
             # reader = csv.reader(urls_file, delimiter=' ', quotechar='|')
             for row in urls_file.read().splitlines():
                 self.parse_place(row)

@@ -7,6 +7,7 @@ from urllib.parse import urlparse, parse_qs
 
 
 
+
 class BaseParse:
 
     def __init__(self, url, browser=None):
