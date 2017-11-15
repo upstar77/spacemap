@@ -6,7 +6,7 @@
 {% block body_css %} no-nav-banners three-col logged-in user-style-comalex3 AdaptiveSearchPage AdaptiveDefaultPage supports-drag-and-drop {% endblock %}
 
 {% block inner_content %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
     <style>
         .leaflet-popup-content-wrapper {
             background: none;
@@ -30,7 +30,6 @@
             {% include "pages/popup_template.html" %}
         </script>
 
-        <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
 
         <script>
           document.map = L.map('map_canvas').setView([50.449, 30.5243], 13);

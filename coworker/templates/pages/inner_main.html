@@ -15,6 +15,26 @@
                     </div>
                 </div>
 
+                <script>
+                    $.urlParam = function(name, url){
+                        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url || window.location.href);
+                        if (results==null){
+                           return null;
+                        }
+                        else{
+                           return decodeURI(results[1]) || 0;
+                        }
+                    };
+
+                    $(function() {
+                      $(".AdaptiveFiltersBar-target--link").each(function(i) {
+                        if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
+                           $(this).parent().addClass("is-selected");
+                           return;
+                        }
+                      });
+                    });
+                </script>
                 <div class="AdaptiveFiltersBar">
                     <div class="AdaptiveFiltersBar-container" data-component-context="search_filter_nav_bar">
                         <ul class="AdaptiveFiltersBar-nav">
@@ -32,24 +52,24 @@
                                 <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=tweets&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_tweets">
                                     {% trans "Latest" %}
                                 </a>
-                            </li><li class="AdaptiveFiltersBar-item u-borderUserColor is-selected">
+                            </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
                             <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover u-textUserColor" href="{% url "main:search" %}?f=places" data-nav="search_filter_places">
                                 {% trans "Spaces" %}
                             </a>
                         </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
-                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=images&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_images">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="#" data-nav="search_filter_images">
                                 {% trans "Events" %}
                             </a>
                         </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
-                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=videos&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_videos">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="#" data-nav="search_filter_videos">
                                 {% trans "Services" %}
                             </a>
                         </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
-                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=news&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_news">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="#" data-nav="search_filter_news">
                                 {% trans "News" %}
                             </a>
                         </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
-                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="https://twitter.com/search?f=broadcasts&amp;vertical=default&amp;q=coworker&amp;src=typd" data-nav="search_filter_periscopes">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="#" data-nav="search_filter_periscopes">
                                 {% trans "Broadcasts" %}
                             </a>
                         </li>

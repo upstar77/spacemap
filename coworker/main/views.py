@@ -32,10 +32,13 @@ class Index(TemplateView):
 
 
 class SearchView(View):
-    # template_name = 'pages/inner_main.html'
-    template_name = 'pages/map_tab.html'
+    template_name = 'pages/inner_main.html'
+    # template_name = 'pages/map_tab.html'
 
     def get(self, request, *args, **kwargs):
         ctx = {}
-        ctx["object_list"] = Place.objects.order_by('?').all()[:10]
+        if request.GET["f"] == "map":
+            self.template_name = 'pages/map_tab.html'
+        else:
+            ctx["object_list"] = Place.objects.order_by('?').all()[:10]
         return render(request, self.template_name, ctx)
