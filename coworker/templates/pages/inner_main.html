@@ -6,43 +6,20 @@
     <div id="page-container" class="AppContent  wrapper-search">
         {% block search_navigator %}
             <div class="SearchNavigation">
-                <div class="SearchNavigation-canopy u-bgUserColor">
-                    <div class="SearchNavigation-textContainer">
-                        <h1 class="SearchNavigation-titleText" dir="ltr">
-                            coworker
-                        </h1>
+               {% if q %}
+                    <div class="SearchNavigation-canopy u-bgUserColor">
+                        <div class="SearchNavigation-textContainer">
+                            <h1 class="SearchNavigation-titleText" dir="ltr">
+                                {{ q|default:"Search..." }}
+                            </h1>
+                        </div>
                     </div>
-                </div>
-
-                <script>
-                    $.urlParam = function(name, url){
-                        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url || window.location.href);
-                        if (results==null){
-                           return null;
-                        }
-                        else{
-                           return decodeURI(results[1]) || 0;
-                        }
-                    };
-
-                    $(function() {
-                      $(".AdaptiveFiltersBar-target--link").each(function(i) {
-                        if ($.urlParam("f") === null) {
-                          $(".AdaptiveFiltersBar-target--link").eq(0).parent().addClass("is-selected");
-                          return
-                        }
-                        if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
-                           $(this).parent().addClass("is-selected");
-                           return;
-                        }
-                      });
-                    });
-                </script>
+                {% endif %}
                 <div class="AdaptiveFiltersBar">
                     <div class="AdaptiveFiltersBar-container" data-component-context="search_filter_nav_bar">
                         <ul class="AdaptiveFiltersBar-nav">
                             <li class="AdaptiveFiltersBar-item u-borderUserColor ">
-                                <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="{% url "main:search" %}?f=map" data-nav="search_filter_map">
+                                <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover " href="{% url "main:search" %}?f=map&q={{ q }}" data-nav="search_filter_map">
                                     {% trans "Map" %}
                                 </a>
                             </li>
@@ -56,7 +33,7 @@
                                     {% trans "Latest" %}
                                 </a>
                             </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
-                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover u-textUserColor" href="{% url "main:search" %}?f=places" data-nav="search_filter_places">
+                            <a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link js-nav u-textUserColorHover u-textUserColor" href="{% url "main:search" %}?f=places&q={{ q }}" data-nav="search_filter_places">
                                 {% trans "Spaces" %}
                             </a>
                         </li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
@@ -244,7 +221,7 @@
 
                                         <h3><span class="trend-location js-trend-location">Trends for you</span></h3>
                                         <span class="middot" aria-hidden="true">·</span>
-                                        <a role="button" href="https://twitter.com/search?f=users&amp;vertical=default&amp;q=coworker&amp;src=typd&amp;lang=en#" data-modal="change-trends" class="btn-link change-trends js-trend-toggle">
+                                        <a role="button" href="#" data-modal="change-trends" class="btn-link change-trends js-trend-toggle">
                                             <span aria-hidden="true">Change</span>
                                             <span class="u-hiddenVisually">Change trend settings</span>
                                         </a>
@@ -437,5 +414,31 @@
         </div>
 
     </div>
+
+
+<script>
+    $.urlParam = function(name, url){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url || window.location.href);
+        if (results==null){
+           return null;
+        }
+        else{
+           return decodeURI(results[1]) || 0;
+        }
+    };
+
+    $(function() {
+      $(".AdaptiveFiltersBar-target--link").each(function(i) {
+        if ($.urlParam("f") === null) {
+          $(".AdaptiveFiltersBar-target--link").eq(0).parent().addClass("is-selected");
+          return
+        }
+        if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
+           $(this).parent().addClass("is-selected");
+           return;
+        }
+      });
+    });
+</script>
 
 {% endblock %}

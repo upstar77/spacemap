@@ -95,7 +95,7 @@
                             <div role="search">
                                 <form class="t1-form form-search js-search-form" action="/search" id="global-nav-search">
                                     <label class="visuallyhidden" for="search-query">Search query</label>
-                                    <input class="search-input" type="text" id="search-query" placeholder="Search Spacesmap1" name="q" >
+                                    <input class="search-input" type="text" id="search-query" placeholder="{{ q|default:"Search" }}" name="q" >
 
                                     <span class="search-icon js-search-action">
                                       <button type="submit" class="Icon Icon--medium Icon--search nav-search" tabindex="-1">
@@ -176,7 +176,7 @@
                     <div class="front-card">
                         <div class="front-welcome">
                             <div class="front-welcome-text">
-                                <h1>Welcome to Coworker.</h1>
+                                <h1>Welcome to Spacesmap.</h1>
                                 <p>Are you coworking yet?</p>
                                 <p>Explore over 5500 coworking spaces</p>
                             </div>
@@ -296,53 +296,21 @@
     });
 
   function submitSearch() {
-    if($("#x_location").val()!=$("#f_location").val()) {
-      $("#place_id").val(0);
-      $("#search_place").val(0);
+    var t = "?";
+    if (window.location.href.indexOf(t) !== -1) {
+      t = "&";
     }
-    $.ajax({
-      url: 'https://www.coworker.com/search/start',
-      dataType: "json",
-      type: "POST",
-      data: {
-        place_id     : $("#place_id").val(),
-        search_place : $("#search_place").val(),
-        f_location   : $("#f_location").val(),
-        form_search  : 1
-      },
-      success: function(data) {
-        window.location = 'search/'+data.s_url;
-      }
-    });
+    window.location = window.location.href + t + "q=" +$("#search-query").val()
   }
-  $("#f_location").keypress(function(event) {
+
+  $("#search-query").keypress(function(event) {
     if (event.which == 13) {
       event.preventDefault();
-      submitSearch();
+     submitSearch();
     }
   });
 </script>
 
-{#<script>#}
-{#    $(function () {#}
-{#        $("[name=q]").autocomplete({#}
-{#          source: function (request, response) {#}
-{#            $.ajax({url: "{% url "search:search_autocomplete" %}",#}
-{#              type: "GET",#}
-{#              data: {#}
-{#                search : request.term#}
-{#              },#}
-{#              success: function(result) {#}
-{##}
-{#                response(result);#}
-{#              }#}
-{#            });#}
-{##}
-{#          }#}
-{#        });#}
-{#      });#}
-{##}
-{#</script>#}
 </body>
 
 </html>
