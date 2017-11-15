@@ -367,3 +367,8 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     @property
     def autocomplete_value(self):
         return "{}, {}, {}".format(self.space_name, self.city.country.name, self.city.name)
+
+    @staticmethod
+    def get_serializer():
+        from .serializers import PlaceSerializer
+        return PlaceSerializer

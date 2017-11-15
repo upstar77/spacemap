@@ -25,7 +25,8 @@ class Autocomplete(views.APIView):
         return self.get_model().get_serializer()
 
     def get_model(self):
-        return apps.get_model(self.kwargs['app'], self.kwargs['model'])
+        # return apps.get_model(self.kwargs['app'], self.kwargs['model'])
+        return Place
 
     def get_queryset(self):
 
