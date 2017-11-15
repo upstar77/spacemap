@@ -32,7 +32,8 @@ class Index(TemplateView):
 
 
 class SearchView(View):
-    template_name = 'pages/inner_main.html'
+    # template_name = 'pages/inner_main.html'
+    template_name = 'pages/map_tab.html'
 
     def get(self, request, *args, **kwargs):
         ctx = {}

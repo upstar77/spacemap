@@ -2,6 +2,8 @@
 {% load i18n %}
 {% load widget_tweaks %}
 {% load auth_forms %}
+{% load sekizai_tags %}
+
 
 <!DOCTYPE html>
 <!-- saved from url=(0028)/?lang=en -->
@@ -47,6 +49,9 @@
     <link rel="alternate" href="android-app://com.twitter.android/twitter/front?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eandroidseo%7Ctwgr%5Ehome">
 
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Spacesmap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="">
+
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
 
     <link id="async-css-placeholder">
     <script type="text/javascript" charset="utf-8" async="" src="{% static 'js/0.commons.en.7fa3191d28a0545de428.js' %}"></script><script type="text/javascript" charset="utf-8" async="" src="{% static 'js/4.pages_home.en.339b101be9b724327414.js' %}"></script>
