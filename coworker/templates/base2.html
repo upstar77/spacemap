@@ -191,8 +191,8 @@
 
                                                 <li class="DashUserDropdown-userInfo" data-name="user-info" role="presentation">
                                                     <a href="/comalex3" class="DashUserDropdown-userInfoLink js-nav" data-nav="view_profile" role="menuitem">
-                                                        <b class="fullname">Stupak Alex</b><span class="UserBadges"></span>
-                                                        <p class="name"><span class="username u-dir" dir="ltr">@<b>comalex3</b></span></p>
+                                                        <b class="fullname">{{ request.user.username }}</b><span class="UserBadges"></span>
+                                                        <p class="name"><span class="username u-dir" dir="ltr">@<b>{{ request.user.username }}</b></span></p>
                                                     </a>
                                                 </li>
 
