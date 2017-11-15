@@ -1,0 +1,168 @@
+
+<div class="profile-card ProfileCard with-banner component profile-header hovercard gravity-south weight-left" data-component-context="profile_hover">
+
+    <div class="profile-card ProfileCard with-banner component profile-header hovercard gravity-north weight-left" data-component-context="profile_hover">
+        <div class="hover-offset">
+            <div class="arrow" style=""></div>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100" viewBox="0 0 600 200">
+                <defs>
+                    <clipPath id="clipping">
+                        <polygon points="50,10 60,0 70,10 50,10"></polygon>
+                    </clipPath>
+                </defs>
+                <image xlink:href="https://pbs.twimg.com/profile_banners/15878114/1403999773/600x200" width="600" height="200" clip-path="url(#clipping)"></image>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100" viewBox="0 0 600 200" class="right-side">
+                <defs>
+                    <clipPath id="clipping">
+                        <polygon points="450,10 460,0 470,10 450,10"></polygon>
+                    </clipPath>
+                </defs>
+                <image xlink:href="https://pbs.twimg.com/profile_banners/15878114/1403999773/600x200" width="600" height="200" clip-path="url(#clipping)"></image>
+            </svg>
+
+        </div>
+        <div class="ProfileCard-bg
+
+    " style="background-image: url('{{ objectect.get_main_photo }}')"></div>
+
+        <a href="{{ object.get_absolute_url }}" class="ProfileCard-avatarLink js-nav" tabindex="-1" aria-hidden="true" data-send-impression-cookie="true">
+            <span class="visuallyhidden">{{ objectect.name }}</span>
+            <img src="https://pbs.twimg.com/profile_images/670360587826630656/KKsA6rXv_bigger.jpg" alt="" class="ProfileCard-avatarImage js-action-profile-avatar">
+        </a>
+
+        <div class="ProfileCard-actions">
+            <div class="UserActions   UserActions--small u-textLeft">
+
+                <div class="user-actions btn-group not-following not-muting " data-user-id="15878114" data-screen-name="erikblair" data-name="Erik Blair" data-protected="false">
+          <span class="user-actions-follow-button js-follow-btn follow-button">
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--secondary
+    EdgeButton--small
+
+    button-text
+    follow-text">
+      <span aria-hidden="true">Follow</span>
+      <span class="u-hiddenVisually">Follow <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--primary
+    EdgeButton--small
+
+    button-text
+    following-text">
+      <span aria-hidden="true">Following</span>
+      <span class="u-hiddenVisually">Following <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--danger
+    EdgeButton--small
+
+    button-text
+    unfollow-text">
+      <span aria-hidden="true">Unfollow</span>
+      <span class="u-hiddenVisually">Unfollow <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--invertedDanger
+    EdgeButton--small
+
+    button-text
+    blocked-text">
+    <span aria-hidden="true">Blocked</span>
+    <span class="u-hiddenVisually">Blocked <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--danger
+    EdgeButton--small
+
+    button-text
+    unblock-text">
+    <span aria-hidden="true">Unblock</span>
+    <span class="u-hiddenVisually">Unblock <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--secondary
+    EdgeButton--small
+
+    button-text
+    pending-text">
+    <span aria-hidden="true">Pending</span>
+    <span class="u-hiddenVisually">Pending follow request from <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+  <button type="button" class="
+    EdgeButton
+    EdgeButton--secondary
+    EdgeButton--small
+
+    button-text
+    cancel-text">
+    <span aria-hidden="true">Cancel</span>
+    <span class="u-hiddenVisually">Cancel your follow request to <span class="username u-dir" dir="ltr">@<b>erikblair</b></span></span>
+  </button>
+</span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="ProfileCard-content " data-screen-name="{{ object.slug }}" data-user-id="{{ object.pk }}">
+            <div class="ProfileCard-userFields">
+                <div class="ProfileNameTruncated account-group">
+                    <div class="u-textTruncate u-inlineBlock ProfileNameTruncated-withBadges ProfileNameTruncated-withBadges--1">
+                        <a class="fullname ProfileNameTruncated-link u-textInheritColor js-nav" href="{{ object.get_absolute_url }}" data-aria-label-part="" data-send-impression-cookie="true">
+                            {{ object.name }}
+                        </a>
+                    </div>
+                    <span class="UserBadges">
+                        <span class="Icon Icon--verified">
+                            <span class="u-hiddenVisually">Verified account</span>
+                        </span>
+                    </span>
+                </div>
+                <div class="ProfileCard-screenname">
+                    <a href="/teamcoworker" class="ProfileCard-screennameLink u-linkComplex js-nav" data-aria-label-part="" data-send-impression-cookie="true">
+                        <span class="username u-dir" dir="ltr">@<b class="u-linkComplex-target">teamcoworker</b></span>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="bio-container">
+                <p class="bio profile-field u-dir" dir="ltr">{{ object.cs_description|slice:":40" }}</p>
+            </div>
+
+
+        </div>
+
+        <div class="ProfileCardStats">
+            <ul class="ProfileCardStats-statList Arrange Arrange--bottom Arrange--equal"><li class="ProfileCardStats-stat Arrange-sizeFit">
+                <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip" title="38,425 Tweets" href="{{ object.get_absolute_url }}" data-element-term="tweet_stats" data-send-impression-cookie="true">
+                    <span class="ProfileCardStats-statLabel u-block">Tweets</span>
+                    <span class="ProfileCardStats-statValue" data-count="38425" data-is-compact="true">38.4K</span>
+                </a>
+            </li><li class="ProfileCardStats-stat Arrange-sizeFit">
+                <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip" title="17,768 Following" href="{{ object.get_absolute_url }}/following" data-element-term="following_stats" data-send-impression-cookie="true">
+                    <span class="ProfileCardStats-statLabel u-block">Following</span>
+                    <span class="ProfileCardStats-statValue" data-count="17768" data-is-compact="true">17.8K</span>
+                </a>
+            </li><li class="ProfileCardStats-stat Arrange-sizeFit">
+                <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav js-tooltip" title="23,373 Followers" href="{{ object.get_absolute_url }}/followers" data-element-term="follower_stats" data-send-impression-cookie="true">
+                    <span class="ProfileCardStats-statLabel u-block">Followers</span>
+                    <span class="ProfileCardStats-statValue" data-count="23373" data-is-compact="true">23.4K</span>
+                </a>
+            </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>

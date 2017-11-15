@@ -19,3 +19,25 @@ class PlaceSerializer(serializers.ModelSerializer):
         model = Place
         fields = ('pk', 'space_name', 'cs_description', 'value', 'label', 'coworkspace_url')
 
+
+class PlaceMapApiSerializer(serializers.ModelSerializer):
+    # value = serializers.SerializerMethodField()
+    label = serializers.ReadOnlyField(source='autocomplete_value')
+    # url = serializers.SerializerMethodField()
+    value = serializers.ReadOnlyField(source='autocomplete_value')
+    coworkspace_url = serializers.ReadOnlyField(source='autocomplete_value')
+
+    class Meta:
+        model = Place
+        fields = ('pk', 'space_name', 'cs_description', 'value', 'label', 'coworkspace_url', 'lat', 'lng')
+
+
+
+
+
+class PlaceApiSerializer(serializers.ModelSerializer):
+    coworkspace_url = serializers.ReadOnlyField(source='autocomplete_value')
+
+    class Meta:
+        model = Place
+        fields = ('pk', 'space_name', 'cs_description', 'coworkspace_url')

@@ -3,6 +3,9 @@ import pickle
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
+from rest_framework import views
+from rest_framework.response import Response
+
 from coworker.search.backends import get_search_backend
 from django.urls import reverse_lazy
 from django.http import JsonResponse, Http404
@@ -11,6 +14,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View, TemplateView, CreateView, FormView
 from django.core.files.images import get_image_dimensions
+
+from coworker.place.serializers import PlaceMapApiSerializer
 from .models import MembershipDeskPrice, Photos
 from .models import Place, MeetingRoom
 from coworker.cities.models import City
@@ -570,3 +575,19 @@ def autocomplete(request):
 
 
 
+
+
+class PlaceDetailApiView(View):
+    template_name = 'pages/popup_template.html'
+
+    def get(self, request, *args, **kwargs):
+        place = get_object_or_404(Place, id=kwargs["pk"])
+        return render(request, self.template_name, {"object": place})
+
+
+class PlaceMapApiView(views.APIView):
+    template_name = 'pages/popup_template.html'
+
+    def get(self, request, *args, **kwargs):
+        places = Place.objects.all()
+        return Response(PlaceMapApiSerializer(places, many=True).data)

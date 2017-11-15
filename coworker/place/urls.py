@@ -5,6 +5,8 @@ from . import views
 
 
 urlpatterns = [
+    url(r'^card/api/(?P<pk>\d+)/$', view=views.PlaceDetailApiView.as_view(), name='detail_card'),
+    url(r'^map/api/$', view=views.PlaceMapApiView.as_view(), name='map_api'),
 
     url(r'^list-space/$', view=views.PlaceAddView.as_view(), name='list-space'),
     url(r'^list-space/place_add_description/$', view=views.PlaceAddDescriptionView.as_view(), name='place_add_description'),

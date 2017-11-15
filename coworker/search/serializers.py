@@ -20,6 +20,10 @@ class PlaceSerializer(serializers.ModelSerializer):
         fields = ('pk', 'space_name', 'cs_description', 'value', 'label', 'coworkspace_url')
 
 
+
+
+
+
 class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
