@@ -13,7 +13,7 @@ class PlaceSerializer(serializers.ModelSerializer):
     label = serializers.ReadOnlyField(source='autocomplete_value')
     # url = serializers.SerializerMethodField()
     value = serializers.ReadOnlyField(source='autocomplete_value')
-    coworkspace_url = serializers.ReadOnlyField(source='autocomplete_value')
+    coworkspace_url = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = Place
@@ -25,7 +25,7 @@ class PlaceMapApiSerializer(serializers.ModelSerializer):
     label = serializers.ReadOnlyField(source='autocomplete_value')
     # url = serializers.SerializerMethodField()
     value = serializers.ReadOnlyField(source='autocomplete_value')
-    coworkspace_url = serializers.ReadOnlyField(source='autocomplete_value')
+    coworkspace_url = serializers.URLField(source='get_absolute_url', read_only=True)
 
     class Meta:
         model = Place

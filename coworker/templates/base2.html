@@ -397,15 +397,9 @@
         results: function() {}
       },appendTo: "#f_aucomplete",
       select: function (event, ui) {
-        {#          $("#place_id").val(ui.item.idx);#}
-        {#          $("#search_place").val(ui.item.loc);#}
-        {#          $("#x_location").val(ui.item.value);#}
-        {#          $('#f_location').val(ui.item.value);#}
-        {#          if(ui.item.loc==3){#}
-        {#            if(ui.item.coworkspace_url!='')#}
-        {#              window.location = ui.item.coworkspace_url;#}
-        {#          } else#}
-        {#            submitSearch();#}
+        console.log(ui.item.coworkspace_url);
+        if (ui.item.coworkspace_url != '')
+          window.location = ui.item.coworkspace_url;
       }
     }).autocomplete( "instance" )._renderItem = function( ul, item ) {
       var loc_icon = '<i class="fa fa-buildingui"></i>';

@@ -63,37 +63,6 @@
             });
           });
 
-          {#          {% for obj in object_list %}#}
-          {#            {% if obj.lng and  obj.lat %}#}
-          {#              var marker = L.marker([{{ obj.lat }}, {{ obj.lng }}]);#}
-          {#              marker.addTo(document.map);#}
-          {#              marker.bindPopup("Loading...");#}
-          {##}
-          {#              marker.on('mouseover', function (e) {#}
-          {#                var popup = e.target.getPopup();#}
-          {##}
-          {#                var self = this;#}
-          {#                $.get('{% url "place:detail_card" pk=obj.pk %}', function(data) {#}
-          {#                  $("#profile-hover-container").html(data);#}
-          {#                  popup.setContent($("#profile-hover-container").html());#}
-          {#                  popup.update();#}
-          {#                  self.openPopup();#}
-          {#                });#}
-          {##}
-          {##}
-          {##}
-          {#              });#}
-          {#          marker.on('mouseout', function (e) {#}
-          {#            this.closePopup();#}
-          {#          });#}
-          {##}
-          {#            {% if not forloop.last %}, {% endif %}#}
-          {#            {% endif %}#}
-          {##}
-          {#          {% endfor %}#}
-
-          {#      $(".leaflet-popup-close-button")#}
-
         </script>
     </div>
 {% endblock %}
