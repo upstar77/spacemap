@@ -24,14 +24,14 @@
     <meta name="robots" content="NOODP">
     <meta name="description" content="From breaking news and entertainment to sports and politics, get the full story with all the live commentary.">
 
-{#    <meta name="msapplication-TileImage" content="//abs.twimg.com/favicons/win8-tile-144.png">#}
+    {#    <meta name="msapplication-TileImage" content="//abs.twimg.com/favicons/win8-tile-144.png">#}
     <meta name="msapplication-TileColor" content="#00aced">
 
 
 
-{#    <link rel="mask-icon" sizes="any" href="https://abs.twimg.com/a/1510617866/icons/favicon.svg" color="#1da1f2">#}
+    {#    <link rel="mask-icon" sizes="any" href="https://abs.twimg.com/a/1510617866/icons/favicon.svg" color="#1da1f2">#}
 
-{#    <link rel="shortcut icon" href="https://abs.twimg.com/favicons/favicon.ico" type="image/x-icon">#}
+    {#    <link rel="shortcut icon" href="https://abs.twimg.com/favicons/favicon.ico" type="image/x-icon">#}
     <link rel="apple-touch-icon" href="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" sizes="192x192">
 
     <link rel="manifest" href="/manifest.json">
@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-{#    <link rel="stylesheet" href="{% static "css/style.css" %}">#}
+    {#    <link rel="stylesheet" href="{% static "css/style.css" %}">#}
     <script src="{% static "js/my_common.js" %}"></script>
     <link rel="alternate" media="handheld, only screen and (max-width: 640px)" href="https://mobile.twitter.com/?locale=en">
 
@@ -58,9 +58,16 @@
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
-    <link href="{% static 'css/twitter_new.css' %}" rel="stylesheet" type="text/css">
+
     <link id="async-css-placeholder">
     <script type="text/javascript" charset="utf-8" async="" src="{% static 'js/0.commons.en.7fa3191d28a0545de428.js' %}"></script><script type="text/javascript" charset="utf-8" async="" src="{% static 'js/4.pages_home.en.339b101be9b724327414.js' %}"></script>
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+    <link href="{% static 'css/twitter_new.css' %}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body class="{% block body_css %} three-col logged-out front-page-photo-set front-page no-nav-banners {% endblock %}" data-fouc-class-names="swift-loading no-nav-banners" dir="ltr">
@@ -78,7 +85,7 @@
                         <ul class="nav js-global-actions" role="navigation" id="global-actions">
                             <li id="global-nav-home" class="home" data-global-action="home">
                                 <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home">
-{#                                    <span class="Icon Icon--bird Icon--large"></span>#}
+                                    {#                                    <span class="Icon Icon--bird Icon--large"></span>#}
                                     <span class="text" aria-hidden="true">Home</span>
                                     <span class="u-hiddenVisually a11y-inactive-page-text">Home</span>
                                     <span class="u-hiddenVisually a11y-active-page-text">Home, current page.</span>
@@ -152,7 +159,129 @@
 
                                 </form>
                             </div>
+{#                            <div class="dropdown">#}
+{#                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                                Dropdown button#}
+{#                              </button>#}
+{#                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">#}
+{#                                <a class="dropdown-item" href="#">Action</a>#}
+{#                                <a class="dropdown-item" href="#">Another action</a>#}
+{#                                <a class="dropdown-item" href="#">Something else here</a>#}
+{#                              </div>#}
+{#                            </div>#}
+                            <style>
+                                .dropdown:hover .dropdown-menu {
+                                    display: block;
+                                    margin-top: 0; // remove the gap so it doesn't close
+                                }
+                            </style>
+                            {% if request.user.is_authenticated %}
+                                <ul class="nav right-actions">
+                                    <li class="me dropdown session js-session" data-global-action="t1me" id="user-dropdown">
+                                        <a href="{% url "users:profile" %}" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-original-title="Profile and settings">
+                                            <img class="Avatar Avatar--size32" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" alt="Profile and settings" data-user-id="2799648583">
+                                        </a>
+                                        <div class="DashUserDropdown dropdown-menu dropdown-menu--rightAlign is-forceRight is-autoCentered" aria-labelledby="dropdownMenuButton">
+                                            <div class="dropdown-caret">
+                                                <span class="caret-outer"></span>
+                                                <span class="caret-inner"></span>
+                                            </div>
+                                            <ul tabindex="-1" role="menu" aria-labelledby="user-dropdown-toggle" aria-hidden="true">
 
+
+                                                <li class="DashUserDropdown-userInfo" data-name="user-info" role="presentation">
+                                                    <a href="/comalex3" class="DashUserDropdown-userInfoLink js-nav" data-nav="view_profile" role="menuitem">
+                                                        <b class="fullname">Stupak Alex</b><span class="UserBadges"></span>
+                                                        <p class="name"><span class="username u-dir" dir="ltr">@<b>comalex3</b></span></p>
+                                                    </a>
+                                                </li>
+
+                                                <li class="dropdown-divider" role="presentation"></li>
+
+                                                <li class="current-user" data-name="profile" role="presentation">
+                                                    <a href="{% url "users:profile" %}" class="js-nav" data-nav="view_profile" role="menuitem">
+                                                        <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--me"></span>Profile
+                                                    </a>
+                                                </li>
+
+{#                                                <li data-name="lists" role="presentation">#}
+{#                                                    <a class="js-nav" href="/comalex3/lists" data-nav="all_lists" role="menuitem">#}
+{#                                                        <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--list"></span>Lists#}
+{#                                                    </a>#}
+{#                                                </li>#}
+{##}
+{##}
+{#                                                <li data-name="moments" role="presentation">#}
+{#                                                    <a class="js-nav" href="/comalex3/moments" data-nav="all_moments" role="menuitem">#}
+{#                                                        <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--lightning"></span>Moments#}
+{#                                                    </a>#}
+{#                                                </li>#}
+{##}
+{#                                                <li class="dropdown-divider" role="presentation"></li>#}
+{##}
+{##}
+{##}
+{##}
+{#                                                <li role="presentation">#}
+{#                                                    <a href="https://ads.twitter.com/start?ref=gl-tw-tw-twitter-ads" target="_blank" data-nav="ads" rel="noopener" role="menuitem">#}
+{#                                                        <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--promotedStroked"></span>Twitter Ads#}
+{#                                                    </a>#}
+{#                                                </li>#}
+{##}
+{##}
+{#                                                <li role="presentation">#}
+{#                                                    <a class="user-dropdown-analytics" href="https://analytics.twitter.com/" target="_blank" data-nav="user_dropdown_analytics" rel="noopener" role="menuitem">#}
+{#                                                        <span class="DashUserDropdown-linkIcon Icon Icon--medium Icon--analytics"></span>Analytics#}
+{#                                                    </a>#}
+{#                                                </li>#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#                                                <li class="dropdown-divider" role="presentation"></li>#}
+{##}
+{##}
+{#                                                <li role="presentation"><a href="/settings/account" data-nav="settings" class="js-nav" rel="noopener" role="menuitem">Settings and privacy</a></li>#}
+{##}
+{##}
+{#                                                <li role="presentation"><a href="//support.twitter.com" data-nav="help_center" rel="noopener" role="menuitem">Help Center</a></li>#}
+{##}
+{##}
+{#                                                <li class="js-keyboard-shortcut-trigger" data-nav="shortcuts" role="presentation">#}
+{#                                                    <button type="button" class="dropdown-link" role="menuitem">Keyboard shortcuts</button>#}
+{#                                                </li>#}
+
+
+                                                <li class="js-signout-button" id="signout-button" data-nav="logout" role="presentation">
+                                                    <a href="{% url 'account_logout' %}">Log out</a>
+                                                </li>
+
+
+{#                                                <li class="dropdown-divider" role="presentation"></li>#}
+{#                                                <li class="current-user nightmode-toggle" data-name="profile" role="presentation">#}
+{#                                                    <a class="js-nav" data-nav="view_profile" role="menuitem">#}
+{#                                                      <span class="DashUserDropdown-linkIcon Icon Icon--medium js-nightmode-icon#}
+{#                                                        Icon--crescent#}
+{#                                                        ">#}
+{#                                                      </span><span class="js-nightmode-label">Night mode</span>#}
+{#                                                    </a>#}
+{#                                                </li>#}
+
+                                            </ul>
+                                        </div>
+
+                                    </li>
+{#                                    <li role="complementary" aria-labelledby="global-new-tweet-button" class="topbar-tweet-btn">#}
+{#                                        <button id="global-new-tweet-button" class="js-global-new-tweet js-tooltip EdgeButton EdgeButton--primary js-dynamic-tooltip" data-placement="bottom" data-component-context="new_tweet_button">#}
+{##}
+{#                                            <span class="text">Tweet</span>#}
+{#                                        </button>#}
+{#                                    </li>#}
+                                </ul>
+                            {% endif %}
                         </div>
 
                     </div>
@@ -237,84 +366,84 @@
 <script type="text/javascript">
 
 
-    $(function() {
-{#      $("[name=f_location]").autocomplete({#}
-      $("#search-query").autocomplete({
-        source: function(request, response) {
-          $("#place_id").val(0);
-          $("#search_place").val(0);
-          $.ajax({
-            url: '{% url "search:search_autocomplete" %}',
-            dataType: "json",
-            type: "GET",
-            data: {
-              search : request.term
-            },
-            success: function(data) {
-              response(data);
-              /*if(data.length>0){
-                var prefix = $('#f_location').val().toLowerCase();
-                var first_item = data[0].value.toLowerCase();
-                if(first_item.slice(0, prefix.length) == prefix){
-                  $('#f_location').val(data[0].value);
-                  $('#f_location').selectRange(prefix.length,first_item.length);
-                }
-              }*/
-            }
-          });
-        },minLength:1,
-        messages: {
-          noResults: '',
-          results: function() {}
-        },appendTo: "#f_aucomplete",
-        select: function (event, ui) {
-{#          $("#place_id").val(ui.item.idx);#}
-{#          $("#search_place").val(ui.item.loc);#}
-{#          $("#x_location").val(ui.item.value);#}
-{#          $('#f_location').val(ui.item.value);#}
-{#          if(ui.item.loc==3){#}
-{#            if(ui.item.coworkspace_url!='')#}
-{#              window.location = ui.item.coworkspace_url;#}
-{#          } else#}
-{#            submitSearch();#}
-        }
-      }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-        var loc_icon = '<i class="fa fa-buildingui"></i>';
-        var view_all = '';
-{#        if(item.loc==1)#}
-{#          loc_icon = '<i class="fa fa-globeui"></i>';#}
-{#        if((item.loc==2) || (item.loc==2.5))#}
-{#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
-{#        if(item.loc==5)#}
-{#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
-{#        if(item.loc==10)#}
-{#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
-{#        if(item.loc==0){#}
-{#          loc_icon = "";#}
-{#          view_all = 'class="search_view_results_div pade_none"';#}
-{#        }#}
-        return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
-      };
-    });
-
-    var buildUrl = function(base, key, value) {
-        var sep = (base.indexOf('?') > -1) ? '&' : '?';
-        return base + sep + key + '=' + value;
+  $(function() {
+    {#      $("[name=f_location]").autocomplete({#}
+    $("#search-query").autocomplete({
+      source: function(request, response) {
+        $("#place_id").val(0);
+        $("#search_place").val(0);
+        $.ajax({
+          url: '{% url "search:search_autocomplete" %}',
+          dataType: "json",
+          type: "GET",
+          data: {
+            search : request.term
+          },
+          success: function(data) {
+            response(data);
+            /*if(data.length>0){
+              var prefix = $('#f_location').val().toLowerCase();
+              var first_item = data[0].value.toLowerCase();
+              if(first_item.slice(0, prefix.length) == prefix){
+                $('#f_location').val(data[0].value);
+                $('#f_location').selectRange(prefix.length,first_item.length);
+              }
+            }*/
+          }
+        });
+      },minLength:1,
+      messages: {
+        noResults: '',
+        results: function() {}
+      },appendTo: "#f_aucomplete",
+      select: function (event, ui) {
+        {#          $("#place_id").val(ui.item.idx);#}
+        {#          $("#search_place").val(ui.item.loc);#}
+        {#          $("#x_location").val(ui.item.value);#}
+        {#          $('#f_location').val(ui.item.value);#}
+        {#          if(ui.item.loc==3){#}
+        {#            if(ui.item.coworkspace_url!='')#}
+        {#              window.location = ui.item.coworkspace_url;#}
+        {#          } else#}
+        {#            submitSearch();#}
+      }
+    }).autocomplete( "instance" )._renderItem = function( ul, item ) {
+      var loc_icon = '<i class="fa fa-buildingui"></i>';
+      var view_all = '';
+      {#        if(item.loc==1)#}
+      {#          loc_icon = '<i class="fa fa-globeui"></i>';#}
+      {#        if((item.loc==2) || (item.loc==2.5))#}
+      {#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+      {#        if(item.loc==5)#}
+      {#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+      {#        if(item.loc==10)#}
+      {#          loc_icon = '<i class="fa fa-map-markerui"></i>';#}
+      {#        if(item.loc==0){#}
+      {#          loc_icon = "";#}
+      {#          view_all = 'class="search_view_results_div pade_none"';#}
+      {#        }#}
+      return $( "<li "+view_all+">" ).append( loc_icon + item.label ).appendTo( ul );
     };
+  });
+
+  var buildUrl = function(base, key, value) {
+    var sep = (base.indexOf('?') > -1) ? '&' : '?';
+    return base + sep + key + '=' + value;
+  };
 
   function submitSearch() {
 
     var search = location.search.substring(1);
     var params = {};
     if (search)
-        params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
 
     var new_url = '{% url "main:search" %}';
     params['q'] = $("#search-query").val();
     for (var key in params) {
-        if (params.hasOwnProperty(key)) {
-            new_url = buildUrl(new_url, key, params[key]);
-        }
+      if (params.hasOwnProperty(key)) {
+        new_url = buildUrl(new_url, key, params[key]);
+      }
     }
 
     window.location = new_url;
@@ -323,7 +452,7 @@
   $("#search-query").keypress(function(event) {
     if (event.which == 13) {
       event.preventDefault();
-     submitSearch();
+      submitSearch();
     }
   });
 </script>
