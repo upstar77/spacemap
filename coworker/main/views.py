@@ -31,16 +31,27 @@ class Index(TemplateView):
         return super().get(request, *args, **kwargs)
 
 
+from coworker.search.backends import get_search_backend
+
+
 class SearchView(View):
     template_name = 'pages/inner_main.html'
     # template_name = 'pages/map_tab.html'
+    search_key = "q"
+    search_backend = 'default'
 
     def get(self, request, *args, **kwargs):
         ctx = {}
-        q = request.GET.get("q")
+        q = request.GET.get(self.search_key)
         ctx['q'] = q
         if request.GET.get("f", "map") == "map":
             self.template_name = 'pages/map_tab.html'
         else:
-            ctx["object_list"] = Place.objects.order_by('?').all()[:10]
+            backend = get_search_backend(self.search_backend)
+            places = Place.objects.all()
+            if q:
+                places = backend.search(q, model_or_queryset=places)
+            else:
+                places = Place.objects.order_by("?")[:10]
+            ctx["object_list"] = places
         return render(request, self.template_name, ctx)
