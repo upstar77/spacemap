@@ -148,3 +148,42 @@ color:#fff;
 background:#00d191 !important;
 text-decoration:none;
 }
+
+.front-page-photo-set .front-signin .forgot {
+    color: #EC984D;
+}
+
+
+.EdgeButton--secondary {
+    border: 1px solid #EC984D;
+    color: #EC984D;
+}
+
+.EdgeButton--primary {
+  background-color: #EC984D;
+  border: 1px solid #EC984D;
+}
+
+
+.SearchNavigation-canopy {
+    background-color: #EC984D;
+}
+
+
+
+.btn-link {
+    color:  #EC984D;
+}
+
+a {
+  color: #EC984D;
+}
+
+
+.AdaptiveFiltersBar-target:hover {
+    color: #EC984D;
+}
+
+.AdaptiveFiltersBar-item.is-selected {
+   border-bottom-color: #EC984D;
+}
