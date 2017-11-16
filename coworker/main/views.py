@@ -43,7 +43,7 @@ class SearchView(View):
     def get(self, request, *args, **kwargs):
         ctx = {}
         q = request.GET.get(self.search_key)
-        ctx['q'] = q
+        ctx['q'] = q if q != 'None' else ''
         if request.GET.get("f", "map") == "map":
             self.template_name = 'pages/map_tab.html'
         else:
