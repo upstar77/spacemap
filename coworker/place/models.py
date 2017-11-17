@@ -372,3 +372,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     def get_serializer():
         from .serializers import PlaceSerializer
         return PlaceSerializer
+
+    def save(self, *args, **kwargs):
+
+        super(Place, self).save(*args, **kwargs)

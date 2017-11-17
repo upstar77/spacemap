@@ -65,6 +65,7 @@ THIRD_PARTY_APPS = [
     'cities_light',
     'django_elasticsearch_dsl',
     'location_field.apps.DefaultConfig',
+    'ajax_select',
 ]
 
 # Apps specific for this project go here.

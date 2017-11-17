@@ -78,4 +78,4 @@ django-cities-light==3.3.0
 django-blog-zinnia==0.19
 django-prices==0.6.2
 django-autofixture==0.12.1
-
+django-ajax-selects==1.6.1

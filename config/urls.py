@@ -5,6 +5,8 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from django.conf.urls.i18n import i18n_patterns
+from ajax_select import urls as ajax_select_urls
+
 
 #
 # blog_urls = ([
@@ -33,7 +35,7 @@ urlpatterns = i18n_patterns(
     url(r'^i18n/', include('django.conf.urls.i18n')),
     # User management
     url(r'^select2/', include('django_select2.urls')),
-
+    url(r'^ajax_select/', include(ajax_select_urls)),
     url(r'^', include('coworker.main.urls', namespace='main')),
     # url(r'^(?P<country>[\w-]+)/', include('coworker.place.urls', namespace='place')),
     url(r'^profile/', include('coworker.users.urls', namespace='users')),
