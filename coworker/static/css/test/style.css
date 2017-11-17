@@ -581,3 +581,13 @@ a {
   font-weight: bold;
   padding: 16px;
 }
+
+
+.navbar-nav li.logo {
+  background: transparent;
+}
+
+.navbar-nav li.logo a {
+  padding: 0;
+}
+
