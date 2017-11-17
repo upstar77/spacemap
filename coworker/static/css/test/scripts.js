@@ -13,6 +13,15 @@ function scroll_to(clicked_link, nav_height) {
 
 
 jQuery(document).ready(function() {
+ $.urlParam = function(name, url){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url || window.location.href);
+        if (results==null){
+           return null;
+        }
+        else{
+           return decodeURI(results[1]) || 0;
+        }
+    };
 
 	/*
 	    Navigation
@@ -57,6 +66,16 @@ jQuery(document).ready(function() {
 
 
 
+	$(".inner-menu a").each(function(i) {
+		if ($.urlParam("f") === null) {
+			$(".inner-menu a").eq(0).parent().addClass("Active");
+			return
+		}
+		if ($.urlParam('f', $(this).attr("href")) === $.urlParam("f")) {
+			$(this).parent().addClass("active");
+			return;
+		}
+	});
 
 //	SEARCH
 
