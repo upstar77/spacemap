@@ -186,7 +186,7 @@ def autocomplete(request):
 
 
 class PlaceDetailApiView(View):
-    template_name = 'pages/popup_template.html'
+    template_name = 'responsive/popup_template.html'
 
     def get(self, request, *args, **kwargs):
         place = get_object_or_404(Place, id=kwargs["pk"])
@@ -194,14 +194,13 @@ class PlaceDetailApiView(View):
 
 
 class PlaceMapApiView(views.APIView):
-    template_name = 'pages/popup_template.html'
     search_key = "q"
     search_backend = 'default'
 
     def get(self, request, *args, **kwargs):
         q = request.GET.get(self.search_key)
         backend = get_search_backend(self.search_backend)
-        places = Place.objects.all()
+        places = Place.objects.all()[:1]
         if q and q != "None":
             places = backend.search(q, model_or_queryset=places)
         return Response(PlaceMapApiSerializer(places, many=True).data)

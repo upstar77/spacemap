@@ -2,41 +2,17 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
-
-<div class="front-signin js-front-signin">
-
-    <form action="{% url 'account_login' %}" class="t1-form signin auth-forms" method="post">
-        {% csrf_token %}
-        <div class="username field">
-            <input type="text" id="signin-email" class="text-input email-input" name="login" autocomplete="username" placeholder="Phone, email or username">
-        </div>
-
-        <table class="flex-table password-signin">
-            <tbody>
-            <tr>
-                <td class="flex-table-primary">
-                    <div class="password flex-table-form">
-                        <input type="password" id="signin-password" class="text-input flex-table-input" name="password" placeholder="Password" autocomplete="current-password">
-                    </div>
-                </td>
-                <td class="flex-table-secondary">
-                    <button type="submit" class="submit EdgeButton EdgeButton--medium EdgeButton--secondary flex-table-btn js-submit">
-                        Log in
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <div class="remember-forgot">
-            <label class="t1-label remember">
-                <input type="checkbox" value="1" name="remember_me" checked="checked">
-                <span>Remember me</span>
-            </label>
-            <span class="separator">·</span>
-            <a class="forgot" href="https://twitter.com/account/begin_password_reset" rel="noopener">Forgot password?</a>
-        </div>
-        <script src="{% static 'not_sure/js_inst' %}" async=""></script>
-    </form>
-</div>
-
+<form role="form" class="auth-forms " id="sign-in" action="{% url 'account_login' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {% trans "Full name" as full_name %}
+        <label class="sr-only" for="r-form-1-name">{{ full_name }}</label>
+        <input type="text" id="signin-email" class="r-form-1-name form-control" name="login" autocomplete="username" placeholder="{% trans "Email" %}">
+    </div>
+    <div class="form-group">
+        {% trans "Password" as password %}
+        <label class="sr-only" for="r-form-1-phone">{{ password }}</label>
+        <input name="password" type="password" class="r-form-1-phone form-control" id="r-form-1-phone" placeholder="{{ password }}">
+    </div>
+    <button type="submit" class="btn">{% trans "Login" %}</button>
+</form>

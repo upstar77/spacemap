@@ -8,21 +8,21 @@ from coworker.services.models import Category as ServiceCategory, Service
 
 
 class Index(TemplateView):
-    template_name = 'pages/index.html'
+    template_name = 'responsive/index.html'
 
     def get_context_data(self, **kwargs):
-        places_tmp = Place.objects.order_by('?').all()[:8]
-        d = {}
-        for i, p in enumerate(places_tmp):
-            d["place_%s" % (i+1)] = p
-        ctx = {
-            "places": Place.objects.order_by('?').all()[:10],
-        }
-        ctx['place_category'] = list(Category.objects.values_list('name', flat=True))
-        ctx['service_categories'] = list(ServiceCategory.objects.values_list('name', flat=True))
+        # places_tmp = Place.objects.order_by('?').all()[:8]
+        # d = {}
+        # for i, p in enumerate(places_tmp):
+        #     d["place_%s" % (i+1)] = p
+        # ctx = {
+        #     "places": Place.objects.order_by('?').all()[:10],
+        # }
+        # ctx['place_category'] = list(Category.objects.values_list('name', flat=True))
+        # ctx['service_categories'] = list(ServiceCategory.objects.values_list('name', flat=True))
         # event_category = Category.objects.all()
         # search_category = Category.objects.all()
-        ctx.update(d)
+        ctx = {}
         return ctx
 
     def get(self, request, *args, **kwargs):
@@ -35,7 +35,7 @@ from coworker.search.backends import get_search_backend
 
 
 class SearchView(View):
-    template_name = 'pages/inner_main.html'
+    template_name = 'responsive/places.html'
     # template_name = 'pages/map_tab.html'
     search_key = "q"
     search_backend = 'default'
@@ -45,7 +45,7 @@ class SearchView(View):
         q = request.GET.get(self.search_key)
         ctx['q'] = q if q != 'None' else ''
         if request.GET.get("f", "map") == "map":
-            self.template_name = 'pages/map_tab.html'
+            self.template_name = 'responsive/map_tab.html'
         else:
             backend = get_search_backend(self.search_backend)
             places = Place.objects.all()

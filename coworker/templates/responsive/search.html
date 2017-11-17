@@ -1,0 +1,36 @@
+{% extends "responsive/base.html" %}
+{% load sekizai_tags %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active">
+                <a data-toggle="tab" href="{% url "main:search" %}?f=map&q={{ q }}">Map</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="{% url "main:search" %}?f=top&q={{ q }}">TOP</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="{% url "main:search" %}?f=latest&q={{ q }}">Latest</a>
+            </li>
+            <li><a  href="{% url "main:search" %}?f=places&q={{ q }}">Places</a></li>
+            <li><a data-toggle="tab" href="{% url "main:search" %}?f=places&q={{ q }}">Spaces</a></li>
+            <li><a data-toggle="tab" href="{% url "main:search" %}?f=places&q={{ q }}">Places</a></li>
+            <li><a data-toggle="tab" href="{% url "main:search" %}?f=places&q={{ q }}">Places</a></li>
+            <li><a data-toggle="tab" href="{% url "main:search" %}?f=places&q={{ q }}">Places</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                {% block inner_content %}
+
+                {% endblock %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+

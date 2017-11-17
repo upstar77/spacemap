@@ -2,29 +2,26 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
-
-<div class="front-signup js-front-signup">
-    <h2><strong>New to Spacesmap?</strong> Sign up</h2>
-
-    <form action="{% url 'account_signup' %}" class="t1-form signup auth-forms" id="frontpage-signup-form" method="post">
-        {% csrf_token %}
-        <div class="field">
-            {% trans "Full name" as full_name %}
-            {% render_field form.first_name class="text-input" autocomplete="off"  maxlength="" placeholder=full_name %}
-        </div>
-        <div class="field">
-            {% trans "Email" as email %}
-            {% render_field form.email type="text" class="text-input email-input" autocomplete="off" placeholder=email %}
-        </div>
-        <div class="field">
-            {% trans "Password" as password %}
-            {% render_field form.password placeholder=password class="text-input" %}
-        </div>
-
-        <input type="hidden" value="" name="context">
-        <button type="submit" class="EdgeButton EdgeButton--medium EdgeButton--primary u-floatRight submit">
-            {% trans "Sign up for Spacesmap" %}
-        </button>
-    </form>
-</div>
-
+<form role="form" class="auth-forms" style="display: none" id="sign-up" action="{% url 'account_signup' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {% trans "Full name" as full_name %}
+        <label class="sr-only" for="r-form-1-name">{{ full_name }}</label>
+        {% render_field form.first_name  class="r-form-1-name form-control" id="r-form-1-name" placeholder=full_name %}
+    </div>
+    <div class="form-group">
+        {% trans "Email" as email %}
+        <label class="sr-only" for="r-form-1-email">{{ email }}</label>
+        {% render_field form.email type="text" class="r-form-1-email form-control" id="r-form-1-email"placeholder=email %}
+    </div>
+    <div class="form-group">
+        {% trans "Password" as password %}
+        <label class="sr-only" for="r-form-1-phone">{{ password }}</label>
+        {% render_field form.password placeholder=password class="r-form-1-phone form-control" id="r-form-1-phone" %}
+    </div>
+    <button type="submit" class="btn">{% trans "Sign up for Spacesmap" %}</button>
+    <p class="terms">
+        * By registering you accept our
+        <a href="{% url "main:terms" %}" class="launch-modal" data-modal-id="modal-terms">{% trans "Terms &amp; Conditions" %}</a>.
+    </p>
+</form>
