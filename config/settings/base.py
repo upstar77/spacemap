@@ -402,7 +402,7 @@ LOCATION_FIELD = {
 
     # Google
     'provider.google.api': '//maps.google.com/maps/api/js',
-    'provider.google.api_key': '',
+    'provider.google.api_key': os.environ.get('GOOGLE_API_KEY', ''),
     'provider.google.map_type': 'ROADMAP',
 
     # Mapbox
