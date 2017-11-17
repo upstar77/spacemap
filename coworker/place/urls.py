@@ -8,27 +8,11 @@ urlpatterns = [
     url(r'^card/api/(?P<pk>\d+)/$', view=views.PlaceDetailApiView.as_view(), name='detail_card'),
     url(r'^map/api/$', view=views.PlaceMapApiView.as_view(), name='map_api'),
 
-    url(r'^list-space/$', view=views.PlaceAddView.as_view(), name='list-space'),
-    url(r'^list-space/place_add_description/$', view=views.PlaceAddDescriptionView.as_view(), name='place_add_description'),
-    url(r'^list-space/place_add_contact_details/$', view=views.PlaceAddContactDetailsView.as_view(), name='place_add_contact_details'),
-    url(r'^list-space/place_add_amenities/$', view=views.PlaceAddAmenitiesView.as_view(), name='place_add_amenities'),
-    url(r'^list-space/place_add_location/$', view=views.PlaceAddLocationView.as_view(), name='place_add_location'),
-    url(r'^list-space/place_add_meeting_rooms/$', view=views.PlaceAddMeetingRoomsView.as_view(), name='place_add_meeting_rooms'),
-    url(r'^list-space/place_add_opening_hours/$', view=views.PlaceAddOpeningHoursView.as_view(), name='place_add_opening_hours'),
-    url(r'^list-space/place_add_size/$', view=views.PlaceAddSizeView.as_view(), name='place_add_size'),
-    url(r'^list-space/place_add_photos/$', view=views.PlaceAddPhotosView.as_view(), name='place_add_photos'),
-    url(r'^list-space/place_add_payment_methods/$', view=views.PlaceAddPaymentMethodsView.as_view(), name='place_add_payment_methods'),
-    url(r'^list-space/place_add_desc_price/$', view=views.PlaceAddMembershipDescPriceView.as_view(), name='place_add_desc_price'),
-    url(r'^list-space/place_add_private_office_price/$', view=views.PlaceAddMembershipOfficePriceView.as_view(), name='place_add_private_office_price'),
-    url(r'^list-space/place_add_marketing/$', view=views.PlaceAddMarketingView.as_view(), name='place_add_marketing'),
 
     #url(r'^list-space/success/$', view=views.PlaceAddSuccess.as_view(), name='list-space-success'),
 
 
     #photo edit urls
-    url(r'^list-space/dropzone/$', view=views.PhotoDropzone.as_view(), name='list-space-dropzone'),
-    url(r'^list-space/header/$', view=views.PhotoDropzone.as_view(), name='header'),
-    url(r'^list-space/header-edit/$', view=views.PhotoCrop.as_view(), name='header-edit'),
 
 
     url(r'^search/autocomplete/$', views.autocomplete),

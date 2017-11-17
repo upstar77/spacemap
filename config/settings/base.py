@@ -66,6 +66,7 @@ THIRD_PARTY_APPS = [
     'django_elasticsearch_dsl',
     'location_field.apps.DefaultConfig',
     'ajax_select',
+    'versatileimagefield',
 ]
 
 # Apps specific for this project go here.

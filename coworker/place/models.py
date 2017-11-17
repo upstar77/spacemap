@@ -226,9 +226,13 @@ class MembershipOfficePrice(models.Model):
         verbose_name = _('Membership Office Price')
         verbose_name_plural = _('Membership Office Prices')
 
+from versatileimagefield.fields import VersatileImageField
+
+from django.utils.safestring import mark_safe
 
 class Photos(models.Model):
-    image = models.FileField(upload_to="user/photos", null=False, blank=False)
+    image = VersatileImageField(
+        upload_to="user/photos", null=False, blank=False)
     place = models.ForeignKey('Place', null=True, blank=True)
     user = models.ForeignKey('users.User', blank=True, null=True)
     upload_date = models.DateTimeField(auto_now_add=True)
@@ -236,6 +240,13 @@ class Photos(models.Model):
 
     def __str__(self):
         return self.image.name
+
+    def image_img(self):
+        if self.image:
+            return mark_safe('<img src="%s" width="200" height="200/>' % self.image.url)
+        else:
+            return ''
+    image_img.short_description = 'Thumb'
 
 
 class MemberPayment(models.Model):
@@ -290,30 +301,8 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
 
     city = models.ForeignKey(City, null=True)
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
+    short_description = models.TextField(_("Short description"), blank=True, null=True)
     cs_description = models.TextField(_("Description"))
-
-    rent_nm = models.BooleanField(_('Allow non members to rent my conference room?'), default=False)
-    hire_nm = models.BooleanField(_('Allow non members to organize big events at my maker cloud site?'), default=False)
-
-    max_people_capacity = models.PositiveIntegerField(
-        choices=MAX_PEOPLE_CAPACITY_RANGE,
-        default=50
-    )
-
-    desks = models.PositiveIntegerField(
-        validators=[MinValueValidator(1)], choices=[(i, i) for i in range(MAX_DESC_COUNT)])
-
-    private_office = models.PositiveIntegerField(
-        validators=[MinValueValidator(1)], choices=[(i, i) for i in range(PRIVATE_OFFICES)])
-    total_capacity = models.PositiveIntegerField(
-        validators=[MinValueValidator(1)], choices=TOTAL_CAPACITY)
-    size_of_your_coworking_space = models.PositiveIntegerField(choices=SIZE_OF_YOUR_COWORKING_SPACE_CHOISES, default=0)
-
-    amenities = models.ManyToManyField(Amenities, blank=True, related_name="amenities")
-
-    book_tour = models.BooleanField(_("Book A Tour"), default=True, help_text=_("Choose the days and times that visitors can book a tour."))
-    free_day_pass = models.BooleanField(_("Get a Free Day Pass"), default=True, help_text=_("Choose the days that visitors can book a free day pass, and the hours they have access."))
-    enable_reservation = models.BooleanField(_("Enable reservations"), default=True, help_text=_("This will allow people to select the membership type they want and start date. You'll receive their reservation request via email so you can follow up with them to confirm and arrange payment."))
 
     user = models.ForeignKey('users.User', blank=True, null=True)
     #dummpy city location!!!

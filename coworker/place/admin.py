@@ -43,6 +43,8 @@ class PhotosInlineAdmin(admin.StackedInline):
     model = Photos
     min_num = 0
     extra = 2
+    fields = ['image', 'image_img', 'is_header_image']
+    readonly_fields = ['image_img']
 
 
 class PlaceAdmin(AjaxSelectAdmin):
@@ -58,6 +60,7 @@ class PlaceAdmin(AjaxSelectAdmin):
             "fields": (
                 "space_name",
                 "slug",
+                "short_description",
                 "cs_description",
                 "category",
             )
@@ -68,12 +71,16 @@ class PlaceAdmin(AjaxSelectAdmin):
         })
     )
 
+
 class PhotosAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'is_header_image')
+    fields = ['image_img']
+    readonly_fields = ['image_img']
 
 
 class CategoryAdmin(admin.ModelAdmin):
    prepopulated_fields = {'slug': ['name']}
+
 
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
