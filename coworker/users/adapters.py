@@ -4,7 +4,8 @@ from django.conf import settings
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.http import HttpResponse
-
+from django.shortcuts import resolve_url
+from django.urls import reverse
 
 class AccountAdapter(DefaultAccountAdapter):
     def is_open_for_signup(self, request):
@@ -30,6 +31,10 @@ class AccountAdapter(DefaultAccountAdapter):
                             status=status,
                             content_type='application/json')
 
+    def get_login_redirect_url(self, request):
+        if "signup" in request.path:
+            return reverse("users:registration")
+        return super().get_login_redirect_url(request)
 
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def is_open_for_signup(self, request, sociallogin):

@@ -5,39 +5,8 @@ from django.forms import ModelForm
 from .models import Place, Amenities, Photos, MeetingRoom, MembershipDeskPrice, Category
 from cities_light.admin import CityAdmin
 from coworker.cities.models import City
+from .forms import PlaceModelForm
 
-
-
-from ajax_select.fields import AutoCompleteSelectField, AutoCompleteSelectMultipleField
-
-
-
-class PlaceModelForm(ModelForm):
-
-    class Meta:
-        model = Place
-        fields = "__all__"
-
-    city = AutoCompleteSelectField('city', required=False, help_text=None)
-
-
-
-
-class AmenitiesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'is_additional')
-    list_editable = ['is_additional']
-
-
-class MeetingRoomInlineAdmin(admin.StackedInline):
-    model = MeetingRoom
-    min_num = 0
-    extra = 1
-
-
-class MembershipDeskPriceInlineAdmin(admin.StackedInline):
-    model = MembershipDeskPrice
-    min_num = 0
-    extra = 1
 
 class PhotosInlineAdmin(admin.StackedInline):
     model = Photos
@@ -83,7 +52,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Place, PlaceAdmin)
-admin.site.register(Amenities, AmenitiesAdmin)
 admin.site.register(Photos, PhotosAdmin)
 admin.site.register(Category, CategoryAdmin)
 #admin.site.register(MeetingRoom, MeetingRoomAdmin)

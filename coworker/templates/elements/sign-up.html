@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load widget_tweaks %}
 
-<form role="form" class="auth-forms" style="display: none" id="sign-up" action="{% url 'account_signup' %}" method="post">
+<form role="form" class="auth-forms" {% if hide|default:"True" %} style="display: none" id="sign-up" {% endif %}action="{% url 'account_signup' %}" method="post">
     {% csrf_token %}
     <div class="form-group">
         {% trans "Full name" as full_name %}

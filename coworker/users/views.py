@@ -1,16 +1,17 @@
 from django.core.urlresolvers import reverse
 from django.http import Http404
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView, TemplateView
 
 from coworker.place.models import Place
+from coworker.place.forms import PlaceModelForm
 from .mixins import LoginRequiredMixin
 from django.http import JsonResponse
 
 from coworker.core.mixins import AjaxableResponseMixin
-from coworker.users.forms import ProfileForm
+from coworker.users.forms import ProfileForm, UserRegisterForm
 from .serializers import UserSerializer
 from .models import User
-
 
 
 class UserProfileView(LoginRequiredMixin, DetailView):
@@ -75,8 +76,6 @@ class ReviewsList(LoginRequiredMixin, TemplateView):
     template_name = ''
 
 
-
-
 class UpdateProfileImage(LoginRequiredMixin, UpdateView):
     model = User
     fields = ['profile_image']
@@ -86,3 +85,19 @@ class UpdateProfileImage(LoginRequiredMixin, UpdateView):
 
     def get(self, *args, **kwargs):
         raise Http404
+
+
+def registration(request):
+    user_form = UserRegisterForm(request.POST or None, instance=request.user)
+    place_form = PlaceModelForm(request.POST or None, instance=request.user)
+    if user_form.is_valid():
+        user_form.save()
+
+    if place_form.is_valid():
+        place_form.save()
+        return redirect('main:search')
+
+    return render(request, 'users/registration.html', {
+        "user_form": user_form,
+        "place_form": place_form,
+    })

@@ -67,6 +67,7 @@ THIRD_PARTY_APPS = [
     'location_field.apps.DefaultConfig',
     'ajax_select',
     'versatileimagefield',
+    'bootstrap3',
 ]
 
 # Apps specific for this project go here.

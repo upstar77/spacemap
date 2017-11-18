@@ -3,8 +3,10 @@ import pickle
 
 from django.core import serializers
 from django import forms
+from django.utils.text import slugify
+
 from .models import Place, MeetingRoom, Amenities, Photos, MembershipDeskPrice
-from django.forms import extras
+from django.forms import extras, ModelForm
 from django.utils.translation import ugettext_lazy as _
 from .fields import JsonHoursChoiceField, generate_time_range
 from coworker.cities.models import City
@@ -24,6 +26,25 @@ class CurrentCreatedPlace:
     photos = []
     step = 0
 
+
+
+from ajax_select.fields import AutoCompleteSelectField, AutoCompleteSelectMultipleField
+
+
+
+class PlaceModelForm(ModelForm):
+
+    class Meta:
+        model = Place
+        fields = "__all__"
+
+    city = AutoCompleteSelectField('city', required=False, help_text=None)
+
+
+    def clean(self):
+        self.cleaned_data["slug"] = slugify(self.cleaned_data["space_name"])
+        del self.errors['slug']
+        super().clean()
 #
 # class PlaceFirstForm(forms.ModelForm):
 #     city = forms.ModelChoiceField(

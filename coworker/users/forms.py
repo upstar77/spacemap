@@ -51,3 +51,10 @@ class ProfileForm(forms.ModelForm):
 
     def save(self, *args, **kwargs):
         return super(ProfileForm, self).save(*args, **kwargs)
+
+
+
+class UserRegisterForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['profile_image', 'user_type']

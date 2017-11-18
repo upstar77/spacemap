@@ -24,11 +24,16 @@ class Indastry(models.Model):
 
 @python_2_unicode_compatible
 class User(AbstractUser):
-    SPACE_OWNER = 'so'
-    STARTUP_OWNER = 'sm'
+    SPACES = 'sp'
+    ORGANIZATIONS = 'or'
+    STARTUPS = 'st'
+    INVESTORS = 'in'
+
     USER_TYPE_CHOICES = (
-        (SPACE_OWNER, _('Startup Owners')),
-        (STARTUP_OWNER, _('Space Owners')),
+        (SPACES, _('Spaces')),
+        (ORGANIZATIONS, _('Organizations')),
+        (STARTUPS, _('Startups')),
+        (INVESTORS, _('Investors')),
     )
 
     name = models.CharField(_('Name of User'), blank=True, max_length=255)
@@ -41,6 +46,7 @@ class User(AbstractUser):
     industries = models.ManyToManyField(Indastry, blank=True, related_name="user")
     tags = models.ManyToManyField(UserTags, blank=True, related_name="user")
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, blank=True)
+
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)

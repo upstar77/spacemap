@@ -1,0 +1,37 @@
+{% extends 'responsive/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load place_tags %}
+{% load sekizai_tags %}
+{% block title %}{{ place.get_title }}{% endblock %}
+
+{% block content %}
+     <div class="container-fluid">
+        <div class="row">
+            <div>
+                <img src="{{ place.get_main_photo }}" alt="">
+                <ul class="list-inline">
+                    <li class="list-group-item">Tweets</li>
+                    <li class="list-group-item">Following</li>
+                    <li class="list-group-item">Followers</li>
+                    <li class="list-group-item">Likes</li>
+                </ul>
+            </div>
+
+            {% for tweet in "xxx" %}
+               <div class="col-md-4 col-md-offset-4 form-container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span>{{ place.name }}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span>Here will be tweet</span>
+                    </div>
+                </div>
+               </div>
+            {% endfor %}
+
+
+        </div>
+     </div>
+{% endblock content %}

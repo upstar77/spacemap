@@ -91,7 +91,7 @@ class SearchList(View):
 
 
 class PlaceView(View):
-    template_name = 'place/place.html'
+    template_name = 'responsive/place.html'
 
     def get(self, request, *args, **kwargs):
         place_slug = self.kwargs["place"]

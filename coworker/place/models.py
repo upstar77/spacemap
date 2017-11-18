@@ -295,12 +295,13 @@ class PlaceManager(models.Manager):
 
 
 
-class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
+class Place(ContactInfo, Location, index.Indexed):
     space_name = models.CharField(_("Name of the site SpacesMap"), max_length=250)
     slug = models.SlugField()
 
     city = models.ForeignKey(City, null=True)
-    user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0])
+    # user_type = models.CharField(
+    #     max_length=2, choices=USER_TYPE_CHOICES, default=USER_TYPE_CHOICES[0][0], blank=True, null=True)
     short_description = models.TextField(_("Short description"), blank=True, null=True)
     cs_description = models.TextField(_("Description"))
 
@@ -308,7 +309,7 @@ class Place(MemberPayment, ContactInfo, Location, OpeningHours, index.Indexed):
     #dummpy city location!!!
     # city = models.ForeignKey(CityOrigin, blank=True, null=True)
 
-    category = models.ForeignKey(Category, null=True)
+    category = models.ForeignKey(Category, null=True, blank=True)
     objects = PlaceManager()
 
     class Meta:
