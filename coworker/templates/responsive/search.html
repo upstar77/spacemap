@@ -18,14 +18,16 @@
                 <li><a  href="{% url "main:search" %}?f=places&q={{ q }}">Places</a></li>
             </ul>
         </div>
-         <div class="tab-content">
+        <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
                 {% block inner_content %}
-
                 {% endblock %}
             </div>
         </div>
+       <!-- Button HTML (to Trigger Modal) -->
+
     </div>
+
 
 {% endblock %}
 

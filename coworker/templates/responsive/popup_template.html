@@ -5,7 +5,7 @@
                     <div class="panel-heading" style="background-image: url({{ object.get_main_photo }});"></div>
                     <div class="panel-body text-center">
                         <img class="panel-profile-img" src="{{ object.get_main_photo }}">
-                        <h5 class="panel-title">{{ object.name }}</h5>
+                        <a href="{{ object.get_absolute_url }}"><h5 class="panel-title">{{ object.name }}</h5></a>
                         <p class="m-b">{{ object.cs_description|slice:":20" }}</p>
 {#                        <a href="//github.com/fat" target="_blank" class="btn btn-primary-outline btn-sm m-b">#}
 {#                            <span class="icon icon-add-user"></span> View GitHub#}

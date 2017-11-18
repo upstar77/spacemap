@@ -18,14 +18,14 @@
                 </ul>
             </div>
 
-            {% for tweet in "xxx" %}
+            {% for tweet in tweets %}
                <div class="col-md-4 col-md-offset-4 form-container">
                 <div class="row">
                     <div class="col-md-2">
                         <span>{{ place.name }}</span>
                     </div>
                     <div class="col-md-10">
-                        <span>Here will be tweet</span>
+                        <span>{{ tweet.body }}</span>
                     </div>
                 </div>
                </div>

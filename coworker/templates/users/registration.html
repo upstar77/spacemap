@@ -61,18 +61,18 @@
                 </div>
 
 
-                <div class="col-md-4 col-md-offset-4 form-container" id="sp">
+                <div class="col-md-4 col-md-offset-4 form-container hide" id="sp">
                      <div class="form-group">
                         <label class="control-label" >{{ place_form.space_name.label }}</label>
                         {% render_field place_form.space_name  class="form-control" %}
                         {{ place_form.space_name.errors }}
                     </div>
 
-                    <div class="form-group">
-                        <label class="control-label" >{{ place_form.city.label }}</label>
-                        {% render_field place_form.city  class="form-control" %}
-                        {{ place_form.city.errors }}
-                    </div>
+{#                    <div class="form-group">#}
+{#                        <label class="control-label" >{{ place_form.city.label }}</label>#}
+{#                        {% render_field place_form.city  class="form-control" %}#}
+{#                        {{ place_form.city.errors }}#}
+{#                    </div>#}
                     <div class="form-group">
                         <label class="control-label" >{{ place_form.address.label }}</label>
                         {% render_field place_form.address  class="form-control" %}

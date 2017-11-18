@@ -90,6 +90,9 @@ class SearchList(View):
         return self.get(request, *args, **kwargs)
 
 
+from coworker.social.models import Tweet
+
+
 class PlaceView(View):
     template_name = 'responsive/place.html'
 
@@ -98,9 +101,10 @@ class PlaceView(View):
         place = Place.objects.filter(slug=place_slug).first()
         if not place:
             raise Http404
-
+        tweets = Tweet.objects.filter(user=request.user)
         return render(request, self.template_name, {
             'place': place,
+            'tweets': tweets
         })
 
 
@@ -200,7 +204,7 @@ class PlaceMapApiView(views.APIView):
     def get(self, request, *args, **kwargs):
         q = request.GET.get(self.search_key)
         backend = get_search_backend(self.search_backend)
-        places = Place.objects.all()[:1]
+        places = Place.objects.all()
         if q and q != "None":
             places = backend.search(q, model_or_queryset=places)
         return Response(PlaceMapApiSerializer(places, many=True).data)

@@ -36,7 +36,7 @@ class PlaceModelForm(ModelForm):
 
     class Meta:
         model = Place
-        fields = "__all__"
+        exclude = ["city",]
 
     city = AutoCompleteSelectField('city', required=False, help_text=None)
 

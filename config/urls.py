@@ -48,6 +48,8 @@ urlpatterns = i18n_patterns(
     # url(r'^', include(blog_urls)),
     url(r'^lab/', include('coworker.lab.urls', namespace='lab')),
     url(r'^search/', include('coworker.search.urls', namespace='search')),
+    url(r'^social/', include('coworker.social.urls', namespace='social')),
+
 
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^comments/', include('django_comments.urls')),
