@@ -47,6 +47,9 @@ class User(AbstractUser):
     tags = models.ManyToManyField(UserTags, blank=True, related_name="user")
     user_type = models.CharField(max_length=2, choices=USER_TYPE_CHOICES, blank=True)
 
+    place = models.ForeignKey('place.Place', blank=True, null=True)
+
+    followers = models.ManyToManyField('self', related_name='follow', symmetrical=False, blank=True)
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
@@ -81,3 +84,25 @@ class User(AbstractUser):
 
     def get_user_type(self):
         return self.user_type
+
+    @cached_property
+    def cs_description(self):
+        return self.aboutme or ""
+
+
+    def get_name(self):
+        return self.username
+
+
+    def get_main_photo(self):
+        try:
+            return self.profile_image.url
+        except Exception as e:
+            print(e)
+            return
+
+    def follow_url(self):
+        return reverse("social:follow", kwargs={"pk": self.pk})
+
+    def get_followers(self):
+        return self.followers.all()

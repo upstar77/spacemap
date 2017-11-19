@@ -1,5 +1,7 @@
 {% load static %}
 {% load social_tags %}
+{% load i18n %}
+
 
 <nav class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-{#        <a class="navbar-brand" href="#"><img style="width: 110px;" src="{% static "img/SpaceMap_logoCN1.png" %}" alt=""></a>#}
+        {#        <a class="navbar-brand" href="#"><img style="width: 110px;" src="{% static "img/SpaceMap_logoCN1.png" %}" alt=""></a>#}
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +21,7 @@
             <li class="logo">
                 <a href="/"><img style="width: 85px;" src="{% static "img/SpaceMap_logoCN1.png" %}" alt=""></a>
             </li>
-            <li><a href="#">About</a></li>
+            <li><a href="#">{% trans "About" %}</a></li>
         </ul>
         {#            <ul class="nav navbar-nav navbar-right">#}
         {#               #}
@@ -38,25 +40,25 @@
                     </form>
                 </div>
             </li>
-            <li>
-                <a href="#myModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Tweet</a>
-            </li>
             {% if request.user.is_authenticated %}
+                <li>
+                    <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal">Tweet</a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ request.user }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url "users:profile" %}">Profile</a></li>
                         {% if user_place %}
                             <li><a href="{{ user_place.get_absolute_url }}">Your place</a></li>
-                        {% endif %}
-                        {#                                <li><a href="#">Another action</a></li>#}
-                        {#                                <li><a href="#">Something else here</a></li>#}
-                        {#                                <li role="separator" class="divider"></li>#}
-                        {#                                <li class="dropdown-header">Nav header</li>#}
-                        {#                                <li><a href="#">Separated link</a></li>#}
-                        <li><a href="{% url 'account_logout' %}">Log out</a></li>
-                    </ul>
-                </li>
+                            {% endif %}
+                            {#                                <li><a href="#">Another action</a></li>#}
+                            {#                                <li><a href="#">Something else here</a></li>#}
+                            {#                                <li role="separator" class="divider"></li>#}
+                            {#                                <li class="dropdown-header">Nav header</li>#}
+                            {#                                <li><a href="#">Separated link</a></li>#}
+                            <li><a href="{% url 'account_logout' %}">Log out</a></li>
+                        </ul>
+                    </li>
             {% endif %}
         </ul>
     </div><!-- /.navbar-collapse -->

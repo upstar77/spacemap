@@ -12,10 +12,12 @@ from coworker.core.mixins import AjaxableResponseMixin
 from coworker.users.forms import ProfileForm, UserRegisterForm
 from .serializers import UserSerializer
 from .models import User
+from coworker.social.models import Tweet
+
 
 
 class UserProfileView(LoginRequiredMixin, DetailView):
-    template_name = 'users/profile.html'
+    template_name = 'responsive/profile.html'
     model = User
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
@@ -34,7 +36,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 
 class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
-    template_name = 'users/profile.html'
+    template_name = 'responsive/place.html'
     form_class = ProfileForm
 
     def get_object(self, *args, **kwargs):
@@ -51,7 +53,9 @@ class UserUpdateView(AjaxableResponseMixin, LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx["places"] = Place.objects.filter(user=self.request.user)
+        ctx["tweets"] = Tweet.objects.filter(user=self.request.user)
         return ctx
+
 
     def form_invalid(self, form):
         return super(UserUpdateView, self).form_invalid(form)

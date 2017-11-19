@@ -2,6 +2,7 @@ from django import template
 # from allauth.account.forms import SignupForm
 from coworker.social.forms import TweetForm
 from coworker.place.models import Place
+from coworker.users.models import User
 
 register = template.Library()
 
@@ -18,3 +19,6 @@ def tweet_form(context, *args, **kwargs):
         "user_place": user_place,
         "form": form,
     }
+
+
+

@@ -58,6 +58,12 @@
                         {% render_field user_form.user_type class="form-control" %}
                         {{ user_form.user_type.errors }}
                     </div>
+                    <div class="form-group">
+                        <label class="control-label" >{{ user_form.aboutme.label }}</label>
+                        {% render_field user_form.aboutme class="form-control" %}
+                        {{ user_form.aboutme.errors }}
+                    </div>
+
                 </div>
 
 

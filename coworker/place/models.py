@@ -9,6 +9,7 @@ from django.utils.translation import pgettext_lazy
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.postgres.fields import JSONField
 from coworker.core.base_model import BaseLocation
+from coworker.users.models import User
 from .fields import generate_time_range
 from coworker.cities.models import City
 from coworker.search import index
@@ -305,7 +306,7 @@ class Place(ContactInfo, Location, index.Indexed):
     short_description = models.TextField(_("Short description"), blank=True, null=True)
     cs_description = models.TextField(_("Description"))
 
-    user = models.ForeignKey('users.User', blank=True, null=True)
+    # user = models.ForeignKey('users.User', blank=True, null=True)
     #dummpy city location!!!
     # city = models.ForeignKey(CityOrigin, blank=True, null=True)
 
@@ -366,3 +367,19 @@ class Place(ContactInfo, Location, index.Indexed):
     def save(self, *args, **kwargs):
 
         super(Place, self).save(*args, **kwargs)
+
+    def follow_url(self):
+        try:
+            user = User.objects.filter(place=self).first()
+            return reverse("social:follow", kwargs={"pk": user.pk})
+        except Exception as e:
+            print(e)
+
+    def get_name(self):
+        return self.space_name
+
+
+    def get_followers(self):
+        user = User.objects.filter(place=self).first()
+        return user.followers.all() if user else None
+

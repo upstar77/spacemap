@@ -5,6 +5,8 @@ from django.views import View
 from django.views.generic import TemplateView
 from coworker.place.models import Place, Category
 from coworker.services.models import Category as ServiceCategory, Service
+from coworker.users.models import User
+
 
 
 class Index(TemplateView):
@@ -44,9 +46,11 @@ class SearchView(View):
         ctx = {}
         q = request.GET.get(self.search_key)
         ctx['q'] = q if q != 'None' else ''
-        if request.GET.get("f", "map") == "map":
+        page = request.GET.get("f", "map")
+
+        if page == "map":
             self.template_name = 'responsive/map_tab.html'
-        else:
+        elif page in ["places", "top", "latest"]:
             backend = get_search_backend(self.search_backend)
             places = Place.objects.all()
             if q:
@@ -54,4 +58,7 @@ class SearchView(View):
             else:
                 places = Place.objects.order_by("?")[:10]
             ctx["object_list"] = places
+        elif page == "investors":
+            ctx["object_list"] = User.objects.filter(user_type=User.INVESTORS)
+
         return render(request, self.template_name, ctx)

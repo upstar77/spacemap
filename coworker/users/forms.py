@@ -57,4 +57,4 @@ class ProfileForm(forms.ModelForm):
 class UserRegisterForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        fields = ['profile_image', 'user_type']
+        fields = ['profile_image', 'user_type', 'aboutme']
